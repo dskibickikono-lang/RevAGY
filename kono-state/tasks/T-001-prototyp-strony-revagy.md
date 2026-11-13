@@ -7,8 +7,8 @@ status: do-przegladu
 created: 2026-11-13
 updated: 2026-11-13
 branch: skibiai/fervent-curie-08fzzz
-pr: "(uzupełniane po otwarciu PR)"
-sha: "(uzupełniane po commicie)"
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/1
+sha: e707691815be27da788512b59f0f979de485b75e
 decisions: [D-001, D-002, D-003, D-004]
 ---
 
@@ -39,9 +39,20 @@ i treści (D-002, D-003). Przedmiot sprzedaży: wdrożenia automatyzacji i AI dl
 - Wzorzec odtworzony z pamięci układu: strona Revoluta zwraca automatom 403 (bot-check), którego nie
   obchodziliśmy. Zgodność sekcja po sekcji nie była porównana z żywą stroną.
 
-## Weryfikacja
+## Wynik testów
 
-Uzupełniane na końcu pracy (sekcja „Wynik testów”).
+Przebieg na Linuksie, Chromium przez Playwright, na commicie `e707691`:
+
+- Interakcje: 14 z 14 sprawdzeń przechodzi (menu rozwijane i mobilne, kalkulator zgodny ze wzorem,
+  sticky scroll, karuzela, pasek integracji, przełącznik pakietów, FAQ, walidacja formularza,
+  brak błędów JS na desktopie i telefonie).
+- Pełne przejście strony na 1440, 768 i 390 px: 0 błędów konsoli, 0 nieudanych żądań,
+  brak przewijania w poziomie.
+- Filmy: 3 z 3 ładują się i odtwarzają.
+- pytest: nie dotyczy, repo nie ma zestawu testów.
+- Nie sprawdzono: Safari i Firefox, prawdziwe urządzenia mobilne, porównanie z żywą stroną wzorcową.
+
+Podgląd (prywatny): https://claude.ai/artifact/Wwj4VPgZnfffYTn6dez9uP
 
 ## Otwarte
 
