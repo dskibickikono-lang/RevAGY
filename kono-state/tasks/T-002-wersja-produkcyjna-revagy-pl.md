@@ -8,7 +8,7 @@ created: 2026-11-13
 updated: 2026-11-13
 branch: skibiai/fervent-curie-08fzzz
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/1
-sha: "(uzupełniane po commicie)"
+sha: 03c9fc5dce1b1308f78f1e0415f4b24ccabc9a14
 decisions: [D-005, D-006, D-007, D-008, D-009]
 depends_on: T-001
 ---
@@ -40,7 +40,25 @@ który wykona wdrożenie. Samo wdrożenie wykonuje agent właściciela na jego s
 
 ## Wynik testów
 
-Uzupełniane na końcu pracy.
+Przebieg na Linuksie (Ubuntu 24.04, piaskownica sesji) na plikach z commita `03c9fc5`:
+
+- **Test dymny na nginx 1.24 z konfiguracją z `deploy/`** (strona podana jako `https://revagy.pl`,
+  certyfikat testowy): 37 z 37 sprawdzeń, 0 błędów, w tym brak naruszeń CSP.
+- **Test dymny na zwykłym serwerze plików:** 32 z 33, 1 pominięte (własna strona 404 wymaga nginx).
+- **Konfiguracja nginx:** `nginx -t` bez błędów; przekierowania http→https i www→domena główna,
+  nagłówki bezpieczeństwa, typy plików, cache, kod 404 z własną stroną, 403 dla plików ukrytych,
+  hasło na `/logi/`, tymczasowa blokada instalatora Matomo: wszystko zgodne z oczekiwaniem.
+- **Matomo 5.14.2 z `deploy/matomo/docker-compose.yml`:** uruchomione, instalator przeprowadzony,
+  pierwsza strona dostaje identyfikator 1. Prawdziwa wizyta ze zgodą zapisała w bazie 23 zdarzenia
+  (kliknięcia, widoki sekcji, przewinięcie, kalkulator, czas sekcji), źródło kampanii i czas wizyty.
+  Matomo zapisuje adres klienta przekazany przez nginx, nie adres kontenera.
+- **Błąd znaleziony i naprawiony w trakcie:** po załadowaniu Matomo zdarzenia nie były wysyłane
+  (zapisywała się tylko odsłona). Test dymny uzupełniony tak, żeby taki błąd wykrywał.
+- **GoAccess 1.8.1 i logrotate:** skrypt raportu buduje raport, rotacja 90 dni bez błędów składni.
+- pytest: nie dotyczy, repo nie ma testów w Pythonie.
+
+Nie sprawdzono: wdrożenia na docelowym VPS, prawdziwego certyfikatu, serwera z IPv6, Safari i Firefoksa,
+prawdziwych telefonów, przełącznika anonimizacji IP w panelu Matomo (domyślnie końcówka adresu jest zerowana).
 
 ## Otwarte (po stronie właściciela)
 
