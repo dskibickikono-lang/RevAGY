@@ -12,6 +12,11 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-002 | 2026-11-13 | Prototyp strony odwzorowuje wiernie układ, animacje i użycie filmów ze strony Revolut Business „konta wielowalutowe” (revolut.com/pl-PL/business/multi-currency-accounts). | właściciel, rozmowa startowa T-001 | obowiązuje |
 | D-003 | 2026-11-13 | Strony wzorcowej nie kopiujemy: żadnych zasobów, tekstów, logotypów ani filmów Revoluta. Robimy własną, „taką samą” w układzie i ruchu. | właściciel („Nie kopiuj jej. Zrób swoją taką samą”) | obowiązuje |
 | D-004 | 2026-11-13 | Repo `RevAGY` i środowisko chmurowe sesji należą do agenta (kanał pm-local). Brakujące elementy (kono-state, rejestr, karty zadań) agent tworzy sam. | właściciel („to repo jest twoje, te środowisko jest twoje”) | obowiązuje |
+| D-005 | 2026-11-13 | Wygląd prototypu z T-001 jest zatwierdzony jako docelowy wygląd strony. | właściciel („Dokładnie tak chcę żeby wyglądała moja strona”) | obowiązuje |
+| D-006 | 2026-11-13 | Domena strony to `revagy.pl`. Wdrożenie wykonuje agent na VPS Ubuntu właściciela według promptu z repo. | właściciel („Wykupiłem właśnie domenę revagy.pl”) | obowiązuje |
+| D-007 | 2026-11-13 | Nazwa firmy na stronie pozostaje REVAGY. Dane rejestrowe (NIP, REGON, adres, właściciel) pochodzą ze zdjęcia przekazanego przez właściciela. | właściciel („Nazwa firmy pozostaje REVAGY”, „Dane firmy w zdjęciu”) | obowiązuje |
+| D-008 | 2026-11-13 | Strona ma mieć darmową analitykę: skąd wchodzą odwiedzający, co klikają, ile czasu spędzają, z jakich IP i przeglądarek. | właściciel | obowiązuje |
+| D-009 | 2026-11-13 | Wartości domyślne z planu T-002 przyjęte bez zmian: kontakt `kontakt@revagy.pl`, liczby na stronie bez zmian, pakiety bez cen. | właściciel („Akceptuję”) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 
@@ -22,5 +27,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 
 ## Otwarte kwestie (do decyzji właściciela)
 
-- Prawdziwe dane do strony: liczby, klienci, opinie, cennik, dane kontaktowe i rejestrowe firmy. W prototypie są oznaczone jako przykładowe.
-- Docelowy hosting i domena.
+- Opinie klientów i cennik: brak danych, na stronie ich nie ma.
+- Analityka bez zgody odwiedzającego: przyjęte rozwiązanie zapisuje kliknięcia i czas dopiero po zgodzie
+  w banerze (wybór agenta, D-008 tego nie rozstrzyga). Zmiana wymaga decyzji właściciela.
+- Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01.

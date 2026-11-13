@@ -1,0 +1,15 @@
+# Rotacja logów strony revagy.pl: codziennie, 90 dni (zgodnie z polityką prywatności).
+# Instalacja: /etc/logrotate.d/revagy-nginx
+/var/log/nginx/revagy/*.log {
+    daily
+    rotate 90
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 www-data adm
+    sharedscripts
+    postrotate
+        [ -s /run/nginx.pid ] && kill -USR1 "$(cat /run/nginx.pid)"
+    endscript
+}

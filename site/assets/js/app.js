@@ -321,18 +321,13 @@
     });
   });
 
-  /* ---------- formularz (prototyp: nic nie wysyła) ---------- */
-  const form = $('[data-form]');
-  if (form) {
-    const msg = $('[data-form-msg]');
-    const email = $('#cta-email');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
-      msg.textContent = ok
-        ? 'To prototyp: adres wygląda poprawnie, ale formularz niczego jeszcze nie wysyła.'
-        : 'Wpisz adres w formacie imie@firma.pl.';
-      if (!ok) email.focus();
+  /* ---------- kopiowanie adresu kontaktowego ---------- */
+  $$('[data-copy]').forEach((btn) => {
+    const msg = $('[data-copy-msg]', btn.parentElement);
+    btn.addEventListener('click', async () => {
+      let done = false;
+      try { await navigator.clipboard.writeText(btn.dataset.copy); done = true; } catch (err) { /* schowek niedostępny */ }
+      if (msg) msg.textContent = done ? ' Skopiowano.' : ` Adres: ${btn.dataset.copy}`;
     });
-  }
+  });
 })();

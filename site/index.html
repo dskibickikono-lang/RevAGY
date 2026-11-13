@@ -3,12 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>REVAGY</title>
-<meta name="description" content="REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje.">
+<title>REVAGY — automatyzacja i AI dla firm B2B</title>
+<meta name="description" content="REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu.">
+<link rel="canonical" href="https://revagy.pl/">
 <meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REVAGY">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:url" content="https://revagy.pl/">
+<meta property="og:title" content="REVAGY — procesy, które robią się same">
+<meta property="og:description" content="Automatyzacja procesów i wdrożenia AI dla firm B2B. Łączymy CRM, ERP i skrzynki w jeden obieg.">
+<meta property="og:image" content="https://revagy.pl/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v=2">
 </head>
 <body>
 <!--PAGE-->
@@ -548,13 +562,12 @@
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
         <h2 class="display-2">Sprawdź, co w Twojej firmie może robić się samo</h2>
-        <p class="lead">Zostaw służbowy e-mail. Wrócimy z terminem bezpłatnego audytu.</p>
-        <form class="cta-form" data-form novalidate>
-          <label class="sr" for="cta-email">Służbowy adres e-mail</label>
-          <input type="email" id="cta-email" name="email" placeholder="imie@firma.pl" autocomplete="email" required>
-          <button class="btn btn-accent btn-lg" type="submit">Umów audyt</button>
-        </form>
-        <p class="form-msg" data-form-msg role="status"></p>
+        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.</p>
+        <div class="cta-form">
+          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: adres">kontakt@revagy.pl</a>
+          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: Umów audyt">Umów audyt</a>
+        </div>
+        <p class="form-msg"><button type="button" class="link-btn" data-copy="kontakt@revagy.pl" data-track="Kopiuj adres">Kopiuj adres</button><span data-copy-msg role="status"></span></p>
       </div>
     </div>
   </section>
@@ -584,16 +597,18 @@
       </nav>
       <nav aria-label="Kontakt">
         <h4>Kontakt</h4>
-        <a href="#kontakt">Umów audyt</a><a href="#kalkulator">Kalkulator zwrotu</a>
+        <a href="#kontakt">Umów audyt</a><a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a><a href="#kalkulator">Kalkulator zwrotu</a>
       </nav>
     </div>
     <div class="footer-legal">
-      <p>© 2026 REVAGY. Wszelkie prawa zastrzeżone.</p>
-      <p>Prototyp strony. Liczby, widoki ekranów i nazwy firm w przykładach są poglądowe i nie opisują rzeczywistych klientów. Nazwy systemów należą do ich właścicieli i wskazują jedynie przykładowe kierunki integracji. Formularz kontaktowy nie wysyła danych.</p>
+      <p>© 2026 REVAGY · Dawid Skibicki · ul. Gabriela Narutowicza 7/7, 14-200 Iława · NIP 7441749535 · REGON 389229155</p>
+      <p><a href="polityka-prywatnosci.html">Polityka prywatności</a> · <button type="button" class="link-btn" data-consent-open>Ustawienia prywatności</button> · <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a></p>
+      <p>Widoki ekranów i nazwy firm w przykładach są poglądowe. Nazwy systemów należą do ich właścicieli i wskazują przykładowe kierunki integracji.</p>
     </div>
   </div>
 </footer>
 <!--/PAGE-->
-<script src="assets/js/app.js" defer></script>
+<script src="assets/js/app.js?v=2" defer></script>
+<script src="assets/js/analytics.js?v=2" defer></script>
 </body>
 </html>
