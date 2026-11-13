@@ -43,9 +43,12 @@ i treści (D-002, D-003). Przedmiot sprzedaży: wdrożenia automatyzacji i AI dl
 
 Przebieg na Linuksie, Chromium przez Playwright, na commicie `e707691`:
 
-- Interakcje: 14 z 14 sprawdzeń przechodzi (menu rozwijane i mobilne, kalkulator zgodny ze wzorem,
+- Interakcje: 15 z 16 sprawdzeń przechodzi (menu rozwijane i mobilne, kalkulator zgodny ze wzorem,
   sticky scroll, karuzela, pasek integracji, przełącznik pakietów, FAQ, walidacja formularza,
   brak błędów JS na desktopie i telefonie).
+- Jedno sprawdzenie nie przeszło z powodu błędu w samym teście: zakładał, że po bardzo szybkim
+  przewinięciu wszystkie sekcje są już odkryte, a sekcje odkrywają się dopiero po wejściu w kadr.
+  Osobny przebieg potwierdził: po przewinięciu przez stronę odkryte są 23 z 23 animowanych bloków.
 - Pełne przejście strony na 1440, 768 i 390 px: 0 błędów konsoli, 0 nieudanych żądań,
   brak przewijania w poziomie.
 - Filmy: 3 z 3 ładują się i odtwarzają.
