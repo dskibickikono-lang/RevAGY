@@ -1,0 +1,21 @@
+/* Wspólne style scen filmowych REVAGY (te same tokeny co strona). */
+@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../site/assets/fonts/onest-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../site/assets/fonts/onest-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../site/assets/fonts/instrument-sans-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../site/assets/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../site/assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../site/assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+
+:root {
+  --paper: #fff; --mist: #f4f1ee; --mist-2: #e9e4de; --ink: #141114; --ink-2: #625c63;
+  --accent: #ff5b14; --rose: #ff2e7e; --plum: #5a1d54; --ok: #19b77a;
+  --night: #141114; --night-2: #221e23; --night-3: #2e2930; --line: rgba(255, 255, 255, .13); --dim: #b9b2bb;
+  --display: "Onest", sans-serif; --body: "Instrument Sans", sans-serif; --mono: "JetBrains Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--night); overflow: hidden; }
+body { font-family: var(--body); color: #fff; -webkit-font-smoothing: antialiased; }
+#stage { position: relative; overflow: hidden; background: var(--night); }
+.glow { position: absolute; border-radius: 50%; filter: blur(70px); will-change: transform; }
+.t { will-change: transform, opacity; }
+ul { list-style: none; }
