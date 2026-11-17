@@ -41,7 +41,7 @@ Usunąć ryzyko z PR #2 „Node v22.23.3 na VPS < wymagane przez Astro >=22.23.4
 - `test:deploy`: 16/16 + `dash -n`.
 - Symulacja nowego przepływu (izolowany `REVAGY_BASE`): pakowanie jak w CI → `sha256sum -c` → rozpakowanie →
   `--init-manifest` → publikacja → `diff -qr` OK → `--rollback` OK. Tarball deterministyczny (2 przebiegi, ten sam SHA-256).
-- Workflow CI: składnia YAML OK; pierwszy realny przebieg w GitHub Actions — patrz PR.
+- GitHub Actions (PR #3, job „Build, testy i artefakt wydania”, run 44203384460): success, 60 s; artefakt `revagy-dist-<sha>` opublikowany.
 
 ## Nie zweryfikowano
 
