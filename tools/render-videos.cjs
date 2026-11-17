@@ -14,7 +14,7 @@ const { pathToFileURL } = require('node:url');
 
 const ROOT = path.resolve(__dirname, '..');
 const SCENES = path.join(__dirname, 'scenes');
-const OUT = path.join(ROOT, 'site', 'assets', 'video');
+const OUT = path.join(ROOT, 'public', 'assets', 'video');
 const FPS = 30;
 const ALL = ['hero-flow', 'agent-demo', 'dashboard'];
 

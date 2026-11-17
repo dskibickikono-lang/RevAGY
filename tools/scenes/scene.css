@@ -1,10 +1,10 @@
 /* Wspólne style scen filmowych REVAGY (te same tokeny co strona). */
-@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../site/assets/fonts/onest-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
-@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../site/assets/fonts/onest-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
-@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../site/assets/fonts/instrument-sans-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
-@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../site/assets/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
-@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../site/assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
-@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../site/assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../public/assets/fonts/onest-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "Onest"; font-weight: 100 900; src: url("../../public/assets/fonts/onest-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../public/assets/fonts/instrument-sans-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url("../../public/assets/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../public/assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+2020, U+20A0-20AB; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url("../../public/assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2212; }
 
 :root {
   --paper: #fff; --mist: #f4f1ee; --mist-2: #e9e4de; --ink: #141114; --ink-2: #625c63;

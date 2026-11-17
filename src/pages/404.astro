@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Nie ma takiej strony — REVAGY"
+  robots="noindex"
+  variant="404"
+>
+<main class="lost-outer">
+  <div class="lost">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <p class="lost-code">BŁĄD 404</p>
+    <h1 class="display-2">Tej strony nie ma w naszym obiegu</h1>
+    <p class="lead">Adres jest błędny albo strona została przeniesiona. Wróć na stronę główną albo napisz, czego szukasz.</p>
+    <div class="lost-actions">
+      <a class="btn btn-light btn-lg" href="/">Strona główna</a>
+      <a class="btn btn-glass btn-lg" href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a>
+    </div>
+  </div>
+</main>
+</BaseLayout>

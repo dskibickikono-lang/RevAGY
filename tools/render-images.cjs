@@ -9,7 +9,7 @@ const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 
 const ROOT = path.resolve(__dirname, '..');
-const IMG = path.join(ROOT, 'site', 'assets', 'img');
+const IMG = path.join(ROOT, 'public', 'assets', 'img');
 const ffmpeg = (args) => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...args], { stdio: 'inherit' });
 
 (async () => {
@@ -33,10 +33,10 @@ const ffmpeg = (args) => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...
     await page.screenshot({ path: out, omitBackground: true });
     await page.close();
   }
-  ffmpeg(['-i', path.join(tmp, 'favicon-32.png'), path.join(ROOT, 'site', 'favicon.ico')]);
+  ffmpeg(['-i', path.join(tmp, 'favicon-32.png'), path.join(ROOT, 'public', 'favicon.ico')]);
 
   await browser.close();
   fs.rmSync(tmp, { recursive: true, force: true });
   for (const f of ['og.jpg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) console.log(`${(fs.statSync(path.join(IMG, f)).size / 1024).toFixed(0).padStart(5)} kB  assets/img/${f}`);
-  console.log(`${(fs.statSync(path.join(ROOT, 'site', 'favicon.ico')).size / 1024).toFixed(0).padStart(5)} kB  favicon.ico`);
+  console.log(`${(fs.statSync(path.join(ROOT, 'public', 'favicon.ico')).size / 1024).toFixed(0).padStart(5)} kB  favicon.ico`);
 })().catch((e) => { console.error(e); process.exit(1); });
