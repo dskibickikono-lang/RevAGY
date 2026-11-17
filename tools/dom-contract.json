@@ -1,0 +1,2948 @@
+{
+  "baselineCommit": "dc8221716605a74aa71657a531a120f618f0975b",
+  "publicFiles": {
+    "assets/css/styles.css": {
+      "sha256": "ad392cd443a5a4dce2b874ba2ec4e3778a4075e63556950276d2835542b75039",
+      "size": 57203
+    },
+    "assets/fonts/LICENSE-instrument-sans.txt": {
+      "sha256": "c27a3c53c3beed7f5c26853afa15991478ff7145d3754a36b0382f84e10c0d03",
+      "size": 4538
+    },
+    "assets/fonts/LICENSE-jetbrains-mono.txt": {
+      "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "size": 4524
+    },
+    "assets/fonts/LICENSE-onest.txt": {
+      "sha256": "a2a09da98a3d0d1ec79fc2d6deeac748b20a8153e26699552e7b59b5a40b63a3",
+      "size": 4378
+    },
+    "assets/fonts/instrument-sans-latin-ext-wght-normal.woff2": {
+      "sha256": "c4fcfea41f2c1cfeea9211fa43679845454a1d0e0d7e95e069c7e73c4ae302d2",
+      "size": 11144
+    },
+    "assets/fonts/instrument-sans-latin-wght-normal.woff2": {
+      "sha256": "2ee17598a98d8a59e4df8152d015bec9ab8e4d5672cc0ab42bef806b568e3971",
+      "size": 30092
+    },
+    "assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2": {
+      "sha256": "79bfdab9ba467e26eea4122e6f2567e188dd8a09a8c730d501fc487c4ab99c6e",
+      "size": 15196
+    },
+    "assets/fonts/jetbrains-mono-latin-wght-normal.woff2": {
+      "sha256": "18be452724bfdc236c074ca94a249a7f41a86752c7d04ab258ce9ed5651f6a7e",
+      "size": 40404
+    },
+    "assets/fonts/onest-latin-ext-wght-normal.woff2": {
+      "sha256": "14e7d3079b75860e2ab50efc6c318c398fdb46ede9b56e625f12ae70a3c5d9a4",
+      "size": 28452
+    },
+    "assets/fonts/onest-latin-wght-normal.woff2": {
+      "sha256": "052df74533250c2e0ca0c4bdd32de594e107d99c1648e63820ef9c6142067828",
+      "size": 33760
+    },
+    "assets/img/apple-touch-icon.png": {
+      "sha256": "8937d618f0c25b4d45c3f0562f6c6c3e7ae805e05c88a9ce7685f2f4f687791e",
+      "size": 3960
+    },
+    "assets/img/favicon.svg": {
+      "sha256": "8035f93cd43e778242ab2b2519c1a18d496873a9f929a9e42fe3526f0aa91022",
+      "size": 244
+    },
+    "assets/img/icon-192.png": {
+      "sha256": "da2ad5738459bbb29c969a0ab9f0a4fa9b889141e3b45e85109deb255902f7b4",
+      "size": 4246
+    },
+    "assets/img/icon-512.png": {
+      "sha256": "d9d18279ed34ac9c4ba2c45c2f85b2890ec410a00f94091fae0b7223c8032963",
+      "size": 11720
+    },
+    "assets/img/og.jpg": {
+      "sha256": "23b80cb1bb942861833aedfb0bdd1f7b7bfdb08335cb8516858211be45a35b6a",
+      "size": 75489
+    },
+    "assets/js/analytics.js": {
+      "sha256": "2be61c3a884ea28eb8c0c53646681a816f1e5757536d67b3073ae0c26b0ed41b",
+      "size": 8070
+    },
+    "assets/js/app.js": {
+      "sha256": "0e6dd2f076f1258f97459511623fb43a6629f2363c15db1ad2190778822ad25b",
+      "size": 13517
+    },
+    "assets/video/agent-demo.jpg": {
+      "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
+      "size": 146363
+    },
+    "assets/video/agent-demo.mp4": {
+      "sha256": "bb7b4a1649860bf0403e02e816bf6b191360c27908a69df135f0879749db5642",
+      "size": 686438
+    },
+    "assets/video/agent-demo.webm": {
+      "sha256": "bcb5fb8faadccd1befa83a38bd1ce34a2634df78809da832eb321fdc853bac43",
+      "size": 680012
+    },
+    "assets/video/dashboard.jpg": {
+      "sha256": "a7bef08e721e1c06804ef3a53441734c86a1096a3a1d5aad81ae82cdea683e60",
+      "size": 60533
+    },
+    "assets/video/dashboard.mp4": {
+      "sha256": "cec9192894368a4364a08a42f3a76ddbbdb1370cd62308043e82e9048a919b5f",
+      "size": 377780
+    },
+    "assets/video/dashboard.webm": {
+      "sha256": "ebe239ce5b64b3be1a14c7993364cb57ec13d2b3f31fba03e03eec2a0152879f",
+      "size": 254493
+    },
+    "assets/video/hero-flow.jpg": {
+      "sha256": "ba755d3bf5c922b159a3a994d7073775973b474cc371f7317152e8610965a84b",
+      "size": 53751
+    },
+    "assets/video/hero-flow.mp4": {
+      "sha256": "ec82f23943b8b1f1dbeb21cbd3bae672e95ff8b4ab5d9c0c69559fedb14a263d",
+      "size": 1060704
+    },
+    "assets/video/hero-flow.webm": {
+      "sha256": "5499a456572196dd2106a281ff5358c309b1a9c44fb1fa54208bd2f14bc4adcd",
+      "size": 629686
+    },
+    "favicon.ico": {
+      "sha256": "178abad3d3efee6f6dbc87fb6264286323106f9dfac51ad45122ab8a8b1eafae",
+      "size": 4314
+    },
+    "robots.txt": {
+      "sha256": "d817b9dd3389a42252d1f60a313f17dc6d627ee846fc04efb765eea7c1be301a",
+      "size": 63
+    },
+    "site.webmanifest": {
+      "sha256": "92796273b4a035776a15ee16970ac6cfc69b5b352385811a404f759ec1868357",
+      "size": 428
+    },
+    "sitemap.xml": {
+      "sha256": "6b05f801d87d54d305756c5450ca6c063f1c981eacb3433fa14c1faf0558cd92",
+      "size": 279
+    }
+  },
+  "htmlBaseline": {
+    "404.html": {
+      "sha256": "b679dd592bc6cd230fc692b3001c22a8c12715e3831ce9fa78cba02075ded0c6",
+      "size": 1715
+    },
+    "index.html": {
+      "sha256": "9d85b4468bb90fbc1bb8c750cb8b1f36cbc27717a3c501b5e529f7896854069e",
+      "size": 38536
+    },
+    "polityka-prywatnosci.html": {
+      "sha256": "f1e68f151da27f7867d8f248a73261e816e143f9bb238fd8d41b728894571c5a",
+      "size": 6131
+    }
+  },
+  "pages": {
+    "404.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Nie ma takiej strony — REVAGY",
+      "canonical": null,
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "robots",
+          "property": null,
+          "content": "noindex"
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        }
+      ],
+      "links": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "/assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "/assets/css/styles.css?v=2",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "/assets/js/analytics.js?v=2",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": null,
+          "class": "lost-outer"
+        }
+      ],
+      "mainAttrs": {
+        "id": null,
+        "class": "lost-outer"
+      },
+      "mainSections": [],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Tej strony nie ma w naszym obiegu"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "/",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "/#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów audyt"
+        },
+        {
+          "href": "/",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Strona główna"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": "btn btn-glass btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null
+    },
+    "index.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "REVAGY — automatyzacja i AI dla firm B2B",
+      "canonical": "https://revagy.pl/",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "REVAGY — procesy, które robią się same"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Automatyzacja procesów i wdrożenia AI dla firm B2B. Łączymy CRM, ERP i skrzynki w jeden obieg."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "manifest",
+          "href": "site.webmanifest",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "preload",
+          "href": "assets/fonts/onest-latin-wght-normal.woff2",
+          "type": "font/woff2",
+          "sizes": null,
+          "as": "font",
+          "crossorigin": true
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=2",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=2",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=2",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": null,
+          "class": "hero-outer",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": null,
+          "class": "stats wrap",
+          "ariaLabel": "REVAGY w liczbach"
+        },
+        {
+          "tag": "section",
+          "id": "mozliwosci",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kalkulator",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "proces",
+          "class": "band band-night",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "zastosowania",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "integracje",
+          "class": "section section-tight",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pakiety",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "bezpieczenstwo",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "faq",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kontakt",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-hero": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-parallax": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "aside",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Przykładowy podgląd pracy automatyzacji"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-feed": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY w liczbach"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-count": "14"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-count": "120"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-count": "60"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-count": "24"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "mozliwosci",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kalkulator",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "calc-people",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "output",
+          "id": "out-people",
+          "name": null,
+          "for": "calc-people",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "input",
+          "id": "calc-people",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "calc-hours",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "output",
+          "id": "out-hours",
+          "name": null,
+          "for": "calc-hours",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "input",
+          "id": "calc-hours",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "calc-rate",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "output",
+          "id": "out-rate",
+          "name": null,
+          "for": "calc-rate",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "input",
+          "id": "calc-rate",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "fieldset",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Zakres automatyzacji"
+          }
+        },
+        {
+          "tag": "input",
+          "id": "share-40",
+          "name": "share",
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "share-40",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "input",
+          "id": "share-60",
+          "name": "share",
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "share-60",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "input",
+          "id": "share-80",
+          "name": "share",
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "name": null,
+          "for": "share-80",
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-live": "polite"
+          }
+        },
+        {
+          "tag": "span",
+          "id": "res-hours",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "i",
+          "id": "bar-now",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "b",
+          "id": "lab-now",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "i",
+          "id": "bar-after",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "b",
+          "id": "lab-after",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": "res-year",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": "res-fte",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "proces",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-story": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "li",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-step": "0"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "li",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-step": "1"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "li",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-step": "2"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "li",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-step": "3"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "b",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-story-title": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-pane": "0"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-pane": "1"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-pane": "2"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-pane": "3"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "zastosowania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-car-prev": ""
+          },
+          "aria": {
+            "aria-label": "Poprzednie karty"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-car-next": ""
+          },
+          "aria": {
+            "aria-label": "Następne karty"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-carousel": ""
+          },
+          "aria": {
+            "aria-label": "Zastosowania według działu"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "integracje",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Przykładowe systemy, z którymi integrujemy"
+          }
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-marquee": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-marquee": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-scale": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: agent AI obsługuje zapytanie ofertowe"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "pakiety",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Model współpracy"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-mode": "projekt"
+          },
+          "aria": {
+            "aria-selected": "true"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-mode": "opieka"
+          },
+          "aria": {
+            "aria-selected": "false"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-plans": "",
+            "data-mode": "projekt"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "bezpieczenstwo",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "faq",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-6"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-6"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "kontakt",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-track": "E-mail: adres"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-track": "E-mail: Umów audyt"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-copy": "kontakt@revagy.pl",
+            "data-track": "Kopiuj adres"
+          },
+          "aria": {}
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-copy-msg": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, do góry strony"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Procesy, które robią się same"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jeden partner od pierwszej integracji do agentów AI"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Sprzedaż, która sama się porządkuje"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Agenci AI na pierwszej linii"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dokumenty bez przepisywania"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Raporty, które liczą się same"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Policz, ile godzin odzyska Twój zespół"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Od audytu do działającego wdrożenia w czterech krokach"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Audyt procesów"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Projekt i zwrot"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Wdrożenie i integracje"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Opieka i rozwój"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co automatyzujemy w każdym dziale"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Handlowiec zaczyna dzień od gotowej listy"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Faktura wchodzi i sama trafia do księgi"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Klient dostaje odpowiedź w minutę, także w nocy"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Kampanie i raporty bez ręcznego klejenia danych"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Zamówienie przechodzi z maila do magazynu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Nowa osoba ma dostęp do wszystkiego pierwszego dnia"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pracujemy na tym, co już macie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Zapytanie ofertowe obsłużone w trzy minuty"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pakiet dopasowany do etapu firmy"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Start"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Scale"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Enterprise"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Dane firmy zostają pod Waszą kontrolą"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Zgodność z RODO"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Człowiek zatwierdza wyjątki"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Pełny dziennik działań"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Najczęstsze pytania"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Od czego zacząć, jeśli nigdy nie automatyzowaliśmy?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy musimy zmieniać CRM albo ERP?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile trwa wdrożenie?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co się dzieje, gdy agent AI się pomyli?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Gdzie przetwarzane są nasze dane?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile kosztuje audyt?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Sprawdź, co w Twojej firmie może robić się samo"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "#top",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów audyt"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatny audyt"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatny audyt"
+        },
+        {
+          "href": "#film",
+          "class": "btn btn-glass btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz agenta w akcji"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprawdź to w audycie"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-outline",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zapytaj o Start"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-accent",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zapytaj o Scale"
+        },
+        {
+          "href": "#kontakt",
+          "class": "btn btn-outline",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Porozmawiajmy"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "class": "cta-mail",
+          "dataTrack": "E-mail: adres",
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "class": "btn btn-accent btn-lg",
+          "dataTrack": "E-mail: Umów audyt",
+          "ariaLabel": null,
+          "text": "Umów audyt"
+        },
+        {
+          "href": "#top",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, do góry strony",
+          "text": "REVAGY"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów audyt"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [
+        {
+          "class": "hero-video",
+          "poster": "assets/video/hero-flow.jpg",
+          "preload": "metadata",
+          "dataAutoplay": true,
+          "dataMainVideo": false,
+          "ariaLabel": null,
+          "sources": [
+            {
+              "src": "assets/video/hero-flow.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/hero-flow.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        },
+        {
+          "class": null,
+          "poster": "assets/video/dashboard.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": false,
+          "ariaLabel": null,
+          "sources": [
+            {
+              "src": "assets/video/dashboard.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/dashboard.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        },
+        {
+          "class": null,
+          "poster": "assets/video/agent-demo.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: agent AI obsługuje zapytanie ofertowe",
+          "sources": [
+            {
+              "src": "assets/video/agent-demo.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/agent-demo.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
+      "calculator": [
+        {
+          "id": "out-people",
+          "tag": "output",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "8"
+        },
+        {
+          "id": "calc-people",
+          "tag": "input",
+          "type": "range",
+          "name": null,
+          "min": "1",
+          "max": "60",
+          "step": "1",
+          "value": "8",
+          "checked": false,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "out-hours",
+          "tag": "output",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "6 h"
+        },
+        {
+          "id": "calc-hours",
+          "tag": "input",
+          "type": "range",
+          "name": null,
+          "min": "1",
+          "max": "30",
+          "step": "1",
+          "value": "6",
+          "checked": false,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "out-rate",
+          "tag": "output",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "85 zł"
+        },
+        {
+          "id": "calc-rate",
+          "tag": "input",
+          "type": "range",
+          "name": null,
+          "min": "40",
+          "max": "250",
+          "step": "5",
+          "value": "85",
+          "checked": false,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "share-40",
+          "tag": "input",
+          "type": "radio",
+          "name": "share",
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": "0.4",
+          "checked": false,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "share-60",
+          "tag": "input",
+          "type": "radio",
+          "name": "share",
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": "0.6",
+          "checked": true,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "share-80",
+          "tag": "input",
+          "type": "radio",
+          "name": "share",
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": "0.8",
+          "checked": false,
+          "style": null,
+          "text": ""
+        },
+        {
+          "id": "res-hours",
+          "tag": "span",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "125"
+        },
+        {
+          "id": "bar-now",
+          "tag": "i",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": "width:100%",
+          "text": ""
+        },
+        {
+          "id": "lab-now",
+          "tag": "b",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "208 h"
+        },
+        {
+          "id": "bar-after",
+          "tag": "i",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": "width:40%",
+          "text": ""
+        },
+        {
+          "id": "lab-after",
+          "tag": "b",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "83 h"
+        },
+        {
+          "id": "res-year",
+          "tag": "span",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "127 000"
+        },
+        {
+          "id": "res-fte",
+          "tag": "span",
+          "type": null,
+          "name": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "value": null,
+          "checked": false,
+          "style": null,
+          "text": "0,8"
+        }
+      ]
+    },
+    "polityka-prywatnosci.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Polityka prywatności — REVAGY",
+      "canonical": "https://revagy.pl/polityka-prywatnosci.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Jakie dane zbiera strona revagy.pl, po co, jak długo je przechowujemy i jak cofnąć zgodę na statystyki."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/polityka-prywatnosci.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=2",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/analytics.js?v=2",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header is-scrolled"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": "wrap doc-page"
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": "wrap doc-page"
+      },
+      "mainSections": [],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Kto odpowiada za dane"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jakie dane zbieramy i po co"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Ciasteczka i pamięć przeglądarki"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak zmienić zdanie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Komu przekazujemy dane"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Twoje prawa"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Strona główna"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów audyt"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "./",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Strona główna"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null
+    }
+  }
+}
