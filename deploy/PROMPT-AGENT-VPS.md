@@ -12,7 +12,7 @@ Obecna produkcja na hoście `skibiai` (`65.108.208.163`) działa w **Wariancie A
 
 1. **Osobna zgoda właściciela:** przełączenie `/var/www/revagy.pl/current` wymaga jawnej zgody właściciela dla konkretnego SHA commita i manifestu.
 2. **Brak zmian w usługach współdzielonych:** nie zmieniaj DNS, `/etc/caddy/Caddyfile`, vhostów `/etc/nginx/`, Dockera, Matomo ani `skoben.pl`/`skibilabs.pl`/`sms-dlr.skibilabs.pl` przy aktualizacji plików statycznych. Samo przełączenie symlinka `current` nie wymaga reloadu ani restartu Caddy/nginx.
-3. **Izolowany build poza `current`:** artefakt `dist/` buduje się w czystym środowisku Linux z Node `>=22.23.4` (nie uzależniaj buildu od katalogów innych projektów i nie nadpisuj globalnego Node na VPS). Nie buduj w `/var/www/revagy.pl/current` i nie przebudowuj po wygenerowaniu manifestu.
+3. **Na VPS nie ma builda ani Node:** artefakt `dist/` buduje wyłącznie GitHub Actions (`.github/workflows/ci.yml`, Node 22 z `.nvmrc`) — tak samo jak `web-skoben` i `web-skibilabs`. Na hoście nie uruchamiaj `npm`/`astro`, nie instaluj ani nie aktualizuj Node; wersja `/usr/bin/node` na VPS nie ma znaczenia dla tej strony. Nie buduj w `/var/www/revagy.pl/current` i nie przebudowuj artefaktu po wygenerowaniu manifestu.
 4. **Bezpieczeństwo ścieżek:** katalogi wejściowe przekazane procesowi `root` (`dist`, plik manifestu) umieszczaj w obszarze operatora z prawami bez zapisu dla grupy i innych (`chmod -R go-w`, katalogi `755`, pliki `644`).
 
 ---
@@ -50,21 +50,29 @@ curl -s -o /dev/null -w 'sms-dlr=%{http_code}\n' https://sms-dlr.skibilabs.pl/
 
 ---
 
-## Faza 1. Przygotowanie artefaktu i weryfikacja Bramki A0
+## Faza 1. Artefakt z CI i weryfikacja sum
 
-Na runnerze z Node `22.23.4` (lub w izolowanym katalogu roboczym):
+Artefakt powstaje w GitHub Actions dla zatwierdzonego commita (`NEW_SHA`): job `Build, testy i artefakt wydania` wykonuje `npm ci`, `build`, `check:dist` (manifest SHA-256), `test:smoke --serve=dist` i `test:deploy`, a następnie publikuje artefakt `revagy-dist-<NEW_SHA>` z trzema plikami:
+
+- `revagy-dist-<NEW_SHA>.tar.gz` — zawartość `dist/`,
+- `revagy-dist-<NEW_SHA>.manifest.sha256` — manifest plików dla `deploy/wydanie.sh`,
+- `SHA256SUMS` — sumy obu plików (widoczne też w podsumowaniu joba).
+
+Właściciel zatwierdza wydanie dla konkretnego `NEW_SHA` i sumy SHA-256 manifestu z `SHA256SUMS`. Operator pobiera artefakt (np. z zakładki Actions) do katalogu operatora na VPS i rozpakowuje go bez przebudowy:
 
 ```bash
 umask 022
-npm ci
-npm run build
-npm run check:dist -- --manifest-out=/tmp/revagy-dist.sha256
-sha256sum /tmp/revagy-dist.sha256
-npm run test:smoke -- --serve=dist
-npm run test:deploy
+NEW_SHA="<PELNY_SHA_ZATWIERDZONEGO_COMMITA>"
+WORK="$HOME/revagy-release/$NEW_SHA"
+mkdir -p "$WORK/dist" && cd "$WORK"
+# tu: revagy-dist-$NEW_SHA.tar.gz, revagy-dist-$NEW_SHA.manifest.sha256, SHA256SUMS
+sha256sum -c SHA256SUMS
+tar -xzf "revagy-dist-$NEW_SHA.tar.gz" -C dist
+chmod -R go-w "$WORK"
+sha256sum "revagy-dist-$NEW_SHA.manifest.sha256"   # musi się zgadzać z zatwierdzeniem
 ```
 
-Upewnij się, że katalog `dist/` i plik manifestu mają uprawnienia bez bitów zapisu grupy/innych (`chmod -R go-w dist /tmp/revagy-dist.sha256`).
+`deploy/wydanie.sh` w Fazie 3 sprawdza ponownie każdy plik `dist/` względem manifestu.
 
 ---
 
