@@ -7,9 +7,8 @@ Analityka jest własna (Matomo na `stats.revagy.pl`) i włącza się dopiero po 
 
 ## Wymagania
 
-- Node.js `>=22.23.4` (przypięte w `.nvmrc` / `.node-version`: `22.23.4`)
-- npm `10.9.9`
-- Astro `7.4.12` (zależność przypięta w `package.json` i `package-lock.json`)
+- Node.js 22 (`.nvmrc` / `.node-version`: `22`; Astro wymaga `>=22.23.4`)
+- Astro `^7.4.12` (dokładna wersja w `package-lock.json`, ta sama linia co `web-skoben` i `web-skibilabs`)
 - Playwright `1.65.1` (devDependency dla testu dymnego oraz skryptów renderujących media)
 
 ## Uruchomienie i build
@@ -56,9 +55,13 @@ Dodatkowe tryby `tools/smoke-test.cjs`:
 - `node tools/smoke-test.cjs http://localhost:8000` — test na zwykłym hoście nieprodukcyjnym (potwierdza blokadę trackera),
 - `node tools/smoke-test.cjs https://revagy.pl` — test przeciwko produkcji (żądania do `stats.revagy.pl` są przechwytywane atrapą).
 
+## CI i artefakt wydania
+
+`.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
+
 ## Wdrożenie i rollback
 
-Publikacja odbywa się wyłącznie z wcześniej zbudowanego i zwalidowanego katalogu `dist` za pomocą skryptu `deploy/wydanie.sh` (POSIX `sh`, `flock`, staging na tym samym systemie plików, porównanie pełnego manifestu, atomowe `mv -Tf` symlinka `current`):
+Publikacja odbywa się wyłącznie z artefaktu CI (rozpakowany katalog `dist`) za pomocą skryptu `deploy/wydanie.sh` (POSIX `sh`, `flock`, staging na tym samym systemie plików, porównanie pełnego manifestu, atomowe `mv -Tf` symlinka `current`):
 
 ```bash
 # 1. Jednorazowa inicjalizacja manifestu zastanego wydania bazowego:
