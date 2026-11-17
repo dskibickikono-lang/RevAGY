@@ -5,7 +5,7 @@ channel: pm-local
 requested_by: owner
 status: do-przegladu
 created: 2026-11-17
-updated: 2026-11-17
+updated: 2026-11-18
 branch: migration/astro-static
 base_sha: dc8221716605a74aa71657a531a120f618f0975b
 depends_on: T-002
@@ -54,8 +54,12 @@ Utworzono obie referencje poza repozytorium (`/home/kono/revagy-deploy/evidence-
 3. `fix(deploy/hardening)` (`3f1a80ac574e1be6234e8ab051839238ac52d6b5`):
    - Przebudowano `deploy/wydanie.sh` (czysty POSIX `sh` / `dash`, `flock`, `umask 022`, staging na tym samym FS, odrzucanie symlinków/hardlinków/plików specjalnych/zapisu przez grupę lub innych, pełne porównanie manifestu, bezpieczne retry, `--init-manifest`, atomowy `--rollback` przez `mv -Tf`).
    - Dodano izolowane testy `tools/test-wydanie.cjs` (`npm run test:deploy`).
-4. `docs(runbook)`:
+4. `docs(runbook)` (`ec97067ab292ec9ea7059da82f96bb212c8c32f0`):
    - Zaktualizowano `README.md`, zastąpiono `deploy/PROMPT-AGENT-VPS.md` aktualnym runbookiem Wariantu A, dostosowano `deploy/nginx/revagy.pl.conf` do Wariantu A (`127.0.0.1:8092`), oznaczono `deploy/nginx/revagy.pl.bootstrap.conf` jako archiwalny i zapisano tę kartę `kono-state/tasks/T-003-migracja-astro-static.md`.
+5. `fix(deploy/hardening)` (poprawka po review PR #2, `T-004`):
+   - `do_publish` w `deploy/wydanie.sh` weryfikuje pod blokadą `flock` obecność oraz pełną zgodność bieżącego wydania (`<oczekiwany-biezacy-sha>`) z jego manifestem rollbacku w `$BASE/manifests/<sha>.sha256` przed stagingiem i przed przełączeniem `current`.
+   - Rozszerzono `tools/test-wydanie.cjs` o testy braku manifestu rollbacku i zmodyfikowanego pliku w bieżącym wydaniu (`16/16` testów + `dash -n`).
+   - Zaktualizowano `deploy/PROMPT-AGENT-VPS.md`, aby przekazywać `OLD_SHA` jawnie z zatwierdzenia wydania zamiast odczytu z aktualnego symlinka.
 
 ## Wynik weryfikacji
 
@@ -64,7 +68,7 @@ Utworzono obie referencje poza repozytorium (`/home/kono/revagy-deploy/evidence-
 - `node tools/smoke-test.cjs --serve=dist`: `53/53` OK (w tym scenariusze zgody/odmowy/wycofania z atrapą Matomo).
 - Porównanie baseline (`site/`) vs kandydat (`dist/`): identyczny snapshot DOM/CSS/requestów oraz identyczne bajtowo zrzuty ekranu 1440×900 i 390×844.
 - Izolowany `nginx` na niepublicznym porcie `127.0.0.1:18443 -> 127.0.0.1:18092`: `nginx -t` OK, `51/51` w `smoke-test.cjs` oraz poprawne odpowiedzi `/`, `/polityka-prywatnosci.html`, 404, `.git/config` 403, `site.webmanifest` (`application/manifest+json`), CSP/HSTS, Range 206 MP4.
-- `npm run test:deploy`: `14/14` + `dash -n` OK.
+- `npm run test:deploy`: `16/16` + `dash -n` OK.
 
 ## Status wdrożenia
 

@@ -71,11 +71,13 @@ Upewnij się, że katalog `dist/` i plik manifestu mają uprawnienia bez bitów 
 ## Faza 2. Inicjalizacja manifestu bazowego (jednorazowo dla starego wydania)
 
 Pierwsze wydanie zastane (`dc8221716605a74aa71657a531a120f618f0975b`) zostało wdrożone starym skryptem bez pliku manifestu w `/var/www/revagy.pl/manifests/`.
-Przed pierwszą publikacją uzgodnij zawartość `releases/<OLD_SHA>` z surowymi blobami Git (`Bramka A0`) i zainicjalizuj zaufany manifest bazowy pod blokadą `flock`:
+Skrypt `deploy/wydanie.sh` wymusza pod blokadą `flock`, aby bieżące aktywne wydanie miało zapisany manifest rollbacku i było z nim w 100% zgodne jeszcze przed utworzeniem stagingu i przełączeniem `current`.
+Przed pierwszą publikacją uzgodnij zawartość `releases/<OLD_SHA>` z surowymi blobami Git (`Bramka A0`) i zainicjalizuj zaufany manifest bazowy pod blokadą `flock` (używając jawnego `OLD_SHA` z zatwierdzenia wydania):
 
 ```bash
+OLD_SHA="<OCZEKIWANY_BIEZACY_SHA_Z_ZATWIERDZENIA>"
 sudo sh deploy/wydanie.sh --init-manifest \
-  "<OLD_SHA>" \
+  "$OLD_SHA" \
   "<sciezka-do-manifestu-rollbacku>" \
   "<sha256-manifestu-rollbacku>"
 ```
@@ -84,14 +86,19 @@ sudo sh deploy/wydanie.sh --init-manifest \
 
 ## Faza 3. Atomowe wydanie (dopiero po zgodzie na konkretny SHA)
 
-1. Zapisz aktualnie aktywny `OLD_SHA=$(basename "$(readlink -f /var/www/revagy.pl/current)")`.
+1. Użyj jawnie zatwierdzonych wartości z decyzji właściciela (nie pobieraj `OLD_SHA` dynamicznie z aktualnego symlinka `current`, bo mogłoby to zaakceptować nieautoryzowaną zmianę od czasu review):
+   - `OLD_SHA` = oczekiwany SHA bieżącego wydania z zatwierdzenia,
+   - `NEW_SHA` = pełny SHA zatwierdzonego commita,
+   - `MANIFEST_SHA256` = zatwierdzona suma SHA-256 manifestu artefaktu `dist`.
 2. Przenieś zweryfikowany katalog `dist/` i manifest do zabezpieczonego katalogu operatora (`root:root` lub `go-w`) na tym samym hoście. Nie przebudowuj po wygenerowaniu manifestu.
-3. Uruchom publikację:
+3. Uruchom publikację (skrypt sprawdzi pod blokadą `flock` zarówno wskazanie `current` na `OLD_SHA`, jak i pełną zgodność `/var/www/revagy.pl/releases/$OLD_SHA` z `/var/www/revagy.pl/manifests/$OLD_SHA.sha256`):
 
 ```bash
+OLD_SHA="<OCZEKIWANY_BIEZACY_SHA_Z_ZATWIERDZENIA>"
+NEW_SHA="<PELNY_SHA_ZATWIERDZONEGO_COMMITA>"
 sudo sh deploy/wydanie.sh \
   "<sciezka-do-dist>" \
-  "<NEW_SHA>" \
+  "$NEW_SHA" \
   "$OLD_SHA" \
   "<sciezka-do-manifestu-dist>" \
   "<sha256-manifestu-dist>"

@@ -389,19 +389,23 @@ esac
   await test('--init-manifest dla starego release, poprawne wydanie, nienaruszony stary release i --rollback', (tmp) => {
     const { base, oldDir, oldMan } = setupBase(tmp, false); // stary release bez manifestu
 
-    // Rollback bez zainicjalizowanego manifestu jest zabroniony
+    // Publikacja przed inicjalizacją manifestu rollbacku jest zabroniona
     const src = path.join(tmp, 'src');
     makeSampleDist(src, 'new');
     const man = buildManifest(src, path.join(tmp, 'm.sha256'));
-    assert.equal(runScript(base, [src, SHA_NEW, SHA_OLD, man.file, man.sha256]).status, 0);
-    assert.notEqual(runScript(base, ['--rollback', SHA_OLD, SHA_NEW]).status, 0);
+    const pubBeforeInit = runScript(base, [src, SHA_NEW, SHA_OLD, man.file, man.sha256]);
+    assert.notEqual(pubBeforeInit.status, 0);
+    assert.equal(fs.realpathSync(path.join(base, 'current')), fs.realpathSync(oldDir));
+    assert.equal(fs.existsSync(path.join(base, 'releases', SHA_NEW)), false);
 
     // Niezgodny --init-manifest odrzucony
     assert.notEqual(runScript(base, ['--init-manifest', SHA_OLD, man.file, man.sha256]).status, 0);
 
-    // Poprawny --init-manifest i rollback
+    // Poprawny --init-manifest odblokowuje publikację i późniejszy rollback
     const initRes = runScript(base, ['--init-manifest', SHA_OLD, oldMan.file, oldMan.sha256]);
     assert.equal(initRes.status, 0, initRes.stderr);
+
+    assert.equal(runScript(base, [src, SHA_NEW, SHA_OLD, man.file, man.sha256]).status, 0);
 
     // Poprzedni release niezmieniony
     const oldCheck = buildManifest(oldDir, path.join(tmp, 'oldcheck.sha256'));
@@ -412,7 +416,36 @@ esac
     assert.equal(fs.realpathSync(path.join(base, 'current')), fs.realpathSync(oldDir));
   });
 
-  // 15. Odrzucenie rollbacku po cudzym przełączeniu (oczekiwany bieżący SHA niezgodny)
+  // 15. Odrzucenie publikacji przy braku manifestu bieżącego wydania
+  await test('odrzuca publikację gdy bieżące wydanie nie ma zapisanego manifestu rollbacku', (tmp) => {
+    const { base, oldDir } = setupBase(tmp, false);
+    const src = path.join(tmp, 'src');
+    makeSampleDist(src, 'new');
+    const man = buildManifest(src, path.join(tmp, 'm.sha256'));
+
+    const r = runScript(base, [src, SHA_NEW, SHA_OLD, man.file, man.sha256]);
+    assert.notEqual(r.status, 0);
+    assert.match(r.stderr, /Brak zweryfikowanego manifestu rollbacku/);
+    assert.equal(fs.realpathSync(path.join(base, 'current')), fs.realpathSync(oldDir));
+    assert.equal(fs.existsSync(path.join(base, 'releases', SHA_NEW)), false);
+  });
+
+  // 16. Odrzucenie publikacji przy zmodyfikowanym pliku w bieżącym wydaniu
+  await test('odrzuca publikację gdy plik w bieżącym wydaniu został zmodyfikowany względem manifestu rollbacku', (tmp) => {
+    const { base, oldDir } = setupBase(tmp, true);
+    const src = path.join(tmp, 'src');
+    makeSampleDist(src, 'new');
+    const man = buildManifest(src, path.join(tmp, 'm.sha256'));
+
+    fs.appendFileSync(path.join(oldDir, 'robots.txt'), '# tampered\n', 'utf8');
+    const r = runScript(base, [src, SHA_NEW, SHA_OLD, man.file, man.sha256]);
+    assert.notEqual(r.status, 0);
+    assert.match(r.stderr, /nie zgadza się z manifestem/);
+    assert.equal(fs.realpathSync(path.join(base, 'current')), fs.realpathSync(oldDir));
+    assert.equal(fs.existsSync(path.join(base, 'releases', SHA_NEW)), false);
+  });
+
+  // 17. Odrzucenie rollbacku po cudzym przełączeniu (oczekiwany bieżący SHA niezgodny)
   await test('odrzuca --rollback gdy current został przełączony przez kogoś innego', (tmp) => {
     const { base, oldMan } = setupBase(tmp, true);
     const src1 = path.join(tmp, 'src1');

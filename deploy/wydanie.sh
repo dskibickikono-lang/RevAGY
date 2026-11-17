@@ -161,6 +161,25 @@ verify_expected_current() {
     [ "$_curr_target" = "$_expected_target" ] || die "Bieżący release niezgodny (oczekiwano $_expected_target, jest $_curr_target)"
 }
 
+verify_release_matches_manifest() {
+    _rel_sha="$1"
+    _rel_dir="$BASE/releases/$_rel_sha"
+    _rel_man="$BASE/manifests/$_rel_sha.sha256"
+
+    validate_tree_safe "$_rel_dir"
+    [ -f "$_rel_man" ] && [ ! -L "$_rel_man" ] || die "Brak zweryfikowanego manifestu rollbacku dla $_rel_sha: $_rel_man (uruchom najpierw --init-manifest)"
+    check_safe_path_perms "$_rel_man"
+    _rel_man_sha="$(sha256sum -- "$_rel_man" | awk '{print $1}')"
+    verify_manifest_file "$_rel_man" "$_rel_man_sha"
+
+    _tmp_rel_gen="$(mktemp "$BASE/manifests/.ver-$_rel_sha.XXXXXX")"
+    CLEANUP_TMP_FILE1="$_tmp_rel_gen"
+    generate_tree_manifest "$_rel_dir" "$_tmp_rel_gen"
+    cmp -s "$_tmp_rel_gen" "$_rel_man" || die "Zawartość wydania $_rel_dir nie zgadza się z manifestem $_rel_man"
+    rm -f -- "$_tmp_rel_gen"
+    CLEANUP_TMP_FILE1=""
+}
+
 atomic_switch_current() {
     _target="$1"
     _tmp_link="$BASE/.current.tmp.$$"
@@ -237,20 +256,11 @@ do_rollback() {
     _target_dir="$BASE/releases/$_target_sha"
     _target_man="$BASE/manifests/$_target_sha.sha256"
 
-    validate_tree_safe "$_target_dir"
-    [ -f "$_target_man" ] && [ ! -L "$_target_man" ] || die "Brak zweryfikowanego manifestu rollbacku: $_target_man (uruchom najpierw --init-manifest)"
-    check_safe_path_perms "$_target_man"
+    verify_release_matches_manifest "$_target_sha"
 
     if [ -n "$_opt_man" ]; then
         cmp -s "$_target_man" "$_opt_man" || die "Manifest w $_target_man nie zgadza się z przekazaną referencją"
     fi
-
-    _tmp_gen="$(mktemp "$BASE/manifests/.rb-$_target_sha.XXXXXX")"
-    CLEANUP_TMP_FILE1="$_tmp_gen"
-    generate_tree_manifest "$_target_dir" "$_tmp_gen"
-    cmp -s "$_tmp_gen" "$_target_man" || die "Zawartość release $_target_dir nie zgadza się z manifestem $_target_man"
-    rm -f -- "$_tmp_gen"
-    CLEANUP_TMP_FILE1=""
 
     atomic_switch_current "$_target_dir"
     printf 'Rollback zakończony. Aktualne wydanie: %s\n' "$(readlink "$BASE/current")"
@@ -310,6 +320,7 @@ do_publish() {
     acquire_lock
 
     verify_expected_current "$_expected_curr"
+    verify_release_matches_manifest "$_expected_curr"
 
     _dest="$BASE/releases/$_sha"
     _dest_man="$BASE/manifests/$_sha.sha256"
@@ -378,6 +389,7 @@ do_publish() {
         CLEANUP_TMP_FILE1=""
     fi
 
+    verify_release_matches_manifest "$_expected_curr"
     atomic_switch_current "$_dest"
     printf 'Aktualne wydanie: %s\n' "$(readlink "$BASE/current")"
 }
