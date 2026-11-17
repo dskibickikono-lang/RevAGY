@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test:smoke": "node tools/smoke-test.cjs",
+    "test:deploy": "node tools/test-wydanie.cjs",
     "check:dist": "node tools/validate-dist.cjs dist"
   },
   "dependencies": {
