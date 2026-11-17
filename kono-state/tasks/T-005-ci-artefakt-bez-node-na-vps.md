@@ -10,8 +10,8 @@ branch: skibiai/kind-bell-p8w2vw
 base: migration/astro-static (PR #2, a0346139a399c0410412a3ebeebc4dc61b4786cd)
 depends_on: T-003
 decisions: [D-006, D-010]
-pr: (uzupełniane po utworzeniu)
-sha: (uzupełniane po commicie)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/3
+sha: 2039adb (zmiany T-005; ten commit dopisuje tylko PR/SHA w karcie)
 ---
 
 # T-005 — Build w CI i artefakt wydania, VPS bez Node
