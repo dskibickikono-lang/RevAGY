@@ -1,0 +1,620 @@
+#!/usr/bin/env node
+/* Walidator katalogu wynikowego (site/ lub dist/) dla strony REVAGY.
+   Sprawdza kompletność 33 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
+   sumy SHA-256 wszystkich 30 publicznych assetów oraz pełny kontrakt DOM/SEO z tools/dom-contract.json.
+
+   Użycie:
+     node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>]
+*/
+'use strict';
+
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const VOID_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr',
+]);
+
+function decodeEntities(str) {
+  return str.replace(/&(#x?[0-9a-fA-F]+|nbsp|amp|lt|gt|quot|apos|#39);/g, (_, ent) => {
+    switch (ent) {
+      case 'nbsp': return '\u00a0';
+      case 'amp': return '&';
+      case 'lt': return '<';
+      case 'gt': return '>';
+      case 'quot': return '"';
+      case 'apos':
+      case '#39': return "'";
+      default:
+        if (ent.startsWith('#x') || ent.startsWith('#X')) {
+          return String.fromCodePoint(parseInt(ent.slice(2), 16));
+        }
+        return String.fromCodePoint(parseInt(ent.slice(1), 10));
+    }
+  });
+}
+
+function normalizeText(str) {
+  return decodeEntities(str).replace(/[ \t\r\n]+/g, ' ').trim();
+}
+
+function parseAttributes(raw) {
+  const attrs = {};
+  const attrList = [];
+  let i = 0;
+  const n = raw.length;
+  while (i < n) {
+    while (i < n && /\s/.test(raw[i])) i++;
+    if (i >= n) break;
+    if (raw[i] === '/' && i + 1 === n) break;
+    const nameStart = i;
+    while (i < n && !/[\s=/>]/.test(raw[i])) i++;
+    const name = raw.slice(nameStart, i).toLowerCase();
+    if (!name) { i++; continue; }
+    while (i < n && /\s/.test(raw[i])) i++;
+    let value = '';
+    if (i < n && raw[i] === '=') {
+      i++;
+      while (i < n && /\s/.test(raw[i])) i++;
+      if (i < n && (raw[i] === '"' || raw[i] === "'")) {
+        const q = raw[i++];
+        const valStart = i;
+        while (i < n && raw[i] !== q) i++;
+        value = decodeEntities(raw.slice(valStart, i));
+        if (i < n && raw[i] === q) i++;
+      } else {
+        const valStart = i;
+        while (i < n && !/[\s>]/.test(raw[i])) i++;
+        value = decodeEntities(raw.slice(valStart, i));
+      }
+    }
+    attrs[name] = value;
+    attrList.push([name, value]);
+  }
+  return { attrs, attrList };
+}
+
+function parseHtml(html) {
+  const root = { tag: '#root', attrs: {}, attrList: [], children: [], text: '' };
+  const stack = [root];
+  let doctype = null;
+  let i = 0;
+  const n = html.length;
+
+  const current = () => stack[stack.length - 1];
+
+  while (i < n) {
+    const lt = html.indexOf('<', i);
+    if (lt === -1) {
+      const txt = html.slice(i);
+      if (txt) current().children.push({ tag: '#text', text: txt });
+      break;
+    }
+    if (lt > i) {
+      current().children.push({ tag: '#text', text: html.slice(i, lt) });
+    }
+    if (html.startsWith('<!--', lt)) {
+      const end = html.indexOf('-->', lt + 4);
+      i = end === -1 ? n : end + 3;
+      continue;
+    }
+    if (/^<!doctype\s+/i.test(html.slice(lt, lt + 20))) {
+      const gt = html.indexOf('>', lt);
+      const rawDoc = html.slice(lt + 9, gt === -1 ? n : gt).trim();
+      doctype = rawDoc.toLowerCase();
+      i = gt === -1 ? n : gt + 1;
+      continue;
+    }
+    if (html.startsWith('</', lt)) {
+      const gt = html.indexOf('>', lt);
+      const closeTag = html.slice(lt + 2, gt === -1 ? n : gt).trim().toLowerCase();
+      for (let k = stack.length - 1; k >= 1; k--) {
+        if (stack[k].tag === closeTag) {
+          stack.length = k;
+          break;
+        }
+      }
+      i = gt === -1 ? n : gt + 1;
+      continue;
+    }
+
+    // Open tag
+    let j = lt + 1;
+    while (j < n && !/[\s/>]/.test(html[j])) j++;
+    const tag = html.slice(lt + 1, j).toLowerCase();
+    let k = j;
+    let quote = null;
+    while (k < n) {
+      const ch = html[k];
+      if (quote) {
+        if (ch === quote) quote = null;
+      } else {
+        if (ch === '"' || ch === "'") quote = ch;
+        else if (ch === '>') break;
+      }
+      k++;
+    }
+    const rawTagBody = html.slice(j, k);
+    const selfClosing = rawTagBody.trimEnd().endsWith('/');
+    const { attrs, attrList } = parseAttributes(selfClosing ? rawTagBody.replace(/\/\s*$/, '') : rawTagBody);
+    const node = { tag, attrs, attrList, children: [] };
+    current().children.push(node);
+    i = k < n ? k + 1 : n;
+
+    if (tag === 'script' || tag === 'style') {
+      if (!selfClosing) {
+        const closeRe = new RegExp(`</${tag}\\s*>`, 'i');
+        const rest = html.slice(i);
+        const m = closeRe.exec(rest);
+        if (m) {
+          node.children.push({ tag: '#text', text: rest.slice(0, m.index) });
+          i += m.index + m[0].length;
+        } else {
+          node.children.push({ tag: '#text', text: rest });
+          i = n;
+        }
+      }
+    } else if (!VOID_TAGS.has(tag) && !selfClosing) {
+      stack.push(node);
+    }
+  }
+
+  return { doctype, root };
+}
+
+function getText(node) {
+  if (!node) return '';
+  if (node.tag === '#text') return node.text;
+  return node.children.map(getText).join('');
+}
+
+function walkElements(node, fn) {
+  if (!node || node.tag === '#text') return;
+  if (node.tag !== '#root') fn(node);
+  for (const child of node.children) {
+    walkElements(child, fn);
+  }
+}
+
+function findFirst(node, tag) {
+  let found = null;
+  walkElements(node, (el) => {
+    if (!found && el.tag === tag) found = el;
+  });
+  return found;
+}
+
+function extractHtmlContract(html) {
+  const { doctype, root } = parseHtml(html);
+  const htmlEl = findFirst(root, 'html');
+  const headEl = findFirst(root, 'head');
+  const bodyEl = findFirst(root, 'body');
+
+  const titleEl = headEl ? findFirst(headEl, 'title') : null;
+  const meta = [];
+  const links = [];
+  let canonical = null;
+  const scripts = [];
+  const styles = [];
+  const astroAttrs = [];
+
+  walkElements(root, (el) => {
+    for (const [k] of el.attrList) {
+      if (k.startsWith('data-astro-')) astroAttrs.push(`${el.tag}[${k}]`);
+    }
+    if (el.tag === 'style') styles.push(getText(el));
+    if (el.tag === 'script') {
+      const bodyText = getText(el).trim();
+      scripts.push({
+        src: el.attrs.src ?? null,
+        defer: Object.prototype.hasOwnProperty.call(el.attrs, 'defer'),
+        async: Object.prototype.hasOwnProperty.call(el.attrs, 'async'),
+        type: el.attrs.type ?? null,
+        hasInlineBody: bodyText.length > 0,
+      });
+    }
+  });
+
+  if (headEl) {
+    walkElements(headEl, (el) => {
+      if (el.tag === 'meta') {
+        meta.push({
+          charset: el.attrs.charset ? el.attrs.charset.toLowerCase() : null,
+          name: el.attrs.name ?? null,
+          property: el.attrs.property ?? null,
+          content: el.attrs.content ?? null,
+        });
+      } else if (el.tag === 'link') {
+        if (el.attrs.rel === 'canonical') canonical = el.attrs.href ?? null;
+        links.push({
+          rel: el.attrs.rel ?? null,
+          href: el.attrs.href ?? null,
+          type: el.attrs.type ?? null,
+          sizes: el.attrs.sizes ?? null,
+          as: el.attrs.as ?? null,
+          crossorigin: Object.prototype.hasOwnProperty.call(el.attrs, 'crossorigin'),
+        });
+      }
+    });
+  }
+
+  const bodyDirectTags = bodyEl
+    ? bodyEl.children
+        .filter((c) => c.tag !== '#text' && c.tag !== 'script')
+        .map((c) => ({ tag: c.tag, id: c.attrs.id ?? null, class: c.attrs.class ?? null }))
+    : [];
+
+  const mainEl = bodyEl ? findFirst(bodyEl, 'main') : null;
+  const mainAttrs = mainEl ? { id: mainEl.attrs.id ?? null, class: mainEl.attrs.class ?? null } : null;
+  const mainSections = mainEl
+    ? mainEl.children
+        .filter((c) => c.tag === 'section')
+        .map((s) => ({
+          tag: s.tag,
+          id: s.attrs.id ?? null,
+          class: s.attrs.class ?? null,
+          ariaLabel: s.attrs['aria-label'] ?? null,
+        }))
+    : [];
+
+  const keyedElements = [];
+  const headings = [];
+  const anchors = [];
+  const videos = [];
+  const localRefs = [];
+
+  walkElements(headEl || root, (el) => {
+    if (el.tag === 'link' && el.attrs.href && el.attrs.rel !== 'canonical') {
+      localRefs.push({ tag: 'link', attr: 'href', val: el.attrs.href });
+    }
+  });
+
+  if (bodyEl) {
+    walkElements(bodyEl, (el) => {
+      const data = {};
+      const aria = {};
+      for (const [k, v] of el.attrList) {
+        if (k.startsWith('data-')) data[k] = v;
+        if (k.startsWith('aria-')) aria[k] = v;
+      }
+      if (
+        el.attrs.id !== undefined ||
+        el.attrs.name !== undefined ||
+        el.attrs.for !== undefined ||
+        Object.keys(data).length > 0 ||
+        Object.keys(aria).length > 0
+      ) {
+        keyedElements.push({
+          tag: el.tag,
+          id: el.attrs.id ?? null,
+          name: el.attrs.name ?? null,
+          for: el.attrs.for ?? null,
+          data,
+          aria,
+        });
+      }
+
+      if (['h1', 'h2', 'h3', 'h4'].includes(el.tag)) {
+        headings.push({
+          tag: el.tag,
+          id: el.attrs.id ?? null,
+          text: normalizeText(getText(el)),
+        });
+      }
+
+      if (el.tag === 'a') {
+        anchors.push({
+          href: el.attrs.href ?? null,
+          class: el.attrs.class ?? null,
+          dataTrack: el.attrs['data-track'] ?? null,
+          ariaLabel: el.attrs['aria-label'] ?? null,
+          text: normalizeText(getText(el)),
+        });
+        if (el.attrs.href) localRefs.push({ tag: 'a', attr: 'href', val: el.attrs.href });
+      }
+
+      if (el.tag === 'video') {
+        const sources = el.children
+          .filter((c) => c.tag === 'source')
+          .map((s) => ({ src: s.attrs.src ?? null, type: s.attrs.type ?? null }));
+        videos.push({
+          class: el.attrs.class ?? null,
+          poster: el.attrs.poster ?? null,
+          preload: el.attrs.preload ?? null,
+          dataAutoplay: Object.prototype.hasOwnProperty.call(el.attrs, 'data-autoplay'),
+          dataMainVideo: Object.prototype.hasOwnProperty.call(el.attrs, 'data-main-video'),
+          ariaLabel: el.attrs['aria-label'] ?? null,
+          sources,
+        });
+        if (el.attrs.poster) localRefs.push({ tag: 'video', attr: 'poster', val: el.attrs.poster });
+        for (const s of sources) {
+          if (s.src) localRefs.push({ tag: 'source', attr: 'src', val: s.src });
+        }
+      }
+
+      if (el.tag === 'script' && el.attrs.src) {
+        localRefs.push({ tag: 'script', attr: 'src', val: el.attrs.src });
+      }
+      if (el.tag === 'img' && el.attrs.src) {
+        localRefs.push({ tag: 'img', attr: 'src', val: el.attrs.src });
+      }
+    });
+  }
+
+  let calculator = null;
+  if (bodyEl) {
+    const calcIds = new Set([
+      'calc-people', 'calc-hours', 'calc-rate',
+      'share-40', 'share-60', 'share-80',
+      'out-people', 'out-hours', 'out-rate',
+      'res-hours', 'res-year', 'res-fte',
+      'lab-now', 'lab-after', 'bar-now', 'bar-after',
+    ]);
+    const calcEntries = [];
+    walkElements(bodyEl, (el) => {
+      if (el.attrs.id && calcIds.has(el.attrs.id)) {
+        calcEntries.push({
+          id: el.attrs.id,
+          tag: el.tag,
+          type: el.attrs.type ?? null,
+          name: el.attrs.name ?? null,
+          min: el.attrs.min ?? null,
+          max: el.attrs.max ?? null,
+          step: el.attrs.step ?? null,
+          value: el.attrs.value ?? null,
+          checked: Object.prototype.hasOwnProperty.call(el.attrs, 'checked'),
+          style: el.attrs.style ?? null,
+          text: normalizeText(getText(el)),
+        });
+      }
+    });
+    if (calcEntries.length > 0) calculator = calcEntries;
+  }
+
+  return {
+    doctype,
+    htmlLang: htmlEl?.attrs.lang ?? null,
+    title: titleEl ? normalizeText(getText(titleEl)) : null,
+    canonical,
+    meta,
+    links,
+    scripts,
+    stylesCount: styles.length,
+    astroAttrs,
+    bodyDirectTags,
+    mainAttrs,
+    mainSections,
+    keyedElements,
+    headings,
+    anchors,
+    videos,
+    calculator,
+    localRefs,
+  };
+}
+
+function sha256File(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
+function walkDirStrict(baseDir) {
+  const errors = [];
+  const files = [];
+
+  function visit(dir) {
+    const entries = fs.readdirSync(dir);
+    entries.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+    for (const name of entries) {
+      const full = path.join(dir, name);
+      const rel = path.relative(baseDir, full).split(path.sep).join('/');
+      const st = fs.lstatSync(full);
+      if (st.isSymbolicLink()) {
+        errors.push(`Symlink zabroniony w artefakcie: ${rel}`);
+        continue;
+      }
+      if (name === '.git' || name === 'site' || name === '_astro') {
+        errors.push(`Zabroniony katalog w artefakcie: ${rel}`);
+      }
+      if (st.isDirectory()) {
+        visit(full);
+      } else if (st.isFile()) {
+        if (st.nlink > 1) errors.push(`Hardlink zabroniony (nlink=${st.nlink}): ${rel}`);
+        if ((st.mode & 0o111) !== 0) errors.push(`Plik wykonywalny zabroniony: ${rel}`);
+        files.push({ rel, full, size: st.size });
+      } else {
+        errors.push(`Niedozwolony typ pliku specjalnego: ${rel}`);
+      }
+    }
+  }
+
+  visit(baseDir);
+  files.sort((a, b) => (a.rel < b.rel ? -1 : a.rel > b.rel ? 1 : 0));
+  return { files, errors };
+}
+
+function deepEqualJson(a, b, where = 'root', diffs = []) {
+  if (a === b) return diffs;
+  if (typeof a !== typeof b || a === null || b === null) {
+    diffs.push(`${where}: oczekiwano ${JSON.stringify(b)}, jest ${JSON.stringify(a)}`);
+    return diffs;
+  }
+  if (Array.isArray(a) || Array.isArray(b)) {
+    if (!Array.isArray(a) || !Array.isArray(b)) {
+      diffs.push(`${where}: niezgodność tablicy i obiektu`);
+      return diffs;
+    }
+    if (a.length !== b.length) {
+      diffs.push(`${where}.length: oczekiwano ${b.length}, jest ${a.length}`);
+    }
+    const len = Math.min(a.length, b.length);
+    for (let i = 0; i < len; i++) {
+      deepEqualJson(a[i], b[i], `${where}[${i}]`, diffs);
+      if (diffs.length >= 25) break;
+    }
+    return diffs;
+  }
+  if (typeof a === 'object') {
+    const keys = Array.from(new Set([...Object.keys(a), ...Object.keys(b)])).sort();
+    for (const k of keys) {
+      if (!(k in a)) diffs.push(`${where}.${k}: brak pola`);
+      else if (!(k in b)) diffs.push(`${where}.${k}: nadmiarowe pole`);
+      else deepEqualJson(a[k], b[k], `${where}.${k}`, diffs);
+      if (diffs.length >= 25) break;
+    }
+    return diffs;
+  }
+  diffs.push(`${where}: oczekiwano ${JSON.stringify(b)}, jest ${JSON.stringify(a)}`);
+  return diffs;
+}
+
+function resolveLocalRef(targetDir, pageRel, refVal) {
+  if (/^(https?:|mailto:|data:|tel:|#)/i.test(refVal)) return { external: true };
+  const clean = refVal.split('#')[0].split('?')[0];
+  if (!clean) return { external: true };
+  let relPath;
+  if (clean.startsWith('/')) {
+    relPath = clean === '/' ? 'index.html' : clean.slice(1);
+  } else if (clean === './') {
+    relPath = 'index.html';
+  } else {
+    const baseDir = path.posix.dirname(pageRel);
+    relPath = baseDir === '.' ? clean : path.posix.normalize(path.posix.join(baseDir, clean));
+  }
+  const diskPath = path.join(targetDir, ...relPath.split('/'));
+  return { external: false, relPath, exists: fs.existsSync(diskPath) && fs.statSync(diskPath).isFile() };
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  const targetArg = args.find((a) => !a.startsWith('--'));
+  const manifestArg = args.find((a) => a.startsWith('--manifest-out='));
+  if (!targetArg) {
+    console.error('Użycie: node tools/validate-dist.cjs <katalog> [--manifest-out=<plik>]');
+    process.exit(1);
+  }
+  const targetDir = path.resolve(targetArg);
+  if (!fs.existsSync(targetDir) || !fs.statSync(targetDir).isDirectory()) {
+    console.error(`Katalog nie istnieje: ${targetDir}`);
+    process.exit(1);
+  }
+
+  const contractPath = path.join(__dirname, 'dom-contract.json');
+  const contract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
+
+  const { files, errors } = walkDirStrict(targetDir);
+  const actualMap = new Map();
+  const manifestLines = [];
+  for (const f of files) {
+    const hash = sha256File(f.full);
+    actualMap.set(f.rel, { sha256: hash, size: f.size, full: f.full });
+    manifestLines.push(`${hash}  ${f.rel}\n`);
+  }
+
+  const expectedAll = new Set([
+    ...Object.keys(contract.publicFiles),
+    ...Object.keys(contract.pages),
+  ]);
+  for (const exp of expectedAll) {
+    if (!actualMap.has(exp)) errors.push(`Brak wymaganego pliku: ${exp}`);
+  }
+  for (const act of actualMap.keys()) {
+    if (!expectedAll.has(act)) errors.push(`Nadmiarowy plik w katalogu: ${act}`);
+  }
+
+  // Sprawdź 30 publicznych assetów bajt po bajcie
+  for (const [rel, meta] of Object.entries(contract.publicFiles)) {
+    const got = actualMap.get(rel);
+    if (!got) continue;
+    if (got.sha256 !== meta.sha256 || got.size !== meta.size) {
+      errors.push(`Rozbieżność pliku publicznego ${rel}: oczekiwano ${meta.sha256} (${meta.size} B), jest ${got.sha256} (${got.size} B)`);
+    }
+  }
+
+  // Sprawdź niezmienniki analytics.js
+  const analyticsEntry = actualMap.get('assets/js/analytics.js');
+  if (analyticsEntry) {
+    const ajs = fs.readFileSync(analyticsEntry.full, 'utf8');
+    const invariants = [
+      "matomoUrl: 'https://stats.revagy.pl/'",
+      "siteId: '1'",
+      "hosts: ['revagy.pl', 'www.revagy.pl']",
+      "cookieDomain: '*.revagy.pl'",
+      "storageKey: 'revagy-zgoda-analityka'",
+    ];
+    for (const inv of invariants) {
+      if (!ajs.includes(inv)) errors.push(`Naruszenie niezmiennika w analytics.js: brak ${inv}`);
+    }
+  }
+
+  // Sprawdź każdą stronę HTML i pełny kontrakt DOM
+  const expectedScripts = {
+    'index.html': ['assets/js/app.js?v=2', 'assets/js/analytics.js?v=2'],
+    'polityka-prywatnosci.html': ['assets/js/analytics.js?v=2'],
+    '404.html': ['/assets/js/analytics.js?v=2'],
+  };
+
+  for (const [pageRel, expectedDom] of Object.entries(contract.pages)) {
+    const entry = actualMap.get(pageRel);
+    if (!entry) continue;
+    const html = fs.readFileSync(entry.full, 'utf8');
+    if (html.includes('/_astro/')) errors.push(`${pageRel}: zawiera zabronioną referencję /_astro/`);
+
+    const parsed = extractHtmlContract(html);
+    if (parsed.stylesCount > 0) errors.push(`${pageRel}: zawiera wygenerowany blok <style>`);
+    if (parsed.astroAttrs.length > 0) errors.push(`${pageRel}: zawiera atrybuty Astro (${parsed.astroAttrs.slice(0, 5).join(', ')})`);
+
+    // Weryfikacja skryptów
+    const gotScriptSrcs = parsed.scripts.map((s) => s.src);
+    if (JSON.stringify(gotScriptSrcs) !== JSON.stringify(expectedScripts[pageRel])) {
+      errors.push(`${pageRel}: nieprawidłowe skrypty: oczekiwano ${JSON.stringify(expectedScripts[pageRel])}, jest ${JSON.stringify(gotScriptSrcs)}`);
+    }
+    for (const s of parsed.scripts) {
+      if (!s.src) errors.push(`${pageRel}: wykryto inline <script> bez src`);
+      if (s.hasInlineBody) errors.push(`${pageRel}: <script src="${s.src}"> zawiera treść inline`);
+      if (!s.defer) errors.push(`${pageRel}: <script src="${s.src}"> nie ma atrybutu defer`);
+      if (s.async) errors.push(`${pageRel}: <script src="${s.src}"> ma zabroniony atrybut async`);
+      if (s.type) errors.push(`${pageRel}: <script src="${s.src}"> ma zabroniony atrybut type="${s.type}"`);
+    }
+
+    // Weryfikacja lokalnych odnośników
+    for (const ref of parsed.localRefs) {
+      const res = resolveLocalRef(targetDir, pageRel, ref.val);
+      if (!res.external && !res.exists) {
+        errors.push(`${pageRel}: <${ref.tag} ${ref.attr}="${ref.val}"> wskazuje na nieistniejący plik (${res.relPath})`);
+      }
+      if (pageRel === '404.html' && !res.external && !ref.val.startsWith('/')) {
+        errors.push(`404.html: <${ref.tag} ${ref.attr}="${ref.val}"> musi zaczynać się od /`);
+      }
+    }
+
+    // Porównanie pełnego kontraktu DOM (bez localRefs które porównujemy osobno)
+    const { localRefs: _a, ...actualDom } = parsed;
+    const { localRefs: _b, ...baselineDom } = expectedDom;
+    const domDiffs = deepEqualJson(actualDom, baselineDom, pageRel);
+    for (const d of domDiffs) errors.push(`DOM ${d}`);
+  }
+
+  if (manifestArg) {
+    const outPath = path.resolve(manifestArg.slice('--manifest-out='.length));
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, manifestLines.join(''), 'utf8');
+    console.log(`Zapisano manifest (${manifestLines.length} plików): ${outPath}`);
+  }
+
+  if (errors.length > 0) {
+    console.error(`WALIDACJA BŁĄD (${errors.length} problemów):`);
+    for (const e of errors) console.error(`  - ${e}`);
+    process.exit(1);
+  }
+
+  const manifestSha = crypto.createHash('sha256').update(manifestLines.join('')).digest('hex');
+  console.log(`WALIDACJA OK: ${files.length} plików (30/30 assetów zgodnych bajtowo, 3/3 stron zgodnych z kontraktem DOM). Manifest SHA-256: ${manifestSha}`);
+}
+
+if (require.main === module) {
+  main();
+} else {
+  module.exports = { extractHtmlContract };
+}

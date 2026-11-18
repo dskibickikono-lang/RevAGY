@@ -1,0 +1,80 @@
+name: CI
+
+# Build, testy i gotowy artefakt wydania. VPS nie buduje i nie potrzebuje Node:
+# dostaje paczkę z tego joba i weryfikuje ją sumą SHA-256 (deploy/PROMPT-AGENT-VPS.md).
+on:
+  pull_request:
+    paths-ignore: ['kono-state/**', 'README.md']
+  push:
+    branches: [main]
+    paths-ignore: ['kono-state/**', 'README.md']
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+jobs:
+  build-test-package:
+    name: Build, testy i artefakt wydania
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: |
+          umask 022
+          npm run build
+
+      - name: Walidacja dist i manifest SHA-256
+        run: npm run check:dist -- --manifest-out="$RUNNER_TEMP/revagy-dist.sha256"
+
+      - name: Chromium dla testu dymnego
+        run: npx playwright install --with-deps chromium
+
+      - name: Test dymny (lokalny TLS, atrapa Matomo)
+        run: npm run test:smoke -- --serve=dist
+
+      - name: Testy deploy/wydanie.sh
+        run: npm run test:deploy
+
+      - name: Paczka wydania
+        run: |
+          set -eu
+          umask 022
+          out="$RUNNER_TEMP/release"
+          mkdir -p "$out"
+          tar --sort=name --owner=0 --group=0 --numeric-owner \
+              --mtime="@$(git log -1 --format=%ct)" \
+              -czf "$out/revagy-dist-$GITHUB_SHA.tar.gz" -C dist .
+          cp "$RUNNER_TEMP/revagy-dist.sha256" "$out/revagy-dist-$GITHUB_SHA.manifest.sha256"
+          cd "$out"
+          sha256sum -- * > SHA256SUMS
+          cat SHA256SUMS
+          {
+            echo "### Artefakt wydania \`$GITHUB_SHA\`"
+            echo '```'
+            cat SHA256SUMS
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: revagy-dist-${{ github.sha }}
+          path: ${{ runner.temp }}/release/
+          if-no-files-found: error
+          retention-days: 30

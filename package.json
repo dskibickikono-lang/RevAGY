@@ -1,0 +1,22 @@
+{
+  "name": "revagy-site",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test:smoke": "node tools/smoke-test.cjs",
+    "test:deploy": "node tools/test-wydanie.cjs",
+    "check:dist": "node tools/validate-dist.cjs dist"
+  },
+  "dependencies": {
+    "astro": "^7.4.12"
+  },
+  "devDependencies": {
+    "playwright": "1.65.1"
+  }
+}

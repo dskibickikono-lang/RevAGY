@@ -1,48 +1,81 @@
 # RevAGY
 
-Strona firmy REVAGY (automatyzacja procesów i wdrożenia AI w B2B), docelowo pod `https://revagy.pl`.
+Strona firmy REVAGY (automatyzacja procesów i wdrożenia AI w B2B) pod `https://revagy.pl`.
 
-Statyczna strona bez builda i bez zależności: HTML, CSS, czysty JS, własne fonty i własne filmy.
-Analityka jest własna (Matomo na `stats.revagy.pl`) i włącza się po zgodzie odwiedzającego.
+Projekt generuje czystą statyczną stronę w Astro (`output: 'static'`, `build.format: 'file'`, `trailingSlash: 'never'`, `compressHTML: false`) z zachowaniem oryginalnego DOM, stylów CSS, skryptów w `public/assets/js/`, lokalnych fontów i własnych filmów, bez bundlowania klienta i bez katalogu `/_astro/`.
+Analityka jest własna (Matomo na `stats.revagy.pl`) i włącza się dopiero po zgodzie odwiedzającego.
 
-## Uruchomienie
+## Wymagania
+
+- Node.js 22 (`.nvmrc` / `.node-version`: `22`; Astro wymaga `>=22.23.4`)
+- Astro `^7.4.12` (dokładna wersja w `package-lock.json`, ta sama linia co `web-skoben` i `web-skibilabs`)
+- Playwright `1.65.1` (devDependency dla testu dymnego oraz skryptów renderujących media)
+
+## Uruchomienie i build
 
 ```bash
-cd site
-python3 -m http.server 8000
-# http://localhost:8000
+npm ci
+npm run dev       # lokalny podgląd deweloperski Astro
+npm run build     # generuje statyczny artefakt do dist/
+npm run preview   # podgląd wygenerowanego katalogu dist/
 ```
 
 ## Struktura
 
 | Ścieżka | Zawartość |
 |---|---|
-| `site/index.html` | strona główna (12 sekcji) |
-| `site/polityka-prywatnosci.html`, `site/404.html` | podstrony |
-| `site/assets/css/styles.css` | style, tokeny kolorów i typografii na górze pliku |
-| `site/assets/js/app.js` | animacje i interakcje (menu, liczniki, kalkulator, sticky scroll, karuzela, FAQ) |
-| `site/assets/js/analytics.js` | baner zgody i zdarzenia dla Matomo (adres i identyfikator strony na górze pliku) |
-| `site/assets/video/` | 3 filmy (`.webm` + `.mp4`) i plakaty `.jpg` |
-| `site/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
-| `tools/scenes/` | źródła filmów i grafiki do udostępniania: animowane sceny HTML |
-| `tools/render-videos.cjs`, `tools/render-images.cjs` | generują filmy, grafikę `og.jpg` i ikony |
-| `tools/smoke-test.cjs` | test dymny w Chromium (37 sprawdzeń) |
-| `deploy/` | konfiguracja nginx, Matomo, raport z logów, rotacja logów, skrypt wydania |
-| `deploy/PROMPT-AGENT-VPS.md` | prompt dla agenta, który wdraża stronę na VPS |
+| `astro.config.mjs` | konfiguracja Astro (`static`, `format: 'file'`, `trailingSlash: 'never'`, `compressHTML: false`) |
+| `src/layouts/BaseLayout.astro` | wspólny szkielet HTML bez dodatkowych wrapperów DOM |
+| `src/pages/index.astro` | strona główna (12 sekcji) |
+| `src/pages/polityka-prywatnosci.astro`, `src/pages/404.astro` | podstrony (`polityka-prywatnosci.html`, `404.html`) |
+| `public/assets/css/styles.css` | style, tokeny kolorów i typografii |
+| `public/assets/js/app.js` | animacje i interakcje (menu, liczniki, kalkulator, sticky scroll, karuzela, FAQ) |
+| `public/assets/js/analytics.js` | baner zgody i zdarzenia dla Matomo (`stats.revagy.pl`, `siteId = 1`) |
+| `public/assets/video/` | 3 filmy (`.webm` + `.mp4`) i plakaty `.jpg` |
+| `public/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
+| `public/favicon.ico`, `public/robots.txt`, `public/sitemap.xml`, `public/site.webmanifest` | pliki główne kopiowane bezpośrednio do `dist/` |
+| `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256 i braku inline JS/`/_astro/` |
+| `tools/smoke-test.cjs` | rozszerzony test dymny w Chromium (Playwright) z wbudowanym serwerem TLS (`--serve=dist`) i atrapą Matomo |
+| `tools/test-wydanie.cjs` | izolowane testy skryptu publikacji i rollbacku `deploy/wydanie.sh` |
+| `tools/scenes/`, `tools/render-videos.cjs`, `tools/render-images.cjs` | źródła i generatory filmów, `og.jpg` i ikon do `public/` |
+| `deploy/` | runbook operacyjny (`PROMPT-AGENT-VPS.md`), szablony nginx (wariant A), Matomo, GoAccess, logrotate i atomowy skrypt wydania `wydanie.sh` |
 | `kono-state/` | rejestr decyzji i karty zadań |
 
-## Test
+## Weryfikacja i testy
 
 ```bash
-cd site && python3 -m http.server 8000 &
-node tools/smoke-test.cjs http://localhost:8000     # lokalnie
-node tools/smoke-test.cjs https://revagy.pl         # po wdrożeniu (statystyki są zastępowane atrapą)
+npm ci
+npm run build
+npm run check:dist                           # waliduje dist/ (33 pliki, SHA-256 assetów, kontrakt DOM)
+npm run test:smoke -- --serve=dist           # pełny test dymny (53 sprawdzenia) na lokalnym TLS z atrapą Matomo
+npm run test:deploy                          # izolowane testy deploy/wydanie.sh (POSIX sh/dash, flock, staging, rollback)
 ```
 
-## Wdrożenie
+Dodatkowe tryby `tools/smoke-test.cjs`:
+- `node tools/smoke-test.cjs http://localhost:8000` — test na zwykłym hoście nieprodukcyjnym (potwierdza blokadę trackera),
+- `node tools/smoke-test.cjs https://revagy.pl` — test przeciwko produkcji (żądania do `stats.revagy.pl` są przechwytywane atrapą).
 
-Wdrożenie wykonuje agent na serwerze właściciela według `deploy/PROMPT-AGENT-VPS.md`, z gałęzi `main`.
-Po zmianie stylów lub skryptów podbij parametr `?v=` w plikach HTML, żeby przeglądarki pobrały nową wersję.
+## CI i artefakt wydania
+
+`.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
+
+## Wdrożenie i rollback
+
+Publikacja odbywa się wyłącznie z artefaktu CI (rozpakowany katalog `dist`) za pomocą skryptu `deploy/wydanie.sh` (POSIX `sh`, `flock`, staging na tym samym systemie plików, porównanie pełnego manifestu, atomowe `mv -Tf` symlinka `current`):
+
+```bash
+# 1. Jednorazowa inicjalizacja manifestu zastanego wydania bazowego:
+sh deploy/wydanie.sh --init-manifest <stary-sha> <manifest-bazowy> <sha256-manifestu-bazowego>
+
+# 2. Publikacja nowego wydania:
+sh deploy/wydanie.sh <sciezka-do-dist> <nowy-sha> <oczekiwany-biezacy-sha> <manifest-dist> <sha256-manifestu-dist>
+
+# 3. Natychmiastowy powrót (rollback) do zweryfikowanego wydania:
+sh deploy/wydanie.sh --rollback <docelowy-sha> <oczekiwany-biezacy-sha> [<manifest-referencyjny> <sha256-manifestu>]
+```
+
+Szczegółowa procedura operacyjna dla obecnej architektury serwera (Caddy `:80/:443` → lokalny nginx `127.0.0.1:8092`) znajduje się w `deploy/PROMPT-AGENT-VPS.md`.
+Po zmianie stylów lub skryptów podbij parametr `?v=` w `src/layouts/BaseLayout.astro`, aby przeglądarki pobrały nową wersję.
 
 ## Analityka
 
@@ -53,14 +86,14 @@ Po zmianie stylów lub skryptów podbij parametr `?v=` w plikach HTML, żeby prz
 
 ## Filmy
 
-Filmy są własne: powstają z animowanych scen w `tools/scenes/`. Po zmianie sceny:
+Filmy powstają z animowanych scen w `tools/scenes/`. Po zmianie sceny:
 
 ```bash
-node tools/render-videos.cjs            # wszystkie
+node tools/render-videos.cjs            # wszystkie sceny → public/assets/video/
 node tools/render-videos.cjs hero-flow  # jedna scena
 ```
 
-Wymaga Playwrighta z Chromium oraz `ffmpeg`. Scenę można też otworzyć w przeglądarce i obejrzeć na żywo.
+Wymaga Playwrighta z Chromium oraz `ffmpeg`.
 
 ## Wzorzec i granica kopiowania
 

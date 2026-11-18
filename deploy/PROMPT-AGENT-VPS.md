@@ -1,246 +1,156 @@
-# Prompt dla agenta na VPS: wdrożenie revagy.pl
+# Runbook wdrożenia i aktualizacji `revagy.pl` (Wariant A: Caddy → lokalny nginx)
 
-Skopiuj całość poniżej (od „ZADANIE” do końca) i wklej agentowi działającemu na serwerze.
+Ten dokument zastępuje archiwalny prompt pierwszej instalacji serwera (nginx/certbot).
+Obecna produkcja na hoście `skibiai` (`65.108.208.163`) działa w **Wariancie A**:
+
+- Publiczne porty `:80` / `:443` obsługuje **Caddy** (`/etc/caddy/Caddyfile`), który realizuje TLS (Let's Encrypt) i przekierowania `http://` → `https://`.
+- Ruch dla `revagy.pl`, `www.revagy.pl` i `stats.revagy.pl` trafia z Caddy przez `reverse_proxy` do lokalnego **nginx** na `127.0.0.1:8092` (`/etc/nginx/sites-available/revagy.pl.conf` + `/etc/nginx/snippets/revagy-naglowki.conf`).
+- Matomo działa w kontenerze Docker `revagy-matomo-app-1` na `127.0.0.1:8090` (MariaDB 11.4).
+- Na tym samym hoście działają niezależne domeny: `skoben.pl` (nginx `127.0.0.1:8093`), `skibilabs.pl` (nginx `127.0.0.1:8094`) oraz `sms-dlr.skibilabs.pl` (`127.0.0.1:8091`, `sms-dlr.service`). Domena `skobel.pl` wskazuje inny serwer (`185.253.212.22`) i jest poza zakresem operacji.
+
+## Zasady nadrzędne
+
+1. **Osobna zgoda właściciela:** przełączenie `/var/www/revagy.pl/current` wymaga jawnej zgody właściciela dla konkretnego SHA commita i manifestu.
+2. **Brak zmian w usługach współdzielonych:** nie zmieniaj DNS, `/etc/caddy/Caddyfile`, vhostów `/etc/nginx/`, Dockera, Matomo ani `skoben.pl`/`skibilabs.pl`/`sms-dlr.skibilabs.pl` przy aktualizacji plików statycznych. Samo przełączenie symlinka `current` nie wymaga reloadu ani restartu Caddy/nginx.
+3. **Na VPS nie ma builda ani Node:** artefakt `dist/` buduje wyłącznie GitHub Actions (`.github/workflows/ci.yml`, Node 22 z `.nvmrc`) — tak samo jak `web-skoben` i `web-skibilabs`. Na hoście nie uruchamiaj `npm`/`astro`, nie instaluj ani nie aktualizuj Node; wersja `/usr/bin/node` na VPS nie ma znaczenia dla tej strony. Nie buduj w `/var/www/revagy.pl/current` i nie przebudowuj artefaktu po wygenerowaniu manifestu.
+4. **Bezpieczeństwo ścieżek:** katalogi wejściowe przekazane procesowi `root` (`dist`, plik manifestu) umieszczaj w obszarze operatora z prawami bez zapisu dla grupy i innych (`chmod -R go-w`, katalogi `755`, pliki `644`).
 
 ---
 
-ZADANIE
+## Faza 0. Kontrola stanu przed wydaniem (tylko odczyt)
 
-Wdróż stronę firmy REVAGY na tym serwerze Ubuntu pod domeną `revagy.pl` razem z własną analityką:
-Matomo pod `stats.revagy.pl` i raport z logów serwera pod `stats.revagy.pl/logi/`.
-Właściciel serwera zlecił to osobiście i jest dostępny w tej rozmowie.
-
-Wszystkie pliki konfiguracyjne są gotowe w repozytorium `dskibickikono-lang/RevAGY`, gałąź `main`,
-katalog `deploy/`. Zostały sprawdzone na Ubuntu 24.04 z nginx 1.24, Matomo 5.14 i GoAccess 1.8.
-Twoja praca to instalacja i weryfikacja, nie pisanie konfiguracji od nowa.
-
-ZASADY, KTÓRYCH NIE ŁAMIESZ
-
-1. Na serwerze mogą działać inne usługi. Niczego, co nie dotyczy `revagy.pl`, nie zmieniasz, nie
-   restartujesz i nie usuwasz. Nginx przeładowujesz (`reload`), nie restartujesz.
-2. Nie edytujesz plików repozytorium na serwerze i nie budujesz niczego z roboczej kopii. Pobierasz
-   czystą kopię `main` do katalogu tymczasowego i instalujesz z niej pliki.
-3. Żadnych haseł, kluczy ani tokenów w odpowiedziach i logach rozmowy. Hasła generujesz na serwerze
-   i zapisujesz wyłącznie w `/root/revagy-dostepy.txt` (uprawnienia 600). W raporcie podajesz tylko ścieżkę.
-4. Przed każdą fazą piszesz jednym zdaniem, co zrobisz. Po każdej fazie podajesz wynik kontroli.
-5. Zatrzymujesz się i pytasz właściciela, zamiast improwizować, gdy:
-   - port 80 lub 443 zajmuje coś innego niż nginx (Apache, Caddy, Traefik, kontener),
-   - w nginx istnieje już konfiguracja z `revagy.pl` albo port 8090 jest zajęty,
-   - DNS którejś z trzech nazw nie wskazuje na ten serwer albo domena stoi za pośrednikiem (np. Cloudflare),
-   - wolnej pamięci jest mniej niż 1 GB albo wolnego dysku mniej niż 5 GB,
-   - nie masz dostępu do repozytorium albo na `main` nie ma katalogu `deploy/` (PR nie został zmergowany),
-   - `nginx -t` albo wydanie certyfikatu kończy się błędem, którego przyczyny nie rozumiesz.
-6. Jeśli serwer nie ma IPv6, usuń z instalowanej kopii konfiguracji nginx wiersze `listen [::]:...`.
-   To jedyna dozwolona zmiana w plikach konfiguracyjnych.
-
-FAZA 0. ROZPOZNANIE (tylko odczyt)
+Potwierdź bieżący stan przed przekazaniem artefaktu lub przełączeniem `current`:
 
 ```bash
-lsb_release -ds; uname -m; free -m; df -h / /var
-ss -ltnp | grep -E ':(80|443|8090)\b'
-systemctl is-active nginx apache2 caddy 2>/dev/null
-ls /etc/nginx/sites-enabled/ 2>/dev/null; grep -rl "revagy" /etc/nginx 2>/dev/null
-docker --version 2>/dev/null; docker compose version 2>/dev/null; docker ps --format '{{.Names}}  {{.Ports}}' 2>/dev/null
-ufw status 2>/dev/null
-ip -4 -o addr show scope global; ip -6 -o addr show scope global
-dig +short A revagy.pl; dig +short A www.revagy.pl; dig +short A stats.revagy.pl
-dig +short AAAA revagy.pl; dig +short AAAA www.revagy.pl; dig +short AAAA stats.revagy.pl
-dig +short MX revagy.pl
+readlink -f /var/www/revagy.pl/current
+find /var/www/revagy.pl/releases -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort
+sudo nginx -t
+caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+systemctl is-active caddy nginx docker sms-dlr.service
+sudo docker ps --format '{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}'
+sha256sum /etc/caddy/Caddyfile /etc/nginx/sites-available/revagy.pl.conf /etc/nginx/snippets/revagy-naglowki.conf /etc/nginx/sites-available/skoben /etc/nginx/sites-available/skibilabs.pl
 ```
 
-Ustal publiczny adres IPv4 serwera (jeśli serwer jest za NAT-em dostawcy, zapytaj właściciela).
-Warunki przejścia dalej:
-- rekordy A dla `revagy.pl`, `www.revagy.pl` i `stats.revagy.pl` wskazują na ten serwer,
-- rekordy AAAA nie istnieją albo wskazują na IPv6 tego serwera,
-- nie zachodzi żaden warunek zatrzymania z zasady 5.
-
-Podaj właścicielowi krótkie podsumowanie rozpoznania. Brak rekordu MX zgłoś jako ostrzeżenie:
-strona kieruje kontakt na `kontakt@revagy.pl`, więc bez poczty zapytania przepadną. To nie blokuje wdrożenia.
-
-FAZA 1. PAKIETY
+Zarejestruj baseline HTTP przed przełączeniem:
 
 ```bash
-apt-get update
-apt-get install -y nginx certbot goaccess apache2-utils git curl ca-certificates openssl
+curl -sI "http://revagy.pl/test?a=1" | grep -iE '^HTTP|^location'
+curl -sI "https://www.revagy.pl/test?a=1" | grep -iE '^HTTP|^location'
+curl -sI "https://revagy.pl/" | grep -iE '^HTTP|content-security|strict-transport|x-content-type|cache-control'
+curl -s -o /dev/null -w 'polityka=%{http_code}\n' https://revagy.pl/polityka-prywatnosci.html
+curl -s -o /dev/null -w '404=%{http_code}\n' https://revagy.pl/nie-istnieje
+curl -s -o /dev/null -w 'git=%{http_code}\n' https://revagy.pl/.git/config
+curl -s -o /dev/null -w 'stats=%{http_code}\n' https://stats.revagy.pl/
+curl -s -o /dev/null -w 'skoben=%{http_code}\n' https://skoben.pl/
+curl -s --compressed https://skoben.pl/ | sha256sum
+curl -s -o /dev/null -w 'skibilabs=%{http_code}\n' https://skibilabs.pl/
+curl -s --compressed https://skibilabs.pl/ | sha256sum
+curl -s -o /dev/null -w 'sms-dlr=%{http_code}\n' https://sms-dlr.skibilabs.pl/
 ```
 
-Docker instalujesz tylko, jeśli go nie ma: `apt-get install -y docker.io docker-compose-v2`.
-Jeśli Docker już jest, niczego w nim nie zmieniasz. Sprawdź `docker compose version`.
-Jeśli działa `ufw`, dopuść ruch: `ufw allow 80/tcp && ufw allow 443/tcp`.
+---
 
-FAZA 2. CZYSTA KOPIA REPOZYTORIUM
+## Faza 1. Artefakt z CI i weryfikacja sum
+
+Artefakt powstaje w GitHub Actions dla zatwierdzonego commita (`NEW_SHA`): job `Build, testy i artefakt wydania` wykonuje `npm ci`, `build`, `check:dist` (manifest SHA-256), `test:smoke --serve=dist` i `test:deploy`, a następnie publikuje artefakt `revagy-dist-<NEW_SHA>` z trzema plikami:
+
+- `revagy-dist-<NEW_SHA>.tar.gz` — zawartość `dist/`,
+- `revagy-dist-<NEW_SHA>.manifest.sha256` — manifest plików dla `deploy/wydanie.sh`,
+- `SHA256SUMS` — sumy obu plików (widoczne też w podsumowaniu joba).
+
+Właściciel zatwierdza wydanie dla konkretnego `NEW_SHA` i sumy SHA-256 manifestu z `SHA256SUMS`. Operator pobiera artefakt (np. z zakładki Actions) do katalogu operatora na VPS i rozpakowuje go bez przebudowy:
 
 ```bash
-WORK=$(mktemp -d /tmp/revagy-wdrozenie.XXXXXX)
-git clone --depth 1 --branch main https://github.com/dskibickikono-lang/RevAGY.git "$WORK/repo"
-SHA=$(git -C "$WORK/repo" rev-parse HEAD); echo "$SHA"
-test -f "$WORK/repo/site/index.html" && test -f "$WORK/repo/deploy/nginx/revagy.pl.conf" && echo "repo OK"
+umask 022
+NEW_SHA="<PELNY_SHA_ZATWIERDZONEGO_COMMITA>"
+WORK="$HOME/revagy-release/$NEW_SHA"
+mkdir -p "$WORK/dist" && cd "$WORK"
+# tu: revagy-dist-$NEW_SHA.tar.gz, revagy-dist-$NEW_SHA.manifest.sha256, SHA256SUMS
+sha256sum -c SHA256SUMS
+tar -xzf "revagy-dist-$NEW_SHA.tar.gz" -C dist
+chmod -R go-w "$WORK"
+sha256sum "revagy-dist-$NEW_SHA.manifest.sha256"   # musi się zgadzać z zatwierdzeniem
 ```
 
-Repozytorium może być prywatne. Jeśli klonowanie wymaga dostępu, którego nie masz, zatrzymaj się.
+`deploy/wydanie.sh` w Fazie 3 sprawdza ponownie każdy plik `dist/` względem manifestu.
 
-FAZA 3. CERTYFIKAT
+---
+
+## Faza 2. Inicjalizacja manifestu bazowego (jednorazowo dla starego wydania)
+
+Pierwsze wydanie zastane (`dc8221716605a74aa71657a531a120f618f0975b`) zostało wdrożone starym skryptem bez pliku manifestu w `/var/www/revagy.pl/manifests/`.
+Skrypt `deploy/wydanie.sh` wymusza pod blokadą `flock`, aby bieżące aktywne wydanie miało zapisany manifest rollbacku i było z nim w 100% zgodne jeszcze przed utworzeniem stagingu i przełączeniem `current`.
+Przed pierwszą publikacją uzgodnij zawartość `releases/<OLD_SHA>` z surowymi blobami Git (`Bramka A0`) i zainicjalizuj zaufany manifest bazowy pod blokadą `flock` (używając jawnego `OLD_SHA` z zatwierdzenia wydania):
 
 ```bash
-mkdir -p /var/www/certbot /var/log/nginx/revagy
-install -m 644 "$WORK/repo/deploy/nginx/revagy.pl.bootstrap.conf" /etc/nginx/sites-available/revagy.pl.conf
-ln -sfn /etc/nginx/sites-available/revagy.pl.conf /etc/nginx/sites-enabled/revagy.pl.conf
-nginx -t && systemctl enable nginx && (systemctl is-active -q nginx && systemctl reload nginx || systemctl start nginx)
-curl -s -o /dev/null -w '%{http_code}\n' http://revagy.pl/        # oczekiwane: 503
-certbot certonly --webroot -w /var/www/certbot --cert-name revagy.pl \
-  -d revagy.pl -d www.revagy.pl -d stats.revagy.pl \
-  --non-interactive --agree-tos --register-unsafely-without-email \
-  --deploy-hook "systemctl reload nginx"
-ls /etc/letsencrypt/live/revagy.pl/
+OLD_SHA="<OCZEKIWANY_BIEZACY_SHA_Z_ZATWIERDZENIA>"
+sudo sh deploy/wydanie.sh --init-manifest \
+  "$OLD_SHA" \
+  "<sciezka-do-manifestu-rollbacku>" \
+  "<sha256-manifestu-rollbacku>"
 ```
 
-FAZA 4. STRONA
+---
+
+## Faza 3. Atomowe wydanie (dopiero po zgodzie na konkretny SHA)
+
+1. Użyj jawnie zatwierdzonych wartości z decyzji właściciela (nie pobieraj `OLD_SHA` dynamicznie z aktualnego symlinka `current`, bo mogłoby to zaakceptować nieautoryzowaną zmianę od czasu review):
+   - `OLD_SHA` = oczekiwany SHA bieżącego wydania z zatwierdzenia,
+   - `NEW_SHA` = pełny SHA zatwierdzonego commita,
+   - `MANIFEST_SHA256` = zatwierdzona suma SHA-256 manifestu artefaktu `dist`.
+2. Przenieś zweryfikowany katalog `dist/` i manifest do zabezpieczonego katalogu operatora (`root:root` lub `go-w`) na tym samym hoście. Nie przebudowuj po wygenerowaniu manifestu.
+3. Uruchom publikację (skrypt sprawdzi pod blokadą `flock` zarówno wskazanie `current` na `OLD_SHA`, jak i pełną zgodność `/var/www/revagy.pl/releases/$OLD_SHA` z `/var/www/revagy.pl/manifests/$OLD_SHA.sha256`):
 
 ```bash
-# hasło do raportu z logów i do tymczasowej blokady instalatora Matomo
-umask 077
-HASLO=$(openssl rand -base64 18)
-htpasswd -bc /etc/nginx/revagy-logi.htpasswd wlasciciel "$HASLO"
-chown root:www-data /etc/nginx/revagy-logi.htpasswd && chmod 640 /etc/nginx/revagy-logi.htpasswd
-printf 'Raport z logów i instalator Matomo (stats.revagy.pl)\nlogin: wlasciciel\nhasło: %s\n' "$HASLO" > /root/revagy-dostepy.txt
-chmod 600 /root/revagy-dostepy.txt; unset HASLO; umask 022
-
-# blokada instalatora Matomo do czasu, aż właściciel założy konto
-printf 'auth_basic "REVAGY instalacja";\nauth_basic_user_file /etc/nginx/revagy-logi.htpasswd;\n' > /etc/nginx/revagy-stats-blokada.conf
-
-install -m 644 "$WORK/repo/deploy/nginx/revagy-naglowki.conf" /etc/nginx/snippets/revagy-naglowki.conf
-install -m 644 "$WORK/repo/deploy/logrotate/revagy-nginx" /etc/logrotate.d/revagy-nginx
-mkdir -p /var/www/revagy-logi
-sh "$WORK/repo/deploy/wydanie.sh" "$WORK/repo/site" "$SHA"
-install -m 644 "$WORK/repo/deploy/nginx/revagy.pl.conf" /etc/nginx/sites-available/revagy.pl.conf
-nginx -t && systemctl reload nginx
+OLD_SHA="<OCZEKIWANY_BIEZACY_SHA_Z_ZATWIERDZENIA>"
+NEW_SHA="<PELNY_SHA_ZATWIERDZONEGO_COMMITA>"
+sudo sh deploy/wydanie.sh \
+  "<sciezka-do-dist>" \
+  "$NEW_SHA" \
+  "$OLD_SHA" \
+  "<sciezka-do-manifestu-dist>" \
+  "<sha256-manifestu-dist>"
 ```
 
-Kontrola (wszystkie wartości muszą się zgadzać):
+Uwaga dotycząca trwałości: zmiana symlinka `mv -Tf` daje atomową widoczność w POSIX na tym samym systemie plików. Dla pełnej trwałości po awarii zasilania wykonaj opcjonalnie `sync /var/www/revagy.pl /var/www/revagy.pl/releases/"$NEW_SHA" /var/www/revagy.pl/manifests/"$NEW_SHA.sha256"`.
+
+4. Zweryfikuj stan na dysku:
 
 ```bash
-curl -sI http://www.revagy.pl/x | grep -iE '^HTTP|^location'          # 301 → https://revagy.pl/x
-curl -sI https://www.revagy.pl/x | grep -iE '^HTTP|^location'         # 301 → https://revagy.pl/x
-curl -sI https://revagy.pl/ | grep -iE '^HTTP|content-security|strict-transport|cache-control'   # 200, CSP, HSTS, no-cache
-curl -s -o /dev/null -w '%{http_code}\n' https://revagy.pl/brak-strony                  # 404
-curl -s https://revagy.pl/brak-strony | grep -c 'BŁĄD 404'                              # 1
-curl -s -o /dev/null -w '%{http_code}\n' https://revagy.pl/.git/config                  # 403
-curl -sI https://revagy.pl/assets/video/hero-flow.mp4 | grep -iE '^HTTP|content-type'   # 200, video/mp4
-curl -sI https://revagy.pl/site.webmanifest | grep -i content-type                      # application/manifest+json
-curl -s -o /dev/null -w '%{http_code}\n' https://stats.revagy.pl/logi/                  # 401
-tail -n 3 /var/log/nginx/revagy/access.log    # pierwsze pole to prawdziwy adres IP klienta, nie 127.0.0.1
+readlink -f /var/www/revagy.pl/current
+diff -qr "<sciezka-do-dist>" /var/www/revagy.pl/current
 ```
 
-FAZA 5. MATOMO
+---
+
+## Faza 4. Kontrola po publikacji i hosty współdzielone
+
+1. Powtórz wszystkie kontrole HTTP z Fazy 0 dla `revagy.pl`, `www.revagy.pl`, `stats.revagy.pl`.
+2. Uruchom test dymny (z atrapą Matomo) przeciwko produkcji:
 
 ```bash
-mkdir -p /opt/revagy/matomo
-install -m 644 "$WORK/repo/deploy/matomo/docker-compose.yml" /opt/revagy/matomo/docker-compose.yml
-cd /opt/revagy/matomo
-[ -f .env ] || ( umask 077; printf 'MATOMO_DB_PASSWORD=%s\nMATOMO_DB_ROOT_PASSWORD=%s\n' "$(openssl rand -hex 24)" "$(openssl rand -hex 24)" > .env )
-docker compose up -d
-docker compose ps                                                   # db: healthy, app: running
-curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8090/     # 200
+node tools/smoke-test.cjs https://revagy.pl
 ```
 
-Teraz zatrzymaj się i poproś właściciela o wykonanie instalatora w przeglądarce. Przekaż mu dokładnie to:
+3. Potwierdź brak wpływu na domeny współdzielone:
+   - `skoben.pl`: `200` i identyczny hash zdekompresowanej treści jak w baseline,
+   - `skibilabs.pl`: `200` i identyczny hash zdekompresowanej treści jak w baseline,
+   - `sms-dlr.skibilabs.pl`: `GET /` nadal `404`, `systemctl is-active sms-dlr.service` = `active`,
+   - `stats.revagy.pl`: `200` dla `/` i `/matomo.js`, `401` dla `/logi/`.
 
-> 1. Odczytaj hasło: `sudo cat /root/revagy-dostepy.txt`.
-> 2. Otwórz `https://stats.revagy.pl` i zaloguj się w okienku przeglądarki (login `wlasciciel`).
-> 3. Przejdź instalator przyciskiem „Next”: kontrola systemu, baza danych (pola są już wypełnione,
->    niczego nie zmieniaj), tworzenie tabel.
-> 4. Załóż konto administratora: własny login, własne mocne hasło, własny e-mail.
-> 5. Dodaj stronę: nazwa `revagy.pl`, adres `https://revagy.pl`, strefa czasowa „Poland - Warsaw”
->    (bez wybranej strefy instalator nie przejdzie dalej), „Not an Ecommerce site”.
-> 6. Ekran z kodem śledzenia pomiń („Next”), kod jest już na stronie. Zakończ instalację.
-> 7. Napisz mi: „Matomo zainstalowane”.
+---
 
-Po potwierdzeniu właściciela:
+## Faza 5. Procedura natychmiastowego rollbacku
+
+Jeśli zawiedzie jakakolwiek kontrola krytyczna (CTA, kalkulator, menu, zgoda, assety, CSP, 404), nie naprawiaj na żywym katalogu — wykonaj natychmiastowy rollback:
 
 ```bash
-cd /opt/revagy/matomo
-C="docker compose exec -T -u www-data app php /var/www/html/console"
-$C config:get --section=General --key=proxy_client_headers     # oczekiwane: ["HTTP_X_FORWARDED_FOR"]
-# jeśli puste: $C config:set 'General.proxy_client_headers=["HTTP_X_FORWARDED_FOR"]'
-$C config:set --section=General --key=force_ssl --value=1
-$C config:set --section=General --key=assume_secure_protocol --value=1
-( . ./.env; docker compose exec -T db mariadb -umatomo -p"$MATOMO_DB_PASSWORD" matomo -e "SELECT idsite, name, main_url FROM matomo_site" )
+sudo sh deploy/wydanie.sh --rollback \
+  "<OLD_SHA>" \
+  "<NEW_SHA>" \
+  "<sciezka-do-manifestu-rollbacku>" \
+  "<sha256-manifestu-rollbacku>"
 ```
 
-Strona musi mieć `idsite = 1` i adres `https://revagy.pl`. Skrypt na stronie ma wpisany identyfikator 1.
-Jeśli identyfikator jest inny, zatrzymaj się i zgłoś to, niczego nie poprawiaj.
-
-Zdejmij blokadę instalatora i włącz archiwizację raportów:
-
-```bash
-unlink /etc/nginx/revagy-stats-blokada.conf
-nginx -t && systemctl reload nginx
-printf '7 * * * * root cd /opt/revagy/matomo && docker compose exec -T -u www-data app php /var/www/html/console core:archive --url=https://stats.revagy.pl > /var/log/revagy-matomo-archive.log 2>&1\n' > /etc/cron.d/revagy-matomo
-curl -s -o /dev/null -w '%{http_code}\n' https://stats.revagy.pl/matomo.js      # 200
-```
-
-Kontrola zapisu adresu IP. Wyślij jedno próbne żądanie z zewnątrz (albo poproś właściciela o wejście
-na `https://revagy.pl` i kliknięcie „Zgadzam się”), potem sprawdź ostatnią wizytę:
-
-```bash
-( . ./.env; docker compose exec -T db mariadb -umatomo -p"$MATOMO_DB_PASSWORD" matomo -e "SELECT idvisit, INET6_NTOA(location_ip) AS ip, visit_total_actions FROM matomo_log_visit ORDER BY idvisit DESC LIMIT 3" )
-```
-
-Adres nie może być z zakresu `172.x` ani `127.x` (to oznaczałoby, że Matomo widzi nginx zamiast klienta).
-Świeża instalacja Matomo zeruje końcówkę adresu (np. `83.12.0.0`). To ustawienie zmienia właściciel, patrz raport.
-
-FAZA 6. RAPORT Z LOGÓW SERWERA
-
-```bash
-install -m 755 "$WORK/repo/deploy/goaccess/revagy-logi-raport.sh" /usr/local/bin/revagy-logi-raport.sh
-printf '*/10 * * * * root /usr/local/bin/revagy-logi-raport.sh >/dev/null 2>&1\n' > /etc/cron.d/revagy-logi
-/usr/local/bin/revagy-logi-raport.sh && ls -la /var/www/revagy-logi/index.html
-logrotate -d /etc/logrotate.d/revagy-nginx 2>&1 | grep -iE 'error|rotating pattern'    # bez błędów, 90 rotacji
-```
-
-FAZA 7. KONTROLA KOŃCOWA
-
-```bash
-certbot renew --dry-run 2>&1 | tail -n 3
-systemctl is-enabled nginx docker
-curl -s -o /dev/null -w '%{http_code} %{time_total}s\n' https://revagy.pl/
-```
-
-Jeśli na serwerze jest Node.js z Playwrightem, uruchom test dymny z kopii repozytorium:
-`node "$WORK/repo/tools/smoke-test.cjs" https://revagy.pl` (oczekiwane: 0 błędów; test nie zapisuje
-niczego w statystykach). Jeśli nie ma, pomiń i zaznacz to w raporcie. Nie instaluj ich w tym celu.
-
-Na koniec usuń katalog tymczasowy z kopią repozytorium (`$WORK`). Wydanie strony zostaje w
-`/var/www/revagy.pl/releases/`.
-
-RAPORT DLA WŁAŚCICIELA
-
-Krótko, w punktach:
-- wdrożony commit (`SHA`) i ścieżka wydania,
-- wynik każdej kontroli z faz 4–7 (wartość oczekiwana i faktyczna),
-- co zostało zainstalowane lub zmienione poza katalogami `revagy` (pakiety, reguły zapory),
-- ostrzeżenia z rozpoznania (np. brak MX),
-- gdzie są dostępy: `/root/revagy-dostepy.txt`,
-- czego nie udało się sprawdzić.
-
-Dopisz właścicielowi trzy rzeczy do zrobienia w panelu Matomo (`https://stats.revagy.pl`):
-1. Pełne adresy IP: ikona koła zębatego (Administration) → Privacy → Anonymize data → odznacz
-   „Anonymize Visitors' IP addresses”. Bez tego Matomo zapisuje adresy z wyzerowaną końcówką.
-   (Nazwy podane po angielsku; w polskiej wersji panelu to dział „Prywatność”.)
-2. Przechowywanie: na tym samym ekranie włącz „Regularly delete old raw data” z progiem 395 dni
-   (polityka prywatności strony deklaruje 13 miesięcy).
-3. Raport z logów serwera (pełne IP i user agent każdego żądania, także botów):
-   `https://stats.revagy.pl/logi/`, login i hasło w `/root/revagy-dostepy.txt`.
-
-COFNIĘCIE ZMIAN
-
-- Poprzednia wersja strony: `ln -sfn /var/www/revagy.pl/releases/<stary sha> /var/www/revagy.pl/current`.
-- Wyłączenie strony: `unlink /etc/nginx/sites-enabled/revagy.pl.conf && nginx -t && systemctl reload nginx`.
-- Zatrzymanie Matomo bez utraty danych: `cd /opt/revagy/matomo && docker compose stop`.
-- Niczego nie usuwaj bez zgody właściciela, w szczególności wolumenów Dockera z danymi Matomo.
-
-KOLEJNE WDROŻENIA
-
-Po każdej zmianie strony na `main`: faza 2, potem
-`sh "$WORK/repo/deploy/wydanie.sh" "$WORK/repo/site" "$SHA"` i kontrola `curl` z fazy 4.
-Konfigurację nginx instalujesz ponownie tylko wtedy, gdy zmieniły się pliki w `deploy/nginx/`.
+Po rollbacku sprawdź `readlink -f /var/www/revagy.pl/current` oraz powtórz kontrole HTTP i `node tools/smoke-test.cjs https://revagy.pl`.
+Rollback HTML cofa wyłącznie wskazanie `/var/www/revagy.pl/current` i nie cofa ewentualnych zmian w Caddy/nginx ani trwających sesji otwartych w przeglądarkach.

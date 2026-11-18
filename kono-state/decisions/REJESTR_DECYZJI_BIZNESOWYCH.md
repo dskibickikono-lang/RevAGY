@@ -17,6 +17,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-007 | 2026-11-13 | Nazwa firmy na stronie pozostaje REVAGY. Dane rejestrowe (NIP, REGON, adres, właściciel) pochodzą ze zdjęcia przekazanego przez właściciela. | właściciel („Nazwa firmy pozostaje REVAGY”, „Dane firmy w zdjęciu”) | obowiązuje |
 | D-008 | 2026-11-13 | Strona ma mieć darmową analitykę: skąd wchodzą odwiedzający, co klikają, ile czasu spędzają, z jakich IP i przeglądarek. | właściciel | obowiązuje |
 | D-009 | 2026-11-13 | Wartości domyślne z planu T-002 przyjęte bez zmian: kontakt `kontakt@revagy.pl`, liczby na stronie bez zmian, pakiety bez cen. | właściciel („Akceptuję”) | obowiązuje |
+| D-010 | 2026-11-17 | Strona zostaje na Astro (migracja z PR #2); w planie blogi i podstrony. Build wyłącznie w CI (GitHub Actions, Node 22), VPS dostaje gotowy artefakt i nie buduje — jak `web-skoben` i `web-skibilabs`. | właściciel („Astro zostaje zaraz wjeżdżamy z blogami i podstronami”, „Lecisz ze wszystkim”) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 
