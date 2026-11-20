@@ -17,6 +17,29 @@
       .replace(/ł/g, 'l')
       .trim();
 
+  /* ---------- 0. Atrybucja pierwszego wejścia w sesji (fg_first_touch dla formularza lead.v1) ---------- */
+  const touchNames = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'referrer', 'landing_path'];
+  const singleLine = (value, max) => String(value || '').replace(/[\r\n]/g, '').slice(0, max);
+  const cleanTouch = (data) =>
+    Object.fromEntries(
+      touchNames
+        .filter((n) => typeof data?.[n] === 'string')
+        .map((n) => [n, singleLine(data[n], n.startsWith('utm_') ? 100 : 300)])
+    );
+  try {
+    if (!sessionStorage.getItem('fg_first_touch')) {
+      const params = new URLSearchParams(location.search);
+      const firstTouch = cleanTouch({
+        ...Object.fromEntries(params),
+        referrer: document.referrer,
+        landing_path: location.pathname,
+      });
+      sessionStorage.setItem('fg_first_touch', JSON.stringify(firstTouch));
+    }
+  } catch (_) {
+    /* Przy zablokowanej pamięci sesji pomijamy zapis. */
+  }
+
   /* ---------- 1. Nagłówek, dropdowny, menu mobilne i pasek postępu ---------- */
   const header = $('.site-header');
   const progressBar = $('[data-scroll-progress], .scroll-progress-bar');
@@ -110,7 +133,8 @@
     const rail = $('.journey-rail');
     if (!rail) return;
 
-    const rawSections = $$('[data-step-label], main > section', document);
+    const labelledSections = $$('[data-step-label]', document);
+    const rawSections = labelledSections.length > 0 ? labelledSections : $$('main > section', document);
     const sections = [];
     const seen = new Set();
     rawSections.forEach((sec) => {
@@ -134,7 +158,6 @@
     const dotsWrap = $('.journey-dots', rail);
     if (dotsWrap && dotsWrap.children.length === 0) {
       dotsWrap.innerHTML = sections
-        .slice(0, 12)
         .map(
           (s, i) =>
             `<button type="button" class="journey-dot${i === 0 ? ' is-active' : ''}" data-journey-dot="${i}" aria-label="Przejdź do sekcji ${i + 1}: ${s.label.replace(/"/g, '&quot;')}"></button>`
@@ -164,7 +187,7 @@
       currentIdx = best;
       if (countEl) countEl.textContent = `Krok ${best + 1} z ${sections.length}`;
       if (labelEl) labelEl.textContent = sections[best].label;
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === Math.min(best, dots.length - 1)));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === best));
       if (nextBtn) {
         const isLast = best >= sections.length - 1;
         nextBtn.textContent = isLast ? 'Na górę ↑' : 'Następny krok →';
@@ -594,70 +617,92 @@
   });
 
   /* ---------- 14. [data-filter-group] (Filtrowanie kart na /realizacje) ---------- */
-  $$('[data-filter-group]').forEach((group) => {
-    const buttons = $$('button[data-filter], [data-filter]', group).filter((el) => el.matches('button, [role="tab"]'));
-    if (buttons.length === 0) return;
+  const initFilterGroups = () => {
+    $$('[data-filter-group]').forEach((group) => {
+      const buttons = $$('button[data-filter], [data-filter]', group).filter((el) => el.matches('button, [role="tab"]'));
+      if (buttons.length === 0) return;
 
-    const findCards = () => {
-      let cards = $$('[data-status], [data-category], [data-filter-item]', group).filter(
-        (el) => !buttons.includes(el)
-      );
-      if (cards.length === 0) {
-        const section = group.closest('section') || $('main') || document;
-        cards = $$('[data-status], [data-category], [data-filter-item]', section).filter(
-          (el) => !buttons.includes(el) && !group.contains(el)
+      const findCards = () => {
+        let cards = $$('[data-status], [data-category], [data-filter-item]', group).filter(
+          (el) => !buttons.includes(el)
         );
-      }
-      return cards;
-    };
+        if (cards.length === 0) {
+          const section = group.closest('section') || $('main') || document;
+          cards = $$('[data-status], [data-category], [data-filter-item]', section).filter(
+            (el) => !buttons.includes(el) && !group.contains(el)
+          );
+        }
+        return cards;
+      };
 
-    const matchesFilter = (cardVal, filterVal) => {
-      const f = norm(filterVal);
-      if (!f || f === 'all' || f === 'wszystkie' || f === '*') return true;
-      const c = norm(cardVal);
-      if (!c) return false;
-      const tokens = c.split(/[\s,|;/]+/);
-      if (tokens.includes(f) || c.includes(f)) return true;
-      if ((f === 'produkcja' || f === 'prod') && (c.includes('prod') || c.includes('produkcja'))) return true;
-      if ((f === 'pilotaz' || f === 'pilot') && (c.includes('pilot') || c.includes('shadow'))) return true;
-      if ((f === 'w-trakcie' || f === 'w trakcie' || f === 'wip' || f === 'trakcie') && (c.includes('wip') || c.includes('trakcie'))) return true;
-      return false;
-    };
+      const matchesFilter = (cardVal, filterVal) => {
+        const f = norm(filterVal);
+        if (!f || f === 'all' || f === 'wszystkie' || f === '*') return true;
+        const c = norm(cardVal);
+        if (!c) return false;
+        const tokens = c.split(/[\s,|;/]+/);
+        if (tokens.includes(f) || c.includes(f)) return true;
+        if ((f === 'produkcja' || f === 'prod') && (c.includes('prod') || c.includes('produkcja'))) return true;
+        if ((f === 'pilotaz' || f === 'pilot') && (c.includes('pilot') || c.includes('shadow'))) return true;
+        if ((f === 'w-trakcie' || f === 'w trakcie' || f === 'wip' || f === 'trakcie') && (c.includes('wip') || c.includes('trakcie'))) return true;
+        return false;
+      };
 
-    const applyFilter = (activeBtn) => {
-      const rawFilter =
-        activeBtn.dataset.filter ||
-        activeBtn.dataset.status ||
-        activeBtn.textContent.replace(/\(\d+\)/g, '').trim();
+      const updateCounts = (cards, visibleCount) => {
+        $$('[data-filter-count]', group).forEach((el) => {
+          const key = (el.dataset.filterCount || '').trim();
+          if (!key) {
+            el.textContent = String(visibleCount);
+          } else if (key === 'all') {
+            el.textContent = String(cards.length);
+          } else {
+            const count = cards.filter((card) => {
+              const itemVal = card.dataset.filterItem || card.dataset.status || card.dataset.category || '';
+              return itemVal === key || matchesFilter(itemVal, key);
+            }).length;
+            el.textContent = String(count);
+          }
+        });
+      };
+
+      const initialCards = findCards();
+      updateCounts(initialCards, initialCards.length);
+
+      const applyFilter = (activeBtn) => {
+        const rawFilter =
+          activeBtn.dataset.filter ||
+          activeBtn.dataset.status ||
+          activeBtn.textContent.replace(/\(\d+\)/g, '').trim();
+        buttons.forEach((btn) => {
+          const isCurrent = btn === activeBtn;
+          btn.classList.toggle('is-active', isCurrent);
+          if (btn.hasAttribute('aria-selected')) {
+            btn.setAttribute('aria-selected', String(isCurrent));
+          }
+          if (btn.hasAttribute('aria-pressed')) {
+            btn.setAttribute('aria-pressed', String(isCurrent));
+          }
+        });
+
+        const cards = findCards();
+        let visibleCount = 0;
+        cards.forEach((card) => {
+          const status = card.dataset.status || card.dataset.category || card.dataset.filterItem || '';
+          const show = matchesFilter(status, rawFilter);
+          card.hidden = !show;
+          card.classList.toggle('is-filtered-out', !show);
+          if (show) visibleCount += 1;
+        });
+
+        updateCounts(cards, visibleCount);
+      };
+
       buttons.forEach((btn) => {
-        const isCurrent = btn === activeBtn;
-        btn.classList.toggle('is-active', isCurrent);
-        if (btn.hasAttribute('aria-selected')) {
-          btn.setAttribute('aria-selected', String(isCurrent));
-        }
-        if (btn.hasAttribute('aria-pressed')) {
-          btn.setAttribute('aria-pressed', String(isCurrent));
-        }
+        btn.addEventListener('click', () => applyFilter(btn));
       });
-
-      const cards = findCards();
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const status = card.dataset.status || card.dataset.category || card.dataset.filterItem || '';
-        const show = matchesFilter(status, rawFilter);
-        card.hidden = !show;
-        card.classList.toggle('is-filtered-out', !show);
-        if (show) visibleCount += 1;
-      });
-
-      const countEl = $('[data-filter-count]', group.closest('section') || document);
-      if (countEl) countEl.textContent = String(visibleCount);
-    };
-
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => applyFilter(btn));
     });
-  });
+  };
+  initFilterGroups();
 
   /* ---------- 15. [data-tabs] (Moduły Grupy KONO, 5 Triggerów APT, Soczewki /porownanie, Symulator Tabletu) ---------- */
   $$('[data-tabs]').forEach((tabsRoot) => {

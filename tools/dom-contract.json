@@ -2,8 +2,8 @@
   "baselineCommit": "dc8221716605a74aa71657a531a120f618f0975b",
   "publicFiles": {
     "assets/css/styles.css": {
-      "sha256": "6770668439e51a2135980e00ddedd61c2c7411784aa40bb6131ae3ee4efe4649",
-      "size": 84395
+      "sha256": "d289f7b778ad1c60f26a080919fd876c8675a6d36a2eaae01d66c605a311d215",
+      "size": 84457
     },
     "assets/fonts/LICENSE-instrument-sans.txt": {
       "sha256": "c27a3c53c3beed7f5c26853afa15991478ff7145d3754a36b0382f84e10c0d03",
@@ -66,12 +66,12 @@
       "size": 8296
     },
     "assets/js/app.js": {
-      "sha256": "dc64e3ae72636e3b370762f1d8b2ad3e522f60412254dce251546d98a7d148a8",
-      "size": 29019
+      "sha256": "1232dbe47af7eb30f010af967c06ccb6926630ea741832861926d2e3e24429d6",
+      "size": 30901
     },
     "assets/js/kontakt.js": {
-      "sha256": "eeb8eb316a2592de7561b8053346cac9fb1a159f05f972747b82a6f2e47f96af",
-      "size": 10756
+      "sha256": "7b7da671eb235b9840cc67072c66ff4e8cf0a5b3926e17f4425f391a47ce5fc0",
+      "size": 12043
     },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
@@ -172,8 +172,8 @@
       "size": 23974
     },
     "realizacje.html": {
-      "sha256": "eafe6ef4acf03d67c6d2747278a863d11bc2c2c2c6ebc5277f3f23ae3618b51c",
-      "size": 31513
+      "sha256": "9785fb6d72a458797c76721bf885ab07c5e53715d8143878fa417278ba5f112d",
+      "size": 31677
     }
   },
   "pages": {
@@ -12969,6 +12969,16 @@
           }
         },
         {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-filter-count": "all"
+          },
+          "aria": {}
+        },
+        {
           "tag": "button",
           "id": null,
           "name": null,
@@ -12980,6 +12990,16 @@
           "aria": {
             "aria-selected": "false"
           }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-filter-count": "produkcja"
+          },
+          "aria": {}
         },
         {
           "tag": "button",
@@ -12995,6 +13015,16 @@
           }
         },
         {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-filter-count": "pilotaz"
+          },
+          "aria": {}
+        },
+        {
           "tag": "button",
           "id": null,
           "name": null,
@@ -13006,6 +13036,16 @@
           "aria": {
             "aria-selected": "false"
           }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-filter-count": "w-trakcie"
+          },
+          "aria": {}
         },
         {
           "tag": "article",

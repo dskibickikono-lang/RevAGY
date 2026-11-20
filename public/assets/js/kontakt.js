@@ -7,6 +7,7 @@
   const button = form.querySelector('[type="submit"]');
   const names = ['name', 'email', 'company', 'phone', 'topic', 'volume', 'message'];
   const fields = Object.fromEntries(names.map((name) => [name, form.elements.namedItem(name)]));
+  const hasField = (name) => Object.prototype.hasOwnProperty.call(fields, name);
   const genericError = 'Nie udało się wysłać. Spróbuj ponownie albo napisz:';
   const challengeError = document.getElementById('kontakt-challenge-error');
   const started = Date.now();
@@ -14,7 +15,32 @@
   let previousContent = null;
   let sending = false;
   let widgetId;
-  let loading;
+  let loading = null;
+  let tokenPromise = null;
+  let resolveToken = null;
+
+  function armToken() {
+    tokenPromise = new Promise((resolve) => {
+      resolveToken = resolve;
+    });
+  }
+  function settleToken(value) {
+    if (resolveToken) {
+      const resolve = resolveToken;
+      resolveToken = null;
+      resolve(value);
+    }
+  }
+  function waitForToken(ms = 15000) {
+    if (!tokenPromise) return Promise.resolve(null);
+    return new Promise((resolve) => {
+      const timer = setTimeout(() => resolve(null), ms);
+      tokenPromise.then((tok) => {
+        clearTimeout(timer);
+        resolve(tok || null);
+      });
+    });
+  }
 
   function say(text, mail = false) {
     status.textContent = text;
@@ -58,7 +84,13 @@
   }
   function resetChallenge() {
     if (window.turnstile && widgetId !== undefined) {
-      try { window.turnstile.reset(widgetId); } catch (_) { challengeUnavailable(); }
+      try {
+        armToken();
+        window.turnstile.reset(widgetId);
+      } catch (_) {
+        settleToken(null);
+        challengeUnavailable();
+      }
     }
   }
   function loadChallenge() {
@@ -70,7 +102,12 @@
         if (finished) return;
         finished = true;
         clearTimeout(timer);
-        if (!ok) challengeUnavailable();
+        if (!ok) {
+          loading = null;
+          script.remove();
+          settleToken(null);
+          challengeUnavailable();
+        }
         resolve(ok);
       };
       const timer = setTimeout(() => finish(false), 20000);
@@ -80,14 +117,22 @@
       script.onload = () => {
         if (finished) return;
         try {
+          armToken();
           widgetId = window.turnstile.render('#kontakt-challenge', {
             sitekey: form.dataset.sitekey,
             action: 'kontakt-revagy', language: 'pl', appearance: 'interaction-only',
             theme: 'dark', size: 'compact',
-            callback: () => { challengeError.textContent = ''; },
+            callback: (tok) => {
+              challengeError.textContent = '';
+              settleToken(tok || (window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '') || null);
+            },
             'expired-callback': resetChallenge,
             'timeout-callback': resetChallenge,
-            'error-callback': () => { challengeUnavailable(); return true; },
+            'error-callback': () => {
+              settleToken(null);
+              challengeUnavailable();
+              return true;
+            },
           });
           finish(true);
         } catch (_) { finish(false); }
@@ -96,7 +141,7 @@
     });
     return loading;
   }
-  form.addEventListener('focusin', loadChallenge, { once: true });
+  form.addEventListener('focusin', loadChallenge);
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       if (entries.some((entry) => entry.isIntersecting)) {
@@ -117,7 +162,7 @@
     message: 'Wiadomość może mieć najwyżej 4000 znaków.',
   };
   function markError(name) {
-    if (!Object.hasOwn(fields, name)) return false;
+    if (!hasField(name)) return false;
     fields[name].setAttribute('aria-invalid', 'true');
     document.getElementById(`kontakt-${name}-error`).textContent = errors[name];
     return true;
@@ -162,6 +207,9 @@
       return;
     }
     body.name = body.name.trim();
+    body.email = body.email.trim();
+    body.company = body.company.trim();
+    if (body.phone) body.phone = body.phone.trim();
     // Opcjonalne pola z enumem lub wzorcem pomijamy, gdy są puste.
     if (!body.phone) delete body.phone;
     if (!body.volume) delete body.volume;
@@ -177,7 +225,8 @@
     let timeout;
     try {
       if (!await loadChallenge()) return;
-      const token = window.turnstile.getResponse(widgetId);
+      let token = window.turnstile.getResponse(widgetId);
+      if (!token) token = (await waitForToken(15000)) || window.turnstile.getResponse(widgetId);
       if (!token || token.length > 2048 || /[\r\n]/.test(token)) {
         challengeError.textContent = 'Potwierdź, że nie jesteś botem, i wyślij ponownie.';
         say(challengeError.textContent);
@@ -206,24 +255,28 @@
         say('Dziękujemy, zapytanie dotarło. Odpiszemy w ciągu jednego dnia roboczego. Potwierdzenie wyślemy na podany adres e-mail.');
         status.focus();
         document.dispatchEvent(new CustomEvent('lead:accepted', { detail: { lead_id: data.lead_id } }));
-      } else if (code === 400 && data?.error === 'validation') {
-        const rejected = Array.isArray(data.fields) ? data.fields : [];
-        rejected.forEach(markError);
-        if (rejected.includes('cf-turnstile-response')) resetChallenge();
-        say(rejected.some((name) => Object.hasOwn(fields, name)) ? 'Sprawdź zaznaczone pola.' : genericError, !rejected.some((name) => Object.hasOwn(fields, name)));
-        focusError();
-      } else if (code === 400 && data?.error === 'challenge_failed') {
+      } else {
         resetChallenge();
-        say('Potwierdź, że nie jesteś botem, i wyślij ponownie.');
-      } else if (code === 409 && data?.error === 'notice_outdated') {
-        say('Odśwież stronę i wyślij ponownie — zaktualizowaliśmy informację o danych. Wpisana treść zostanie w formularzu, jeśli nie zamkniesz karty.');
-      } else if (code === 409 && data?.error === 'idempotency_conflict') {
-        key = null;
-        say('Wyślij zapytanie ponownie. Wpisana treść została zachowana.');
-      } else if (code === 413) say('Wiadomość jest za długa.');
-      else if (code === 429) say('Za dużo prób. Spróbuj za minutę albo napisz:', true);
-      else say(genericError, true);
-    } catch (_) { say(genericError, true); }
+        if (code === 400 && data?.error === 'validation') {
+          const rejected = Array.isArray(data.fields) ? data.fields : [];
+          rejected.forEach(markError);
+          say(rejected.some(hasField) ? 'Sprawdź zaznaczone pola.' : genericError, !rejected.some(hasField));
+          focusError();
+        } else if (code === 400 && data?.error === 'challenge_failed') {
+          say('Potwierdź, że nie jesteś botem, i wyślij ponownie.');
+        } else if (code === 409 && data?.error === 'notice_outdated') {
+          say('Odśwież stronę i wyślij ponownie — zaktualizowaliśmy informację o danych. Wpisana treść zostanie w formularzu, jeśli nie zamkniesz karty.');
+        } else if (code === 409 && data?.error === 'idempotency_conflict') {
+          key = null;
+          say('Wyślij zapytanie ponownie. Wpisana treść została zachowana.');
+        } else if (code === 413) say('Wiadomość jest za długa.');
+        else if (code === 429) say('Za dużo prób. Spróbuj za minutę albo napisz:', true);
+        else say(genericError, true);
+      }
+    } catch (_) {
+      resetChallenge();
+      say(genericError, true);
+    }
     finally {
       clearTimeout(timeout);
       sending = false;

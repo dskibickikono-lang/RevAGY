@@ -22,10 +22,30 @@ const mock = `(() => {
       iframe.title = 'Ochrona przed spamem';
       iframe.width = '150'; iframe.height = '140';
       document.querySelector(selector).append(iframe);
-      options.callback(token);
+      if (window.__delayTurnstileMs) {
+        token = '';
+        setTimeout(() => {
+          token = 'delayed-turnstile-token';
+          options.callback(token);
+        }, window.__delayTurnstileMs);
+      } else {
+        options.callback(token);
+      }
       return 'test-widget';
     },
-    reset() { window.__resets++; token = 'test-turnstile-token'; window.__turnstileOptions.callback(token); },
+    reset() {
+      window.__resets++;
+      if (window.__delayTurnstileMs) {
+        token = '';
+        setTimeout(() => {
+          token = 'delayed-turnstile-token';
+          window.__turnstileOptions.callback(token);
+        }, window.__delayTurnstileMs);
+      } else {
+        token = 'test-turnstile-token';
+        window.__turnstileOptions.callback(token);
+      }
+    },
     getResponse() { return token; }
   };
 })();`;
@@ -122,7 +142,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     async function fill() {
       await page.locator('#kontakt-name').fill('Osoba Testowa');
       await page.locator('#kontakt-email').fill('test@example.com');
-      await page.locator('#kontakt-company').fill('Firma Testowa');
+      await page.locator('#kontakt-company').fill('  Firma Testowa  ');
       await page.locator('#kontakt-phone').fill('+48 123 456 789');
       await page.locator('#kontakt-topic').selectOption('audyt');
       await page.locator('#kontakt-volume').selectOption('50-200');
@@ -154,6 +174,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(await page.evaluate(() => document.activeElement.id), 'kontakt-phone');
     await page.locator('#kontakt-phone').fill('+48 123 456 789');
     await send(503, { error: 'queue_full' });
+    assert.equal(await page.evaluate(() => window.__resets), 1);
     assert.equal(await status.locator('a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
     const first = requests[0];
     assert.equal(first.method, 'POST');
@@ -163,6 +184,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.deepEqual(Object.keys(first.body).sort(), ['schema_version', 'name', 'email', 'company', 'phone', 'topic', 'volume', 'message', 'website', 'notice_version', 'cf-turnstile-response', 't_ms', 'utm_source', 'utm_campaign', 'utm_content', 'referrer', 'landing_path'].sort());
     assert.equal(first.body.schema_version, 'lead.v1');
     assert.equal(first.body.notice_version, 'revagy-2026-11-v1');
+    assert.equal(first.body.company, 'Firma Testowa');
     assert.equal(first.body.website, '');
     assert.equal(first.body['cf-turnstile-response'], 'test-turnstile-token');
     assert.ok(Number.isInteger(first.body.t_ms) && first.body.t_ms >= 0);
@@ -175,7 +197,9 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(await page.locator('#kontakt-message-count').textContent(), first.body.message.length + ' / 4000 znaków');
     ok('walidacja lokalna, klawiatura i pełny kontrakt JSON/UUID/Origin/UTM');
     for (const [code, data] of [[429, {}], [503, { error: 'challenge_unavailable' }], [403, { error: 'origin_not_allowed' }], [500, {}], [502, {}], ['network', {}]]) {
+      const resetsBefore = await page.evaluate(() => window.__resets);
       await send(code, data);
+      assert.equal(await page.evaluate(() => window.__resets), resetsBefore + 1);
       assert.equal(await status.locator('a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
       assert.equal(await page.locator('#kontakt-message').inputValue(), first.body.message);
       assert.equal(requests.at(-1).headers['idempotency-key'], first.headers['idempotency-key']);
@@ -258,6 +282,35 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     await fail.page.goto(harness.tlsBase + '/#kontakt');
     await fail.page.waitForSelector('#kontakt-form [data-status] a');
     assert.equal(await fail.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    await fail.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await fail.page.locator('#kontakt-email').fill('test@example.com');
+    await fail.page.locator('#kontakt-company').fill('  Firma Testowa  ');
+    await fail.page.locator('#kontakt-topic').selectOption('audyt');
+    fail.state.failChallenge = false;
+    fail.state.code = 202;
+    fail.state.data = { ok: true, lead_id: leadId };
+    await fail.page.evaluate(() => { window.__delayTurnstileMs = 120; });
+    await fail.page.locator('#kontakt-form [type=submit]').click();
+    await fail.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(fail.requests.length, 1);
+    assert.equal(fail.requests[0].body.company, 'Firma Testowa');
+    assert.equal(fail.requests[0].body['cf-turnstile-response'], 'delayed-turnstile-token');
+    const subpageTouch = await setup();
+    subpageTouch.state.code = 202;
+    subpageTouch.state.data = { ok: true, lead_id: leadId };
+    await subpageTouch.page.goto(harness.tlsBase + '/dla-agencji-pracy.html?utm_source=subpage_landing&utm_campaign=hr');
+    await subpageTouch.page.goto(harness.tlsBase + '/kontakt.html');
+    await subpageTouch.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await subpageTouch.page.locator('#kontakt-email').fill('test@example.com');
+    await subpageTouch.page.locator('#kontakt-company').fill('  Firma Testowa  ');
+    await subpageTouch.page.locator('#kontakt-topic').selectOption('audyt');
+    await subpageTouch.page.locator('#kontakt-form [type=submit]').click();
+    await subpageTouch.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(subpageTouch.requests.length, 1);
+    assert.equal(subpageTouch.requests[0].body.utm_source, 'subpage_landing');
+    assert.equal(subpageTouch.requests[0].body.utm_campaign, 'hr');
+    assert.equal(subpageTouch.requests[0].body.landing_path, '/dla-agencji-pracy.html');
+    assert.equal(subpageTouch.requests[0].body.company, 'Firma Testowa');
     const privateTab = await setup();
     await privateTab.context.addInitScript(() => { Storage.prototype.setItem = () => { throw new Error('Test zablokowanej pamięci'); }; });
     await privateTab.page.goto(harness.tlsBase + '/#kontakt');
@@ -271,8 +324,8 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.ok(!Object.hasOwn(privateTab.requests[0].body, 'phone'));
     assert.ok(!Object.hasOwn(privateTab.requests[0].body, 'volume'));
     assert.equal(privateTab.requests[0].body.message, '');
-    ok('brak JavaScript/fetch, błąd ładowania Turnstile i zablokowana pamięć przeglądarki');
-    for (const item of [t, nojs, old, fail, privateTab]) {
+    ok('brak JavaScript/fetch, błąd ładowania Turnstile + ponowienie z asynchronicznym callbackiem, UTM z podstrony i zablokowana pamięć przeglądarki');
+    for (const item of [t, nojs, old, fail, subpageTouch, privateTab]) {
       assert.deepEqual(item.errors, []);
       assert.deepEqual(item.external, []);
       if (item !== nojs) assert.deepEqual(await item.page.evaluate(() => window.__violations), []);

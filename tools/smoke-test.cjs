@@ -305,6 +305,13 @@ if (require.main === module) (async () => {
       await page.keyboard.press('Escape');
       check('menu zamyka się klawiszem Esc', await page.evaluate(() => !document.querySelector('.nav-item.has-panel').classList.contains('is-open')));
 
+      const journeyDots = await page.evaluate(() => ({
+        dots: document.querySelectorAll('.journey-rail .journey-dot').length,
+        steps: document.querySelectorAll('[data-step-label]').length,
+        countText: document.querySelector('[data-journey-count]')?.textContent || '',
+      }));
+      check('pasek kroków (journey-rail) ma 14 kropek zgodnych z 14 sekcjami', journeyDots.dots === 14 && journeyDots.dots === journeyDots.steps && journeyDots.countText === 'Krok 1 z 14', JSON.stringify(journeyDots));
+
       await scrollTo(page, '#kalkulator');
       const calcDefault = await page.evaluate(() => ({
         rate: document.getElementById('calc-rate').value,
@@ -507,8 +514,24 @@ if (require.main === module) (async () => {
       const realState = await page.evaluate(() => ({
         filteredOut: document.querySelectorAll('.is-filtered-out').length,
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        labels: [...document.querySelectorAll('[data-filter-group] [data-filter]')].map((b) => b.textContent.replace(/\s+/g, ' ').trim()),
+        counts: {
+          all: document.querySelectorAll('[data-filter-group] [data-filter-item]').length,
+          produkcja: document.querySelectorAll('[data-filter-group] [data-filter-item="produkcja"]').length,
+          pilotaz: document.querySelectorAll('[data-filter-group] [data-filter-item="pilotaz"]').length,
+          wTrakcie: document.querySelectorAll('[data-filter-group] [data-filter-item="w-trakcie"]').length,
+        },
       }));
       check('podstrona /realizacje.html: 200, filtry statusów działają, 0 overflow', realRes.status() === 200 && realState.filteredOut > 0 && realState.overflow === 0, JSON.stringify(realState));
+      check(
+        'podstrona /realizacje.html: liczniki filtrów zgodne z liczbą kart (17/12/3/2)',
+        realState.labels.join(' | ') === 'Wszystkie (17) | Produkcja (12) | Pilotaż (3) | W trakcie (2)' &&
+          realState.counts.all === 17 &&
+          realState.counts.produkcja === 12 &&
+          realState.counts.pilotaz === 3 &&
+          realState.counts.wTrakcie === 2,
+        JSON.stringify(realState)
+      );
 
       // 4.3 /oferta.html (taby [data-plans])
       const ofertaRes = await page.goto(`${base}/oferta.html`, { waitUntil: 'load' });
