@@ -1,297 +1,205 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
 ---
 <BaseLayout
-  title="REVAGY — automatyzacja i AI dla firm B2B"
-  description="REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu."
+  title="REVAGY — automatyzacja i AI dla agencji pracy, firm HR i B2B"
+  description="Automatyzacja kadr, rekrutacji i obsady dla agencji pracy i firm HR. Spinamy HRappkę, nexo, TAXXO i Pipedrive — bez wymiany systemów. Pierwsza automatyzacja w 14 dni, audyt 1 990 zł z 14 dniami na pełny zwrot."
   canonical="https://revagy.pl/"
   variant="home"
+  activeNav="home"
+  showJourney={true}
+  hasForm={Boolean(TURNSTILE_SITEKEY)}
 >
 <main id="start">
 
-  <!-- HERO -->
-  <section class="hero-outer">
+  <!-- 1. HERO -->
+  <section class="hero-outer" data-step-label="01 · Start i pozycjonowanie">
     <div class="hero" data-hero>
       <div class="hero-media" data-parallax>
-        <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-flow.jpg">
-          <source src="assets/video/hero-flow.webm" type="video/webm">
-          <source src="assets/video/hero-flow.mp4" type="video/mp4">
+        <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="/assets/video/hero-flow.jpg">
+          <source src="/assets/video/hero-flow.webm" type="video/webm">
+          <source src="/assets/video/hero-flow.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <p class="chip chip-glass load-in" style="--d:0ms">Automatyzacja i AI dla firm B2B</p>
+        <p class="chip chip-glass load-in" style="--d:0ms">Automatyzacja i AI dla agencji pracy, firm HR i operacji B2B</p>
         <h1 class="display load-in" style="--d:80ms">Procesy, które robią się same</h1>
-        <p class="hero-lead load-in" style="--d:160ms">Łączymy Twój CRM, ERP i skrzynki w jeden obieg, a powtarzalną pracę oddajemy agentom AI. Zespół zajmuje się klientami, nie przepisywaniem danych.</p>
+        <p class="hero-lead load-in" style="--d:160ms">Automatyzacja kadr, rekrutacji i obsady dla agencji pracy i firm HR. Spinamy HRappkę, nexo, TAXXO i Pipedrive — bez wymiany systemów. Jeden partner od pierwszej integracji do agentów AI.</p>
+        <div class="hero-subproof load-in" style="--d:200ms">
+          <span>14 klientów (16/16 zgód na referencje)</span>
+          <span>Pierwsza automatyzacja w 14 dni</span>
+          <span>Audyt 1 990 zł · 14 dni na pełny zwrot</span>
+        </div>
         <div class="hero-cta load-in" style="--d:240ms">
-          <a class="btn btn-light btn-lg" href="#kontakt">Umów bezpłatny audyt</a>
-          <a class="btn btn-glass btn-lg" href="#film">
+          <a class="btn btn-accent btn-lg" href="#kontakt" data-track="Hero: Umów audyt (1 990 zł)">Umów audyt (1 990 zł, 14 dni na zwrot)</a>
+          <a class="btn btn-glass btn-lg" href="#film" data-track="Hero: Zobacz agenta w akcji">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor"/></svg>
             Zobacz agenta w akcji
           </a>
         </div>
+        <p class="hero-note load-in" style="--d:300ms">Audyt (3–5 dni rob.) wycenia Wasz Excel w złotówkach i jest w 100% odliczany od wdrożenia przy zamówieniu w 30 dni.</p>
       </div>
 
-      <aside class="hero-feed load-in" style="--d:420ms" aria-label="Przykładowy podgląd pracy automatyzacji">
-        <div class="feed-head"><span class="pulse" aria-hidden="true"></span>Na żywo w Twojej firmie<span class="feed-tag">przykład</span></div>
+      <aside class="hero-feed load-in" style="--d:420ms" aria-label="Podgląd na żywo z działających wdrożeń w portfolio REVAGY">
+        <div class="feed-head"><span class="pulse" aria-hidden="true"></span>Na żywo w portfolio<span class="feed-tag">14 klientów</span></div>
         <ul class="feed-list" data-feed>
-          <li><span class="feed-ico i-doc"></span><span><b>Faktura FV/11/0412</b> odczytana i zaksięgowana</span><time>teraz</time></li>
-          <li><span class="feed-ico i-lead"></span><span><b>Lead z formularza</b> zakwalifikowany, trafił do handlowca</span><time>1 min</time></li>
-          <li><span class="feed-ico i-mail"></span><span><b>Zapytanie ofertowe</b> oferta gotowa do akceptacji</span><time>3 min</time></li>
-          <li><span class="feed-ico i-box"></span><span><b>Zamówienie 58 213</b> przekazane do magazynu</span><time>6 min</time></li>
+          <li><span class="feed-ico i-doc">DOC</span><span><b>APT WORK · tablet na hali</b>Umowa → podpis → nexo i HRappka</span><time>~10 min</time></li>
+          <li><span class="feed-ico i-lead i-rose">HR</span><span><b>Personel Job · alert zezwoleń</b>Powiadomienie kadr 30 dni przed końcem</span><time>30 dni</time></li>
+          <li><span class="feed-ico i-box i-ok">ADS</span><span><b>HR KADRA · Meta → HRappka</b>Kandydat w systemie i mail zwrotny</span><time>≤ 5 min</time></li>
+          <li><span class="feed-ico i-mail i-light">CEO</span><span><b>HR KONO S.A. · pulpit grupy</b>4 publikacje dziennie w 12 s, gotowe rano</span><time>07:30</time></li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <!-- LICZBY -->
+  <!-- STATYSTYKI DOWODOWE -->
   <section class="stats wrap" aria-label="REVAGY w liczbach">
     <div class="stat reveal">
-      <p class="stat-num"><span data-count="14">14</span> dni</p>
-      <p class="stat-label">do pierwszej działającej automatyzacji</p>
+      <p class="stat-num"><span data-count="14">14</span></p>
+      <p class="stat-label">klientów w portfolio (16 podmiotów, 16/16 zgód na case study, logo i rekomendację)</p>
     </div>
     <div class="stat reveal" style="--d:70ms">
-      <p class="stat-num"><span data-count="120">120</span>+</p>
-      <p class="stat-label">systemów, które łączymy bez wymiany tego, co już masz</p>
+      <p class="stat-num"><span data-count="14">14</span> dni</p>
+      <p class="stat-label">do pierwszej działającej automatyzacji bez ruszania obecnych systemów</p>
     </div>
     <div class="stat reveal" style="--d:140ms">
-      <p class="stat-num"><span data-count="60">60</span>%</p>
-      <p class="stat-label">powtarzalnej pracy biurowej da się oddać automatom</p>
+      <p class="stat-num"><span data-count="0">0</span> / 16</p>
+      <p class="stat-label">projektów zatrzymanych przez opór zespołów — wdrażamy zmianę razem z ludźmi</p>
     </div>
     <div class="stat reveal" style="--d:210ms">
-      <p class="stat-num"><span data-count="24">24</span>/7</p>
-      <p class="stat-label">agenci AI odpowiadają także po godzinach</p>
+      <p class="stat-num"><span data-count="120">120</span>+</p>
+      <p class="stat-label">systemów łączonych przez API i webhooki: HRappka, nexo, TAXXO, Pipedrive, Comarch, enova</p>
     </div>
   </section>
 
-  <!-- MOŻLIWOŚCI: BENTO -->
-  <section class="section wrap" id="mozliwosci">
+  <!-- 2. LOGO WALL -->
+  <section class="section wrap" id="klienci" data-step-label="02 · Klienci i referencje">
+    <div class="logo-wall-box reveal">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;">
+        <div>
+          <span class="mono" style="color:var(--accent-deep);font-weight:700;">PORTFOLIO REVAGY · 10 Z 16 PROJEKTÓW TO AGENCJE PRACY I FIRMY HR</span>
+          <h2 class="h3" style="margin-top:4px;">Zaufali nam w kadrach, rekrutacji, sprzedaży B2B i operacjach</h2>
+        </div>
+        <a class="btn btn-outline" href="/realizacje.html" data-track="LogoWall: Wszystkie realizacje">Zobacz wszystkie 16 realizacji →</a>
+      </div>
+
+      <div class="logo-group-highlight">
+        <div class="logo-group-pills">
+          <span class="logo-pill logo-pill-dark">HR KONO S.A.</span>
+          <span class="logo-pill logo-pill-dark">HR KADRA (+ BIS)</span>
+          <span class="logo-pill logo-pill-dark">HR BRAND SELL</span>
+        </div>
+        <span class="mono">Grupa logo: wielokrotny klient w grupie — każdy projekt kupiony osobno (osobny discovery, design, plan i wdrożenie).</span>
+      </div>
+
+      <div class="logo-grid">
+        <span class="logo-pill">APT WORK</span>
+        <span class="logo-pill">Personel Job</span>
+        <span class="logo-pill">Kono (Grupa KONO)</span>
+        <span class="logo-pill">COMPADRES</span>
+        <span class="logo-pill">SERVUS</span>
+        <span class="logo-pill">KL DEVELOPMENT</span>
+        <span class="logo-pill">Dobra Praca PL</span>
+        <span class="logo-pill">Dobra Praca Sp. z o.o.</span>
+        <span class="logo-pill">Labor APT <span class="badge badge-pilot">Pilotaż</span></span>
+        <span class="logo-pill">KONO STAL SERVIS <span class="badge badge-pilot">Pilotaż</span></span>
+        <span class="logo-pill">HR KONO — nowy panel <span class="badge badge-pilot">Pilotaż</span></span>
+        <span class="logo-pill">Nexora <span class="badge badge-wip">W trakcie</span></span>
+        <span class="logo-pill">Personal <span class="badge badge-wip">W trakcie</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MOŻLIWOŚCI: BENTO KINETIC SHOWCASE -->
+  <section class="section wrap" id="mozliwosci" data-step-label="03 · Możliwości w akcji">
     <header class="section-head reveal">
+      <span class="kicker">Krok 1 ścieżki · Jak wygląda praca po spięciu systemów</span>
       <h2 class="h2">Jeden partner od&nbsp;pierwszej integracji do&nbsp;agentów AI</h2>
-      <p class="lead">Zaczynamy od procesu, który kosztuje Was najwięcej godzin. Potem dokładamy kolejne, na tej samej platformie i z tym samym zespołem.</p>
+      <p class="lead">Zaczynamy od procesu, który kosztuje Wasze kadry, rekrutację lub sprzedaż najwięcej godzin. Spinamy systemy, które już macie, a powtarzalne przepisywanie oddajemy automatom.</p>
     </header>
 
     <div class="bento">
       <article class="card card-mist span-7 reveal">
         <div class="card-copy">
-          <h3 class="h3">Sprzedaż, która sama się porządkuje</h3>
-          <p>Lead z formularza, maila czy LinkedIna trafia do CRM z uzupełnionymi danymi firmy, oceną i zadaniem dla handlowca.</p>
+          <span class="mono">Prod. 1 &amp; Prod. 2 · Obieg dokumentów i obsady (APT WORK)</span>
+          <h3 class="h3">Od leada i dokumentu do gotowej obsady</h3>
+          <p>Umowa z nexo trafia na tablet koordynatora na hali, a po podpisie pracownika wraca prosto do nexo i HRappki w ~10 minut zamiast ~3 dni (~12 h/tydz. mniej w kadrach).</p>
         </div>
         <div class="mock mock-pipeline" aria-hidden="true">
           <div class="pipe-col"><span class="pipe-title">Nowe</span><i></i><i></i></div>
-          <div class="pipe-col"><span class="pipe-title">Zakwalifikowane</span><i></i></div>
-          <div class="pipe-col"><span class="pipe-title">Oferta</span><i></i></div>
+          <div class="pipe-col"><span class="pipe-title">Weryfikacja</span><i></i></div>
+          <div class="pipe-col"><span class="pipe-title">W systemie</span><i></i></div>
           <div class="pipe-card">
-            <span class="pc-name">Stalmet Sp. z o.o.</span>
-            <span class="pc-meta">240 szt. · B2B · PL</span>
-            <span class="pc-badges"><em class="b1">nowy</em><em class="b2">ocena 87</em><em class="b3">oferta</em></span>
+            <span class="pc-name">APT WORK · ~40 umów/tydz.</span>
+            <span class="pc-meta">nexo → Drive → Tablet → HRappka</span>
+            <span class="pc-badges"><em class="b1">nowa umowa</em><em class="b2">podpis tablet</em><em class="b3">w systemie ~10 min</em></span>
           </div>
         </div>
       </article>
 
       <article class="card card-night span-5 reveal" style="--d:80ms">
         <div class="card-copy">
-          <h3 class="h3">Agenci AI na pierwszej linii</h3>
-          <p>Odpowiadają na zapytania, sprawdzają stany i statusy, a trudne sprawy przekazują człowiekowi z gotowym kontekstem.</p>
+          <span class="mono" style="color:var(--accent);">Prod. 6 · Rekrutacja B2C (HR KADRA)</span>
+          <h3 class="h3">Kandydat obsłużony w ≤ 5 minut</h3>
+          <p>Leady z Meta Ads wpadają do HRappki co 5 minut zamiast czekać ~48 h w arkuszu. Kandydat od razu dostaje maila, co daje ~30% więcej kontaktów tego samego dnia.</p>
         </div>
         <div class="mock mock-chat" aria-hidden="true">
-          <p class="bubble in c1">Dzień dobry, czy 240 szt. profili 40×40 dostanę do piątku?</p>
+          <p class="bubble in c1">Meta Lead Ads: M. Nowak · Operator wózka UDT · zmiana poranna, dostępny od poniedziałku.</p>
           <div class="chat-slot">
             <p class="bubble typing c2"><span></span><span></span><span></span></p>
-            <p class="bubble out c3">Tak. Mamy 310 szt. na stanie, dostawa w czwartek. Przesyłam ofertę do akceptacji.</p>
+            <p class="bubble out c3">Kandydat zapisany w HRappce (≤ 5 min). Wysłano mail zwrotny z ankietą i powiadomiono rekrutera.</p>
           </div>
-          <p class="bubble note c4">Oferta OF/2219 wysłana · zadanie dla opiekuna utworzone</p>
+          <p class="bubble note c4">HR KADRA · ~600 leadów/mies. · ~10 h/tydz. mniej przepisywania</p>
         </div>
       </article>
 
       <article class="card card-accent span-5 reveal">
         <div class="card-copy">
-          <h3 class="h3">Dokumenty bez przepisywania</h3>
-          <p>Faktury, zamówienia i umowy są odczytywane, sprawdzane i księgowane w ERP. Człowiek zatwierdza tylko wyjątki.</p>
+          <span class="mono">Prod. 2, 3 &amp; 13 · Kadry, zezwolenia i umowy po NIP</span>
+          <h3 class="h3">Dokumenty kadrowe bez przepisywania</h3>
+          <p>Umowy klientów po NIP powstają w ~2 minuty (z ~45 min), a dashboard kadr ostrzega o wygasających zezwoleniach 30 dni wcześniej — z zahashowanymi identyfikatorami bez PII.</p>
         </div>
         <div class="mock mock-doc" aria-hidden="true">
           <div class="doc">
-            <span class="doc-title">Faktura VAT</span>
+            <span class="doc-title">Umowa / Zezwolenie</span>
             <span class="doc-line w70"></span><span class="doc-line w45"></span>
             <span class="doc-line w85"></span><span class="doc-line w60"></span>
             <span class="doc-line w30 strong"></span>
             <span class="scan"></span>
           </div>
           <ul class="doc-fields">
-            <li class="f1"><span>NIP</span><b>525-000-00-00</b></li>
-            <li class="f2"><span>Kwota</span><b>18 450,00 zł</b></li>
-            <li class="f3"><span>Termin</span><b>27.11.2026</b></li>
-            <li class="f4 ok"><b>Zaksięgowano w ERP</b></li>
+            <li class="f1"><span>ID raportu</span><b>NIP / PESEL hash</b></li>
+            <li class="f2"><span>Obieg hali</span><b>Podpis tablet</b></li>
+            <li class="f3"><span>Alert kadr</span><b>Zezwolenie -30 dni</b></li>
+            <li class="f4 ok"><b>Zapisano w nexo i HRappce</b></li>
           </ul>
         </div>
       </article>
 
       <article class="card card-video span-7 reveal" style="--d:80ms">
-        <video data-autoplay muted loop playsinline preload="none" poster="assets/video/dashboard.jpg">
-          <source src="assets/video/dashboard.webm" type="video/webm">
-          <source src="assets/video/dashboard.mp4" type="video/mp4">
+        <video data-autoplay muted loop playsinline preload="none" poster="/assets/video/dashboard.jpg">
+          <source src="/assets/video/dashboard.webm" type="video/webm">
+          <source src="/assets/video/dashboard.mp4" type="video/mp4">
         </video>
         <div class="card-copy on-video">
-          <h3 class="h3">Raporty, które liczą się same</h3>
-          <p>Dane ze sprzedaży, finansów i magazynu spotykają się w jednym pulpicie. Bez eksportów do arkuszy w piątek po południu.</p>
+          <span class="mono" style="color:var(--accent);">Prod. 5 · KONO OS (HR KONO S.A.)</span>
+          <h3 class="h3">Pulpit zarządu i kadr o 7:30</h3>
+          <p>Pipedrive, HRappka, nexo i TAXXO spięte w jeden kontrakt danych pilnowany przez 2011 testów automatycznych. 4 publikacje dziennie w 12 sekund — raport z ~6 h/tydz. do 0 h.</p>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- KALKULATOR -->
-  <section class="section wrap" id="kalkulator">
-    <div class="calc reveal">
-      <div class="calc-form">
-        <h2 class="h2">Policz, ile godzin odzyska Twój zespół</h2>
-        <p class="lead">Przesuń suwaki. Wynik to szacunek, dokładne liczby ustalamy w audycie.</p>
-
-        <div class="field">
-          <label for="calc-people">Osoby wykonujące powtarzalne zadania <output id="out-people" for="calc-people">8</output></label>
-          <input type="range" id="calc-people" min="1" max="60" step="1" value="8">
-        </div>
-        <div class="field">
-          <label for="calc-hours">Godziny tygodniowo na osobę <output id="out-hours" for="calc-hours">6 h</output></label>
-          <input type="range" id="calc-hours" min="1" max="30" step="1" value="6">
-        </div>
-        <div class="field">
-          <label for="calc-rate">Koszt godziny pracy <output id="out-rate" for="calc-rate">85 zł</output></label>
-          <input type="range" id="calc-rate" min="40" max="250" step="5" value="85">
-        </div>
-
-        <fieldset class="seg" aria-label="Zakres automatyzacji">
-          <legend>Jaką część tej pracy automatyzujemy</legend>
-          <input type="radio" name="share" id="share-40" value="0.4"><label for="share-40">40%</label>
-          <input type="radio" name="share" id="share-60" value="0.6" checked><label for="share-60">60%</label>
-          <input type="radio" name="share" id="share-80" value="0.8"><label for="share-80">80%</label>
-        </fieldset>
-      </div>
-
-      <div class="calc-result" aria-live="polite">
-        <p class="calc-kicker">Odzyskujecie miesięcznie</p>
-        <p class="calc-big"><span id="res-hours">125</span> h</p>
-        <div class="calc-bars" aria-hidden="true">
-          <div class="bar-row"><span>Dziś</span><div class="bar"><i id="bar-now" style="width:100%"></i></div><b id="lab-now">208 h</b></div>
-          <div class="bar-row"><span>Po wdrożeniu</span><div class="bar"><i id="bar-after" class="hot" style="width:40%"></i></div><b id="lab-after">83 h</b></div>
-        </div>
-        <div class="calc-split">
-          <div><p class="calc-kicker">Oszczędność w roku</p><p class="calc-mid"><span id="res-year">127 000</span> zł</p></div>
-          <div><p class="calc-kicker">To tyle, co</p><p class="calc-mid"><span id="res-fte">0,8</span> etatu</p></div>
-        </div>
-        <a class="btn btn-light btn-lg" href="#kontakt">Sprawdź to w audycie</a>
-        <p class="fineprint">Wzór: osoby × godziny × 4,33 tygodnia × udział automatyzacji. Etat liczony jako 160 h miesięcznie.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCES: STICKY SCROLL -->
-  <section class="band band-night" id="proces">
-    <div class="wrap">
-      <header class="section-head reveal">
-        <h2 class="h2">Od audytu do działającego wdrożenia w&nbsp;czterech krokach</h2>
-        <p class="lead">Każdy krok kończy się czymś, co możecie zobaczyć i policzyć.</p>
-      </header>
-
-      <div class="story" data-story>
-        <ol class="story-steps">
-          <li class="story-step is-active" data-step="0">
-            <span class="step-no">Krok 1</span>
-            <h3 class="h3">Audyt procesów</h3>
-            <p>Przechodzimy z zespołem przez codzienną pracę i mierzymy, gdzie uciekają godziny. Dostajecie mapę procesów z wyceną czasu.</p>
-            <p class="step-meta">Czas: 3–5 dni roboczych</p>
-          </li>
-          <li class="story-step" data-step="1">
-            <span class="step-no">Krok 2</span>
-            <h3 class="h3">Projekt i zwrot</h3>
-            <p>Rysujemy docelowy przepływ i liczymy zwrot dla każdego procesu osobno. Zaczynamy od tego, który spłaci się najszybciej.</p>
-            <p class="step-meta">Wynik: plan wdrożenia z budżetem</p>
-          </li>
-          <li class="story-step" data-step="2">
-            <span class="step-no">Krok 3</span>
-            <h3 class="h3">Wdrożenie i integracje</h3>
-            <p>Budujemy w dwutygodniowych sprintach. Po każdym sprincie coś działa na produkcji, a zespół dostaje krótkie szkolenie.</p>
-            <p class="step-meta">Pierwsza automatyzacja: do 14 dni</p>
-          </li>
-          <li class="story-step" data-step="3">
-            <span class="step-no">Krok 4</span>
-            <h3 class="h3">Opieka i rozwój</h3>
-            <p>Monitorujemy przepływy, reagujemy na błędy zanim zauważy je klient i co miesiąc proponujemy kolejne usprawnienia.</p>
-            <p class="step-meta">Stały opiekun i raport miesięczny</p>
-          </li>
-        </ol>
-
-        <div class="story-stage">
-          <div class="device">
-            <div class="device-bar"><span></span><span></span><span></span><em>revagy.app / <b data-story-title>audyt</b></em><i>widok przykładowy</i></div>
-            <div class="device-screen">
-              <!-- 0: audyt -->
-              <div class="pane is-active" data-pane="0">
-                <p class="pane-title">Mapa procesów · czas tygodniowo</p>
-                <ul class="audit-list">
-                  <li><span>Wprowadzanie zamówień</span><div class="meter"><i style="--w:92%"></i></div><b>14 h</b></li>
-                  <li><span>Faktury kosztowe</span><div class="meter"><i style="--w:74%"></i></div><b>11 h</b></li>
-                  <li><span>Raporty sprzedaży</span><div class="meter"><i style="--w:60%"></i></div><b>9 h</b></li>
-                  <li><span>Follow-upy do ofert</span><div class="meter"><i style="--w:47%"></i></div><b>7 h</b></li>
-                  <li><span>Statusy dla klientów</span><div class="meter"><i style="--w:34%"></i></div><b>5 h</b></li>
-                </ul>
-                <p class="pane-foot"><b>46 h</b> tygodniowo do odzyskania</p>
-              </div>
-              <!-- 1: projekt -->
-              <div class="pane" data-pane="1">
-                <p class="pane-title">Docelowy przepływ · zapytanie ofertowe</p>
-                <div class="flow">
-                  <span class="node">Formularz / e-mail</span>
-                  <span class="link"></span>
-                  <span class="node hot">Agent AI</span>
-                  <span class="link"></span>
-                  <span class="node">CRM</span>
-                  <span class="link"></span>
-                  <span class="node">Oferta PDF</span>
-                </div>
-                <div class="roi">
-                  <div><span>Koszt wdrożenia</span><b>zwrot po 4 mies.</b></div>
-                  <div class="roi-chart"><i style="--h:22%"></i><i style="--h:38%"></i><i style="--h:55%"></i><i class="hot" style="--h:72%"></i><i class="hot" style="--h:88%"></i><i class="hot" style="--h:100%"></i></div>
-                </div>
-              </div>
-              <!-- 2: wdrożenie -->
-              <div class="pane" data-pane="2">
-                <p class="pane-title">Sprint 2 z 3 · integracje</p>
-                <ul class="checks">
-                  <li class="done">CRM → ERP: zamówienia<em>działa</em></li>
-                  <li class="done">Skrzynka ofertowa → Agent AI<em>działa</em></li>
-                  <li class="done">Faktury kosztowe → księgowość<em>działa</em></li>
-                  <li class="run">Magazyn → statusy dla klienta<em>testy</em></li>
-                  <li>Pulpit zarządczy<em>w kolejce</em></li>
-                </ul>
-                <div class="progress"><i></i></div>
-              </div>
-              <!-- 3: opieka -->
-              <div class="pane" data-pane="3">
-                <p class="pane-title">Monitoring przepływów · 30 dni</p>
-                <svg class="spark" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="spark-area" d="M0 96 C40 90 60 70 100 72 S160 44 200 50 260 30 300 34 360 14 400 18 V120 H0Z"/>
-                  <path class="spark-line" d="M0 96 C40 90 60 70 100 72 S160 44 200 50 260 30 300 34 360 14 400 18" pathLength="1"/>
-                </svg>
-                <div class="kpis">
-                  <div><b>4 812</b><span>zadań wykonanych</span></div>
-                  <div><b>99,9%</b><span>poprawnych przebiegów</span></div>
-                  <div><b>2</b><span>wyjątki do decyzji</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZASTOSOWANIA: KARUZELA -->
-  <section class="section" id="zastosowania">
+  <!-- 4. TRIGGERY AGENCJI: INTERACTIVE CAROUSEL -->
+  <section class="section" id="triggery" data-step-label="04 · Triggery agencji">
     <div class="wrap carousel-head reveal">
       <div>
-        <h2 class="h2">Co automatyzujemy w&nbsp;każdym dziale</h2>
-        <p class="lead">Przykłady wdrożeń, od których firmy B2B zaczynają najczęściej.</p>
+        <span class="kicker">Dla agencji pracy i firm HR (5–250 osób w biurze)</span>
+        <h2 class="h2">Pięć momentów, w&nbsp;których Excel przestaje działać (+&nbsp;impuls KSeF)</h2>
+        <p class="lead">Przesuń karty lub użyj strzałek. Każda z tych sytuacji to moment, w którym ręczne przepisywanie zaczyna kosztować marżę, ludzi albo kary.</p>
       </div>
       <div class="carousel-nav">
         <button class="round-btn" type="button" data-car-prev aria-label="Poprzednie karty">
@@ -303,73 +211,408 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
-    <div class="carousel" data-carousel tabindex="0" aria-label="Zastosowania według działu">
+    <div class="carousel" data-carousel tabindex="0" aria-label="Triggery zakupowe agencji pracy i firm HR">
       <article class="use use-night">
-        <span class="use-tag">Sprzedaż</span>
-        <h3 class="h3">Handlowiec zaczyna dzień od gotowej listy</h3>
-        <ul><li>Kwalifikacja i wzbogacanie leadów</li><li>Oferty generowane z cennika</li><li>Follow-upy wysyłane na czas</li></ul>
-        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M14 96 44 62l20 16 42-52" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="106" cy="26" r="9" fill="currentColor"/></svg>
+        <span class="use-tag">01 · Legalizacja cudzoziemców</span>
+        <h3 class="h3">Wygasłe zezwolenie wychodzi na jaw po terminie</h3>
+        <ul>
+          <li>Alert o końcu ważności 30 dni wcześniej (Personel Job)</li>
+          <li>Automatyczne zestawienia z HRappki (~5 h/tydz. mniej)</li>
+          <li>Warstwa raportowa bez PII (identyfikatory zahashowane)</li>
+        </ul>
+        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 14 20 30v28c0 24 17 42 40 48 23-6 40-24 40-48V30z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M60 44v20M60 78h.01" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>
       </article>
+
       <article class="use use-mist">
-        <span class="use-tag">Finanse</span>
-        <h3 class="h3">Faktura wchodzi i sama trafia do księgi</h3>
-        <ul><li>Odczyt i kontrola faktur kosztowych</li><li>Uzgadnianie płatności z bankiem</li><li>Przypomnienia o należnościach</li></ul>
+        <span class="use-tag">02 · Obsada i start u klienta</span>
+        <h3 class="h3">Start ludzi dzień później przez druk i kuriera</h3>
+        <ul>
+          <li>Umowa pracownika na tablecie w ~10 min zamiast ~3 dni (APT WORK)</li>
+          <li>Generator umowy B2B po NIP w ~2 min zamiast ~45 min (COMPADRES)</li>
+          <li>Automatyczny zapis podpisanych dokumentów w nexo i HRappce</li>
+        </ul>
         <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><rect x="24" y="12" width="72" height="96" rx="12" fill="none" stroke="currentColor" stroke-width="7"/><path d="M42 42h36M42 60h36M42 78h18" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
       </article>
+
       <article class="use use-accent">
-        <span class="use-tag">Obsługa klienta</span>
-        <h3 class="h3">Klient dostaje odpowiedź w minutę, także w nocy</h3>
-        <ul><li>Statusy zamówień i dostaw</li><li>Reklamacje z kompletem danych</li><li>Przekazanie do człowieka z kontekstem</li></ul>
-        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M18 28a12 12 0 0 1 12-12h60a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12H56l-24 22V80h-2a12 12 0 0 1-12-12z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/></svg>
+        <span class="use-tag">03 · Rekrutacja B2C</span>
+        <h3 class="h3">Lead z Meta Ads obrobiony po 2 dniach</h3>
+        <ul>
+          <li>Kandydat z reklamy w HRappce w ≤ 5 min (HR KADRA)</li>
+          <li>Natychmiastowy mail i SMS, zanim kandydat zamknie reklamę</li>
+          <li>~30% więcej kontaktów tego samego dnia i ~10 h/tydz. mniej przepisywania</li>
+        </ul>
+        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M14 96 44 62l20 16 42-52" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="106" cy="26" r="9" fill="currentColor"/></svg>
       </article>
+
       <article class="use use-plum">
-        <span class="use-tag">Marketing</span>
-        <h3 class="h3">Kampanie i raporty bez ręcznego klejenia danych</h3>
-        <ul><li>Leady z reklam prosto do CRM</li><li>Raport kosztu pozyskania co rano</li><li>Segmenty odświeżane automatycznie</li></ul>
+        <span class="use-tag">04 · Finanse i marża</span>
+        <h3 class="h3">Marża i rozjazdy załogi widoczne po fakcie</h3>
+        <ul>
+          <li>Pulpit grupy o 7:30 łączący Pipedrive, HRappkę, nexo i TAXXO</li>
+          <li>Wykryty rozjazd stanu załogi 568 vs 539 między źródłami (HR KONO S.A.)</li>
+          <li>Plugin rentowności per klient dla COO (koszt pracodawcy vs przychód)</li>
+        </ul>
         <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="7"/><path d="M60 60V16a44 44 0 0 1 38 66z" fill="currentColor"/></svg>
       </article>
+
       <article class="use use-mist">
-        <span class="use-tag">Logistyka</span>
-        <h3 class="h3">Zamówienie przechodzi z maila do magazynu</h3>
-        <ul><li>Zamówienia z PDF i e-maili do ERP</li><li>Awizacje i listy przewozowe</li><li>Alerty o brakach i opóźnieniach</li></ul>
-        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 102 34v52L60 108 18 86V34z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M18 34 60 58l42-24M60 58v50" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/></svg>
-      </article>
-      <article class="use use-night">
-        <span class="use-tag">HR i operacje</span>
-        <h3 class="h3">Nowa osoba ma dostęp do wszystkiego pierwszego dnia</h3>
-        <ul><li>Onboarding i nadawanie dostępów</li><li>Wnioski i akceptacje w jednym miejscu</li><li>Baza wiedzy z odpowiedziami AI</li></ul>
+        <span class="use-tag">05 · Ciągłość back-office</span>
+        <h3 class="h3">Odejście kadrowej zabiera wiedzę o wyjątkach</h3>
+        <ul>
+          <li>Baza wiedzy super-brain z 63 tys. wiadomości → 167 stron wiki (HR KADRA / BIS)</li>
+          <li>Odpowiedź „jak to robimy?” w ~1 min i wdrożenie nowej osoby ~30% krótsze</li>
+          <li>0 utraconej wiedzy przy rotacji w biurze</li>
+        </ul>
         <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="40" r="20" fill="none" stroke="currentColor" stroke-width="7"/><path d="M20 106a40 40 0 0 1 80 0" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
       </article>
+
+      <article class="use use-night">
+        <span class="use-tag">06 · Impuls KSeF i ERP</span>
+        <h3 class="h3">KSeF wymusza uporządkowanie obiegu faktur</h3>
+        <ul>
+          <li>Walidacja i przypisanie kosztów do obiektów / projektów (jak w TAXXO)</li>
+          <li>Integracja z nexo, Comarch ERP, enova365 i TAXXO bez wymiany systemu</li>
+          <li>Człowiek zatwierdza wyjątki i dokumenty niezaakceptowane</li>
+        </ul>
+        <svg class="use-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 102 34v52L60 108 18 86V34z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M18 34 60 58l42-24M60 58v50" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/></svg>
+      </article>
     </div>
   </section>
 
-  <!-- INTEGRACJE: MARQUEE -->
-  <section class="section section-tight" id="integracje">
-    <header class="section-head wrap reveal">
-      <h2 class="h2">Pracujemy na tym, co już macie</h2>
-      <p class="lead">Nie wymieniamy systemów. Łączymy je tak, żeby dane przechodziły między nimi bez udziału ludzi.</p>
-    </header>
-    <div class="marquee" aria-label="Przykładowe systemy, z którymi integrujemy">
-      <ul class="marquee-row" data-marquee>
-        <li>Pipedrive</li><li>HubSpot</li><li>Salesforce</li><li>Asana</li><li>Slack</li><li>Microsoft 365</li><li>Google Workspace</li><li>n8n</li><li>Make</li><li>Comarch ERP</li><li>SAP</li>
-      </ul>
-      <ul class="marquee-row reverse" data-marquee>
-        <li>BaseLinker</li><li>Shopify</li><li>WooCommerce</li><li>enova365</li><li>Subiekt</li><li>Jira</li><li>Notion</li><li>Teams</li><li>KSeF</li><li>PostgreSQL</li><li>REST i webhooki</li>
-      </ul>
+  <!-- 5. PWE GŁÓWNE + KATALOG PRODUKTÓW APT/HR -->
+  <section class="section wrap" id="produkty" data-step-label="05 · Produkty APT/HR i PWE">
+    <div class="section-head reveal">
+      <span class="kicker">Dlaczego zarządy i kadry wybierają REVAGY</span>
+      <h2 class="h2">Sprawdzone wartości i gotowe moduły od&nbsp;3&nbsp;900&nbsp;zł</h2>
+      <p class="lead">Nie sprzedajemy kolejnego modułu zamkniętego w silosie. Spinamy Wasze systemy, sprzedajemy zmianę zespołowi i podajemy ceny „od” przed pierwszą rozmową.</p>
+    </div>
+
+    <div class="grid-3" id="wartosci" style="margin-bottom:48px;">
+      <article class="card card-night reveal">
+        <span class="badge badge-p0" style="align-self:flex-start;">Obsł. 1 · Scoring 50/50</span>
+        <h3 class="h3">Sprzedajemy wdrożenie pracownikom</h3>
+        <p class="muted">Zespół nie blokuje zmian ze strachu o etat. <strong>0 z 16 projektów</strong> zatrzymanych przez opór zespołów — najpierw prowadzimy warsztat z kadrami i rekrutacją.</p>
+      </article>
+      <article class="card reveal" style="--d:70ms">
+        <span class="badge badge-disclosure" style="align-self:flex-start;">Prod. 1 · Scoring 40/50</span>
+        <h3 class="h3">Bez wymiany systemów</h3>
+        <p class="muted">Moduł dostawcy widzi tylko własną bazę. Łączymy HRappkę, nexo, TAXXO, Pipedrive, Comarch i enova365 w jeden spójny kontrakt danych.</p>
+      </article>
+      <article class="card reveal" style="--d:140ms">
+        <span class="badge badge-disclosure" style="align-self:flex-start;">Obsł. 2 · Scoring 50/50</span>
+        <h3 class="h3">Naprawa zanim zauważycie awarię</h3>
+        <p class="muted">Monitoring, diagnostyka i poprawka przed zgłoszeniem użytkownika. Wiążące czasy reakcji wg pakietu (1 dzień rob. w Start, do 4 h w Scale, agent-opiekun 24/7 w Enterprise).</p>
+      </article>
+    </div>
+
+    <div class="section-head left reveal">
+      <span class="kicker">Katalog produktów APT / HR · od 3 900 zł + 290–790 zł/mies.</span>
+      <h3 class="h2">Pięć powtarzalnych produktów sprawdzonych na produkcji</h3>
+      <p class="lead">Możecie zacząć od jednego modułu produktowego i rozwijać kolejne procesy w tym samym układzie.</p>
+    </div>
+
+    <div class="grid-3">
+      <article class="card reveal">
+        <span class="mono">Produkt 01 · Dowód: APT WORK</span>
+        <h3 class="h3">Obieg dokumentów z podpisem na tablecie</h3>
+        <p class="muted">nexo → Google Drive → tablet koordynatora na hali → podpis pracownika → powrót do nexo i HRappki.</p>
+        <p><strong>~3 dni → ~10 min</strong> · ~12 h/tydz. mniej w kadrach</p>
+        <p class="mono" style="color:var(--accent-deep);">od 3 900 zł + 290–790 zł/mies.</p>
+        <a class="btn btn-outline" style="margin-top:auto" href="/produkty/obieg-dokumentow.html" data-track="Produkt 01: Obieg dokumentów">Karta produktu →</a>
+      </article>
+
+      <article class="card reveal" style="--d:60ms">
+        <span class="mono">Produkt 02 · Dowód: Personel Job</span>
+        <h3 class="h3">Dashboard kadr i alert zezwoleń 30 dni</h3>
+        <p class="muted">Automatyczne zestawienia z HRappki (zezwolenia, czas pracy, stan załogi) bez PII w warstwie raportowej (hashowane ID).</p>
+        <p><strong>Alert 30 dni wcześniej</strong> · ~5 h/tydz. mniej raportów</p>
+        <p class="mono" style="color:var(--accent-deep);">od 3 900 zł + 290–790 zł/mies.</p>
+        <a class="btn btn-outline" style="margin-top:auto" href="/oferta.html" data-track="Produkt 02: Dashboard kadr">Zobacz w ofercie →</a>
+      </article>
+
+      <article class="card reveal" style="--d:120ms">
+        <span class="mono">Produkt 03 · Dowód: Kono / SERVUS / COMPADRES</span>
+        <h3 class="h3">Generator umów klienta po NIP</h3>
+        <p class="muted">Formularz → Make → gotowa umowa na Dysku Google z właściwym wzorem, stawką i danymi pobranymi po NIP.</p>
+        <p><strong>~45 min → ~2 min</strong> · 0 umów na nieaktualnym wzorze</p>
+        <p class="mono" style="color:var(--accent-deep);">od 3 900 zł + 290–790 zł/mies.</p>
+        <a class="btn btn-outline" style="margin-top:auto" href="/oferta.html" data-track="Produkt 03: Generator umów">Zobacz w ofercie →</a>
+      </article>
+
+      <article class="card reveal">
+        <span class="mono">Produkt 04 · Dowód: HR KADRA</span>
+        <h3 class="h3">Lead z Meta Ads → HRappka ≤ 5 min</h3>
+        <p class="muted">Automatyczne pobieranie leadów B2C, zapis do HRappki co 5 min, natychmiastowy mail do kandydata i raport statusów.</p>
+        <p><strong>~48 h → ≤ 5 min</strong> · ~30% więcej kontaktów tego samego dnia</p>
+        <p class="mono" style="color:var(--accent-deep);">od 3 900 zł + 290–790 zł/mies.</p>
+        <a class="btn btn-outline" style="margin-top:auto" href="/oferta.html" data-track="Produkt 04: Lead Meta Ads">Zobacz w ofercie →</a>
+      </article>
+
+      <article class="card reveal" style="--d:60ms">
+        <span class="mono">Produkt 05 · Dowód: HR KONO S.A.</span>
+        <h3 class="h3">Pulpit grupy dla zarządu o 7:30</h3>
+        <p class="muted">Integracja Pipedrive + HRappka + nexo + TAXXO w jeden kontrakt danych z komentarzem AI i eliminacją wewnątrzgrupową.</p>
+        <p><strong>~6 h/tydz. → 0 h</strong> · 4 publikacje dziennie w 12 s</p>
+        <p class="mono" style="color:var(--accent-deep);">wycena wg liczby spółek i źródeł</p>
+        <a class="btn btn-outline" style="margin-top:auto" href="/realizacje/grupa-kono.html" data-track="Produkt 05: Pulpit grupy">Zobacz case grupy →</a>
+      </article>
+
+      <article class="card card-accent reveal" style="--d:120ms">
+        <span class="mono">Krok startowy · Bez ryzyka</span>
+        <h3 class="h3">Audyt procesów w 3–5 dni rob.</h3>
+        <p>Mapa procesów, policzone godziny i wycena Excela na Waszym koszcie godziny, plan ROI per proces.</p>
+        <p><strong>1 990 zł</strong> · odliczany w 30 dni · <strong>14 dni na pełny zwrot</strong></p>
+        <a class="btn btn-dark" style="margin-top:auto" href="#kontakt" data-track="Produkty: Umów audyt 1 990 zł">Umów audyt (1 990 zł) →</a>
+      </article>
     </div>
   </section>
 
-  <!-- FILM -->
-  <section class="section" id="film">
+  <!-- 6. CASE STUDIES + 7. ADOPCJA ZESPOŁU -->
+  <section class="band band-night" id="realizacje-home" data-step-label="06 · Case studies i adopcja">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <span class="kicker kicker-night">Dowody z produkcji · 14 klientów (16 podmiotów) · 16/16 zgód</span>
+        <h2 class="h2">Sprawdzone w działających agencjach pracy i grupach HR</h2>
+        <p class="lead">Trzy wyróżnione wdrożenia produkcyjne oraz zbiorcze case study Grupy KONO z jawnym ujawnieniem powiązania. Liczby oznaczone ~ to estymacje z dokumentacji wdrożeń.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card card-night reveal" style="border:1px solid var(--night-line);">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge badge-prod">Produkcja</span>
+            <span class="mono muted">APT · ~300 pracowników · ~40 umów/tydz.</span>
+          </div>
+          <h3 class="h3">APT WORK — dokumenty podpisane na tablecie w 10 minut, nie w 3 dni</h3>
+          <ul class="metrics-list">
+            <li>Cykl „umowa → podpis → system”: z <strong>~3 dni do ~10 minut</strong></li>
+            <li><strong>~12 h/tydz.</strong> mniej pracy koordynatorów i kadr</li>
+            <li>~90% mniej błędów przepisywania; ~0 zł za druk i kuriera między obiektami</li>
+          </ul>
+          <blockquote class="quote">„Koordynator podpisuje umowę z pracownikiem na hali, a kadry widzą ją w systemie, zanim wróci do biura.”<cite>— Dyrektor Operacyjny, APT WORK</cite></blockquote>
+        </article>
+
+        <article class="card card-night reveal" style="--d:70ms;border:1px solid var(--night-line);">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge badge-prod">Produkcja</span>
+            <span class="mono muted">APT · ~120 pracowników</span>
+          </div>
+          <h3 class="h3">Personel Job — kadry bez zaglądania do pięciu systemów</h3>
+          <ul class="metrics-list">
+            <li><strong>~5 h/tydz.</strong> mniej na ręczne raporty kadrowe z HRappki</li>
+            <li>Alert o wygasających zezwoleniach <strong>30 dni przed terminem</strong> zamiast „po fakcie”</li>
+            <li>Dane bez PII w warstwie raportowej (identyfikatory zahashowane)</li>
+          </ul>
+          <blockquote class="quote">„Wiemy, komu kończy się dokument, zanim zadzwoni inspekcja.”<cite>— Kierownik Kadr, Personel Job</cite></blockquote>
+        </article>
+
+        <article class="card card-night reveal" style="border:1px solid var(--night-line);">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge badge-prod">Produkcja</span>
+            <span class="mono muted">Rekrutacja B2C · ~200 prac. · ~600 leadów/mies.</span>
+          </div>
+          <h3 class="h3">HR KADRA — od leada z reklamy do kandydata w HRappce bez ręki rekrutera</h3>
+          <ul class="metrics-list">
+            <li>Czas od leada do kandydata w systemie: z <strong>~48 h do ≤ 5 min</strong></li>
+            <li><strong>~10 h/tydz.</strong> mniej przepisywania; <strong>~30% więcej</strong> kontaktów tego samego dnia</li>
+            <li>Plugin rentowności do KONO OS dla COO: koszt pracodawcy vs przychód per klient</li>
+          </ul>
+          <blockquote class="quote">„Kandydat dostaje maila, zanim zamknie reklamę.”<cite>— Kierownik Rekrutacji, HR KADRA</cite></blockquote>
+        </article>
+
+        <article class="card card-night reveal" style="--d:70ms;border:1.5px solid var(--accent);">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge badge-p0">1 case zbiorcze · 3 moduły</span>
+            <span class="mono muted">Grupa 16 spółek · ~550 prac. tymczasowych</span>
+          </div>
+          <h3 class="h3">Grupa KONO — HR KONO S.A., Kono oraz KONO STAL SERVIS</h3>
+          <ul class="metrics-list">
+            <li><strong>Moduł 1 · HR KONO S.A. (Produkcja):</strong> CEO Daily Dashboard 4× dziennie w 12 s, 2011 testów automatycznych, raport z ~6 h/tydz. do 0 h (o 7:30), wykryty rozjazd stanu załogi 568 vs 539</li>
+            <li><strong>Moduł 2 · Kono (Produkcja):</strong> generator umów B2B z formularza ~45 min → ~2 min, 0 umów na nieaktualnym wzorze (~4 h/tydz. odzyskane)</li>
+            <li><strong>Moduł 3 · KONO STAL SERVIS <span class="badge badge-pilot">Pilotaż</span>:</strong> tygodniowy raport wydajności zmian na hali z ~6 h do ~10 min, ~15% różnicy zmian wykryte w 2. tygodniu</li>
+          </ul>
+          <blockquote class="quote">„Pierwszy raz widzę całą grupę na jednym ekranie, zanim wypiję kawę.”<cite>— Prezes Zarządu, HR KONO S.A.</cite></blockquote>
+          <div class="disclosure">
+            <div><strong>UjawnienieKono:</strong> Założyciel REVAGY pracuje również w HR KONO S.A. — mówimy o tym wprost. Jest to jedyny klient w portfolio powiązany z właścicielem.</div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 7. ADOPCJA ZESPOŁU -->
+      <div class="reveal" style="margin-top:28px;padding:28px;border-radius:24px;background:var(--night-2);border:1px solid var(--night-line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;">
+        <div style="max-width:740px;display:grid;gap:8px;">
+          <span class="mono" style="color:var(--accent);">OBSŁ. 1 (SCORING 50/50) · 0 Z 16 PROJEKTÓW ZATRZYMANYCH PRZEZ OPÓR ZESPOŁÓW</span>
+          <h3 class="h3">Sprzedajemy wdrożenie Waszym pracownikom, zanim ruszy kod</h3>
+          <p class="muted">Kadry i rekrutacja często obawiają się, że automat zabierze im pracę. Wchodzimy od rozmowy z zespołem: pokazujemy, jak zdejmujemy ręczne przepisywanie, żeby ludzie mieli czas na kandydatów, klientów i decyzje.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a class="btn btn-accent" href="/realizacje/grupa-kono.html" data-track="CaseStudies: Grupa KONO">Szczegóły case Grupy KONO →</a>
+          <a class="btn btn-light" href="/realizacje.html" data-track="CaseStudies: Wszystkie 16 realizacji">Wszystkie 16 realizacji →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PROCES WSPÓŁPRACY: STICKY-SCROLL 4-STEP STORY -->
+  <section class="band band-night" id="proces" data-step-label="07 · Proces 4 kroków" style="margin-top:28px;">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <span class="kicker kicker-night">Prowadzimy za rękę od diagnozy do stałej opieki</span>
+        <h2 class="h2">Od audytu za&nbsp;1&nbsp;990&nbsp;zł do&nbsp;działającego wdrożenia w&nbsp;czterech krokach</h2>
+        <p class="lead">Kliknij dowolny krok lub przewijaj stronę. Każdy etap kończy się mierzalnym artefaktem, który zostaje w Waszej firmie.</p>
+      </header>
+
+      <div class="story" data-story>
+        <ol class="story-steps">
+          <li class="story-step is-active" data-step="0">
+            <span class="step-no">Krok 1 · 3–5 dni roboczych</span>
+            <h3 class="h3">Audyt procesów (1 990 zł)</h3>
+            <p>Przechodzimy z Waszym zespołem przez codzienną pracę kadr, rekrutacji i sprzedaży. Wyceniamy koszt Excela na Waszej stawce godziny i wskazujemy wąskie gardła.</p>
+            <p class="step-meta">1 990 zł · odliczany od wdrożenia w 30 dni · 14 dni na pełny zwrot</p>
+          </li>
+          <li class="story-step" data-step="1">
+            <span class="step-no">Krok 2 · Architektura i zwrot</span>
+            <h3 class="h3">Projekt i ROI per proces</h3>
+            <p>Rysujemy docelowy przepływ między HRappką, nexo, TAXXO i CRM oraz liczymy zwrot dla każdego procesu osobno. Zaczynamy od tego, który spłaci się najszybciej.</p>
+            <p class="step-meta">Wynik: mapa przepływu i stała cena za wynik</p>
+          </li>
+          <li class="story-step" data-step="2">
+            <span class="step-no">Krok 3 · Sprinty 2-tygodniowe</span>
+            <h3 class="h3">Wdrożenie i adopcja zespołu</h3>
+            <p>Budujemy w dwutygodniowych sprintach bez ruszania ciągłości pracy biura. Pierwsza automatyzacja działa do 14 dni (cały dział zwykle w 6–10 tygodni), a zespół przechodzi szkolenie.</p>
+            <p class="step-meta">Pierwsza automatyzacja: do 14 dni · szkolenie w każdym pakiecie</p>
+          </li>
+          <li class="story-step" data-step="3">
+            <span class="step-no">Krok 4 · Ciągłość i SLA</span>
+            <h3 class="h3">Opieka i rozwój wg pakietu</h3>
+            <p>Monitorujemy przepływy, wyłapujemy błędy API zanim zauważy je zespół i rozwijamy kolejne automatyzacje. Wiążące czasy reakcji wynikają wprost z umowy pakietowej.</p>
+            <p class="step-meta">Start: 1 dzień rob. · Scale: do 4 h (opiekun) · Enterprise: SLA i agent 24/7</p>
+          </li>
+        </ol>
+
+        <div class="story-stage">
+          <div class="device">
+            <div class="device-bar"><span></span><span></span><span></span><em>revagy.app / <b data-story-title>audyt</b></em><i>widok z wdrożeń APT/HR</i></div>
+            <div class="device-screen">
+              <!-- 0: audyt -->
+              <div class="pane is-active" data-pane="0">
+                <p class="pane-title">Mapa procesów APT / HR · czas tygodniowo na przykładach z portfolio</p>
+                <ul class="audit-list">
+                  <li><span>Obieg umów na hali</span><div class="meter"><i style="--w:92%"></i></div><b>~12 h</b></li>
+                  <li><span>Przepisywanie leadów Meta</span><div class="meter"><i style="--w:78%"></i></div><b>~10 h</b></li>
+                  <li><span>Raport zarządczy grupy</span><div class="meter"><i style="--w:54%"></i></div><b>~6 h</b></li>
+                  <li><span>Alerty zezwoleń 30 dni</span><div class="meter"><i style="--w:45%"></i></div><b>~5 h</b></li>
+                  <li><span>Umowy klientów po NIP</span><div class="meter"><i style="--w:36%"></i></div><b>~4 h</b></li>
+                </ul>
+                <p class="pane-foot"><b>~37 h</b> tygodniowo w jednym dziale (dokładną kwotę liczymy w audycie)</p>
+              </div>
+              <!-- 1: projekt -->
+              <div class="pane" data-pane="1">
+                <p class="pane-title">Docelowy przepływ · od leada i umowy do pulpitu o 7:30</p>
+                <div class="flow">
+                  <span class="node">HRappka / Meta</span>
+                  <span class="link"></span>
+                  <span class="node hot">Agent AI</span>
+                  <span class="link"></span>
+                  <span class="node">nexo / TAXXO</span>
+                  <span class="link"></span>
+                  <span class="node">Pulpit 7:30</span>
+                </div>
+                <div class="roi">
+                  <div><span>Kolejność wdrożenia wg ROI</span><b>start od najszybszego zwrotu</b></div>
+                  <div class="roi-chart"><i style="--h:22%"></i><i style="--h:38%"></i><i style="--h:55%"></i><i class="hot" style="--h:72%"></i><i class="hot" style="--h:88%"></i><i class="hot" style="--h:100%"></i></div>
+                </div>
+              </div>
+              <!-- 2: wdrożenie -->
+              <div class="pane" data-pane="2">
+                <p class="pane-title">Sprint 2 z 3 · integracje produkcyjne i szkolenie kadr</p>
+                <ul class="checks">
+                  <li class="done">nexo → Drive → Tablet → HRappka<em>działa (~10 min)</em></li>
+                  <li class="done">Meta Lead Ads → HRappka + mail<em>działa (≤ 5 min)</em></li>
+                  <li class="done">Dashboard kadr + alert zezwoleń 30 dni<em>działa</em></li>
+                  <li class="run">Pulpit grupy (Pipedrive + nexo + TAXXO)<em>2011 testów</em></li>
+                  <li>Warsztat adopcyjny z zespołem kadr<em>0/16 oporu</em></li>
+                </ul>
+                <div class="progress"><i></i></div>
+              </div>
+              <!-- 3: opieka -->
+              <div class="pane" data-pane="3">
+                <p class="pane-title">Monitoring kontraktów danych · czasy reakcji wg pakietu</p>
+                <svg class="spark" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="spark-area" d="M0 96 C40 90 60 70 100 72 S160 44 200 50 260 30 300 34 360 14 400 18 V120 H0Z"/>
+                  <path class="spark-line" d="M0 96 C40 90 60 70 100 72 S160 44 200 50 260 30 300 34 360 14 400 18" pathLength="1"/>
+                </svg>
+                <div class="kpis">
+                  <div><b>1 dzień rob.</b><span>Start · reakcja w dni rob.</span></div>
+                  <div><b>do 4 h</b><span>Scale · 7/7 + stały opiekun</span></div>
+                  <div><b>24/7 SLA</b><span>Enterprise · agent-opiekun</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. INTERACTIVE CALCULATOR (65 ZŁ/H) -->
+  <section class="section wrap" id="kalkulator" data-step-label="08 · Kalkulator 65 zł/h">
+    <div class="calc reveal">
+      <div class="calc-form">
+        <span class="badge badge-p1" style="justify-self:start;border:1px solid var(--line);">P1 · Szacunek orientacyjny przy domyślnej stawce 65 zł/h</span>
+        <h2 class="h2">Policz orientacyjnie czas przepisywania w&nbsp;Excelu</h2>
+        <p class="lead">Przesuń suwaki. Stawka 65 zł/h to szacunek bez zawyżania — dokładną kwotę liczymy w audycie na Waszym rzeczywistym koszcie godziny.</p>
+
+        <div class="field">
+          <label for="calc-people">Osoby w kadrach, rekrutacji i back-office <output id="out-people" for="calc-people">6</output></label>
+          <input type="range" id="calc-people" min="1" max="60" step="1" value="6">
+        </div>
+        <div class="field">
+          <label for="calc-hours">Godziny powtarzalnej pracy tygodniowo na osobę <output id="out-hours" for="calc-hours">5 h</output></label>
+          <input type="range" id="calc-hours" min="1" max="30" step="1" value="5">
+        </div>
+        <div class="field">
+          <label for="calc-rate">Orientacyjny koszt godziny pracy (szacunek) <output id="out-rate" for="calc-rate">65 zł</output></label>
+          <input type="range" id="calc-rate" min="40" max="200" step="5" value="65">
+        </div>
+
+        <fieldset class="seg" aria-label="Zakres automatyzacji">
+          <legend>Jaką część tej pracy oddajemy automatom</legend>
+          <input type="radio" name="share" id="share-40" value="0.4"><label for="share-40">40%</label>
+          <input type="radio" name="share" id="share-60" value="0.6" checked><label for="share-60">60%</label>
+          <input type="radio" name="share" id="share-80" value="0.8"><label for="share-80">80%</label>
+        </fieldset>
+      </div>
+
+      <div class="calc-result" aria-live="polite">
+        <p class="calc-kicker">Szacunkowy czas do odzyskania miesięcznie</p>
+        <p class="calc-big"><span id="res-hours">78</span> h</p>
+        <div class="calc-bars" aria-hidden="true">
+          <div class="bar-row"><span>Dziś</span><div class="bar"><i id="bar-now" style="width:100%"></i></div><b id="lab-now">130 h</b></div>
+          <div class="bar-row"><span>Po wdrożeniu</span><div class="bar"><i id="bar-after" class="hot" style="width:40%"></i></div><b id="lab-after">52 h</b></div>
+        </div>
+        <div class="calc-split">
+          <div><p class="calc-kicker">Orientacyjnie w skali roku (szac.)</p><p class="calc-mid">~<span id="res-year">61 000</span> zł</p></div>
+          <div><p class="calc-kicker">Równowartość czasu pracy</p><p class="calc-mid">~<span id="res-fte">0,5</span> etatu</p></div>
+        </div>
+        <a class="btn btn-light btn-lg" href="#kontakt" data-track="Kalkulator: Policz dokładny ROI w audycie">Policz dokładny ROI w audycie (1 990 zł)</a>
+        <p class="fineprint">Wynik orientacyjny (osoby × godziny × 4,33 tyg. × udział automatyzacji; etat = 160 h/mies.). Dokładną kwotę liczymy w audycie na Waszym koszcie godziny.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CINEMA FILM SECTION -->
+  <section class="section" id="film" data-step-label="09 · Agent AI w akcji">
     <header class="section-head wrap reveal">
-      <h2 class="h2">Zapytanie ofertowe obsłużone w&nbsp;trzy minuty</h2>
-      <p class="lead">Agent czyta wiadomość, sprawdza stan w ERP, przygotowuje ofertę i prosi człowieka tylko o akceptację.</p>
+      <span class="kicker">Obsł. 5 · Agent wykonuje pracę, człowiek zatwierdza wyjątki</span>
+      <h2 class="h2">Oferta i&nbsp;kampania gotowe w&nbsp;kilkanaście minut zamiast godzin</h2>
+      <p class="lead">Agent AI zbiera dane z rejestrów i CRM, przygotowuje ofertę B2B (~2 h → ~15 min w HR BRAND SELL) lub paczkę kampanii rekrutacyjnej (~3 h → ~20 min w Dobra Praca PL) i prosi człowieka o zatwierdzenie „Zatwierdzam vNNN”.</p>
     </header>
     <div class="film-outer">
       <div class="film" data-scale>
-        <video data-autoplay data-main-video muted loop playsinline preload="none" poster="assets/video/agent-demo.jpg" aria-label="Animacja: agent AI obsługuje zapytanie ofertowe">
-          <source src="assets/video/agent-demo.webm" type="video/webm">
-          <source src="assets/video/agent-demo.mp4" type="video/mp4">
+        <video data-autoplay data-main-video muted loop playsinline preload="none" poster="/assets/video/agent-demo.jpg" aria-label="Animacja: agent AI obsługuje proces w agencji pracy i B2B z bramką zatwierdzenia człowieka">
+          <source src="/assets/video/agent-demo.webm" type="video/webm">
+          <source src="/assets/video/agent-demo.mp4" type="video/mp4">
         </video>
         <button class="film-toggle" type="button" data-video-toggle aria-label="Wstrzymaj film" aria-pressed="false">
           <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>
@@ -379,11 +622,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- PAKIETY -->
-  <section class="section wrap" id="pakiety">
+  <!-- 11. PAKIETY Z PRZEŁĄCZNIKIEM WDROŻENIE / STAŁA OPIEKA -->
+  <section class="section wrap" id="pakiety" data-step-label="10 · Pakiety i ceny od">
     <header class="section-head reveal">
-      <h2 class="h2">Pakiet dopasowany do etapu firmy</h2>
-      <p class="lead">Wycenę podajemy po audycie, bo zależy od liczby procesów i systemów. Zakres poznasz już teraz.</p>
+      <span class="kicker">Obsł. 10 &amp; Obsł. 13 · Ceny „od” znane przed rozmową</span>
+      <h2 class="h2">Pakiet dopasowany do skali agencji i&nbsp;firmy</h2>
+      <p class="lead">Próg wejścia znasz od razu, a dokładną wycenę ustalamy po audycie (1 990 zł, odliczanym w 30 dni). Przełącz widok, aby porównać zakres wdrożenia i stałej opieki.</p>
       <div class="seg seg-center" role="tablist" aria-label="Model współpracy">
         <button type="button" role="tab" aria-selected="true" data-mode="projekt">Wdrożenie</button>
         <button type="button" role="tab" aria-selected="false" data-mode="opieka">Stała opieka</button>
@@ -393,101 +637,277 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="plans" data-plans data-mode="projekt">
       <article class="plan reveal">
         <h3 class="h3">Start</h3>
-        <p class="plan-for">Dla firm, które chcą sprawdzić automatyzację na jednym procesie.</p>
-        <p class="plan-price">Wycena po audycie</p>
-        <ul class="ticks m-projekt"><li>Audyt jednego obszaru</li><li>1 proces zautomatyzowany od początku do końca</li><li>Do 3 integracji</li><li>Szkolenie zespołu</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring przepływów w dni robocze</li><li>Poprawki i drobne zmiany</li><li>Raport kwartalny</li><li>Reakcja do 1 dnia roboczego</li></ul>
-        <a class="btn btn-outline" href="#kontakt">Zapytaj o Start</a>
+        <p class="plan-for">Dla agencji i firm sprawdzających automatyzację na jednym procesie (lub wejście produktowe APT/HR od 3 900 zł).</p>
+        <p class="plan-price">od 6 900 zł <span style="font-size:15px;font-weight:500">+ 790 zł/mies.</span></p>
+        <p class="plan-sub">Licencje i API osobno, po kosztach, bez marży</p>
+        <ul class="ticks m-projekt">
+          <li>Audyt wybranego obszaru (1 990 zł odliczane w 30 dni)</li>
+          <li>1 proces zautomatyzowany od początku do końca</li>
+          <li>Do 3 integracji (np. HRappka, nexo, Google Drive)</li>
+          <li>Warsztat i szkolenie zespołu (0/16 oporu)</li>
+        </ul>
+        <ul class="ticks m-opieka">
+          <li>Monitoring przepływów w dni robocze</li>
+          <li>Czas reakcji: do 1 dnia roboczego</li>
+          <li>Poprawki i aktualizacja konektorów API</li>
+          <li>Raport kwartalny z działania automatyzacji</li>
+        </ul>
+        <a class="btn btn-outline" href="/oferta.html" data-track="Pakiety: Start">Szczegóły pakietu Start →</a>
       </article>
+
       <article class="plan plan-featured reveal" style="--d:80ms">
         <span class="plan-flag">Najczęściej wybierany</span>
         <h3 class="h3">Scale</h3>
-        <p class="plan-for">Dla zespołów, które chcą zautomatyzować cały dział.</p>
-        <p class="plan-price">Wycena po audycie</p>
-        <ul class="ticks m-projekt"><li>Audyt działu z mapą procesów</li><li>Do 5 procesów i agent AI</li><li>Integracje CRM, ERP i poczty</li><li>Pulpit zarządczy</li><li>Sprinty co 2 tygodnie</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring 7 dni w tygodniu</li><li>Rozwój: nowe przepływy co miesiąc</li><li>Raport miesięczny z liczbami</li><li>Reakcja do 4 godzin</li><li>Stały opiekun</li></ul>
-        <a class="btn btn-accent" href="#kontakt">Zapytaj o Scale</a>
+        <p class="plan-for">Dla zespołów automatyzujących cały dział: kadry, rekrutację, obieg umów lub sprzedaż B2B.</p>
+        <p class="plan-price">od 24 900 zł <span style="font-size:15px;font-weight:500">+ 2 900 zł/mies.</span></p>
+        <p class="plan-sub">Licencje i API osobno, po kosztach, bez marży</p>
+        <ul class="ticks m-projekt">
+          <li>Audyt działu z mapą procesów i wyceną ROI</li>
+          <li>Do 5 procesów oraz agent AI z bramką zatwierdzeń</li>
+          <li>Integracje HRappka, nexo, TAXXO, Pipedrive i poczty</li>
+          <li>Pulpit zarządczy lub kadrowy (gotowy o 7:30)</li>
+          <li>Wdrożenie w 2-tygodniowych sprintach + szkolenie</li>
+        </ul>
+        <ul class="ticks m-opieka">
+          <li>Monitoring przepływów 7 dni w tygodniu</li>
+          <li>Czas reakcji: do 4 godzin</li>
+          <li>Stały opiekun znający Waszą architekturę</li>
+          <li>Rozwój: nowe przepływy i raport miesięczny z liczbami</li>
+        </ul>
+        <a class="btn btn-accent" href="#kontakt" data-track="Pakiety: Scale">Umów audyt pod Scale →</a>
       </article>
+
       <article class="plan reveal" style="--d:160ms">
         <h3 class="h3">Enterprise</h3>
-        <p class="plan-for">Dla organizacji z wieloma spółkami, działami i systemami.</p>
-        <p class="plan-price">Wycena indywidualna</p>
-        <ul class="ticks m-projekt"><li>Audyt całej organizacji</li><li>Program wdrożeń z kamieniami milowymi</li><li>Agenci AI na własnych danych</li><li>Wdrożenie w Waszej chmurze</li><li>Przegląd bezpieczeństwa</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring całodobowy</li><li>Dedykowany zespół</li><li>Gwarantowane czasy reakcji w umowie</li><li>Kwartalny przegląd z zarządem</li><li>Testy po każdej zmianie systemów</li></ul>
-        <a class="btn btn-outline" href="#kontakt">Porozmawiajmy</a>
+        <p class="plan-for">Dla grup kapitałowych, wielu spółek, własnej chmury i podwyższonych wymogów SLA.</p>
+        <p class="plan-price">od 69 000 zł <span style="font-size:15px;font-weight:500">+ od 6 900 zł/mies.</span></p>
+        <p class="plan-sub">Prace dodatkowe poza pakietem: 250 zł/h · Licencje po kosztach</p>
+        <ul class="ticks m-projekt">
+          <li>Audyt całej organizacji lub grupy spółek</li>
+          <li>Program wdrożeń z kamieniami milowymi i testami kontraktu</li>
+          <li>Agenci AI i modele lokalne we własnej chmurze klienta</li>
+          <li>Przegląd bezpieczeństwa z IOD i działem IT</li>
+          <li>Indywidualna umowa powierzenia pod organizację</li>
+        </ul>
+        <ul class="ticks m-opieka">
+          <li><strong>Monitoring i agent-opiekun 24/7</strong> (wyłącznie w Enterprise)</li>
+          <li>Gwarantowane czasy reakcji SLA zapisane w umowie</li>
+          <li>Dedykowany zespół i testy automatyczne po zmianach</li>
+          <li>Kwartalny przegląd architektury i ROI z zarządem</li>
+        </ul>
+        <a class="btn btn-outline" href="/oferta.html" data-track="Pakiety: Enterprise">Szczegóły Enterprise →</a>
       </article>
     </div>
   </section>
 
-  <!-- BEZPIECZEŃSTWO -->
-  <section class="section wrap" id="bezpieczenstwo">
-    <header class="section-head reveal">
-      <h2 class="h2">Dane firmy zostają pod Waszą kontrolą</h2>
-      <p class="lead">Automatyzacja nie może być czarną skrzynką. Każdy krok da się sprawdzić i zatrzymać.</p>
+  <!-- 12. SEGMENT PRODUKCJA MOST + 13. INTEGRACJE MARQUEE -->
+  <section class="section-sm wrap" id="produkcja-most" data-step-label="11 · Produkcja i integracje">
+    <div class="card card-mist reveal" style="display:grid;grid-template-columns:1.4fr 0.8fr;gap:24px;align-items:center;min-height:0;">
+      <div style="display:grid;gap:10px;">
+        <span class="badge badge-p1" style="justify-self:start;border:1px solid var(--line);">Segment dodatkowy · Persona 2 (Produkcja i magazyny)</span>
+        <h2 class="h3">Znamy obie strony zakupu pracy tymczasowej i raportowania hali</h2>
+        <p class="muted">Łączymy raporty zmianowe z ERP/WMS oraz automatyzujemy rozliczenia agencji pracy. Mówimy uczciwie: jedyny obecny case produkcyjny REVAGY to <strong>pilotaż KONO STAL SERVIS</strong> (<span class="badge badge-pilot">Pilotaż</span>: raport zmian ~6 h → ~10 min) w ramach Grupy KONO — dlatego zakładom produkcyjnym proponujemy wejście przez płatny 14-dniowy pilotaż z twardym kryterium sukcesu.</p>
+      </div>
+      <div style="display:grid;gap:10px;justify-items:end;">
+        <a class="btn btn-dark btn-lg" href="/dla-produkcji-i-magazynow.html" data-track="Produkcja: Strona segmentu">Strona dla produkcji i magazynów →</a>
+        <span class="mono muted">Płatny pilotaż 14 dni · audyt z 14 dniami zwrotu</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight" id="integracje">
+    <header class="section-head wrap reveal">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;">
+        <span class="kicker">120+ integracji · KSeF jako impuls do porządku w fakturach</span>
+        <button type="button" class="motion-pause-btn" data-marquee-toggle aria-pressed="false" aria-label="Wstrzymaj przewijanie listy integracji">Wstrzymaj ruch</button>
+      </div>
+      <h2 class="h2">Pracujemy na tym, co już macie</h2>
+      <p class="lead">Nie wymieniamy ERP ani CRM. Spinamy HRappkę, Subiekta / nexo, TAXXO, Pipedrive, Comarch i enova365 oraz przygotowujemy obieg dokumentów pod KSeF.</p>
     </header>
-    <div class="trio">
+    <div class="marquee" aria-label="Systemy, z którymi integrujemy">
+      <ul class="marquee-row" data-marquee>
+        <li>HRappka</li><li>Subiekt / InsERT nexo</li><li>TAXXO</li><li>Pipedrive</li><li>Comarch ERP</li><li>enova365</li><li>KSeF (obieg faktur)</li><li>Make</li><li>n8n</li><li>Google Workspace</li><li>Microsoft 365</li>
+      </ul>
+      <ul class="marquee-row reverse" data-marquee>
+        <li>Slack</li><li>PostgreSQL</li><li>REST API i webhooki</li><li>Meta Lead Ads</li><li>Google Drive</li><li>Attio CRM</li><li>HubSpot</li><li>BaseLinker</li><li>Asana</li><li>Jira</li><li>Streamlit</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14. BEZPIECZEŃSTWO TEASER + 15. O NAS -->
+  <section class="section wrap" id="bezpieczenstwo-teaser" data-step-label="12 · Bezpieczeństwo i o nas">
+    <header class="section-head reveal">
+      <span class="kicker">Obsł. 5, 6, 8, 11 &amp; 12 · Odpowiedzi dla IOD, IT i zarządu</span>
+      <h2 class="h2">Dane firmy zostają pod Waszą kontrolą</h2>
+      <p class="lead">Żadnej czarnej skrzynki i żadnych deklaracji bez pokrycia w dokumentach. Każdy krok automatu ma ślad w dzienniku i bramkę decyzyjną.</p>
+    </header>
+
+    <div class="trio" style="margin-bottom:28px;">
       <article class="trust reveal">
         <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 6 9v10c0 8.4 5.8 14.6 14 17 8.2-2.4 14-8.6 14-17V9z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="m14 20 4.5 4.5L27 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3 class="h4">Zgodność z RODO</h3>
-        <p>Umowa powierzenia danych, przetwarzanie w Unii Europejskiej i minimalny zakres dostępu dla każdej integracji.</p>
+        <h3 class="h4">RODO i umowa powierzenia</h3>
+        <p>Przygotowujemy umowę powierzenia pod Waszą organizację. Przetwarzanie w UE, minimalne uprawnienia i hashowanie identyfikatorów w warstwie raportowej.</p>
       </article>
       <article class="trust reveal" style="--d:80ms">
         <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M6 35a14 14 0 0 1 28 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
-        <h3 class="h4">Człowiek zatwierdza wyjątki</h3>
-        <p>Ustalacie progi, powyżej których agent prosi o decyzję: kwota, rabat, nowy kontrahent, nietypowa treść.</p>
+        <h3 class="h4">Modele bez trenowania i bramki</h3>
+        <p>Wdrażamy modele lokalne albo korzystamy z planów business Anthropic / OpenAI bez trenowania na Waszych danych. Człowiek zatwierdza wyjątki.</p>
       </article>
       <article class="trust reveal" style="--d:160ms">
         <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="5" width="26" height="30" rx="5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M13 14h14M13 20h14M13 26h8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
-        <h3 class="h4">Pełny dziennik działań</h3>
-        <p>Każde działanie automatu ma wpis: co zrobił, na jakich danych i kiedy. Przydaje się przy audycie i reklamacji.</p>
+        <h3 class="h4">Dziennik działań i OC 1 mln zł</h3>
+        <p>Każda akcja zostawia log z sumą kontrolną i możliwością cofnięcia. Posiadamy potwierdzoną polisę OC zawodowe IT na 1 000 000 zł.</p>
+      </article>
+    </div>
+
+    <div class="grid-2">
+      <article class="card card-mist reveal" style="min-height:0;">
+        <span class="badge badge-p0" style="align-self:flex-start;">Dla IOD i działu IT</span>
+        <h3 class="h3">Architektura bezpieczeństwa i RODO</h3>
+        <p class="muted">Zobacz pełny opis warstw uprawnień, kategorii podprocesorów, lokalizacji serwerów w UE oraz bramek zatwierdzeń człowieka.</p>
+        <a class="btn btn-outline" style="margin-top:auto;align-self:flex-start;" href="/bezpieczenstwo.html" data-track="Bezpieczeństwo: Pełna strona">Pełna strona bezpieczeństwa →</a>
+      </article>
+
+      <article class="card reveal" style="--d:80ms;min-height:0;" id="o-nas">
+        <span class="badge badge-p1" style="align-self:flex-start;border:1px solid var(--line);">O nas · ciągłość operacyjna (Obsł. 12)</span>
+        <h3 class="h3">Technika, sprzedaż i operacje w jednym zespole</h3>
+        <p class="muted">Założyciel (Dawid Skibicki) łączy zaplecze infrastrukturalne z <strong>nazwa.pl</strong>, systemy sprzedaży z <strong>Philip Morris</strong>, wdrożenia ERP i logistyki z <strong>IKEA / Szynaka Meble</strong> oraz zarządzanie w <strong>JDK</strong> (dziś dyrektor handlowy w KONO). Naszą siłę w HR udowadnia portfolio (10 z 16 projektów).</p>
+        <p class="muted">Gwarancja ciągłości: właściciela zastępuje wspólnik, a dla zachowania jakości utrzymujemy twardy limit do <strong>10 równoległych wdrożeń</strong>.</p>
+        <a class="btn btn-outline" style="margin-top:auto;align-self:flex-start;" href="/porownanie.html" data-track="O nas: Porównaj podejścia">Porównaj podejścia (Moduł vs Excel vs REVAGY) →</a>
       </article>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section wrap faq-section" id="faq">
+  <!-- 16. INTERACTIVE FAQ (10 PYTAŃ KOMITETU ZAKUPOWEGO) -->
+  <section class="section wrap faq-section" id="faq" data-step-label="13 · Najczęstsze pytania">
     <header class="section-head left reveal">
-      <h2 class="h2">Najczęstsze pytania</h2>
-      <p class="lead">Nie ma tu Twojego? Zadaj je na audycie, jest bezpłatny.</p>
+      <span class="kicker">Obiekcje komitetu zakupowego (§9 planu)</span>
+      <h2 class="h2">Najczęstsze pytania zarządu, kadr, IT i&nbsp;IOD</h2>
+      <p class="lead">Masz specyficzny układ HRappki, nexo lub zezwoleń? Rozpiszemy go podczas audytu (1 990 zł, 14 dni na pełny zwrot).</p>
+      <a class="btn btn-dark" href="#kontakt" data-track="FAQ: Zamów audyt">Zamów audyt z gwarancją zwrotu →</a>
     </header>
-    <div class="faq" data-faq>
+
+    <div class="faq reveal" data-faq>
       <div class="qa is-open">
-        <h3><button type="button" aria-expanded="true" aria-controls="qa-1" id="qb-1">Od czego zacząć, jeśli nigdy nie automatyzowaliśmy?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-1" role="region" aria-labelledby="qb-1"><div><p>Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Audyt pokaże, który z Waszych procesów zwróci się najszybciej.</p></div></div>
+        <h3><button type="button" aria-expanded="true" aria-controls="qa-1" id="qb-1">1. Czy automat zabierze pracę naszym kadrom i rekrutacji?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-1" role="region" aria-labelledby="qb-1"><div><p>Nie. Automat zdejmuje powtarzalne przepisywanie między arkuszami, HRappką i nexo. Odzyskany czas idzie w szybszy kontakt z kandydatem i obsługę klienta. 0 z 16 naszych projektów zostało zatrzymanych przez opór zespołów, bo zaczynamy od warsztatu z ludźmi (Obsł. 1).</p></div></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false" aria-controls="qa-2" id="qb-2">Czy musimy zmieniać CRM albo ERP?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-2" role="region" aria-labelledby="qb-2"><div><p>Nie. Pracujemy na obecnych systemach i łączymy je przez API, webhooki lub pliki wymiany. Wymianę systemu doradzamy tylko wtedy, gdy blokuje on integrację.</p></div></div>
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-2" id="qb-2">2. Mamy HRappkę / nexo / Comarch — czy nie wystarczy dokupić moduł dostawcy?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-2" role="region" aria-labelledby="qb-2"><div><p>Moduł pojedynczego dostawcy widzi tylko własny silos danych. My nie wymieniamy Waszych systemów, tylko spinamy je w jeden obieg — w Grupie KONO (HR KONO S.A., z jawnym ujawnieniem powiązania właściciela) dopiero połączenie Pipedrive, HRappki, nexo i TAXXO ujawniło rozjazd stanu załogi 568 vs 539 osób (Prod. 1).</p></div></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false" aria-controls="qa-3" id="qb-3">Ile trwa wdrożenie?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-3" role="region" aria-labelledby="qb-3"><div><p>Pierwsza automatyzacja działa zwykle w ciągu 14 dni od audytu. Wdrożenie dla całego działu to najczęściej 6–10 tygodni, prowadzone w dwutygodniowych sprintach.</p></div></div>
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-3" id="qb-3">3. Excel u nas działa — po co to ruszać?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-3" role="region" aria-labelledby="qb-3"><div><p>W audycie wyceniamy koszt Excela w złotówkach na Waszym rzeczywistym koszcie godziny. Arkusz nie wyśle sam alertu 30 dni przed końcem zezwolenia cudzoziemca, nie odbierze podpisu na tablecie na hali ani nie policzy marży per klient na żywo. Możecie zacząć od jednego procesu (Obsł. 3, Prod. 3, Obsł. 9).</p></div></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false" aria-controls="qa-4" id="qb-4">Co się dzieje, gdy agent AI się pomyli?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-4" role="region" aria-labelledby="qb-4"><div><p>Agent działa w ustalonych granicach. Sprawy niepewne lub powyżej progu trafiają do człowieka. Każde działanie jest zapisane w dzienniku, więc błąd da się odnaleźć i cofnąć.</p></div></div>
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-4" id="qb-4">4. Ile to kosztuje i czy poznamy próg cenowy przed rozmową?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-4" role="region" aria-labelledby="qb-4"><div><p>Tak — ceny „od” publikujemy wprost na stronie: powtarzalne produkty APT/HR od 3 900 zł (+ 290–790 zł/mies.), pakiet Start od 6 900 zł (+ 790 zł/mies.), Scale od 24 900 zł (+ 2 900 zł/mies.), Enterprise od 69 000 zł (+ od 6 900 zł/mies.). Dokładną wycenę liczymy w audycie za 1 990 zł (odliczanym od wdrożenia w 30 dni i objętym 14 dniami na pełny zwrot). Licencje i API są rozliczane osobno po kosztach, bez marży (Obsł. 10, Obsł. 3, Obsł. 13).</p></div></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false" aria-controls="qa-5" id="qb-5">Gdzie przetwarzane są nasze dane?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-5" role="region" aria-labelledby="qb-5"><div><p>W Unii Europejskiej, na podstawie umowy powierzenia. W pakiecie Enterprise wdrażamy rozwiązanie w Waszej chmurze lub na Waszych serwerach.</p></div></div>
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-5" id="qb-5">5. Co z RODO i umową powierzenia przetwarzania danych?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-5" role="region" aria-labelledby="qb-5"><div><p>Przygotowujemy umowę powierzenia pod Waszą organizację wraz z wykazem kategorii podprocesorów. Przetwarzanie odbywa się w Unii Europejskiej, integracje działają na minimalnych uprawnieniach, a w warstwach raportowych (np. dashboardy kadr) identyfikatory są hashowane bez zbędnego PII (Obsł. 6).</p></div></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false" aria-controls="qa-6" id="qb-6">Ile kosztuje audyt?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-6" role="region" aria-labelledby="qb-6"><div><p>Pierwsza rozmowa i wstępny audyt są bezpłatne. Kończą się listą procesów z szacunkiem godzin do odzyskania, którą możecie wykorzystać także bez nas.</p></div></div>
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-6" id="qb-6">6. Czy nasze dane nie trafią do trenowania modeli AI lub do konkurencji?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-6" role="region" aria-labelledby="qb-6"><div><p>Wdrażamy modele lokalne albo korzystamy z planów business Anthropic / OpenAI bez trenowania na danych klienta. Każdy krok jest zapisywany w dzienniku działań, a bezpieczeństwo wspiera polisa OC zawodowe IT na 1 000 000 zł (Obsł. 8, Obsł. 5, Obsł. 11).</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-7" id="qb-7">7. Co się dzieje, gdy AI się pomyli?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-7" role="region" aria-labelledby="qb-7"><div><p>Każdy agent działa w sztywnych granicach decyzyjnych. Wyjątki, nietypowe kwoty i publikacje trafiają do zatwierdzenia przez człowieka (np. bramka „Zatwierdzam vNNN”), a dziennik z sumami kontrolnymi pozwala cofnąć zmianę. Procesy krytyczne (jak silnik obsady KPME w Labor APT) budujemy deterministycznie (Obsł. 5).</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-8" id="qb-8">8. Kto nas obsłuży po starcie i co, jeśli właściciela nie będzie?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-8" role="region" aria-labelledby="qb-8"><div><p>Każde wdrożenie obejmuje stałą opiekę z czasami reakcji określonymi w pakiecie: Start — do 1 dnia roboczego, Scale — do 4 godzin (ze stałym opiekunem 7/7), Enterprise — SLA w umowie oraz monitoring i agent-opiekun 24/7. Właściciela zastępuje wspólnik, a limit 10 równoległych wdrożeń chroni dostępność zespołu (Obsł. 7, Obsł. 2, Obsł. 12).</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-9" id="qb-9">9. Ile trwa wdrożenie i czy musimy zmieniać obecne systemy?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-9" role="region" aria-labelledby="qb-9"><div><p>Nie wymieniacie systemów — pracujemy na tym, co już macie. Pierwszy proces uruchamiamy zwykle w 14 dni od startu prac, a pełne wdrożenie działu zajmuje 6–10 tygodni w dwutygodniowych sprintach. Typowy proces decyzyjny po stronie klienta trwa 2–6 tygodni od pierwszej rozmowy (Obsł. 9, Prod. 1).</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false" aria-controls="qa-10" id="qb-10">10. Czy wdrażacie automatyzację również w produkcji i magazynach?<span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="qa-body" id="qa-10" role="region" aria-labelledby="qb-10"><div><p>Tak, jako segment dodatkowy (Persona 2). Jedyny dotychczasowy case produkcyjny REVAGY to pilotaż raportowania wydajności zmian (KONO STAL SERVIS) w ramach Grupy KONO. Dlatego firmom produkcyjnym i magazynom proponujemy płatny 14-dniowy pilotaż z jasnym kryterium sukcesu oraz audyt z 14 dniami na pełny zwrot (Prod. 16, Obsł. 3, Dod. 5).</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" id="kontakt">
+  <!-- 17. KONTAKT CTA -->
+  <section class="section" id="kontakt" data-step-label="14 · Umów audyt 1 990 zł">
     <div class="cta">
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
-        <h2 class="display-2">Sprawdź, co w Twojej firmie może robić się samo</h2>
-        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.</p>
+        <span class="badge badge-p0" style="justify-self:center;">Audyt 1 990 zł · 3–5 dni rob. · 14 dni na pełny zwrot</span>
+        <h2 class="display-2">Sprawdź, co w Twojej agencji lub firmie może robić się samo</h2>
+        <p class="lead">Napisz do nas ze służbowej skrzynki i opisz w 2 zdaniach, jakie systemy chcecie spiąć (np. HRappka, nexo, TAXXO, Pipedrive). Kwota audytu (1 990 zł) jest w 100% odliczana od wdrożenia przy zamówieniu w 30 dni i objęta 14 dniami na pełny zwrot.</p>
+        {TURNSTILE_SITEKEY && (
+          <form id="kontakt-form" class="kontakt-form" action="/api/kontakt" method="post" novalidate data-notice-version={KONTAKT_NOTICE.version} data-sitekey={TURNSTILE_SITEKEY}>
+            <p class="kontakt-help">Pola oznaczone „wymagane” trzeba uzupełnić.</p>
+            <div class="kontakt-grid">
+              <div class="kontakt-field">
+                <label for="kontakt-name">Imię i nazwisko (wymagane)</label>
+                <input id="kontakt-name" name="name" type="text" autocomplete="name" maxlength="120" minlength="2" required aria-required="true" aria-describedby="kontakt-name-error" aria-invalid="false">
+                <span id="kontakt-name-error" class="kontakt-error"></span>
+              </div>
+              <div class="kontakt-field">
+                <label for="kontakt-email">Służbowy e-mail (wymagane)</label>
+                <input id="kontakt-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-required="true" aria-describedby="kontakt-email-error" aria-invalid="false">
+                <span id="kontakt-email-error" class="kontakt-error"></span>
+              </div>
+              <div class="kontakt-field">
+                <label for="kontakt-company">Firma (wymagane)</label>
+                <input id="kontakt-company" name="company" type="text" autocomplete="organization" maxlength="160" required aria-required="true" aria-describedby="kontakt-company-error" aria-invalid="false">
+                <span id="kontakt-company-error" class="kontakt-error"></span>
+              </div>
+              <div class="kontakt-field">
+                <label for="kontakt-phone">Telefon (opcjonalnie)</label>
+                <input id="kontakt-phone" name="phone" type="tel" autocomplete="tel" maxlength="32" minlength="6" pattern="[+0-9 \(\)\-]{6,32}" aria-describedby="kontakt-phone-error" aria-invalid="false">
+                <span id="kontakt-phone-error" class="kontakt-error"></span>
+              </div>
+              <div class="kontakt-field">
+                <label for="kontakt-topic">Temat (wymagane)</label>
+                <select id="kontakt-topic" name="topic" required aria-required="true" aria-describedby="kontakt-topic-error" aria-invalid="false">
+                  <option value="">Wybierz temat</option>
+                  <option value="audyt">Audyt automatyzacji</option>
+                  <option value="wdrozenie">Wdrożenie</option>
+                  <option value="kalkulator-roi">Kalkulator zwrotu (ROI)</option>
+                  <option value="inne">Inne</option>
+                </select>
+                <span id="kontakt-topic-error" class="kontakt-error"></span>
+              </div>
+              <div class="kontakt-field">
+                <label for="kontakt-volume">Ilu pracowników lub kandydatów miesięcznie obsługujecie? (opcjonalnie)</label>
+                <select id="kontakt-volume" name="volume" aria-describedby="kontakt-volume-error" aria-invalid="false">
+                  <option value="">Nie podaję</option>
+                  <option value="do-50">do 50</option>
+                  <option value="50-200">50–200</option>
+                  <option value="200-1000">200–1000</option>
+                  <option value="ponad-1000">ponad 1000</option>
+                </select>
+                <span id="kontakt-volume-error" class="kontakt-error"></span>
+              </div>
+            </div>
+            <div class="kontakt-field">
+              <label for="kontakt-message">Wiadomość (opcjonalnie)</label>
+              <textarea id="kontakt-message" name="message" rows="6" maxlength="4000" aria-describedby="kontakt-message-count kontakt-message-error" aria-invalid="false"></textarea>
+              <span id="kontakt-message-count">0 / 4000 znaków</span>
+              <span id="kontakt-message-error" class="kontakt-error"></span>
+            </div>
+            <div class="kontakt-honeypot" aria-hidden="true">
+              <label for="kontakt-website">Zostaw to pole puste</label>
+              <input id="kontakt-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div id="kontakt-challenge" aria-describedby="kontakt-challenge-error"></div>
+            <p id="kontakt-challenge-error" class="kontakt-error"></p>
+            <button class="btn btn-accent btn-lg" type="submit" disabled aria-busy="false">Wyślij zapytanie</button>
+            <p class="kontakt-notice">{KONTAKT_NOTICE.text}<a href="/polityka-prywatnosci.html">{KONTAKT_NOTICE.url}</a></p>
+            <p class="kontakt-status" data-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+            <noscript><p>Do wysłania formularza potrzebna jest obsługa JavaScript. Napisz: <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a>.</p></noscript>
+          </form>
+        )}
         <div class="cta-form">
-          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: adres">kontakt@revagy.pl</a>
-          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: Umów audyt">Umów audyt</a>
+          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Audyt%20automatyzacji%20REVAGY" data-track="E-mail: adres">kontakt@revagy.pl</a>
+          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Audyt%20automatyzacji%20REVAGY" data-track="E-mail: Umów audyt">Umów audyt (1 990 zł)</a>
+          <a class="btn btn-glass btn-lg" href="/kontakt.html" data-track="Kontakt: Pełna strona">Szczegóły kontaktu →</a>
         </div>
         <p class="form-msg"><button type="button" class="link-btn" data-copy="kontakt@revagy.pl" data-track="Kopiuj adres">Kopiuj adres</button><span data-copy-msg role="status"></span></p>
       </div>

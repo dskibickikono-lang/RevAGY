@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Bezpieczeństwo, RODO i kontrola nad AI — REVAGY"
+  description="Zgodność z RODO, przygotowanie umowy powierzenia pod organizację, modele lokalne lub plany business bez trenowania na danych klienta, bramki zatwierdzeń człowieka, dziennik działań i polisa OC zawodowe IT na 1 000 000 zł."
+  canonical="https://revagy.pl/bezpieczenstwo.html"
+  variant="subpage"
+  activeNav="bezpieczenstwo"
+  showJourney={true}
+>
+<main id="start">
+
+  <section class="page-hero page-hero-night" id="bezp-hero" data-step-label="01 · Zasady bezpieczeństwa">
+    <div class="wrap reveal">
+      <span class="kicker kicker-night">Dla Inspektora Ochrony Danych (IOD), działu IT i zarządu</span>
+      <h1 class="display">Bezpieczeństwo, RODO i kontrola nad AI</h1>
+      <p class="lead">Bez marketingowych obietnic bez pokrycia. Pokazujemy dokładnie, jak przygotowujemy umowę powierzenia, gdzie działają modele AI, jak hashowane są dane kadrowe i jak człowiek zatwierdza wyjątki.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="bezp-filary" data-step-label="02 · RODO i modele AI">
+    <div class="grid-2" style="margin-bottom:32px;">
+      <article class="card reveal" style="border:2px solid var(--ink);min-height:0;">
+        <span class="badge badge-p0" style="align-self:flex-start;">Obsł. 6 · RODO i podpowierzenie</span>
+        <h2 class="h3">Umowa powierzenia (DPA) i kategorie podprocesorów</h2>
+        <p><strong>Przygotowujemy umowę powierzenia pod Waszą organizację</strong> przed rozpoczęciem prac na danych produkcyjnych. Zakres przetwarzania dopasowujemy do systemów, które łączymy (np. HRappka, InsERT nexo, TAXXO, Pipedrive).</p>
+        <ul class="ticks">
+          <li>Każdy podwykonawca lub usługa z dostępem do danych klienta wymaga podpowierzenia</li>
+          <li>Lista kategorii podprocesorów stanowi integralną część umowy z klientem</li>
+          <li>Przetwarzanie danych w Unii Europejskiej i zasada minimalnych uprawnień (least privilege)</li>
+        </ul>
+      </article>
+
+      <article class="card card-mist reveal" style="--d:80ms;min-height:0;">
+        <span class="badge badge-prod" style="align-self:flex-start;">Obsł. 8 · Ochrona tajemnicy przedsiębiorstwa</span>
+        <h2 class="h3">Modele AI bez trenowania na Waszych danych</h2>
+        <p>Wdrażamy <strong>modele lokalne</strong> (na serwerach w UE lub w infrastrukturze klienta) albo korzystamy z planów <strong>business Anthropic / OpenAI bez trenowania</strong> na przesyłanych danych.</p>
+        <ul class="ticks">
+          <li>Dane kandydatów, stawki RBH i marże klientów nie zasilają publicznych modeli</li>
+          <li>W pakiecie Enterprise możliwość pełnego wdrożenia we własnej chmurze lub na serwerach klienta</li>
+          <li>W warstwach raportowych (np. dashboard kadr w Personel Job) identyfikatory osobowe są hashowane bez zbędnego PII</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- INTERACTIVE CONTROL LAYERS -->
+    <div class="card card-night reveal" style="margin-bottom:36px;min-height:0;" data-tabs id="bezp-warstwy">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+        <div>
+          <span class="mono" style="color:var(--accent);">INTERAKTYWNA ARCHITEKTURA KONTROLI · KLIKNIJ WARSTWĘ</span>
+          <h2 class="h3" style="margin-top:4px;">Cztery bezpieczniki w każdym wdrożeniu REVAGY</h2>
+        </div>
+        <div class="seg" role="tablist" aria-label="Warstwy bezpieczeństwa">
+          <button type="button" role="tab" aria-selected="true" class="is-active" data-tab="bramki" data-track="Bezpieczeństwo Tab: Bramka człowieka">1. Bramka człowieka</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="dziennik" data-track="Bezpieczeństwo Tab: Dziennik i cofanie">2. Dziennik i cofanie</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="pii" data-track="Bezpieczeństwo Tab: Hashowanie PII">3. Hashowanie PII</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="polisa" data-track="Bezpieczeństwo Tab: Testy i OC">4. Testy i OC 1 mln zł</button>
+        </div>
+      </div>
+
+      <div class="tab-panel is-active" data-tab-panel="bramki" role="tabpanel" style="background:var(--night-2);padding:24px;border-radius:18px;border:1px solid var(--night-line);">
+        <span class="badge badge-p0">Warstwa 01 · Human-in-the-loop (Obsł. 5)</span>
+        <h3 class="h3" style="margin-top:10px;">Człowiek zatwierdza wyjątki i publikacje</h3>
+        <p class="muted" style="margin-top:8px;">Automat nie podejmuje decyzji powyżej ustalonego progu (kwota, rabat, nowy kontrahent, publikacja kampanii). Przykład z produkcji (Dobra Praca PL): Agentka Klaudia przygotowuje kampanię i formularze Lead Ads, ale publikacja rusza dopiero po komendzie człowieka <code>„Zatwierdzam vNNN”</code>. Z kolei w Labor APT (<span class="badge badge-pilot">Pilotaż</span>) silnik obsady KPME jest w 100% deterministyczny i podwójnie weryfikowany.</p>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="dziennik" role="tabpanel" hidden style="background:var(--night-2);padding:24px;border-radius:18px;border:1px solid var(--night-line);">
+        <span class="badge badge-prod">Warstwa 02 · Pełna rozliczalność i SHA-256</span>
+        <h3 class="h3" style="margin-top:10px;">Dziennik działań i ścieżka cofnięcia</h3>
+        <p class="muted" style="margin-top:8px;">Każda operacja automatu lub agenta zapisuje: kto lub który proces wykonał akcję, kiedy, na jakim obiekcie i z jaką sumą kontrolną paczki. Przykład z migracji w Personal (<span class="badge badge-wip">W trakcie</span>): 855 plików eksportu zabezpieczonych i zweryfikowanych kryptograficznie sumami SHA-256.</p>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="pii" role="tabpanel" hidden style="background:var(--night-2);padding:24px;border-radius:18px;border:1px solid var(--night-line);">
+        <span class="badge badge-prod">Warstwa 03 · Minimalizacja danych (Privacy by Design)</span>
+        <h3 class="h3" style="margin-top:10px;">Brak zbędnego PII w raportach i minimalne uprawnienia</h3>
+        <p class="muted" style="margin-top:8px;">Klucze API i konta serwisowe otrzymują wyłącznie uprawnienia niezbędne do danego przepływu. W dashboardach kadrowych i zarządczych (jak w Personel Job oraz HR KONO S.A.) warstwa analityczna operuje na zahashowanych identyfikatorach bez wystawiania danych osobowych.</p>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="polisa" role="tabpanel" hidden style="background:var(--night-2);padding:24px;border-radius:18px;border:1px solid var(--night-line);">
+        <span class="badge badge-p0">Warstwa 04 · Gwarancja finansowa i kontrakt danych (Obsł. 11)</span>
+        <h3 class="h3" style="margin-top:10px;">OC zawodowe IT na 1 000 000 zł i 2011 testów automatycznych</h3>
+        <p class="muted" style="margin-top:8px;">Posiadamy potwierdzoną polisę OC zawodowe IT na sumę <strong>1 000 000 zł</strong>. W systemach klasy KONO OS integralności danych między Pipedrive, HRappką, nexo i TAXXO pilnuje <strong>2011 testów automatycznych</strong> oraz tryb shadow przed przełączeniem na produkcję.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <article class="card reveal" style="min-height:0;">
+        <span class="mono">01 · Kontrola człowieka</span>
+        <h3 class="h4">Bramki zatwierdzeń i cofanie</h3>
+        <p class="muted">Człowiek zatwierdza wyjątki powyżej ustalonego progu. Każda akcja ma dziennik (kto/co/kiedy/checksum) i ścieżkę cofnięcia.</p>
+      </article>
+      <article class="card reveal" style="--d:70ms;min-height:0;">
+        <span class="mono">02 · Minimalne dane</span>
+        <h3 class="h4">Bez zbędnego PII w raportach</h3>
+        <p class="muted">Integracje dostają minimalny zakres uprawnień (least privilege). W warstwach raportowych identyfikatory osobowe są hashowane.</p>
+      </article>
+      <article class="card reveal" style="--d:140ms;min-height:0;">
+        <span class="mono">03 · Ubezpieczenie</span>
+        <h3 class="h4">OC zawodowe IT na 1 000 000 zł</h3>
+        <p class="muted">Potwierdzona polisa OC zawodowe IT na sumę 1 000 000 zł oraz ponad 2011 testów automatycznych pilnujących kontraktów danych.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-sm wrap" id="bezp-cta" data-step-label="03 · Pytania IOD i audyt">
+    <div class="card card-mist reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;min-height:0;">
+      <div style="max-width:720px;display:grid;gap:8px;">
+        <span class="mono">DLA INSPEKTORA OCHRONY DANYCH I DZIAŁU IT</span>
+        <h2 class="h3">Chcecie omówić architekturę uprawnień przed startem?</h2>
+        <p class="muted">W ramach audytu (1 990 zł, 14 dni na pełny zwrot) rozpisujemy dokładny przepływ pól między Waszymi systemami oraz przygotowujemy umowę powierzenia pod Waszą organizację.</p>
+      </div>
+      <a class="btn btn-dark btn-lg" href="/kontakt.html" data-track="Bezpieczeństwo CTA: Umów audyt">Umów audyt z udziałem IT / IOD →</a>
+    </div>
+  </section>
+
+</main>
+</BaseLayout>

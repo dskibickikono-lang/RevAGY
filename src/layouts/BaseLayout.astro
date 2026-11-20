@@ -1,16 +1,46 @@
 ---
+import { TURNSTILE_SITEKEY } from '../config/kontakt';
+
 interface Props {
   title: string;
   description?: string;
   canonical?: string;
   robots?: string;
-  variant: 'home' | 'subpage' | '404';
+  variant?: 'home' | 'subpage' | '404';
+  activeNav?: string;
+  showJourney?: boolean;
+  hasForm?: boolean;
 }
 
-const { title, description, canonical, robots, variant } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  robots,
+  variant = 'subpage',
+  activeNav = '',
+  showJourney = false,
+  hasForm = false,
+} = Astro.props;
+
 const isHome = variant === 'home';
 const is404 = variant === '404';
-const base = is404 ? '/' : '';
+const loadKontaktScript = Boolean(hasForm && TURNSTILE_SITEKEY);
+
+const navKey = (activeNav || canonical || Astro.url?.pathname || '').toLowerCase();
+const isStartActive = isHome || activeNav === 'home' || activeNav === 'start' || activeNav === '/';
+const isBranzeActive =
+  !isStartActive &&
+  (navKey.includes('branze') ||
+    navKey.includes('dla-agencji-pracy') ||
+    navKey.includes('dla-produkcji-i-magazynow') ||
+    navKey.includes('porownanie') ||
+    navKey.includes('produkty') ||
+    navKey.includes('obieg-dokumentow'));
+const isRealizacjeActive = !isStartActive && navKey.includes('realizacje');
+const isOfertaActive = !isStartActive && navKey.includes('oferta');
+const isBezpieczenstwoActive = !isStartActive && navKey.includes('bezpieczenstwo');
+const isKontaktActive = !isStartActive && navKey.includes('kontakt');
 ---
 <!doctype html>
 <html lang="pl">
@@ -36,90 +66,74 @@ const base = is404 ? '/' : '';
     <meta name="twitter:card" content="summary_large_image">
   </>
 )}
-<link rel="icon" href={`${base}favicon.ico`} sizes="32x32">
-<link rel="icon" href={`${base}assets/img/favicon.svg`} type="image/svg+xml">
-{!is404 && <link rel="apple-touch-icon" href={`${base}assets/img/apple-touch-icon.png`}>}
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+{!is404 && <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">}
 {isHome && (
   <>
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   </>
 )}
-<link rel="stylesheet" href={`${base}assets/css/styles.css?v=2`}>
+<link rel="stylesheet" href="/assets/css/styles.css?v=3">
 </head>
 <body>
 {!is404 && <a class="skip" href="#start">Przejdź do treści</a>}
 
-{isHome && (
-<header class="site-header" id="top">
+{!is404 && (
+<header class={`site-header${variant === 'subpage' ? ' is-scrolled' : ''}`} id="top">
   <div class="wrap header-row">
-    <a class="logo" href="#top" aria-label="REVAGY, strona główna">
+    <a class="logo" href={isHome ? '#top' : '/'} aria-label="REVAGY, strona główna">
       <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M10 23V9h7.2a4.6 4.6 0 0 1 1.9 8.8L22.5 23h-4l-2.9-4.6H13.5V23zm3.5-7.6h3.3a1.7 1.7 0 0 0 0-3.4h-3.3z" fill="var(--paper)"/></svg>
       <span class="logo-word">REVAGY</span>
     </a>
 
     <nav class="main-nav" aria-label="Główna nawigacja">
+      <a class={`nav-link${isStartActive ? ' is-active' : ''}`} href="/">Start</a>
       <div class="nav-item has-panel">
-        <button class="nav-link" type="button" aria-expanded="false" aria-controls="panel-rozwiazania">Rozwiązania
+        <button class={`nav-link${isBranzeActive ? ' is-active' : ''}`} type="button" aria-expanded="false" aria-controls="panel-branze">Branże i produkty
           <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="nav-panel" id="panel-rozwiazania">
-          <a href="#mozliwosci"><strong>Automatyzacja procesów</strong><span>Zamówienia, faktury, raporty i obieg dokumentów</span></a>
-          <a href="#mozliwosci"><strong>Agenci AI</strong><span>Obsługa zapytań, ofert i zgłoszeń przez całą dobę</span></a>
-          <a href="#integracje"><strong>Integracje systemów</strong><span>CRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu</span></a>
-          <a href="#mozliwosci"><strong>Analityka i raporty</strong><span>Dane z wielu źródeł w jednym pulpicie</span></a>
+        <div class="nav-panel" id="panel-branze">
+          <a href="/dla-agencji-pracy.html"><strong>Dla agencji pracy i HR</strong><span>HRappka, nexo, TAXXO, obieg umów i alerty zezwoleń 30 dni</span></a>
+          <a href="/dla-produkcji-i-magazynow.html"><strong>Dla produkcji i magazynów</strong><span>Wydajność zmian, rozliczenia RBH i płatny pilotaż 14 dni</span></a>
+          <a href="/porownanie.html"><strong>Porównanie podejść</strong><span>Moduł dostawcy vs Excel + etat vs integracja REVAGY</span></a>
+          <a href="/produkty/obieg-dokumentow.html"><strong>Obieg dokumentów na tablecie</strong><span>Podpis na hali → nexo i HRappka w ~10 min (od 3 900 zł)</span></a>
         </div>
       </div>
-      <div class="nav-item has-panel">
-        <button class="nav-link" type="button" aria-expanded="false" aria-controls="panel-dzialy">Dla działów
-          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="nav-panel" id="panel-dzialy">
-          <a href="#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
-          <a href="#zastosowania"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
-          <a href="#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
-          <a href="#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
-        </div>
-      </div>
-      <a class="nav-link" href="#proces">Jak wdrażamy</a>
-      <a class="nav-link" href="#pakiety">Pakiety</a>
-      <a class="nav-link" href="#faq">FAQ</a>
+      <a class={`nav-link${isRealizacjeActive ? ' is-active' : ''}`} href="/realizacje.html">Realizacje</a>
+      <a class={`nav-link${isOfertaActive ? ' is-active' : ''}`} href="/oferta.html">Oferta</a>
+      <a class={`nav-link${isBezpieczenstwoActive ? ' is-active' : ''}`} href="/bezpieczenstwo.html">Bezpieczeństwo</a>
+      <a class={`nav-link${isKontaktActive ? ' is-active' : ''}`} href="/kontakt.html">Kontakt</a>
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-ghost" href="#kalkulator">Policz zwrot</a>
-      <a class="btn btn-dark" href="#kontakt">Umów audyt</a>
+      <a class="btn btn-ghost" href={isHome ? '#kalkulator' : '/#kalkulator'}>Policz zwrot</a>
+      <a class="btn btn-dark" href="/kontakt.html">Umów audyt</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu">
         <span></span><span></span>
       </button>
     </div>
   </div>
 
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar" data-scroll-progress></div>
+  </div>
+
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav class="wrap" aria-label="Menu mobilne">
-      <a href="#mozliwosci">Rozwiązania</a>
-      <a href="#zastosowania">Dla działów</a>
-      <a href="#proces">Jak wdrażamy</a>
-      <a href="#kalkulator">Policz zwrot</a>
-      <a href="#pakiety">Pakiety</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-dark btn-lg" href="#kontakt">Umów bezpłatny audyt</a>
+      <a href="/">Start</a>
+      <a href="/dla-agencji-pracy.html">Dla agencji pracy i HR</a>
+      <a href="/dla-produkcji-i-magazynow.html">Produkcja i magazyny</a>
+      <a href="/realizacje.html">Realizacje (14 klientów)</a>
+      <a href="/oferta.html">Oferta i ceny „od”</a>
+      <a href="/porownanie.html">Porównanie podejść</a>
+      <a href="/produkty/obieg-dokumentow.html">Obieg dokumentów (tablet)</a>
+      <a href="/bezpieczenstwo.html">Bezpieczeństwo i RODO</a>
+      <a href={isHome ? '#proces' : '/#proces'}>Jak wdrażamy</a>
+      <a href="/kontakt.html">Kontakt</a>
+      <a class="btn btn-dark btn-lg" href="/kontakt.html">Umów audyt (1 990 zł)</a>
     </nav>
-  </div>
-</header>
-)}
-
-{variant === 'subpage' && (
-<header class="site-header is-scrolled" id="top">
-  <div class="wrap header-row">
-    <a class="logo" href="./" aria-label="REVAGY, strona główna">
-      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M10 23V9h7.2a4.6 4.6 0 0 1 1.9 8.8L22.5 23h-4l-2.9-4.6H13.5V23zm3.5-7.6h3.3a1.7 1.7 0 0 0 0-3.4h-3.3z" fill="var(--paper)"/></svg>
-      <span class="logo-word">REVAGY</span>
-    </a>
-    <div class="header-actions" style="margin-left:auto">
-      <a class="btn btn-ghost" href="./">Strona główna</a>
-      <a class="btn btn-dark" href="./#kontakt">Umów audyt</a>
-    </div>
   </div>
 </header>
 )}
@@ -132,7 +146,7 @@ const base = is404 ? '/' : '';
       <span class="logo-word">REVAGY</span>
     </a>
     <div class="header-actions" style="margin-left:auto">
-      <a class="btn btn-dark" href="/#kontakt">Umów audyt</a>
+      <a class="btn btn-dark" href="/kontakt.html">Umów audyt</a>
     </div>
   </div>
 </header>
@@ -140,55 +154,68 @@ const base = is404 ? '/' : '';
 
 <slot />
 
-{isHome && (
+{showJourney && !is404 && (
+<aside class="journey-rail" data-journey-rail aria-label="Przewodnik po sekcjach strony">
+  <div class="journey-meta">
+    <span class="journey-step-count" data-journey-count>Krok 1</span>
+    <span class="journey-label" data-journey-label>Start</span>
+  </div>
+  <div class="journey-dots"></div>
+  <button type="button" class="journey-next" data-journey-next>Następny krok →</button>
+</aside>
+)}
+
+{!is404 && (
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo" href="#top" aria-label="REVAGY, do góry strony">
+        <a class="logo" href={isHome ? '#top' : '/'} aria-label="REVAGY, do góry strony">
           <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M10 23V9h7.2a4.6 4.6 0 0 1 1.9 8.8L22.5 23h-4l-2.9-4.6H13.5V23zm3.5-7.6h3.3a1.7 1.7 0 0 0 0-3.4h-3.3z" fill="var(--paper)"/></svg>
           <span class="logo-word">REVAGY</span>
         </a>
-        <p>Automatyzacja procesów i wdrożenia AI dla firm B2B.</p>
+        <p>Procesy, które robią się same. Automatyzacja kadr, rekrutacji, sprzedaży i operacji B2B bez wymiany systemów.</p>
       </div>
-      <nav aria-label="Rozwiązania">
-        <h4>Rozwiązania</h4>
-        <a href="#mozliwosci">Automatyzacja procesów</a><a href="#mozliwosci">Agenci AI</a><a href="#integracje">Integracje</a><a href="#mozliwosci">Analityka</a>
+      <nav aria-label="Strony główne">
+        <h4>Nawigacja</h4>
+        <a href="/">Strona główna</a>
+        <a href="/realizacje.html">Realizacje (14 klientów)</a>
+        <a href="/oferta.html">Oferta i ceny „od”</a>
+        <a href="/bezpieczenstwo.html">Bezpieczeństwo i RODO</a>
+        <a href="/kontakt.html">Kontakt i audyt</a>
       </nav>
-      <nav aria-label="Dla działów">
-        <h4>Dla działów</h4>
-        <a href="#zastosowania">Sprzedaż</a><a href="#zastosowania">Finanse</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
+      <nav aria-label="Branże i porównania">
+        <h4>Branże i porównania</h4>
+        <a href="/dla-agencji-pracy.html">Dla agencji pracy i HR</a>
+        <a href="/dla-produkcji-i-magazynow.html">Produkcja i magazyny</a>
+        <a href="/realizacje/grupa-kono.html">Case: Grupa KONO</a>
+        <a href="/porownanie.html">Porównanie podejść</a>
       </nav>
-      <nav aria-label="Firma">
-        <h4>Firma</h4>
-        <a href="#proces">Jak wdrażamy</a><a href="#pakiety">Pakiety</a><a href="#bezpieczenstwo">Bezpieczeństwo</a><a href="#faq">FAQ</a>
+      <nav aria-label="Produkty i narzędzia">
+        <h4>Produkty i narzędzia</h4>
+        <a href="/produkty/obieg-dokumentow.html">Obieg dokumentów (tablet)</a>
+        <a href={isHome ? '#kalkulator' : '/#kalkulator'}>Kalkulator zwrotu</a>
+        <a href={isHome ? '#proces' : '/#proces'}>Jak wdrażamy</a>
+        <a href={isHome ? '#faq' : '/#faq'}>FAQ</a>
       </nav>
       <nav aria-label="Kontakt">
         <h4>Kontakt</h4>
-        <a href="#kontakt">Umów audyt</a><a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a><a href="#kalkulator">Kalkulator zwrotu</a>
+        <a href="/kontakt.html">Umów audyt (1 990 zł)</a>
+        <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a>
+        <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
       </nav>
     </div>
     <div class="footer-legal">
       <p>© 2026 REVAGY · Dawid Skibicki · ul. Gabriela Narutowicza 7/7, 14-200 Iława · NIP 7441749535 · REGON 389229155</p>
-      <p><a href="polityka-prywatnosci.html">Polityka prywatności</a> · <button type="button" class="link-btn" data-consent-open>Ustawienia prywatności</button> · <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a></p>
-      <p>Widoki ekranów i nazwy firm w przykładach są poglądowe. Nazwy systemów należą do ich właścicieli i wskazują przykładowe kierunki integracji.</p>
+      <p><a href="/polityka-prywatnosci.html">Polityka prywatności</a> · <button type="button" class="link-btn" data-consent-open>Ustawienia prywatności</button> · <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a></p>
+      <p>Widoki ekranów w makietach i filmach są poglądowe. Liczby oznaczone ~ są estymacjami z dokumentacji wdrożeń; projekty pilotażowe i w trakcie mają jawne etykiety statusu.</p>
     </div>
   </div>
 </footer>
 )}
 
-{variant === 'subpage' && (
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-legal" style="margin-top:0">
-      <p>© 2026 REVAGY · Dawid Skibicki · ul. Gabriela Narutowicza 7/7, 14-200 Iława · NIP 7441749535 · REGON 389229155</p>
-      <p><a href="./">Strona główna</a> · <button type="button" class="link-btn" data-consent-open>Ustawienia prywatności</button> · <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a></p>
-    </div>
-  </div>
-</footer>
-)}
-
-{isHome && <script is:inline src="assets/js/app.js?v=2" defer></script>}
-<script is:inline src={`${base}assets/js/analytics.js?v=2`} defer></script>
+{loadKontaktScript && <script is:inline src="/assets/js/kontakt.js?v=1" defer></script>}
+{!is404 && <script is:inline src="/assets/js/app.js?v=3" defer></script>}
+<script is:inline src="/assets/js/analytics.js?v=3" defer></script>
 </body>
 </html>

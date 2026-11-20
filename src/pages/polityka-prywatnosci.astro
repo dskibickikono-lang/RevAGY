@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Jakie dane zbiera strona revagy.pl, po co, jak długo je przechowujemy i jak cofnąć zgodę na statystyki."
   canonical="https://revagy.pl/polityka-prywatnosci.html"
   variant="subpage"
+  showJourney={false}
 >
 <main id="start" class="wrap doc-page">
   <h1>Polityka prywatności</h1>
@@ -29,6 +30,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <td>Przez czas korespondencji i do 3 lat po jej zakończeniu</td>
         </tr>
         <tr>
+          <td><strong>Wysyłasz formularz kontaktowy</strong></td>
+          <td>Imię i nazwisko, e-mail, firma, telefon jeśli podasz, temat, skala, treść, źródło wejścia z parametrów UTM i strony odsyłającej</td>
+          <td>Odpowiedź na zapytanie: działania przed zawarciem umowy oraz nasz uzasadniony interes (art. 6 ust. 1 lit. b i f RODO)</td>
+          <td>Czas obsługi i do 3 lat po zakończeniu. Kopia techniczna w bramce formularza: treść do 7 dni po dostarczeniu do CRM, rejestr przyjęć 12 miesięcy, zaszyfrowane kopie zapasowe 14 dni</td>
+        </tr>
+        <tr>
+          <td><strong>Rezerwujesz termin rozmowy lub audytu</strong> (po uruchomieniu kalendarza)</td>
+          <td>Imię i nazwisko, służbowy e-mail, firma, wybrany termin spotkania</td>
+          <td>Umówienie i przeprowadzenie rozmowy lub audytu procesów (art. 6 ust. 1 lit. b RODO)</td>
+          <td>Czas realizacji spotkania i do 3 lat po zakończeniu kontaktu biznesowego</td>
+        </tr>
+        <tr>
           <td><strong>Otwierasz stronę</strong> (logi serwera, zawsze)</td>
           <td>Adres IP, data i godzina, adres otwartej strony, strona odsyłająca, dane przeglądarki (user agent)</td>
           <td>Bezpieczeństwo i diagnostyka serwera: nasz uzasadniony interes (art. 6 ust. 1 lit. f RODO)</td>
@@ -36,7 +49,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </tr>
         <tr>
           <td><strong>Zgadzasz się na statystyki</strong> (Matomo, tylko po zgodzie)</td>
-          <td>Adres IP, przeglądarka i urządzenie, źródło wejścia, odwiedzone strony i sekcje, kliknięcia, głębokość przewinięcia, czas na stronie, ustawienia kalkulatora</td>
+          <td>Adres IP, przeglądarka i urządzenie, źródło wejścia, odwiedzone strony i sekcje, kliknięcia, głębokość przewinięcia, czas na stronie, ustawienia kalkulatora, techniczny identyfikator przyjęcia formularza (<code>lead_id</code>, bez treści pól)</td>
           <td>Sprawdzanie, które treści są przydatne, i poprawianie strony: Twoja zgoda (art. 6 ust. 1 lit. a RODO)</td>
           <td>13 miesięcy</td>
         </tr>
@@ -60,14 +73,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
   <p>Twoją decyzję o zgodzie zapisujemy w pamięci przeglądarki pod kluczem <code>revagy-zgoda-analityka</code>, żeby nie pytać przy każdej wizycie.</p>
 
+  <p>Źródło pierwszego wejścia zapisujemy pod kluczem <code>fg_first_touch</code> w <code>sessionStorage</code>, bez ciasteczek. Zapis jest usuwany po zamknięciu karty. Cloudflare Turnstile, który chroni formularz przed spamem, ładuje się, gdy formularz pojawi się na ekranie lub zaczniesz go wypełniać.</p>
+
   <h2>Jak zmienić zdanie</h2>
   <p>Zgodę możesz cofnąć w każdej chwili: <button type="button" class="link-btn" data-consent-open>otwórz ustawienia prywatności</button> i wybierz „Odrzucam”. Usuniemy wtedy ciasteczka statystyk z Twojej przeglądarki i przestaniemy zapisywać wizyty.</p>
 
   <h2>Komu przekazujemy dane</h2>
   <ul>
-    <li>Dostawcy serwera, na którym działa strona i statystyki.</li>
-    <li>Dostawcy poczty, przez którą odbieramy wiadomości.</li>
+    <li>Hetzner Online — serwer w Niemczech lub Finlandii.</li>
+    <li>Attio — system obsługi zapytań i relacji z klientami (CRM).</li>
+    <li>Cloudflare — Turnstile, ochrona formularza przed spamem.</li>
+    <li>Google — Workspace: poczta i powiadomienia.</li>
   </ul>
+  <p>Część odbiorców może przetwarzać dane poza Europejskim Obszarem Gospodarczym (EOG) na podstawie standardowych klauzul umownych.</p>
   <p>Statystyk nie udostępniamy firmom reklamowym ani zewnętrznym narzędziom analitycznym. Nie podejmujemy na ich podstawie zautomatyzowanych decyzji wobec odwiedzających.</p>
 
   <h2>Twoje prawa</h2>
@@ -80,6 +98,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </ul>
   <p>Żeby skorzystać z tych praw, napisz na <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a>.</p>
 
-  <p style="margin-top:44px">Wersja z 13 listopada 2026.</p>
+  <p style="margin-top:44px">Wersja z 18 listopada 2026.</p>
 </main>
 </BaseLayout>
