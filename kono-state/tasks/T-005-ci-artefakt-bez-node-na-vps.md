@@ -3,15 +3,15 @@ id: T-005
 title: Build w CI i artefakt wydania — VPS bez Node
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-17
-updated: 2026-11-17
+updated: 2026-11-18
 branch: skibiai/kind-bell-p8w2vw
 base: migration/astro-static (PR #2, a0346139a399c0410412a3ebeebc4dc61b4786cd)
 depends_on: T-003
 decisions: [D-006, D-010]
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/3
-sha: 2039adb (zmiany T-005; ten commit dopisuje tylko PR/SHA w karcie)
+sha: 2039adb (zmiany T-005); main po merge PR #3 → #2: 9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f
 ---
 
 # T-005 — Build w CI i artefakt wydania, VPS bez Node
@@ -47,3 +47,9 @@ Usunąć ryzyko z PR #2 „Node v22.23.3 na VPS < wymagane przez Astro >=22.23.4
 
 - Produkcja (Faza F z T-003) — nadal wymaga osobnej zgody właściciela.
 - Czy `/usr/bin/node` na VPS używa `sms-dlr.service` — nieistotne po tej zmianie, nie sprawdzane (brak SSH).
+
+## Merge
+
+- PR #3 → `migration/astro-static` (899e85f), PR #2 → `main` (9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f), 2026-11-18, właściciel.
+- CI PR #2 na 899e85f: success (run 44204123751). Lokalny build `main` 9f8c86f: manifest `dist` SHA-256 `eb1c0cfa3d1b1728d0059c5d8243d2d30b23525d20190a8c4eb320bcc69b8f82`.
+- Następny krok: zgoda właściciela na Fazę F (przełączenie produkcji) — osobna karta.
