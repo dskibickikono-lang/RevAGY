@@ -198,6 +198,14 @@ const MATOMO_MOCK_JS = `(function(){
   window._paq = { push: handle };
 })();`;
 
+// Atrapa Turnstile: build z prawdziwym PUBLIC_TURNSTILE_SITEKEY ładuje api.js z challenges.cloudflare.com,
+// a test dymny nie wychodzi do internetu. Pełne zachowanie formularza sprawdza tools/test-formularz.cjs.
+const TURNSTILE_MOCK_JS = `window.turnstile = {
+  render: function () { return 'smoke-widget'; },
+  execute: function () {}, reset: function () {}, remove: function () {},
+  getResponse: function () { return ''; }, isExpired: function () { return false; }
+};`;
+
 async function newPage(browser, viewport, extra = {}, { enforceIsolation = false, allowHttpErrors = false } = {}) {
   const direct = (mapTo || enforceIsolation)
     ? { ignoreHTTPSErrors: true, proxy: { server: 'http://127.0.0.1:9', bypass: 'revagy.pl,www.revagy.pl,stats.revagy.pl,localhost,127.0.0.1' } }
@@ -239,6 +247,13 @@ async function newPage(browser, viewport, extra = {}, { enforceIsolation = false
         });
       }
       return route.fulfill({ status: 204, body: '' });
+    }
+
+    if (parsed.hostname === 'challenges.cloudflare.com') {
+      if (parsed.pathname.endsWith('/api.js')) {
+        return route.fulfill({ status: 200, contentType: 'application/javascript; charset=utf-8', body: TURNSTILE_MOCK_JS });
+      }
+      return route.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: '<!doctype html><html lang="pl"><title>Ochrona</title></html>' });
     }
 
     if (enforceIsolation && !ALLOWED_HOSTS.has(parsed.hostname)) {
