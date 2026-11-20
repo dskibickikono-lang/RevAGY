@@ -36,6 +36,9 @@ jobs:
       - run: npm ci
 
       - name: Build
+        env:
+          # Publiczny klucz witryny Turnstile (zmienna repo, nie sekret); pusty = formularz ukryty.
+          PUBLIC_TURNSTILE_SITEKEY: ${{ vars.PUBLIC_TURNSTILE_SITEKEY }}
         run: |
           umask 022
           npm run build
