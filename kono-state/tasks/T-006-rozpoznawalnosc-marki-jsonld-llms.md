@@ -7,7 +7,7 @@ status: do-przegladu
 created: 2026-11-20
 updated: 2026-11-20
 branch: feat/rozpoznawalnosc-marki
-base: feat/nowa-odslona-p0-p2 (PR #5)
+base: main (po scaleniu PR #5)
 depends_on: PR #5
 decisions: [D-011, D-012, D-013]
 ---
@@ -43,3 +43,22 @@ Bez SSH, bez zmian na hostach. Wdrożenie skryptu GoAccess na VPS wymaga osobnej
 - `revagy-logi-raport.sh`: `sh -n`/`dash -n` OK; przebieg na sztucznym logu z atrapą `goaccess`: poprawne
   zliczenie (GPTBot 3 żądania / 2 adresy, ClaudeBot 1/1, przeglądarka pominięta), plik tymczasowy usunięty.
 - `test:smoke`: **nieuruchomiony lokalnie** (brak przeglądarki Playwright na hoście); uruchamia go CI przy PR.
+
+## Poprawki po review PR #6 (2026-11-20)
+
+| Uwaga | Poprawka |
+|---|---|
+| baza PR #6 | przestawiona na `main` przez reviewera; `MERGEABLE`/`CLEAN` |
+| `sectionsMatchSitemap` bez sekcji nadmiarowych | dodane `sekcje stron spoza sitemapy` |
+| `checkJsonLd`: logo/obraz, `WebSite`, REGON | lokalne `logo.url` i `image` muszą istnieć w `dist/`; `WebSite.url` = `Organization.url`; `publisher.@id` = `Organization.@id`; REGON z kontraktu (`structuredData.regon`) |
+| atrybuty na bloku JSON-LD | dozwolony wyłącznie `type` (`defer`, `async` itd. → błąd) |
+| `</main>` czułe na wielkość liter | ostatnie dopasowanie `/<\/main\s*>/gi` |
+| adresy katalogowe (`/blog/`) | → `blog/index.html`; brak pliku lub katalog → czytelny błąd zamiast `EISDIR` |
+| mały słownik encji | +34 encje (`euro`, `copy`, `sect`, `plusmn`, `le`, `ge`, `reg`, `trade`…) |
+| smoke-test bez JSON-LD | jawne `n !== 1` przed `JSON.parse` |
+| `boty-ai.txt` | wiersze bez poprawnej daty pomijane; kolumna `adresy` → `sciezki` (ścieżki URL, nie IP) |
+
+Testy: `check:dist` OK, 45 plików, manifest bez zmian (`8c7ff4ee…`) — wynik dla obecnych stron identyczny;
+6 nowych prób negatywnych walidatora (sekcja nadmiarowa, brak logo, brak obrazu, zły REGON, `publisher.@id`,
+`defer`) → błąd; generator na przypadkach `</MAIN>`, `/blog/`, encjach; skrypt logów na wierszach bez daty
+i pustym logu (`dash`). Smoke i formularz: CI.

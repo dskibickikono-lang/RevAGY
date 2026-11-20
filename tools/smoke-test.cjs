@@ -299,6 +299,7 @@ if (require.main === module) (async () => {
       check('baner zgody widoczny przy pierwszej wizycie', await page.locator('.consent').isVisible());
       const ld = await page.evaluate(() => {
         const el = document.querySelectorAll('script[type="application/ld+json"]');
+        if (el.length !== 1) return { n: el.length };
         try { return { n: el.length, data: JSON.parse(el[0].textContent) }; } catch (e) { return { n: el.length, err: String(e) }; }
       });
       const ldOrg = ld.data && (ld.data['@graph'] || []).find((x) => x['@type'] === 'Organization');

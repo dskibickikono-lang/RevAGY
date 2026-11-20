@@ -21,7 +21,10 @@ const BLOKOWE = new Set(['p', 'div', 'section', 'article', 'header', 'footer', '
 // Strony pomocnicze: w llms.txt trafiają do sekcji „Opcjonalne”
 const OPCJONALNE = new Set(['polityka-prywatnosci.html']);
 
-const ENCJE = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", shy: '', ndash: '–', mdash: '—', hellip: '…', bdquo: '„', rdquo: '”', ldquo: '“', rarr: '→', larr: '←', middot: '·', times: '×' };
+const ENCJE = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", shy: '', ndash: '–', mdash: '—', hellip: '…', bdquo: '„', rdquo: '”', ldquo: '“', rarr: '→', larr: '←', middot: '·', times: '×',
+  copy: '©', reg: '®', trade: '™', sect: '§', para: '¶', euro: '€', deg: '°', plusmn: '±', le: '≤', ge: '≥', ne: '≠', asymp: '≈',
+  minus: '−', divide: '÷', sup1: '¹', sup2: '²', sup3: '³', frac12: '½', frac14: '¼', frac34: '¾', laquo: '«', raquo: '»',
+  lsquo: '‘', rsquo: '’', sbquo: '‚', bull: '•', uarr: '↑', darr: '↓', harr: '↔', check: '✓', thinsp: ' ', ensp: ' ', emsp: ' ' };
 
 export function dekoduj(s) {
   return s.replace(/&(#x[0-9a-f]+|#[0-9]+|[a-z]+);/gi, (m, e) => {
@@ -49,7 +52,9 @@ function metaZawartosc(html, nazwa) {
 // <main> → zwykły tekst z nagłówkami i listami w składni Markdown
 export function tekstZHtml(html) {
   const start = html.search(/<main\b/i);
-  const koniec = html.lastIndexOf('</main>');
+  // ostatnie zamknięcie </main>, bez względu na wielkość liter (symetrycznie do otwarcia)
+  let koniec = -1;
+  for (const m of html.matchAll(/<\/main\s*>/gi)) koniec = m.index;
   if (start < 0 || koniec < 0) return '';
   const zrodlo = html.slice(start, koniec).replace(/<!--[\s\S]*?-->/g, '');
 
@@ -110,10 +115,12 @@ export function tekstZHtml(html) {
     .trim();
 }
 
+// Adres z sitemapy → plik w dist/. Ścieżka katalogowa (np. przyszłe /blog/) → <katalog>/index.html.
 function plikDlaAdresu(adres) {
-  const p = new URL(adres).pathname;
+  const p = decodeURIComponent(new URL(adres).pathname);
   if (p === '/' || p === '') return 'index.html';
-  return decodeURIComponent(p.replace(/^\//, ''));
+  const rel = p.replace(/^\//, '');
+  return rel.endsWith('/') ? `${rel}index.html` : rel;
 }
 
 export function zbierzStrony(distDir) {
@@ -125,7 +132,9 @@ export function zbierzStrony(distDir) {
   for (const adres of adresy) {
     const plik = plikDlaAdresu(adres);
     const pelna = path.join(distDir, plik);
-    if (!fs.existsSync(pelna)) throw new Error(`llms-txt: adres z sitemapy ${adres} nie ma pliku ${plik} w dist/`);
+    if (!fs.existsSync(pelna) || !fs.statSync(pelna).isFile()) {
+      throw new Error(`llms-txt: adres z sitemapy ${adres} nie ma pliku ${plik} w dist/`);
+    }
     const html = fs.readFileSync(pelna, 'utf8');
     const robots = (metaZawartosc(html, 'robots') || '').toLowerCase();
     if (robots.includes('noindex')) continue;

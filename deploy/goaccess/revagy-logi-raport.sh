@@ -40,7 +40,8 @@ mkdir -p "$OUT"
 
 mv -f "$NEW" "$OUT/index.html"
 
-# Dzienne zestawienie botów AI: data (z logu), bot, liczba żądań, liczba różnych adresów.
+# Dzienne zestawienie botów AI: data (z logu), bot, liczba żądań i liczba różnych ścieżek URL
+# (kolumna „sciezki” — to adresy stron, nie adresy IP). Wiersze bez poprawnej daty [DD/Mon/RRRR są pomijane.
 {
     for f in "$LOGS"/access.log.*.gz; do
         [ -f "$f" ] && zcat "$f"
@@ -59,21 +60,25 @@ mv -f "$NEW" "$OUT/index.html"
         for (i = 1; i <= n; i++) {
             if (index(ua, boty[i])) {
                 # $1 = "IP - - [20/Nov/2026:17:40:00 +0000] ", $2 = "GET /oferta.html HTTP/1.1"
-                d = substr($1, index($1, "[") + 1, 11)
+                pos = index($1, "[")
+                if (!pos) break
+                d = substr($1, pos + 1, 11)
+                mies = substr(d, 4, 3)
+                if (!(mies in m) || substr(d, 1, 2) !~ /^[0-9][0-9]$/ || substr(d, 8, 4) !~ /^[0-9][0-9][0-9][0-9]$/) break
                 dzien = substr(d, 8, 4) "-" m[substr(d, 4, 3)] "-" substr(d, 1, 2)
                 split($2, req, " ")
                 k = dzien "\t" boty[i]
                 zad[k]++
-                if (!((k SUBSEP req[2]) in widz)) { widz[k SUBSEP req[2]] = 1; adr[k]++ }
+                if (!((k SUBSEP req[2]) in widz)) { widz[k SUBSEP req[2]] = 1; sciezki[k]++ }
                 break
             }
         }
     }
-    END { for (k in zad) print k "\t" zad[k] "\t" adr[k] }
+    END { for (k in zad) print k "\t" zad[k] "\t" sciezki[k] }
 ' | LC_ALL=C sort -r > "$NEW_BOTY.dane"
 {
     printf 'revagy.pl: boty AI w logach serwera (90 dni), stan %s\n\n' "$(date -u +%Y-%m-%dT%H:%MZ)"
-    printf 'dzien\tbot\tzadania\tadresy\n'
+    printf 'dzien\tbot\tzadania\tsciezki\n'
     cat "$NEW_BOTY.dane"
 } > "$NEW_BOTY"
 rm -f "$NEW_BOTY.dane"

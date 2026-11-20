@@ -209,7 +209,7 @@ function extractHtmlContract(html) {
     }
     if (el.tag === 'style') styles.push(getText(el));
     if (el.tag === 'script' && el.attrs.type === 'application/ld+json' && !el.attrs.src) {
-      jsonLd.push(getText(el).trim());
+      jsonLd.push({ text: getText(el).trim(), attrs: el.attrList.map(([k]) => k) });
     } else if (el.tag === 'script') {
       const bodyText = getText(el).trim();
       scripts.push({
@@ -493,8 +493,12 @@ function resolveLocalRef(targetDir, pageRel, refVal) {
 }
 
 // JSON-LD: parsowanie, @context, Organization zgodna ze spec z kontraktu (NIP, profile itd.)
-function checkJsonLd(pageRel, raw, spec) {
+function checkJsonLd(pageRel, block, spec, actualMap) {
   const errs = [];
+  const raw = block.text;
+  // Blok danych ma mieć wyłącznie atrybut type — defer/async/src/id itp. oznaczają pomyłkę
+  const extraAttrs = block.attrs.filter((a) => a !== 'type');
+  if (extraAttrs.length) errs.push(`${pageRel}: blok JSON-LD ma niedozwolone atrybuty: ${extraAttrs.join(', ')}`);
   if (/<\/|<!--/.test(raw)) errs.push(`${pageRel}: JSON-LD zawiera niezakodowane „</” lub „<!--”`);
   let data;
   try {
@@ -514,6 +518,34 @@ function checkJsonLd(pageRel, raw, spec) {
       const got = org[k];
       const ok = Array.isArray(v) ? JSON.stringify(got) === JSON.stringify(v) : got === v;
       if (!ok) errs.push(`${pageRel}: JSON-LD Organization.${k}: oczekiwano ${JSON.stringify(v)}, jest ${JSON.stringify(got)}`);
+    }
+  }
+  if (org && spec.regon) {
+    const regon = (org.identifier || []).find((i) => i && i.propertyID === 'REGON');
+    if (!regon || regon.value !== spec.regon) errs.push(`${pageRel}: JSON-LD Organization bez REGON ${spec.regon}`);
+  }
+  // Lokalne zasoby wskazane w JSON-LD muszą istnieć w dist/ (localRefs widzi tylko atrybuty HTML)
+  if (org) {
+    const local = [
+      ['logo.url', org.logo && typeof org.logo === 'object' ? org.logo.url : org.logo],
+      ['image', org.image],
+    ];
+    for (const [field, url] of local) {
+      if (!url) { errs.push(`${pageRel}: JSON-LD Organization.${field} jest puste`); continue; }
+      let u;
+      try { u = new URL(url); } catch { errs.push(`${pageRel}: JSON-LD Organization.${field} nie jest adresem URL`); continue; }
+      if (u.origin !== 'https://revagy.pl') continue;
+      const rel = decodeURIComponent(u.pathname.replace(/^\//, ''));
+      if (!actualMap.has(rel)) errs.push(`${pageRel}: JSON-LD Organization.${field} wskazuje na nieistniejący plik ${rel}`);
+    }
+  }
+  if (spec.types && spec.types.includes('WebSite')) {
+    const site = graph.find((n) => n['@type'] === 'WebSite');
+    if (site) {
+      if (org && site.url !== org.url) errs.push(`${pageRel}: JSON-LD WebSite.url (${site.url}) różni się od Organization.url (${org.url})`);
+      if (!org || !org['@id'] || !site.publisher || site.publisher['@id'] !== org['@id']) {
+        errs.push(`${pageRel}: JSON-LD WebSite.publisher.@id nie wskazuje na Organization.@id`);
+      }
     }
   }
   return errs;
@@ -556,7 +588,9 @@ function checkGeneratedFiles(targetDir, spec, actualMap) {
     if (rules.sectionsMatchSitemap) {
       const addrs = [...txt.matchAll(/^Adres: (\S+)$/gm)].map((m) => m[1]);
       const missing = sitemapUrls.filter((u) => !addrs.includes(u));
+      const extra = addrs.filter((u) => !sitemapUrls.includes(u));
       if (missing.length) errs.push(`${rel}: brak sekcji dla stron: ${missing.join(', ')}`);
+      if (extra.length) errs.push(`${rel}: sekcje stron spoza sitemapy: ${extra.join(', ')}`);
       if (addrs.length !== new Set(addrs).size) errs.push(`${rel}: zdublowane sekcje stron`);
     }
   }
@@ -697,7 +731,7 @@ function main() {
     if (!ldSpec && parsed.jsonLd.length) errors.push(`${pageRel}: nieoczekiwany blok JSON-LD`);
     if (ldSpec) {
       if (parsed.jsonLd.length !== 1) errors.push(`${pageRel}: oczekiwano 1 bloku JSON-LD, jest ${parsed.jsonLd.length}`);
-      else errors.push(...checkJsonLd(pageRel, parsed.jsonLd[0], ldSpec));
+      else errors.push(...checkJsonLd(pageRel, parsed.jsonLd[0], ldSpec, actualMap));
     }
 
     // Porównanie pełnego kontraktu DOM (bez localRefs i JSON-LD, które porównujemy osobno)
