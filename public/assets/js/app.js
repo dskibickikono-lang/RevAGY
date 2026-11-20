@@ -23,17 +23,18 @@
   const cleanTouch = (data) =>
     Object.fromEntries(
       touchNames
-        .filter((n) => typeof data?.[n] === 'string')
+        .filter((n) => Boolean(data && typeof data[n] === 'string'))
         .map((n) => [n, singleLine(data[n], n.startsWith('utm_') ? 100 : 300)])
     );
   try {
-    if (!sessionStorage.getItem('fg_first_touch')) {
+    if (typeof Object.fromEntries === 'function' && !sessionStorage.getItem('fg_first_touch')) {
       const params = new URLSearchParams(location.search);
-      const firstTouch = cleanTouch({
-        ...Object.fromEntries(params),
-        referrer: document.referrer,
-        landing_path: location.pathname,
-      });
+      const firstTouch = cleanTouch(
+        Object.assign({}, Object.fromEntries(params), {
+          referrer: document.referrer,
+          landing_path: location.pathname,
+        })
+      );
       sessionStorage.setItem('fg_first_touch', JSON.stringify(firstTouch));
     }
   } catch (_) {
@@ -428,7 +429,7 @@
         paint();
         return;
       }
-      const from = { ...shown };
+      const from = Object.assign({}, shown);
       const start = performance.now();
       const step = (t) => {
         const p = clamp((t - start) / 450, 0, 1);
@@ -441,7 +442,7 @@
       };
       raf = requestAnimationFrame(step);
     };
-    [people, hours, rate, ...shares].filter(Boolean).forEach((el) => {
+    [people, hours, rate].concat(shares).filter(Boolean).forEach((el) => {
       el.addEventListener('input', () => update(false));
       el.addEventListener('change', () => update(false));
     });

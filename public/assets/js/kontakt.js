@@ -33,6 +33,8 @@
   let sending = false;
   let widgetId;
   let loading = null;
+  let challengeScript = null;
+  let challengeErrored = false;
   const tokenWaiters = new Set();
   let latestToken = null;
 
@@ -64,7 +66,7 @@
   const cleanTouch = (data) => Object.fromEntries(touchNames.filter((n) => Boolean(data && typeof data[n] === 'string'))
     .map((n) => [n, singleLine(data[n], n.startsWith('utm_') ? 100 : 300)]));
   const params = new URLSearchParams(location.search);
-  let firstTouch = cleanTouch({ ...Object.fromEntries(params), referrer: document.referrer, landing_path: location.pathname });
+  let firstTouch = cleanTouch(Object.assign({}, Object.fromEntries(params), { referrer: document.referrer, landing_path: location.pathname }));
   try {
     const saved = sessionStorage.getItem('fg_first_touch');
     if (saved) firstTouch = cleanTouch(JSON.parse(saved));
@@ -84,11 +86,13 @@
     say(genericError, true);
   }
   function resetChallenge() {
+    challengeErrored = false;
     latestToken = null;
     if (window.turnstile && widgetId !== undefined) {
       try {
         window.turnstile.reset(widgetId);
       } catch (_) {
+        challengeErrored = true;
         notifyTokenWaiters(null);
         challengeUnavailable();
       }
@@ -96,12 +100,14 @@
   }
   function renderChallenge() {
     if (widgetId !== undefined) return;
+    challengeErrored = false;
     latestToken = null;
     widgetId = window.turnstile.render('#kontakt-challenge', {
       sitekey: form.dataset.sitekey,
       action: 'kontakt-revagy', language: 'pl', appearance: 'interaction-only',
       theme: 'dark', size: 'compact',
       callback: (tok) => {
+        challengeErrored = false;
         challengeError.textContent = '';
         latestToken = tok || (window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '') || null;
         notifyTokenWaiters(latestToken);
@@ -109,6 +115,7 @@
       'expired-callback': resetChallenge,
       'timeout-callback': resetChallenge,
       'error-callback': () => {
+        challengeErrored = true;
         latestToken = null;
         notifyTokenWaiters(null);
         challengeUnavailable();
@@ -124,6 +131,7 @@
         return loading;
       } catch (_) {
         loading = null;
+        challengeErrored = true;
         latestToken = null;
         notifyTokenWaiters(null);
         challengeUnavailable();
@@ -132,33 +140,68 @@
     }
     if (loading) return loading;
     loading = new Promise((resolve) => {
-      const script = document.createElement('script');
+      let script = (challengeScript && challengeScript.isConnected)
+        ? challengeScript
+        : document.querySelector('script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]');
+      if (script && script.dataset.fgState === 'loaded') {
+        script.remove();
+        if (challengeScript === script) challengeScript = null;
+        script = null;
+      }
+      const reusing = Boolean(script && script.isConnected && script.dataset.fgState !== 'error');
+      if (!reusing) {
+        script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+      }
+      challengeScript = script;
+      if (!script.dataset.fgState) {
+        script.dataset.fgState = 'loading';
+        script.addEventListener('load', () => {
+          script.dataset.fgState = 'loaded';
+          if (window.turnstile && typeof window.turnstile.render === 'function') {
+            try { renderChallenge(); } catch (_) { /* obsłuży aktywne lub kolejne wywołanie loadChallenge */ }
+          }
+        }, { once: true });
+        script.addEventListener('error', () => {
+          script.dataset.fgState = 'error';
+          script.remove();
+          if (challengeScript === script) challengeScript = null;
+        }, { once: true });
+      }
       let finished = false;
+      let timer;
       const finish = (ok) => {
         if (finished) return;
         finished = true;
         clearTimeout(timer);
+        script.removeEventListener('load', onLoad);
+        script.removeEventListener('error', onError);
         if (!ok) {
           loading = null;
-          script.remove();
           latestToken = null;
           notifyTokenWaiters(null);
           challengeUnavailable();
         }
         resolve(ok);
       };
-      const timer = setTimeout(() => finish(false), 20000);
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-      script.async = true;
-      script.onerror = () => finish(false);
-      script.onload = () => {
+      const onError = () => {
+        script.dataset.fgState = 'error';
+        script.remove();
+        if (challengeScript === script) challengeScript = null;
+        finish(false);
+      };
+      const onLoad = () => {
         if (finished) return;
         try {
           renderChallenge();
           finish(true);
         } catch (_) { finish(false); }
       };
-      document.head.appendChild(script);
+      timer = setTimeout(() => finish(false), 20000);
+      script.addEventListener('error', onError);
+      script.addEventListener('load', onLoad);
+      if (!reusing) document.head.appendChild(script);
     });
     return loading;
   }
@@ -221,7 +264,7 @@
     event.preventDefault();
     if (sending) return;
     clearErrors();
-    const body = { schema_version: 'lead.v1', ...firstTouch };
+    const body = Object.assign({ schema_version: 'lead.v1' }, firstTouch);
     names.forEach((name) => { body[name] = fields[name].value; });
     // Weryfikacja CR/LF następuje przed trim, aby nie ukrywać niepoprawnej treści.
     if (!validate(body)) {
@@ -248,14 +291,27 @@
     let timeout;
     try {
       say('Sprawdzamy ochronę przed spamem…');
+      const hadChallengeError = challengeErrored;
       if (!await loadChallenge()) return;
-      let token = window.turnstile.getResponse(widgetId);
-      if (!token) token = (await waitForToken(15000)) || window.turnstile.getResponse(widgetId);
-      if (!token || token.length > 2048 || /[\r\n]/.test(token)) {
+      if (hadChallengeError) resetChallenge();
+      let token = latestToken || window.turnstile.getResponse(widgetId);
+      if (!token && !challengeErrored) {
+        token = (await waitForToken(15000)) || latestToken || window.turnstile.getResponse(widgetId);
+      }
+      if (!token) {
+        if (challengeErrored) challengeUnavailable();
+        else {
+          challengeError.textContent = 'Potwierdź, że nie jesteś botem, i wyślij ponownie.';
+          say(challengeError.textContent);
+        }
+        return;
+      }
+      if (token.length > 2048 || /[\r\n]/.test(token)) {
         challengeError.textContent = 'Potwierdź, że nie jesteś botem, i wyślij ponownie.';
         say(challengeError.textContent);
         return;
       }
+      // forms-gateway (forms_gateway/validation.py) wyklucza cf-turnstile-response, t_ms i website z payload_sha256 i odtwarza 202 przed ponownym sprawdzeniem Turnstile.
       body['cf-turnstile-response'] = token;
       body.t_ms = Math.max(0, Date.now() - started);
       const json = JSON.stringify(body);

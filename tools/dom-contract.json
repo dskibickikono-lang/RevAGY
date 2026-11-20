@@ -66,12 +66,12 @@
       "size": 8296
     },
     "assets/js/app.js": {
-      "sha256": "1232dbe47af7eb30f010af967c06ccb6926630ea741832861926d2e3e24429d6",
-      "size": 30901
+      "sha256": "dd315236f67ba4b50df54451c2fa96b2fc464f46d6645d02837fd17ce1e7caef",
+      "size": 31006
     },
     "assets/js/kontakt.js": {
-      "sha256": "ab7d98716c0bddf0b8a12cec1be50ccb87e9b3d745f9599e1b4423a013c7b4d9",
-      "size": 12837
+      "sha256": "2f2e718d1fad4f331f39fa9f5a280a4773d80b1df64e53f14321f529ee35812b",
+      "size": 15231
     },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
@@ -136,16 +136,16 @@
       "size": 16212
     },
     "dla-agencji-pracy.html": {
-      "sha256": "c45d26e7efd96c1e6716d032e437c805505402b9dd656c5bf365fa58e4148634",
-      "size": 39550
+      "sha256": "75cd6d497e705c67b61af0cb92f6501eda8ce6ad070a2ff2662e07733d3d8bd1",
+      "size": 39557
     },
     "dla-produkcji-i-magazynow.html": {
-      "sha256": "41fcfbd0b8d874dfff5db08c05f4cc2281b225a6a27393df08362a083e0513bc",
-      "size": 20039
+      "sha256": "a2b2e24c31eb3a664250568d4765ec50076dc7a37807e49bc3810ce60de53fcf",
+      "size": 20040
     },
     "index.html": {
-      "sha256": "32adda7caf3bc7e3ad910317d661f9565adad4832294b0bd78fff22d35979414",
-      "size": 70011
+      "sha256": "f5cd232b37177157c727f7d11b76641a133df4b2aa46f7c6c64e48597aeeaa18",
+      "size": 70015
     },
     "kontakt.html": {
       "sha256": "94ad8fd507eca81b50acb63066750e59bae266cd2a8f0aef77f1b175f7c4ae4c",
@@ -160,8 +160,8 @@
       "size": 12595
     },
     "porownanie.html": {
-      "sha256": "4a447bb1a17d024f81e73f6bee2b8fa7027b2f655548258981e1ab544b558692",
-      "size": 21461
+      "sha256": "cd8633685fd40ecbea248560f55e91746351f90a82dedcc50ca430cd185481b3",
+      "size": 21463
     },
     "produkty/obieg-dokumentow.html": {
       "sha256": "7eeef49520e34ffb7c04b6a035bd71070980c081460482aec4698318d1fe32dd",
@@ -172,8 +172,8 @@
       "size": 23974
     },
     "realizacje.html": {
-      "sha256": "c49fba8e9caab7ebc942d4597243d4ef5540851562cab3011e15a56cb520aa49",
-      "size": 31678
+      "sha256": "9b39d835401908cac6ea91e5bb874dcc761c1fe6520442f5994ea97ebe10a790",
+      "size": 31101
     }
   },
   "pages": {
@@ -2343,7 +2343,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "0 z 16 wdrożeń zatrzymanych przez opór kadr lub rekruterów"
+          "text": "0 z 16 projektów zatrzymanych przez opór kadr lub rekruterów"
         },
         {
           "tag": "h3",
@@ -2605,7 +2605,7 @@
           "class": "btn btn-outline",
           "dataTrack": "agencje-case-hrkadra",
           "ariaLabel": null,
-          "text": "Zobacz wszystkie 14 realizacji →"
+          "text": "Zobacz wszystkie 16 realizacji →"
         },
         {
           "href": "/kontakt.html",
@@ -4707,7 +4707,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-track": "CaseStudies: Wszystkie 14 realizacji"
+            "data-track": "CaseStudies: Wszystkie 16 realizacji"
           },
           "aria": {}
         },
@@ -6391,7 +6391,7 @@
           "class": "btn btn-outline",
           "dataTrack": "LogoWall: Wszystkie realizacje",
           "ariaLabel": null,
-          "text": "Zobacz wszystkie 14 realizacji →"
+          "text": "Zobacz wszystkie 16 realizacji →"
         },
         {
           "href": "/produkty/obieg-dokumentow.html",
@@ -6445,9 +6445,9 @@
         {
           "href": "/realizacje.html",
           "class": "btn btn-light",
-          "dataTrack": "CaseStudies: Wszystkie 14 realizacji",
+          "dataTrack": "CaseStudies: Wszystkie 16 realizacji",
           "ariaLabel": null,
-          "text": "Wszystkie 14 realizacji →"
+          "text": "Wszystkie 16 realizacji →"
         },
         {
           "href": "#kontakt",
@@ -10128,7 +10128,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "0 z 16 wdrożeń zatrzymanych przez opór"
+          "text": "0 z 16 projektów zatrzymanych przez opór"
         },
         {
           "tag": "h3",
@@ -12593,7 +12593,7 @@
           "charset": null,
           "name": "description",
           "property": null,
-          "content": "14 klientów REVAGY (16 podmiotów, 17 projektów w katalogu: 12 wdrożeń produkcyjnych, 3 pilotaże/shadow, 2 w trakcie). Wszystkie statusy oznaczone jawnie; 16/16 zgód na referencje."
+          "content": "14 klientów REVAGY (16 projektów w katalogu: 11 wdrożeń produkcyjnych, 3 pilotaże/shadow, 2 w trakcie). Wszystkie statusy oznaczone jawnie; 16/16 zgód na referencje."
         },
         {
           "charset": null,
@@ -12881,7 +12881,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-count": "12"
+            "data-count": "11"
           },
           "aria": {}
         },
@@ -13044,17 +13044,6 @@
           "for": null,
           "data": {
             "data-filter-count": "w-trakcie"
-          },
-          "aria": {}
-        },
-        {
-          "tag": "article",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {
-            "data-status": "produkcja",
-            "data-filter-item": "produkcja"
           },
           "aria": {}
         },
@@ -13411,7 +13400,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "HR KADRA"
+          "text": "HR KADRA (+ projekt w HR KADRA BIS)"
         },
         {
           "tag": "h3",
@@ -13452,11 +13441,6 @@
           "tag": "h3",
           "id": null,
           "text": "Dobra Praca Sp. z o.o."
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "HR KADRA BIS (osobna spółka)"
         },
         {
           "tag": "h3",

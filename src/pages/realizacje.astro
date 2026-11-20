@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout
   title="Realizacje i portfolio — REVAGY"
-  description="14 klientów REVAGY (16 podmiotów, 17 projektów w katalogu: 12 wdrożeń produkcyjnych, 3 pilotaże/shadow, 2 w trakcie). Wszystkie statusy oznaczone jawnie; 16/16 zgód na referencje."
+  description="14 klientów REVAGY (16 projektów w katalogu: 11 wdrożeń produkcyjnych, 3 pilotaże/shadow, 2 w trakcie). Wszystkie statusy oznaczone jawnie; 16/16 zgód na referencje."
   canonical="https://revagy.pl/realizacje.html"
   variant="subpage"
   activeNav="realizacje"
@@ -15,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="wrap reveal">
       <span class="kicker kicker-night">14 klientów (16 podmiotów) · 16/16 zgód na case study, logo i rekomendację</span>
       <h1 class="display">Realizacje REVAGY</h1>
-      <p class="lead">14 klientów (16 podmiotów · 17 projektów w katalogu: 12 wdrożeń produkcyjnych, 3 pilotaże / tryb shadow i 2 w trakcie — HR KONO S.A. prowadzi zarówno produkcyjny KONO OS, jak i nowy panel w trybie shadow). Liczby oznaczone ~ to estymacje.</p>
+      <p class="lead">14 klientów · 16 projektów w katalogu: 11 wdrożeń produkcyjnych, 3 pilotaże / tryb shadow oraz 2 w trakcie (Grupa KONO scalona w jedno case study zbiorcze z 3 modułami; karta HR KADRA obejmuje też bazę wiedzy z HR KADRA BIS). Liczby oznaczone ~ to estymacje.</p>
     </div>
   </section>
 
@@ -26,8 +26,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="stat-label">klientów w komunikacji (16 podmiotów łącznie, 3 spółki KONO scalone w 1 case)</p>
     </div>
     <div class="stat reveal" style="--d:60ms">
-      <p class="stat-num"><span data-count="12">12</span></p>
-      <p class="stat-label">wdrożeń produkcyjnych w katalogu (+ 3 pilotaże/shadow i 2 w trakcie)</p>
+      <p class="stat-num"><span data-count="11">11</span></p>
+      <p class="stat-label">projektów działających na produkcji (+ 3 pilotaże/shadow i 2 w trakcie)</p>
     </div>
     <div class="stat reveal" style="--d:120ms">
       <p class="stat-num"><span data-count="3">3</span> + <span data-count="2">2</span></p>
@@ -91,8 +91,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="h3" style="margin-top:6px;">Filtruj realizacje według statusu wdrożenia</h2>
         </div>
         <div class="filter-pills seg" role="tablist" aria-label="Filtruj realizacje według statusu">
-          <button type="button" class="filter-pill is-active" role="tab" aria-selected="true" data-filter="all" data-track="Filtr: Wszystkie">Wszystkie (<span data-filter-count="all">17</span>)</button>
-          <button type="button" class="filter-pill" role="tab" aria-selected="false" data-filter="produkcja" data-track="Filtr: Produkcja">Produkcja (<span data-filter-count="produkcja">12</span>)</button>
+          <button type="button" class="filter-pill is-active" role="tab" aria-selected="true" data-filter="all" data-track="Filtr: Wszystkie">Wszystkie (<span data-filter-count="all">16</span>)</button>
+          <button type="button" class="filter-pill" role="tab" aria-selected="false" data-filter="produkcja" data-track="Filtr: Produkcja">Produkcja (<span data-filter-count="produkcja">11</span>)</button>
           <button type="button" class="filter-pill" role="tab" aria-selected="false" data-filter="pilotaz" data-track="Filtr: Pilotaż">Pilotaż (<span data-filter-count="pilotaz">3</span>)</button>
           <button type="button" class="filter-pill" role="tab" aria-selected="false" data-filter="w-trakcie" data-track="Filtr: W trakcie">W trakcie (<span data-filter-count="w-trakcie">2</span>)</button>
         </div>
@@ -125,15 +125,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <blockquote class="quote">„Wiemy, komu kończy się dokument, zanim zadzwoni inspekcja.”<cite>— Kierownik Kadr, Personel Job</cite></blockquote>
         </article>
 
-        <!-- 3. HR KADRA (Produkcja) -->
+        <!-- 3. HR KADRA (+ projekt w HR KADRA BIS) (Produkcja) -->
         <article class="card reveal" data-status="produkcja" data-filter-item="produkcja" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-prod">Produkcja</span><span class="mono muted">APT · ~600 leadów/mies.</span></div>
-          <h3 class="h3">HR KADRA</h3>
+          <h3 class="h3">HR KADRA <span class="mono" style="font-size:11px;">(+ projekt w HR KADRA BIS)</span></h3>
           <p class="muted">Automatyczne dostarczanie leadów B2C z Meta Ads do HRappki co 5 min, panel kadr, maile do kandydatów oraz plugin rentowności dla COO.</p>
           <ul class="metrics-list">
             <li>Czas od leada do kandydata w systemie: <strong>~48 h → ≤ 5 min</strong></li>
             <li><strong>~10 h/tydz.</strong> mniej przepisywania; <strong>~30% więcej</strong> kontaktów tego samego dnia</li>
             <li>COO widzi rentowność per klient, nie tylko średnią z grupy</li>
+            <li><strong>HR KADRA BIS (osobna spółka):</strong> super-brain — baza wiedzy z 88 rozmów / 63 tys. wiadomości → 167 stron wiki i 11 map tematów; odpowiedź w <strong>~1 min</strong>, onboarding <strong>~30% krótszy</strong>, <strong>0 utraconej wiedzy</strong></li>
           </ul>
           <blockquote class="quote">„Kandydat dostaje maila, zanim zamknie reklamę.”<cite>— Kierownik Rekrutacji, HR KADRA</cite></blockquote>
         </article>
@@ -236,19 +237,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </article>
 
-        <!-- 12. HR KADRA BIS (Produkcja) -->
-        <article class="card reveal" data-status="produkcja" data-filter-item="produkcja" style="min-height:0;">
-          <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-prod">Produkcja</span><span class="mono muted">Usługi kadrowe · ~30 os.</span></div>
-          <h3 class="h3">HR KADRA BIS <span class="mono" style="font-size:11px;">(osobna spółka)</span></h3>
-          <p class="muted">Super-brain: baza wiedzy zasilana automatycznie, archiwum 88 rozmów / 63 tys. wiadomości zmigrowane do 167 stron wiki i 11 map tematów.</p>
-          <ul class="metrics-list">
-            <li>Odpowiedź na „jak to robimy?” w <strong>~1 min</strong> zamiast czekania na czacie</li>
-            <li>Wdrożenie nowej osoby <strong>~30% krótsze</strong></li>
-            <li><strong>0 utraconej wiedzy</strong> przy odejściu pracownika</li>
-          </ul>
-        </article>
-
-        <!-- 13. Labor APT (Pilotaż) -->
+        <!-- 12. Labor APT (Pilotaż) -->
         <article class="card card-mist reveal" data-status="pilotaz" data-filter-item="pilotaz" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-pilot">Pilotaż</span><span class="mono muted">APT cudzoziemcy · ~250 prac.</span></div>
           <h3 class="h3">Labor APT</h3>
@@ -260,7 +249,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </article>
 
-        <!-- 14. KONO STAL SERVIS (Pilotaż · moduł Grupy KONO) -->
+        <!-- 13. KONO STAL SERVIS (Pilotaż · moduł Grupy KONO) -->
         <article class="card card-mist reveal" data-status="pilotaz" data-filter-item="pilotaz" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-pilot">Pilotaż · Grupa KONO</span><span class="mono muted">Produkcja stali · ~60 os.</span></div>
           <h3 class="h3">KONO STAL SERVIS</h3>
@@ -272,7 +261,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </article>
 
-        <!-- 15. HR KONO — nowy panel shadow (Pilotaż) -->
+        <!-- 14. HR KONO — nowy panel shadow (Pilotaż) -->
         <article class="card card-mist reveal" data-status="pilotaz" data-filter-item="pilotaz" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-pilot">Pilotaż / tryb shadow</span><span class="mono muted">Grupa KONO · controlling</span></div>
           <h3 class="h3">HR KONO S.A. — nowy panel shadow</h3>
@@ -283,7 +272,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </article>
 
-        <!-- 16. Nexora (W trakcie) -->
+        <!-- 15. Nexora (W trakcie) -->
         <article class="card card-mist reveal" data-status="w-trakcie" data-filter-item="w-trakcie" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-wip">W trakcie</span><span class="mono muted">Zakupy usług HR · ~50 agencji</span></div>
           <h3 class="h3">Nexora</h3>
@@ -295,7 +284,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </article>
 
-        <!-- 17. Personal (W trakcie) -->
+        <!-- 16. Personal (W trakcie) -->
         <article class="card card-mist reveal" data-status="w-trakcie" data-filter-item="w-trakcie" style="min-height:0;">
           <div style="display:flex;justify-content:space-between;align-items:center;"><span class="badge badge-wip">W trakcie</span><span class="mono muted">Agencja pracy · ~100 prac.</span></div>
           <h3 class="h3">Personal</h3>

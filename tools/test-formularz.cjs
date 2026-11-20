@@ -24,7 +24,10 @@ function installTurnstileMock() {
       iframe.width = '150'; iframe.height = '140';
       document.querySelector(selector).append(iframe);
       clearTimeout(timer);
-      if (window.__holdInitialToken) {
+      if (window.__failTurnstileErrorCallback) {
+        token = '';
+        options['error-callback']();
+      } else if (window.__holdInitialToken) {
         token = '';
       } else if (window.__delayTurnstileMs) {
         token = '';
@@ -40,7 +43,10 @@ function installTurnstileMock() {
     reset() {
       window.__resets++;
       clearTimeout(timer);
-      if (window.__delayTurnstileMs) {
+      if (window.__failTurnstileErrorCallback) {
+        token = '';
+        window.__turnstileOptions['error-callback']();
+      } else if (window.__delayTurnstileMs) {
         token = '';
         const nextToken = window.__resetTurnstileToken || 'delayed-turnstile-token';
         timer = setTimeout(() => {
@@ -73,7 +79,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
       const context = await browser.newContext({ viewport: { width: 390, height: 844 }, ignoreHTTPSErrors: true, serviceWorkers: 'block', ...options });
       contexts.push(context);
       const requests = [], errors = [], external = [];
-      const state = { code: 503, data: { error: 'queue_full' }, turnstile: 0, failChallenge: false, hold: false };
+      const state = { code: 503, data: { error: 'queue_full' }, turnstile: 0, failChallenge: false, holdChallenge: false, releaseChallenge: null, hold: false };
       await context.addInitScript(() => {
         window.__violations = [];
         window.__accepted = [];
@@ -85,6 +91,9 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
         if (url.hostname === 'challenges.cloudflare.com') {
           if (url.pathname.includes('api.js')) {
             state.turnstile++;
+            if (state.holdChallenge) {
+              await new Promise((resolve) => { state.releaseChallenge = resolve; });
+            }
             if (state.failChallenge) return route.abort();
             return route.fulfill({ contentType: 'application/javascript', body: mock });
           }
@@ -351,7 +360,90 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.ok(!Object.hasOwn(privateTab.requests[0].body, 'volume'));
     assert.equal(privateTab.requests[0].body.message, '');
     ok('brak JavaScript/fetch, błąd ładowania Turnstile + ponowienie z asynchronicznym callbackiem, UTM z podstrony i zablokowana pamięć przeglądarki');
-    for (const item of [t, nojs, old, fail, subpageTouch, privateTab]) {
+
+    for (const jsRel of ['public/assets/js/kontakt.js', 'public/assets/js/app.js']) {
+      const jsCode = fs.readFileSync(path.join(root, jsRel), 'utf8');
+      assert.equal(/\?\./.test(jsCode), false, `${jsRel}: wykryto operator ?. (optional chaining)`);
+      assert.equal(/\{\s*\.\.\./.test(jsCode), false, `${jsRel}: wykryto object spread { ... }`);
+      assert.equal(/\[\s*\.\.\./.test(jsCode), false, `${jsRel}: wykryto array spread [ ... ]`);
+    }
+    ok('zgodność składniowa app.js i kontakt.js (brak ?. oraz spread ...)');
+
+    const challengeErr = await setup();
+    await challengeErr.context.addInitScript(() => { window.__failTurnstileErrorCallback = true; });
+    await challengeErr.page.goto(harness.tlsBase + '/#kontakt');
+    await challengeErr.page.waitForFunction(() => !!window.__turnstileOptions);
+    assert.equal(await challengeErr.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.equal(await challengeErr.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
+    await challengeErr.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await challengeErr.page.locator('#kontakt-email').fill('test@example.com');
+    await challengeErr.page.locator('#kontakt-company').fill('Firma Testowa');
+    await challengeErr.page.locator('#kontakt-topic').selectOption('audyt');
+    const errStartedAt = Date.now();
+    await challengeErr.page.locator('#kontakt-form [type=submit]').click();
+    await challengeErr.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.ok(Date.now() - errStartedAt < 5000, 'submit po error-callback nie powinien czekać 15 s');
+    assert.equal(await challengeErr.page.evaluate(() => window.__resets), 1);
+    assert.equal(challengeErr.requests.length, 0);
+    assert.equal(await challengeErr.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.equal(await challengeErr.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
+    await challengeErr.page.evaluate(() => {
+      window.__failTurnstileErrorCallback = false;
+      window.__delayTurnstileMs = 60000;
+    });
+    const waiterStartedAt = Date.now();
+    await challengeErr.page.locator('#kontakt-form [type=submit]').click();
+    await challengeErr.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'true');
+    await challengeErr.page.evaluate(() => window.__turnstileOptions['error-callback']());
+    await challengeErr.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.ok(Date.now() - waiterStartedAt < 5000, 'error-callback podczas oczekiwania na token powinien od razu przywrócić fallback');
+    assert.equal(challengeErr.requests.length, 0);
+    assert.equal(await challengeErr.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    challengeErr.state.code = 202;
+    challengeErr.state.data = { ok: true, lead_id: leadId };
+    await challengeErr.page.evaluate(() => { window.__delayTurnstileMs = 0; });
+    await challengeErr.page.locator('#kontakt-form [type=submit]').click();
+    await challengeErr.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(challengeErr.requests.length, 1);
+    assert.equal(await challengeErr.page.locator('#kontakt-challenge-error').textContent(), '');
+    ok('Turnstile error-callback: brak zwisu 15 s, natychmiastowy fallback mailto i czyste ponowienie');
+
+    const lateChallenge = await setup();
+    lateChallenge.state.holdChallenge = true;
+    lateChallenge.state.code = 202;
+    lateChallenge.state.data = { ok: true, lead_id: leadId };
+    await lateChallenge.page.clock.install();
+    await lateChallenge.page.goto(harness.tlsBase + '/#kontakt');
+    await lateChallenge.page.waitForFunction(() => document.querySelectorAll('script[src*="challenges.cloudflare.com"]').length === 1);
+    assert.equal(lateChallenge.state.turnstile, 1);
+    await lateChallenge.page.clock.fastForward(21000);
+    await lateChallenge.page.waitForSelector('#kontakt-form [data-status] a');
+    assert.equal(await lateChallenge.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.equal(await lateChallenge.page.locator('script[src*="challenges.cloudflare.com"]').count(), 1);
+    assert.equal(lateChallenge.state.turnstile, 1);
+    await lateChallenge.page.locator('#kontakt-name').focus();
+    await lateChallenge.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await lateChallenge.page.locator('#kontakt-email').fill('test@example.com');
+    await lateChallenge.page.locator('#kontakt-company').fill('Firma Testowa');
+    await lateChallenge.page.locator('#kontakt-topic').selectOption('audyt');
+    assert.equal(await lateChallenge.page.locator('script[src*="challenges.cloudflare.com"]').count(), 1);
+    assert.equal(lateChallenge.state.turnstile, 1);
+    await lateChallenge.page.locator('#kontakt-form [type=submit]').click();
+    await lateChallenge.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'true');
+    assert.equal(await lateChallenge.page.locator('script[src*="challenges.cloudflare.com"]').count(), 1);
+    assert.equal(lateChallenge.state.turnstile, 1);
+    lateChallenge.state.holdChallenge = false;
+    lateChallenge.state.releaseChallenge();
+    await lateChallenge.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(await lateChallenge.page.locator('script[src*="challenges.cloudflare.com"]').count(), 1);
+    assert.equal(lateChallenge.state.turnstile, 1);
+    assert.equal(await lateChallenge.page.locator('#kontakt-challenge iframe').count(), 1);
+    assert.equal(lateChallenge.requests.length, 1);
+    assert.equal(lateChallenge.requests[0].body['cf-turnstile-response'], 'test-turnstile-token');
+    assert.equal(await lateChallenge.page.locator('#kontakt-form [data-status]').textContent(), 'Dziękujemy, zapytanie dotarło. Odpiszemy w ciągu jednego dnia roboczego. Potwierdzenie wyślemy na podany adres e-mail.');
+    ok('późne ładowanie api.js: brak duplikatu <script>, jedno renderowanie widgetu i udana wysyłka');
+
+    for (const item of [t, nojs, old, fail, subpageTouch, privateTab, challengeErr, lateChallenge]) {
       assert.deepEqual(item.errors, []);
       assert.deepEqual(item.external, []);
       if (item !== nojs) assert.deepEqual(await item.page.evaluate(() => window.__violations), []);

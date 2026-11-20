@@ -312,6 +312,26 @@ if (require.main === module) (async () => {
       }));
       check('pasek kroków (journey-rail) ma 14 kropek zgodnych z 14 sekcjami', journeyDots.dots === 14 && journeyDots.dots === journeyDots.steps && journeyDots.countText === 'Krok 1 z 14', JSON.stringify(journeyDots));
 
+      const portfolio16 = await page.evaluate(() => {
+        const bodyText = document.body.textContent.replace(/\s+/g, ' ');
+        const logoWallCta = document.querySelector('a[data-track="LogoWall: Wszystkie realizacje"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
+        const caseStudiesCta = document.querySelector('a[data-track="CaseStudies: Wszystkie 16 realizacji"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
+        return {
+          logoWallCta,
+          caseStudiesCta,
+          hasZeroOf16: bodyText.includes('0 / 16'),
+          hasZeroProjects: bodyText.includes('0 z 16 projektów'),
+        };
+      });
+      check(
+        'strona główna ma spójną komunikację 16 realizacji (0 / 16, 0 z 16 projektów)',
+        portfolio16.logoWallCta.includes('Zobacz wszystkie 16 realizacji') &&
+          portfolio16.caseStudiesCta.includes('Wszystkie 16 realizacji') &&
+          portfolio16.hasZeroOf16 &&
+          portfolio16.hasZeroProjects,
+        JSON.stringify(portfolio16)
+      );
+
       await scrollTo(page, '#kalkulator');
       const calcDefault = await page.evaluate(() => ({
         rate: document.getElementById('calc-rate').value,
@@ -509,7 +529,7 @@ if (require.main === module) (async () => {
 
       // 4.2 /realizacje.html (filtry [data-filter-group])
       const realRes = await page.goto(`${base}/realizacje.html`, { waitUntil: 'load' });
-      await page.waitForFunction(() => document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() === '12');
+      await page.waitForFunction(() => document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() === '11');
       await page.click('[data-filter="pilotaz"]');
       const realState = await page.evaluate(() => ({
         filteredOut: document.querySelectorAll('.is-filtered-out').length,
@@ -526,12 +546,12 @@ if (require.main === module) (async () => {
       }));
       check('podstrona /realizacje.html: 200, filtry statusów działają, 0 overflow', realRes.status() === 200 && realState.filteredOut > 0 && realState.overflow === 0, JSON.stringify(realState));
       check(
-        'podstrona /realizacje.html: licznik statystyk (12) i liczniki filtrów zgodne z liczbą kart (17/12/3/2)',
-        realState.prodStatCount === '12' &&
-          realState.prodStatText === '12' &&
-          realState.labels.join(' | ') === 'Wszystkie (17) | Produkcja (12) | Pilotaż (3) | W trakcie (2)' &&
-          realState.counts.all === 17 &&
-          realState.counts.produkcja === 12 &&
+        'podstrona /realizacje.html: licznik statystyk (11) i liczniki filtrów zgodne z liczbą kart (16/11/3/2)',
+        realState.prodStatCount === '11' &&
+          realState.prodStatText === '11' &&
+          realState.labels.join(' | ') === 'Wszystkie (16) | Produkcja (11) | Pilotaż (3) | W trakcie (2)' &&
+          realState.counts.all === 16 &&
+          realState.counts.produkcja === 11 &&
           realState.counts.pilotaz === 3 &&
           realState.counts.wTrakcie === 2,
         JSON.stringify(realState)
