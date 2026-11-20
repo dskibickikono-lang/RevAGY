@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Porównanie: Moduł dostawcy vs Excel + etat vs integracja REVAGY"
+  description="Porównanie dla komitetu zakupowego (Prezes/COO, Kadry, IT/Finanse): dokupienie modułu u dostawcy ERP/HRappki vs Excel i dodatkowy etat (~65 zł/h) vs integracja REVAGY."
+  canonical="https://revagy.pl/porownanie.html"
+  variant="subpage"
+  activeNav="porownanie"
+  showJourney={true}
+>
+<main id="start">
+
+<!-- 1. HERO -->
+<section class="page-hero page-hero-night" id="hero-porownanie" data-step-label="01 · Porównanie podejść">
+  <div class="wrap">
+    <span class="kicker kicker-night">Materiał etapu Koncepcja · Dla komitetu zakupowego (Prezes/COO, Kadry, IT/Finanse)</span>
+    <h1 class="display">Moduł dostawcy vs Excel + etat vs integracja REVAGY</h1>
+    <p class="lead">Najczęściej nie konkurujemy z inną firmą wdrożeniową, tylko z dokupieniem kolejnego modułu u dostawcy obecnego systemu albo pozostaniem przy arkuszach Excela. Przełącz perspektywę poniżej i zobacz podświetlone wiersze w tabeli.</p>
+  </div>
+</section>
+
+<!-- 2. INTERACTIVE [data-tabs] DECISION-LENS SWITCHER + TABLE ROW HIGHLIGHTING -->
+<section class="section wrap" id="soczewki-decyzyjne" data-step-label="02 · Soczewki i tabela">
+  <div class="section-head left reveal">
+    <span class="kicker">3 perspektywy komitetu zakupowego</span>
+    <h2 class="h2">Co liczy się dla Zarządu, co dla Kadr, a co dla IT i Finansów?</h2>
+    <p class="lead">Wybierz rolę w komitecie zakupowym — przełącznik pokaże kluczowe argumenty i automatycznie podświetli najważniejsze wiersze w tabeli porównawczej poniżej.</p>
+  </div>
+
+  <div class="card card-mist module-tabs reveal" data-tabs style="padding:clamp(24px,3vw,36px);margin-bottom:28px;">
+    <div class="tab-list" role="tablist" aria-label="Perspektywa decydenta">
+      <button type="button" role="tab" class="tab-btn is-active" aria-selected="true" data-tab="ceo" data-lens="ceo" aria-controls="panel-lens-ceo"><span class="tab-step-num">1</span>Perspektywa Prezesa / COO</button>
+      <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="kadry" data-lens="kadry" aria-controls="panel-lens-kadry"><span class="tab-step-num">2</span>Perspektywa Kadr i Rekrutacji</button>
+      <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="it" data-lens="it" aria-controls="panel-lens-it"><span class="tab-step-num">3</span>Perspektywa IT, IOD i Finansów</button>
+      <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="all" data-lens="all" aria-controls="panel-lens-all"><span class="tab-step-num">★</span>Wszystkie kryteria (6)</button>
+    </div>
+
+    <div class="tab-panels">
+      <!-- LENS 1: PREZES / COO -->
+      <div role="tabpanel" id="panel-lens-ceo" class="tab-panel is-active" data-tab-panel="ceo" data-panel="ceo">
+        <div class="grid-3">
+          <article class="card card-night" style="min-height:0;">
+            <span class="badge badge-p0" style="align-self:flex-start;">Priorytet #1 Zarządu</span>
+            <h3 class="h3">Prawda między systemami o 7:30</h3>
+            <p class="muted">Moduł HRappki nie widzi ksiąg w TAXXO ani umów w nexo. Dopiero spięcie źródeł ujawniło w HR KONO S.A. rozjazd stanu załogi <strong>568 vs 539 osób</strong> oraz przeterminowane należności &gt; 1,5 mln zł.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-prod" style="align-self:flex-start;">Czas do zwrotu (ROI)</span>
+            <h3 class="h3">Pierwszy proces w 14 dni</h3>
+            <p class="muted">Zaczynamy od procesu, który najszybciej się spłaci (np. podpis na tablecie ~3 dni → ~10 min lub leady z Meta Ads ≤ 5 min). Bez wielomiesięcznego projektu wymiany ERP.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-disclosure" style="align-self:flex-start;">Zero ryzyka na starcie</span>
+            <h3 class="h3">Audyt 1 990 zł z 14 dniami zwrotu</h3>
+            <p class="muted">W 3–5 dni liczymy koszt obecnego Excela na Waszej realnej stawce godziny. Kwotę audytu odliczamy od wdrożenia w 30 dni, a przez 14 dni macie prawo do pełnego zwrotu.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- LENS 2: KADRY I REKRUTACJA -->
+      <div role="tabpanel" id="panel-lens-kadry" class="tab-panel" data-tab-panel="kadry" data-panel="kadry" hidden>
+        <div class="grid-3">
+          <article class="card card-night" style="min-height:0;">
+            <span class="badge badge-p0" style="align-self:flex-start;">Priorytet #1 Zespołu</span>
+            <h3 class="h3">0 z 16 wdrożeń zatrzymanych przez opór</h3>
+            <p class="muted">Automat nie zabiera etatu kadrowej ani rekruterowi — zdejmuje z nich przepisywanie tych samych danych między HRappką, nexo i Excelem. Zaczynamy od warsztatu z ludźmi.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-prod" style="align-self:flex-start;">Spokój w legalizacji</span>
+            <h3 class="h3">Alert 30 dni przed końcem dokumentu</h3>
+            <p class="muted">W Personel Job kadry oszczędzają ~5 h/tydz. na ręcznych zestawieniach i widzą wygasające zezwolenia 30 dni wcześniej — zanim pojawi się problem na obiekcie.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-prod" style="align-self:flex-start;">Koniec gonienia papieru</span>
+            <h3 class="h3">Podpis na hali i odpowiedź w ~1 min</h3>
+            <p class="muted">Koordynator zbiera podpis na tablecie (APT WORK: ~12 h/tydz. mniej), a baza wiedzy Super-brain (HR KADRA BIS) daje nowej osobie odpowiedź na procedurę w ~1 minutę.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- LENS 3: IT, IOD I FINANSE -->
+      <div role="tabpanel" id="panel-lens-it" class="tab-panel" data-tab-panel="it" data-panel="it" hidden>
+        <div class="grid-3">
+          <article class="card card-night" style="min-height:0;">
+            <span class="badge badge-p0" style="align-self:flex-start;">Priorytet #1 IT i IOD</span>
+            <h3 class="h3">RODO, log, cofanie i OC 1 mln zł</h3>
+            <p class="muted">Przygotowujemy umowę powierzenia (DPA) pod Waszą organizację. Stosujemy modele lokalne lub plany business bez trenowania, hashowanie ID w raportach oraz polisę OC IT na 1 000 000 zł.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-prod" style="align-self:flex-start;">Stabilność kontraktu</span>
+            <h3 class="h3">2011 testów automatycznych</h3>
+            <p class="muted">Zamiast kruchych makr w arkuszach budujemy monitorowane przepływy z bramkami zatwierdzeń człowieka (np. „Zatwierdzam vNNN”) i czasem reakcji gwarantowanym w pakiecie.</p>
+          </article>
+          <article class="card" style="min-height:0;">
+            <span class="badge badge-disclosure" style="align-self:flex-start;">Przejrzysty budżet</span>
+            <h3 class="h3">Ceny „od” znane z góry + licencje po kosztach</h3>
+            <p class="muted">Moduły APT/HR od 3 900 zł, pakiet Start od 6 900 zł + 790 zł/mies., Scale od 24 900 zł + 2 900 zł/mies. Licencje zewnętrzne i API zawsze osobno, po kosztach, bez narzutu.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- LENS 4: ALL -->
+      <div role="tabpanel" id="panel-lens-all" class="tab-panel" data-tab-panel="all" data-panel="all" hidden>
+        <div style="background:var(--paper);padding:20px 24px;border-radius:16px;border:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;">
+          <div>
+            <span class="mono">PEŁNE ZESTAWIENIE KOMITETU ZAKUPOWEGO</span>
+            <h3 class="h4">Wszystkie 6 kryteriów aktywne w tabeli poniżej</h3>
+          </div>
+          <a class="btn btn-dark" href="/kontakt.html" data-track="porownanie-lens-audyt">Zamów audyt porównawczy (1 990 zł)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. FULL COMPARISON TABLE WITH tr[data-lens] -->
+  <div class="table-wrap reveal" style="margin-bottom:40px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Kryterium decyzji</th>
+          <th>Dokupienie modułu u dostawcy (HRappka / ERP)</th>
+          <th>Status quo (Excel + dodatkowy etat)</th>
+          <th>Integracja i agenci REVAGY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-lens="ceo it">
+          <td><strong>1. Widok między systemami</strong><br><span class="mono muted">Prezes / COO · IT</span></td>
+          <td>Widzi tylko własny silos danych (np. samą HRappkę bez ksiąg nexo / TAXXO i bez Pipedrive)</td>
+          <td>Ręczne sklejanie CSV w piątek; ciche rozjazdy między arkuszami wychodzą po zamknięciu miesiąca</td>
+          <td class="col-win"><strong>Jeden kontrakt danych:</strong> spina HRappkę + nexo + TAXXO + Pipedrive (np. wykryty rozjazd stanu załogi 568 vs 539 w HR KONO S.A.)</td>
+        </tr>
+        <tr data-lens="it ceo">
+          <td><strong>2. Wymiana obecnych systemów</strong><br><span class="mono muted">IT · Zarząd</span></td>
+          <td>Wymaga dopasowania procesu firmy do sztywnej logiki jednego dostawcy</td>
+          <td>Brak zmian technologicznych, ale lawinowo rośnie dług operacyjny i liczba plików</td>
+          <td class="col-win"><strong>Zero wymiany systemów:</strong> pracujemy na tym, co już macie, a pierwsza automatyzacja działa do 14 dni</td>
+        </tr>
+        <tr data-lens="kadry ceo">
+          <td><strong>3. Alerty i szybkość reakcji</strong><br><span class="mono muted">Kadry · Rekrutacja · COO</span></td>
+          <td>Wymaga ręcznego logowania i sprawdzania widoków w konkretnym module</td>
+          <td>Zależy od pamięci kadrowej i ręcznego filtrowania tabel; leady czekają nawet ~48 h</td>
+          <td class="col-win"><strong>Proaktywne automaty:</strong> alert zezwoleń 30 dni przed końcem (Personel Job), lead z Meta Ads w HRappce w ≤ 5 min (HR KADRA)</td>
+        </tr>
+        <tr data-lens="ceo it">
+          <td><strong>4. Koszt i ryzyko startu</strong><br><span class="mono muted">Finanse · Prezes</span></td>
+          <td>Stały abonament per moduł/użytkownik bez gwarancji spięcia z resztą firmy</td>
+          <td>Szacunkowo <strong>~65 zł/h</strong> powtarzalnej pracy biurowej + koszt opóźnionego startu ludzi na obiekcie</td>
+          <td class="col-win"><strong>Audyt 1 990 zł</strong> (14 dni na pełny zwrot, odliczany w 30 dni); produkty APT/HR od 3 900 zł, pakiet Start od 6 900 zł</td>
+        </tr>
+        <tr data-lens="kadry">
+          <td><strong>5. Adopcja i opór zespołu</strong><br><span class="mono muted">Kadry · Rekrutacja</span></td>
+          <td>Standardowa instrukcja techniczna; ryzyko bojkotu nowego ekranu przez użytkowników</td>
+          <td>Rosnące przeciążenie i utrata wiedzy przy odejściu kluczowej osoby z back-office</td>
+          <td class="col-win"><strong>Sprzedajemy wdrożenie pracownikom:</strong> warsztat przed startem, <strong>0 z 16 wdrożeń</strong> zatrzymanych przez opór zespołów</td>
+        </tr>
+        <tr data-lens="it">
+          <td><strong>6. Bezpieczeństwo, AI i SLA</strong><br><span class="mono muted">IT · IOD · Finanse</span></td>
+          <td>Odpowiedzialność ograniczona do granic jednego programu</td>
+          <td>Brak śladu audytowego kto/kiedy nadpisał formułę w arkuszu; dane osobowe w plikach na dysku</td>
+          <td class="col-win"><strong>DPA pod organizację</strong>, modele bez trenowania, bramki człowieka, OC IT 1 000 000 zł, opieka wg pakietu (24/7 w Enterprise)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. ANIMATED EXCEL-COST VISUAL AT ~65 ZŁ/H + CTA TO 1 990 ZŁ AUDIT -->
+  <div class="grid-2" id="koszt-excela" data-step-label="03 · Rachunek za Excela">
+    <article class="card card-night reveal" style="min-height:0;">
+      <span class="mono" style="color:var(--accent);">UKRYTY RACHUNEK ZA STATUS QUO · SZACUNEK PRZY ~65 ZŁ/H</span>
+      <h3 class="h3">Gdzie w agencji pracy uciekają godziny na „darmowym” Excelu?</h3>
+      <p class="muted">Zgodnie z zasadami rzetelności nie zawyżamy stawek — przyjmujemy orientacyjny koszt godziny pracy back-office na poziomie <strong>~65 zł/h</strong>, a dokładny rachunek liczymy na Waszych danych w audycie.</p>
+      <ul class="audit-list" style="margin-top:8px;">
+        <li><span>Obieg papierowych umów (APT WORK)</span><div class="meter"><i style="--w:88%"></i></div><b>~12 h/tydz.</b></li>
+        <li><span>Przepisywanie leadów Meta (HR KADRA)</span><div class="meter"><i style="--w:74%"></i></div><b>~10 h/tydz.</b></li>
+        <li><span>Ręczny raport zarządczy (HR KONO)</span><div class="meter"><i style="--w:52%"></i></div><b>~6 h/tydz.</b></li>
+        <li><span>Zestawienia zezwoleń (Personel Job)</span><div class="meter"><i style="--w:44%"></i></div><b>~5 h/tydz.</b></li>
+        <li><span>Kopiowanie umów B2B (Kono / COMPADRES)</span><div class="meter"><i style="--w:36%"></i></div><b>~4 h/tydz.</b></li>
+      </ul>
+    </article>
+
+    <article class="card card-accent reveal" style="--d:80ms;min-height:0;justify-content:space-between;">
+      <div style="display:grid;gap:12px;">
+        <span class="mono">SPRAWDŹ SWÓJ RACHUNEK W 3–5 DNI ROBOCZYCH</span>
+        <h2 class="h2">Zamów audyt procesów i porównanie ROI za 1 990 zł</h2>
+        <p>Przechodzimy z Waszymi kadrami, rekrutacją i operacjami przez obecne arkusze. Dostajecie mapę procesów, policzone godziny na Waszej realnej stawce oraz plan wdrożenia ze stałą ceną za wynik.</p>
+        <ul class="ticks">
+          <li><strong>100% kwoty odliczane</strong> od wdrożenia przy zamówieniu w 30 dni</li>
+          <li><strong>14 dni na rezygnację z pełnym zwrotem</strong> bez tłumaczenia</li>
+          <li>Raport z audytu zostaje Waszą własnością</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;">
+        <a class="btn btn-dark btn-lg" href="/kontakt.html" data-track="porownanie-cta-audyt">Zamów audyt (1 990 zł, 14 dni zwrotu)</a>
+        <a class="btn btn-light btn-lg" href="/oferta.html" data-track="porownanie-cta-oferta">Zobacz pakiety i ceny „od” →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+</main>
+</BaseLayout>

@@ -14,7 +14,7 @@
   };
 
   const onProduction = CFG.hosts.includes(location.hostname);
-  const policyUrl = onProduction ? '/polityka-prywatnosci.html' : 'polityka-prywatnosci.html';
+  const policyUrl = '/polityka-prywatnosci.html';
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   /* ---------- zapis decyzji ---------- */
@@ -34,6 +34,13 @@
     if (value !== undefined && Number.isFinite(value)) call.push(Math.round(value));
     paq.push(call);
   };
+
+  document.addEventListener('lead:accepted', (event) => {
+    const leadId = event.detail && event.detail.lead_id;
+    if (typeof leadId === 'string' && /^ld_[0-9a-f]{32}$/.test(leadId)) {
+      track('Formularz', 'Przyjęty', `revagy / ${leadId}`);
+    }
+  });
 
   function start() {
     if (started || !onProduction) return;
@@ -59,10 +66,10 @@
   function sectionName(el) {
     const s = el.closest('main > section, header, footer, .consent');
     if (!s) return 'strona';
-    if (s.id) return s.id === 'top' ? 'nagłówek' : s.id;
     if (s.classList.contains('hero-outer')) return 'hero';
     if (s.classList.contains('stats')) return 'liczby';
     if (s.classList.contains('consent')) return 'zgoda';
+    if (s.id) return s.id === 'top' ? 'nagłówek' : s.id;
     return s.tagName === 'FOOTER' ? 'stopka' : s.tagName.toLowerCase();
   }
   const labelOf = (el) => (el.dataset.track || el.getAttribute('aria-label') || el.textContent || el.value || '')
@@ -125,7 +132,7 @@
       calcTimer = setTimeout(() => {
         const v = (id) => (document.getElementById(id) || {}).value;
         const share = (document.querySelector('input[name="share"]:checked') || {}).value;
-        const hours = Number((document.getElementById('res-hours') || {}).textContent.replace(/\s/g, ''));
+        const hours = Number(((document.getElementById('res-hours') || {}).textContent || '').replace(/\s/g, ''));
         track('Kalkulator', 'Ustawienia', `osoby=${v('calc-people')} godz=${v('calc-hours')} stawka=${v('calc-rate')} udział=${share}`, hours);
       }, 2000);
     }));

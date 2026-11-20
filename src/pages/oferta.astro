@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Oferta, pakiety i katalog APT/HR — REVAGY"
+  description="Audyt procesów 1 990 zł (3–5 dni rob., odliczany w 30 dni, 14 dni na pełny zwrot). Pakiety Start (od 6 900 zł), Scale (od 24 900 zł), Enterprise (od 69 000 zł) oraz katalog produktów APT/HR od 3 900 zł."
+  canonical="https://revagy.pl/oferta.html"
+  variant="subpage"
+  activeNav="oferta"
+  showJourney={true}
+>
+<main id="start">
+
+  <section class="page-hero" id="oferta-start" data-step-label="01 · Próg wejścia i audyt">
+    <div class="wrap reveal">
+      <span class="kicker">Obsł. 10 &amp; Obsł. 13 · Jasny próg wejścia · Ceny „od” znane przed rozmową</span>
+      <h1 class="display">Oferta, pakiety i katalog APT/HR</h1>
+      <p class="lead">Zaczynamy od płatnego audytu (1 990 zł) z pełną gwarancją zwrotu przez 14 dni i odliczeniem od wdrożenia w 30 dni. Dokładną wycenę podajemy po audycie, a minimalne progi pakietów i produktów widzisz od razu poniżej.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="oferta-audyt" data-step-label="02 · Audyt 1 990 zł i pakiety">
+    <div class="card card-night reveal" style="margin-bottom:52px;display:grid;grid-template-columns:1.4fr 0.8fr;gap:28px;align-items:center;min-height:0;">
+      <div style="display:grid;gap:14px;">
+        <span class="badge badge-p0" style="justify-self:start;">Krok 1 współpracy · Audyt z gwarancją zwrotu</span>
+        <h2 class="h2">Audyt procesów — 1 990 zł</h2>
+        <p class="muted">W 3–5 dni roboczych przechodzimy z Waszym zespołem przez procesy kadr, rekrutacji, sprzedaży i operacji. Wyceniamy koszt ręcznej pracy na Waszym koszcie godziny i wskazujemy proces, który spłaci się najszybciej.</p>
+        <ul class="ticks">
+          <li><strong>Odliczany w 100% od wdrożenia</strong> przy zamówieniu w ciągu 30 dni</li>
+          <li><strong>14 dni na rezygnację z pełnym zwrotem</strong> — zero ryzyka po stronie zarządu</li>
+          <li>Wynik zostaje u Was: mapa procesów, godziny, wycena Excela w PLN i ROI per proces</li>
+        </ul>
+      </div>
+      <div style="background:var(--night-2);padding:28px;border-radius:20px;display:grid;gap:12px;border:1px solid var(--night-line);">
+        <span class="mono" style="color:var(--on-night-2);">STAŁA CENA AUDYTU</span>
+        <p style="font-family:var(--font-display);font-size:2.85rem;font-weight:800;line-height:1;">1 990 zł</p>
+        <p class="mono" style="color:var(--ok);">✓ Odliczany od wdrożenia w 30 dni</p>
+        <p class="mono" style="color:var(--on-night-2);">✓ 14 dni na pełny zwrot</p>
+        <a class="btn btn-accent btn-lg" href="/kontakt.html" data-track="Oferta Audyt: Zamów audyt">Zamów audyt →</a>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE PLANS TABS -->
+    <div id="oferta-pakiety">
+      <header class="section-head reveal">
+        <span class="kicker">Porównaj zakres projektowy i warunki SLA</span>
+        <h2 class="h2">Pakiety wdrożenia i&nbsp;stałej opieki</h2>
+        <p class="lead">Przełącz zakładkę poniżej, aby zobaczyć co wchodzi w skład wdrożenia, a co obejmuje miesięczna opieka. Licencje i zużycie API są rozliczane osobno, po kosztach, bez marży.</p>
+        <div class="seg seg-center" role="tablist" aria-label="Model współpracy">
+          <button type="button" role="tab" aria-selected="true" data-mode="projekt">Wdrożenie</button>
+          <button type="button" role="tab" aria-selected="false" data-mode="opieka">Stała opieka</button>
+        </div>
+      </header>
+
+      <div class="plans" data-plans data-mode="projekt" style="margin-bottom:48px;">
+        <article class="plan reveal">
+          <h3 class="h3">Start</h3>
+          <p class="plan-for">Dla firm, które chcą uruchomić pierwszą automatyzację w 14 dni na jednym wybranym procesie.</p>
+          <p class="plan-price">od 6 900 zł <span style="font-size:15px;font-weight:500">+ 790 zł/mies.</span></p>
+          <p class="plan-sub">Wejście produktowe APT/HR od 3 900 zł · Licencje po kosztach</p>
+          <ul class="ticks m-projekt">
+            <li>1 proces zautomatyzowany end-to-end</li>
+            <li>Do 3 integracji (np. HRappka, nexo, Google Drive)</li>
+            <li>Warsztat adopcyjny i szkolenie zespołu</li>
+            <li>Dziennik działań i dokumentacja przepływu</li>
+          </ul>
+          <ul class="ticks m-opieka">
+            <li>Monitoring przepływów w dni robocze</li>
+            <li>Czas reakcji: do 1 dnia roboczego</li>
+            <li>Poprawki po zmianach API i drobne korekty</li>
+            <li>Raport kwartalny z wykonania zadań</li>
+          </ul>
+          <a class="btn btn-outline" href="/kontakt.html" data-track="Oferta Start: Zamów audyt">Zamów audyt pod Start →</a>
+        </article>
+
+        <article class="plan plan-featured reveal" style="--d:80ms">
+          <span class="plan-flag">Najczęściej wybierany</span>
+          <h3 class="h3">Scale</h3>
+          <p class="plan-for">Dla agencji pracy i firm B2B automatyzujących cały dział (kadry, rekrutację, sprzedaż, controlling).</p>
+          <p class="plan-price">od 24 900 zł <span style="font-size:15px;font-weight:500">+ 2 900 zł/mies.</span></p>
+          <p class="plan-sub">Licencje i API osobno, po kosztach, bez marży</p>
+          <ul class="ticks m-projekt">
+            <li>Do 5 procesów + agent AI z bramką zatwierdzeń</li>
+            <li>Integracje HRappka, nexo, TAXXO, Pipedrive i poczty</li>
+            <li>Pulpit zarządczy lub kadrowy odświeżany automatycznie</li>
+            <li>Wdrożenie w 2-tygodniowych sprintach (6–10 tyg.)</li>
+            <li>Warsztat z zespołem (0/16 wdrożeń zatrzymanych oporem)</li>
+          </ul>
+          <ul class="ticks m-opieka">
+            <li>Monitoring przepływów 7 dni w tygodniu</li>
+            <li>Czas reakcji: do 4 godzin</li>
+            <li>Stały opiekun znający Wasze procesy</li>
+            <li>Rozwój: nowe przepływy i raport miesięczny z liczbami</li>
+          </ul>
+          <a class="btn btn-accent" href="/kontakt.html" data-track="Oferta Scale: Zamów audyt">Zamów audyt pod Scale →</a>
+        </article>
+
+        <article class="plan reveal" style="--d:160ms">
+          <h3 class="h3">Enterprise</h3>
+          <p class="plan-for">Dla grup kapitałowych, wielu spółek, wdrożeń we własnej chmurze i całodobowego SLA.</p>
+          <p class="plan-price">od 69 000 zł <span style="font-size:15px;font-weight:500">+ od 6 900 zł/mies.</span></p>
+          <p class="plan-sub">Prace dodatkowe poza pakietem: 250 zł/h · Licencje po kosztach</p>
+          <ul class="ticks m-projekt">
+            <li>Program wdrożeń dla wielu spółek i działów</li>
+            <li>Agenci AI i modele lokalne w chmurze klienta</li>
+            <li>Kontrakt danych pilnowany testami automatycznymi</li>
+            <li>Przegląd bezpieczeństwa i umowa powierzenia pod organizację</li>
+          </ul>
+          <ul class="ticks m-opieka">
+            <li><strong>Monitoring i agent-opiekun 24/7</strong> (tylko w Enterprise)</li>
+            <li>Gwarantowane czasy reakcji SLA w umowie</li>
+            <li>Dedykowany zespół i testy regresji po zmianach ERP</li>
+            <li>Kwartalny przegląd strategiczny z zarządem</li>
+          </ul>
+          <a class="btn btn-outline" href="/kontakt.html" data-track="Oferta Enterprise: Kontakt">Porozmawiajmy o Enterprise →</a>
+        </article>
+      </div>
+    </div>
+
+    <!-- TABELA PORÓWNAWCZA -->
+    <div class="table-wrap reveal" style="margin-bottom:52px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Parametr współpracy</th>
+            <th>Start</th>
+            <th>Scale (najczęstszy)</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Wdrożenie (cena od)</strong></td><td><strong>od 6 900 zł</strong></td><td class="col-win"><strong>od 24 900 zł</strong></td><td><strong>od 69 000 zł</strong></td></tr>
+          <tr><td><strong>Stała opieka (cena od)</strong></td><td><strong>+ 790 zł / mies.</strong></td><td class="col-win"><strong>+ 2 900 zł / mies.</strong></td><td><strong>+ od 6 900 zł / mies.</strong></td></tr>
+          <tr><td><strong>Liczba procesów i integracji</strong></td><td>1 proces end-to-end, do 3 integracji</td><td class="col-win">Do 5 procesów + agent AI + pulpit</td><td>Program wieloetapowy dla grupy / wielu spółek</td></tr>
+          <tr><td><strong>Monitoring i czas reakcji</strong></td><td>Dni robocze · reakcja do <strong>1 dnia roboczego</strong></td><td class="col-win">7 dni w tygodniu · reakcja do <strong>4 godzin</strong> · stały opiekun</td><td><strong>Monitoring i agent-opiekun 24/7</strong> (Enterprise) · SLA w umowie</td></tr>
+          <tr><td><strong>Szkolenie i adopcja zespołu</strong></td><td>W cenie pakietu</td><td class="col-win">Warsztat adopcyjny dla każdego działu</td><td>Dedykowany program onboardingu i baza wiedzy</td></tr>
+          <tr><td><strong>Licencje, API i prace dodatkowe</strong></td><td colspan="3">Licencje i zużycie API rozliczane osobno, po kosztach, bez narzutu. Prace rozwojowe poza zakresem pakietu: <strong>250 zł/h</strong>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- KATALOG PRODUKTÓW APT/HR -->
+    <div id="oferta-katalog">
+      <div class="section-head left reveal">
+        <span class="kicker">Wejście produktowe dla agencji pracy i firm HR</span>
+        <h2 class="h2">Powtarzalne moduły od 3 900 zł + 290–790 zł/mies.</h2>
+        <p class="lead">Gotowe schematy sprawdzone u klientów z naszego portfolio — szybki start w 14 dni bez budowania od zera.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card card-mist reveal" style="min-height:0;">
+          <span class="mono">Produkt 01 · APT WORK</span>
+          <h3 class="h4">Obieg dokumentów (tablet na hali)</h3>
+          <p class="muted">nexo → Google Drive → podpis pracownika na tablecie → powrót do nexo i HRappki (~3 dni → ~10 min, ~12 h/tydz. mniej).</p>
+          <p class="mono" style="font-weight:700;">od 3 900 zł + 290–790 zł/mies.</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/produkty/obieg-dokumentow.html" data-track="Oferta Produkt 01: Karta">Karta produktu →</a>
+        </article>
+        <article class="card card-mist reveal" style="--d:60ms;min-height:0;">
+          <span class="mono">Produkt 02 · Personel Job</span>
+          <h3 class="h4">Dashboard kadr + alert zezwoleń 30 dni</h3>
+          <p class="muted">Zestawienia z HRappki bez PII (hashowane ID) i automatyczne ostrzeżenia 30 dni przed końcem zezwolenia (~5 h/tydz. mniej).</p>
+          <p class="mono" style="font-weight:700;">od 3 900 zł + 290–790 zł/mies.</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/kontakt.html" data-track="Oferta Produkt 02: Zamów">Zamów przez audyt →</a>
+        </article>
+        <article class="card card-mist reveal" style="--d:120ms;min-height:0;">
+          <span class="mono">Produkt 03 · Kono / SERVUS / COMPADRES</span>
+          <h3 class="h4">Generator umów klienta po NIP</h3>
+          <p class="muted">Formularz → Make → gotowa umowa na Dysku Google w ~2 min zamiast ~45 min, z danymi po NIP i aktualnym wzorem.</p>
+          <p class="mono" style="font-weight:700;">od 3 900 zł + 290–790 zł/mies.</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/kontakt.html" data-track="Oferta Produkt 03: Zamów">Zamów przez audyt →</a>
+        </article>
+        <article class="card card-mist reveal" style="min-height:0;">
+          <span class="mono">Produkt 04 · HR KADRA</span>
+          <h3 class="h4">Lead Meta Ads → HRappka ≤ 5 min</h3>
+          <p class="muted">Zapis kandydata w HRappce co 5 min i natychmiastowy mail zwrotny (~48 h → ≤ 5 min, +30% kontaktów tego samego dnia).</p>
+          <p class="mono" style="font-weight:700;">od 3 900 zł + 290–790 zł/mies.</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/kontakt.html" data-track="Oferta Produkt 04: Zamów">Zamów przez audyt →</a>
+        </article>
+        <article class="card card-mist reveal" style="--d:60ms;min-height:0;">
+          <span class="mono">Produkt 05 · HR KONO S.A.</span>
+          <h3 class="h4">Pulpit grupy dla zarządu o 7:30</h3>
+          <p class="muted">Połączenie Pipedrive + HRappka + nexo + TAXXO w jeden kontrakt danych publikowany 4× dziennie w 12 s.</p>
+          <p class="mono" style="font-weight:700;">Wycena po audycie (wg liczby spółek)</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/realizacje/grupa-kono.html" data-track="Oferta Produkt 05: Case">Zobacz case grupy →</a>
+        </article>
+        <article class="card card-mist reveal" style="--d:120ms;min-height:0;">
+          <span class="mono">Produkt 06 · Persona 2 (Produkcja)</span>
+          <h3 class="h4">Płatny pilotaż produkcyjny 14 dni</h3>
+          <p class="muted">Tygodniowy raport wydajności zmian na hali (wzorowany na pilotażu KONO STAL SERVIS: ~6 h → ~10 min) z kryterium sukcesu.</p>
+          <p class="mono" style="font-weight:700;">Płatny pilotaż 14 dni · kryterium w umowie</p>
+          <a class="btn btn-outline" style="margin-top:auto;" href="/dla-produkcji-i-magazynow.html" data-track="Oferta Produkt 06: Produkcja">Oferta dla produkcji →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+</BaseLayout>

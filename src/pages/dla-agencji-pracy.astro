@@ -1,0 +1,455 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Dla agencji pracy i firm HR — automatyzacja kadr i rekrutacji | REVAGY"
+  description="Automatyzacja kadr, rekrutacji i obsady dla agencji pracy (5–250 osób w biurze). Spinamy HRappkę, Subiekta / nexo, TAXXO, Pipedrive i Meta Ads bez wymiany systemów."
+  canonical="https://revagy.pl/dla-agencji-pracy.html"
+  variant="subpage"
+  activeNav="branze"
+  showJourney={true}
+>
+<main id="start">
+
+<!-- 1. ANIMATED DARK HERO WITH VIDEO BACKDROP -->
+<section class="hero-outer" id="hero-agencje" data-step-label="01 · Start: Agencje pracy">
+  <div class="hero" data-hero>
+    <div class="hero-media" data-parallax>
+      <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="/assets/video/hero-flow.jpg">
+        <source src="/assets/video/hero-flow.webm" type="video/webm">
+        <source src="/assets/video/hero-flow.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="chip chip-glass load-in" style="--d:0ms">Persona 1 · 10 z 16 wdrożeń w APT, rekrutacji i outsourcingu HR</span>
+      <h1 class="display load-in" style="--d:80ms">Automatyzacja kadr, rekrutacji i&nbsp;obsady dla agencji pracy</h1>
+      <p class="hero-lead load-in" style="--d:160ms">Spinamy HRappkę, Subiekta / nexo, TAXXO, Pipedrive i Meta Ads w jeden kontrolowany obieg — bez wymiany systemów i bez oporu zespołu (0 z 16 wdrożeń zatrzymanych przez ludzi).</p>
+      <div class="hero-subproof load-in" style="--d:200ms">
+        <span>10 wdrożeń w APT i HR (16/16 zgód)</span>
+        <span>Wejście produktowe od 3 900 zł</span>
+        <span>Audyt 1 990 zł · 14 dni na pełny zwrot</span>
+      </div>
+      <div class="hero-cta load-in" style="--d:240ms">
+        <a class="btn btn-accent btn-lg" href="/kontakt.html" data-track="agencje-hero-audyt">Umów audyt (1 990 zł, 14 dni zwrotu)</a>
+        <a class="btn btn-glass btn-lg" href="#triggery-agencji" data-track="agencje-hero-triggery">Sprawdź 5 triggerów APT →</a>
+      </div>
+      <p class="hero-note load-in" style="--d:300ms">Audyt trwa 3–5 dni roboczych i jest w 100% odliczany od wdrożenia przy zamówieniu w ciągu 30 dni.</p>
+    </div>
+
+    <aside class="hero-feed load-in" style="--d:380ms" aria-label="Strumień zdarzeń z wdrożeń w agencjach pracy">
+      <div class="feed-head"><span class="pulse" aria-hidden="true"></span>Na żywo w agencjach pracy<span class="feed-tag">produkcja</span></div>
+      <ul class="feed-list" data-feed>
+        <li><span class="feed-ico">DOC</span><span><b>APT WORK · Umowa na hali</b>Podpis na tablecie → nexo i HRappka</span><time>~10 min</time></li>
+        <li><span class="feed-ico i-rose">HR</span><span><b>Personel Job · Zezwolenia</b>Alert wygaśnięcia przed końcem</span><time>30 dni</time></li>
+        <li><span class="feed-ico i-ok">ADS</span><span><b>HR KADRA · Lead Meta Ads</b>Kandydat w HRappce + e-mail zwrotny</span><time>≤ 5 min</time></li>
+        <li><span class="feed-ico i-light">B2B</span><span><b>COMPADRES / SERVUS / Kono</b>Umowa klienta wygenerowana po NIP</span><time>~2 min</time></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- LICZBY DOWODOWE DLA AGENCJI -->
+<section class="stats wrap" aria-label="Wyniki w agencjach pracy" data-step-label="02 · Liczby APT/HR">
+  <div class="stat reveal">
+    <p class="stat-num"><span data-count="10">10</span> / 16</p>
+    <p class="stat-label">wdrożeń w portfolio zrealizowanych dla agencji pracy i spółek HR</p>
+  </div>
+  <div class="stat reveal" style="--d:70ms">
+    <p class="stat-num">~<span data-count="10">10</span> min</p>
+    <p class="stat-label">od wygenerowania umowy w nexo do podpisu na tablecie i powrotu do HRappki (APT WORK)</p>
+  </div>
+  <div class="stat reveal" style="--d:140ms">
+    <p class="stat-num">≤ <span data-count="5">5</span> min</p>
+    <p class="stat-label">od kliknięcia reklamy Meta Ads do rekordu kandydata w HRappce (HR KADRA)</p>
+  </div>
+  <div class="stat reveal" style="--d:210ms">
+    <p class="stat-num"><span data-count="0">0</span> / 16</p>
+    <p class="stat-label">wdrożeń zatrzymanych przez opór kadr lub rekruterów — zaczynamy od warsztatu z zespołem</p>
+  </div>
+</section>
+
+<!-- 2. INTERACTIVE 5-TRIGGER SWITCHER ([data-tabs]) -->
+<section class="section wrap" id="triggery-agencji" data-step-label="03 · 5 triggerów agencji">
+  <div class="section-head left reveal">
+    <span class="kicker">5 triggerów z procesu zakupu agencji (5–250 osób w biurze)</span>
+    <h2 class="h2">Wybierz wąskie gardło w Twojej agencji i zobacz działający schemat</h2>
+    <p class="lead">Przełącz zakładkę poniżej, aby przejść od kosztownego problemu („przed”), przez docelowy przepływ między systemami, aż po dowód z wdrożenia produkcyjnego.</p>
+  </div>
+
+  <div class="card card-night module-tabs reveal" data-tabs style="padding:clamp(24px,3.2vw,40px);border:1px solid var(--night-line);">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+      <div class="tab-list tab-list-night" role="tablist" aria-label="5 triggerów agencji pracy" style="flex:1 1 auto;">
+        <button type="button" role="tab" class="tab-btn is-active" aria-selected="true" data-tab="trig-legalizacja" data-tab-target="trig-legalizacja" aria-controls="panel-trig-legalizacja"><span class="tab-step-num">1</span>Legalizacja 30 dni</button>
+        <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="trig-podpis" data-tab-target="trig-podpis" aria-controls="panel-trig-podpis"><span class="tab-step-num">2</span>Podpis na tablecie</button>
+        <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="trig-leady" data-tab-target="trig-leady" aria-controls="panel-trig-leady"><span class="tab-step-num">3</span>Leady Meta ≤ 5 min</button>
+        <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="trig-marza" data-tab-target="trig-marza" aria-controls="panel-trig-marza"><span class="tab-step-num">4</span>Marża i pulpit 7:30</button>
+        <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="trig-wiedza" data-tab-target="trig-wiedza" aria-controls="panel-trig-wiedza"><span class="tab-step-num">5</span>Baza wiedzy</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button type="button" class="btn btn-glass" style="height:36px;padding:0 12px;font-size:12.5px;" data-tab-prev aria-label="Poprzedni trigger">←</button>
+        <span class="mono muted" data-tab-indicator>Krok 1 z 5</span>
+        <button type="button" class="btn btn-glass" style="height:36px;padding:0 12px;font-size:12.5px;" data-tab-next aria-label="Następny trigger">→</button>
+      </div>
+    </div>
+
+    <div class="tab-panels">
+      <!-- TAB 1: LEGALIZACJA 30 DNI -->
+      <div role="tabpanel" id="panel-trig-legalizacja" class="tab-panel is-active" data-tab-panel="trig-legalizacja" data-panel="trig-legalizacja">
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--night-line);display:grid;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="badge badge-p0">Trigger 01 · Wpadka legalizacyjna</span>
+              <span class="mono muted">HRappka → Dashboard kadr</span>
+            </div>
+            <h3 class="h3">Alert o wygasającym zezwoleniu 30 dni przed terminem</h3>
+            <p class="muted"><strong>Ból (przed):</strong> Kadry codziennie ręcznie wyciągają z HRappki zestawienia zezwoleń, oświadczeń i umów. Przeoczenie jednej daty blokuje legalną pracę na obiekcie.</p>
+            <div class="flow" style="margin-block:6px;">
+              <span class="node">HRappka (ewidencja)</span>
+              <span class="link"></span>
+              <span class="node">Hashowanie ID (bez PII)</span>
+              <span class="link"></span>
+              <span class="node hot">Reguła -30 dni</span>
+              <span class="link"></span>
+              <span class="node">Alert + Dashboard kadr</span>
+            </div>
+            <ul class="checks">
+              <li class="done">Automatyczna kontrola ważności zezwoleń i umów co rano<em>działa</em></li>
+              <li class="done">Brak danych osobowych (PII) w warstwie raportowej<em>SHA-256</em></li>
+            </ul>
+          </div>
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--accent);display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="badge badge-prod">Dowód z produkcji · Personel Job</span>
+              <span class="mono muted">~120 pracowników</span>
+            </div>
+            <h4 class="h3">~5 h/tydz. mniej ręcznych raportów i wyprzedzenie 30 dni</h4>
+            <ul class="metrics-list">
+              <li>Alert o wygasających zezwoleniach <strong>30 dni przed terminem</strong> zamiast „po fakcie”</li>
+              <li><strong>~5 h/tydz.</strong> mniej pracy na ręcznym wyciąganiu zestawień z HRappki</li>
+              <li>Pełna higiena RODO: identyfikatory pracowników zahashowane w raportach</li>
+            </ul>
+            <blockquote class="quote" style="margin-top:auto;">„Wiemy, komu kończy się dokument, zanim zadzwoni inspekcja.”<cite>— Kierownik Kadr, Personel Job</cite></blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: PODPIS NA TABLECIE -->
+      <div role="tabpanel" id="panel-trig-podpis" class="tab-panel" data-tab-panel="trig-podpis" data-panel="trig-podpis" hidden>
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--night-line);display:grid;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="badge badge-p0">Trigger 02 · Start dzień później</span>
+              <span class="mono muted">nexo → Drive → Tablet → HRappka</span>
+            </div>
+            <h3 class="h3">Umowa pracownika na tablecie w ~10 min i umowa B2B po NIP w ~2 min</h3>
+            <p class="muted"><strong>Ból (przed):</strong> Drukowanie umów, wożenie papieru na halę i ręczne przepisywanie po powrocie (~3 dni opóźnienia startu). Umowy B2B kopiowane ze starych plików (~45 min).</p>
+            <div class="flow" style="margin-block:6px;">
+              <span class="node">Subiekt / nexo</span>
+              <span class="link"></span>
+              <span class="node">Make + Google Drive</span>
+              <span class="link"></span>
+              <span class="node hot">Podpis na tablecie</span>
+              <span class="link"></span>
+              <span class="node">nexo + HRappka (~10 min)</span>
+            </div>
+            <ul class="checks">
+              <li class="done">Obieg dokumentów pracownika na hali (APT WORK)<em>~3 dni → ~10 min</em></li>
+              <li class="done">Generator umów klienta po NIP (COMPADRES, SERVUS, Kono)<em>~45 min → ~2 min</em></li>
+            </ul>
+          </div>
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--accent);display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="badge badge-prod">Dowód z produkcji · APT WORK</span>
+              <span class="mono muted">~300 prac. · ~40 umów/tydz.</span>
+            </div>
+            <h4 class="h3">~3 dni → ~10 minut i ~12 h/tydz. mniej pracy kadr</h4>
+            <ul class="metrics-list">
+              <li>Cykl „umowa → podpis → system” skrócony z <strong>~3 dni do ~10 minut</strong></li>
+              <li><strong>~12 h/tydz.</strong> oszczędności koordynatorów i kadr; <strong>~90% mniej błędów</strong></li>
+              <li>Start ludzi u klienta <strong>~1 dzień wcześniej</strong> dzięki umowom B2B w ~2 min (COMPADRES)</li>
+            </ul>
+            <blockquote class="quote" style="margin-top:auto;">„Koordynator podpisuje umowę z pracownikiem na hali, a kadry widzą ją w systemie, zanim wróci do biura.”<cite>— Dyrektor Operacyjny, APT WORK</cite></blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: LEADY META <= 5 MIN -->
+      <div role="tabpanel" id="panel-trig-leady" class="tab-panel" data-tab-panel="trig-leady" data-panel="trig-leady" hidden>
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--night-line);display:grid;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="badge badge-p0">Trigger 03 · Uciekający kandydaci</span>
+              <span class="mono muted">Meta Lead Ads → HRappka</span>
+            </div>
+            <h3 class="h3">Kandydat z reklamy w HRappce w ≤ 5 min zamiast po 48 godzinach</h3>
+            <p class="muted"><strong>Ból (przed):</strong> Leady z Meta Ads leżą w arkuszu i skrzynce. Rekruter dzwoni po dwóch dniach, gdy kandydat zdążył już podpisać umowę u konkurencji.</p>
+            <div class="flow" style="margin-block:6px;">
+              <span class="node">Meta Lead Ads</span>
+              <span class="link"></span>
+              <span class="node hot">Agent B2C (co 5 min)</span>
+              <span class="link"></span>
+              <span class="node">Zapis w HRappce</span>
+              <span class="link"></span>
+              <span class="node">Auto e-mail do kandydata</span>
+            </div>
+            <ul class="checks">
+              <li class="done">Zapis kandydata w HRappce i wysyłka wiadomości w ≤ 5 min<em>HR KADRA</em></li>
+              <li class="done">Kampanie z bramką „Zatwierdzam vNNN” (~3 h → ~20 min)<em>Dobra Praca PL</em></li>
+            </ul>
+          </div>
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--accent);display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="badge badge-prod">Dowód z produkcji · HR KADRA</span>
+              <span class="mono muted">~200 prac. · ~600 leadów/mies.</span>
+            </div>
+            <h4 class="h3">~48 h → ≤ 5 min i ~30% więcej kontaktów tego samego dnia</h4>
+            <ul class="metrics-list">
+              <li>Czas od reklamy do kandydata w HRappce: z <strong>~48 h do ≤ 5 min</strong></li>
+              <li><strong>~10 h/tydz.</strong> mniej ręcznego przepisywania leadów przez rekruterów</li>
+              <li><strong>~30% więcej</strong> kandydatów, z którymi skontaktowano się jeszcze tego samego dnia</li>
+            </ul>
+            <blockquote class="quote" style="margin-top:auto;">„Kandydat dostaje maila, zanim zamknie reklamę.”<cite>— Kierownik Rekrutacji, HR KADRA</cite></blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: MARŻA I PULPIT 7:30 -->
+      <div role="tabpanel" id="panel-trig-marza" class="tab-panel" data-tab-panel="trig-marza" data-panel="trig-marza" hidden>
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--night-line);display:grid;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="badge badge-p0">Trigger 04 · Niewidoczna marża</span>
+              <span class="mono muted">Pipedrive + HRappka + nexo + TAXXO</span>
+            </div>
+            <h3 class="h3">Pulpit grupy gotowy o 7:30 i rentowność per klient na żywo</h3>
+            <p class="muted"><strong>Ból (przed):</strong> Dane w 4 silosach, raporty klejone w Excelu przez ~6 h/tydz., a ten sam stan załogi różni się w dwóch źródłach o 29 osób (568 vs 539).</p>
+            <div class="flow" style="margin-block:6px;">
+              <span class="node">HRappka + nexo + TAXXO</span>
+              <span class="link"></span>
+              <span class="node hot">Kontrakt (2011 testów)</span>
+              <span class="link"></span>
+              <span class="node">Publikacja w 12 s (4×/d)</span>
+              <span class="link"></span>
+              <span class="node">Pulpit CEO + Plugin COO</span>
+            </div>
+            <ul class="checks">
+              <li class="done">Wykryty rozjazd załogi 568 vs 539 i alert należności &gt; 1,5 mln zł<em>HR KONO S.A.</em></li>
+              <li class="run">Silnik obsady KPME (przeciek marży ~16 zł/rbh)<em>Labor APT · pilotaż</em></li>
+            </ul>
+          </div>
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--accent);display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px;">
+              <span class="badge badge-prod">HR KONO S.A. + HR KADRA</span>
+              <span class="badge badge-pilot">Nowy panel: pilotaż / shadow</span>
+            </div>
+            <h4 class="h3">Raport ~6 h/tydz. → 0 h (o 7:30) i kontrola marży</h4>
+            <ul class="metrics-list">
+              <li><strong>HR KONO S.A.:</strong> 4 publikacje dziennie w <strong>12 s</strong>, <strong>2011 testów</strong>, rozjazd <strong>568 vs 539</strong> wykryty od razu</li>
+              <li><strong>HR KADRA:</strong> plugin rentowności per klient dla COO (koszt pracodawcy vs przychód)</li>
+              <li><strong>Labor APT <span class="badge badge-pilot">pilotaż</span>:</strong> silnik KPME (propozycja obsady w sekundach, ~10% mniej wczesnych odejść)</li>
+            </ul>
+            <blockquote class="quote">„Pierwszy raz widzę całą grupę na jednym ekranie, zanim wypiję kawę.”<cite>— Prezes Zarządu, HR KONO S.A.</cite></blockquote>
+            <p class="mono muted" style="font-size:11.5px;">Ujawnienie: Założyciel REVAGY pracuje również jako dyrektor handlowy w HR KONO S.A. (jedyny powiązany klient w portfolio).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: BAZA WIEDZY -->
+      <div role="tabpanel" id="panel-trig-wiedza" class="tab-panel" data-tab-panel="trig-wiedza" data-panel="trig-wiedza" hidden>
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--night-line);display:grid;gap:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="badge badge-p0">Trigger 05 · Rotacja w back-office</span>
+              <span class="mono muted">Viber / Slack → Super-brain Wiki</span>
+            </div>
+            <h3 class="h3">Firmowa pamięć z 63 tys. wiadomości — 0 utraconej wiedzy przy rotacji</h3>
+            <p class="muted"><strong>Ból (przed):</strong> Ustalenia i procedury siedzą na czatach i w głowach kadrowych. Gdy odchodzi kluczowa osoba, nowa pyta o to samo przez miesiąc.</p>
+            <div class="flow" style="margin-block:6px;">
+              <span class="node">88 rozmów / 63 tys. wiad.</span>
+              <span class="link"></span>
+              <span class="node">855 plików SHA-256</span>
+              <span class="link"></span>
+              <span class="node hot">Ingest Super-brain</span>
+              <span class="link"></span>
+              <span class="node">167 stron wiki (~1 min)</span>
+            </div>
+            <ul class="checks">
+              <li class="done">Baza wiedzy 167 stron wiki i 11 map tematów<em>HR KADRA BIS (produkcja)</em></li>
+              <li class="run">Migracja Viber → Slack i onboarding handlowca (~4 h mniej)<em>Personal · w trakcie</em></li>
+            </ul>
+          </div>
+          <div style="background:var(--night-2);padding:24px;border-radius:20px;border:1px solid var(--accent);display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px;">
+              <span class="badge badge-prod">HR KADRA BIS (osobna spółka)</span>
+              <span class="badge badge-wip">Personal: w trakcie</span>
+            </div>
+            <h4 class="h3">Odpowiedź „jak to robimy?” w ~1 min i onboarding ~30% krótszy</h4>
+            <ul class="metrics-list">
+              <li><strong>HR KADRA BIS (~30 osób w biurze):</strong> odpowiedź na procedurę w <strong>~1 min</strong> zamiast czekania na czacie</li>
+              <li>Wdrożenie nowej osoby w kadrach <strong>~30% krótsze</strong>; <strong>0 utraconej wiedzy</strong> przy odejściu</li>
+              <li><strong>Personal <span class="badge badge-wip">w trakcie</span>:</strong> 100% historii (855 plików) zweryfikowane kryptograficznie SHA-256</li>
+            </ul>
+            <a class="btn btn-accent" style="margin-top:auto;align-self:flex-start;" href="/kontakt.html" data-track="agencje-wiedza-audyt">Zamów audyt procesów back-office (1 990 zł)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. BENTO & VIDEO PROOF FOR APT/HR -->
+<section class="section-sm wrap" id="bento-agencje" data-step-label="04 · Mechanika i wideo">
+  <div class="section-head left reveal">
+    <span class="kicker">Jak to działa pod maską</span>
+    <h2 class="h2">Od podpisu na hali i leada B2C po pulpit zarządu i Lead Engine B2B</h2>
+  </div>
+
+  <div class="bento">
+    <article class="card card-video span-7 reveal">
+      <video data-autoplay muted loop playsinline preload="metadata" poster="/assets/video/dashboard.jpg">
+        <source src="/assets/video/dashboard.webm" type="video/webm">
+        <source src="/assets/video/dashboard.mp4" type="video/mp4">
+      </video>
+      <div class="card-copy on-video">
+        <span class="badge badge-prod" style="justify-self:start;">Pulpit grupy + rentowność COO</span>
+        <h3 class="h3">Dane z HRappki, nexo, TAXXO i Pipedrive na jednym ekranie o 7:30</h3>
+        <p>Koniec z piątkowym sklejaniem arkuszy. Zarząd widzi marżę, stany osobowe (wraz z alertem rozjazdu 568 vs 539) i przeterminowane należności w 12 sekund.</p>
+      </div>
+    </article>
+
+    <article class="card card-accent span-5 reveal" style="--d:80ms">
+      <div class="card-copy">
+        <span class="mono">Katalog APT/HR · od 3 900 zł</span>
+        <h3 class="h3">Dokumenty pracownika bez przepisywania</h3>
+        <p>Koordynator zbiera podpis na tablecie na obiekcie, a komplet trafia prosto do nexo i HRappki w ~10 minut.</p>
+      </div>
+      <div class="mock mock-doc" aria-hidden="true">
+        <div class="doc">
+          <span class="doc-title">Umowa + Kwestionariusz</span>
+          <span class="doc-line w70"></span><span class="doc-line w45"></span>
+          <span class="doc-line w85"></span><span class="doc-line w60"></span>
+          <span class="doc-line w30 strong"></span>
+          <span class="scan"></span>
+        </div>
+        <ul class="doc-fields">
+          <li class="f1"><span>Źródło</span><b>Subiekt / nexo</b></li>
+          <li class="f2"><span>Obiekt</span><b>Podpis na tablecie</b></li>
+          <li class="f3"><span>Czas cyklu</span><b>~3 dni → ~10 min</b></li>
+          <li class="f4 ok"><b>Zapisano w nexo i HRappce</b></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 4. THREE PRODUCTION CASE STUDIES + TEAM ADOPTION ASSURANCE -->
+<section class="section wrap" id="dowody-agencje" data-step-label="05 · 3 wdrożenia produkcyjne">
+  <div class="section-head left reveal">
+    <span class="kicker">Dowody branżowe · zweryfikowane cytaty z portfolio</span>
+    <h2 class="h2">Trzy wdrożenia produkcyjne w agencjach pracy (i maszyna sprzedaży B2B)</h2>
+  </div>
+
+  <div class="grid-3">
+    <article class="card reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="badge badge-prod">Produkcja · APT WORK</span>
+        <span class="mono muted">~300 prac. · ~40 umów/tydz.</span>
+      </div>
+      <h3 class="h3">~3 dni → ~10 min na dokumentach kadrowych</h3>
+      <p class="muted">Obieg end-to-end w Make: nexo → Google Drive → tablet koordynatora na hali → podpis pracownika → automatyczny powrót do nexo i HRappki.</p>
+      <ul class="metrics-list">
+        <li><strong>~12 h/tydz.</strong> mniej pracy koordynatorów i działu kadr</li>
+        <li><strong>~90% mniej błędów</strong> przepisywania i ~0 zł za druk oraz kuriera</li>
+      </ul>
+      <blockquote class="quote" style="margin-top:auto;">„Koordynator podpisuje umowę z pracownikiem na hali, a kadry widzą ją w systemie, zanim wróci do biura.”<cite>— Dyrektor Operacyjny, APT WORK</cite></blockquote>
+      <a class="btn btn-outline" href="/produkty/obieg-dokumentow.html" data-track="agencje-case-aptwork">Karta produktu: Obieg na tablecie →</a>
+    </article>
+
+    <article class="card reveal" style="--d:80ms">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="badge badge-prod">Produkcja · Personel Job</span>
+        <span class="mono muted">~120 pracowników</span>
+      </div>
+      <h3 class="h3">Alert zezwoleń 30 dni przed końcem</h3>
+      <p class="muted">Wydzielona integracja z HRappką i dedykowany dashboard kadr: ważność zezwoleń na pracę, ewidencja czasu i stan zatrudnienia.</p>
+      <ul class="metrics-list">
+        <li>Ostrzeżenie o wygasających dokumentach <strong>30 dni przed terminem</strong></li>
+        <li><strong>~5 h/tydz.</strong> mniej ręcznych raportów; zahashowane ID (bez PII)</li>
+      </ul>
+      <blockquote class="quote" style="margin-top:auto;">„Wiemy, komu kończy się dokument, zanim zadzwoni inspekcja.”<cite>— Kierownik Kadr, Personel Job</cite></blockquote>
+      <a class="btn btn-outline" href="/oferta.html" data-track="agencje-case-personeljob">Zobacz w katalogu APT/HR →</a>
+    </article>
+
+    <article class="card reveal" style="--d:160ms">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="badge badge-prod">Produkcja · HR KADRA</span>
+        <span class="mono muted">~200 prac. · ~600 leadów/m</span>
+      </div>
+      <h3 class="h3">~48 h → ≤ 5 min od reklamy do HRappki</h3>
+      <p class="muted">Leady z Meta Ads trafiają do HRappki co 5 min, kandydat od razu dostaje e-mail, a COO widzi rentowność per klient w pluginie finansowym.</p>
+      <ul class="metrics-list">
+        <li><strong>~10 h/tydz.</strong> mniej przepisywania leadów z arkuszy</li>
+        <li><strong>~30% więcej</strong> kandydatów obsłużonych tego samego dnia</li>
+      </ul>
+      <blockquote class="quote" style="margin-top:auto;">„Kandydat dostaje maila, zanim zamknie reklamę.”<cite>— Kierownik Rekrutacji, HR KADRA</cite></blockquote>
+      <a class="btn btn-outline" href="/realizacje.html" data-track="agencje-case-hrkadra">Zobacz wszystkie 14 realizacji →</a>
+    </article>
+  </div>
+
+  <!-- TEAM ADOPTION ASSURANCE + HR BRAND SELL QUOTE -->
+  <div class="grid-2" style="margin-top:24px;">
+    <article class="card card-night reveal">
+      <span class="badge badge-p0" style="align-self:flex-start;">Adopcja zespołu · Standard wdrożenia</span>
+      <h3 class="h3">0 z 16 wdrożeń zatrzymanych przez opór kadr lub rekruterów</h3>
+      <p class="muted">W agencji pracy projekt najczęściej blokują kadry i rekrutacja ze strachu o etat. Zanim napiszemy pierwszą integrację, robimy warsztat z zespołem: pokazujemy, które nudne przepisywanie znika i jak odzyskany czas wspiera ich wyniki.</p>
+      <ul class="checks">
+        <li class="done">Warsztat z kadrami i koordynatorami przed startem sprintu<em>standard</em></li>
+        <li class="done">Szkolenie na żywych danych w każdym pakiecie (Start / Scale / Enterprise)<em>w cenie</em></li>
+      </ul>
+    </article>
+
+    <article class="card card-mist reveal" style="--d:80ms">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="badge badge-prod">Sprzedaż B2B agencji · HR BRAND SELL</span>
+        <span class="mono muted">7 handlowców</span>
+      </div>
+      <h3 class="h3">Szukasz też klientów B2B dla agencji? ~1 500 sygnałów/mies.</h3>
+      <p class="muted">W HR BRAND SELL zautomatyzowaliśmy Lead Engine (scraping CBOP gov.pl + OLX, enrichment NIP/KRS), kalkulator ofert (~2 h → ~15 min) i wyliczanie premii (0 h).</p>
+      <blockquote class="quote" style="margin-top:auto;">„Handlowiec rano dostaje listę firm, które dziś szukają ludzi, i gotową ofertę po rozmowie.”<cite>— Dyrektor Sprzedaży, HR BRAND SELL</cite></blockquote>
+    </article>
+  </div>
+</section>
+
+<!-- 5. INTERACTIVE FAQ ACCORDION ([data-faq]) -->
+<section class="section wrap faq-section" id="faq-agencje" data-step-label="06 · FAQ dla agencji">
+  <header class="section-head left reveal">
+    <span class="kicker">Pytania zarządu, kadr i IT agencji</span>
+    <h2 class="h2">Najczęstsze obiekcje przed startem</h2>
+    <p class="lead">Każde wdrożenie zaczynamy od audytu za 1 990 zł (14 dni na pełny zwrot, kwota odliczana od wdrożenia w 30 dni).</p>
+    <a class="btn btn-dark" href="/kontakt.html" data-track="agencje-faq-audyt">Umów audyt (1 990 zł)</a>
+  </header>
+
+  <div class="faq reveal" data-faq>
+    <div class="qa is-open">
+      <h3><button type="button" aria-expanded="true" aria-controls="ag-qa-1" id="ag-qb-1">Czy musimy wymieniać HRappkę, Subiekta / nexo albo Comarch?<span class="plus" aria-hidden="true"></span></button></h3>
+      <div class="qa-body" id="ag-qa-1" role="region" aria-labelledby="ag-qb-1"><div><p>Nie. Pracujemy na systemach, które już macie. Łączymy HRappkę, nexo, TAXXO, enova365, Comarch i Pipedrive przez API, webhooki i kolejki. Wejście produktowe APT/HR zaczyna się od 3 900 zł + 290–790 zł/mies., a pakiet Start od 6 900 zł + 790 zł/mies. (licencje osobno po kosztach).</p></div></div>
+    </div>
+    <div class="qa">
+      <h3><button type="button" aria-expanded="false" aria-controls="ag-qa-2" id="ag-qb-2">Co, jeśli kadry lub koordynatorzy będą blokować wdrożenie?<span class="plus" aria-hidden="true"></span></button></h3>
+      <div class="qa-body" id="ag-qa-2" role="region" aria-labelledby="ag-qb-2"><div><p>Dlatego 0 z 16 naszych wdrożeń utknęło na oporze zespołu. Zaczynamy od rozmowy z ludźmi na pierwszej linii — pokazujemy im, że automat zabiera wyłącznie kopiuj-wklej między systemami, a człowiek nadal zatwierdza wyjątki.</p></div></div>
+    </div>
+    <div class="qa">
+      <h3><button type="button" aria-expanded="false" aria-controls="ag-qa-3" id="ag-qb-3">Jak działa silnik obsady dla cudzoziemców (pilotaż Labor APT)?<span class="plus" aria-hidden="true"></span></button></h3>
+      <div class="qa-body" id="ag-qa-3" role="region" aria-labelledby="ag-qb-3"><div><p>Dla agencji zatrudniających cudzoziemców rozwijamy w ramach pilotażu (Labor APT, ~250 pracowników) deterministyczny silnik dopasowań KPME: uwzględnia on ważność legalizacji, wolne łóżka, transport i stawkę, dając propozycję obsady w sekundach i pokazując przeciek marży (~16 zł/rbh) per zlecenie. Rozwiązanie ma jawny status pilotażu.</p></div></div>
+    </div>
+    <div class="qa">
+      <h3><button type="button" aria-expanded="false" aria-controls="ag-qa-4" id="ag-qb-4">Jak zabezpieczacie dane osobowe kandydatów i pracowników (RODO / DPA)?<span class="plus" aria-hidden="true"></span></button></h3>
+      <div class="qa-body" id="ag-qa-4" role="region" aria-labelledby="ag-qb-4"><div><p>Przygotowujemy umowę powierzenia danych (DPA) dopasowaną pod Waszą organizację. Przetwarzamy dane w UE, w warstwie raportowej hashujemy identyfikatory (brak zbędnego PII, jak w Personel Job), korzystamy z modeli lokalnych lub planów business bez trenowania na danych klienta i posiadamy polisę OC zawodowe IT na 1 000 000 zł.</p></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+</BaseLayout>

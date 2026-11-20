@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Walidator katalogu wynikowego (site/ lub dist/) dla strony REVAGY.
-   Sprawdza kompletność 33 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
-   sumy SHA-256 wszystkich 30 publicznych assetów oraz pełny kontrakt DOM/SEO z tools/dom-contract.json.
+   Sprawdza kompletność 43 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
+   sumy SHA-256 wszystkich 31 publicznych assetów oraz pełny kontrakt DOM/SEO z tools/dom-contract.json.
 
    Użycie:
      node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>]
@@ -523,7 +523,7 @@ function main() {
     if (!expectedAll.has(act)) errors.push(`Nadmiarowy plik w katalogu: ${act}`);
   }
 
-  // Sprawdź 30 publicznych assetów bajt po bajcie
+  // Sprawdź 31 publicznych assetów bajt po bajcie
   for (const [rel, meta] of Object.entries(contract.publicFiles)) {
     const got = actualMap.get(rel);
     if (!got) continue;
@@ -549,10 +549,20 @@ function main() {
   }
 
   // Sprawdź każdą stronę HTML i pełny kontrakt DOM
+  const defaultPageScripts = ['/assets/js/app.js?v=3', '/assets/js/analytics.js?v=3'];
   const expectedScripts = {
-    'index.html': ['assets/js/app.js?v=2', 'assets/js/analytics.js?v=2'],
-    'polityka-prywatnosci.html': ['assets/js/analytics.js?v=2'],
-    '404.html': ['/assets/js/analytics.js?v=2'],
+    '404.html': ['/assets/js/analytics.js?v=3'],
+    'bezpieczenstwo.html': defaultPageScripts,
+    'dla-agencji-pracy.html': defaultPageScripts,
+    'dla-produkcji-i-magazynow.html': defaultPageScripts,
+    'index.html': defaultPageScripts,
+    'kontakt.html': defaultPageScripts,
+    'oferta.html': defaultPageScripts,
+    'polityka-prywatnosci.html': defaultPageScripts,
+    'porownanie.html': defaultPageScripts,
+    'produkty/obieg-dokumentow.html': defaultPageScripts,
+    'realizacje.html': defaultPageScripts,
+    'realizacje/grupa-kono.html': defaultPageScripts,
   };
 
   for (const [pageRel, expectedDom] of Object.entries(contract.pages)) {
@@ -562,13 +572,27 @@ function main() {
     if (html.includes('/_astro/')) errors.push(`${pageRel}: zawiera zabronioną referencję /_astro/`);
 
     const parsed = extractHtmlContract(html);
+    let comparisonHtml = html;
+    let pageScripts = expectedScripts[pageRel] || defaultPageScripts;
+    const forms = [...html.matchAll(/<form\b[\s\S]*?<\/form>/g)];
+    if ((pageRel === 'index.html' || pageRel === 'kontakt.html') && forms.length) {
+      if (forms.length !== 1) errors.push(`${pageRel}: oczekiwano jednego formularza`);
+      const formHtml = forms[0][0];
+      const sitekey = formHtml.match(/data-sitekey="([^"]+)"/);
+      if (!sitekey || !sitekey[1].trim()) errors.push(`${pageRel}: formularz bez klucza witryny`);
+      const normalizedForm = formHtml.replace(/data-sitekey="[^"]*"/, 'data-sitekey="PUBLIC_SITEKEY"');
+      const formHash = crypto.createHash('sha256').update(normalizedForm).digest('hex');
+      if (formHash !== contract.contactForm.htmlSha256) errors.push(`${pageRel}: formularz niezgodny z kontraktem HTML`);
+      pageScripts = [contract.contactForm.script, ...pageScripts];
+      comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
+    }
     if (parsed.stylesCount > 0) errors.push(`${pageRel}: zawiera wygenerowany blok <style>`);
     if (parsed.astroAttrs.length > 0) errors.push(`${pageRel}: zawiera atrybuty Astro (${parsed.astroAttrs.slice(0, 5).join(', ')})`);
 
     // Weryfikacja skryptów
     const gotScriptSrcs = parsed.scripts.map((s) => s.src);
-    if (JSON.stringify(gotScriptSrcs) !== JSON.stringify(expectedScripts[pageRel])) {
-      errors.push(`${pageRel}: nieprawidłowe skrypty: oczekiwano ${JSON.stringify(expectedScripts[pageRel])}, jest ${JSON.stringify(gotScriptSrcs)}`);
+    if (JSON.stringify(gotScriptSrcs) !== JSON.stringify(pageScripts)) {
+      errors.push(`${pageRel}: nieprawidłowe skrypty: oczekiwano ${JSON.stringify(pageScripts)}, jest ${JSON.stringify(gotScriptSrcs)}`);
     }
     for (const s of parsed.scripts) {
       if (!s.src) errors.push(`${pageRel}: wykryto inline <script> bez src`);
@@ -590,7 +614,7 @@ function main() {
     }
 
     // Porównanie pełnego kontraktu DOM (bez localRefs które porównujemy osobno)
-    const { localRefs: _a, ...actualDom } = parsed;
+    const { localRefs: _a, ...actualDom } = extractHtmlContract(comparisonHtml);
     const { localRefs: _b, ...baselineDom } = expectedDom;
     const domDiffs = deepEqualJson(actualDom, baselineDom, pageRel);
     for (const d of domDiffs) errors.push(`DOM ${d}`);
@@ -609,8 +633,10 @@ function main() {
     process.exit(1);
   }
 
+  const publicCount = Object.keys(contract.publicFiles).length;
+  const pageCount = Object.keys(contract.pages).length;
   const manifestSha = crypto.createHash('sha256').update(manifestLines.join('')).digest('hex');
-  console.log(`WALIDACJA OK: ${files.length} plików (30/30 assetów zgodnych bajtowo, 3/3 stron zgodnych z kontraktem DOM). Manifest SHA-256: ${manifestSha}`);
+  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM). Manifest SHA-256: ${manifestSha}`);
 }
 
 if (require.main === module) {

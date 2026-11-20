@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Dla produkcji i magazynów — wydajność zmian i rozliczenia RBH | REVAGY"
+  description="Automatyczne raporty wydajności zmian, rozliczenia pracy tymczasowej RBH i integracje z istniejącym ERP/WMS. Płatny pilotaż w 14 dni z twardym kryterium sukcesu."
+  canonical="https://revagy.pl/dla-produkcji-i-magazynow.html"
+  variant="subpage"
+  activeNav="branze"
+  showJourney={true}
+>
+<main id="start">
+
+<!-- 1. KINETIC DARK HERO + HONEST DISCLOSURE -->
+<section class="hero-outer" id="hero-produkcja" data-step-label="01 · Start: Produkcja">
+  <div class="hero" data-hero>
+    <div class="hero-media" data-parallax>
+      <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="/assets/video/hero-flow.jpg">
+        <source src="/assets/video/hero-flow.webm" type="video/webm">
+        <source src="/assets/video/hero-flow.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="chip chip-glass load-in" style="--d:0ms">Persona 2 · Segment dodatkowy · Hale produkcyjne i logistyka</span>
+      <h1 class="display load-in" style="--d:80ms">Procesy, które robią się same — na&nbsp;hali i&nbsp;w&nbsp;magazynie</h1>
+      <p class="hero-lead load-in" style="--d:160ms">Raporty wydajności zmian, weryfikacja rozliczeń RBH agencji pracy tymczasowej oraz integracje z istniejącym ERP/WMS. Znamy obie strony zakupu pracy tymczasowej — od brygadzisty na hali po controlling.</p>
+      <div class="disclosure load-in" style="--d:220ms;background:rgba(255,247,237,.95);color:#7c2d12;">
+        <div><strong>Zasada rzetelności:</strong> Jedyny obecny case produkcyjny firmy REVAGY to <strong>pilotaż KONO STAL SERVIS</strong> (<span class="badge badge-pilot">pilotaż</span> w ramach grupy KONO). Doświadczenie właściciela w dużych zakładach produkcyjnych, logistyce halowej i projektach ERP (m.in. IKEA / Szynaka Meble, Philip Morris) pochodzi z wcześniejszych ról operacyjnych i nie jest referencją REVAGY.</div>
+      </div>
+      <div class="hero-cta load-in" style="--d:280ms">
+        <a class="btn btn-accent btn-lg" href="/kontakt.html" data-track="produkcja-hero-audyt">Umów audyt lub pilotaż 14 dni (1 990 zł)</a>
+        <a class="btn btn-glass btn-lg" href="#case-kono-stal" data-track="produkcja-hero-case">Zobacz wyniki pilotażu na hali →</a>
+      </div>
+    </div>
+
+    <aside class="hero-feed load-in" style="--d:360ms" aria-label="Metryki pilotażu produkcyjnego">
+      <div class="feed-head"><span class="pulse" aria-hidden="true"></span>Pilotaż na hali produkcyjnej<span class="feed-tag">KONO STAL SERVIS</span></div>
+      <ul class="feed-list" data-feed>
+        <li><span class="feed-ico">HAL</span><span><b>Raport tygodniowy zmian</b>Skrócony z ~6 h ręcznego liczenia</span><time>~10 min</time></li>
+        <li><span class="feed-ico i-ok">PON</span><span><b>Publikacja dla klienta</b>Gotowy w poniedziałek rano zamiast piątku</span><time>07:30</time></li>
+        <li><span class="feed-ico i-rose">KPI</span><span><b>Różnica między zmianami</b>Wykryta już w 2. tygodniu pilotażu</span><time>~15%</time></li>
+        <li><span class="feed-ico i-light">RBH</span><span><b>Zakupy pracy tymczasowej</b>Automatyczne RFQ i porównanie stawek (Nexora · w trakcie)</span><time>48 h</time></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- 2. LIVE VIDEO CARD + INTERACTIVE ANIMATED BEFORE/AFTER BAR COMPARISON FOR KONO STAL SERVIS -->
+<section class="section wrap" id="case-kono-stal" data-step-label="02 · Pilotaż KONO STAL SERVIS">
+  <div class="section-head left reveal">
+    <span class="kicker">Dowód z hali · Jawny status pilotażu</span>
+    <h2 class="h2">KONO STAL SERVIS — tygodniowy raport wydajności zmian (~6 h → ~10 min)</h2>
+    <p class="lead">Obróbka stali i outsourcing pracowników (~60 osób na hali). Zobacz porównanie przed i po uruchomieniu dashboardu zmianowego opartego na wzorcu PICK/PACK.</p>
+  </div>
+
+  <div class="bento" style="margin-bottom:28px;">
+    <!-- Interactive Before/After Bar Comparison -->
+    <article class="card card-night module-tabs span-7 reveal" data-tabs style="border:1.5px solid var(--accent);">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-pilot">Pilotaż · Grupa KONO</span>
+          <span class="mono muted">KONO STAL SERVIS · ~60 osób na hali</span>
+        </div>
+        <div class="tab-list tab-list-night" role="tablist" aria-label="Widok przed i po w KONO STAL SERVIS">
+          <button type="button" role="tab" class="tab-btn is-active" aria-selected="true" data-tab="stal-porownanie" data-tab-target="stal-porownanie" aria-controls="panel-stal-porownanie">Przed vs Po (wykres)</button>
+          <button type="button" role="tab" class="tab-btn" aria-selected="false" data-tab="stal-architektura" data-tab-target="stal-architektura" aria-controls="panel-stal-architektura">Przepływ danych</button>
+        </div>
+      </div>
+
+      <div class="tab-panels">
+        <div role="tabpanel" id="panel-stal-porownanie" class="tab-panel is-active" data-tab-panel="stal-porownanie" data-panel="stal-porownanie">
+          <h3 class="h3">Od piątkowego spisywania z kartek do poniedziałkowego raportu o 7:30</h3>
+          <p class="muted" style="margin:8px 0 16px;">Wyzwanie: wydajność zmian była liczona ręcznie z papierowych list i skanów, przez co raport trafiał do klienta dopiero w piątek kolejnego tygodnia.</p>
+
+          <div class="before-after">
+            <div class="ba-row"><span>Przed (listy i skany)</span><div class="ba-bar"><i style="--w:96%"></i></div><b class="mono">~6 h / tydz. (piątek)</b></div>
+            <div class="ba-row"><span>Po (pilotaż Streamlit)</span><div class="ba-bar"><i class="hot" style="--w:6%"></i></div><b class="mono" style="color:var(--ok);">~10 min (poniedziałek rano)</b></div>
+            <div class="ba-row"><span>Odchylenie zmian</span><div class="ba-bar"><i class="accent" style="--w:42%"></i></div><b class="mono" style="color:var(--accent);">~15% wykryte w 2. tyg.</b></div>
+          </div>
+
+          <div class="kpis" style="margin-top:14px;">
+            <div><b>~6 h → ~10 min</b><span>czas złożenia raportu tygodniowego</span></div>
+            <div><b>Poniedziałek rano</b><span>zamiast publikacji w piątek po fakcie</span></div>
+            <div><b>~15% różnicy</b><span>wydajności zmian wykryte w 2. tyg. pilotażu</span></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-stal-architektura" class="tab-panel" data-tab-panel="stal-architektura" data-panel="stal-architektura" hidden>
+          <h3 class="h3">Architektura raportowania zmianowego (wzorzec PICK/PACK)</h3>
+          <p class="muted" style="margin-top:8px;">Dane ze stanowisk i zmian są walidowane i składane w czytelny pulpit bez ingerencji w sztywne jądro ERP.</p>
+          <div class="flow" style="margin-block:16px;">
+            <span class="node">Listy zmianowe / WMS</span>
+            <span class="link"></span>
+            <span class="node hot">Normalizacja PICK/PACK</span>
+            <span class="link"></span>
+            <span class="node">Dashboard Streamlit</span>
+            <span class="link"></span>
+            <span class="node">Raport w poniedziałek rano</span>
+          </div>
+          <ul class="checks">
+            <li class="done">Porównanie wydajności per zmiana i stanowisko<em>pilotaż działa</em></li>
+            <li class="done">Wczesne wykrywanie odchyleń normy (~15% w 2. tygodniu)<em>zweryfikowane</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="disclosure" style="margin-top:auto;">
+        <div><strong>Ujawnienie powiązania (Grupa KONO):</strong> KONO STAL SERVIS należy do grupy KONO. Założyciel REVAGY pracuje również jako dyrektor handlowy w HR KONO S.A. (jedyny powiązany klient w portfolio).</div>
+      </div>
+    </article>
+
+    <!-- Live Video Card -->
+    <article class="card card-video span-5 reveal" style="--d:80ms">
+      <video data-autoplay muted loop playsinline preload="metadata" poster="/assets/video/dashboard.jpg">
+        <source src="/assets/video/dashboard.webm" type="video/webm">
+        <source src="/assets/video/dashboard.mp4" type="video/mp4">
+      </video>
+      <div class="card-copy on-video">
+        <span class="badge badge-pilot" style="justify-self:start;">Wizualizacja pulpitu zmianowego</span>
+        <h3 class="h3">Widoczność hali przed poranną odprawą</h3>
+        <p>Kierownik produkcji i zarząd widzą odchylenia między zmianami oraz realne obłożenie RBH bez czekania na zamknięcie tygodnia w arkuszach.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 3. 4-STEP 14-DAY PAID PILOT TIMELINE -->
+<section class="band-night" id="pilotaz-14-dni" data-step-label="03 · Pilotaż 14 dni">
+  <div class="wrap">
+    <div class="section-head left reveal">
+      <span class="kicker kicker-night">Bezpieczne wejście dla zakładu produkcyjnego i magazynu</span>
+      <h2 class="h2">4 kroki płatnego pilotażu w 14 dni z twardym kryterium sukcesu</h2>
+      <p class="lead">Zamiast wielomiesięcznego wdrożenia IT proponujemy sprawdzian na jednym wąskim odcinku: raporcie zmianowym, rozliczeniu godzin agencji pracy albo obiegu dokumentów na hali.</p>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:28px;">
+      <article class="card card-night reveal" style="border:1px solid var(--night-line);min-height:0;">
+        <span class="step-no">Krok 1 · Dni 1–3</span>
+        <h3 class="h3">Audyt i kryterium sukcesu (1 990 zł)</h3>
+        <p class="muted">Mapujemy proces na hali i w ERP/WMS. Ustalamy mierzalny cel pilotażu. Audyt jest odliczany od wdrożenia w 30 dni i ma <strong>14 dni na pełny zwrot</strong>.</p>
+      </article>
+      <article class="card card-night reveal" style="--d:70ms;border:1px solid var(--night-line);min-height:0;">
+        <span class="step-no">Krok 2 · Dni 4–7</span>
+        <h3 class="h3">Podpięcie danych bez ruszania ERP</h3>
+        <p class="muted">Pobieramy dane z obecnego systemu (Comarch, enova365, Subiekt / nexo, SAP lub pliki wymiany CSV/XLSX) w bezpiecznym trybie bez przerywania pracy hali.</p>
+      </article>
+      <article class="card card-night reveal" style="--d:140ms;border:1px solid var(--night-line);min-height:0;">
+        <span class="step-no">Krok 3 · Dni 8–11</span>
+        <h3 class="h3">Start pulpitu i warsztat z brygadzistami</h3>
+        <p class="muted">Uruchamiamy automatyczny raport zmianowy lub weryfikator RBH. Przechodzimy przez liczby z kierownikiem hali, aby zespół widział w tym ułatwienie, nie kontrolę.</p>
+      </article>
+      <article class="card card-night reveal" style="--d:210ms;border:1.5px solid var(--accent);min-height:0;">
+        <span class="step-no">Krok 4 · Dzień 14</span>
+        <h3 class="h3">Pomiar efektu i decyzja zarządu</h3>
+        <p class="muted">Porównujemy czas przed/po z kryterium z Kroku 1. Dopiero po dowodzie na Waszych danych decydujecie o przejściu na pakiet Start (od 6 900 zł) lub Scale.</p>
+      </article>
+    </div>
+
+    <!-- Bridge: Znamy obie strony zakupu pracy tymczasowej -->
+    <div class="grid-2">
+      <article class="card card-night reveal" style="background:var(--night-2);border:1px solid var(--night-line);min-height:0;">
+        <span class="badge badge-p1" style="align-self:flex-start;">Most: Zakład ↔ Agencja pracy</span>
+        <h3 class="h3">Znamy obie strony zakupu pracy tymczasowej</h3>
+        <p class="muted">10 z 16 naszych wdrożeń działa po stronie agencji pracy tymczasowej, a w projekcie <strong>Nexora <span class="badge badge-wip">w trakcie</span></strong> budujemy agenta zakupów usług HR (~25 zapytań RFQ zebranych w 48 h zamiast ~2 tygodni, ~4–7% niższa stawka RBH w pierwszych tygodniach). Wiemy, gdzie powstają rozjazdy w ewidencji godzin, stawkach i legalizacji na hali.</p>
+      </article>
+
+      <article class="card card-night reveal" style="--d:80ms;background:var(--night-2);border:1px solid var(--night-line);min-height:0;">
+        <span class="badge badge-disclosure" style="align-self:flex-start;">Doświadczenie operacyjne właściciela</span>
+        <h3 class="h3">Praktyka z podłogi produkcyjnej i logistyki</h3>
+        <p class="muted">Założyciel REVAGY (Dawid Skibicki) łączy zaplecze techniczne (<strong>nazwa.pl</strong>) z praktyką systemów sprzedaży (<strong>Philip Morris</strong>) oraz wdrożeń ERP i planowania załadunków, wysyłek i wolumenów produkcyjnych (<strong>IKEA / Szynaka Meble</strong>, <strong>JDK</strong>). To doświadczenie osobiste właściciela, wspierające zrozumienie hali od pierwszej rozmowy.</p>
+        <a class="btn btn-accent" style="margin-top:auto;align-self:flex-start;" href="/kontakt.html" data-track="produkcja-pilotaz-audyt">Umów audyt przed pilotażem 14 dni →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+</BaseLayout>
