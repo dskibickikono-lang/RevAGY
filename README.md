@@ -26,6 +26,8 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 |---|---|
 | `astro.config.mjs` | konfiguracja Astro (`static`, `format: 'file'`, `trailingSlash: 'never'`, `compressHTML: false`) |
 | `src/layouts/BaseLayout.astro` | wspólny szkielet HTML bez dodatkowych wrapperów DOM |
+| `src/config/marka.mjs` | jedno źródło danych marki (nazwa, opis, dane rejestrowe, profil LinkedIn) dla JSON-LD i `llms.txt` |
+| `integrations/llms-txt.mjs` | integracja Astro: po buildzie generuje `dist/llms.txt` i `dist/llms-full.txt` ze stron z `sitemap.xml` |
 | `src/config/kontakt.ts` | konfiguracja klucza witryny Turnstile (`PUBLIC_TURNSTILE_SITEKEY`) i klauzuli RODO formularza |
 | `src/pages/index.astro` | strona główna P0 (hero, statystyki, logo wall, bento, triggery, produkty, case studies, proces, kalkulator ROI 65 zł/h, film, pakiety, integracje, FAQ, kontakt) |
 | `src/pages/realizacje.astro`, `src/pages/oferta.astro`, `src/pages/bezpieczenstwo.astro`, `src/pages/kontakt.astro`, `src/pages/polityka-prywatnosci.astro` | podstrony P0 (`realizacje.html`, `oferta.html`, `bezpieczenstwo.html`, `kontakt.html`, `polityka-prywatnosci.html`) |
@@ -39,7 +41,7 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 | `public/assets/video/` | 3 filmy (`.webm` + `.mp4`) i plakaty `.jpg` |
 | `public/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
 | `public/favicon.ico`, `public/robots.txt`, `public/sitemap.xml`, `public/site.webmanifest` | pliki główne kopiowane bezpośrednio do `dist/` |
-| `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256 i braku inline JS/`/_astro/` |
+| `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256, braku inline JS/`/_astro/`, danych strukturalnych JSON-LD i plików `llms*.txt` |
 | `tools/smoke-test.cjs` | rozszerzony test dymny w Chromium (Playwright) z wbudowanym serwerem TLS (`--serve=dist`) i atrapą Matomo |
 | `tools/test-formularz.cjs` | test formularza kontaktowego (osobny build z kluczem testowym Turnstile, atrapa `forms-gateway` i Matomo) |
 | `tools/test-wydanie.cjs` | izolowane testy skryptu publikacji i rollbacku `deploy/wydanie.sh` |
@@ -52,7 +54,7 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 ```bash
 npm ci
 npm run build
-npm run check:dist                           # waliduje dist/ (43 pliki, SHA-256 assetów, kontrakt DOM dla 12 stron)
+npm run check:dist                           # waliduje dist/ (45 plików, SHA-256 assetów, kontrakt DOM dla 12 stron, JSON-LD, llms*.txt)
 npm run test:smoke -- --serve=dist           # pełny test dymny na lokalnym TLS z atrapą Matomo (strona główna + podstrony P0-P2)
 npm run test:form                            # test formularza kontaktowego (Turnstile + forms-gateway + CSP + Matomo)
 npm run test:deploy                          # izolowane testy deploy/wydanie.sh (POSIX sh/dash, flock, staging, rollback)
@@ -89,7 +91,7 @@ Po zmianie stylów lub skryptów podbij parametr `?v=` w `src/layouts/BaseLayout
 | Warstwa | Co zapisuje | Kiedy |
 |---|---|---|
 | Matomo (`stats.revagy.pl`) | odsłony, źródło wejścia, kliknięcia z nazwą sekcji, widoki i czas sekcji, przewinięcie, aktywny czas, ustawienia kalkulatora, identyfikator przyjętego formularza, IP, przeglądarka | po zgodzie w banerze |
-| Logi nginx + GoAccess (`stats.revagy.pl/logi/`) | IP, user agent, adres, strona odsyłająca, kod odpowiedzi każdego żądania, także botów | zawsze, 90 dni |
+| Logi nginx + GoAccess (`stats.revagy.pl/logi/`) | IP, user agent, adres, strona odsyłająca, kod odpowiedzi każdego żądania, także botów; boty AI jako osobne pozycje i dzienne zestawienie `stats.revagy.pl/logi/boty-ai.txt` | zawsze, 90 dni |
 
 ## Filmy
 
@@ -123,3 +125,11 @@ Turnstile ładuje się po wejściu formularza w widok lub ustawieniu w nim fokus
 Zmiana vhosta i CSP na produkcji wymaga osobnej zgody właściciela; ustawienie klucza i uruchomienie bramki to osobne kroki przed włączeniem formularza. Log formularza obejmuje istniejąca rotacja `/var/log/nginx/revagy/*.log`. Szczegóły: [wzorce nginx](deploy/nginx/README.md).
 
 Rollback: właściciel przywraca poprzednie pliki nginx, wykonuje `nginx -t`, następnie `systemctl reload nginx`. Stronę cofa `deploy/wydanie.sh --rollback <docelowy-sha> <oczekiwany-biezacy-sha>`. Te czynności nie są wykonywane przez testy formularza.
+
+## Rozpoznawalność marki: dane strukturalne i `llms.txt`
+
+- Strona główna ma jeden blok JSON-LD (`Organization` + `WebSite`) budowany z `src/config/marka.mjs`. To jedyny dopuszczony `<script>` bez `src`: nie jest wykonywany, więc CSP (`script-src 'self'`) go nie blokuje. Walidator sprawdza składnię oraz NIP, adres strony i profil LinkedIn.
+- `llms.txt` (spis stron z opisami) i `llms-full.txt` (pełna treść `<main>` wszystkich stron) powstają przy każdym buildzie z `dist/sitemap.xml`. Nowa podstrona albo wpis na blogu trafia do nich po dopisaniu do sitemapy. Stron z `noindex` w nich nie ma, polityka prywatności jest w sekcji `Optional`.
+- Zmiana danych firmy lub dodanie profilu (np. profilu firmy w Google): edytuj `src/config/marka.mjs`, a potem `structuredData` w `tools/dom-contract.json`.
+- Uzasadnienie i plan pomiaru: `kono-state/notes/2026-11-20-rozpoznawalnosc-marki.md`.
+
