@@ -7,7 +7,9 @@
   const button = form.querySelector('[type="submit"]');
   if (!status || !button) return;
 
+  let statusFromChallenge = false;
   function say(text, mail = false) {
+    statusFromChallenge = false;
     status.textContent = text;
     if (mail) {
       const link = document.createElement('a');
@@ -84,9 +86,11 @@
   function challengeUnavailable() {
     challengeError.textContent = 'Nie udało się uruchomić ochrony przed spamem.';
     say(genericError, true);
+    statusFromChallenge = true;
   }
   function resetChallenge() {
     challengeErrored = false;
+    challengeError.textContent = '';
     latestToken = null;
     if (window.turnstile && widgetId !== undefined) {
       try {
@@ -102,6 +106,11 @@
     if (widgetId !== undefined) return;
     challengeErrored = false;
     latestToken = null;
+    challengeError.textContent = '';
+    if (!sending && statusFromChallenge) {
+      statusFromChallenge = false;
+      status.textContent = '';
+    }
     widgetId = window.turnstile.render('#kontakt-challenge', {
       sitekey: form.dataset.sitekey,
       action: 'kontakt-revagy', language: 'pl', appearance: 'interaction-only',
@@ -109,6 +118,10 @@
       callback: (tok) => {
         challengeErrored = false;
         challengeError.textContent = '';
+        if (!sending && statusFromChallenge) {
+          statusFromChallenge = false;
+          status.textContent = '';
+        }
         latestToken = tok || (window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '') || null;
         notifyTokenWaiters(latestToken);
       },
@@ -302,7 +315,7 @@
         if (challengeErrored) challengeUnavailable();
         else {
           challengeError.textContent = 'Potwierdź, że nie jesteś botem, i wyślij ponownie.';
-          say(challengeError.textContent);
+          say(challengeError.textContent, true);
         }
         return;
       }

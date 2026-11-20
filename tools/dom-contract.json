@@ -70,8 +70,8 @@
       "size": 31006
     },
     "assets/js/kontakt.js": {
-      "sha256": "2f2e718d1fad4f331f39fa9f5a280a4773d80b1df64e53f14321f529ee35812b",
-      "size": 15231
+      "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
+      "size": 15657
     },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
@@ -136,32 +136,32 @@
       "size": 16212
     },
     "dla-agencji-pracy.html": {
-      "sha256": "75cd6d497e705c67b61af0cb92f6501eda8ce6ad070a2ff2662e07733d3d8bd1",
-      "size": 39557
+      "sha256": "854f45efcf0caf18641bcb8f830e54bd0095231bbe387fbcb1408473b444694f",
+      "size": 39578
     },
     "dla-produkcji-i-magazynow.html": {
       "sha256": "a2b2e24c31eb3a664250568d4765ec50076dc7a37807e49bc3810ce60de53fcf",
       "size": 20040
     },
     "index.html": {
-      "sha256": "f5cd232b37177157c727f7d11b76641a133df4b2aa46f7c6c64e48597aeeaa18",
-      "size": 70015
+      "sha256": "d509f8992efa94482ade7864cdba787b4f699629695ebad0071b4d0134986dad",
+      "size": 69973
     },
     "kontakt.html": {
       "sha256": "94ad8fd507eca81b50acb63066750e59bae266cd2a8f0aef77f1b175f7c4ae4c",
       "size": 11280
     },
     "oferta.html": {
-      "sha256": "3d63f84d652c5553552d79feb3d8535ac10952795e5173c84c6198801a0f4e3d",
-      "size": 20442
+      "sha256": "a75cdd92a5a43cce309723d59b383e55524a3cf668a5102985829ecec7041cb8",
+      "size": 20443
     },
     "polityka-prywatnosci.html": {
       "sha256": "1258eada881cd076cf5381ecc39dafe2da598aa1a26c33e0a0804023e5b441bc",
       "size": 12595
     },
     "porownanie.html": {
-      "sha256": "cd8633685fd40ecbea248560f55e91746351f90a82dedcc50ca430cd185481b3",
-      "size": 21463
+      "sha256": "8f3804bbcd8eddde4a9c8c7a7ea11ec016246ee42dbb53c89e52d24493390091",
+      "size": 21465
     },
     "produkty/obieg-dokumentow.html": {
       "sha256": "7eeef49520e34ffb7c04b6a035bd71070980c081460482aec4698318d1fe32dd",
@@ -172,8 +172,8 @@
       "size": 23974
     },
     "realizacje.html": {
-      "sha256": "9b39d835401908cac6ea91e5bb874dcc761c1fe6520442f5994ea97ebe10a790",
-      "size": 31101
+      "sha256": "e7cfcca739011fd9baba4bec0256728ed2706ed37191870d1c939ee2983a5c44",
+      "size": 31103
     }
   },
   "pages": {

@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const babelParser = require('@babel/parser');
 const { chromium } = require('playwright');
 const { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS } = require('./smoke-test.cjs');
 const root = path.resolve(__dirname, '..');
@@ -36,6 +38,7 @@ function installTurnstileMock() {
           options.callback(token);
         }, window.__delayTurnstileMs);
       } else {
+        token = 'test-turnstile-token';
         options.callback(token);
       }
       return 'test-widget';
@@ -48,13 +51,15 @@ function installTurnstileMock() {
         window.__turnstileOptions['error-callback']();
       } else if (window.__delayTurnstileMs) {
         token = '';
-        const nextToken = window.__resetTurnstileToken || 'delayed-turnstile-token';
+        const nextToken = window.__resetTurnstileToken || ('test-turnstile-token-r' + window.__resets);
         timer = setTimeout(() => {
           token = nextToken;
           window.__turnstileOptions.callback(token);
         }, window.__delayTurnstileMs);
+      } else if (window.__holdInitialToken) {
+        token = '';
       } else {
-        token = window.__resetTurnstileToken || 'test-turnstile-token';
+        token = window.__resetTurnstileToken || ('test-turnstile-token-r' + window.__resets);
         window.__turnstileOptions.callback(token);
       }
     },
@@ -62,6 +67,33 @@ function installTurnstileMock() {
   };
 }
 const mock = `(${installTurnstileMock.toString()})();`;
+function payloadHash(body) {
+  const normalized = {};
+  for (const k of Object.keys(body || {}).sort()) {
+    if (k === 'cf-turnstile-response' || k === 't_ms' || k === 'website') continue;
+    normalized[k] = body[k];
+  }
+  return crypto.createHash('sha256').update(JSON.stringify(normalized)).digest('hex');
+}
+const forbiddenAstNodes = new Set(['OptionalMemberExpression', 'OptionalCallExpression', 'SpreadElement', 'BigIntLiteral', 'PrivateName']);
+function findForbiddenSyntax(node, jsRel, hits) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) {
+    for (const item of node) findForbiddenSyntax(item, jsRel, hits);
+    return;
+  }
+  const loc = node.loc && node.loc.start ? `:${node.loc.start.line}:${node.loc.start.column}` : '';
+  if (typeof node.type === 'string') {
+    if (forbiddenAstNodes.has(node.type)) hits.push(`${jsRel}${loc} (${node.type})`);
+    else if (node.type === 'LogicalExpression' && node.operator === '??') hits.push(`${jsRel}${loc} (LogicalExpression ??)`);
+    else if (node.type === 'AssignmentExpression' && ['??=', '||=', '&&='].includes(node.operator)) hits.push(`${jsRel}${loc} (AssignmentExpression ${node.operator})`);
+    else if (node.type === 'CatchClause' && node.param === null) hits.push(`${jsRel}${loc} (optional catch {})`);
+  }
+  for (const [k, v] of Object.entries(node)) {
+    if (k === 'loc' || k === 'start' || k === 'end' || k === 'extra' || k === 'comments' || k === 'tokens' || k === 'leadingComments' || k === 'trailingComments' || k === 'innerComments') continue;
+    if (v && typeof v === 'object') findForbiddenSyntax(v, jsRel, hits);
+  }
+}
 let checks = 0;
 function ok(name) { checks++; console.log(`OK ${name}`); }
 (async () => {
@@ -79,7 +111,8 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
       const context = await browser.newContext({ viewport: { width: 390, height: 844 }, ignoreHTTPSErrors: true, serviceWorkers: 'block', ...options });
       contexts.push(context);
       const requests = [], errors = [], external = [];
-      const state = { code: 503, data: { error: 'queue_full' }, turnstile: 0, failChallenge: false, holdChallenge: false, releaseChallenge: null, hold: false };
+      const idempotency = new Map();
+      const state = { code: 503, data: { error: 'queue_full' }, turnstile: 0, failChallenge: false, holdChallenge: false, releaseChallenge: null, hold: false, idempotency };
       await context.addInitScript(() => {
         window.__violations = [];
         window.__accepted = [];
@@ -101,9 +134,21 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
         }
         if (url.hostname === 'stats.revagy.pl') return route.fulfill({ contentType: 'application/javascript', body: url.pathname.endsWith('matomo.js') ? MATOMO_MOCK_JS : '' });
         if (url.origin === harness.tlsBase && url.pathname === '/api/kontakt') {
-          requests.push({ body: route.request().postDataJSON(), headers: await route.request().allHeaders(), method: route.request().method() });
+          const reqBody = route.request().postDataJSON();
+          const reqHeaders = await route.request().allHeaders();
+          requests.push({ body: reqBody, headers: reqHeaders, method: route.request().method() });
+          const idemKey = reqHeaders['idempotency-key'];
+          const hash = payloadHash(reqBody);
+          if (idemKey) {
+            const existing = idempotency.get(idemKey);
+            if (existing && existing.hash !== hash) {
+              return route.fulfill({ status: 409, contentType: 'application/json', body: JSON.stringify({ error: 'idempotency_conflict' }) });
+            }
+            if (!existing) idempotency.set(idemKey, { hash, accepted: false });
+          }
           if (state.hold) return; // Timeout kontrolowany zegarem przeglądarki.
           if (state.code === 'network') return route.abort('failed');
+          if (idemKey && state.code === 202) idempotency.set(idemKey, { hash, accepted: true });
           return route.fulfill({ status: state.code, contentType: 'application/json', body: JSON.stringify(state.data) });
         }
         if (url.origin === harness.tlsBase) return route.continue();
@@ -361,13 +406,14 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(privateTab.requests[0].body.message, '');
     ok('brak JavaScript/fetch, błąd ładowania Turnstile + ponowienie z asynchronicznym callbackiem, UTM z podstrony i zablokowana pamięć przeglądarki');
 
-    for (const jsRel of ['public/assets/js/kontakt.js', 'public/assets/js/app.js']) {
+    for (const jsRel of ['public/assets/js/kontakt.js', 'public/assets/js/app.js', 'public/assets/js/analytics.js']) {
       const jsCode = fs.readFileSync(path.join(root, jsRel), 'utf8');
-      assert.equal(/\?\./.test(jsCode), false, `${jsRel}: wykryto operator ?. (optional chaining)`);
-      assert.equal(/\{\s*\.\.\./.test(jsCode), false, `${jsRel}: wykryto object spread { ... }`);
-      assert.equal(/\[\s*\.\.\./.test(jsCode), false, `${jsRel}: wykryto array spread [ ... ]`);
+      const ast = babelParser.parse(jsCode, { sourceType: 'script' });
+      const hits = [];
+      findForbiddenSyntax(ast.program, jsRel, hits);
+      assert.deepEqual(hits, [], `${jsRel}: wykryto niedozwoloną składnię ES2020+: ${hits.join(', ')}`);
     }
-    ok('zgodność składniowa app.js i kontakt.js (brak ?. oraz spread ...)');
+    ok('zgodność składniowa AST app.js, kontakt.js i analytics.js (ES2018 / Safari 13)');
 
     const challengeErr = await setup();
     await challengeErr.context.addInitScript(() => { window.__failTurnstileErrorCallback = true; });
@@ -443,7 +489,89 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(await lateChallenge.page.locator('#kontakt-form [data-status]').textContent(), 'Dziękujemy, zapytanie dotarło. Odpiszemy w ciągu jednego dnia roboczego. Potwierdzenie wyślemy na podany adres e-mail.');
     ok('późne ładowanie api.js: brak duplikatu <script>, jedno renderowanie widgetu i udana wysyłka');
 
-    for (const item of [t, nojs, old, fail, subpageTouch, privateTab, challengeErr, lateChallenge]) {
+    const retryAfterTimeout = await setup();
+    await retryAfterTimeout.page.clock.install();
+    await retryAfterTimeout.page.goto(harness.tlsBase + '/#kontakt');
+    await retryAfterTimeout.page.waitForFunction(() => !!window.__turnstileOptions);
+    await retryAfterTimeout.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await retryAfterTimeout.page.locator('#kontakt-email').fill('test@example.com');
+    await retryAfterTimeout.page.locator('#kontakt-company').fill('Firma Testowa');
+    await retryAfterTimeout.page.locator('#kontakt-topic').selectOption('audyt');
+    retryAfterTimeout.state.hold = true;
+    await retryAfterTimeout.page.locator('#kontakt-form [type=submit]').click();
+    await retryAfterTimeout.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'true');
+    assert.equal(retryAfterTimeout.requests.length, 1);
+    assert.equal(retryAfterTimeout.requests[0].body['cf-turnstile-response'], 'test-turnstile-token');
+    const firstTimeoutKey = retryAfterTimeout.requests[0].headers['idempotency-key'];
+    await retryAfterTimeout.page.clock.fastForward(21000);
+    await retryAfterTimeout.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(await retryAfterTimeout.page.evaluate(() => window.__resets), 1);
+    retryAfterTimeout.state.hold = false;
+    retryAfterTimeout.state.code = 202;
+    retryAfterTimeout.state.data = { ok: true, lead_id: leadId };
+    await retryAfterTimeout.page.locator('#kontakt-form [type=submit]').click();
+    await retryAfterTimeout.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(retryAfterTimeout.requests.length, 2);
+    assert.equal(retryAfterTimeout.requests[1].body['cf-turnstile-response'], 'test-turnstile-token-r1');
+    assert.ok(retryAfterTimeout.requests[1].body.t_ms > retryAfterTimeout.requests[0].body.t_ms);
+    assert.equal(retryAfterTimeout.requests[1].headers['idempotency-key'], firstTimeoutKey);
+    assert.equal(retryAfterTimeout.state.idempotency.get(firstTimeoutKey).accepted, true);
+    assert.equal(await retryAfterTimeout.page.locator('#kontakt-form [data-status]').textContent(), 'Dziękujemy, zapytanie dotarło. Odpiszemy w ciągu jednego dnia roboczego. Potwierdzenie wyślemy na podany adres e-mail.');
+    ok('ponowienie po timeout z zrotowanym tokenem Turnstile i nowym t_ms zachowuje Idempotency-Key i przechodzi weryfikację hasza (202)');
+
+    const tokenTimeout = await setup();
+    await tokenTimeout.context.addInitScript(() => { window.__failTurnstileErrorCallback = true; });
+    await tokenTimeout.page.clock.install();
+    await tokenTimeout.page.goto(harness.tlsBase + '/#kontakt');
+    await tokenTimeout.page.waitForFunction(() => !!window.__turnstileOptions);
+    assert.equal(await tokenTimeout.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
+    await tokenTimeout.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await tokenTimeout.page.locator('#kontakt-email').fill('test@example.com');
+    await tokenTimeout.page.locator('#kontakt-company').fill('Firma Testowa');
+    await tokenTimeout.page.locator('#kontakt-topic').selectOption('audyt');
+    await tokenTimeout.page.evaluate(() => {
+      window.__failTurnstileErrorCallback = false;
+      window.__holdInitialToken = true;
+    });
+    await tokenTimeout.page.locator('#kontakt-form [type=submit]').click();
+    await tokenTimeout.page.waitForFunction(() => window.__resets === 1 && document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'true');
+    assert.equal(await tokenTimeout.page.locator('#kontakt-challenge-error').textContent(), '');
+    await tokenTimeout.page.clock.fastForward(16000);
+    await tokenTimeout.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(tokenTimeout.requests.length, 0);
+    assert.equal(await tokenTimeout.page.locator('#kontakt-challenge-error').textContent(), 'Potwierdź, że nie jesteś botem, i wyślij ponownie.');
+    assert.equal(await tokenTimeout.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.match(await tokenTimeout.page.locator('#kontakt-form [data-status]').textContent(), /^Potwierdź, że nie jesteś botem, i wyślij ponownie\./);
+    ok('reset() czyści stary błąd ochrony, a timeout waitForToken(15000) pokazuje komunikat i link mailto');
+
+    const lateIdle = await setup();
+    lateIdle.state.holdChallenge = true;
+    lateIdle.state.code = 202;
+    lateIdle.state.data = { ok: true, lead_id: leadId };
+    await lateIdle.page.clock.install();
+    await lateIdle.page.goto(harness.tlsBase + '/#kontakt');
+    await lateIdle.page.waitForFunction(() => document.querySelectorAll('script[src*="challenges.cloudflare.com"]').length === 1);
+    await lateIdle.page.clock.fastForward(21000);
+    await lateIdle.page.waitForSelector('#kontakt-form [data-status] a');
+    assert.equal(await lateIdle.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.equal(await lateIdle.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
+    lateIdle.state.holdChallenge = false;
+    lateIdle.state.releaseChallenge();
+    await lateIdle.page.waitForFunction(() => !!window.__turnstileOptions && document.querySelector('#kontakt-challenge iframe'));
+    assert.equal(await lateIdle.page.locator('#kontakt-form [data-status]').textContent(), '');
+    assert.equal(await lateIdle.page.locator('#kontakt-challenge-error').textContent(), '');
+    assert.equal(await lateIdle.page.locator('#kontakt-form [data-status] a').count(), 0);
+    await lateIdle.page.locator('#kontakt-name').fill('Osoba Testowa');
+    await lateIdle.page.locator('#kontakt-email').fill('test@example.com');
+    await lateIdle.page.locator('#kontakt-company').fill('Firma Testowa');
+    await lateIdle.page.locator('#kontakt-topic').selectOption('audyt');
+    await lateIdle.page.locator('#kontakt-form [type=submit]').click();
+    await lateIdle.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(lateIdle.requests.length, 1);
+    assert.equal(await lateIdle.page.locator('#kontakt-form [data-status]').textContent(), 'Dziękujemy, zapytanie dotarło. Odpiszemy w ciągu jednego dnia roboczego. Potwierdzenie wyślemy na podany adres e-mail.');
+    ok('późne załadowanie api.js w stanie bezczynności automatycznie czyści błąd preloadu w [data-status] i #kontakt-challenge-error');
+
+    for (const item of [t, nojs, old, fail, subpageTouch, privateTab, challengeErr, tokenTimeout, lateChallenge, lateIdle, retryAfterTimeout]) {
       assert.deepEqual(item.errors, []);
       assert.deepEqual(item.external, []);
       if (item !== nojs) assert.deepEqual(await item.page.evaluate(() => window.__violations), []);

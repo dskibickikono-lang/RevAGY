@@ -314,21 +314,33 @@ if (require.main === module) (async () => {
 
       const portfolio16 = await page.evaluate(() => {
         const bodyText = document.body.textContent.replace(/\s+/g, ' ');
+        const bodyLower = bodyText.toLowerCase();
         const logoWallCta = document.querySelector('a[data-track="LogoWall: Wszystkie realizacje"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
         const caseStudiesCta = document.querySelector('a[data-track="CaseStudies: Wszystkie 16 realizacji"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
+        const pillCount = document.querySelectorAll('.logo-group-pills .logo-pill, .logo-grid .logo-pill').length;
+        const exactHrKadraBis = [...document.querySelectorAll('.logo-pill')].some((el) => el.textContent.replace(/\s+/g, ' ').trim() === 'HR KADRA BIS');
+        const forbidden = ['10 z 16 podmiotów', '14 realizacji', '17 projekt'].filter((s) => bodyLower.includes(s));
         return {
           logoWallCta,
           caseStudiesCta,
           hasZeroOf16: bodyText.includes('0 / 16'),
           hasZeroProjects: bodyText.includes('0 z 16 projektów'),
+          has10of16Projects: bodyLower.includes('10 z 16 projektów'),
+          pillCount,
+          exactHrKadraBis,
+          forbidden,
         };
       });
       check(
-        'strona główna ma spójną komunikację 16 realizacji (0 / 16, 0 z 16 projektów)',
+        'strona główna ma spójną komunikację 16 realizacji (16 logo-pill, 10 z 16 projektów, 0 / 16, 0 z 16 projektów, brak starych zwrotów)',
         portfolio16.logoWallCta.includes('Zobacz wszystkie 16 realizacji') &&
           portfolio16.caseStudiesCta.includes('Wszystkie 16 realizacji') &&
           portfolio16.hasZeroOf16 &&
-          portfolio16.hasZeroProjects,
+          portfolio16.hasZeroProjects &&
+          portfolio16.has10of16Projects &&
+          portfolio16.pillCount === 16 &&
+          !portfolio16.exactHrKadraBis &&
+          portfolio16.forbidden.length === 0,
         JSON.stringify(portfolio16)
       );
 
@@ -517,6 +529,21 @@ if (require.main === module) (async () => {
     /* ---------- 4. Podstrony P0-P2, 404, endpointy SEO, .git 403, Range ---------- */
     {
       const { context, page, log } = await newPage(browser, { width: 1280, height: 900 }, {}, { enforceIsolation });
+      const leftoverTerms = ['14 realizacji', '17 projekt', '10 z 16 podmiotów', '0/16 wdrożeń', 'HR KADRA BIS (osobna spółka)'];
+      const checkSubpagePortfolio = async (subpath, requiredTerms = []) => {
+        const resState = await page.evaluate(({ leftovers, required }) => {
+          const lower = document.body.textContent.replace(/\s+/g, ' ').toLowerCase();
+          return {
+            foundLeftovers: leftovers.filter((t) => lower.includes(t.toLowerCase())),
+            missingRequired: required.filter((t) => !lower.includes(t.toLowerCase())),
+          };
+        }, { leftovers: leftoverTerms, required: requiredTerms });
+        check(
+          `podstrona ${subpath}: brak przestarzałych zwrotów i spójna komunikacja 16 projektów`,
+          resState.foundLeftovers.length === 0 && resState.missingRequired.length === 0,
+          JSON.stringify(resState)
+        );
+      };
 
       // 4.1 /polityka-prywatnosci.html
       const res = await page.goto(`${base}/polityka-prywatnosci.html`, { waitUntil: 'load' });
@@ -556,6 +583,7 @@ if (require.main === module) (async () => {
           realState.counts.wTrakcie === 2,
         JSON.stringify(realState)
       );
+      await checkSubpagePortfolio('/realizacje.html', ['16 projektów']);
 
       // 4.3 /oferta.html (taby [data-plans])
       const ofertaRes = await page.goto(`${base}/oferta.html`, { waitUntil: 'load' });
@@ -566,6 +594,7 @@ if (require.main === module) (async () => {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       }));
       check('podstrona /oferta.html: 200, przełącznik Wdrożenie/Stała opieka działa, 0 overflow', ofertaRes.status() === 200 && ofertaState.mode === 'opieka' && ofertaState.overflow === 0, JSON.stringify(ofertaState));
+      await checkSubpagePortfolio('/oferta.html', ['0/16 projektów']);
 
       // 4.4 /bezpieczenstwo.html (taby [data-tabs])
       const bezpRes = await page.goto(`${base}/bezpieczenstwo.html`, { waitUntil: 'load' });
@@ -601,6 +630,7 @@ if (require.main === module) (async () => {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       }));
       check('podstrona /dla-agencji-pracy.html: 200, przełącznik 5 triggerów i FAQ działają, 0 overflow', aptRes.status() === 200 && aptState.tabActive && aptState.faqOpen && aptState.overflow === 0, JSON.stringify(aptState));
+      await checkSubpagePortfolio('/dla-agencji-pracy.html', ['10 z 16 projektów', '0 z 16 projektów']);
 
       // 4.7 /dla-produkcji-i-magazynow.html ([data-tabs])
       const prodRes = await page.goto(`${base}/dla-produkcji-i-magazynow.html`, { waitUntil: 'load' });
@@ -611,6 +641,7 @@ if (require.main === module) (async () => {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       }));
       check('podstrona /dla-produkcji-i-magazynow.html: 200, taby porównania zmian działają, 0 overflow', prodRes.status() === 200 && prodState.tabActive && prodState.overflow === 0, JSON.stringify(prodState));
+      await checkSubpagePortfolio('/dla-produkcji-i-magazynow.html');
 
       // 4.8 /realizacje/grupa-kono.html ([data-tabs] 3 moduły + UjawnienieKono)
       const konoRes = await page.goto(`${base}/realizacje/grupa-kono.html`, { waitUntil: 'load' });
@@ -633,6 +664,7 @@ if (require.main === module) (async () => {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       }));
       check('podstrona /porownanie.html: 200, soczewki decyzyjne podświetlają wiersze tabeli, 0 overflow', porRes.status() === 200 && porState.tabActive && porState.highlighted && porState.overflow === 0, JSON.stringify(porState));
+      await checkSubpagePortfolio('/porownanie.html', ['0 z 16 projektów']);
 
       // 4.10 /produkty/obieg-dokumentow.html ([data-tabs] symulator 4 kroków)
       const obiegRes = await page.goto(`${base}/produkty/obieg-dokumentow.html`, { waitUntil: 'load' });
