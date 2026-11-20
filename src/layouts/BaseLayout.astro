@@ -1,5 +1,6 @@
 ---
 import { TURNSTILE_SITEKEY } from '../config/kontakt';
+import { grafOrganizacji, jsonDoSkryptu } from '../config/marka.mjs';
 
 interface Props {
   title: string;
@@ -26,6 +27,8 @@ const {
 const isHome = variant === 'home';
 const is404 = variant === '404';
 const loadKontaktScript = Boolean(hasForm && TURNSTILE_SITEKEY);
+// Dane strukturalne marki tylko na stronie głównej (tam jest kanoniczny opis organizacji)
+const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
 
 const navKey = (activeNav || canonical || Astro.url?.pathname || '').toLowerCase();
 const isStartActive = isHome || activeNav === 'home' || activeNav === 'start' || activeNav === '/';
@@ -76,6 +79,7 @@ const isKontaktActive = !isStartActive && navKey.includes('kontakt');
   </>
 )}
 <link rel="stylesheet" href="/assets/css/styles.css?v=3">
+{jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd}></script>}
 </head>
 <body>
 {!is404 && <a class="skip" href="#start">Przejdź do treści</a>}

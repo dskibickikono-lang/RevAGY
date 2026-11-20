@@ -297,6 +297,14 @@ if (require.main === module) (async () => {
       check('strona główna odpowiada 200', res.status() === 200, String(res.status()));
       check('tytuł zawiera REVAGY', (await page.title()).includes('REVAGY'));
       check('baner zgody widoczny przy pierwszej wizycie', await page.locator('.consent').isVisible());
+      const ld = await page.evaluate(() => {
+        const el = document.querySelectorAll('script[type="application/ld+json"]');
+        try { return { n: el.length, data: JSON.parse(el[0].textContent) }; } catch (e) { return { n: el.length, err: String(e) }; }
+      });
+      const ldOrg = ld.data && (ld.data['@graph'] || []).find((x) => x['@type'] === 'Organization');
+      check('dane strukturalne: 1 blok JSON-LD z Organization REVAGY i profilem LinkedIn',
+        ld.n === 1 && ldOrg && ldOrg.name === 'REVAGY' && (ldOrg.sameAs || []).includes('https://www.linkedin.com/company/revagy/'),
+        JSON.stringify({ n: ld.n, err: ld.err, org: ldOrg && ldOrg.name }));
       check('adres kanoniczny to https://revagy.pl/', (await page.getAttribute('link[rel=canonical]', 'href')) === 'https://revagy.pl/');
 
       await page.hover('.nav-item.has-panel >> nth=0');
@@ -695,6 +703,8 @@ if (require.main === module) (async () => {
           robots: await get('/robots.txt'),
           sitemap: await get('/sitemap.xml'),
           manifest: await get('/site.webmanifest'),
+          llms: await get('/llms.txt'),
+          llmsFull: await get('/llms-full.txt'),
           git: await get('/.git/config'),
           mp4: await get('/assets/video/hero-flow.mp4', { Range: 'bytes=0-1023' }),
         };
@@ -705,6 +715,10 @@ if (require.main === module) (async () => {
         seoChecks.manifest.status === 200 &&
         (!(isLocalHarness || production) || seoChecks.manifest.ct.includes('application/manifest+json')),
         JSON.stringify({ robots: seoChecks.robots.status, sitemap: seoChecks.sitemap.status, manifest: seoChecks.manifest }));
+      check('llms.txt i llms-full.txt odpowiadają 200 jako tekst',
+        seoChecks.llms.status === 200 && seoChecks.llmsFull.status === 200 &&
+        seoChecks.llms.ct.startsWith('text/plain') && seoChecks.llmsFull.ct.startsWith('text/plain'),
+        JSON.stringify({ llms: seoChecks.llms, llmsFull: seoChecks.llmsFull }));
       if (isLocalHarness || production) {
         check('.git/config zwraca 403', seoChecks.git.status === 403, String(seoChecks.git.status));
         check('hero-flow.mp4 obsługuje Range 206 i video/mp4',

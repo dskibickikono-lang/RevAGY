@@ -13817,5 +13817,46 @@
   "contactForm": {
     "htmlSha256": "502a1ae726cf921aa8d82b840cb467c4915d1ac627eb277da99aa10578f92dcf",
     "script": "/assets/js/kontakt.js?v=1"
+  },
+  "structuredData": {
+    "index.html": {
+      "types": [
+        "Organization",
+        "WebSite"
+      ],
+      "organization": {
+        "name": "REVAGY",
+        "url": "https://revagy.pl/",
+        "email": "kontakt@revagy.pl",
+        "taxID": "7441749535",
+        "sameAs": [
+          "https://www.linkedin.com/company/revagy/"
+        ]
+      }
+    }
+  },
+  "generatedFiles": {
+    "llms.txt": {
+      "startsWith": "# REVAGY\n\n> ",
+      "minBytes": 500,
+      "maxBytes": 50000,
+      "mustContain": [
+        "## Strony",
+        "## Optional",
+        "NIP 7441749535",
+        "https://www.linkedin.com/company/revagy/",
+        "(https://revagy.pl/llms-full.txt)"
+      ],
+      "linksMatchSitemap": true
+    },
+    "llms-full.txt": {
+      "startsWith": "# REVAGY\n\n> ",
+      "minBytes": 5000,
+      "maxBytes": 2000000,
+      "mustContain": [
+        "NIP 7441749535"
+      ],
+      "sectionsMatchSitemap": true
+    }
   }
 }

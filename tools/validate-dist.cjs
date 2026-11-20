@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /* Walidator katalogu wynikowego (site/ lub dist/) dla strony REVAGY.
-   Sprawdza kompletność 43 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
-   sumy SHA-256 wszystkich 31 publicznych assetów oraz pełny kontrakt DOM/SEO z tools/dom-contract.json.
+   Sprawdza kompletność 45 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
+   sumy SHA-256 wszystkich 31 publicznych assetów, pełny kontrakt DOM/SEO z tools/dom-contract.json,
+   dane strukturalne JSON-LD (jedyny dopuszczony blok <script> bez src, nie jest wykonywany)
+   oraz pliki generowane przy buildzie: llms.txt i llms-full.txt.
 
    Użycie:
      node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>]
@@ -197,6 +199,7 @@ function extractHtmlContract(html) {
   const links = [];
   let canonical = null;
   const scripts = [];
+  const jsonLd = [];
   const styles = [];
   const astroAttrs = [];
 
@@ -205,7 +208,9 @@ function extractHtmlContract(html) {
       if (k.startsWith('data-astro-')) astroAttrs.push(`${el.tag}[${k}]`);
     }
     if (el.tag === 'style') styles.push(getText(el));
-    if (el.tag === 'script') {
+    if (el.tag === 'script' && el.attrs.type === 'application/ld+json' && !el.attrs.src) {
+      jsonLd.push(getText(el).trim());
+    } else if (el.tag === 'script') {
       const bodyText = getText(el).trim();
       scripts.push({
         src: el.attrs.src ?? null,
@@ -392,6 +397,7 @@ function extractHtmlContract(html) {
     videos,
     calculator,
     localRefs,
+    jsonLd,
   };
 }
 
@@ -486,6 +492,77 @@ function resolveLocalRef(targetDir, pageRel, refVal) {
   return { external: false, relPath, exists: fs.existsSync(diskPath) && fs.statSync(diskPath).isFile() };
 }
 
+// JSON-LD: parsowanie, @context, Organization zgodna ze spec z kontraktu (NIP, profile itd.)
+function checkJsonLd(pageRel, raw, spec) {
+  const errs = [];
+  if (/<\/|<!--/.test(raw)) errs.push(`${pageRel}: JSON-LD zawiera niezakodowane „</” lub „<!--”`);
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch (e) {
+    return [`${pageRel}: JSON-LD nie jest poprawnym JSON (${e.message})`];
+  }
+  if (data['@context'] !== 'https://schema.org') errs.push(`${pageRel}: JSON-LD bez @context https://schema.org`);
+  const graph = Array.isArray(data['@graph']) ? data['@graph'] : [data];
+  const types = graph.map((n) => n['@type']);
+  for (const t of spec.types || []) {
+    if (!types.includes(t)) errs.push(`${pageRel}: JSON-LD bez węzła @type=${t}`);
+  }
+  const org = graph.find((n) => n['@type'] === 'Organization');
+  if (org && spec.organization) {
+    for (const [k, v] of Object.entries(spec.organization)) {
+      const got = org[k];
+      const ok = Array.isArray(v) ? JSON.stringify(got) === JSON.stringify(v) : got === v;
+      if (!ok) errs.push(`${pageRel}: JSON-LD Organization.${k}: oczekiwano ${JSON.stringify(v)}, jest ${JSON.stringify(got)}`);
+    }
+  }
+  return errs;
+}
+
+// llms.txt / llms-full.txt: treść zależy od stron, więc zamiast sumy SHA sprawdzamy strukturę
+// i to, że każda strona z sitemapy jest opisana (oraz nic poza nimi).
+function checkGeneratedFiles(targetDir, spec, actualMap) {
+  const errs = [];
+  if (!Object.keys(spec).length) return errs;
+  const sitemapPath = path.join(targetDir, 'sitemap.xml');
+  const sitemapUrls = fs.existsSync(sitemapPath)
+    ? [...fs.readFileSync(sitemapPath, 'utf8').matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1])
+    : [];
+  for (const [rel, rules] of Object.entries(spec)) {
+    const entry = actualMap.get(rel);
+    if (!entry) continue;
+    const buf = fs.readFileSync(entry.full);
+    const txt = buf.toString('utf8');
+    if (!Buffer.from(txt, 'utf8').equals(buf)) { errs.push(`${rel}: plik nie jest poprawnym UTF-8`); continue; }
+    if (rules.startsWith && !txt.startsWith(rules.startsWith)) errs.push(`${rel}: nie zaczyna się od ${JSON.stringify(rules.startsWith)}`);
+    if (rules.minBytes && buf.length < rules.minBytes) errs.push(`${rel}: za mały (${buf.length} B < ${rules.minBytes} B)`);
+    if (rules.maxBytes && buf.length > rules.maxBytes) errs.push(`${rel}: za duży (${buf.length} B > ${rules.maxBytes} B)`);
+    for (const must of rules.mustContain || []) {
+      if (!txt.includes(must)) errs.push(`${rel}: brak wymaganego fragmentu ${JSON.stringify(must)}`);
+    }
+    if (/<(script|style|svg|form)\b/i.test(txt)) errs.push(`${rel}: zawiera znaczniki HTML (script/style/svg/form)`);
+    if (rules.linksMatchSitemap) {
+      const links = [...txt.matchAll(/\]\((https:\/\/revagy\.pl\/[^)\s]*)\)/g)].map((m) => m[1]);
+      const pageLinks = links.filter((u) => !u.endsWith('.txt'));
+      const missing = sitemapUrls.filter((u) => !pageLinks.includes(u));
+      const extra = pageLinks.filter((u) => !sitemapUrls.includes(u));
+      if (missing.length) errs.push(`${rel}: brak stron z sitemapy: ${missing.join(', ')}`);
+      if (extra.length) errs.push(`${rel}: odnośniki spoza sitemapy: ${extra.join(', ')}`);
+      for (const u of links.filter((x) => x.endsWith('.txt'))) {
+        const f = new URL(u).pathname.slice(1);
+        if (!actualMap.has(f)) errs.push(`${rel}: odnośnik ${u} wskazuje na nieistniejący plik`);
+      }
+    }
+    if (rules.sectionsMatchSitemap) {
+      const addrs = [...txt.matchAll(/^Adres: (\S+)$/gm)].map((m) => m[1]);
+      const missing = sitemapUrls.filter((u) => !addrs.includes(u));
+      if (missing.length) errs.push(`${rel}: brak sekcji dla stron: ${missing.join(', ')}`);
+      if (addrs.length !== new Set(addrs).size) errs.push(`${rel}: zdublowane sekcje stron`);
+    }
+  }
+  return errs;
+}
+
 function main() {
   const args = process.argv.slice(2);
   const targetArg = args.find((a) => !a.startsWith('--'));
@@ -512,9 +589,11 @@ function main() {
     manifestLines.push(`${hash}  ${f.rel}\n`);
   }
 
+  const generatedFiles = contract.generatedFiles || {};
   const expectedAll = new Set([
     ...Object.keys(contract.publicFiles),
     ...Object.keys(contract.pages),
+    ...Object.keys(generatedFiles),
   ]);
   for (const exp of expectedAll) {
     if (!actualMap.has(exp)) errors.push(`Brak wymaganego pliku: ${exp}`);
@@ -613,12 +692,22 @@ function main() {
       }
     }
 
-    // Porównanie pełnego kontraktu DOM (bez localRefs które porównujemy osobno)
-    const { localRefs: _a, ...actualDom } = extractHtmlContract(comparisonHtml);
-    const { localRefs: _b, ...baselineDom } = expectedDom;
+    // Dane strukturalne JSON-LD: tylko na stronach z kontraktu, poprawny JSON, zgodne z marką
+    const ldSpec = (contract.structuredData || {})[pageRel];
+    if (!ldSpec && parsed.jsonLd.length) errors.push(`${pageRel}: nieoczekiwany blok JSON-LD`);
+    if (ldSpec) {
+      if (parsed.jsonLd.length !== 1) errors.push(`${pageRel}: oczekiwano 1 bloku JSON-LD, jest ${parsed.jsonLd.length}`);
+      else errors.push(...checkJsonLd(pageRel, parsed.jsonLd[0], ldSpec));
+    }
+
+    // Porównanie pełnego kontraktu DOM (bez localRefs i JSON-LD, które porównujemy osobno)
+    const { localRefs: _a, jsonLd: _c, ...actualDom } = extractHtmlContract(comparisonHtml);
+    const { localRefs: _b, jsonLd: _d, ...baselineDom } = expectedDom;
     const domDiffs = deepEqualJson(actualDom, baselineDom, pageRel);
     for (const d of domDiffs) errors.push(`DOM ${d}`);
   }
+
+  errors.push(...checkGeneratedFiles(targetDir, generatedFiles, actualMap));
 
   if (manifestArg) {
     const outPath = path.resolve(manifestArg.slice('--manifest-out='.length));
@@ -635,8 +724,9 @@ function main() {
 
   const publicCount = Object.keys(contract.publicFiles).length;
   const pageCount = Object.keys(contract.pages).length;
+  const genCount = Object.keys(generatedFiles).length;
   const manifestSha = crypto.createHash('sha256').update(manifestLines.join('')).digest('hex');
-  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM). Manifest SHA-256: ${manifestSha}`);
+  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM, ${genCount} plików generowanych). Manifest SHA-256: ${manifestSha}`);
 }
 
 if (require.main === module) {

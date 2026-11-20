@@ -18,6 +18,9 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-008 | 2026-11-13 | Strona ma mieć darmową analitykę: skąd wchodzą odwiedzający, co klikają, ile czasu spędzają, z jakich IP i przeglądarek. | właściciel | obowiązuje |
 | D-009 | 2026-11-13 | Wartości domyślne z planu T-002 przyjęte bez zmian: kontakt `kontakt@revagy.pl`, liczby na stronie bez zmian, pakiety bez cen. | właściciel („Akceptuję”) | obowiązuje |
 | D-010 | 2026-11-17 | Strona zostaje na Astro (migracja z PR #2); w planie blogi i podstrony. Build wyłącznie w CI (GitHub Actions, Node 22), VPS dostaje gotowy artefakt i nie buduje — jak `web-skoben` i `web-skibilabs`. | właściciel („Astro zostaje zaraz wjeżdżamy z blogami i podstronami”, „Lecisz ze wszystkim”) | obowiązuje |
+| D-011 | 2026-11-20 | Oficjalny profil marki poza stroną: `https://www.linkedin.com/company/revagy/`. Trafia do `sameAs` w danych strukturalnych i do `llms.txt` (`src/config/marka.mjs`). | właściciel (T-006) | obowiązuje |
+| D-012 | 2026-11-20 | Informacja o zawieszeniu działalności od 2026-02-01 jest nieaktualna; działalność prowadzona. Zamyka otwartą kwestię z T-001. | właściciel („zawieszona nieaktualny”, T-006) | obowiązuje |
+| D-013 | 2026-11-20 | Rozpoznawalność marki: wdrażamy dane strukturalne Organization/WebSite, `llms.txt` i `llms-full.txt` generowane przy buildzie oraz pomiar botów AI w logach serwera (wariant „B + krótka nota A” z T-006). | właściciel („B plus krótką notę z A”) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 
@@ -31,4 +34,4 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 - Opinie klientów i cennik: brak danych, na stronie ich nie ma.
 - Analityka bez zgody odwiedzającego: przyjęte rozwiązanie zapisuje kliknięcia i czas dopiero po zgodzie
   w banerze (wybór agenta, D-008 tego nie rozstrzyga). Zmiana wymaga decyzji właściciela.
-- Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01.
+- ~~Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01.~~ Rozstrzygnięte przez D-012 (nieaktualne).
