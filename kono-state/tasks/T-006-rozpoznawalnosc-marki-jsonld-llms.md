@@ -9,7 +9,7 @@ updated: 2026-11-20
 branch: feat/rozpoznawalnosc-marki
 base: main (po scaleniu PR #5)
 depends_on: PR #5
-decisions: [D-011, D-012, D-013]
+decisions: [D-011, D-012, D-013, D-014]
 ---
 
 # T-006 — Rozpoznawalność marki: JSON-LD, llms.txt i pomiar botów AI
@@ -62,3 +62,11 @@ Testy: `check:dist` OK, 45 plików, manifest bez zmian (`8c7ff4ee…`) — wynik
 6 nowych prób negatywnych walidatora (sekcja nadmiarowa, brak logo, brak obrazu, zły REGON, `publisher.@id`,
 `defer`) → błąd; generator na przypadkach `</MAIN>`, `/blog/`, encjach; skrypt logów na wierszach bez daty
 i pustym logu (`dash`). Smoke i formularz: CI.
+
+## Ujednolicenie z LinkedIn (D-014, 2026-11-20)
+
+- `src/config/marka.mjs`: opis = słowa właściciela z LinkedIn; `telefon`, `rokZalozenia` → JSON-LD
+  (`telephone`, `foundingDate`, `contactPoint.telephone`) i nagłówek `llms*.txt`.
+- Stopka: odnośnik `tel:+48504037538` w kolumnie „Kontakt” (11 stron); kontrakt DOM: wyłącznie +1 pozycja
+  `anchors` na stronę (sprawdzone skryptem, który odrzuca każdą inną różnicę).
+- `check:dist`: OK, 45 plików. Smoke: CI.

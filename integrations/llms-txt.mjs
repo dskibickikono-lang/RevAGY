@@ -155,8 +155,8 @@ function naglowek(m) {
     `> ${m.opis}`,
     '',
     `- Strona: ${m.url}`,
-    `- Kontakt: ${m.email}`,
-    `- Firma: ${m.nazwa}, ${m.wlasciciel}, ${a.ulica}, ${a.kod} ${a.miasto} · NIP ${m.nip} · REGON ${m.regon}`,
+    `- Kontakt: ${m.email} · tel. ${m.telefonCzytelny}`,
+    `- Firma: ${m.nazwa}, ${m.wlasciciel}, ${a.ulica}, ${a.kod} ${a.miasto} · NIP ${m.nip} · REGON ${m.regon} · od ${m.rokZalozenia}`,
     ...m.profile.map((p) => `- Profil: ${p}`),
   ];
 }

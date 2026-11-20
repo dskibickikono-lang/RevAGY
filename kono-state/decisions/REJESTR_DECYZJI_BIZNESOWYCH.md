@@ -21,6 +21,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-011 | 2026-11-20 | Oficjalny profil marki poza stroną: `https://www.linkedin.com/company/revagy/`. Trafia do `sameAs` w danych strukturalnych i do `llms.txt` (`src/config/marka.mjs`). | właściciel (T-006) | obowiązuje |
 | D-012 | 2026-11-20 | Informacja o zawieszeniu działalności od 2026-02-01 jest nieaktualna; działalność prowadzona. Zamyka otwartą kwestię z T-001. | właściciel („zawieszona nieaktualny”, T-006) | obowiązuje |
 | D-013 | 2026-11-20 | Rozpoznawalność marki: wdrażamy dane strukturalne Organization/WebSite, `llms.txt` i `llms-full.txt` generowane przy buildzie oraz pomiar botów AI w logach serwera (wariant „B + krótka nota A” z T-006). | właściciel („B plus krótką notę z A”) | obowiązuje |
+| D-014 | 2026-11-20 | Dane marki zgodne z profilem LinkedIn: opis marki = słowa właściciela z LinkedIn (pierwsze zdanie opisu + hasło), rok założenia 2021, telefon +48 504 037 538 publicznie w stopce strony, w JSON-LD i w `llms.txt`. Forma na LinkedIn: jednoosobowa działalność (nie „Partnership”). | właściciel („Dokładnie tak, zrób to wszystko”, T-006) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 

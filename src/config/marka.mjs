@@ -6,10 +6,14 @@
 export const MARKA = {
   nazwa: 'REVAGY',
   url: 'https://revagy.pl/',
+  // Słowa właściciela z profilu LinkedIn (opis + hasło, D-014) — trzymaj oba miejsca identyczne.
   opis:
-    'REVAGY automatyzuje procesy i wdraża AI w firmach B2B: kadry, rekrutację, sprzedaż i operacje. ' +
-    'Łączy istniejące systemy (CRM, ERP, systemy kadrowe, skrzynki pocztowe) w jeden obieg, bez wymiany systemów.',
+    'Procesy, które robią się same. W REVAGY projektujemy i wdrażamy automatyzacje procesów oraz agentów AI dla firm B2B. ' +
+    'Łączymy Twój CRM, ERP i skrzynki w jeden obieg, a powtarzalną pracę oddajemy agentom AI.',
   email: 'kontakt@revagy.pl',
+  telefon: '+48504037538',
+  telefonCzytelny: '+48 504 037 538',
+  rokZalozenia: '2021',
   wlasciciel: 'Dawid Skibicki',
   nip: '7441749535',
   regon: '389229155',
@@ -45,6 +49,8 @@ export function grafOrganizacji(m = MARKA) {
         url: m.url,
         description: m.opis,
         email: m.email,
+        telephone: m.telefon,
+        foundingDate: m.rokZalozenia,
         logo: { '@type': 'ImageObject', url: m.logo, width: 512, height: 512 },
         image: m.obraz,
         taxID: m.nip,
@@ -63,6 +69,7 @@ export function grafOrganizacji(m = MARKA) {
           '@type': 'ContactPoint',
           contactType: 'sales',
           email: m.email,
+          telephone: m.telefon,
           availableLanguage: ['pl'],
         },
         sameAs: m.profile,
