@@ -11,8 +11,9 @@ const root = path.resolve(__dirname, '..');
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'revagy-form-'));
 const dist = path.join(temp, 'dist');
 const leadId = 'ld_' + 'a'.repeat(32);
-const mock = `(() => {
+function installTurnstileMock() {
   let token = 'test-turnstile-token';
+  let timer = null;
   window.__resets = 0;
   window.turnstile = {
     render(selector, options) {
@@ -22,9 +23,12 @@ const mock = `(() => {
       iframe.title = 'Ochrona przed spamem';
       iframe.width = '150'; iframe.height = '140';
       document.querySelector(selector).append(iframe);
-      if (window.__delayTurnstileMs) {
+      clearTimeout(timer);
+      if (window.__holdInitialToken) {
         token = '';
-        setTimeout(() => {
+      } else if (window.__delayTurnstileMs) {
+        token = '';
+        timer = setTimeout(() => {
           token = 'delayed-turnstile-token';
           options.callback(token);
         }, window.__delayTurnstileMs);
@@ -35,20 +39,23 @@ const mock = `(() => {
     },
     reset() {
       window.__resets++;
+      clearTimeout(timer);
       if (window.__delayTurnstileMs) {
         token = '';
-        setTimeout(() => {
-          token = 'delayed-turnstile-token';
+        const nextToken = window.__resetTurnstileToken || 'delayed-turnstile-token';
+        timer = setTimeout(() => {
+          token = nextToken;
           window.__turnstileOptions.callback(token);
         }, window.__delayTurnstileMs);
       } else {
-        token = 'test-turnstile-token';
+        token = window.__resetTurnstileToken || 'test-turnstile-token';
         window.__turnstileOptions.callback(token);
       }
     },
     getResponse() { return token; }
   };
-})();`;
+}
+const mock = `(${installTurnstileMock.toString()})();`;
 let checks = 0;
 function ok(name) { checks++; console.log(`OK ${name}`); }
 (async () => {
@@ -168,10 +175,13 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(requests.length, 0);
     assert.equal(await status.textContent(), 'Wiadomość jest za długa.');
     await page.locator('#kontakt-message').fill(originalMessage);
-    await page.locator('#kontakt-phone').fill('abc');
-    await submit.click();
-    assert.equal(requests.length, 0);
-    assert.equal(await page.evaluate(() => document.activeElement.id), 'kontakt-phone');
+    for (const badPhone of ['abc', '  12345']) {
+      await page.locator('#kontakt-phone').fill(badPhone);
+      await submit.click();
+      assert.equal(requests.length, 0);
+      assert.equal(await page.locator('#kontakt-phone').getAttribute('aria-invalid'), 'true');
+      assert.equal(await page.evaluate(() => document.activeElement.id), 'kontakt-phone');
+    }
     await page.locator('#kontakt-phone').fill('+48 123 456 789');
     await send(503, { error: 'queue_full' });
     assert.equal(await page.evaluate(() => window.__resets), 1);
@@ -282,19 +292,35 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     await fail.page.goto(harness.tlsBase + '/#kontakt');
     await fail.page.waitForSelector('#kontakt-form [data-status] a');
     assert.equal(await fail.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    const turnstileLoadsBeforeRetry = fail.state.turnstile;
+    assert.equal(turnstileLoadsBeforeRetry, 1);
+    fail.state.failChallenge = false;
+    fail.state.code = 202;
+    fail.state.data = { ok: true, lead_id: leadId };
+    await fail.page.evaluate(() => {
+      window.__holdInitialToken = true;
+      window.__delayTurnstileMs = 60;
+      window.__resetTurnstileToken = 'fresh-after-expire-token';
+    });
+    await fail.page.evaluate(installTurnstileMock);
     await fail.page.locator('#kontakt-name').fill('Osoba Testowa');
     await fail.page.locator('#kontakt-email').fill('test@example.com');
     await fail.page.locator('#kontakt-company').fill('  Firma Testowa  ');
     await fail.page.locator('#kontakt-topic').selectOption('audyt');
-    fail.state.failChallenge = false;
-    fail.state.code = 202;
-    fail.state.data = { ok: true, lead_id: leadId };
-    await fail.page.evaluate(() => { window.__delayTurnstileMs = 120; });
     await fail.page.locator('#kontakt-form [type=submit]').click();
+    await fail.page.waitForFunction(() => !!window.__turnstileOptions && document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'true');
+    assert.equal(await fail.page.locator('#kontakt-form [data-status]').textContent(), 'Sprawdzamy ochronę przed spamem…');
+    assert.equal(await fail.page.locator('script[src*="challenges.cloudflare.com"]').count(), 0);
+    assert.equal(fail.state.turnstile, turnstileLoadsBeforeRetry);
+    assert.equal(fail.requests.length, 0);
+    await fail.page.evaluate(() => window.__turnstileOptions['expired-callback']());
     await fail.page.waitForFunction(() => document.querySelector('#kontakt-form [type=submit]').getAttribute('aria-busy') === 'false');
+    assert.equal(await fail.page.locator('script[src*="challenges.cloudflare.com"]').count(), 0);
+    assert.equal(fail.state.turnstile, turnstileLoadsBeforeRetry);
+    assert.equal(await fail.page.evaluate(() => window.__resets), 2);
     assert.equal(fail.requests.length, 1);
     assert.equal(fail.requests[0].body.company, 'Firma Testowa');
-    assert.equal(fail.requests[0].body['cf-turnstile-response'], 'delayed-turnstile-token');
+    assert.equal(fail.requests[0].body['cf-turnstile-response'], 'fresh-after-expire-token');
     const subpageTouch = await setup();
     subpageTouch.state.code = 202;
     subpageTouch.state.data = { ok: true, lead_id: leadId };

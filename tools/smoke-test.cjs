@@ -509,11 +509,13 @@ if (require.main === module) (async () => {
 
       // 4.2 /realizacje.html (filtry [data-filter-group])
       const realRes = await page.goto(`${base}/realizacje.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
+      await page.waitForFunction(() => document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() === '12');
       await page.click('[data-filter="pilotaz"]');
       const realState = await page.evaluate(() => ({
         filteredOut: document.querySelectorAll('.is-filtered-out').length,
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        prodStatCount: document.querySelectorAll('.stats .stat [data-count]')[1]?.getAttribute('data-count') || '',
+        prodStatText: document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() || '',
         labels: [...document.querySelectorAll('[data-filter-group] [data-filter]')].map((b) => b.textContent.replace(/\s+/g, ' ').trim()),
         counts: {
           all: document.querySelectorAll('[data-filter-group] [data-filter-item]').length,
@@ -524,8 +526,10 @@ if (require.main === module) (async () => {
       }));
       check('podstrona /realizacje.html: 200, filtry statusów działają, 0 overflow', realRes.status() === 200 && realState.filteredOut > 0 && realState.overflow === 0, JSON.stringify(realState));
       check(
-        'podstrona /realizacje.html: liczniki filtrów zgodne z liczbą kart (17/12/3/2)',
-        realState.labels.join(' | ') === 'Wszystkie (17) | Produkcja (12) | Pilotaż (3) | W trakcie (2)' &&
+        'podstrona /realizacje.html: licznik statystyk (12) i liczniki filtrów zgodne z liczbą kart (17/12/3/2)',
+        realState.prodStatCount === '12' &&
+          realState.prodStatText === '12' &&
+          realState.labels.join(' | ') === 'Wszystkie (17) | Produkcja (12) | Pilotaż (3) | W trakcie (2)' &&
           realState.counts.all === 17 &&
           realState.counts.produkcja === 12 &&
           realState.counts.pilotaz === 3 &&

@@ -70,8 +70,8 @@
       "size": 30901
     },
     "assets/js/kontakt.js": {
-      "sha256": "7b7da671eb235b9840cc67072c66ff4e8cf0a5b3926e17f4425f391a47ce5fc0",
-      "size": 12043
+      "sha256": "ab7d98716c0bddf0b8a12cec1be50ccb87e9b3d745f9599e1b4423a013c7b4d9",
+      "size": 12837
     },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
@@ -172,8 +172,8 @@
       "size": 23974
     },
     "realizacje.html": {
-      "sha256": "9785fb6d72a458797c76721bf885ab07c5e53715d8143878fa417278ba5f112d",
-      "size": 31677
+      "sha256": "c49fba8e9caab7ebc942d4597243d4ef5540851562cab3011e15a56cb520aa49",
+      "size": 31678
     }
   },
   "pages": {
@@ -12593,7 +12593,7 @@
           "charset": null,
           "name": "description",
           "property": null,
-          "content": "14 klientów (16 podmiotów), 11 wdrożeń produkcyjnych, 3 pilotaże i 2 wdrożenia w trakcie. Zbiorcze case study Grupy KONO oraz wdrożenia dla agencji pracy i firm HR."
+          "content": "14 klientów REVAGY (16 podmiotów, 17 projektów w katalogu: 12 wdrożeń produkcyjnych, 3 pilotaże/shadow, 2 w trakcie). Wszystkie statusy oznaczone jawnie; 16/16 zgód na referencje."
         },
         {
           "charset": null,
@@ -12881,7 +12881,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-count": "11"
+            "data-count": "12"
           },
           "aria": {}
         },

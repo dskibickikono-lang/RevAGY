@@ -5,6 +5,23 @@
   if (!form) return;
   const status = form.querySelector('[data-status]');
   const button = form.querySelector('[type="submit"]');
+  if (!status || !button) return;
+
+  function say(text, mail = false) {
+    status.textContent = text;
+    if (mail) {
+      const link = document.createElement('a');
+      link.href = 'mailto:kontakt@revagy.pl';
+      link.textContent = 'kontakt@revagy.pl';
+      status.append(' ', link);
+    }
+  }
+  if (!window.fetch || !window.crypto || !window.AbortController || typeof Object.fromEntries !== 'function') {
+    say('Ta przeglądarka nie może wysłać formularza. Napisz:', true);
+    return;
+  }
+  button.disabled = false;
+
   const names = ['name', 'email', 'company', 'phone', 'topic', 'volume', 'message'];
   const fields = Object.fromEntries(names.map((name) => [name, form.elements.namedItem(name)]));
   const hasField = (name) => Object.prototype.hasOwnProperty.call(fields, name);
@@ -16,51 +33,35 @@
   let sending = false;
   let widgetId;
   let loading = null;
-  let tokenPromise = null;
-  let resolveToken = null;
+  const tokenWaiters = new Set();
+  let latestToken = null;
 
-  function armToken() {
-    tokenPromise = new Promise((resolve) => {
-      resolveToken = resolve;
-    });
-  }
-  function settleToken(value) {
-    if (resolveToken) {
-      const resolve = resolveToken;
-      resolveToken = null;
-      resolve(value);
-    }
+  function notifyTokenWaiters(value) {
+    const waiters = Array.from(tokenWaiters);
+    tokenWaiters.clear();
+    waiters.forEach((resolve) => resolve(value));
   }
   function waitForToken(ms = 15000) {
-    if (!tokenPromise) return Promise.resolve(null);
+    if (latestToken) return Promise.resolve(latestToken);
     return new Promise((resolve) => {
-      const timer = setTimeout(() => resolve(null), ms);
-      tokenPromise.then((tok) => {
+      let timer;
+      const waiter = (tok) => {
         clearTimeout(timer);
+        tokenWaiters.delete(waiter);
         resolve(tok || null);
-      });
+      };
+      timer = setTimeout(() => {
+        tokenWaiters.delete(waiter);
+        resolve(null);
+      }, ms);
+      tokenWaiters.add(waiter);
     });
   }
-
-  function say(text, mail = false) {
-    status.textContent = text;
-    if (mail) {
-      const link = document.createElement('a');
-      link.href = 'mailto:kontakt@revagy.pl';
-      link.textContent = 'kontakt@revagy.pl';
-      status.append(' ', link);
-    }
-  }
-  if (!window.fetch || !window.crypto || !window.AbortController) {
-    say('Ta przeglądarka nie może wysłać formularza. Napisz:', true);
-    return;
-  }
-  button.disabled = false;
 
   // Zapisujemy wyłącznie dozwolone pola; zapis z pamięci także traktujemy jako dane wejściowe.
   const touchNames = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'referrer', 'landing_path'];
   const singleLine = (value, max) => String(value || '').replace(/[\r\n]/g, '').slice(0, max);
-  const cleanTouch = (data) => Object.fromEntries(touchNames.filter((n) => typeof data?.[n] === 'string')
+  const cleanTouch = (data) => Object.fromEntries(touchNames.filter((n) => Boolean(data && typeof data[n] === 'string'))
     .map((n) => [n, singleLine(data[n], n.startsWith('utm_') ? 100 : 300)]));
   const params = new URLSearchParams(location.search);
   let firstTouch = cleanTouch({ ...Object.fromEntries(params), referrer: document.referrer, landing_path: location.pathname });
@@ -83,17 +84,52 @@
     say(genericError, true);
   }
   function resetChallenge() {
+    latestToken = null;
     if (window.turnstile && widgetId !== undefined) {
       try {
-        armToken();
         window.turnstile.reset(widgetId);
       } catch (_) {
-        settleToken(null);
+        notifyTokenWaiters(null);
         challengeUnavailable();
       }
     }
   }
+  function renderChallenge() {
+    if (widgetId !== undefined) return;
+    latestToken = null;
+    widgetId = window.turnstile.render('#kontakt-challenge', {
+      sitekey: form.dataset.sitekey,
+      action: 'kontakt-revagy', language: 'pl', appearance: 'interaction-only',
+      theme: 'dark', size: 'compact',
+      callback: (tok) => {
+        challengeError.textContent = '';
+        latestToken = tok || (window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '') || null;
+        notifyTokenWaiters(latestToken);
+      },
+      'expired-callback': resetChallenge,
+      'timeout-callback': resetChallenge,
+      'error-callback': () => {
+        latestToken = null;
+        notifyTokenWaiters(null);
+        challengeUnavailable();
+        return true;
+      },
+    });
+  }
   function loadChallenge() {
+    if (window.turnstile && typeof window.turnstile.render === 'function') {
+      try {
+        renderChallenge();
+        loading = Promise.resolve(true);
+        return loading;
+      } catch (_) {
+        loading = null;
+        latestToken = null;
+        notifyTokenWaiters(null);
+        challengeUnavailable();
+        return Promise.resolve(false);
+      }
+    }
     if (loading) return loading;
     loading = new Promise((resolve) => {
       const script = document.createElement('script');
@@ -105,7 +141,8 @@
         if (!ok) {
           loading = null;
           script.remove();
-          settleToken(null);
+          latestToken = null;
+          notifyTokenWaiters(null);
           challengeUnavailable();
         }
         resolve(ok);
@@ -117,23 +154,7 @@
       script.onload = () => {
         if (finished) return;
         try {
-          armToken();
-          widgetId = window.turnstile.render('#kontakt-challenge', {
-            sitekey: form.dataset.sitekey,
-            action: 'kontakt-revagy', language: 'pl', appearance: 'interaction-only',
-            theme: 'dark', size: 'compact',
-            callback: (tok) => {
-              challengeError.textContent = '';
-              settleToken(tok || (window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '') || null);
-            },
-            'expired-callback': resetChallenge,
-            'timeout-callback': resetChallenge,
-            'error-callback': () => {
-              settleToken(null);
-              challengeUnavailable();
-              return true;
-            },
-          });
+          renderChallenge();
           finish(true);
         } catch (_) { finish(false); }
       };
@@ -174,7 +195,8 @@
     });
   }
   function focusError() {
-    form.querySelector('[aria-invalid="true"]')?.focus();
+    const firstBad = form.querySelector('[aria-invalid="true"]');
+    if (firstBad) firstBad.focus();
   }
   function updateCount() {
     document.getElementById('kontakt-message-count').textContent = `${fields.message.value.length} / 4000 znaków`;
@@ -186,7 +208,8 @@
     if (body.name.trim().length < 2 || body.name.length > 120) invalid.add('name');
     if (!body.email || body.email.length > 254 || fields.email.validity.typeMismatch) invalid.add('email');
     if (!body.company.trim() || body.company.length > 160) invalid.add('company');
-    if (body.phone && !/^[+0-9 ()-]{6,32}$/.test(body.phone)) invalid.add('phone');
+    const phone = body.phone.trim();
+    if (phone && !/^[+0-9 ()-]{6,32}$/.test(phone)) invalid.add('phone');
     if (!['audyt', 'wdrozenie', 'kalkulator-roi', 'inne'].includes(body.topic)) invalid.add('topic');
     if (body.volume && !['do-50', '50-200', '200-1000', 'ponad-1000'].includes(body.volume)) invalid.add('volume');
     if (body.message.length > 4000) invalid.add('message');
@@ -209,7 +232,7 @@
     body.name = body.name.trim();
     body.email = body.email.trim();
     body.company = body.company.trim();
-    if (body.phone) body.phone = body.phone.trim();
+    body.phone = body.phone.trim();
     // Opcjonalne pola z enumem lub wzorcem pomijamy, gdy są puste.
     if (!body.phone) delete body.phone;
     if (!body.volume) delete body.volume;
@@ -224,6 +247,7 @@
     form.setAttribute('aria-busy', 'true');
     let timeout;
     try {
+      say('Sprawdzamy ochronę przed spamem…');
       if (!await loadChallenge()) return;
       let token = window.turnstile.getResponse(widgetId);
       if (!token) token = (await waitForToken(15000)) || window.turnstile.getResponse(widgetId);
@@ -246,7 +270,7 @@
       });
       const data = await response.json().catch(() => ({}));
       const code = response.status;
-      if (code === 202 && data?.ok === true && /^ld_[0-9a-f]{32}$/.test(data.lead_id)) {
+      if (code === 202 && data && data.ok === true && /^ld_[0-9a-f]{32}$/.test(data.lead_id)) {
         key = null;
         previousContent = null;
         form.reset();
@@ -257,16 +281,16 @@
         document.dispatchEvent(new CustomEvent('lead:accepted', { detail: { lead_id: data.lead_id } }));
       } else {
         resetChallenge();
-        if (code === 400 && data?.error === 'validation') {
-          const rejected = Array.isArray(data.fields) ? data.fields : [];
+        if (code === 400 && data && data.error === 'validation') {
+          const rejected = Array.isArray(data && data.fields) ? data.fields : [];
           rejected.forEach(markError);
           say(rejected.some(hasField) ? 'Sprawdź zaznaczone pola.' : genericError, !rejected.some(hasField));
           focusError();
-        } else if (code === 400 && data?.error === 'challenge_failed') {
+        } else if (code === 400 && data && data.error === 'challenge_failed') {
           say('Potwierdź, że nie jesteś botem, i wyślij ponownie.');
-        } else if (code === 409 && data?.error === 'notice_outdated') {
+        } else if (code === 409 && data && data.error === 'notice_outdated') {
           say('Odśwież stronę i wyślij ponownie — zaktualizowaliśmy informację o danych. Wpisana treść zostanie w formularzu, jeśli nie zamkniesz karty.');
-        } else if (code === 409 && data?.error === 'idempotency_conflict') {
+        } else if (code === 409 && data && data.error === 'idempotency_conflict') {
           key = null;
           say('Wyślij zapytanie ponownie. Wpisana treść została zachowana.');
         } else if (code === 413) say('Wiadomość jest za długa.');
