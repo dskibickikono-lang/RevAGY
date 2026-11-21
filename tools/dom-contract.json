@@ -3799,5 +3799,10 @@
       ],
       "sectionsMatchSitemap": true
     }
+  },
+  "mediaBudget": {
+    "assets/video/*.mp4": 1100000,
+    "assets/video/*.webm": 700000,
+    "assets/video/*.jpg": 150000
   }
 }
