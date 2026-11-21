@@ -53,7 +53,12 @@ function sprawdzRejestr(rejestr) {
 
 function sprawdzFilm(doc, film) {
   const bledy = [];
-  if (!film) return ['brak pola "film" w tools/podstrony.json (każda nowa podstrona ma miejsce na film, D-022)'];
+  // "film": null = strona świadomie bez filmu (np. treści decyzyjne etapu 6): wtedy nie może mieć ramki ani wideo
+  if (film === null) {
+    const ramkiBez = findAll(doc, (e) => hasClass(e, 'film') || e.name === 'video' || has(e, 'data-video-toggle'));
+    return ramkiBez.length ? [`"film": null w tools/podstrony.json, a strona ma ${ramkiBez.length} element(y) filmu (.film, <video>, data-video-toggle)`] : [];
+  }
+  if (!film) return ['brak pola "film" w tools/podstrony.json (każda nowa podstrona ma miejsce na film, D-022; strona bez filmu: "film": null)'];
   const ramki = findAll(doc, (e) => hasClass(e, 'film'));
   if (ramki.length !== 1) return [`miejsce na film: oczekiwana dokładnie jedna ramka .film, jest ${ramki.length}`];
   const r = ramki[0];

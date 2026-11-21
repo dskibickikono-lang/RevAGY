@@ -99,7 +99,30 @@ test('check-tresc: błędne miejsca na film', () => {
   assert.ok(f(FILM.replace(/<button[\s\S]*?<\/button>/, '')).some((x) => /przycisk/.test(x)));
   assert.ok(f(FILM.replace(/<source src="assets\/video\/integracja-systemow.mp4"[^>]*>/, '')).some((x) => /źródła/.test(x)));
   assert.ok(f(KADR.replace('</div></div>', '<button data-video-toggle></button></div></div>')).some((x) => /bez filmu/.test(x)));
-  assert.deepEqual(sprawdzFilm(parse('<main></main>'), null).length, 1);
+  assert.deepEqual(sprawdzFilm(parse('<main></main>'), undefined).length, 1);
+});
+
+test('check-tresc: "film": null oznacza stronę bez filmu', () => {
+  assert.deepEqual(sprawdzFilm(parse('<main><p>Tekst</p></main>'), null), []);
+  assert.match(sprawdzFilm(parse('<main></main>'), undefined)[0], /brak pola "film"/);
+  assert.match(sprawdzFilm(parse(`<main>${KADR}</main>`), null)[0], /"film": null/);
+  assert.match(sprawdzFilm(parse('<main><video></video></main>'), null)[0], /"film": null/);
+  // pełna strona bez ramki filmu: z "film": null przechodzi, bez pola "film" nie
+  const html = strona({ film: '' });
+  assert.deepEqual(sprawdzStrone({ plik: 'jak-wybrac-pierwszy-proces.html', html, strona: { plik: 'jak-wybrac-pierwszy-proces.html', film: null }, nazwy: NAZWY, frazy: FRAZY, rejestr: REJESTR }), []);
+  assert.ok(sprawdzStrone({ plik: 'jak-wybrac-pierwszy-proces.html', html, strona: { plik: 'jak-wybrac-pierwszy-proces.html' }, nazwy: NAZWY, frazy: FRAZY, rejestr: REJESTR }).some((x) => /brak pola "film"/.test(x)));
+});
+
+test('check-tresc (CLI): wpis z "film": null w podstrony.json', () => {
+  const dir = tmp();
+  zapisz(dir, 'dist/jak-wybrac-pierwszy-proces.html', strona({ film: '' }));
+  const zNull = zapisz(dir, 'podstrony-null.json', { strony: [{ plik: 'jak-wybrac-pierwszy-proces.html', film: null, skrypty: ['assets/js/analytics.js?v=4'] }] });
+  const bezPola = zapisz(dir, 'podstrony-bez.json', { strony: [{ plik: 'jak-wybrac-pierwszy-proces.html' }] });
+  const ok = uruchom([SKRYPT, `--dist=${path.join(dir, 'dist')}`, `--podstrony=${zNull}`]);
+  assert.equal(ok.kod, 0, ok.out + ok.err);
+  const zle = uruchom([SKRYPT, `--dist=${path.join(dir, 'dist')}`, `--podstrony=${bezPola}`]);
+  assert.equal(zle.kod, 1, zle.out + zle.err);
+  assert.match(zle.err, /brak pola "film"/);
 });
 
 test('check-tresc: rejestr — walidacja i ostrzeżenie o „jak mierzone”', () => {

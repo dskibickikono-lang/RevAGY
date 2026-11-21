@@ -28,15 +28,17 @@ function wczytajPodstrony(plikJson) {
   return d.strony;
 }
 
-/** Sekcje strony głównej, których wysokość może się zmienić w tym etapie (geometria.sekcje). */
+/** Sekcje strony głównej, których wysokość może się zmienić w tym etapie:
+    geometria.sekcje = [{ selektor, opis }] (opis: jedno zdanie uzasadnienia). Zwraca same selektory. */
 function wczytajGeometrie(repoRoot) {
   const p = path.join(repoRoot, 'tools/etapy/zmiana-strony-glownej.json');
   if (!fs.existsSync(p)) return [];
   const d = JSON.parse(fs.readFileSync(p, 'utf8'));
   const s = d && d.geometria && d.geometria.sekcje;
   if (s === undefined) return [];
-  if (!Array.isArray(s) || !s.every((x) => typeof x === 'string')) throw new Error(`${p}: "geometria.sekcje" musi być tablicą selektorów`);
-  return s;
+  const ok = (x) => x && typeof x === 'object' && typeof x.selektor === 'string' && x.selektor.trim() && typeof x.opis === 'string' && x.opis.trim();
+  if (!Array.isArray(s) || !s.every(ok)) throw new Error(`${p}: "geometria.sekcje" musi być tablicą obiektów { "selektor": "…", "opis": "…" } z niepustymi polami`);
+  return s.map((x) => x.selektor);
 }
 
 module.exports = { wczytajPodstrony, wczytajGeometrie };

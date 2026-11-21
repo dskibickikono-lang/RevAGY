@@ -81,10 +81,17 @@ test('podstrony.json: format i błędy', () => {
 test('plik etapu: geometria.sekcje', () => {
   const repo = tmp();
   assert.deepEqual(wczytajGeometrie(repo), []);
-  zapisz(repo, 'tools/etapy/zmiana-strony-glownej.json', { etap: '0', geometria: { sekcje: ['#faq', 'header'] } });
+  zapisz(repo, 'tools/etapy/zmiana-strony-glownej.json', { etap: '0', geometria: { sekcje: [{ selektor: '#faq', opis: 'Dłuższe odpowiedzi.' }, { selektor: 'header', opis: 'Dłuższy przycisk.' }] } });
   assert.deepEqual(wczytajGeometrie(repo), ['#faq', 'header']);
-  zapisz(repo, 'tools/etapy/zmiana-strony-glownej.json', { geometria: { sekcje: '#faq' } });
-  assert.throws(() => wczytajGeometrie(repo));
+  for (const zle of ['#faq', ['#faq'], [{ selektor: '#faq' }], [{ selektor: '', opis: 'x' }], [{ selektor: '#faq', opis: ' ' }]]) {
+    zapisz(repo, 'tools/etapy/zmiana-strony-glownej.json', { geometria: { sekcje: zle } });
+    assert.throws(() => wczytajGeometrie(repo), undefined, JSON.stringify(zle));
+  }
+});
+
+test('plik etapu w repozytorium: geometria.sekcje czytelna dla testu dymnego', () => {
+  const sekcje = wczytajGeometrie(path.join(__dirname, '..', '..'));
+  assert.ok(sekcje.length > 0 && sekcje.every((x) => typeof x === 'string' && x.length));
 });
 
 test('baza: kolejność źródeł REVAGY_BAZA_PLIK → git → index.baza.html → null', () => {

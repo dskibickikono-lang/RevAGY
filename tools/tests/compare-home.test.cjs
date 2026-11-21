@@ -158,3 +158,30 @@ test('porownanie: niepoprawna lista jest zgłaszana', () => {
   assert.ok(sprawdzListe({ 'strona-glowna': { dodane: [{}] } }).length);
   assert.ok(sprawdzListe({ 'strona-glowna': { teksty: [{ bylo: 'a', jest: 'b', razy: 0 }] } }).length);
 });
+
+test('compare-home: lista etapu z repozytorium pasuje do różnicy index.baza.html → migawka (kod 0), bez jednego wpisu kod 1', () => {
+  const REPO = path.join(TOOLS, '..');
+  const baza = path.join(REPO, 'tools/baseline/index.baza.html');
+  const migawka = path.join(REPO, 'tools/baseline/index.html');
+  const listaRepo = JSON.parse(fs.readFileSync(path.join(REPO, 'tools/etapy/zmiana-strony-glownej.json'), 'utf8'));
+  const przygotuj = (lista) => {
+    const repo = tmp();
+    zapisz(repo, 'tools/baseline/index.html', fs.readFileSync(migawka));
+    zapisz(repo, 'tools/etapy/zmiana-strony-glownej.json', lista);
+    zapisz(repo, 'dist/index.html', fs.readFileSync(migawka));
+    return repo;
+  };
+  const env = { REVAGY_BAZA_PLIK: baza };
+  const repoOk = przygotuj(listaRepo);
+  const r = compareHome(repoOk, [`--dist=${path.join(repoOk, 'dist')}`], env);
+  assert.equal(r.kod, 0, r.out + r.err);
+  for (const pole of ['teksty', 'atrybuty']) {
+    if (!listaRepo['strona-glowna'][pole].length) continue;
+    const zla = JSON.parse(JSON.stringify(listaRepo));
+    zla['strona-glowna'][pole].pop();
+    const repo = przygotuj(zla);
+    const z = compareHome(repo, [`--dist=${path.join(repo, 'dist')}`], env);
+    assert.equal(z.kod, 1, `bez ostatniego wpisu w ${pole}: ${z.out}${z.err}`);
+    assert.match(z.out + z.err, /SPOZA LISTY/);
+  }
+});

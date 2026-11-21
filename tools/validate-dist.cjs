@@ -717,17 +717,18 @@ function checkMediaBudget(contract, actualMap) {
   return errs;
 }
 
-// tools/podstrony.json (opcjonalny): { "strony": [ { "plik": "…html", "film": "…", "skrypty": ["…"] } ] }
+// tools/podstrony.json (opcjonalny): { "strony": [ { "plik": "…html", "film": "…" | null, "skrypty": ["…"] } ] }
+// Bez "skrypty" strona dostaje listę domyślną (analytics.js).
 function readPodstronyScripts() {
   if (!fs.existsSync(PODSTRONY_PATH)) return { map: {}, errors: [] };
   try {
     const data = JSON.parse(fs.readFileSync(PODSTRONY_PATH, 'utf8'));
     const map = {};
     for (const s of data.strony || []) {
-      if (!s || typeof s.plik !== 'string' || !Array.isArray(s.skrypty)) {
-        return { map: {}, errors: ['tools/podstrony.json: każda strona musi mieć pola "plik" i "skrypty"'] };
+      if (!s || typeof s.plik !== 'string' || (s.skrypty !== undefined && !Array.isArray(s.skrypty))) {
+        return { map: {}, errors: ['tools/podstrony.json: każda strona musi mieć pole "plik", a "skrypty" (jeśli jest) musi być tablicą'] };
       }
-      map[s.plik] = s.skrypty;
+      if (s.skrypty) map[s.plik] = s.skrypty;
     }
     return { map, errors: [] };
   } catch (e) {
