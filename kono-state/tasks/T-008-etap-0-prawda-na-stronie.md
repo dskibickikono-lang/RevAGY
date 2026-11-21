@@ -9,7 +9,7 @@ updated: 2026-11-21
 branch: feat/etap-0-prawda-na-stronie
 base: main (9389fe6)
 depends_on: —
-decisions: [D-015, D-019, D-021, D-023, D-024, D-025, D-026, D-027, D-028]
+decisions: [D-015, D-019, D-021, D-022, D-023, D-024, D-025, D-026, D-027, D-028]
 ---
 
 # T-008 — Etap 0: prawda na stronie
@@ -43,7 +43,7 @@ Przy okazji: blokada strony głównej, która od tego etapu odrzuca każdą niez
   z tymi samymi zamianami tekstu (jedna tabela, z kontrolą liczby wystąpień), `llms*.txt` wygenerowane
   funkcjami z `integrations/llms-txt.mjs`.
 - `node tools/check-all.cjs` na wydaniu 9389fe6 (przed zmianą tekstu): OK, manifest `3cf4e5e7…55f7`.
-- `node tools/check-all.cjs` na przewidzianym katalogu: OK, 37 plików.
+- `node tools/check-all.cjs` na przewidzianym katalogu: OK, wszystkie 5 kroków (37 plików, 56 testów narzędzi).
 - Próby negatywne: zmieniony znak w `index.html` → błąd migawki z numerem linii; zmieniona strona →
   błąd `htmlBaseline`; brak i nadmiar adresu w mapie witryny, przekroczony `mediaBudget`, brak migawki,
   zła lista skryptów w `tools/podstrony.json` → błąd.
@@ -54,4 +54,18 @@ Przy okazji: blokada strony głównej, która od tego etapu odrzuca każdą niez
 
 - Bajtowa zgodność zbudowanego `index.html` z migawką i sum `htmlBaseline` czterech stron.
 - Test dymny (zawijanie dłuższych napisów w 390 px, brak przewijania w poziomie).
-- Nazwa w przykładowym ekranie czeka na potwierdzenie właściciela (D-027).
+- Pierwszy przebieg testu dymnego z porównaniem wysokości sekcji względem bazy i zrzutami (`podglad-<sha>`).
+
+## Integracja (2026-11-21)
+
+- Scalona gałąź `chore/narzedzia-ochrona-motywu` (compare-home, check-podstrony-css, check-tresc, testy,
+  geometria i zrzuty w teście dymnym). `check:dist` uruchamia cały łańcuch: walidator, compare-home,
+  check-podstrony-css, check-tresc, `node --test tools/tests/`.
+- Przykładowy ekran: „POLPAK Sp. z o.o.” (D-027, pisownia potwierdzona przez właściciela).
+- Plik etapu: `geometria.sekcje` jako `{ selektor, opis }`, selektory w kluczach pomiaru testu dymnego
+  (`header`, `#id`, `main > section:nth-of-type(n)`, `footer`); test sprawdza je na migawce.
+- `tools/podstrony.json`: `"film": null` oznacza stronę bez filmu (bez ramki i wideo); `skrypty` opcjonalne.
+- Test formularza woła walidator z `--bez-blokad-bajtowych` (wyłącza tylko migawkę i `htmlBaseline`,
+  bo testowy klucz Turnstile zmienia bajty stron z formularzem). Test nie jest w CI.
+- CI: artefakt `podglad-<sha>` ze zrzutami (zawsze) i `dist-roboczy-<sha>` z `dist/` (przy błędzie).
+- Przewidziany manifest wydania: `366038e6…99aa3`.
