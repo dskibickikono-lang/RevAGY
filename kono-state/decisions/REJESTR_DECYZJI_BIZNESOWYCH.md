@@ -34,7 +34,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-024 | 2026-11-21 | Stawka domyślna kalkulatora: 65 zł za godzinę (było 85 zł). Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-025 | 2026-11-21 | „14 dni” podajemy z warunkiem: 14 dni roboczych od dnia, w którym mamy dostęp do systemów. Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-026 | 2026-11-21 | Liczby „120+” i „60%” w pasku pod hero oraz czasy reakcji w pakietach zmieniamy. Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
-| D-027 | 2026-11-21 | Firma w przykładowym ekranie: „POLPACK Sp. z o.o.” (było „Stalmet Sp. z o.o.”). | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-027 | 2026-11-21 | Firma w przykładowym ekranie: „POLPAK Sp. z o.o.” (było „Stalmet Sp. z o.o.”). Pisownia potwierdzona przez właściciela 21.11: P-O-L-P-A-K. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-028 | 2026-11-21 | Na stronie podajemy kwotę audytu 1 990 zł i zwrot w 14 dni. Zastępuje D-009 („pakiety bez cen”) w tym zakresie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-029 | 2026-11-21 | Na stronie dla firm 5–250 osób podajemy ceny „od”. Zastępuje D-009 w tym zakresie. Kwot jeszcze nie ma. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-030 | 2026-11-21 | Na stronie Enterprise podajemy płatny pilot z kryterium sukcesu. Zakres i kryterium przygotowuje agent. Kwoty jeszcze nie ma. | właściciel, decyzje z 21.11.2026 | obowiązuje |

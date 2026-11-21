@@ -50,7 +50,7 @@
       },
       {
         "bylo": "Stalmet Sp. z o.o.",
-        "jest": "POLPACK Sp. z o.o.",
+        "jest": "POLPAK Sp. z o.o.",
         "razy": 1
       },
       {
@@ -197,7 +197,7 @@
       },
       {
         "selektor": "#mozliwosci",
-        "opis": "Nazwa firmy w przykładowym ekranie zmienia się na „POLPACK Sp. z o.o.”, o tej samej liczbie znaków; wpis zapobiegawczo."
+        "opis": "Nazwa firmy w przykładowym ekranie zmienia się na „POLPAK Sp. z o.o.”, o znak krótszą; wpis zapobiegawczo."
       },
       {
         "selektor": "#kalkulator",
