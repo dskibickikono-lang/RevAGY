@@ -3,12 +3,14 @@ id: T-008
 title: Etap 0 — prawda na stronie (korekta tekstów) i blokada strony głównej
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-21
 updated: 2026-11-21
 branch: feat/etap-0-prawda-na-stronie
 base: main (9389fe6)
 depends_on: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/9
+sha: d4ef7cf82bd5c9e8169f4ba45a3d09eb0c03972b
 decisions: [D-015, D-019, D-021, D-022, D-023, D-024, D-025, D-026, D-027, D-028]
 ---
 
@@ -69,3 +71,18 @@ Przy okazji: blokada strony głównej, która od tego etapu odrzuca każdą niez
   bo testowy klucz Turnstile zmienia bajty stron z formularzem). Test nie jest w CI.
 - CI: artefakt `podglad-<sha>` ze zrzutami (zawsze) i `dist-roboczy-<sha>` z `dist/` (przy błędzie).
 - Przewidziany manifest wydania: `366038e6…99aa3`.
+
+## Wynik CI (2026-11-21)
+
+Pierwszy build tej gałęzi w CI, przebieg 44956996245 dla commita `d4ef7cf`: wszystkie kroki zakończone powodzeniem.
+
+- Zbudowana strona główna jest bajtowo równa migawce. Manifest artefaktu: `366038e63177ae01c6be3d6e0423f2c8ba7fc4172b751206b94f050295499aa3`,
+  czyli dokładnie wartość przewidziana przed buildem.
+- `check:dist`: 37 plików, 36 zmian strony głównej, wszystkie na liście; 56 testów narzędzi.
+- Test dymny: 60 z 61 sprawdzeń przeszło, 0 błędów, 1 pominięte (lista podstron jest jeszcze pusta).
+  Wysokości sekcji w 1280 i 390 px równe bazie poza sekcjami z listy etapu.
+- Testy `deploy/wydanie.sh`: 16 z 16.
+- Artefakty: `podglad-<sha>` (zrzuty strony głównej 1280 i 390 px) oraz paczka wydania.
+
+Scala właściciel. Wydanie wymaga osobnej zgody na konkretny SHA.
+
