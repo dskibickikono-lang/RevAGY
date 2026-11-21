@@ -54,11 +54,13 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 ```bash
 npm ci
 npm run build
-npm run check:dist                           # waliduje dist/ (45 plików, SHA-256 assetów, kontrakt DOM dla 12 stron, JSON-LD, llms*.txt)
+npm run check:dist                           # waliduje dist/ (37 plików, SHA-256 assetów i stron, kontrakt DOM dla 4 stron, JSON-LD, llms*.txt) i uruchamia narzędzia ochrony motywu
 npm run test:smoke -- --serve=dist           # pełny test dymny na lokalnym TLS z atrapą Matomo (strona główna + podstrony P0-P2)
 npm run test:form                            # test formularza kontaktowego (Turnstile + forms-gateway + CSP + Matomo)
 npm run test:deploy                          # izolowane testy deploy/wydanie.sh (POSIX sh/dash, flock, staging, rollback)
 ```
+
+`check:dist` woła `tools/check-all.cjs`, który uruchamia po kolei walidator, `compare-home.cjs`, `check-podstrony-css.cjs`, `check-tresc.cjs` i testy narzędzi; zbudowany `index.html` musi być bajtowo równy migawce `tools/baseline/index.html`, a zamierzoną zmianę strony zapisuje się w kontrakcie i migawce poleceniem `node tools/update-contract.cjs <dist> --snapshot`.
 
 Dodatkowe tryby `tools/smoke-test.cjs`:
 - `node tools/smoke-test.cjs http://localhost:8000` — test na zwykłym hoście nieprodukcyjnym (potwierdza blokadę trackera),
@@ -66,7 +68,7 @@ Dodatkowe tryby `tools/smoke-test.cjs`:
 
 ## CI i artefakt wydania
 
-`.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny, test formularza i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
+`.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
 
 ## Wdrożenie i rollback
 
