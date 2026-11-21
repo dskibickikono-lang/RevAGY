@@ -1,6 +1,10 @@
 {
   "baselineCommit": "9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f",
   "publicFiles": {
+    "assets/css/podstrony.css": {
+      "sha256": "dcad0189f11e142a3acd63094219df877d9617d66c00954abad474f93908dec8",
+      "size": 1869
+    },
     "assets/css/styles.css": {
       "sha256": "00d50d42bfa57f01e7568ce25b8b094a2c74b27c9a9244df6e14d1e569a29d70",
       "size": 58737
@@ -73,6 +77,10 @@
       "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
       "size": 15657
     },
+    "assets/js/wejscie.js": {
+      "sha256": "bca815f5d1251bef12b0a15d01f6d07ae5d51d59e939016ead2fa81dca81a057",
+      "size": 1244
+    },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
       "size": 146363
@@ -122,8 +130,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "d71d946691e681b76ab1060ae2fb290fcdd7a380f4a22e6fc795cb3e9bffadec",
-      "size": 363
+      "sha256": "f2a6e04c840db8f212963d7ddabdc181caac69aaff7cddf78df8d5bcad6e61ba",
+      "size": 459
     }
   },
   "htmlBaseline": {
@@ -132,8 +140,8 @@
       "size": 1754
     },
     "index.html": {
-      "sha256": "bd748c4419faa8625211cecf6297246483c345ca328f7dc671d3210a2a90ef0c",
-      "size": 46038
+      "sha256": "89a8ea1858969bb76eb36da2829e57ca0d4786ba1da438343aa183f10fe71621",
+      "size": 46124
     },
     "kontakt.html": {
       "sha256": "0c2c6138e62b425a3f432798813d47de53d70aa1766e493e0db6202bb518c573",
@@ -2300,6 +2308,13 @@
           "text": "Sprawdź to na konsultacji"
         },
         {
+          "href": "integracja-systemow.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz, jak łączymy systemy"
+        },
+        {
           "href": "#kontakt",
           "class": "btn btn-outline",
           "dataTrack": null,
@@ -2919,6 +2934,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "integracja-systemow.html"
         },
         {
           "tag": "video",
