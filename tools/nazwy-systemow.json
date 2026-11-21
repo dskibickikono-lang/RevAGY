@@ -1,0 +1,7 @@
+{
+  "opis": "Nazwy własne systemów, których nie podajemy na podstronach (D-033). Start: pasek integracji strony głównej (src/pages/index.astro:356-359), bez pozycji ogólnych.",
+  "nazwy": [
+    "Pipedrive", "HubSpot", "Salesforce", "Asana", "Slack", "Microsoft 365", "Google Workspace", "n8n", "Make", "Comarch ERP", "SAP",
+    "BaseLinker", "Shopify", "WooCommerce", "enova365", "Subiekt", "Jira", "Notion", "Teams", "KSeF", "PostgreSQL"
+  ]
+}

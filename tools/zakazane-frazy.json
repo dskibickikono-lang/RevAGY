@@ -1,0 +1,12 @@
+{
+  "opis": "Frazy, których nie może być na podstronach (wielkość liter bez znaczenia). Każde {{…}} w zbudowanym HTML jest błędem niezależnie od tej listy.",
+  "frazy": [
+    "bezpłatny audyt",
+    "bezpłatnego audytu",
+    "wkrótce",
+    "już niedługo",
+    "w przygotowaniu",
+    "coming soon",
+    "w Unii Europejskiej"
+  ]
+}
