@@ -3,31 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
 ---
 <BaseLayout
-  title="Kontakt i zamówienie audytu (1 990 zł) — REVAGY"
-  description="Umów audyt procesów za 1 990 zł (3–5 dni roboczych, odliczany w 100% od wdrożenia w 30 dni, 14 dni na pełny zwrot). Automatyzacja i AI dla agencji pracy, firm HR i B2B."
+  title="Kontakt — REVAGY"
+  description="Napisz do REVAGY ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu automatyzacji procesów."
   canonical="https://revagy.pl/kontakt.html"
   variant="subpage"
-  activeNav="kontakt"
-  showJourney={true}
   hasForm={Boolean(TURNSTILE_SITEKEY)}
 >
 <main id="start">
-
-  <section class="page-hero" id="kontakt-start" data-step-label="01 · Zamówienie audytu">
-    <div class="wrap reveal">
-      <span class="kicker">Ścieżka P0: forms-gateway + e-mail · P1: telefon i kalendarz po uruchomieniu dyżuru</span>
-      <h1 class="display">Umów audyt procesów (1&nbsp;990&nbsp;zł)</h1>
-      <p class="lead">Audyt trwa 3–5 dni roboczych, jest w 100% odliczany od wdrożenia przy zamówieniu w 30 dni i objęty 14 dniami na pełny zwrot. Opisz poniżej proces i systemy, które chcecie spiąć — wrócimy z propozycją terminu i zakresem.</p>
-    </div>
-  </section>
-
-  <section class="section" id="kontakt" data-step-label="02 · Formularz i e-mail">
+  <section class="section" id="kontakt">
     <div class="cta">
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
-        <span class="badge badge-p0" style="justify-self:center;">Audyt 1 990 zł · 3–5 dni rob. · 14 dni na pełny zwrot</span>
-        <h2 class="display-2">Opisz proces do wyceny w&nbsp;audycie</h2>
-        <p class="lead">Napisz ze służbowej skrzynki i wskaż systemy (np. HRappka, nexo, TAXXO, Pipedrive, Comarch, enova365) oraz obszar, w którym ucieka najwięcej godzin.</p>
+        <h1 class="display-2">Sprawdź, co w Twojej firmie może robić się samo</h1>
+        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.</p>
         {TURNSTILE_SITEKEY && (
           <form id="kontakt-form" class="kontakt-form" action="/api/kontakt" method="post" novalidate data-notice-version={KONTAKT_NOTICE.version} data-sitekey={TURNSTILE_SITEKEY}>
             <p class="kontakt-help">Pola oznaczone „wymagane” trzeba uzupełnić.</p>
@@ -94,40 +82,11 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           </form>
         )}
         <div class="cta-form">
-          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Audyt%20automatyzacji%20REVAGY" data-track="Kontakt E-mail: adres">kontakt@revagy.pl</a>
-          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Audyt%20automatyzacji%20REVAGY" data-track="Kontakt E-mail: Umów audyt">Umów audyt (1 990 zł)</a>
+          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="Kontakt E-mail: adres">kontakt@revagy.pl</a>
+          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="Kontakt E-mail: Umów audyt">Umów audyt</a>
         </div>
-        <p class="form-msg"><button type="button" class="link-btn" data-copy="kontakt@revagy.pl" data-track="Kontakt: Kopiuj adres">Kopiuj adres</button><span data-copy-msg role="status"></span></p>
       </div>
     </div>
   </section>
-
-  <section class="section wrap" id="kontakt-kroki" data-step-label="03 · Co dzieje się po zgłoszeniu">
-    <div class="grid-3">
-      <article class="card card-mist reveal" style="min-height:0;">
-        <span class="mono">Co dzieje się po wysłaniu zgłoszenia</span>
-        <h3 class="h3">Trzy kroki do mapy procesów i ROI</h3>
-        <ol class="metrics-list" style="list-style:none;">
-          <li><strong>1. Potwierdzenie i krótka kwalifikacja (1 dzień rob.):</strong> sprawdzamy, na jakich systemach pracujecie (HRappka, nexo, TAXXO, CRM) i dobieramy zakres audytu.</li>
-          <li><strong>2. Warsztat i pomiar (3–5 dni rob.):</strong> przechodzimy z zespołem przez procesy i wyceniamy koszt Excela na Waszej stawce godziny.</li>
-          <li><strong>3. Raport ROI i decyzja:</strong> dostajecie plan z kolejnością wdrożenia. Macie 14 dni na pełny zwrot albo 30 dni na odliczenie 1 990 zł od wdrożenia.</li>
-        </ol>
-      </article>
-
-      <article class="card reveal" style="--d:70ms;min-height:0;">
-        <span class="mono">Kontakt bezpośredni (ścieżka zapasowa)</span>
-        <h3 class="h3">kontakt@revagy.pl</h3>
-        <p class="muted">Bezpośredni e-mail działa zawsze — również bez JavaScriptu. Dane rejestrowe: Dawid Skibicki, ul. Gabriela Narutowicza 7/7, 14-200 Iława, NIP 7441749535, REGON 389229155.</p>
-        <p class="muted">Przed rozpoczęciem prac na danych produkcyjnych przygotowujemy umowę powierzenia pod Waszą organizację.</p>
-      </article>
-
-      <article class="card reveal" style="--d:140ms;min-height:0;">
-        <span class="badge badge-p1" style="align-self:flex-start;border:1px solid var(--line);">Etap P1 · po uruchomieniu dyżuru</span>
-        <h3 class="h3">Telefon + kalendarz rezerwacji terminu</h3>
-        <p class="muted">Obietnicę szybkiej odpowiedzi telefonicznej (agent z bramką + właściciel) oraz moduł rezerwacji terminu w kalendarzu uruchomimy w etapie P1 wraz ze stałym dyżurem. Wiążące czasy reakcji w obsłudze wynikają wprost z wybranego pakietu (<a href="/oferta.html" style="text-decoration:underline;">Start, Scale lub Enterprise</a>).</p>
-      </article>
-    </div>
-  </section>
-
 </main>
 </BaseLayout>

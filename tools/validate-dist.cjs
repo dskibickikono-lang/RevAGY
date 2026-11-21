@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Walidator katalogu wynikowego (site/ lub dist/) dla strony REVAGY.
-   Sprawdza kompletność 45 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
+   Sprawdza kompletność 37 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
    sumy SHA-256 wszystkich 31 publicznych assetów, pełny kontrakt DOM/SEO z tools/dom-contract.json,
    dane strukturalne JSON-LD (jedyny dopuszczony blok <script> bez src, nie jest wykonywany)
    oraz pliki generowane przy buildzie: llms.txt i llms-full.txt.
@@ -662,21 +662,15 @@ function main() {
   }
 
   // Sprawdź każdą stronę HTML i pełny kontrakt DOM
-  const defaultPageScripts = ['/assets/js/app.js?v=3', '/assets/js/analytics.js?v=3'];
+  // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js wszędzie (podstrony ścieżką względną).
+  const defaultPageScripts = ['assets/js/analytics.js?v=4'];
   const expectedScripts = {
-    '404.html': ['/assets/js/analytics.js?v=3'],
-    'bezpieczenstwo.html': defaultPageScripts,
-    'dla-agencji-pracy.html': defaultPageScripts,
-    'dla-produkcji-i-magazynow.html': defaultPageScripts,
-    'index.html': defaultPageScripts,
+    '404.html': ['/assets/js/analytics.js?v=4'],
+    'index.html': ['assets/js/app.js?v=4', 'assets/js/analytics.js?v=4'],
     'kontakt.html': defaultPageScripts,
-    'oferta.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
-    'porownanie.html': defaultPageScripts,
-    'produkty/obieg-dokumentow.html': defaultPageScripts,
-    'realizacje.html': defaultPageScripts,
-    'realizacje/grupa-kono.html': defaultPageScripts,
   };
+
 
   for (const [pageRel, expectedDom] of Object.entries(contract.pages)) {
     const entry = actualMap.get(pageRel);
@@ -697,7 +691,7 @@ function main() {
       const formHash = crypto.createHash('sha256').update(normalizedForm).digest('hex');
       if (formHash !== contract.contactForm.htmlSha256) errors.push(`${pageRel}: formularz niezgodny z kontraktem HTML`);
       pageScripts = [contract.contactForm.script, ...pageScripts];
-      comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
+      comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/?assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
     }
     if (parsed.stylesCount > 0) errors.push(`${pageRel}: zawiera wygenerowany blok <style>`);
     if (parsed.astroAttrs.length > 0) errors.push(`${pageRel}: zawiera atrybuty Astro (${parsed.astroAttrs.slice(0, 5).join(', ')})`);
