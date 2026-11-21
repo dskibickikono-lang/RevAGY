@@ -1,0 +1,33 @@
+---
+// Pytania i odpowiedzi w znacznikach FAQ strony głównej (src/pages/index.astro:455-480).
+// Obsługę rozwijania daje istniejący app.js (selektor [data-faq] .qa).
+// Tę samą listę strona przekazuje do PodstronaLayout (właściwość `pytania`),
+// który buduje z niej FAQPage w danych strukturalnych. Dzięki temu oba miejsca są zgodne.
+
+interface Pytanie {
+  pytanie: string;
+  odpowiedz: string;
+}
+
+interface Props {
+  pytania: Pytanie[];
+  // Które pytanie jest otwarte na starcie (indeks od 0). -1: wszystkie zamknięte.
+  otwarte?: number;
+}
+
+const { pytania, otwarte = 0 } = Astro.props;
+if (!Array.isArray(pytania) || pytania.length === 0) throw new Error('Pytania: pusta lista pytań.');
+pytania.forEach((q, i) => {
+  if (!q || typeof q.pytanie !== 'string' || !q.pytanie.trim() || typeof q.odpowiedz !== 'string' || !q.odpowiedz.trim()) {
+    throw new Error(`Pytania: pozycja ${i + 1} musi mieć niepuste pola „pytanie” i „odpowiedz”.`);
+  }
+});
+---
+<div class="faq" data-faq>
+  {pytania.map((q, i) => (
+    <div class={i === otwarte ? 'qa is-open' : 'qa'}>
+      <h3><button type="button" aria-expanded={i === otwarte ? 'true' : 'false'} aria-controls={`qa-${i + 1}`} id={`qb-${i + 1}`}>{q.pytanie}<span class="plus" aria-hidden="true"></span></button></h3>
+      <div class="qa-body" id={`qa-${i + 1}`} role="region" aria-labelledby={`qb-${i + 1}`}><div><p>{q.odpowiedz}</p></div></div>
+    </div>
+  ))}
+</div>

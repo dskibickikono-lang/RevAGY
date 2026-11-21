@@ -1,0 +1,50 @@
+---
+// Opis wdrożenia (typ sekcji „dowód”). Treść anonimowa (sytuacja i wynik) idzie w slocie.
+// Elementy, które wprowadza właściciel (nazwa spółki, etykieta powiązania, skala, „jak mierzone”,
+// cytat, szczegóły techniczne), pochodzą wyłącznie z src/data/dowody.mjs
+// i pojawiają się tylko wtedy, gdy pole ma wartość (D-034).
+// Zdanie ujawnienia jest wspólne dla wszystkich opisów na stronie: wstaw je raz, komponentem
+// <Ujawnienie /> po ostatnim opisie.
+import { wdrozenie, maWartosc } from '../data/dowody.mjs';
+
+interface Props {
+  // Klucz w DOWODY.wdrozenia, np. 'agencja-pracy-umowy'.
+  id: string;
+  // Anonimowy opis firmy, np. 'Agencja pracy'.
+  tytul: string;
+}
+
+const { id, tytul } = Astro.props;
+const w = wdrozenie(id);
+const podpis = [w.nazwaSpolki, w.etykietaPowiazania, w.skala].filter(maWartosc).join(' · ');
+const cytat = maWartosc(w.cytat) && maWartosc(w.cytat.tresc) && maWartosc(w.cytat.osoba) ? w.cytat : null;
+const szczegoly = Array.isArray(w.szczegolyTechniczne) && w.szczegolyTechniczne.length > 0
+  && w.szczegolyTechniczne.every((r) => maWartosc(r.kategoria) && maWartosc(r.droga) && maWartosc(r.kierunek))
+  ? w.szczegolyTechniczne
+  : null;
+---
+<article class="trust dowod reveal">
+  <h3 class="h3">{tytul}</h3>
+  {podpis && <p class="autor">{podpis}</p>}
+  <slot />
+  {maWartosc(w.jakMierzone) && <p class="autor">Jak mierzone: {w.jakMierzone}</p>}
+  {cytat && (
+    <blockquote>
+      <p>„{cytat.tresc}”</p>
+      <p class="autor">{maWartosc(cytat.rola) ? `${cytat.osoba}, ${cytat.rola}` : cytat.osoba}</p>
+    </blockquote>
+  )}
+  {szczegoly && (
+    <details>
+      <summary>Szczegóły techniczne</summary>
+      <div class="doc-table">
+        <table>
+          <thead><tr><th scope="col">Kategoria systemu</th><th scope="col">Droga łączenia</th><th scope="col">Kierunek danych</th></tr></thead>
+          <tbody>
+            {szczegoly.map((r) => (<tr><td>{r.kategoria}</td><td>{r.droga}</td><td>{r.kierunek}</td></tr>))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  )}
+</article>
