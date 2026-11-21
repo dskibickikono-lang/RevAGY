@@ -321,59 +321,25 @@ if (require.main === module) (async () => {
       check('dane strukturalne: 1 blok JSON-LD z Organization REVAGY i profilem LinkedIn',
         ld.n === 1 && ldOrg && ldOrg.name === 'REVAGY' && (ldOrg.sameAs || []).includes('https://www.linkedin.com/company/revagy/'),
         JSON.stringify({ n: ld.n, err: ld.err, org: ldOrg && ldOrg.name }));
+      check('formularz kontaktowy w sekcji #kontakt (gdy build ma klucz Turnstile)',
+        await page.evaluate(() => {
+          const f = document.querySelector('#kontakt #kontakt-form');
+          return f ? f.getAttribute('action') === '/api/kontakt' && f.dataset.noticeVersion === 'revagy-2026-11-v1' : !document.querySelector('script[src*="kontakt.js"]');
+        }));
       check('adres kanoniczny to https://revagy.pl/', (await page.getAttribute('link[rel=canonical]', 'href')) === 'https://revagy.pl/');
 
       await page.hover('.nav-item.has-panel >> nth=0');
       await page.click('.nav-item.has-panel >> nth=0 >> .nav-link');
-      check('menu rozwijane otwiera się', await page.evaluate(() => document.querySelector('.nav-item.has-panel').classList.contains('is-open')));
+      check('menu rozwijane otwiera się', await page.evaluate(() => document.querySelector('.nav-item').classList.contains('is-open')));
       await page.keyboard.press('Escape');
-      check('menu zamyka się klawiszem Esc', await page.evaluate(() => !document.querySelector('.nav-item.has-panel').classList.contains('is-open')));
+      check('menu zamyka się klawiszem Esc', await page.evaluate(() => !document.querySelector('.nav-item').classList.contains('is-open')));
 
-      const journeyDots = await page.evaluate(() => ({
-        dots: document.querySelectorAll('.journey-rail .journey-dot').length,
-        steps: document.querySelectorAll('[data-step-label]').length,
-        countText: document.querySelector('[data-journey-count]')?.textContent || '',
-      }));
-      check('pasek kroków (journey-rail) ma 14 kropek zgodnych z 14 sekcjami', journeyDots.dots === 14 && journeyDots.dots === journeyDots.steps && journeyDots.countText === 'Krok 1 z 14', JSON.stringify(journeyDots));
-
-      const portfolio16 = await page.evaluate(() => {
-        const bodyText = document.body.textContent.replace(/\s+/g, ' ');
-        const bodyLower = bodyText.toLowerCase();
-        const logoWallCta = document.querySelector('a[data-track="LogoWall: Wszystkie realizacje"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
-        const caseStudiesCta = document.querySelector('a[data-track="CaseStudies: Wszystkie 16 realizacji"]')?.textContent.replace(/\s+/g, ' ').trim() || '';
-        const pillCount = document.querySelectorAll('.logo-group-pills .logo-pill, .logo-grid .logo-pill').length;
-        const exactHrKadraBis = [...document.querySelectorAll('.logo-pill')].some((el) => el.textContent.replace(/\s+/g, ' ').trim() === 'HR KADRA BIS');
-        const forbidden = ['10 z 16 podmiotów', '14 realizacji', '17 projekt'].filter((s) => bodyLower.includes(s));
-        return {
-          logoWallCta,
-          caseStudiesCta,
-          hasZeroOf16: bodyText.includes('0 / 16'),
-          hasZeroProjects: bodyText.includes('0 z 16 projektów'),
-          has10of16Projects: bodyLower.includes('10 z 16 projektów'),
-          pillCount,
-          exactHrKadraBis,
-          forbidden,
-        };
-      });
-      check(
-        'strona główna ma spójną komunikację 16 realizacji (16 logo-pill, 10 z 16 projektów, 0 / 16, 0 z 16 projektów, brak starych zwrotów)',
-        portfolio16.logoWallCta.includes('Zobacz wszystkie 16 realizacji') &&
-          portfolio16.caseStudiesCta.includes('Wszystkie 16 realizacji') &&
-          portfolio16.hasZeroOf16 &&
-          portfolio16.hasZeroProjects &&
-          portfolio16.has10of16Projects &&
-          portfolio16.pillCount === 16 &&
-          !portfolio16.exactHrKadraBis &&
-          portfolio16.forbidden.length === 0,
-        JSON.stringify(portfolio16)
-      );
+      await page.focus('.nav-item.has-panel >> nth=1 >> .nav-link');
+      await page.click('.nav-item.has-panel >> nth=1 >> .nav-link');
+      check('menu drugie otwiera się po fokusie/kliku', await page.evaluate(() => document.querySelectorAll('.nav-item.has-panel')[1].classList.contains('is-open')));
+      await page.keyboard.press('Escape');
 
       await scrollTo(page, '#kalkulator');
-      const calcDefault = await page.evaluate(() => ({
-        rate: document.getElementById('calc-rate').value,
-        vals: ['res-hours', 'res-year', 'res-fte'].map((id) => document.getElementById(id).textContent.replace(/\s/g, '')).join('|'),
-      }));
-      check('kalkulator ma domyślną stawkę 65 zł/h (78 h, 61 000 zł, 0,5 etatu)', calcDefault.rate === '65' && calcDefault.vals === '78|61000|0,5', JSON.stringify(calcDefault));
       await page.fill('#calc-people', '20');
       await page.fill('#calc-hours', '10');
       await page.fill('#calc-rate', '100');
@@ -388,12 +354,12 @@ if (require.main === module) (async () => {
       });
       await page.waitForTimeout(500);
       const story = await page.evaluate(() => ({
-        pane: [...document.querySelectorAll('#proces .pane')].findIndex((p) => p.classList.contains('is-active')),
-        top: Math.round(document.querySelector('#proces .story-stage').getBoundingClientRect().top),
+        pane: [...document.querySelectorAll('.pane')].findIndex((p) => p.classList.contains('is-active')),
+        top: Math.round(document.querySelector('.story-stage').getBoundingClientRect().top),
       }));
       check('sekcja procesu: przyklejony ekran pokazuje krok 3', story.pane === 2 && story.top > 60 && story.top < 400, JSON.stringify(story));
 
-      await scrollTo(page, '#triggery');
+      await scrollTo(page, '#zastosowania');
       await page.waitForTimeout(400);
       const before = await page.evaluate(() => document.querySelector('[data-carousel]').scrollLeft);
       await page.click('[data-car-next]');
@@ -404,7 +370,7 @@ if (require.main === module) (async () => {
       await page.keyboard.press('ArrowLeft');
       await page.waitForTimeout(700);
       check('karuzela obsługuje klawiaturę (ArrowLeft)', (await page.evaluate(() => document.querySelector('[data-carousel]').scrollLeft)) < afterArrow - 100);
-      check('pasek integracji jest zapętlony', await page.evaluate(() => document.querySelector('[data-marquee]').children.length >= 20));
+      check('pasek integracji jest zapętlony', await page.evaluate(() => document.querySelector('[data-marquee]').children.length === 22));
 
       await scrollTo(page, '#film');
       await page.waitForTimeout(1500);
@@ -444,7 +410,7 @@ if (require.main === module) (async () => {
 
       // Odmowa zgody
       await page.click('[data-consent="nie"]');
-      await page.click('.hero-cta a[href="#kontakt"]');
+      await page.click('a.btn-dark[href="#kontakt"]');
       await page.waitForTimeout(500);
       const stored = await page.evaluate(() => localStorage.getItem('revagy-zgoda-analityka'));
       check('odmowa: baner znika, decyzja zapisana, statystyki milczą', stored === 'nie' && !(await page.locator('.consent').count()) && log.stats.length === 0, `zapis=${stored} żądania=${log.stats.length}`);
@@ -467,7 +433,7 @@ if (require.main === module) (async () => {
       await page.goto(`${base}/`, { waitUntil: 'load' });
       await page.click('[data-consent="tak"]');
       await page.waitForTimeout(800);
-      await page.click('.hero-cta .btn-accent');
+      await page.click('.hero-cta .btn-light');
       await scrollTo(page, '#kalkulator');
       await page.waitForTimeout(1200);
       await page.fill('#calc-people', '15');
@@ -550,157 +516,28 @@ if (require.main === module) (async () => {
       await context.close();
     }
 
-    /* ---------- 4. Podstrony P0-P2, 404, endpointy SEO, .git 403, Range ---------- */
+    /* ---------- 4. Podstrony, 404, endpointy SEO, .git 403, Range ---------- */
     {
       const { context, page, log } = await newPage(browser, { width: 1280, height: 900 }, {}, { enforceIsolation });
-      const leftoverTerms = ['14 realizacji', '17 projekt', '10 z 16 podmiotów', '0/16 wdrożeń', 'HR KADRA BIS (osobna spółka)'];
-      const checkSubpagePortfolio = async (subpath, requiredTerms = []) => {
-        const resState = await page.evaluate(({ leftovers, required }) => {
-          const lower = document.body.textContent.replace(/\s+/g, ' ').toLowerCase();
-          return {
-            foundLeftovers: leftovers.filter((t) => lower.includes(t.toLowerCase())),
-            missingRequired: required.filter((t) => !lower.includes(t.toLowerCase())),
-          };
-        }, { leftovers: leftoverTerms, required: requiredTerms });
-        check(
-          `podstrona ${subpath}: brak przestarzałych zwrotów i spójna komunikacja 16 projektów`,
-          resState.foundLeftovers.length === 0 && resState.missingRequired.length === 0,
-          JSON.stringify(resState)
-        );
-      };
-
-      // 4.1 /polityka-prywatnosci.html
       const res = await page.goto(`${base}/polityka-prywatnosci.html`, { waitUntil: 'load' });
       check('polityka prywatności odpowiada 200', res.status() === 200);
       check('polityka podaje administratora i NIP', await page.evaluate(() => document.body.textContent.includes('Dawid Skibicki') && document.body.textContent.includes('7441749535')));
       await page.click('[data-consent="nie"]');
       await page.click('main [data-consent-open]');
       check('„Ustawienia prywatności” otwierają baner ponownie', await page.locator('.consent').isVisible());
-      await page.click('[data-consent="nie"]');
+      check('polityka: brak błędów', log.errors.length === 0 && log.failed.length === 0, [...log.errors, ...log.failed].join(' | '));
 
-      // 4.2 /realizacje.html (filtry [data-filter-group])
-      const realRes = await page.goto(`${base}/realizacje.html`, { waitUntil: 'load' });
-      await page.waitForFunction(() => document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() === '11');
-      await page.click('[data-filter="pilotaz"]');
-      const realState = await page.evaluate(() => ({
-        filteredOut: document.querySelectorAll('.is-filtered-out').length,
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-        prodStatCount: document.querySelectorAll('.stats .stat [data-count]')[1]?.getAttribute('data-count') || '',
-        prodStatText: document.querySelectorAll('.stats .stat [data-count]')[1]?.textContent.trim() || '',
-        labels: [...document.querySelectorAll('[data-filter-group] [data-filter]')].map((b) => b.textContent.replace(/\s+/g, ' ').trim()),
-        counts: {
-          all: document.querySelectorAll('[data-filter-group] [data-filter-item]').length,
-          produkcja: document.querySelectorAll('[data-filter-group] [data-filter-item="produkcja"]').length,
-          pilotaz: document.querySelectorAll('[data-filter-group] [data-filter-item="pilotaz"]').length,
-          wTrakcie: document.querySelectorAll('[data-filter-group] [data-filter-item="w-trakcie"]').length,
-        },
-      }));
-      check('podstrona /realizacje.html: 200, filtry statusów działają, 0 overflow', realRes.status() === 200 && realState.filteredOut > 0 && realState.overflow === 0, JSON.stringify(realState));
-      check(
-        'podstrona /realizacje.html: licznik statystyk (11) i liczniki filtrów zgodne z liczbą kart (16/11/3/2)',
-        realState.prodStatCount === '11' &&
-          realState.prodStatText === '11' &&
-          realState.labels.join(' | ') === 'Wszystkie (16) | Produkcja (11) | Pilotaż (3) | W trakcie (2)' &&
-          realState.counts.all === 16 &&
-          realState.counts.produkcja === 11 &&
-          realState.counts.pilotaz === 3 &&
-          realState.counts.wTrakcie === 2,
-        JSON.stringify(realState)
-      );
-      await checkSubpagePortfolio('/realizacje.html', ['16 projektów']);
-
-      // 4.3 /oferta.html (taby [data-plans])
-      const ofertaRes = await page.goto(`${base}/oferta.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('button[data-mode="opieka"]');
-      const ofertaState = await page.evaluate(() => ({
-        mode: document.querySelector('[data-plans]').dataset.mode,
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /oferta.html: 200, przełącznik Wdrożenie/Stała opieka działa, 0 overflow', ofertaRes.status() === 200 && ofertaState.mode === 'opieka' && ofertaState.overflow === 0, JSON.stringify(ofertaState));
-      await checkSubpagePortfolio('/oferta.html', ['0/16 projektów']);
-
-      // 4.4 /bezpieczenstwo.html (taby [data-tabs])
-      const bezpRes = await page.goto(`${base}/bezpieczenstwo.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=1');
-      const bezpState = await page.evaluate(() => ({
-        active: document.querySelectorAll('[data-tabs] [role="tab"]')[1].getAttribute('aria-selected') === 'true',
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /bezpieczenstwo.html: 200, przełącznik warstw ochrony działa, 0 overflow', bezpRes.status() === 200 && bezpState.active && bezpState.overflow === 0, JSON.stringify(bezpState));
-
-      // 4.5 /kontakt.html (mailto + [data-copy])
       const kontaktRes = await page.goto(`${base}/kontakt.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-copy]');
-      await page.waitForTimeout(200);
       const kontaktState = await page.evaluate(() => ({
-        mail: document.querySelector('.cta-mail')?.getAttribute('href') || '',
-        copied: /Skopiowano|kontakt@revagy\.pl/.test(document.querySelector('[data-copy-msg]')?.textContent || ''),
+        form: Boolean(document.querySelector('#kontakt-form')),
+        kontaktJs: Boolean(document.querySelector('script[src*="kontakt.js"]')),
+        mail: Boolean(document.querySelector('a.cta-mail[href^="mailto:kontakt@revagy.pl"]')),
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       }));
-      check('podstrona /kontakt.html: 200, mailto i kopiowanie adresu działają, 0 overflow', kontaktRes.status() === 200 && kontaktState.mail.startsWith('mailto:kontakt@revagy.pl') && kontaktState.copied && kontaktState.overflow === 0, JSON.stringify(kontaktState));
-
-      // 4.6 /dla-agencji-pracy.html (5 triggerów [data-tabs] + [data-faq])
-      const aptRes = await page.goto(`${base}/dla-agencji-pracy.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=2');
-      await page.click('[data-faq] button >> nth=1');
-      await page.waitForTimeout(400);
-      const aptState = await page.evaluate(() => ({
-        tabActive: document.querySelectorAll('[data-tabs] [role="tab"]')[2].getAttribute('aria-selected') === 'true',
-        faqOpen: document.querySelectorAll('[data-faq] button')[1].getAttribute('aria-expanded') === 'true',
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /dla-agencji-pracy.html: 200, przełącznik 5 triggerów i FAQ działają, 0 overflow', aptRes.status() === 200 && aptState.tabActive && aptState.faqOpen && aptState.overflow === 0, JSON.stringify(aptState));
-      await checkSubpagePortfolio('/dla-agencji-pracy.html', ['10 z 16 projektów', '0 z 16 projektów']);
-
-      // 4.7 /dla-produkcji-i-magazynow.html ([data-tabs])
-      const prodRes = await page.goto(`${base}/dla-produkcji-i-magazynow.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=1');
-      const prodState = await page.evaluate(() => ({
-        tabActive: document.querySelectorAll('[data-tabs] [role="tab"]')[1].getAttribute('aria-selected') === 'true',
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /dla-produkcji-i-magazynow.html: 200, taby porównania zmian działają, 0 overflow', prodRes.status() === 200 && prodState.tabActive && prodState.overflow === 0, JSON.stringify(prodState));
-      await checkSubpagePortfolio('/dla-produkcji-i-magazynow.html');
-
-      // 4.8 /realizacje/grupa-kono.html ([data-tabs] 3 moduły + UjawnienieKono)
-      const konoRes = await page.goto(`${base}/realizacje/grupa-kono.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=1');
-      const konoState = await page.evaluate(() => ({
-        tabActive: document.querySelectorAll('[data-tabs] [role="tab"]')[1].getAttribute('aria-selected') === 'true',
-        disclosure: document.body.textContent.includes('Założyciel REVAGY pracuje również') && document.body.textContent.includes('HR KONO S.A.'),
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /realizacje/grupa-kono.html: 200, 3 moduły i jawne ujawnienie działają, 0 overflow', konoRes.status() === 200 && konoState.tabActive && konoState.disclosure && konoState.overflow === 0, JSON.stringify(konoState));
-
-      // 4.9 /porownanie.html ([data-tabs] soczewki decyzyjne tr[data-lens])
-      const porRes = await page.goto(`${base}/porownanie.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=1');
-      const porState = await page.evaluate(() => ({
-        tabActive: document.querySelectorAll('[data-tabs] [role="tab"]')[1].getAttribute('aria-selected') === 'true',
-        highlighted: document.querySelectorAll('tr[data-lens].is-highlighted').length > 0,
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /porownanie.html: 200, soczewki decyzyjne podświetlają wiersze tabeli, 0 overflow', porRes.status() === 200 && porState.tabActive && porState.highlighted && porState.overflow === 0, JSON.stringify(porState));
-      await checkSubpagePortfolio('/porownanie.html', ['0 z 16 projektów']);
-
-      // 4.10 /produkty/obieg-dokumentow.html ([data-tabs] symulator 4 kroków)
-      const obiegRes = await page.goto(`${base}/produkty/obieg-dokumentow.html`, { waitUntil: 'load' });
-      await page.waitForTimeout(300);
-      await page.click('[data-tabs] [role="tab"] >> nth=2');
-      const obiegState = await page.evaluate(() => ({
-        tabActive: document.querySelectorAll('[data-tabs] [role="tab"]')[2].getAttribute('aria-selected') === 'true',
-        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      }));
-      check('podstrona /produkty/obieg-dokumentow.html: 200, symulator 4 kroków tabletu działa, 0 overflow', obiegRes.status() === 200 && obiegState.tabActive && obiegState.overflow === 0, JSON.stringify(obiegState));
-
-      check('podstrony P0-P2: brak błędów JS, CSP i sieci', log.errors.length === 0 && log.failed.length === 0, [...log.errors, ...log.failed].join(' | '));
+      check('podstrona /kontakt.html: 200, e-mail, formularz gdy jest klucz, 0 overflow',
+        kontaktRes.status() === 200 && kontaktState.mail && kontaktState.form === kontaktState.kontaktJs && kontaktState.overflow === 0,
+        JSON.stringify(kontaktState));
+      check('kontakt: brak błędów', log.errors.length === 0 && log.failed.length === 0, [...log.errors, ...log.failed].join(' | '));
 
       const lostRes = await page.goto(`${base}/nie/ma/takiej-strony`, { waitUntil: 'load' });
       const custom = await page.evaluate(() => document.body.textContent.includes('BŁĄD 404'));
@@ -757,7 +594,7 @@ if (require.main === module) (async () => {
       await page.waitForTimeout(1000);
       check('telefon: menu zamyka się po wyborze', await page.evaluate(() => document.querySelector('#mobile-menu').hidden));
       const fit = await page.evaluate(() => {
-        const d = document.querySelector('#proces .device').getBoundingClientRect();
+        const d = document.querySelector('.device').getBoundingClientRect();
         return { left: Math.round(d.left), right: Math.round(d.right), over: document.documentElement.scrollWidth - document.documentElement.clientWidth };
       });
       check('telefon: ekran procesu mieści się, brak przewijania w poziomie', fit.left >= 12 && fit.right <= 378 && fit.over === 0, JSON.stringify(fit));

@@ -378,7 +378,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     const subpageTouch = await setup();
     subpageTouch.state.code = 202;
     subpageTouch.state.data = { ok: true, lead_id: leadId };
-    await subpageTouch.page.goto(harness.tlsBase + '/dla-agencji-pracy.html?utm_source=subpage_landing&utm_campaign=hr');
+    await subpageTouch.page.goto(harness.tlsBase + '/?utm_source=subpage_landing&utm_campaign=hr');
     await subpageTouch.page.goto(harness.tlsBase + '/kontakt.html');
     await subpageTouch.page.locator('#kontakt-name').fill('Osoba Testowa');
     await subpageTouch.page.locator('#kontakt-email').fill('test@example.com');
@@ -389,7 +389,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(subpageTouch.requests.length, 1);
     assert.equal(subpageTouch.requests[0].body.utm_source, 'subpage_landing');
     assert.equal(subpageTouch.requests[0].body.utm_campaign, 'hr');
-    assert.equal(subpageTouch.requests[0].body.landing_path, '/dla-agencji-pracy.html');
+    assert.equal(subpageTouch.requests[0].body.landing_path, '/');
     assert.equal(subpageTouch.requests[0].body.company, 'Firma Testowa');
     const privateTab = await setup();
     await privateTab.context.addInitScript(() => { Storage.prototype.setItem = () => { throw new Error('Test zablokowanej pamięci'); }; });
