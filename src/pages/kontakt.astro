@@ -4,7 +4,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
 ---
 <BaseLayout
   title="Kontakt — REVAGY"
-  description="Napisz do REVAGY ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu automatyzacji procesów."
+  description="Napisz do REVAGY ze służbowej skrzynki. Wrócimy z terminem bezpłatnej konsultacji jednego procesu."
   canonical="https://revagy.pl/kontakt.html"
   variant="subpage"
   hasForm={Boolean(TURNSTILE_SITEKEY)}
@@ -15,7 +15,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
         <h1 class="display-2">Sprawdź, co w Twojej firmie może robić się samo</h1>
-        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.</p>
+        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnej konsultacji.</p>
         {TURNSTILE_SITEKEY && (
           <form id="kontakt-form" class="kontakt-form" action="/api/kontakt" method="post" novalidate data-notice-version={KONTAKT_NOTICE.version} data-sitekey={TURNSTILE_SITEKEY}>
             <p class="kontakt-help">Pola oznaczone „wymagane” trzeba uzupełnić.</p>
@@ -44,7 +44,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
                 <label for="kontakt-topic">Temat (wymagane)</label>
                 <select id="kontakt-topic" name="topic" required aria-required="true" aria-describedby="kontakt-topic-error" aria-invalid="false">
                   <option value="">Wybierz temat</option>
-                  <option value="audyt">Audyt automatyzacji</option>
+                  <option value="audyt">Konsultacja jednego procesu</option>
                   <option value="wdrozenie">Wdrożenie</option>
                   <option value="kalkulator-roi">Kalkulator zwrotu (ROI)</option>
                   <option value="inne">Inne</option>
@@ -82,8 +82,8 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           </form>
         )}
         <div class="cta-form">
-          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="Kontakt E-mail: adres">kontakt@revagy.pl</a>
-          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="Kontakt E-mail: Umów audyt">Umów audyt</a>
+          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja" data-track="Kontakt E-mail: adres">kontakt@revagy.pl</a>
+          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja" data-track="Kontakt E-mail: Umów konsultację">Umów konsultację</a>
         </div>
       </div>
     </div>

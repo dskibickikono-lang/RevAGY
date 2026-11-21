@@ -4,7 +4,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
 ---
 <BaseLayout
   title="REVAGY — automatyzacja i AI dla firm B2B"
-  description="REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu."
+  description="REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Zacznij od bezpłatnej konsultacji jednego procesu."
   canonical="https://revagy.pl/"
   variant="home"
   hasForm={Boolean(TURNSTILE_SITEKEY)}
@@ -27,7 +27,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
         <h1 class="display load-in" style="--d:80ms">Procesy, które robią się same</h1>
         <p class="hero-lead load-in" style="--d:160ms">Łączymy Twój CRM, ERP i skrzynki w jeden obieg, a powtarzalną pracę oddajemy agentom AI. Zespół zajmuje się klientami, nie przepisywaniem danych.</p>
         <div class="hero-cta load-in" style="--d:240ms">
-          <a class="btn btn-light btn-lg" href="#kontakt">Umów bezpłatny audyt</a>
+          <a class="btn btn-light btn-lg" href="#kontakt">Umów bezpłatną konsultację</a>
           <a class="btn btn-glass btn-lg" href="#film">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor"/></svg>
             Zobacz agenta w akcji
@@ -51,15 +51,15 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
   <section class="stats wrap" aria-label="REVAGY w liczbach">
     <div class="stat reveal">
       <p class="stat-num"><span data-count="14">14</span> dni</p>
-      <p class="stat-label">do pierwszej działającej automatyzacji</p>
+      <p class="stat-label">roboczych od dostępu do systemów do pierwszej automatyzacji</p>
     </div>
     <div class="stat reveal" style="--d:70ms">
-      <p class="stat-num"><span data-count="120">120</span>+</p>
-      <p class="stat-label">systemów, które łączymy bez wymiany tego, co już masz</p>
+      <p class="stat-num"><span data-count="3">3</span> drogi</p>
+      <p class="stat-label">łączenia systemów: interfejs API, wymiana plików albo baza danych</p>
     </div>
     <div class="stat reveal" style="--d:140ms">
-      <p class="stat-num"><span data-count="60">60</span>%</p>
-      <p class="stat-label">powtarzalnej pracy biurowej da się oddać automatom</p>
+      <p class="stat-num"><span data-count="25">25</span> min</p>
+      <p class="stat-label">trwa bezpłatna konsultacja jednego procesu</p>
     </div>
     <div class="stat reveal" style="--d:210ms">
       <p class="stat-num"><span data-count="24">24</span>/7</p>
@@ -85,7 +85,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           <div class="pipe-col"><span class="pipe-title">Zakwalifikowane</span><i></i></div>
           <div class="pipe-col"><span class="pipe-title">Oferta</span><i></i></div>
           <div class="pipe-card">
-            <span class="pc-name">Stalmet Sp. z o.o.</span>
+            <span class="pc-name">POLPACK Sp. z o.o.</span>
             <span class="pc-meta">240 szt. · B2B · PL</span>
             <span class="pc-badges"><em class="b1">nowy</em><em class="b2">ocena 87</em><em class="b3">oferta</em></span>
           </div>
@@ -158,8 +158,8 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           <input type="range" id="calc-hours" min="1" max="30" step="1" value="6">
         </div>
         <div class="field">
-          <label for="calc-rate">Koszt godziny pracy <output id="out-rate" for="calc-rate">85 zł</output></label>
-          <input type="range" id="calc-rate" min="40" max="250" step="5" value="85">
+          <label for="calc-rate">Koszt godziny pracy <output id="out-rate" for="calc-rate">65 zł</output></label>
+          <input type="range" id="calc-rate" min="40" max="250" step="5" value="65">
         </div>
 
         <fieldset class="seg" aria-label="Zakres automatyzacji">
@@ -178,10 +178,10 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           <div class="bar-row"><span>Po wdrożeniu</span><div class="bar"><i id="bar-after" class="hot" style="width:40%"></i></div><b id="lab-after">83 h</b></div>
         </div>
         <div class="calc-split">
-          <div><p class="calc-kicker">Oszczędność w roku</p><p class="calc-mid"><span id="res-year">127 000</span> zł</p></div>
+          <div><p class="calc-kicker">Wartość odzyskanego czasu w roku</p><p class="calc-mid"><span id="res-year">97 000</span> zł</p></div>
           <div><p class="calc-kicker">To tyle, co</p><p class="calc-mid"><span id="res-fte">0,8</span> etatu</p></div>
         </div>
-        <a class="btn btn-light btn-lg" href="#kontakt">Sprawdź to w audycie</a>
+        <a class="btn btn-light btn-lg" href="#kontakt">Sprawdź to na konsultacji</a>
         <p class="fineprint">Wzór: osoby × godziny × 4,33 tygodnia × udział automatyzacji. Etat liczony jako 160 h miesięcznie.</p>
       </div>
     </div>
@@ -213,7 +213,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
             <span class="step-no">Krok 3</span>
             <h3 class="h3">Wdrożenie i integracje</h3>
             <p>Budujemy w dwutygodniowych sprintach. Po każdym sprincie coś działa na produkcji, a zespół dostaje krótkie szkolenie.</p>
-            <p class="step-meta">Pierwsza automatyzacja: do 14 dni</p>
+            <p class="step-meta">Pierwsza automatyzacja: 14 dni roboczych od dostępu do systemów</p>
           </li>
           <li class="story-step" data-step="3">
             <span class="step-no">Krok 4</span>
@@ -398,7 +398,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
         <p class="plan-for">Dla firm, które chcą sprawdzić automatyzację na jednym procesie.</p>
         <p class="plan-price">Wycena po audycie</p>
         <ul class="ticks m-projekt"><li>Audyt jednego obszaru</li><li>1 proces zautomatyzowany od początku do końca</li><li>Do 3 integracji</li><li>Szkolenie zespołu</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring przepływów w dni robocze</li><li>Poprawki i drobne zmiany</li><li>Raport kwartalny</li><li>Reakcja do 1 dnia roboczego</li></ul>
+        <ul class="ticks m-opieka"><li>Monitoring przepływów w dni robocze</li><li>Poprawki i drobne zmiany</li><li>Raport kwartalny</li><li>Czas reakcji zapisany w umowie</li></ul>
         <a class="btn btn-outline" href="#kontakt">Zapytaj o Start</a>
       </article>
       <article class="plan plan-featured reveal" style="--d:80ms">
@@ -407,7 +407,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
         <p class="plan-for">Dla zespołów, które chcą zautomatyzować cały dział.</p>
         <p class="plan-price">Wycena po audycie</p>
         <ul class="ticks m-projekt"><li>Audyt działu z mapą procesów</li><li>Do 5 procesów i agent AI</li><li>Integracje CRM, ERP i poczty</li><li>Pulpit zarządczy</li><li>Sprinty co 2 tygodnie</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring 7 dni w tygodniu</li><li>Rozwój: nowe przepływy co miesiąc</li><li>Raport miesięczny z liczbami</li><li>Reakcja do 4 godzin</li><li>Stały opiekun</li></ul>
+        <ul class="ticks m-opieka"><li>Monitoring przepływów z alertami</li><li>Rozwój: nowe przepływy co miesiąc</li><li>Raport miesięczny z liczbami</li><li>Krótszy czas reakcji, zapisany w umowie</li><li>Stały opiekun</li></ul>
         <a class="btn btn-accent" href="#kontakt">Zapytaj o Scale</a>
       </article>
       <article class="plan reveal" style="--d:160ms">
@@ -415,7 +415,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
         <p class="plan-for">Dla organizacji z wieloma spółkami, działami i systemami.</p>
         <p class="plan-price">Wycena indywidualna</p>
         <ul class="ticks m-projekt"><li>Audyt całej organizacji</li><li>Program wdrożeń z kamieniami milowymi</li><li>Agenci AI na własnych danych</li><li>Wdrożenie w Waszej chmurze</li><li>Przegląd bezpieczeństwa</li></ul>
-        <ul class="ticks m-opieka"><li>Monitoring całodobowy</li><li>Dedykowany zespół</li><li>Gwarantowane czasy reakcji w umowie</li><li>Kwartalny przegląd z zarządem</li><li>Testy po każdej zmianie systemów</li></ul>
+        <ul class="ticks m-opieka"><li>Monitoring w zakresie ustalonym w umowie</li><li>Dedykowany zespół</li><li>Gwarantowane czasy reakcji w umowie</li><li>Kwartalny przegląd z zarządem</li><li>Testy po każdej zmianie systemów</li></ul>
         <a class="btn btn-outline" href="#kontakt">Porozmawiajmy</a>
       </article>
     </div>
@@ -431,7 +431,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       <article class="trust reveal">
         <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 6 9v10c0 8.4 5.8 14.6 14 17 8.2-2.4 14-8.6 14-17V9z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="m14 20 4.5 4.5L27 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 class="h4">Zgodność z RODO</h3>
-        <p>Umowa powierzenia danych, przetwarzanie w Unii Europejskiej i minimalny zakres dostępu dla każdej integracji.</p>
+        <p>Umowę powierzenia przygotowujemy pod Waszą organizację. Każda integracja dostaje minimalny zakres dostępu.</p>
       </article>
       <article class="trust reveal" style="--d:80ms">
         <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M6 35a14 14 0 0 1 28 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
@@ -450,7 +450,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
   <section class="section wrap faq-section" id="faq">
     <header class="section-head left reveal">
       <h2 class="h2">Najczęstsze pytania</h2>
-      <p class="lead">Nie ma tu Twojego? Zadaj je na audycie, jest bezpłatny.</p>
+      <p class="lead">Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.</p>
     </header>
     <div class="faq" data-faq>
       <div class="qa is-open">
@@ -463,7 +463,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false" aria-controls="qa-3" id="qb-3">Ile trwa wdrożenie?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-3" role="region" aria-labelledby="qb-3"><div><p>Pierwsza automatyzacja działa zwykle w ciągu 14 dni od audytu. Wdrożenie dla całego działu to najczęściej 6–10 tygodni, prowadzone w dwutygodniowych sprintach.</p></div></div>
+        <div class="qa-body" id="qa-3" role="region" aria-labelledby="qb-3"><div><p>Pierwsza automatyzacja działa po 14 dniach roboczych od dnia, w którym mamy dostęp do systemów. Wdrożenie dla całego działu to najczęściej 6–10 tygodni, prowadzone w dwutygodniowych sprintach.</p></div></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false" aria-controls="qa-4" id="qb-4">Co się dzieje, gdy agent AI się pomyli?<span class="plus" aria-hidden="true"></span></button></h3>
@@ -471,11 +471,11 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false" aria-controls="qa-5" id="qb-5">Gdzie przetwarzane są nasze dane?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-5" role="region" aria-labelledby="qb-5"><div><p>W Unii Europejskiej, na podstawie umowy powierzenia. W pakiecie Enterprise wdrażamy rozwiązanie w Waszej chmurze lub na Waszych serwerach.</p></div></div>
+        <div class="qa-body" id="qa-5" role="region" aria-labelledby="qb-5"><div><p>Umowę powierzenia przygotowujemy pod Waszą organizację przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.</p></div></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false" aria-controls="qa-6" id="qb-6">Ile kosztuje audyt?<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="qa-body" id="qa-6" role="region" aria-labelledby="qb-6"><div><p>Pierwsza rozmowa i wstępny audyt są bezpłatne. Kończą się listą procesów z szacunkiem godzin do odzyskania, którą możecie wykorzystać także bez nas.</p></div></div>
+        <div class="qa-body" id="qa-6" role="region" aria-labelledby="qb-6"><div><p>Konsultacja jednego procesu trwa 25 minut i jest bezpłatna. Dostajecie po niej jednostronicową kartę procesu. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie.</p></div></div>
       </div>
     </div>
   </section>
@@ -486,7 +486,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
         <h2 class="display-2">Sprawdź, co w Twojej firmie może robić się samo</h2>
-        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.</p>
+        <p class="lead">Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnej konsultacji.</p>
         {TURNSTILE_SITEKEY && (
           <form id="kontakt-form" class="kontakt-form" action="/api/kontakt" method="post" novalidate data-notice-version={KONTAKT_NOTICE.version} data-sitekey={TURNSTILE_SITEKEY}>
             <p class="kontakt-help">Pola oznaczone „wymagane” trzeba uzupełnić.</p>
@@ -515,7 +515,7 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
                 <label for="kontakt-topic">Temat (wymagane)</label>
                 <select id="kontakt-topic" name="topic" required aria-required="true" aria-describedby="kontakt-topic-error" aria-invalid="false">
                   <option value="">Wybierz temat</option>
-                  <option value="audyt">Audyt automatyzacji</option>
+                  <option value="audyt">Konsultacja jednego procesu</option>
                   <option value="wdrozenie">Wdrożenie</option>
                   <option value="kalkulator-roi">Kalkulator zwrotu (ROI)</option>
                   <option value="inne">Inne</option>
@@ -553,8 +553,8 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           </form>
         )}
         <div class="cta-form">
-          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: adres">kontakt@revagy.pl</a>
-          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji" data-track="E-mail: Umów audyt">Umów audyt</a>
+          <a class="cta-mail" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja" data-track="E-mail: adres">kontakt@revagy.pl</a>
+          <a class="btn btn-accent btn-lg" href="mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja" data-track="E-mail: Umów konsultację">Umów konsultację</a>
         </div>
         <p class="form-msg"><button type="button" class="link-btn" data-copy="kontakt@revagy.pl" data-track="Kopiuj adres">Kopiuj adres</button><span data-copy-msg role="status"></span></p>
       </div>
