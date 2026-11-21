@@ -89,9 +89,22 @@ test('plik etapu: geometria.sekcje', () => {
   }
 });
 
-test('plik etapu w repozytorium: geometria.sekcje czytelna dla testu dymnego', () => {
-  const sekcje = wczytajGeometrie(path.join(__dirname, '..', '..'));
-  assert.ok(sekcje.length > 0 && sekcje.every((x) => typeof x === 'string' && x.length));
+test('plik etapu w repozytorium: geometria.sekcje to klucze pomiaru testu dymnego dla migawki', () => {
+  const repo = path.join(__dirname, '..', '..');
+  const sekcje = wczytajGeometrie(repo);
+  const fs = require('node:fs');
+  const { parse, find } = require('../lib/html.cjs');
+  const doc = parse(fs.readFileSync(path.join(repo, 'tools/baseline/index.html'), 'utf8'));
+  const body = find(doc, (e) => e.name === 'body');
+  const main = find(doc, (e) => e.name === 'main');
+  const el = (n) => n && n.name;
+  // te same klucze co zmierzWysokosciWPrzegladarce: body > header, main > section (#id albo nth-of-type), body > footer
+  const klucze = [];
+  if (body.children.some((c) => el(c) === 'header')) klucze.push('header');
+  main.children.filter((c) => el(c) === 'section').forEach((s, i) => klucze.push(s.attrs.id ? `#${s.attrs.id}` : `main > section:nth-of-type(${i + 1})`));
+  if (body.children.some((c) => el(c) === 'footer')) klucze.push('footer');
+  const obce = sekcje.filter((x) => !klucze.includes(x));
+  assert.deepEqual(obce, [], `selektory spoza kluczy pomiaru: ${obce.join(', ')}; dostępne: ${klucze.join(', ')}`);
 });
 
 test('baza: kolejność źródeł REVAGY_BAZA_PLIK → git → index.baza.html → null', () => {
