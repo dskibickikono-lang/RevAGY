@@ -1,0 +1,12 @@
+{
+  "opis": "Każda liczba w treści <main> podstrony musi być częścią frazy z tego rejestru o statusie \"potwierdzone\". Fraza jest porównywana dosłownie (wielkość liter i rodzaj spacji bez znaczenia).",
+  "twierdzenia": [
+    { "id": "konsultacja-czas", "fraza": "25 minut", "strony": ["*"], "rodzaj": "warunek-oferty", "zrodlo": "D-023; fakty do treści z 21.11.2026 (konsultacja)", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "audyt-cena", "fraza": "1 990 zł", "strony": ["*"], "rodzaj": "warunek-oferty", "zrodlo": "D-028", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "audyt-czas", "fraza": "3–5 dni roboczych", "strony": ["*"], "rodzaj": "warunek-oferty", "zrodlo": "fakty do treści z 21.11.2026 (audyt)", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "audyt-zwrot", "fraza": "14 dni na rezygnację", "strony": ["*"], "rodzaj": "warunek-oferty", "zrodlo": "D-028", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "wdrozenie-czas", "fraza": "14 dni roboczych", "strony": ["*"], "rodzaj": "warunek-oferty", "zrodlo": "D-025", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "ubezpieczenie-oc", "fraza": "1 mln zł", "strony": ["*"], "rodzaj": "fakt", "zrodlo": "fakty do treści z 21.11.2026 (materiały z 18.11)", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "segment-firmy", "fraza": "5–250 osób", "strony": ["*"], "rodzaj": "fakt", "zrodlo": "D-016", "jakMierzone": null, "status": "potwierdzone" }
+  ]
+}
