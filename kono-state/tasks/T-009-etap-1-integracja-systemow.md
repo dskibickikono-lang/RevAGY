@@ -9,7 +9,7 @@ updated: 2026-11-21
 branch: feat/etap-1-integracja-systemow
 base: feat/etap-0-prawda-na-stronie (7c6a067), od main (9389fe6)
 depends_on: T-008
-pr: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/10 (roboczy, baza feat/etap-0-prawda-na-stronie)
 sha: —
 decisions: [D-015, D-017, D-018, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-035, D-036, D-038]
 ---
@@ -48,12 +48,38 @@ tylko jeden odnośnik do nowej strony. Jej wygląd, animacje, filmy i motyw zost
    - `check-tresc` pomija zawartość `<time>` przy liczeniu liczb;
    - test dymny: rozwijanie FAQ oraz zapis `fg_first_touch` bez nadpisywania przy kolejnym wejściu.
 
-## Runda 2 (po pierwszym przebiegu CI)
+## Runda 1 — wynik CI
 
-- Kontrakt strony `integracja-systemow.html` (`pages`, `htmlBaseline`) z artefaktu `dist-roboczy-<sha>`.
-- Kadr `public/assets/video/integracja-systemow-kadr.jpg` z artefaktu `media-<sha>`, jego suma w `publicFiles`
-  i `mediaBudget`.
-- Pierwszy przebieg CI może być czerwony tylko z tych dwóch powodów.
+- Astro skompilowało wszystkie szablony (5 stron). Walidator zgłosił dokładnie jeden, przewidziany błąd:
+  „Nadmiarowy plik w katalogu: integracja-systemow.html”.
+- Zbudowany `index.html` jest bajtowo równy przewidzianej migawce (`89a8ea18…1621`).
+- `render-media.yml` przeszedł i dał kadr: 115 088 B, w limicie 150 000 B.
+
+## Runda 2 (2026-11-21)
+
+- Dodany kadr `public/assets/video/integracja-systemow-kadr.jpg` z artefaktu `media-<sha>`, bajt w bajt
+  (sha256 `ca13e40a…3045`).
+- Kontrakt policzony z builda CI rundy 1 z dołożonym kadrem (`tools/update-contract.cjs`):
+  - doszła strona `integracja-systemow.html` w `pages` i `htmlBaseline` (24 276 B) oraz kadr w `publicFiles`;
+  - pozostałe strony bez zmian.
+- `tools/check-all.cjs` uruchamia wszystkie kroki, podsumowuje je i zwraca kod 1 dopiero na końcu (z testem).
+- Lokalnie na tym katalogu `check-all` przechodzi we wszystkich 5 krokach:
+  - walidator: 41 plików, 5/5 stron;
+  - compare-home: 1 zmiana z listy;
+  - check-podstrony-css i check-tresc: OK;
+  - testy narzędzi: 68/68.
+- Przewidziany manifest wydania: `038ddc75436ea892747c3c49495077b54c2a5f4c71d4730ee4c32b4a3d74525e`.
+- Zbudowany HTML strony jest zgodny z założeniami. Źródła strony i komponentów nie zmieniły się w tej rundzie.
+
+## Czeka na CI (runda 2)
+
+- Cały `check:dist` na zielono z tym samym manifestem.
+- Pierwszy przebieg testu dymnego dla podstrony:
+  - menu i menu mobilne, FAQ, `fg_first_touch`;
+  - ramka 16:9 i załadowany kadr;
+  - kolory, kroje i rozmiary jako podzbiór stron wzorcowych;
+  - brak przewijania w poziomie w 390 px;
+  - zrzuty w `podglad-<sha>`.
 
 ## Do uzupełnienia przez właściciela
 
