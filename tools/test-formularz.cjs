@@ -102,7 +102,8 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     execFileSync(process.execPath, ['node_modules/astro/bin/astro.mjs', 'build', '--outDir', dist], {
       cwd: root, env: { ...process.env, PUBLIC_TURNSTILE_SITEKEY: '1x00000000000000000000AA' }, stdio: 'pipe',
     });
-    execFileSync(process.execPath, ['tools/validate-dist.cjs', dist], { cwd: root, stdio: 'pipe' });
+    // Testowy klucz Turnstile zmienia bajty stron z formularzem: wyłączamy wyłącznie migawkę i htmlBaseline.
+    execFileSync(process.execPath, ['tools/validate-dist.cjs', dist, '--bez-blokad-bajtowych'], { cwd: root, stdio: 'pipe' });
     ok('osobny build z formularzem i pełny kontrakt wydania');
     harness = await startLocalHarness(dist);
     browser = await chromium.launch({ args: ['--host-resolver-rules=MAP revagy.pl 127.0.0.1', '--no-proxy-server'] });

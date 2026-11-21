@@ -13,7 +13,11 @@
      oraz pliki generowane przy buildzie: llms.txt i llms-full.txt.
 
    Użycie:
-     node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>]
+     node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>] [--bez-blokad-bajtowych]
+
+   --bez-blokad-bajtowych  wyłącza wyłącznie migawkę strony głównej i htmlBaseline (sumy stron HTML).
+     Tylko dla tools/test-formularz.cjs, który buduje stronę z testowym kluczem Turnstile, więc strony
+     z formularzem różnią się bajtowo od wydania. Wszystkie pozostałe kontrole działają. Nie używać w CI.
 
    Eksport (dla tools/update-contract.cjs i narzędzi porównujących):
      parseHtml, extractHtmlContract, pageComparison, collectFiles, sha256File
@@ -740,6 +744,12 @@ function main() {
   const args = process.argv.slice(2);
   const targetArg = args.find((a) => !a.startsWith('--'));
   const manifestArg = args.find((a) => a.startsWith('--manifest-out='));
+  const bezBlokadBajtowych = args.includes('--bez-blokad-bajtowych');
+  const unknownArgs = args.filter((a) => a.startsWith('--') && !a.startsWith('--manifest-out=') && a !== '--bez-blokad-bajtowych');
+  if (unknownArgs.length) {
+    console.error(`Nieznane opcje: ${unknownArgs.join(' ')}`);
+    process.exit(1);
+  }
   if (!targetArg) {
     console.error('Użycie: node tools/validate-dist.cjs <katalog> [--manifest-out=<plik>]');
     process.exit(1);
@@ -778,8 +788,12 @@ function main() {
   }
 
   // Strony HTML: sumy z htmlBaseline i bajtowa migawka strony głównej
-  errors.push(...checkHtmlBaseline(contract, actualMap));
-  errors.push(...checkSnapshot(actualMap));
+  if (bezBlokadBajtowych) {
+    console.log('UWAGA: --bez-blokad-bajtowych — migawka strony głównej i htmlBaseline NIE są sprawdzane.');
+  } else {
+    errors.push(...checkHtmlBaseline(contract, actualMap));
+    errors.push(...checkSnapshot(actualMap));
+  }
 
   // Mapa witryny i limity wagi mediów
   errors.push(...checkSitemap(targetDir, actualMap));
@@ -893,7 +907,10 @@ function main() {
   const genCount = Object.keys(generatedFiles).length;
   const manifestSha = crypto.createHash('sha256').update(manifestLines.join('')).digest('hex');
   const baselineCount = Object.keys(contract.htmlBaseline || {}).length;
-  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM, ${baselineCount}/${baselineCount} stron zgodnych z htmlBaseline, index.html zgodny z migawką, ${genCount} plików generowanych). Manifest SHA-256: ${manifestSha}`);
+  const bajtowo = bezBlokadBajtowych
+    ? 'htmlBaseline i migawka POMINIĘTE (--bez-blokad-bajtowych)'
+    : `${baselineCount}/${baselineCount} stron zgodnych z htmlBaseline, index.html zgodny z migawką`;
+  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM, ${bajtowo}, ${genCount} plików generowanych). Manifest SHA-256: ${manifestSha}`);
 }
 
 if (require.main === module) {
