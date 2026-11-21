@@ -10,6 +10,11 @@
                     node tools/smoke-test.cjs https://revagy.pl:18443 --map=127.0.0.1 --local-harness=/path/to/dist
    Produkcja (żądania do stats.revagy.pl przechwytywane atrapą):
                     node tools/smoke-test.cjs https://revagy.pl
+   Pełne zrzuty strony głównej i podstron z tools/podstrony.json (1280 i 390 px):
+                    node tools/smoke-test.cjs --serve=dist --zrzuty=zrzuty
+
+   W trybie --serve test porównuje też wysokości sekcji strony głównej z bazą (tools/lib/baza.cjs),
+   podawaną przez lokalny serwer pod /__baza.html. Podstrony z tools/podstrony.json są sprawdzane w każdym trybie.
 
    Na domenie produkcyjnej żądania do stats.revagy.pl są przechwytywane i zastępowane atrapą,
    więc test nie zapisuje niczego w prawdziwych statystykach. */
@@ -21,11 +26,18 @@ const http = require('node:http');
 const https = require('node:https');
 const os = require('node:os');
 const path = require('node:path');
-const { chromium } = require('playwright');
+const { wczytajBaze } = require('./lib/baza.cjs');
+const { wczytajPodstrony, wczytajGeometrie } = require('./lib/dane.cjs');
+const {
+  zmierzWysokosciWPrzegladarce, porownajWysokosci, zbierzStyleWPrzegladarce, roznicaStylow,
+  sprawdzMenuHref, proporcje16x9, nazwaZrzutu, adresKanoniczny,
+} = require('./lib/smoke.cjs');
 
 const args = process.argv.slice(2);
 const serveArg = args.find((a) => a.startsWith('--serve='));
 const localHarnessArg = args.find((a) => a.startsWith('--local-harness='));
+const zrzutyArg = args.find((a) => a.startsWith('--zrzuty='));
+const zrzutyDir = zrzutyArg ? path.resolve(zrzutyArg.slice('--zrzuty='.length)) : null;
 let mapTo = (args.find((a) => a.startsWith('--map=')) || '').slice(6);
 let baseArg = args.find((a) => !a.startsWith('--'));
 
@@ -55,7 +67,10 @@ const SECURITY_HEADERS = Object.fromEntries(
 );
 if (!SECURITY_HEADERS['Content-Security-Policy']) throw new Error('Brak CSP we wzorcu nginx');
 
-function startLocalHarness(dirPath) {
+// Ścieżka, pod którą lokalny serwer podaje bazę strony głównej do porównania geometrii.
+const BAZA_PATH = '/__baza.html';
+
+function startLocalHarness(dirPath, { bazaHtml = null } = {}) {
   const rootDir = fs.realpathSync(path.resolve(dirPath));
   const certDir = fs.mkdtempSync(path.join(os.tmpdir(), 'revagy-smoke-tls-'));
   const keyPath = path.join(certDir, 'key.pem');
@@ -74,6 +89,20 @@ function startLocalHarness(dirPath) {
     if (/\/\.([^/]|$)/.test(pathname) && !pathname.startsWith('/.well-known/')) {
       res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8', 'X-Revagy-Local-Harness': rootDir });
       res.end('Forbidden');
+      return;
+    }
+
+    if (pathname === BAZA_PATH && bazaHtml !== null) {
+      const body = Buffer.from(bazaHtml, 'utf8');
+      res.writeHead(200, {
+        ...SECURITY_HEADERS,
+        'Content-Type': MIME['.html'],
+        'Cache-Control': 'no-cache',
+        'Accept-Ranges': 'bytes',
+        'X-Revagy-Local-Harness': rootDir,
+        'Content-Length': String(body.length),
+      });
+      res.end(body);
       return;
     }
 
@@ -267,6 +296,17 @@ async function newPage(browser, viewport, extra = {}, { enforceIsolation = false
   return { context, page, log };
 }
 
+const PODGLADY = [
+  { szer: 1280, viewport: { width: 1280, height: 800 }, extra: {} },
+  { szer: 390, viewport: { width: 390, height: 844 }, extra: { hasTouch: true, isMobile: true } },
+];
+
+// Po załadowaniu strony: czekamy na kroje pisma i chwilę na skrypty.
+async function poZaladowaniu(page, ms = 400) {
+  await page.evaluate(() => document.fonts.ready.then(() => true));
+  await page.waitForTimeout(ms);
+}
+
 const scrollTo = (page, sel, offset = 120) => page.evaluate(([s, o]) => {
   const el = document.querySelector(s);
   window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - o, behavior: 'instant' });
@@ -276,8 +316,21 @@ if (require.main === module) (async () => {
   let harness = null;
   let expectedHarnessRoot = localHarnessArg ? fs.realpathSync(path.resolve(localHarnessArg.slice('--local-harness='.length))) : null;
 
+  const repoRoot = path.join(__dirname, '..');
+  const podstrony = wczytajPodstrony(path.join(__dirname, 'podstrony.json'));
+  let baza = null;
+  let bazaPomin = '';
   if (serveArg) {
-    harness = await startLocalHarness(serveArg.slice('--serve='.length));
+    try {
+      baza = wczytajBaze({ repoRoot, log: (m) => console.log(`baza: ${m}`) });
+    } catch (e) {
+      bazaPomin = `nie udało się wczytać bazy: ${e.message}`;
+    }
+    const distIndex = path.join(path.resolve(serveArg.slice('--serve='.length)), 'index.html');
+    if (!baza && !bazaPomin) bazaPomin = 'brak bazy (REVAGY_BAZA_PLIK, REVAGY_BAZA_REF / GITHUB_BASE_REF, tools/baseline/index.baza.html)';
+    else if (baza && fs.existsSync(distIndex) && fs.readFileSync(distIndex, 'utf8') === baza.html) bazaPomin = `baza (${baza.zrodlo}) jest identyczna z bieżącą stroną główną`;
+    if (bazaPomin) baza = null;
+    harness = await startLocalHarness(serveArg.slice('--serve='.length), { bazaHtml: baza ? baza.html : null });
     baseArg = harness.tlsBase;
     mapTo = '127.0.0.1';
     expectedHarnessRoot = harness.rootDir;
@@ -294,6 +347,8 @@ if (require.main === module) (async () => {
   if (mapTo) {
     launchArgs.push(`--host-resolver-rules=MAP revagy.pl ${mapTo}, MAP www.revagy.pl ${mapTo}, MAP stats.revagy.pl ${mapTo}`);
   }
+  // Playwright ładowany dopiero tutaj, żeby startLocalHarness dało się testować bez niego (tools/tests/).
+  const { chromium } = require('playwright');
   const browser = await chromium.launch({ args: launchArgs });
 
   try {
@@ -601,6 +656,155 @@ if (require.main === module) (async () => {
       check('telefon: brak błędów', log.errors.length === 0 && log.failed.length === 0, [...log.errors, ...log.failed].join(' | '));
       await context.close();
     }
+
+    /* ---------- 6. Geometria strony głównej względem bazy (tylko --serve) ---------- */
+    if (harness && baza) {
+      let pominiete = [];
+      try { pominiete = wczytajGeometrie(repoRoot); } catch (e) { check('geometria: plik etapu czytelny', false, e.message); }
+      for (const { viewport, extra } of PODGLADY) {
+        const pomiar = async (adres) => {
+          const { context, page } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
+          await page.goto(`${base}${adres}`, { waitUntil: 'load' });
+          await poZaladowaniu(page, 600);
+          await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+          await page.waitForTimeout(200);
+          const w = await page.evaluate(zmierzWysokosciWPrzegladarce);
+          await context.close();
+          return w;
+        };
+        const wynik = porownajWysokosci(await pomiar(BAZA_PATH), await pomiar('/'), pominiete);
+        check(`geometria ${viewport.width}×${viewport.height}: wysokości nagłówka, sekcji i stopki równe bazie (${baza.zrodlo})${wynik.pominiete.length ? `, pominięte: ${wynik.pominiete.join(', ')}` : ''}`,
+          wynik.problemy.length === 0, wynik.problemy.slice(0, 10).join(' | '));
+      }
+    } else if (harness) {
+      skip('geometria strony głównej względem bazy', bazaPomin);
+    }
+
+    /* ---------- 7. Zrzuty strony głównej (--zrzuty) ---------- */
+    if (zrzutyDir) {
+      fs.mkdirSync(zrzutyDir, { recursive: true });
+      for (const { szer, viewport, extra } of PODGLADY) {
+        const { context, page } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
+        await page.goto(`${base}/`, { waitUntil: 'load' });
+        await poZaladowaniu(page, 600);
+        await page.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu('/', szer)), fullPage: true });
+        await context.close();
+      }
+    }
+
+    /* ---------- 8. Podstrony z tools/podstrony.json ---------- */
+    if (podstrony.length) {
+      // Identyfikatory strony głównej (cele odnośników ./#sekcja) i wzorce stylów w obu szerokościach.
+      const wzorce = {};
+      let idsGlownej = [];
+      for (const { szer, viewport, extra } of PODGLADY) {
+        wzorce[szer] = [];
+        for (const adres of ['/', '/kontakt.html', '/polityka-prywatnosci.html']) {
+          const { context, page } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
+          await page.goto(`${base}${adres}`, { waitUntil: 'load' });
+          await poZaladowaniu(page);
+          wzorce[szer].push(await page.evaluate(zbierzStyleWPrzegladarce));
+          if (adres === '/' && !idsGlownej.length) idsGlownej = await page.evaluate(() => [...document.querySelectorAll('[id]')].map((e) => e.id));
+          await context.close();
+        }
+      }
+
+      for (const strona of podstrony) {
+        const adres = `/${strona.plik}`;
+        const p = strona.plik;
+        for (const { szer, viewport, extra } of PODGLADY) {
+          const { context, page, log } = await newPage(browser, viewport, extra, { enforceIsolation });
+          const res = await page.goto(`${base}${adres}`, { waitUntil: 'load' });
+          await poZaladowaniu(page, 600);
+          check(`${p} (${szer}): odpowiada 200`, res && res.status() === 200, res ? String(res.status()) : 'brak odpowiedzi');
+          // Baner zgody nie może zasłaniać przycisków filmu i menu.
+          if (await page.locator('[data-consent="nie"]').count()) await page.click('[data-consent="nie"]');
+
+          if (szer === 1280) {
+            const adresy = await page.evaluate(() => ({
+              canonical: document.querySelector('link[rel=canonical]') && document.querySelector('link[rel=canonical]').getAttribute('href'),
+              ogUrl: document.querySelector('meta[property="og:url"]') && document.querySelector('meta[property="og:url"]').getAttribute('content'),
+            }));
+            check(`${p}: adres kanoniczny i og:url to ${adresKanoniczny(p)}`, adresy.canonical === adresKanoniczny(p) && adresy.ogUrl === adresKanoniczny(p), JSON.stringify(adresy));
+            const hrefs = await page.evaluate(() => [...document.querySelectorAll('header .main-nav a[href], #mobile-menu a[href]')].map((a) => a.getAttribute('href')));
+            const menu = sprawdzMenuHref(hrefs, idsGlownej);
+            check(`${p}: menu w nagłówku prowadzi do ./#sekcja na stronie głównej`, menu.length === 0, menu.join(' | '));
+            check(`${p}: stopka zawiera NIP 7441749535`, await page.evaluate(() => { const f = document.querySelector('footer'); return Boolean(f && f.textContent.includes('7441749535')); }));
+          }
+
+          const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+          check(`${p} (${szer}): brak przewijania w poziomie`, overflow === 0, String(overflow));
+
+          if (szer === 390) {
+            const ok = await page.locator('.menu-toggle').count() && await page.locator('#mobile-menu').count();
+            let otwarte = false;
+            let zamkniete = false;
+            if (ok) {
+              await page.click('.menu-toggle');
+              await page.waitForTimeout(400);
+              otwarte = await page.evaluate(() => !document.querySelector('#mobile-menu').hidden);
+              await page.click('.menu-toggle');
+              await page.waitForTimeout(400);
+              zamkniete = await page.evaluate(() => document.querySelector('#mobile-menu').hidden);
+            }
+            check(`${p} (390): menu mobilne otwiera się i zamyka`, ok && otwarte && zamkniete, JSON.stringify({ ok: Boolean(ok), otwarte, zamkniete }));
+          }
+
+          // Miejsce na film
+          const ramka = await page.evaluate(() => {
+            const f = document.querySelector('.film');
+            if (!f) return null;
+            const r = f.getBoundingClientRect();
+            return { w: r.width, h: r.height, film: Boolean(f.querySelector('video[data-main-video]')) };
+          });
+          if (!ramka) {
+            check(`${p} (${szer}): jest ramka .film`, false, 'brak .film');
+          } else {
+            check(`${p} (${szer}): ramka .film ma proporcje 16:9 (±1 px)`, proporcje16x9(ramka.w, ramka.h), `${ramka.w}×${ramka.h}`);
+            await scrollTo(page, '.film');
+            if (!ramka.film) {
+              await page.waitForFunction(() => { const i = document.querySelector('.film img'); return i && i.complete; }, null, { timeout: 8000 }).catch(() => {});
+              const img = await page.evaluate(() => { const i = document.querySelector('.film img'); return i ? { complete: i.complete, nw: i.naturalWidth, nh: i.naturalHeight } : null; });
+              check(`${p} (${szer}): stan „kadr” — obraz załadowany`, img && img.complete && img.nw > 0 && img.nh > 0, JSON.stringify(img));
+            } else if (szer === 1280) {
+              await page.waitForTimeout(1500);
+              const v = await page.evaluate(() => { const x = document.querySelector('[data-main-video]'); return { src: x.currentSrc.split('/').pop(), paused: x.paused, ready: x.readyState }; });
+              check(`${p}: stan „film” — wybrane źródło i odtwarzanie w kadrze`, /\.(webm|mp4)$/.test(v.src) && !v.paused && v.ready >= 2, JSON.stringify(v));
+              await page.click('[data-video-toggle]');
+              await page.waitForTimeout(200);
+              const pauza = await page.evaluate(() => document.querySelector('[data-main-video]').paused && document.querySelector('[data-video-toggle]').getAttribute('aria-pressed') === 'true');
+              await page.click('[data-video-toggle]');
+              await page.waitForTimeout(200);
+              const wznowienie = await page.evaluate(() => !document.querySelector('[data-main-video]').paused);
+              check(`${p}: stan „film” — przycisk pauzy/wznowienia działa`, pauza && wznowienie, JSON.stringify({ pauza, wznowienie }));
+            }
+          }
+
+          check(`${p} (${szer}): brak błędów JS i nieudanych żądań`, log.errors.length === 0 && log.failed.length === 0 && log.blockedExternal.length === 0,
+            [...log.errors, ...log.failed, ...log.blockedExternal].join(' | '));
+          await context.close();
+
+          // Ograniczony ruch: wyliczone style, zrzut i wstrzymany film
+          {
+            const { context: ctx, page: pg } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
+            await pg.goto(`${base}${adres}`, { waitUntil: 'load' });
+            await poZaladowaniu(pg);
+            const roz = roznicaStylow(wzorce[szer], await pg.evaluate(zbierzStyleWPrzegladarce));
+            const nowe = [...roz.kolory.map((x) => `kolor ${x}`), ...roz.kroje.map((x) => `krój ${x}`), ...roz.rozmiary.map((x) => `rozmiar ${x}`)];
+            check(`${p} (${szer}): kolory, kroje i rozmiary pisma są podzbiorem strony głównej, kontaktu i polityki`, nowe.length === 0, nowe.slice(0, 12).join(' | '));
+            if (zrzutyDir) await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+            if (szer === 1280 && ramka && ramka.film) {
+              await scrollTo(pg, '.film');
+              await pg.waitForTimeout(1200);
+              check(`${p}: przy ograniczonym ruchu film jest wstrzymany`, await pg.evaluate(() => document.querySelector('[data-main-video]').paused));
+            }
+            await ctx.close();
+          }
+        }
+      }
+    } else {
+      skip('podstrony z tools/podstrony.json', 'lista jest pusta');
+    }
   } finally {
     await browser.close();
     if (harness) harness.close();
@@ -615,4 +819,4 @@ if (require.main === module) (async () => {
   process.exit(failed.length ? 1 : 0);
 })().catch((e) => { console.error(e); process.exit(1); });
 
-module.exports = { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS };
+module.exports = { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS, BAZA_PATH };
