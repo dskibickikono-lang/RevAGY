@@ -2,20 +2,20 @@
   "baselineCommit": "9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f",
   "publicFiles": {
     "assets/css/styles.css": {
-      "sha256": "efa94f01a89c24216fc428c8d174c3dfc70c848b6d6defa28ed045e8fa9fac90",
-      "size": 59427
+      "sha256": "00d50d42bfa57f01e7568ce25b8b094a2c74b27c9a9244df6e14d1e569a29d70",
+      "size": 58737
     },
     "assets/fonts/LICENSE-instrument-sans.txt": {
-      "sha256": "1cae81ba1672e2baf8195d915704f6e26f1412db61e9eaed137c32970e7fb804",
-      "size": 4631
+      "sha256": "c27a3c53c3beed7f5c26853afa15991478ff7145d3754a36b0382f84e10c0d03",
+      "size": 4538
     },
     "assets/fonts/LICENSE-jetbrains-mono.txt": {
-      "sha256": "a56054325c8cf79382a9b8547d0f558dc812b5caa773b84ef8b550e12f3a2b56",
-      "size": 4617
+      "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "size": 4524
     },
     "assets/fonts/LICENSE-onest.txt": {
-      "sha256": "a7eb4d14eee286d1620b30e215072786ddd2b5831cdc5a693ed410a94eb9f99e",
-      "size": 4471
+      "sha256": "a2a09da98a3d0d1ec79fc2d6deeac748b20a8153e26699552e7b59b5a40b63a3",
+      "size": 4378
     },
     "assets/fonts/instrument-sans-latin-ext-wght-normal.woff2": {
       "sha256": "c4fcfea41f2c1cfeea9211fa43679845454a1d0e0d7e95e069c7e73c4ae302d2",
@@ -46,8 +46,8 @@
       "size": 3960
     },
     "assets/img/favicon.svg": {
-      "sha256": "00aff5a6d9a018287112bd3bf68f47a50595622add2e1b6ee8cbf24bd4e6dd94",
-      "size": 245
+      "sha256": "8035f93cd43e778242ab2b2519c1a18d496873a9f929a9e42fe3526f0aa91022",
+      "size": 244
     },
     "assets/img/icon-192.png": {
       "sha256": "da2ad5738459bbb29c969a0ab9f0a4fa9b889141e3b45e85109deb255902f7b4",
@@ -62,16 +62,16 @@
       "size": 75489
     },
     "assets/js/analytics.js": {
-      "sha256": "9935f8d27d285523a60b133051bb427d8b4a2954a381bf648406543c7421a301",
-      "size": 8484
+      "sha256": "8c67cde3482c36d84a23d27068186c0cac7ac008cf5342065570afc17386a6b6",
+      "size": 8296
     },
     "assets/js/app.js": {
-      "sha256": "e4248f6c4f8bfa73cee8a84d7534c519401b53198374659c4617709f731934d0",
-      "size": 13850
+      "sha256": "67411b94f815ac90d4043ae2977cca73363702b518f7a932f783787a7c9a4e1d",
+      "size": 13545
     },
     "assets/js/kontakt.js": {
-      "sha256": "9af0917312c5e2fd156886e4f143b24aadf8bbe316aac9cc238f62fa3fd05140",
-      "size": 16038
+      "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
+      "size": 15657
     },
     "assets/video/agent-demo.jpg": {
       "sha256": "cfadd0d221c192fdad98a7a4ef35aed8ea3e2f8404a69f904f3cde35fb36d86b",
@@ -114,12 +114,12 @@
       "size": 4314
     },
     "robots.txt": {
-      "sha256": "b94a9e04870a8e74ada20efa2bb951c01aa4bda5e71b140f0e30a90d15041695",
-      "size": 67
+      "sha256": "d817b9dd3389a42252d1f60a313f17dc6d627ee846fc04efb765eea7c1be301a",
+      "size": 63
     },
     "site.webmanifest": {
-      "sha256": "3fadb7b805b1f0349b09c85de778b3f32d61574be5ed2e7ad60f7edb1b600f1c",
-      "size": 442
+      "sha256": "92796273b4a035776a15ee16970ac6cfc69b5b352385811a404f759ec1868357",
+      "size": 428
     },
     "sitemap.xml": {
       "sha256": "d71d946691e681b76ab1060ae2fb290fcdd7a380f4a22e6fc795cb3e9bffadec",
