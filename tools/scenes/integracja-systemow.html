@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: rekord pracownika z systemu HR w kadrach i płacach</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (plan 3.3 i 3.6). Na razie jedna statyczna kompozycja: kadr startowy filmu
+     z chwili POSTER_AT = 11 s scenariusza (pola po kontroli, stawka zatwierdzona, wpis w dzienniku).
+     Etap filmowy F1 doda oś czasu w window.render(t). Dane są poglądowe, bez nazw własnych. -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 420px; opacity: .45; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .38; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 560px; top: -300px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 56px 64px; display: grid; grid-template-rows: 1fr auto; gap: 26px; }
+  .panels { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: stretch; min-height: 0; }
+  .panel { border-radius: 34px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 64px 1fr; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 26px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 17px; color: var(--dim); }
+  .bar .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--night-3); }
+  .bar b { margin-left: 14px; color: #fff; font-weight: 500; }
+  .bar .tag { margin-left: auto; font-size: 14px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+  .fields { padding: 24px 26px; display: grid; gap: 12px; align-content: start; }
+  .field { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 20px; padding: 14px 20px; }
+  .field span { font-size: 15px; color: var(--dim); }
+  .field b { font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; grid-column: 1; }
+  .field em { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-family: var(--mono); font-size: 14px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .field.ok { border-color: rgba(25, 183, 122, .55); }
+  .field.held { border-color: rgba(255, 91, 20, .7); }
+  .field.held em { background: var(--accent); }
+
+  .pipe { display: grid; place-items: center; position: relative; }
+  .pipe::before { content: ""; position: absolute; left: 10px; right: 10px; top: 50%; height: 3px; background: linear-gradient(90deg, var(--dim) 50%, transparent 50%) 0 0 / 12px 3px; }
+  .pipe i { position: relative; width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
+  .pipe i svg { width: 26px; height: 26px; }
+
+  .log { border-radius: 28px; background: var(--paper); color: var(--ink); padding: 20px 26px; display: grid; gap: 10px; }
+  .log-title { font-family: var(--mono); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+  .log-row { display: grid; grid-template-columns: 120px 220px 1fr 220px 220px; gap: 16px; align-items: baseline; font-size: 17px; padding: 10px 0; border-top: 1.5px solid var(--mist-2); }
+  .log-row time, .log-row .src { font-family: var(--mono); font-size: 15px; color: var(--ink-2); }
+  .log-row b { font-family: var(--display); font-weight: 650; }
+  .log-row s { color: var(--ink-2); }
+  .log-row .who { font-size: 15px; color: var(--ink-2); text-align: right; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <div class="panels">
+      <section class="panel">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>System HR</b><span class="tag">źródło</span></div>
+        <ul class="fields">
+          <li class="field"><span>Imię i nazwisko</span><b>Marta Przykładowa</b></li>
+          <li class="field"><span>PESEL</span><b>••••••••••2</b></li>
+          <li class="field"><span>Numer rachunku</span><b>•• •••• … 4821</b></li>
+          <li class="field"><span>Stawka godzinowa</span><b>31,50 zł</b></li>
+          <li class="field"><span>Data rozpoczęcia</span><b>01.12.2026</b></li>
+        </ul>
+      </section>
+
+      <div class="pipe" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M3 7h8M8 3.5 11.5 7 8 10.5" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+
+      <section class="panel">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Kadry i płace</b><span class="tag">cel</span></div>
+        <ul class="fields">
+          <li class="field ok"><span>Kartoteka pracownika</span><b>Marta Przykładowa</b><em>zgodne z dokumentem</em></li>
+          <li class="field ok"><span>PESEL</span><b>••••••••••2</b><em>suma kontrolna</em></li>
+          <li class="field ok"><span>Dane do wypłaty</span><b>•• •••• … 4821</b><em>suma kontrolna</em></li>
+          <li class="field held" id="rate"><span>Warunki umowy · stawka</span><b>31,50 zł</b><em id="rate-tag">zatwierdzone przez kadry</em></li>
+          <li class="field ok"><span>Ewidencja zatrudnienia</span><b>od 01.12.2026</b><em>bez kolizji</em></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="log">
+      <p class="log-title">Dziennik zapisów</p>
+      <div class="log-row"><time>12:04:18</time><b>Stawka godzinowa</b><span class="src">skąd: System HR</span><span><s>29,00 zł</s> → 31,50 zł</span><span class="who">zatwierdzone: kadry</span></div>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 14;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 11 s scenariusza z planu (rozdział 3.6). Ten sam moment daje kadr przed filmem.
+window.POSTER_AT = 11;
+const TAU = Math.PI * 2;
+const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  glows.forEach((g, i) => {
+    const a = TAU * t / T + i * 2.1;
+    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  });
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>
