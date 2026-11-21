@@ -70,7 +70,10 @@ test('funkcje przeglądarkowe są samowystarczalne (bez odwołań do zakresu mod
 test('podstrony.json: format i błędy', () => {
   const dir = tmp();
   assert.deepEqual(wczytajPodstrony(path.join(dir, 'brak.json')), []);
-  assert.deepEqual(wczytajPodstrony(path.join(TOOLS, 'podstrony.json')), []);
+  // Rejestr repozytorium wczytuje się; "film" to nazwa (tekst) albo null.
+  for (const s of wczytajPodstrony(path.join(TOOLS, 'podstrony.json'))) assert.ok(s.film === null || typeof s.film === 'string', JSON.stringify(s));
+  // Format z obiektem w polu "film" (jak w dawnych fragmentach) jest błędem.
+  assert.throws(() => wczytajPodstrony(zapisz(dir, 'obiekt.json', { strony: [{ plik: 'a.html', film: { nazwa: 'a' } }] })), /film musi być nazwą/);
   const ok = zapisz(dir, 'ok.json', { strony: [{ plik: 'integracja-systemow.html', film: 'integracja-systemow', skrypty: ['assets/js/app.js'] }] });
   assert.equal(wczytajPodstrony(ok).length, 1);
   for (const zle of [{}, { strony: [{ plik: '../x.html' }] }, { strony: [{ plik: 'index.html' }] }, { strony: [{ plik: 'a.html' }, { plik: 'a.html' }] }, { strony: [{ plik: 'a.html', film: 'a.mp4' }] }]) {
