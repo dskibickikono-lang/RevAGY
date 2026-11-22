@@ -3,14 +3,14 @@ id: T-009
 title: Etap 1 — podstrona „Systemy bez przepisywania danych” (/integracja-systemow.html) i fundament podstron
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-21
-updated: 2026-11-21
+updated: 2026-11-22
 branch: feat/etap-1-integracja-systemow
 base: feat/etap-0-prawda-na-stronie (7c6a067), od main (9389fe6)
 depends_on: T-008
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/10 (roboczy, baza feat/etap-0-prawda-na-stronie)
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/10 (baza feat/etap-0-prawda-na-stronie)
+sha: 82e73343590d49b80836964c4b524f9cd1102f22 (kod i testy; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-017, D-018, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-035, D-036, D-038]
 ---
 
@@ -71,15 +71,18 @@ tylko jeden odnośnik do nowej strony. Jej wygląd, animacje, filmy i motyw zost
 - Przewidziany manifest wydania: `038ddc75436ea892747c3c49495077b54c2a5f4c71d4730ee4c32b4a3d74525e`.
 - Zbudowany HTML strony jest zgodny z założeniami. Źródła strony i komponentów nie zmieniły się w tej rundzie.
 
-## Czeka na CI (runda 2)
+## Wynik CI (2026-11-22)
 
-- Cały `check:dist` na zielono z tym samym manifestem.
-- Pierwszy przebieg testu dymnego dla podstrony:
-  - menu i menu mobilne, FAQ, `fg_first_touch`;
-  - ramka 16:9 i załadowany kadr;
-  - kolory, kroje i rozmiary jako podzbiór stron wzorcowych;
-  - brak przewijania w poziomie w 390 px;
-  - zrzuty w `podglad-<sha>`.
+Przebieg dla `82e7334` (run 44964827742), zielony:
+
+- `check:dist`: 5 z 5 kroków, 41 plików, 5/5 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `038ddc75436ea892747c3c49495077b54c2a5f4c71d4730ee4c32b4a3d74525e`, ten sam co przewidziany.
+- Strona główna względem etapu 0: jedna zmiana (dopisany odnośnik), geometria równa bazie poza `#integracje`.
+- Test dymny: 79 z 79, 0 pominiętych. Podstrona przeszła wszystkie sprawdzenia przy pierwszym uruchomieniu.
+- Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 68 z 68.
+- Zrzuty 1280 i 390 px w artefakcie `podglad-<sha>`. Poprawka w teście dymnym: zrzut podstrony czeka na kadr
+  (obraz ma `loading="lazy"`, więc wcześniej ramka wychodziła pusta).
+- Ostrzeżenia: 4 wyniki wdrożeń bez opisu „jak mierzone”.
 
 ## Do uzupełnienia przez właściciela
 
