@@ -83,12 +83,12 @@ export const FILMY = {
   },
   'sprzedaz': {
     // Tekst zastępczy obrazu w stanie „kadr”.
-    alt: 'Poglądowy ekran: zapytanie z formularza na stronie po odczycie i kontroli pól, z oceną według kryteriów i propozycją przypisania handlowca, czeka na akceptację osoby z działu sprzedaży. Dane poglądowe.',
+    alt: 'Poglądowy ekran: zapytanie z formularza na stronie po odczycie i kontroli pól, zapisane w CRM z oceną według kryteriów, handlowcem przypisanym według regionu i zadaniem dla handlowca; powiadomienie do handlowca wysłane. Dane poglądowe.',
     // aria-label znacznika wideo w stanie „film”.
     etykieta: 'Animacja: zapytanie od odbioru do przypisania handlowca',
     // VideoObject.name i VideoObject.description.
     tytul: 'Zapytanie od odbioru do przypisania handlowca',
-    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a ocena według kryteriów firmy i propozycja przypisania handlowca czekają na akceptację osoby z działu sprzedaży. Po akceptacji zapytanie trafia do CRM z zadaniem dla handlowca. Dane na ekranach są poglądowe.',
+    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a zapytanie trafia do CRM z oceną według kryteriów firmy, handlowcem przypisanym według jej reguł i zadaniem dla handlowca. Handlowiec dostaje powiadomienie. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
   },
 };

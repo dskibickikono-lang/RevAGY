@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="scene.css">
 <!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
      z chwili POSTER_AT = 12 s (D-038; zapytanie z formularza na stronie w kolejce, wszystkie pola odczytane
-     i sprawdzone, ocena według kryteriów i propozycja przypisania handlowca czekają na akceptację,
-     do klienta nic nie wyszło, oś kroków ze znacznikiem na „Akceptacja”).
+     i sprawdzone, wynik zapisany w CRM: ocena według kryteriów, handlowiec przypisany według regionu, zadanie
+     dla handlowca i wysłane powiadomienie; oś kroków ze znacznikiem na „CRM”).
      Pod etap filmowy: każdy element, który ma się pojawiać, ma własne id i stałe miejsce
      w układzie (bez skoków), tło jest nieruchome, a window.render(t) już woła TL.apply(t), więc wystarczy dopisać
      atrybuty data-at/data-out i ruch znacznika osi.
@@ -50,26 +50,21 @@
   .field em { font-style: normal; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
   .field.ok { border-color: rgba(25, 183, 122, .55); }
 
-  /* do akceptacji */
+  /* wynik w CRM */
   .acc-title { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
   .row { display: grid; gap: 4px; border-bottom: 1.5px solid var(--mist-2); padding-bottom: 12px; }
   .row span { font-size: 15px; color: var(--ink-2); }
   .row b { font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; line-height: 1.2; }
-  .who { display: flex; align-items: center; gap: 12px; font-size: 16px; color: var(--ink-2); }
-  .who i { width: 34px; height: 34px; border-radius: 50%; background: var(--mist-2); flex: none; }
-  .sent { font-family: var(--mono); font-size: 14px; color: var(--ink-2); border: 1.5px dashed var(--mist-2); border-radius: 14px; padding: 10px 14px; }
-  .decide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
-  .decide b { text-align: center; font-family: var(--display); font-size: 18px; font-weight: 650; border-radius: 999px; padding: 12px 10px; }
-  .decide .go { background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
-  .decide .stop { border: 1.5px solid var(--ink); color: var(--ink); }
+  .sent { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-size: 18px; font-weight: 650; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 12px 18px; margin-top: 6px; }
+  .sent svg { width: 22px; height: 22px; flex: none; }
 
   /* oś kroków procesu */
   .axis { border-radius: 28px; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); padding: 22px 30px 24px; display: grid; gap: 16px; }
   .track { position: relative; height: 12px; border-radius: 999px; background: var(--night-3); }
-  .track .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 75%; border-radius: 999px; background: linear-gradient(90deg, var(--plum), var(--accent)); }
+  .track .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--plum), var(--accent)); }
   .track .pin { position: absolute; top: 50%; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: var(--paper); border: 5px solid var(--accent); }
   .track .s1 { left: 0; } .track .s2 { left: 25%; } .track .s3 { left: 50%; } .track .s4 { left: 75%; } .track .s5 { left: 100%; }
-  .track .now { left: 75%; background: var(--accent); border-color: var(--paper); }
+  .track .now { left: 100%; background: var(--accent); border-color: var(--paper); }
   .steps { position: relative; height: 30px; }
   .steps span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; color: var(--dim); }
   .steps span.done { color: #fff; }
@@ -116,16 +111,14 @@
         </section>
       </div>
 
-      <section class="panel paper" id="p-akceptacja">
-        <div class="bar"><b>Do akceptacji</b><span class="tag">decyzja człowieka</span></div>
+      <section class="panel paper" id="p-crm">
+        <div class="bar"><b>Zapisane w CRM</b><span class="tag">według Waszych reguł</span></div>
         <div class="body">
-          <p class="acc-title">Propozycja według Waszych kryteriów</p>
+          <p class="acc-title">Wynik według Waszych kryteriów</p>
           <div class="row" id="r-ocena"><span>Ocena</span><b>pasuje do kryteriów</b></div>
-          <div class="row" id="r-handlowiec"><span>Handlowiec</span><b>opiekun regionu</b></div>
-          <div class="row" id="r-zadanie"><span>Zadanie</span><b>pierwszy kontakt z klientem</b></div>
-          <div class="who" id="who"><i></i><span>Czeka na: szef zespołu handlowego</span></div>
-          <p class="sent" id="sent">Do klienta: nic nie wysłano</p>
-          <div class="decide" id="decide"><b class="go">Akceptuję</b><b class="stop">Do poprawy</b></div>
+          <div class="row" id="r-handlowiec"><span>Handlowiec</span><b>przypisany według regionu</b></div>
+          <div class="row" id="r-zadanie"><span>Zadanie dla handlowca</span><b>pierwszy kontakt z klientem</b></div>
+          <p class="sent" id="sent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="#141114" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Powiadomienie do handlowca wysłane</p>
         </div>
       </section>
     </div>
@@ -133,7 +126,7 @@
     <div class="axis">
       <div class="track"><i class="fill" id="fill"></i><i class="pin s1"></i><i class="pin s2"></i><i class="pin s3"></i><i class="pin s4"></i><i class="pin s5"></i><i class="pin now" id="now"></i></div>
       <div class="steps">
-        <span class="k1 done">Odbiór</span><span class="k2 done">Odczyt</span><span class="k3 done">Ocena</span><span class="k4 cur">Akceptacja</span><span class="k5">CRM</span>
+        <span class="k1 done">Odbiór</span><span class="k2 done">Odczyt</span><span class="k3 done">Ocena</span><span class="k4 done">Przypisanie</span><span class="k5 cur">CRM</span>
       </div>
       <p class="note">Dane poglądowe</p>
     </div>
@@ -144,7 +137,7 @@
 <script>
 window.DURATION = 14;
 window.SIZE = [1600, 900];
-// Kadr startowy filmu: 12 s (D-038): wszystkie pola sprawdzone, propozycja czeka na akceptację, znacznik na „Akceptacja”.
+// Kadr startowy filmu: 12 s (D-038): wszystkie pola sprawdzone, wynik zapisany w CRM, powiadomienie wysłane, znacznik na „CRM”.
 window.POSTER_AT = 12;
 const { apply } = TL;
 const TAU = Math.PI * 2;
