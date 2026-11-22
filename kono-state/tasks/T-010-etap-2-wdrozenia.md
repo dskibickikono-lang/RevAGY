@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-2-wdrozenia
-base: feat/etap-1-integracja-systemow (82e7334)
+base: feat/etap-1-integracja-systemow (32d6298)
 depends_on: T-009
 pr: —
 sha: —
