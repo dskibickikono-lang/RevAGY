@@ -1,20 +1,24 @@
 ---
-id: T-024
+id: T-035
+former_id: T-024
 title: Raport — jak REVAGY ma mówić do grupy docelowej i o jakie produkty rosnąć
 channel: pm-local
 requested_by: owner
 status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: skibiai/serene-bohr-2hdmui
 base: main (43efbf5 runda 1, 5bac11d runda 2)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (runda 1, scalony), https://github.com/dskibickikono-lang/RevAGY/pull/36 (runda 2, baza main)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (runda 1, scalony do main, 5bac11d), https://github.com/dskibickikono-lang/RevAGY/pull/36 (rundy 2–4, scalony do main, 5e29276)
 sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (runda 1), a8d9e3cc4b9217e9aad368f1d40a175cd584d0dc (runda 2; kolejne commity zmieniają tylko kartę)
 decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-041, D-042, D-043, D-044, D-045]
 ---
 
-# T-024 — Komunikacja i oferta: raport
+# T-035 — Komunikacja i oferta: raport
+
+Wcześniej T-024, przenumerowana 22.11.2026 z powodu kolizji z T-024 (baner zgody, PR #28). W PR #33 i #36,
+w commitach i w odpowiedziach do decyzji D-041…D-045 karta występuje jako T-024 (rejestr ma przy nich dopisek „wcześniej T-024”).
 
 ## Cel
 
@@ -94,7 +98,9 @@ PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedzia
 
 ## Stan
 
-Raport i kwerenda zakończone, liczba wdrożeń potwierdzona (45), pakiet K02 wybrany i wdrożony (T-034). Raport scalony do main w PR #33 i #36. Karta zamknięta.
+Raport i kwerenda zakończone, liczba wdrożeń potwierdzona (45), pakiet K02 wybrany i wdrożony (T-034). Raport scalony do main w PR #33 (5bac11d) i #36 (5e29276). Karta zamknięta.
+Punkty z sekcji „Otwarte” (konsultacje poza grupą jako test superzdania, dane z CRM o konsultacjach) pozostają
+otwarte; każdy wymaga osobnej zgody właściciela.
 
 Testy rundy 2: nie uruchamiano i nie dotyczy (tylko `kono-state/`, CI pomija). Sumy PRES przeliczone skryptem.
 
@@ -115,4 +121,5 @@ rundzie 2” jest zamknięty. Testy: nie dotyczy (tylko `kono-state/`).
   ocen, tę kartę). Kolejny commit przywraca je z 8525396 i nanosi zmiany. Bez `--force`, historia zostaje.
 - Uwaga dla właściciela: w `kono-state/tasks/` są trzy karty z numerem T-024 (ta, audyt designu, baner zgody),
   założone równolegle w różnych sesjach. Tej karty nie przenumerowuję bez decyzji.
+  **Stan:** przenumerowana na T-035 22.11.2026 (opis pod tytułem karty).
 - Następny krok: plan pakietu K02 przedstawiony właścicielowi do akceptacji; bez zmian w kodzie do tego czasu.
