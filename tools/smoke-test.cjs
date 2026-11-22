@@ -17,8 +17,8 @@
    podawaną przez lokalny serwer pod /__baza.html. Podstrony z tools/podstrony.json są sprawdzane w każdym trybie,
    także w dwóch wąskich widokach telefonu (393×852 i 375×667): brak przewijania w poziomie i, z --zrzuty, pełny zrzut.
 
-   Na domenie produkcyjnej żądania do stats.revagy.pl są przechwytywane i zastępowane atrapą,
-   więc test nie zapisuje niczego w prawdziwych statystykach. */
+   Na domenie produkcyjnej żądania do stats.revagy.pl i do Microsoft Clarity (*.clarity.ms, c.bing.com)
+   są przechwytywane i zastępowane atrapą, więc test nie zapisuje niczego w prawdziwych statystykach. */
 'use strict';
 
 const { execFileSync } = require('node:child_process');
@@ -228,6 +228,25 @@ const MATOMO_MOCK_JS = `(function(){
   window._paq = { push: handle };
 })();`;
 
+// Microsoft Clarity (T-022): projekt i adres tagu z public/assets/js/clarity.js.
+const CLARITY_TAG = 'https://www.clarity.ms/tag/zhlvuu1fed';
+const jestClarity = (hostname) => hostname === 'clarity.ms' || hostname.endsWith('.clarity.ms') || hostname === 'c.bing.com';
+
+// Atrapa tagu Clarity: przejmuje kolejkę window.clarity.q i zapisuje każde wywołanie także w sessionStorage,
+// żeby wywołanie przy wycofaniu zgody było widoczne po przeładowaniu strony.
+const CLARITY_MOCK_JS = `(function(){
+  var q = (window.clarity && window.clarity.q) ? Array.prototype.slice.call(window.clarity.q) : [];
+  var log = [];
+  try { log = JSON.parse(sessionStorage.getItem('__revagy_clarity_log') || '[]'); } catch (e) {}
+  function handle(args) {
+    log.push(Array.prototype.slice.call(args));
+    try { sessionStorage.setItem('__revagy_clarity_log', JSON.stringify(log)); } catch (e) {}
+  }
+  q.forEach(handle);
+  window.clarity = function () { handle(arguments); };
+  window.__clarity = log;
+})();`;
+
 // Atrapa Turnstile: build z prawdziwym PUBLIC_TURNSTILE_SITEKEY ładuje api.js z challenges.cloudflare.com,
 // a test dymny nie wychodzi do internetu. Pełne zachowanie formularza sprawdza tools/test-formularz.cjs.
 const TURNSTILE_MOCK_JS = `window.turnstile = {
@@ -247,7 +266,7 @@ async function newPage(browser, viewport, extra = {}, { enforceIsolation = false
     ...extra,
   });
   const page = await context.newPage();
-  const log = { errors: [], failed: [], stats: [], blockedExternal: [] };
+  const log = { errors: [], failed: [], stats: [], clarity: [], blockedExternal: [] };
 
   page.on('pageerror', (e) => log.errors.push(`pageerror: ${e.message}`));
   page.on('console', (m) => { if (m.type() === 'error') log.errors.push(`console: ${m.text()}`); });
@@ -275,6 +294,14 @@ async function newPage(browser, viewport, extra = {}, { enforceIsolation = false
           contentType: 'application/javascript; charset=utf-8',
           body: MATOMO_MOCK_JS,
         });
+      }
+      return route.fulfill({ status: 204, body: '' });
+    }
+
+    if (jestClarity(parsed.hostname)) {
+      log.clarity.push(reqUrl);
+      if (reqUrl === CLARITY_TAG) {
+        return route.fulfill({ status: 200, contentType: 'application/javascript; charset=utf-8', body: CLARITY_MOCK_JS });
       }
       return route.fulfill({ status: 204, body: '' });
     }
@@ -470,6 +497,14 @@ if (require.main === module) (async () => {
       check('brak przewijania w poziomie (1440 px)', overflow === 0, String(overflow));
       const cookies = await context.cookies();
       check('bez decyzji: zero ciasteczek i zero żądań do statystyk', cookies.length === 0 && log.stats.length === 0, `ciasteczka=${cookies.length} żądania=${log.stats.length}`);
+      const clarityBezZgody = await page.evaluate(() => ({
+        znacznik: Boolean(document.querySelector('script[src^="assets/js/clarity.js"]')),
+        tag: document.querySelectorAll('script[src*="clarity.ms"]').length,
+        fn: typeof window.clarity,
+      }));
+      check('bez decyzji: clarity.js jest na stronie, ale zero żądań do clarity.ms i brak tagu Clarity',
+        clarityBezZgody.znacznik && clarityBezZgody.tag === 0 && clarityBezZgody.fn === 'undefined' && log.clarity.length === 0,
+        JSON.stringify({ ...clarityBezZgody, zadania: log.clarity }));
 
       // Odmowa zgody
       await page.click('[data-consent="nie"]');
@@ -484,6 +519,7 @@ if (require.main === module) (async () => {
       const storedReload = await page.evaluate(() => localStorage.getItem('revagy-zgoda-analityka'));
       const cookiesReload = await context.cookies();
       check('odmowa po przeładowaniu: baner nie wraca, 0 żądań i 0 ciasteczek', storedReload === 'nie' && (await page.locator('.consent').count()) === 0 && log.stats.length === 0 && cookiesReload.length === 0);
+      check('odmowa: zero żądań do clarity.ms (także po przeładowaniu)', log.clarity.length === 0 && (await page.locator('script[src*="clarity.ms"]').count()) === 0, log.clarity.join(' | '));
 
       check('brak błędów JS i naruszeń CSP', log.errors.length === 0, log.errors.join(' | '));
       check('brak nieudanych żądań', log.failed.length === 0 && log.blockedExternal.length === 0, [...log.failed, ...log.blockedExternal].join(' | '));
@@ -518,12 +554,26 @@ if (require.main === module) (async () => {
         check('zgoda: zapisany widok sekcji i głębokość przewinięcia', paq.some((c) => c.includes('Sekcja › Widok')) && paq.some((c) => c.includes('Przewinięcie')), `${paq.length} wywołań`);
         check('zgoda: zapisane ustawienia kalkulatora i czas sekcji', paq.some((c) => c.includes('Kalkulator › Ustawienia')) && paq.some((c) => c.includes('Sekcja › Czas w kadrze (s)')), paq.filter((c) => c.includes('Kalkulator') || c.includes('Czas w kadrze')).join(' | '));
         check('zgoda: adres trackera i identyfikator strony', paq.includes('setTrackerUrl › https://stats.revagy.pl/matomo.php') && paq.includes('setSiteId › 1'));
+        const clarityZgoda = await page.evaluate(() => ({
+          tagi: [...document.querySelectorAll('script[src*="clarity.ms"]')].map((x) => x.src),
+          wywolania: window.__clarity || [],
+        }));
+        check('zgoda: tag Clarity wstawiony dokładnie raz i pobrany z www.clarity.ms',
+          clarityZgoda.tagi.length === 1 && clarityZgoda.tagi[0] === CLARITY_TAG && log.clarity.filter((u) => u === CLARITY_TAG).length === 1,
+          JSON.stringify({ tagi: clarityZgoda.tagi, zadania: log.clarity }));
+        check('zgoda: Clarity dostaje sygnał zgody analitycznej (consentv2, bez zgody reklamowej)',
+          clarityZgoda.wywolania.some((c) => c[0] === 'consentv2' && c[1] && c[1].analytics_Storage === 'granted' && c[1].ad_Storage === 'denied'),
+          JSON.stringify(clarityZgoda.wywolania));
 
         // Zapamiętana zgoda po reloadzie
         log.stats.length = 0;
-        await page.evaluate(() => { sessionStorage.removeItem('__revagy_paq_log'); });
+        log.clarity.length = 0;
+        await page.evaluate(() => { sessionStorage.removeItem('__revagy_paq_log'); sessionStorage.removeItem('__revagy_clarity_log'); });
         await page.reload({ waitUntil: 'load' });
         await page.waitForTimeout(800);
+        check('zapamiętana zgoda: tag Clarity wstawiony ponownie dokładnie raz',
+          (await page.locator('script[src*="clarity.ms"]').count()) === 1 && log.clarity.filter((u) => u === CLARITY_TAG).length === 1,
+          log.clarity.join(' | '));
         const paqAfterReload = await page.evaluate(() => (window.__wyslane || []).map((c) => c.slice(0, 4).join(' › ')));
         const matomoScriptsReload = await page.locator('script[src*="matomo.js"]').count();
         check('zapamiętana zgoda: brak ponownego banera i brak podwójnej inicjalizacji',
@@ -541,6 +591,7 @@ if (require.main === module) (async () => {
         await page.click('footer [data-consent-open]');
         check('po decyzji można otworzyć Ustawienia prywatności ze stopki', await page.locator('.consent').isVisible());
         log.stats.length = 0;
+        log.clarity.length = 0;
         await Promise.all([
           page.waitForNavigation({ waitUntil: 'load' }),
           page.click('[data-consent="nie"]'),
@@ -558,8 +609,16 @@ if (require.main === module) (async () => {
           log.stats.length === 0 &&
           (await page.locator('.consent').count()) === 0,
           JSON.stringify({ afterWithdraw, pkLen: pkAfterWithdraw.length, statsReqs: log.stats.length }));
+        const clarityPoWycofaniu = await page.evaluate(() => ({
+          wywolania: JSON.parse(sessionStorage.getItem('__revagy_clarity_log') || '[]'),
+          tagi: document.querySelectorAll('script[src*="clarity.ms"]').length,
+        }));
+        check('wycofanie zgody: wywołane clarity("consent", false), po przeładowaniu zero żądań do clarity.ms',
+          clarityPoWycofaniu.wywolania.some((c) => c[0] === 'consent' && c[1] === false) && clarityPoWycofaniu.tagi === 0 && log.clarity.length === 0,
+          JSON.stringify({ ...clarityPoWycofaniu, zadania: log.clarity }));
       } else {
         check('poza domeną produkcyjną tracker się nie ładuje mimo zgody', log.stats.length === 0 && paq.length === 0, `żądania=${log.stats.length} paq=${paq.length}`);
+        check('poza domeną produkcyjną Clarity się nie ładuje mimo zgody', log.clarity.length === 0, log.clarity.join(' | '));
       }
 
       check('zgoda: brak błędów JS i naruszeń CSP', log.errors.length === 0, log.errors.join(' | '));
@@ -575,6 +634,7 @@ if (require.main === module) (async () => {
       const paqLen = await page.evaluate(() => (Array.isArray(window._paq) ? window._paq.length : -1));
       const choice = await page.evaluate(() => localStorage.getItem('revagy-zgoda-analityka'));
       check('hostname poza revagy.pl/www.revagy.pl: tracker zablokowany mimo lokalnej zgody', choice === 'tak' && log.stats.length === 0 && paqLen === 0, `choice=${choice} stats=${log.stats.length} paq=${paqLen}`);
+      check('hostname poza revagy.pl/www.revagy.pl: Clarity zablokowane mimo lokalnej zgody', log.clarity.length === 0, log.clarity.join(' | '));
       check('hostname nieprodukcyjny: brak błędów JS', log.errors.length === 0, log.errors.join(' | '));
       await context.close();
     }
@@ -617,6 +677,7 @@ if (require.main === module) (async () => {
         };
         return {
           robots: await get('/robots.txt'),
+          bing: await get('/BingSiteAuth.xml'),
           sitemap: await get('/sitemap.xml'),
           manifest: await get('/site.webmanifest'),
           llms: await get('/llms.txt'),
@@ -631,6 +692,15 @@ if (require.main === module) (async () => {
         seoChecks.manifest.status === 200 &&
         (!(isLocalHarness || production) || seoChecks.manifest.ct.includes('application/manifest+json')),
         JSON.stringify({ robots: seoChecks.robots.status, sitemap: seoChecks.sitemap.status, manifest: seoChecks.manifest }));
+      check('BingSiteAuth.xml odpowiada 200 jako XML', seoChecks.bing.status === 200 && /xml/.test(seoChecks.bing.ct), JSON.stringify(seoChecks.bing));
+      const kluczIndexNow = fs.readdirSync(path.join(repoRoot, 'public')).find((f) => /^[0-9a-f]{32}\.txt$/.test(f));
+      const plikKlucza = kluczIndexNow ? await page.evaluate(async (u) => {
+        const r = await fetch(u);
+        return { status: r.status, ct: r.headers.get('content-type') || '', body: (await r.text()).trim() };
+      }, `/${kluczIndexNow}`) : null;
+      check('plik klucza IndexNow odpowiada 200 jako tekst z samym kluczem',
+        plikKlucza && plikKlucza.status === 200 && plikKlucza.ct.startsWith('text/plain') && `${plikKlucza.body}.txt` === kluczIndexNow,
+        JSON.stringify({ plik: kluczIndexNow, ...plikKlucza }));
       check('llms.txt i llms-full.txt odpowiadają 200 jako tekst',
         seoChecks.llms.status === 200 && seoChecks.llmsFull.status === 200 &&
         seoChecks.llms.ct.startsWith('text/plain') && seoChecks.llmsFull.ct.startsWith('text/plain'),
@@ -839,6 +909,8 @@ if (require.main === module) (async () => {
             }
           }
 
+          check(`${p} (${szer}): clarity.js na stronie, bez zgody zero żądań do clarity.ms`,
+            (await page.locator('script[src^="assets/js/clarity.js"]').count()) === 1 && log.clarity.length === 0, log.clarity.join(' | '));
           check(`${p} (${szer}): brak błędów JS i nieudanych żądań`, log.errors.length === 0 && log.failed.length === 0 && log.blockedExternal.length === 0,
             [...log.errors, ...log.failed, ...log.blockedExternal].join(' | '));
           await context.close();
@@ -925,4 +997,4 @@ if (require.main === module) (async () => {
   process.exit(failed.length ? 1 : 0);
 })().catch((e) => { console.error(e); process.exit(1); });
 
-module.exports = { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS, BAZA_PATH };
+module.exports = { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS, CLARITY_MOCK_JS, CLARITY_TAG, BAZA_PATH };

@@ -1,9 +1,17 @@
 {
   "baselineCommit": "9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f",
   "publicFiles": {
+    "0c8dd46a3a9f367c383554c85d42412e.txt": {
+      "sha256": "be73dfb12e6154ab3fdfe5845b7c6d290f74dd4e1d4c50819bb9bc118bcd9c2c",
+      "size": 32
+    },
+    "BingSiteAuth.xml": {
+      "sha256": "9b05bbf998005f351e69868bc26a21afab318439fd284460b0815b4fcd5f275a",
+      "size": 85
+    },
     "assets/css/podstrony.css": {
-      "sha256": "7fa31390d125bee919cff1a5014c2ca2a3be440a725783be713e9347fcdb84bd",
-      "size": 2624
+      "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
+      "size": 2192
     },
     "assets/css/styles.css": {
       "sha256": "00d50d42bfa57f01e7568ce25b8b094a2c74b27c9a9244df6e14d1e569a29d70",
@@ -73,6 +81,10 @@
       "sha256": "67411b94f815ac90d4043ae2977cca73363702b518f7a932f783787a7c9a4e1d",
       "size": 13545
     },
+    "assets/js/clarity.js": {
+      "sha256": "620817311ec2db2c2079bbe63ba80d0b7bf67b0a9086de242ac9ad9984bea85d",
+      "size": 1911
+    },
     "assets/js/kontakt.js": {
       "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
       "size": 15657
@@ -128,10 +140,6 @@
     "assets/video/dla-firm.webm": {
       "sha256": "86b9f19d6b63cb417b18eae4ff4f2266f96522abc514ca5373294994a9f18cff",
       "size": 347638
-    },
-    "assets/video/finanse-kadr.jpg": {
-      "sha256": "7f4593313e53b28c2d49694fc2e85d66f678b23829f438a9686e4e83ff89f7ba",
-      "size": 120982
     },
     "assets/video/hero-flow.jpg": {
       "sha256": "ba755d3bf5c922b159a3a994d7073775973b474cc371f7317152e8610965a84b",
@@ -194,58 +202,54 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "e42f59b0dcbfabf8dba05cc95b0ccdad009002d2387f90cc895c1ba83ab628d4",
-      "size": 1110
+      "sha256": "de9491ea63e385bdc96a15a160aa703e46483b6046af4299389f9ede7f865e00",
+      "size": 1026
     }
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "66dbe91824654abfa82492cc0b3520d09b9d615115d48abbcd3023b96d744d77",
-      "size": 1754
+      "sha256": "15368840258ac8b5f71af54c381576a24cc683bb14390aaab92246b02c6a3032",
+      "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "179aa43a658e84f1b6b81f12259e4c110048bec71798d257698a69912e223e86",
-      "size": 24120
+      "sha256": "469b47172c50c68cb454aed8d9865a71ced2327f355240e57c94d41c4e9ed32b",
+      "size": 24116
     },
     "dla-firm.html": {
-      "sha256": "e58258932b3ca637b7f80c162d9c39d2d494e594a752ca33dbfbff2e18498095",
-      "size": 24699
-    },
-    "finanse.html": {
-      "sha256": "c0c65247e3d85652f45c99ac5d66cbb09c004a575ee2ac3b84f043e6fe240cae",
-      "size": 23826
+      "sha256": "a1ec7bd80158ffdd13c7d3a1af7b2a9ccadb04c94987ba1289328c909f3298f6",
+      "size": 24695
     },
     "index.html": {
-      "sha256": "1a02dd017075e3957b0905561484086c2c48a56453454b18884aa120bf0efff8",
-      "size": 46438
+      "sha256": "869f382cb1517cb97bda1285956ae72610f741868223b3af4332e9a318071f4a",
+      "size": 46493
     },
     "integracja-systemow.html": {
-      "sha256": "c23036017b2afad26d1daf6f08fb9a852dc4c088718508292ef446c7a59b32c0",
-      "size": 25663
+      "sha256": "642dade302327a601bdd1c47bac64f40af1e9213a43d091003c76a5ca90c73cd",
+      "size": 25659
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "9bcd8abf1e519ed64b8da8aeac80adcaea88732a68a44d8f3b0e1c2ed7715d20",
-      "size": 24306
+      "sha256": "9aa56adf704726e7234940e8726bc49fe61d1a25fa6929ec95aada90969a5074",
+      "size": 24302
     },
     "kontakt.html": {
-      "sha256": "0c2c6138e62b425a3f432798813d47de53d70aa1766e493e0db6202bb518c573",
-      "size": 8232
+      "sha256": "07a7ea39d524035309c238ab34917758ff5448bbf501234ee2ac70938b793a0c",
+      "size": 8287
     },
     "polityka-prywatnosci.html": {
-      "sha256": "b946cc54885cfc7e2d3070a10a551a28f2e8b048f93c33054a036439a6e91424",
-      "size": 7866
+      "sha256": "e444f2472f971c96afd9f8eb8607ce09c3ea1328ae19bcadb96eb74fce8a4864",
+      "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "9bc224af1440e7b033cd33c4ff27ddfa4b3f2885a21a8f2483b2d84844c0be93",
-      "size": 23836
+      "sha256": "7bedb915efd55e6195eabb483b6c478f758b8421bd4b5e7fe2b3ab412c1b7d31",
+      "size": 23832
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "ecd21c0dd6ecbdeee0916b61c22a6e388c3667f0911459b53c3a91d5d75214dc",
-      "size": 24665
+      "sha256": "7e0fa2c14fa871ca8f1b27bf824256b58ac252f3c95313bab8bfc66395f91e49",
+      "size": 24661
     },
     "wdrozenia.html": {
-      "sha256": "011fee8831ff5c4873eb6cb8332c020a55f8fc20a6b927717673fd89de6bd0cc",
-      "size": 22427
+      "sha256": "c4e7131446affbfe1dc3f1a8e0d8c3f279609d38dcf678bf07615bfbab4102ff",
+      "size": 22423
     }
   },
   "pages": {
@@ -309,6 +313,13 @@
       "scripts": [
         {
           "src": "/assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "/assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -453,6 +464,11 @@
           "tag": "script",
           "attr": "src",
           "val": "/assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "/assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -591,7 +607,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -615,6 +631,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -1298,16 +1321,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -1315,16 +1328,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -1338,16 +1341,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -1355,16 +1348,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -1556,7 +1539,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -1738,7 +1721,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -1874,7 +1857,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -1914,7 +1897,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -2059,7 +2042,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -2135,6 +2118,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -2280,7 +2268,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -2304,6 +2292,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -2911,16 +2906,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -2928,16 +2913,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -2951,16 +2926,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -2968,16 +2933,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -3149,7 +3104,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -3366,7 +3321,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -3502,7 +3457,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -3542,7 +3497,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -3712,7 +3667,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -3788,1607 +3743,16 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
         {
           "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dla-firm.html#strona\",\"url\":\"https://revagy.pl/dla-firm.html\",\"name\":\"Dla firm\",\"headline\":\"Automatyzacja dla firm 5–250 osób: pakiety | REVAGY\",\"description\":\"Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dla-firm.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dla firm\",\"item\":\"https://revagy.pl/dla-firm.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dla-firm.html#usluga\",\"name\":\"Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób\",\"description\":\"Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/dla-firm.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dla-firm.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Od czego zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. Cenę pakietu podajemy po audycie.\"}},{\"@type\":\"Question\",\"name\":\"Co jeśli się rozmyślimy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.\"}},{\"@type\":\"Question\",\"name\":\"Czy trzeba wymieniać systemy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi mieć czas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.\"}},{\"@type\":\"Question\",\"name\":\"Ile trwa pierwsze wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/dla-firm.html#film\",\"name\":\"Cztery kroki współpracy: od konsultacji do opieki\",\"description\":\"Konsultacja kończy się kartą procesu, audyt raportem z zakresem wdrożenia, wdrożenie działającym przepływem między systemami, a opieka monitoringiem i raportem okresowym. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/dla-firm.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/dla-firm.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT12S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"}}]}",
-          "attrs": [
-            "type"
-          ]
-        }
-      ]
-    },
-    "finanse.html": {
-      "doctype": "html",
-      "htmlLang": "pl",
-      "title": "Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY",
-      "canonical": "https://revagy.pl/finanse.html",
-      "meta": [
-        {
-          "charset": "utf-8",
-          "name": null,
-          "property": null,
-          "content": null
-        },
-        {
-          "charset": null,
-          "name": "viewport",
-          "property": null,
-          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
-        },
-        {
-          "charset": null,
-          "name": "description",
-          "property": null,
-          "content": "Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację."
-        },
-        {
-          "charset": null,
-          "name": "theme-color",
-          "property": null,
-          "content": "#ffffff"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:type",
-          "content": "website"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:site_name",
-          "content": "REVAGY"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:locale",
-          "content": "pl_PL"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:url",
-          "content": "https://revagy.pl/finanse.html"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:title",
-          "content": "Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:description",
-          "content": "Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację."
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:image",
-          "content": "https://revagy.pl/assets/img/og.jpg"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:image:width",
-          "content": "1200"
-        },
-        {
-          "charset": null,
-          "name": null,
-          "property": "og:image:height",
-          "content": "630"
-        },
-        {
-          "charset": null,
-          "name": "twitter:card",
-          "property": null,
-          "content": "summary_large_image"
-        }
-      ],
-      "links": [
-        {
-          "rel": "canonical",
-          "href": "https://revagy.pl/finanse.html",
-          "type": null,
-          "sizes": null,
-          "as": null,
-          "crossorigin": false
-        },
-        {
-          "rel": "icon",
-          "href": "favicon.ico",
-          "type": null,
-          "sizes": "32x32",
-          "as": null,
-          "crossorigin": false
-        },
-        {
-          "rel": "icon",
-          "href": "assets/img/favicon.svg",
-          "type": "image/svg+xml",
-          "sizes": null,
-          "as": null,
-          "crossorigin": false
-        },
-        {
-          "rel": "apple-touch-icon",
-          "href": "assets/img/apple-touch-icon.png",
-          "type": null,
-          "sizes": null,
-          "as": null,
-          "crossorigin": false
-        },
-        {
-          "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=4",
-          "type": null,
-          "sizes": null,
-          "as": null,
-          "crossorigin": false
-        },
-        {
-          "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
-          "type": null,
-          "sizes": null,
-          "as": null,
-          "crossorigin": false
-        }
-      ],
-      "scripts": [
-        {
-          "src": "assets/js/app.js?v=4",
-          "defer": true,
-          "async": false,
-          "type": null,
-          "hasInlineBody": false
-        },
-        {
-          "src": "assets/js/wejscie.js?v=1",
-          "defer": true,
-          "async": false,
-          "type": null,
-          "hasInlineBody": false
-        },
-        {
-          "src": "assets/js/analytics.js?v=4",
-          "defer": true,
-          "async": false,
-          "type": null,
-          "hasInlineBody": false
-        }
-      ],
-      "stylesCount": 0,
-      "astroAttrs": [],
-      "bodyDirectTags": [
-        {
-          "tag": "a",
-          "id": null,
-          "class": "skip"
-        },
-        {
-          "tag": "header",
-          "id": "top",
-          "class": "site-header"
-        },
-        {
-          "tag": "main",
-          "id": "start",
-          "class": null
-        },
-        {
-          "tag": "footer",
-          "id": null,
-          "class": "site-footer"
-        }
-      ],
-      "mainAttrs": {
-        "id": "start",
-        "class": null
-      },
-      "mainSections": [
-        {
-          "tag": "section",
-          "id": "wstep",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "film",
-          "class": "section",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "faktury",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "windykacja",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "uzgodnienia",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "kroki",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "wdrozenie",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "dane",
-          "class": "section wrap",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "pytania",
-          "class": "section wrap faq-section",
-          "ariaLabel": null
-        },
-        {
-          "tag": "section",
-          "id": "wezwanie",
-          "class": "section",
-          "ariaLabel": null
-        }
-      ],
-      "keyedElements": [
-        {
-          "tag": "header",
-          "id": "top",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "a",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "REVAGY, strona główna"
-          }
-        },
-        {
-          "tag": "svg",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Główna nawigacja"
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "panel-rozwiazania"
-          }
-        },
-        {
-          "tag": "svg",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "panel-rozwiazania",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "panel-dzialy"
-          }
-        },
-        {
-          "tag": "svg",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "panel-dzialy",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "mobile-menu",
-            "aria-label": "Otwórz menu"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "mobile-menu",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Menu mobilne"
-          }
-        },
-        {
-          "tag": "main",
-          "id": "start",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "wstep",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "film",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "div",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {
-            "data-scale": ""
-          },
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "faktury",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "windykacja",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "uzgodnienia",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "kroki",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "wdrozenie",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "dane",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "section",
-          "id": "pytania",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "div",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {
-            "data-faq": ""
-          },
-          "aria": {}
-        },
-        {
-          "tag": "button",
-          "id": "qb-1",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "true",
-            "aria-controls": "qa-1"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-1",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-1"
-          }
-        },
-        {
-          "tag": "button",
-          "id": "qb-2",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "qa-2"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-2",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-2"
-          }
-        },
-        {
-          "tag": "button",
-          "id": "qb-3",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "qa-3"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-3",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-3"
-          }
-        },
-        {
-          "tag": "button",
-          "id": "qb-4",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "qa-4"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-4",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-4"
-          }
-        },
-        {
-          "tag": "button",
-          "id": "qb-5",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "qa-5"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-5",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-5"
-          }
-        },
-        {
-          "tag": "button",
-          "id": "qb-6",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-expanded": "false",
-            "aria-controls": "qa-6"
-          }
-        },
-        {
-          "tag": "span",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "div",
-          "id": "qa-6",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-labelledby": "qb-6"
-          }
-        },
-        {
-          "tag": "section",
-          "id": "wezwanie",
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {}
-        },
-        {
-          "tag": "div",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "a",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "REVAGY, strona główna"
-          }
-        },
-        {
-          "tag": "svg",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-hidden": "true"
-          }
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Rozwiązania"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Firma"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
-          "tag": "nav",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {
-            "data-consent-open": ""
-          },
-          "aria": {}
-        }
-      ],
-      "headings": [
-        {
-          "tag": "h1",
-          "id": null,
-          "text": "Faktury kosztowe, windykacja i uzgodnienia bez ręcznego przepisywania"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Faktura kosztowa od odbioru do akceptacji"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Faktury kosztowe"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Dziś"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Po wdrożeniu"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Co zostaje człowiekowi"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Windykacja"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Dziś"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Po wdrożeniu"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Co zostaje człowiekowi"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Uzgodnienia"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Dziś"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Po wdrożeniu"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Co zostaje człowiekowi"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Jak zaczynamy"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Ten sam mechanizm w innym dziale"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Jeden raport zarządu z kilku źródeł"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Dane finansowe i umowa powierzenia"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Pytania działu finansów"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Czy to zastąpi księgową?"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Co z fakturami w KSeF?"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Nasz program księgowy nie ma API. Co wtedy?"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Czy musimy zmieniać program księgowy albo bank?"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Od którego procesu zacząć?"
-        },
-        {
-          "tag": "h3",
-          "id": null,
-          "text": "Ile to kosztuje?"
-        },
-        {
-          "tag": "h2",
-          "id": null,
-          "text": "Zacznijmy od jednego procesu w finansach"
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "text": "Rozwiązania"
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "text": "Dla działów"
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "text": "Firma"
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "text": "Kontakt"
-        }
-      ],
-      "anchors": [
-        {
-          "href": "#start",
-          "class": "skip",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Przejdź do treści"
-        },
-        {
-          "href": "./",
-          "class": "logo",
-          "dataTrack": null,
-          "ariaLabel": "REVAGY, strona główna",
-          "text": "REVAGY"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
-        },
-        {
-          "href": "./#integracje",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
-        },
-        {
-          "href": "finanse.html",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
-        },
-        {
-          "href": "./#proces",
-          "class": "nav-link",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Jak wdrażamy"
-        },
-        {
-          "href": "./#pakiety",
-          "class": "nav-link",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Pakiety"
-        },
-        {
-          "href": "./#faq",
-          "class": "nav-link",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "FAQ"
-        },
-        {
-          "href": "./#kalkulator",
-          "class": "btn btn-ghost",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Policz zwrot"
-        },
-        {
-          "href": "./#kontakt",
-          "class": "btn btn-dark",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Umów konsultację"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Rozwiązania"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Dla działów"
-        },
-        {
-          "href": "./#proces",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Jak wdrażamy"
-        },
-        {
-          "href": "./#kalkulator",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Policz zwrot"
-        },
-        {
-          "href": "./#pakiety",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Pakiety"
-        },
-        {
-          "href": "./#faq",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "FAQ"
-        },
-        {
-          "href": "./#kontakt",
-          "class": "btn btn-dark btn-lg",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Umów bezpłatną konsultację"
-        },
-        {
-          "href": "produkcja-i-logistyka.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "pilot dla produkcji i logistyki"
-        },
-        {
-          "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Umów bezpłatną konsultację"
-        },
-        {
-          "href": "#faktury",
-          "class": "btn btn-outline btn-lg",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Zobacz, co się zmienia w procesach"
-        },
-        {
-          "href": "wdrozenia.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Wdrożenia"
-        },
-        {
-          "href": "dane-i-bezpieczenstwo.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Dane i bezpieczeństwo"
-        },
-        {
-          "href": "porownanie-rozwiazan.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Porównanie rozwiązań"
-        },
-        {
-          "href": "jak-wybrac-pierwszy-proces.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Jak wybrać pierwszy proces do automatyzacji"
-        },
-        {
-          "href": "kontakt.html",
-          "class": "btn btn-light btn-lg",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Umów bezpłatną konsultację"
-        },
-        {
-          "href": "./",
-          "class": "logo",
-          "dataTrack": null,
-          "ariaLabel": "REVAGY, strona główna",
-          "text": "REVAGY"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Automatyzacja procesów"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Agenci AI"
-        },
-        {
-          "href": "./#integracje",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Integracje"
-        },
-        {
-          "href": "./#mozliwosci",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Analityka"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Sprzedaż"
-        },
-        {
-          "href": "finanse.html",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Finanse"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Obsługa klienta"
-        },
-        {
-          "href": "./#zastosowania",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Logistyka"
-        },
-        {
-          "href": "./#proces",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Jak wdrażamy"
-        },
-        {
-          "href": "./#pakiety",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Pakiety"
-        },
-        {
-          "href": "./#bezpieczenstwo",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Bezpieczeństwo"
-        },
-        {
-          "href": "./#faq",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "FAQ"
-        },
-        {
-          "href": "./#kontakt",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Umów konsultację"
-        },
-        {
-          "href": "mailto:kontakt@revagy.pl",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "kontakt@revagy.pl"
-        },
-        {
-          "href": "tel:+48504037538",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "+48 504 037 538"
-        },
-        {
-          "href": "./#kalkulator",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Kalkulator zwrotu"
-        },
-        {
-          "href": "polityka-prywatnosci.html",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "Polityka prywatności"
-        },
-        {
-          "href": "mailto:kontakt@revagy.pl",
-          "class": null,
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "kontakt@revagy.pl"
-        }
-      ],
-      "videos": [],
-      "calculator": null,
-      "localRefs": [
-        {
-          "tag": "link",
-          "attr": "href",
-          "val": "favicon.ico"
-        },
-        {
-          "tag": "link",
-          "attr": "href",
-          "val": "assets/img/favicon.svg"
-        },
-        {
-          "tag": "link",
-          "attr": "href",
-          "val": "assets/img/apple-touch-icon.png"
-        },
-        {
-          "tag": "link",
-          "attr": "href",
-          "val": "assets/css/styles.css?v=4"
-        },
-        {
-          "tag": "link",
-          "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "#start"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#integracje"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "finanse.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#proces"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#pakiety"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#faq"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kalkulator"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kontakt"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#proces"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kalkulator"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#pakiety"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#faq"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kontakt"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "produkcja-i-logistyka.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "kontakt.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "#faktury"
-        },
-        {
-          "tag": "img",
-          "attr": "src",
-          "val": "assets/video/finanse-kadr.jpg"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "wdrozenia.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "dane-i-bezpieczenstwo.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "porownanie-rozwiazan.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "jak-wybrac-pierwszy-proces.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "kontakt.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#integracje"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#mozliwosci"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "finanse.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#zastosowania"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#proces"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#pakiety"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#bezpieczenstwo"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#faq"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kontakt"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "mailto:kontakt@revagy.pl"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "tel:+48504037538"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "./#kalkulator"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "polityka-prywatnosci.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
-          "val": "mailto:kontakt@revagy.pl"
-        },
-        {
-          "tag": "script",
-          "attr": "src",
-          "val": "assets/js/app.js?v=4"
-        },
-        {
-          "tag": "script",
-          "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
-        },
-        {
-          "tag": "script",
-          "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
-        }
-      ],
-      "jsonLd": [
-        {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/finanse.html#strona\",\"url\":\"https://revagy.pl/finanse.html\",\"name\":\"Finanse\",\"headline\":\"Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY\",\"description\":\"Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-22\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/finanse.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/finanse.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/finanse.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Finanse\",\"item\":\"https://revagy.pl/finanse.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/finanse.html#usluga\",\"name\":\"Automatyzacja procesów w dziale finansów\",\"description\":\"Automatyzacja obiegu faktur kosztowych, przypomnień o należnościach i uzgodnień z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają po stronie klienta.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/finanse.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/finanse.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/finanse.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy to zastąpi księgową?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porównywanie danych. Akceptacja opisu i dekretacji, decyzje o eskalacji należności i wyjaśnianie różnic zostają u księgowej i u osób, które wskażecie.\"}},{\"@type\":\"Question\",\"name\":\"Co z fakturami w KSeF?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Faktura z KSeF ma ustaloną strukturę, więc jej pól nie trzeba odczytywać z obrazu. Którą drogą faktury trafią do programu księgowego i co robimy z fakturami spoza KSeF, ustalamy w audycie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz program księgowy nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy zmieniać program księgowy albo bank?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Od którego procesu zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład obiegu faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]}]}",
           "attrs": [
             "type"
           ]
@@ -5554,6 +3918,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -8166,6 +6537,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -8311,7 +6687,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8335,6 +6711,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -9060,16 +7443,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -9077,16 +7450,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -9100,16 +7463,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -9117,16 +7470,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -9338,7 +7681,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -9513,7 +7856,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -9649,7 +7992,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -9689,7 +8032,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -9829,7 +8172,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -9905,6 +8248,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -10050,7 +8398,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10074,6 +8422,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -10619,16 +8974,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -10636,16 +8981,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -10659,16 +8994,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -10676,16 +9001,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -10872,7 +9187,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -11082,7 +9397,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -11199,7 +9514,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -11239,7 +9554,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -11389,7 +9704,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -11465,6 +9780,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -11552,6 +9872,13 @@
       "scripts": [
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -11812,6 +10139,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -11892,6 +10224,13 @@
       "scripts": [
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -12147,6 +10486,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -12285,7 +10629,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12309,6 +10653,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -12809,16 +11160,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -12826,16 +11167,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -12849,16 +11180,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -12866,16 +11187,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -13037,7 +11348,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -13240,7 +11551,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -13357,7 +11668,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -13397,7 +11708,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -13542,7 +11853,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -13618,6 +11929,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -13763,7 +12079,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13787,6 +12103,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -14422,16 +12745,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -14439,16 +12752,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -14462,16 +12765,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -14479,16 +12772,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -14680,7 +12963,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -14869,7 +13152,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -15005,7 +13288,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -15045,7 +13328,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -15195,7 +13478,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -15271,6 +13554,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -15416,7 +13704,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=2",
+          "href": "assets/css/podstrony.css?v=1",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15440,6 +13728,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -16027,16 +14322,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -16044,16 +14329,6 @@
           "data": {},
           "aria": {
             "aria-label": "Dla działów"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -16067,16 +14342,6 @@
           }
         },
         {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
-          }
-        },
-        {
           "tag": "nav",
           "id": null,
           "name": null,
@@ -16084,16 +14349,6 @@
           "data": {},
           "aria": {
             "aria-label": "Kontakt"
-          }
-        },
-        {
-          "tag": "h4",
-          "id": null,
-          "name": null,
-          "for": null,
-          "data": {},
-          "aria": {
-            "aria-level": "2"
           }
         },
         {
@@ -16275,7 +14530,7 @@
           "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -16464,7 +14719,7 @@
           "text": "Sprzedaż"
         },
         {
-          "href": "finanse.html",
+          "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -16600,7 +14855,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=2"
+          "val": "assets/css/podstrony.css?v=1"
         },
         {
           "tag": "a",
@@ -16640,7 +14895,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -16790,7 +15045,7 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "finanse.html"
+          "val": "./#zastosowania"
         },
         {
           "tag": "a",
@@ -16866,6 +15121,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [

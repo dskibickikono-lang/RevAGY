@@ -1,10 +1,15 @@
 {
-  "etap": "8",
-  "opis": "Etap 8, podstrona działowa /finanse.html: strona główna bez zmian. tools/baseline/index.baza.html (migawka strony głównej z main e10cab9, bez zmian od etapu 5) jest równa tools/baseline/index.html.",
+  "etap": "T-022",
+  "opis": "T-022, Microsoft Clarity za zgodą: jedyna zmiana strony głównej to znacznik <script src=\"assets/js/clarity.js?v=1\" defer> dopisany po analytics.js (komponent src/components/Clarity.astro). Skrypt nie zmienia DOM ani stylów; tag clarity.ms wstawia dopiero po zgodzie analitycznej. Różnica między tools/baseline/index.baza.html (migawka etapu 6) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
-    "dodane": [],
+    "dodane": [
+      {
+        "znacznik": "script",
+        "razy": 1
+      }
+    ],
     "usuniete": []
   },
   "geometria": {
