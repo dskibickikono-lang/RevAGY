@@ -4,9 +4,16 @@
 <meta charset="utf-8">
 <title>Scena: rekord pracownika z systemu HR w kadrach i płacach</title>
 <link rel="stylesheet" href="scene.css">
-<!-- Scena-szkielet (plan 3.3 i 3.6). Na razie jedna statyczna kompozycja: kadr startowy filmu
-     z chwili POSTER_AT = 11 s scenariusza (pola po kontroli, stawka zatwierdzona, wpis w dzienniku).
-     Etap filmowy F1 doda oś czasu w window.render(t). Dane są poglądowe, bez nazw własnych. -->
+<!-- Film F1 (D-022, D-032, D-038): jeden rekord pracownika w drodze z systemu HR do kadr i płac.
+     14 s w pętli, 30 kl./s, 1600×900. Oś czasu:
+       0–2 s   dwa panele, w kadrach i płacach puste miejsca, dziennik bez wpisów;
+       2–6 s   cztery pola przechodzą po kolei, każde z odznaką swojej kontroli;
+       6–9 s   stawka zatrzymuje się („czeka na decyzję”), w 8,2 s zatwierdza ją osoba z kadr;
+       9–12 s  w dzienniku pojawia się wpis: co, skąd, kiedy, poprzednia wartość;
+       12–14 s napis „wpisane raz”, potem pola i wpis gasną, a obraz wraca do stanu z 0 s.
+     Kadr startowy (POSTER_AT = 11 s) ma tę samą kompozycję co wcześniejszy kadr -kadr.jpg.
+     Tło jest nieruchome (poświaty w położeniu z 11 s), żeby film był lekki i pętla nie skakała.
+     Dane poglądowe, bez nazw własnych systemów i firm. -->
 <style>
   #stage { width: 1600px; height: 900px; }
   .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 420px; opacity: .45; }
@@ -42,6 +49,15 @@
   .log-row b { font-family: var(--display); font-weight: 650; }
   .log-row s { color: var(--ink-2); }
   .log-row .who { font-size: 15px; color: var(--ink-2); text-align: right; }
+  .log-head { display: flex; align-items: baseline; gap: 16px; }
+  .log-empty { font-size: 17px; color: var(--ink-2); padding: 10px 0; border-top: 1.5px solid var(--mist-2); }
+  .log-stack { display: grid; }
+  .log-stack > * { grid-area: 1 / 1; }
+  .once { margin-left: auto; font-family: var(--display); font-weight: 700; font-size: 19px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 4px 14px; }
+
+  .field.send { border-color: rgba(255, 91, 20, .7); }
+  .field em.wait { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .token { position: absolute; left: 0; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 5px rgba(255, 91, 20, .35); opacity: 0; }
 </style>
 </head>
 <body>
@@ -54,31 +70,34 @@
       <section class="panel">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>System HR</b><span class="tag">źródło</span></div>
         <ul class="fields">
-          <li class="field"><span>Imię i nazwisko</span><b>Marta Przykładowa</b></li>
-          <li class="field"><span>PESEL</span><b>••••••••••2</b></li>
-          <li class="field"><span>Numer rachunku</span><b>•• •••• … 4821</b></li>
-          <li class="field"><span>Stawka godzinowa</span><b>31,50 zł</b></li>
-          <li class="field"><span>Data rozpoczęcia</span><b>01.12.2026</b></li>
+          <li class="field" id="src-0"><span>Imię i nazwisko</span><b>Marta Przykładowa</b></li>
+          <li class="field" id="src-1"><span>PESEL</span><b>••••••••••2</b></li>
+          <li class="field" id="src-2"><span>Numer rachunku</span><b>•• •••• … 4821</b></li>
+          <li class="field" id="src-3"><span>Stawka godzinowa</span><b>31,50 zł</b></li>
+          <li class="field" id="src-4"><span>Data rozpoczęcia</span><b>01.12.2026</b></li>
         </ul>
       </section>
 
-      <div class="pipe" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M3 7h8M8 3.5 11.5 7 8 10.5" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+      <div class="pipe" aria-hidden="true"><span class="token" id="token"></span><i><svg viewBox="0 0 14 14"><path d="M3 7h8M8 3.5 11.5 7 8 10.5" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
       <section class="panel">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Kadry i płace</b><span class="tag">cel</span></div>
         <ul class="fields">
-          <li class="field ok"><span>Kartoteka pracownika</span><b>Marta Przykładowa</b><em>zgodne z dokumentem</em></li>
-          <li class="field ok"><span>PESEL</span><b>••••••••••2</b><em>suma kontrolna</em></li>
-          <li class="field ok"><span>Dane do wypłaty</span><b>•• •••• … 4821</b><em>suma kontrolna</em></li>
-          <li class="field held" id="rate"><span>Warunki umowy · stawka</span><b>31,50 zł</b><em id="rate-tag">zatwierdzone przez kadry</em></li>
-          <li class="field ok"><span>Ewidencja zatrudnienia</span><b>od 01.12.2026</b><em>bez kolizji</em></li>
+          <li class="field ok t" data-at="2.3" data-out="13.2" data-dx="-24" data-dy="0"><span>Kartoteka pracownika</span><b>Marta Przykładowa</b><em>zgodne z dokumentem</em></li>
+          <li class="field ok t" data-at="3.1" data-out="13.2" data-dx="-24" data-dy="0"><span>PESEL</span><b>••••••••••2</b><em>suma kontrolna</em></li>
+          <li class="field ok t" data-at="3.9" data-out="13.2" data-dx="-24" data-dy="0"><span>Dane do wypłaty</span><b>•• •••• … 4821</b><em>suma kontrolna</em></li>
+          <li class="field held t" id="rate" data-at="6.3" data-out="13.2" data-dx="-24" data-dy="0"><span>Warunki umowy · stawka</span><b>31,50 zł</b><em id="rate-tag">zatwierdzone przez kadry</em></li>
+          <li class="field ok t" data-at="4.7" data-out="13.2" data-dx="-24" data-dy="0"><span>Ewidencja zatrudnienia</span><b>od 01.12.2026</b><em>bez kolizji</em></li>
         </ul>
       </section>
     </div>
 
     <div class="log">
-      <p class="log-title">Dziennik zapisów</p>
-      <div class="log-row"><time>12:04:18</time><b>Stawka godzinowa</b><span class="src">skąd: System HR</span><span><s>29,00 zł</s> → 31,50 zł</span><span class="who">zatwierdzone: kadry</span></div>
+      <div class="log-head"><p class="log-title">Dziennik zapisów</p><span class="once t" data-at="12" data-out="13.3" data-dy="8">wpisane raz</span></div>
+      <div class="log-stack">
+      <p class="log-empty" id="log-empty">brak nowych wpisów</p>
+      <div class="log-row t" id="log-row" data-at="9.4" data-out="13.2" data-dy="10"><time>12:04:18</time><b>Stawka godzinowa</b><span class="src">skąd: System HR</span><span><s>29,00 zł</s> → 31,50 zł</span><span class="who">zatwierdzone: kadry</span></div>
+      </div>
     </div>
   </div>
 </div>
@@ -87,19 +106,49 @@
 <script>
 window.DURATION = 14;
 window.SIZE = [1600, 900];
-// Kadr startowy filmu: 11 s scenariusza z planu (rozdział 3.6). Ten sam moment daje kadr przed filmem.
+// Kadr startowy filmu: 11 s scenariusza (D-038): wszystkie pola po kontroli, stawka zatwierdzona, wpis w dzienniku.
 window.POSTER_AT = 11;
+const { clamp, prog, lerp, apply } = TL;
 const TAU = Math.PI * 2;
-const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
 
-// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+// Poświaty nieruchome, w położeniu z chwili 11 s szkieletu kadru (ten sam wygląd tła co -kadr.jpg).
+['g1', 'g2', 'g3'].forEach((id, i) => {
+  const a = TAU * 11 / 14 + i * 2.1;
+  document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+});
+
+// Przejścia pól: [pole źródłowe, start, koniec]. Stawka (3) przechodzi ostatnia i zatrzymuje się na kontroli.
+const PRZEJSCIA = [[0, 1.8, 2.4], [1, 2.6, 3.2], [2, 3.4, 4.0], [4, 4.2, 4.8], [3, 5.8, 6.4]];
+const zrodla = [0, 1, 2, 3, 4].map((i) => document.getElementById(`src-${i}`));
+const token = document.getElementById('token');
+const rateTag = document.getElementById('rate-tag');
+const logEmpty = document.getElementById('log-empty');
+const logRow = document.getElementById('log-row');
+const ZATWIERDZENIE = 8.2;
+
 window.render = (t) => {
   const T = window.DURATION;
   t = ((t % T) + T) % T;
-  glows.forEach((g, i) => {
-    const a = TAU * t / T + i * 2.1;
-    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
-  });
+  apply(t);
+
+  // znacznik danych w rurze między panelami i podświetlenie wysyłanego pola
+  let aktywne = -1;
+  let p = 0;
+  PRZEJSCIA.forEach(([pole, od, doo]) => { if (t >= od && t < doo) { aktywne = pole; p = clamp((t - od) / (doo - od)); } });
+  zrodla.forEach((el, i) => el.classList.toggle('send', i === aktywne));
+  const pipeW = token.parentElement.getBoundingClientRect().width;
+  token.style.opacity = aktywne === -1 ? '0' : (Math.sin(Math.PI * p)).toFixed(3);
+  token.style.transform = `translateX(${lerp(4, pipeW - 26, p).toFixed(1)}px)`;
+
+  // stawka: najpierw czeka na decyzję człowieka, potem zatwierdzona przez kadry
+  const zatwierdzona = t >= ZATWIERDZENIE;
+  rateTag.textContent = zatwierdzona ? 'zatwierdzone przez kadry' : 'czeka na decyzję';
+  rateTag.classList.toggle('wait', !zatwierdzona);
+  const puls = prog(t, ZATWIERDZENIE, 0.25) * (1 - prog(t, ZATWIERDZENIE + 0.25, 0.35));
+  rateTag.style.transform = `scale(${(1 + 0.08 * puls).toFixed(3)})`;
+
+  // pusty dziennik, dopóki nie ma wpisu
+  logEmpty.style.opacity = (1 - Number(logRow.style.opacity || 0)).toFixed(4);
 };
 TL.live(window.render, window.DURATION);
 </script>

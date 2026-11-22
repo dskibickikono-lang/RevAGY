@@ -18,8 +18,8 @@ export const FILMY = {
     tytul: 'Rekord pracownika z systemu HR w kadrach i płacach, wpisany raz',
     opis: 'Pięć pól przechodzi z systemu HR do programu kadrowo-płacowego. Każde mija swoją kontrolę, stawka poza zakresem czeka na decyzję człowieka, a zapis trafia do dziennika. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy (F1): czas w sekundach i data publikacji RRRR-MM-DD.
-    czasSekundy: null,
-    dataPublikacji: null,
+    czasSekundy: 14,
+    dataPublikacji: '2026-11-22',
   },
   'wdrozenia': {
     // Tekst zastępczy obrazu w stanie „kadr”.
