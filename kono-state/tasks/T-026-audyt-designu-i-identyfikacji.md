@@ -98,7 +98,7 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
 
 ## Otwarte, do właściciela
 
-1. ~~Akceptacja etapu A1 i wpisu A0.~~ Zaakceptowane 22.11.2026 („tak”); wykonanie w karcie T-031 (D-048, pilot na `integracja-systemow`). Kolejne etapy A2 i A3 wymagają osobnej zgody.
+1. ~~Akceptacja etapu A1 i wpisu A0.~~ Zaakceptowane 22.11.2026 („tak”); wykonanie w karcie T-033 (D-048, pilot na `integracja-systemow`). Kolejne etapy A2 i A3 wymagają osobnej zgody.
 2. Zgoda na pozycje P0, które dotykają strony głównej (baner zgody, menu, taśma nazw); film „agent-demo” to wykonanie D-027.
 3. Ocena `komponenty.md` v1; po niej pytanie o pakiet dla agenta.
 4. Kolizja numerów: dwie karty T-024 i dwie T-025 w `kono-state/tasks/` z innych sesji.

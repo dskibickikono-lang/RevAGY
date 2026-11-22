@@ -1,5 +1,5 @@
 ---
-id: T-031
+id: T-033
 title: Kierunek A, etap A1 — scena pierwszego ekranu na /integracja-systemow.html (pilot)
 channel: pm-local
 requested_by: owner
@@ -7,16 +7,16 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/trusting-shannon-g9jhj1
-base: main (da8d1ae)
+base: main (da8d1ae), odświeżona merge z main (7b6fc4c) 22.11.2026
 depends_on: T-026
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (ten sam PR co T-026: moodboard, studium i pilot)
 sha: ed443c9
 decisions: [D-015, D-021, D-022, D-031, D-033, D-045, D-048]
 ---
 
-# T-031 — Kierunek A, etap A1: scena pierwszego ekranu (pilot)
+# T-033 — Kierunek A, etap A1: scena pierwszego ekranu (pilot)
 
-Numer T-031, bo T-028, T-029 i T-030 są zajęte w otwartych PR innych kart (#39, #40).
+Wcześniej T-031, przenumerowana 22.11.2026 z powodu kolizji z T-031 z PR #40. W PR #38 i w commitach sprzed odświeżenia występuje jako T-031.
 
 ## Cel
 
@@ -37,10 +37,10 @@ arkusza w ich `<link>`), scena dowodu (A2), pozostałe strony (A3), pozycje P0 z
 
 | Plik | Zmiana |
 | --- | --- |
-| `src/components/ScenaPodstrony.astro` | nowy: kontener `.cta` + poświata `.hero-shade` (obie klasy ze `styles.css`), slot na treść, plakat filmu z `filmy.mjs` |
+| `src/components/ScenaPodstrony.astro` | nowy: kontener `.cta` + poświata `.hero-shade` (obie klasy ze `styles.css`), slot na treść, plakat filmu z `filmy.mjs`, adres plakatu przez `zasob()` (skrót treści, T-030) |
 | `public/assets/css/podstrony.css` | 9 wierszy układu sceny: odstęp jak w `.hero`, dwie kolumny, kolor linii autora `--on-night-2`, ramka plakatu; reguła łamania długich przycisków rozszerzona o scenę |
 | `src/pages/integracja-systemow.astro` | pierwsza sekcja: `hero-outer` + `ScenaPodstrony`; przyciski `btn-light` i `btn-glass` (jak w hero strony głównej); teksty i adresy bez zmian |
-| `src/layouts/PodstronaLayout.astro` | `podstrony.css?v=3` → `?v=4` |
+| `src/layouts/PodstronaLayout.astro` | bez zmian po odświeżeniu: ręczne `podstrony.css?v=3` → `?v=4` usunięte, wersję w adresie daje skrót treści (T-030) |
 | `tools/dom-contract.json` | odtworzony `update-contract.cjs`: suma arkusza, sumy 9 podstron (numer wersji arkusza), kontrakt strony pilotażowej |
 | `kono-state/decisions/REJESTR_DECYZJI_BIZNESOWYCH.md` | D-048 |
 | `kono-state/notes/kierunek-a-a1/` | zrzuty przed i po, pomiary |
