@@ -2,8 +2,8 @@
   "baselineCommit": "9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f",
   "publicFiles": {
     "assets/css/podstrony.css": {
-      "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
-      "size": 2192
+      "sha256": "7fa31390d125bee919cff1a5014c2ca2a3be440a725783be713e9347fcdb84bd",
+      "size": 2624
     },
     "assets/css/styles.css": {
       "sha256": "00d50d42bfa57f01e7568ce25b8b094a2c74b27c9a9244df6e14d1e569a29d70",
@@ -204,15 +204,15 @@
       "size": 1754
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "0690db9c734473d3c074ab325796844cec12840fe1fff59d094a827d3fa88215",
+      "sha256": "179aa43a658e84f1b6b81f12259e4c110048bec71798d257698a69912e223e86",
       "size": 24120
     },
     "dla-firm.html": {
-      "sha256": "0f1d10cb0f6dd3f86a5641fa218a3fdea33f42718f0c8f56e52077e39378f487",
+      "sha256": "e58258932b3ca637b7f80c162d9c39d2d494e594a752ca33dbfbff2e18498095",
       "size": 24699
     },
     "finanse.html": {
-      "sha256": "bab410d28e51d91b8186a50a6e983b5ce9fa1b1562f5bbf3de67a0ed7694318e",
+      "sha256": "c0c65247e3d85652f45c99ac5d66cbb09c004a575ee2ac3b84f043e6fe240cae",
       "size": 23826
     },
     "index.html": {
@@ -220,11 +220,11 @@
       "size": 46438
     },
     "integracja-systemow.html": {
-      "sha256": "bdb2608f5fa89a55f9c92963fb87c2785b1c2c62b970b19f048c57c0cb3b9158",
+      "sha256": "c23036017b2afad26d1daf6f08fb9a852dc4c088718508292ef446c7a59b32c0",
       "size": 25663
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "8aeeefee3fccec37b74b0160ee6bca914a43155b6a49027e3979d9b4a009c57f",
+      "sha256": "9bcd8abf1e519ed64b8da8aeac80adcaea88732a68a44d8f3b0e1c2ed7715d20",
       "size": 24306
     },
     "kontakt.html": {
@@ -236,15 +236,15 @@
       "size": 7866
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "7b196a85f52cfd5fff42a6d378aa8403a5f14d5e7c2c94ddd7902d015cf216f9",
+      "sha256": "9bc224af1440e7b033cd33c4ff27ddfa4b3f2885a21a8f2483b2d84844c0be93",
       "size": 23836
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "c64c48a89d75205d8323ba1e42d5b16c718385a747ac0afd5d3c3592e4b5f4e9",
+      "sha256": "ecd21c0dd6ecbdeee0916b61c22a6e388c3667f0911459b53c3a91d5d75214dc",
       "size": 24665
     },
     "wdrozenia.html": {
-      "sha256": "2dc2f503e926f4bfca4fef16fa4acc4602013705541a0c13f2362d818cd7b056",
+      "sha256": "011fee8831ff5c4873eb6cb8332c020a55f8fc20a6b927717673fd89de6bd0cc",
       "size": 22427
     }
   },
@@ -591,7 +591,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1874,7 +1874,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -2280,7 +2280,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3502,7 +3502,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -3933,7 +3933,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5118,7 +5118,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -8311,7 +8311,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -9649,7 +9649,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -10050,7 +10050,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11199,7 +11199,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -12285,7 +12285,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13357,7 +13357,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -13763,7 +13763,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15005,7 +15005,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
@@ -15416,7 +15416,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=1",
+          "href": "assets/css/podstrony.css?v=2",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16600,7 +16600,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=1"
+          "val": "assets/css/podstrony.css?v=2"
         },
         {
           "tag": "a",
