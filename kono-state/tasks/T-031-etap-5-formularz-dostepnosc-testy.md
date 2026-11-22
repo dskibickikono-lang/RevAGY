@@ -3,13 +3,13 @@ id: T-031
 title: "Etap 5 po audycie kodu: przycisk wstrzymania filmu w hero, fokus banera zgody, komunikat formularza, Lighthouse dla 4 stron, testy negatywne walidatora"
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
 base: main (scalony do gałęzi bez rebase)
 depends_on: T-028 (audyt kodu), T-030 (ten sam PR)
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/40 (razem z T-029 i T-030)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/40 (scalony do main, 7b6fc4c)
 sha: bebf799119e48daedaa60111711306ca0581abab (kod, migawka i kontrakt; kolejny commit zmienia tylko kartę)
 decisions: [D-015, D-021, D-046]
 ---

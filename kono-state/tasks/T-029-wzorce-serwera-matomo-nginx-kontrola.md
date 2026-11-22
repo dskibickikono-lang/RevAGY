@@ -3,13 +3,13 @@ id: T-029
 title: "Etap 2 po audycie kodu: panel Matomo za hasłem, kopia Matomo, runbook bez danych hosta, test nginx w CI, kontrola produkcji"
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
 base: main (scalony do gałęzi bez rebase)
 depends_on: T-028 (audyt kodu)
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/40 (baza main)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/40 (scalony do main, 7b6fc4c)
 sha: 08b4db50bded60a76f30e0ade40ec04e489a840e (kod; kolejne commity zmieniają tylko karty)
 decisions: [D-047]
 ---
