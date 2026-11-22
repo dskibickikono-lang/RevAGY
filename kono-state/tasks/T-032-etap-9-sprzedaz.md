@@ -1,5 +1,5 @@
 ---
-id: T-027
+id: T-032
 title: Etap 9 — podstrona działowa „Sprzedaż” (/sprzedaz.html)
 channel: pm-local
 requested_by: owner
@@ -13,7 +13,7 @@ pr: https://github.com/dskibickikono-lang/RevAGY/pull/41
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-027, D-028, D-029, D-031, D-033, D-034, D-039]
 ---
 
-# T-027 — Etap 9: Sprzedaż
+# T-032 — Etap 9: Sprzedaż
 
 ## Cel
 
@@ -51,15 +51,17 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
      ponownie),
      `tools/lighthouse.json` (progi jak dla `finanse.html`: 90, 95, 100), `README.md` (wiersz w tabeli struktury).
 5. Strona główna: `tools/baseline/index.baza.html` to migawka z `main` (`5bac11d`). `tools/baseline/index.html`
-   to ta baza z dwiema zmianami `href`. `tools/etapy/zmiana-strony-glownej.json` to etap „T-027” z jednym wpisem
+   to ta baza z dwiema zmianami `href`. `tools/etapy/zmiana-strony-glownej.json` to etap „T-032” z jednym wpisem
    `atrybuty` (`razy: 2`).
 6. `tools/dom-contract.json`: bez zmian w tym kroku. Kontrakt policzy PM z builda CI w rundzie 2.
 7. Testy narzędzi bez zmian: żaden test ani narzędzie nie wylicza podstron na sztywno (listy idą z `tools/podstrony.json`).
 
 ## Ustalenia
 
-- **Numer karty.** Zlecenie właściciela podaje T-024, ale ten numer mają już w `main` trzy inne karty, T-025 to audyt
-  SEO, a T-025 i T-026 są w otwartych PR-ach #34 i #35. Dlatego ta karta ma numer T-027.
+- **Numer karty.** Zlecenie właściciela podaje T-024, ale ten numer mają już w `main` inne karty. W trakcie prac
+  karta miała numer T-027; zanim PR był gotowy, numer T-027 trafił do `main` z inną kartą, a otwarte PR-y #38, #39
+  i #40 zajmują numery T-028–T-031. Dlatego ta karta ma numer T-032. W opisach wcześniejszych commitów tej gałęzi
+  stoi jeszcze T-027.
 - **Korekta właściciela z 22.11.2026 (poprawka 1).** Pierwsza wersja strony przyjęła ustalenie PM, że wdrożeń
   w sprzedaży nie ma, i pokazywała opis z rekrutacji (`kandydaci-zgloszenia`). Właściciel poprawił to ustalenie:
   wdrożenia sprzedażowe istnieją. Opis z rekrutacji zniknął ze strony sprzedaży (zostaje na `/wdrozenia.html`,
