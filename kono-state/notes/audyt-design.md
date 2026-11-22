@@ -153,3 +153,41 @@ Kolumna „Decyzja” mówi, czy pozycja dotyka strony głównej (D-015) i wymag
 
 Pozycje 5–11 zależą od kierunku, który wybierzesz w moodboardzie: każdy kierunek odpowiada na nie inaczej.
 
+## 7. Kierunki rozwoju — do Twojego wyboru
+
+Pełny materiał: [moodboard.html](audyt-design/moodboard.html). Próba: 16 działających stron — 7 firm usługowych od
+automatyzacji (6 polskojęzycznych), 5 narzędzi do automatyzacji, 4 marki B2B o wyrazistej identyfikacji; 80 zrzutów
+i pomiary stylów w [moodboard-evidence/](audyt-design/moodboard-evidence/). Revolut Business (wzorzec z D-002) i Make
+zablokowały robota planszą „potwierdź, że jesteś człowiekiem”, więc nie ma ich w porównaniu.
+
+Co widać w próbie:
+
+- Ciemny albo barwny pierwszy ekran ma 7 z 16 stron; poświatę pokrewną hero REVAGY mają Automation House i LinkWith.it.
+- Dowód z zewnątrz (znak klienta, ocena, opinia z nazwiskiem, liczba z odnośnikiem do opisu wdrożenia) pokazuje 14 z 16 stron. REVAGY jest dziś w grupie bez niego.
+- Tytuł REVAGY (92 px, grubość 750) należy do najcięższych; większość próby mieści się w 48–72 px i 400–600.
+- Żadna z sześciu polskojęzycznych firm usługowych nie używa schematu przepływu jako głównego obrazu.
+
+Każdy kierunek odpowiada na pytanie, co ma być głównym obrazem podstrony. Żaden nie zmienia strony głównej (D-015).
+
+| Kierunek | Główny obraz podstrony | Wzorce w próbie | Czego wymaga od Ciebie | Pozycje z listy zmian |
+| --- | --- | --- | --- | --- |
+| **A — Scena wszędzie** | ciemna scena z poświatą i kadrem filmu, jak na stronie głównej | Automation House, Mercury; przestroga: LinkWith.it | niczego | 5, częściowo 6 |
+| **B — Dowód na papierze** | liczba z wdrożenia i dokument; jasny, rzeczowy układ do lewej | Flobotics, Ramp | liczb i z czasem zgód (D-034), kwot (D-029, D-030) | 5–9 |
+| **C — Schemat przepływu** | schemat z węzłów-kategorii, bez nazw własnych systemów | n8n, Workato, Zapier; zalążek w hero REVAGY | niczego na start | 5, 8, 14, 21 |
+| **D — Twarz i podpis** | zdjęcie założyciela i podpis pod obietnicą | Lindy, Digital Teammates, Office Samurai (postać) | zdjęcia i decyzji „ja” czy „my” | 11, 22, częściowo 5 |
+
+Moja rekomendacja, niezatwierdzona: **B + C**. Papier, liczby i tekst do lewej rozwiązują najwięcej pozycji z listy (5–9),
+a schemat z węzłów-kategorii daje podstronom własny obraz, który już istnieje w hero i zamienia D-033 w zasadę rysunku.
+A zostaje tam, gdzie scena już jest (film, pasek końcowy). D dochodzi, gdy będzie zdjęcie.
+
+**Pytanie do Ciebie:** który kierunek wybierasz — A, B, C, D czy połączenie (na przykład „B + C”)?
+Po wyborze przygotuję pogłębione studium jednego kierunku i dopiero potem plan zmian do Twojej akceptacji.
+
+## 8. Ograniczenia audytu
+
+- Build lokalny, nie produkcja; jedna przeglądarka (Chromium), dwie szerokości (1440 i 390 px).
+- Formularza kontaktowego, otwartego menu i menu mobilnego nie widziałem.
+- Zgodności z WCAG nie stwierdzam: policzyłem kontrasty z tokenów, zmierzyłem fokus, cele dotykowe i geometrię banera; czytnika ekranu, powiększenia 400% i szerokości 320 px nie sprawdzałem.
+- Podstron na telefonie poza „Integracją systemów” nie oglądałem w całości; opieram się tam na pomiarach.
+- Profilu LinkedIn (D-011) nie porównałem ze stroną — brak dostępu.
+- Ocena „co działa” i „co nie działa” jest oceną projektową opartą na pomiarach, nie wynikiem badań z użytkownikami ani danych o konwersji.

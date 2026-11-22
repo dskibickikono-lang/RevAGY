@@ -1,0 +1,3762 @@
+{
+ "captured_by": "playwright-chromium headless",
+ "capture_settings": {
+  "desktop": {
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "deviceScaleFactor": 1,
+   "userAgent": "Chrome 131 on Windows 10 (desktop UA string)"
+  },
+  "mobile": {
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "deviceScaleFactor": 1,
+   "isMobile": true,
+   "hasTouch": true,
+   "userAgent": "Chrome 131 on Android 14 (Pixel 8 UA string)"
+  },
+  "locale": "pl-PL for Polish sites, en-US for international sites",
+  "timezone": "Europe/Warsaw",
+  "load": "waitUntil domcontentloaded, then fixed wait (3.8 s default; 7 s office-samurai, 9.5 s linear, 12 s digital-teammates); scrolled in 450 px steps with 1 s settle before each lower frame",
+  "image_format": "PNG screenshot converted to WebP quality 70 with Pillow, no resizing",
+  "style_method": "read-only getComputedStyle on the home page at scroll 0 (no DOM mutation). h1/h2 = first visible element of that tag; body = first visible <p> after the h1 with > 40 characters and font-size >= 14 px, outside headings/links/forms/footer; cta = hand-picked from the automatically listed button-styled <a>/<button> elements in the first 900 px (solid background or border), preferring the filled button in the hero; heroBackground = nearest ancestor of the h1 with a non-transparent background-color or a background-image; fontsLoaded = document.fonts entries with status \"loaded\". Styles were measured in a second page load shortly after the screenshots (same settings), except lindy (same load as screenshots).",
+  "review": "every saved frame was inspected visually via the per-site contact sheet built from the saved WebP files (desktop frames at 50 %, mobile at 100 %); frames with blank heroes, consent banners or pop-ups were retaken"
+ },
+ "screens": [
+  {
+   "id": "sagiton-home-top",
+   "site": "Sagiton",
+   "group": "pl-competitor",
+   "url": "https://www.sagiton.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:27.246Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "sagiton-home-top.webp",
+   "limitations": [
+    "small Cookiebot widget icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "sagiton-home-f2",
+   "site": "Sagiton",
+   "group": "pl-competitor",
+   "url": "https://www.sagiton.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:29.423Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "sagiton-home-f2.webp",
+   "limitations": [
+    "small Cookiebot widget icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "sagiton-home-f3",
+   "site": "Sagiton",
+   "group": "pl-competitor",
+   "url": "https://www.sagiton.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:31.958Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "sagiton-home-f3.webp",
+   "limitations": [
+    "small Cookiebot widget icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "sagiton-inner-top",
+   "site": "Sagiton",
+   "group": "pl-competitor",
+   "url": "https://www.sagiton.pl/uslugi/automatyzacja-procesow-biznesowych",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:38.779Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "sagiton-inner-top.webp",
+   "limitations": [
+    "small Cookiebot widget icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "sagiton-mobile-top",
+   "site": "Sagiton",
+   "group": "pl-competitor",
+   "url": "https://www.sagiton.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:48.387Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "sagiton-mobile-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-home-top",
+   "site": "Automation House",
+   "group": "pl-competitor",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:25.838Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-top.webp",
+   "limitations": [
+    "Cookiebot widget icon (bottom-left) and the site's own chat bubble (bottom-right) remain in frame"
+   ]
+  },
+  {
+   "id": "automation-house-home-f2",
+   "site": "Automation House",
+   "group": "pl-competitor",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:29.810Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-f2.webp",
+   "limitations": [
+    "Cookiebot widget icon (bottom-left) and the site's own chat bubble (bottom-right) remain in frame"
+   ]
+  },
+  {
+   "id": "automation-house-home-f3",
+   "site": "Automation House",
+   "group": "pl-competitor",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:34.254Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-f3.webp",
+   "limitations": [
+    "Cookiebot widget icon (bottom-left) and the site's own chat bubble (bottom-right) remain in frame"
+   ]
+  },
+  {
+   "id": "automation-house-inner-top",
+   "site": "Automation House",
+   "group": "pl-competitor",
+   "url": "https://automation.house/automatyzacje",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:39.676Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "automation-house-inner-top.webp",
+   "limitations": [
+    "Cookiebot widget icon (bottom-left) and the site's own chat bubble (bottom-right) remain in frame"
+   ]
+  },
+  {
+   "id": "automation-house-mobile-top",
+   "site": "Automation House",
+   "group": "pl-competitor",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:47.496Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (selector #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-mobile-top.webp",
+   "limitations": [
+    "Cookiebot widget icon (bottom-left) and the site's own chat bubble (bottom-right) remain in frame"
+   ]
+  },
+  {
+   "id": "linkwith-it-home-top",
+   "site": "LinkWith.it",
+   "group": "pl-competitor",
+   "url": "https://linkwith.it/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:26.423Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Akceptuję wszystkie\")",
+   "screenshot": "linkwith-it-home-top.webp",
+   "limitations": [
+    "no webfont loaded (document.fonts reported none; CSS stack is ui-sans-serif/system-ui), so text is rendered in the headless-Linux default sans; glyph shapes differ on Windows/macOS"
+   ]
+  },
+  {
+   "id": "linkwith-it-home-f2",
+   "site": "LinkWith.it",
+   "group": "pl-competitor",
+   "url": "https://linkwith.it/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:30.072Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Akceptuję wszystkie\")",
+   "screenshot": "linkwith-it-home-f2.webp",
+   "limitations": [
+    "no webfont loaded (document.fonts reported none; CSS stack is ui-sans-serif/system-ui), so text is rendered in the headless-Linux default sans; glyph shapes differ on Windows/macOS"
+   ]
+  },
+  {
+   "id": "linkwith-it-home-f3",
+   "site": "LinkWith.it",
+   "group": "pl-competitor",
+   "url": "https://linkwith.it/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:34.625Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Akceptuję wszystkie\")",
+   "screenshot": "linkwith-it-home-f3.webp",
+   "limitations": [
+    "no webfont loaded (document.fonts reported none; CSS stack is ui-sans-serif/system-ui), so text is rendered in the headless-Linux default sans; glyph shapes differ on Windows/macOS"
+   ]
+  },
+  {
+   "id": "linkwith-it-inner-top",
+   "site": "LinkWith.it",
+   "group": "pl-competitor",
+   "url": "https://linkwith.it/uslugi/automatyzacje",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:40.379Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "linkwith-it-inner-top.webp",
+   "limitations": [
+    "no webfont loaded (document.fonts reported none; CSS stack is ui-sans-serif/system-ui), so text is rendered in the headless-Linux default sans; glyph shapes differ on Windows/macOS"
+   ]
+  },
+  {
+   "id": "linkwith-it-mobile-top",
+   "site": "LinkWith.it",
+   "group": "pl-competitor",
+   "url": "https://linkwith.it/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:48.751Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (button text \"Akceptuję wszystkie\")",
+   "screenshot": "linkwith-it-mobile-top.webp",
+   "limitations": [
+    "no webfont loaded (document.fonts reported none; CSS stack is ui-sans-serif/system-ui), so text is rendered in the headless-Linux default sans; glyph shapes differ on Windows/macOS"
+   ]
+  },
+  {
+   "id": "no-code-pl-home-top",
+   "site": "No-Code.pl",
+   "group": "pl-competitor",
+   "url": "https://www.no-code.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:39:56.631Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "no-code-pl-home-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "no-code-pl-home-f2",
+   "site": "No-Code.pl",
+   "group": "pl-competitor",
+   "url": "https://www.no-code.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:39:59.923Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "no-code-pl-home-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "no-code-pl-home-f3",
+   "site": "No-Code.pl",
+   "group": "pl-competitor",
+   "url": "https://www.no-code.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:04.081Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "no-code-pl-home-f3.webp",
+   "limitations": []
+  },
+  {
+   "id": "no-code-pl-inner-top",
+   "site": "No-Code.pl",
+   "group": "pl-competitor",
+   "url": "https://www.no-code.pl/automatyzacje.html",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:09.682Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "no-code-pl-inner-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "no-code-pl-mobile-top",
+   "site": "No-Code.pl",
+   "group": "pl-competitor",
+   "url": "https://www.no-code.pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:16.115Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "no-code-pl-mobile-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "office-samurai-home-top",
+   "site": "Office Samurai",
+   "group": "pl-competitor",
+   "url": "https://office-samurai.com/pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:00.955Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "office-samurai-home-top.webp",
+   "limitations": [
+    "site's own scroll-to-top button visible bottom-right",
+    "the CookieYes consent pop-up appears late on this site; it was not yet on screen in this frame and was accepted via its own button before the scrolled frames"
+   ]
+  },
+  {
+   "id": "office-samurai-home-f2",
+   "site": "Office Samurai",
+   "group": "pl-competitor",
+   "url": "https://office-samurai.com/pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:05.850Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector .cky-btn-accept)",
+   "screenshot": "office-samurai-home-f2.webp",
+   "limitations": [
+    "site's own scroll-to-top button visible bottom-right"
+   ]
+  },
+  {
+   "id": "office-samurai-home-f3",
+   "site": "Office Samurai",
+   "group": "pl-competitor",
+   "url": "https://office-samurai.com/pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:10.032Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector .cky-btn-accept)",
+   "screenshot": "office-samurai-home-f3.webp",
+   "limitations": [
+    "site's own scroll-to-top button visible bottom-right"
+   ]
+  },
+  {
+   "id": "office-samurai-inner-top",
+   "site": "Office Samurai",
+   "group": "pl-competitor",
+   "url": "https://office-samurai.com/pl/automation-rpa/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:19.736Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "office-samurai-inner-top.webp",
+   "limitations": [
+    "site's own scroll-to-top button visible bottom-right"
+   ]
+  },
+  {
+   "id": "office-samurai-mobile-top",
+   "site": "Office Samurai",
+   "group": "pl-competitor",
+   "url": "https://office-samurai.com/pl/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:30.589Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "office-samurai-mobile-top.webp",
+   "limitations": [
+    "consent pop-up had not appeared at capture time (not on screen in this frame)"
+   ]
+  },
+  {
+   "id": "digital-teammates-home-top",
+   "site": "Digital Teammates",
+   "group": "pl-competitor",
+   "url": "https://dtmates.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:51:37.090Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Zamknij\"); marketing pop-up closed via its own close button",
+   "screenshot": "digital-teammates-home-top.webp",
+   "limitations": [
+    "site shows a timed marketing pop-up (\"Zobacz nowy przegląd zrobotyzowanych procesów\") a few seconds after load; it was closed via its own close button before capture; the site's own \"Newsletter\" side tab stays at the left edge"
+   ]
+  },
+  {
+   "id": "digital-teammates-home-f2",
+   "site": "Digital Teammates",
+   "group": "pl-competitor",
+   "url": "https://dtmates.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:51:39.406Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Zamknij\"); marketing pop-up closed via its own close button",
+   "screenshot": "digital-teammates-home-f2.webp",
+   "limitations": [
+    "site shows a timed marketing pop-up (\"Zobacz nowy przegląd zrobotyzowanych procesów\") a few seconds after load; it was closed via its own close button before capture; the site's own \"Newsletter\" side tab stays at the left edge"
+   ]
+  },
+  {
+   "id": "digital-teammates-home-f3",
+   "site": "Digital Teammates",
+   "group": "pl-competitor",
+   "url": "https://dtmates.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:51:42.064Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Zamknij\"); marketing pop-up closed via its own close button",
+   "screenshot": "digital-teammates-home-f3.webp",
+   "limitations": [
+    "site shows a timed marketing pop-up (\"Zobacz nowy przegląd zrobotyzowanych procesów\") a few seconds after load; it was closed via its own close button before capture; the site's own \"Newsletter\" side tab stays at the left edge"
+   ]
+  },
+  {
+   "id": "digital-teammates-inner-top",
+   "site": "Digital Teammates",
+   "group": "pl-competitor",
+   "url": "https://dtmates.com/nasze-uslugi/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:51:56.608Z",
+   "page_type": "service",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "digital-teammates-inner-top.webp",
+   "limitations": [
+    "site shows a timed marketing pop-up (\"Zobacz nowy przegląd zrobotyzowanych procesów\") a few seconds after load; it was closed via its own close button before capture; the site's own \"Newsletter\" side tab stays at the left edge"
+   ]
+  },
+  {
+   "id": "digital-teammates-mobile-top",
+   "site": "Digital Teammates",
+   "group": "pl-competitor",
+   "url": "https://dtmates.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:52:22.592Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (button text \"Zamknij\")",
+   "screenshot": "digital-teammates-mobile-top.webp",
+   "limitations": [
+    "site shows a timed marketing pop-up (\"Zobacz nowy przegląd zrobotyzowanych procesów\") a few seconds after load; it was closed via its own close button before capture; the site's own \"Newsletter\" side tab stays at the left edge"
+   ]
+  },
+  {
+   "id": "flobotics-home-top",
+   "site": "Flobotics",
+   "group": "pl-competitor",
+   "url": "https://www.flobotics.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:55.147Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "flobotics-home-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "flobotics-home-f2",
+   "site": "Flobotics",
+   "group": "pl-competitor",
+   "url": "https://www.flobotics.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:57.263Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "flobotics-home-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "flobotics-home-f3",
+   "site": "Flobotics",
+   "group": "pl-competitor",
+   "url": "https://www.flobotics.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:24:59.736Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "flobotics-home-f3.webp",
+   "limitations": []
+  },
+  {
+   "id": "flobotics-inner-top",
+   "site": "Flobotics",
+   "group": "pl-competitor",
+   "url": "https://www.flobotics.io/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:05.546Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "flobotics-inner-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "flobotics-mobile-top",
+   "site": "Flobotics",
+   "group": "pl-competitor",
+   "url": "https://www.flobotics.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:11.696Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "flobotics-mobile-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "zapier-home-top",
+   "site": "Zapier",
+   "group": "intl-automation",
+   "url": "https://zapier.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:18.358Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "zapier-home-top.webp",
+   "limitations": [
+    "hero media is an animated/video card, captured mid-animation"
+   ]
+  },
+  {
+   "id": "zapier-home-f2",
+   "site": "Zapier",
+   "group": "intl-automation",
+   "url": "https://zapier.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:20.522Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "zapier-home-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "zapier-home-f3",
+   "site": "Zapier",
+   "group": "intl-automation",
+   "url": "https://zapier.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:23.015Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "zapier-home-f3.webp",
+   "limitations": []
+  },
+  {
+   "id": "zapier-inner-top",
+   "site": "Zapier",
+   "group": "intl-automation",
+   "url": "https://zapier.com/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:31.085Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "zapier-inner-top.webp",
+   "limitations": [
+    "sales-chat teaser bubble overlaps the bottom-right corner of the pricing table"
+   ]
+  },
+  {
+   "id": "zapier-mobile-top",
+   "site": "Zapier",
+   "group": "intl-automation",
+   "url": "https://zapier.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:38.261Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "zapier-mobile-top.webp",
+   "limitations": [
+    "hero media is an animated/video card, captured mid-animation"
+   ]
+  },
+  {
+   "id": "n8n-home-top",
+   "site": "n8n",
+   "group": "intl-automation",
+   "url": "https://n8n.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:25.476Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #cookiescript_accept)",
+   "screenshot": "n8n-home-top.webp",
+   "limitations": [
+    "cookie-script badge icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "n8n-home-f2",
+   "site": "n8n",
+   "group": "intl-automation",
+   "url": "https://n8n.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:28.762Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #cookiescript_accept)",
+   "screenshot": "n8n-home-f2.webp",
+   "limitations": [
+    "cookie-script badge icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "n8n-home-f3",
+   "site": "n8n",
+   "group": "intl-automation",
+   "url": "https://n8n.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:32.825Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (selector #cookiescript_accept)",
+   "screenshot": "n8n-home-f3.webp",
+   "limitations": [
+    "cookie-script badge icon remains bottom-left after consent was accepted",
+    "upper half shows floating integration icons mid-animation (mostly empty area)"
+   ]
+  },
+  {
+   "id": "n8n-inner-top",
+   "site": "n8n",
+   "group": "intl-automation",
+   "url": "https://n8n.io/pricing/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:38.565Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "n8n-inner-top.webp",
+   "limitations": [
+    "cookie-script badge icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "n8n-mobile-top",
+   "site": "n8n",
+   "group": "intl-automation",
+   "url": "https://n8n.io/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:46.702Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (selector #cookiescript_accept)",
+   "screenshot": "n8n-mobile-top.webp",
+   "limitations": [
+    "cookie-script badge icon remains bottom-left after consent was accepted"
+   ]
+  },
+  {
+   "id": "workato-home-top",
+   "site": "Workato",
+   "group": "intl-automation",
+   "url": "https://www.workato.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:47.923Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Accept\")",
+   "screenshot": "workato-home-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "workato-home-f2",
+   "site": "Workato",
+   "group": "intl-automation",
+   "url": "https://www.workato.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:50.077Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Accept\")",
+   "screenshot": "workato-home-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "workato-home-f3",
+   "site": "Workato",
+   "group": "intl-automation",
+   "url": "https://www.workato.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:52.577Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Accept\")",
+   "screenshot": "workato-home-f3.webp",
+   "limitations": [
+    "grey media placeholder at the bottom edge had not finished loading"
+   ]
+  },
+  {
+   "id": "workato-inner-top",
+   "site": "Workato",
+   "group": "intl-automation",
+   "url": "https://www.workato.com/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:59.447Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "workato-inner-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "workato-mobile-top",
+   "site": "Workato",
+   "group": "intl-automation",
+   "url": "https://www.workato.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:08.460Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (button text \"Accept\")",
+   "screenshot": "workato-mobile-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "relevance-ai-home-top",
+   "site": "Relevance AI",
+   "group": "intl-automation",
+   "url": "https://relevanceai.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:54.156Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "relevance-ai-home-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "relevance-ai-home-f2",
+   "site": "Relevance AI",
+   "group": "intl-automation",
+   "url": "https://relevanceai.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:57.439Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "relevance-ai-home-f2.webp",
+   "limitations": [
+    "left-column list captured mid fade-in animation"
+   ]
+  },
+  {
+   "id": "relevance-ai-home-f3",
+   "site": "Relevance AI",
+   "group": "intl-automation",
+   "url": "https://relevanceai.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:01.654Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "relevance-ai-home-f3.webp",
+   "limitations": []
+  },
+  {
+   "id": "relevance-ai-inner-top",
+   "site": "Relevance AI",
+   "group": "intl-automation",
+   "url": "https://relevanceai.com/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:07.153Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "relevance-ai-inner-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "relevance-ai-mobile-top",
+   "site": "Relevance AI",
+   "group": "intl-automation",
+   "url": "https://relevanceai.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:14.782Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "relevance-ai-mobile-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "lindy-home-top",
+   "site": "Lindy",
+   "group": "intl-automation",
+   "url": "https://www.lindy.ai/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:54.843Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "lindy-home-top.webp",
+   "limitations": [
+    "site serves different layout variants between page loads (headline size and section order changed in a later load); the styles in this manifest were measured in the same page load as these screenshots"
+   ]
+  },
+  {
+   "id": "lindy-home-f2",
+   "site": "Lindy",
+   "group": "intl-automation",
+   "url": "https://www.lindy.ai/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:57.053Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "lindy-home-f2.webp",
+   "limitations": [
+    "site serves different layout variants between page loads (headline size and section order changed in a later load); the styles in this manifest were measured in the same page load as these screenshots"
+   ]
+  },
+  {
+   "id": "lindy-home-f3",
+   "site": "Lindy",
+   "group": "intl-automation",
+   "url": "https://www.lindy.ai/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:25:59.577Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "lindy-home-f3.webp",
+   "limitations": [
+    "site serves different layout variants between page loads (headline size and section order changed in a later load); the styles in this manifest were measured in the same page load as these screenshots"
+   ]
+  },
+  {
+   "id": "lindy-inner-top",
+   "site": "Lindy",
+   "group": "intl-automation",
+   "url": "https://www.lindy.ai/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:06.024Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "lindy-inner-top.webp",
+   "limitations": [
+    "site serves different layout variants between page loads (headline size and section order changed in a later load); the styles in this manifest were measured in the same page load as these screenshots"
+   ]
+  },
+  {
+   "id": "lindy-mobile-top",
+   "site": "Lindy",
+   "group": "intl-automation",
+   "url": "https://www.lindy.ai/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:13.113Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "lindy-mobile-top.webp",
+   "limitations": [
+    "site serves different layout variants between page loads (headline size and section order changed in a later load); the styles in this manifest were measured in the same page load as these screenshots"
+   ]
+  },
+  {
+   "id": "linear-home-top",
+   "site": "Linear",
+   "group": "adjacent-b2b",
+   "url": "https://linear.app/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:36.653Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "linear-home-top.webp",
+   "limitations": [
+    "hero text and product UI appear only after an entrance animation; captured after a 9.5 s wait (a 3.8 s wait gave a blank hero)"
+   ]
+  },
+  {
+   "id": "linear-home-f2",
+   "site": "Linear",
+   "group": "adjacent-b2b",
+   "url": "https://linear.app/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:39.509Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "linear-home-f2.webp",
+   "limitations": [
+    "hero text and product UI appear only after an entrance animation; captured after a 9.5 s wait (a 3.8 s wait gave a blank hero)"
+   ]
+  },
+  {
+   "id": "linear-home-f3",
+   "site": "Linear",
+   "group": "adjacent-b2b",
+   "url": "https://linear.app/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:42.715Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "linear-home-f3.webp",
+   "limitations": [
+    "hero text and product UI appear only after an entrance animation; captured after a 9.5 s wait (a 3.8 s wait gave a blank hero)"
+   ]
+  },
+  {
+   "id": "linear-inner-top",
+   "site": "Linear",
+   "group": "adjacent-b2b",
+   "url": "https://linear.app/customers",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:40:53.913Z",
+   "page_type": "case-study",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "linear-inner-top.webp",
+   "limitations": [
+    "hero text and product UI appear only after an entrance animation; captured after a 9.5 s wait (a 3.8 s wait gave a blank hero)"
+   ]
+  },
+  {
+   "id": "linear-mobile-top",
+   "site": "Linear",
+   "group": "adjacent-b2b",
+   "url": "https://linear.app/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:41:06.764Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "linear-mobile-top.webp",
+   "limitations": [
+    "hero text and product UI appear only after an entrance animation; captured after a 9.5 s wait (a 3.8 s wait gave a blank hero)"
+   ]
+  },
+  {
+   "id": "attio-home-top",
+   "site": "Attio",
+   "group": "adjacent-b2b",
+   "url": "https://attio.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:48:15.418Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Continue\")",
+   "screenshot": "attio-home-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "attio-home-f2",
+   "site": "Attio",
+   "group": "adjacent-b2b",
+   "url": "https://attio.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:48:18.193Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Continue\")",
+   "screenshot": "attio-home-f2.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "attio-home-f3",
+   "site": "Attio",
+   "group": "adjacent-b2b",
+   "url": "https://attio.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:48:21.136Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent banner dismissed (button text \"Continue\")",
+   "screenshot": "attio-home-f3.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "attio-inner-top",
+   "site": "Attio",
+   "group": "adjacent-b2b",
+   "url": "https://attio.com/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:48:26.915Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent accepted earlier in the same browser session",
+   "screenshot": "attio-inner-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own",
+    "site chat teaser card overlaps the bottom-left of the pricing cards"
+   ]
+  },
+  {
+   "id": "attio-mobile-top",
+   "site": "Attio",
+   "group": "adjacent-b2b",
+   "url": "https://attio.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:48:44.392Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent banner dismissed (button text \"Continue\")",
+   "screenshot": "attio-mobile-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "ramp-home-top",
+   "site": "Ramp",
+   "group": "adjacent-b2b",
+   "url": "https://ramp.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:44.979Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "ramp-home-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own",
+    "counters in the hero are live-animated numbers, frozen at capture time"
+   ]
+  },
+  {
+   "id": "ramp-home-f2",
+   "site": "Ramp",
+   "group": "adjacent-b2b",
+   "url": "https://ramp.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:49.693Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "ramp-home-f2.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "ramp-home-f3",
+   "site": "Ramp",
+   "group": "adjacent-b2b",
+   "url": "https://ramp.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:53.708Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "ramp-home-f3.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "ramp-inner-top",
+   "site": "Ramp",
+   "group": "adjacent-b2b",
+   "url": "https://ramp.com/customers",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:27:03.753Z",
+   "page_type": "case-study",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "ramp-inner-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "ramp-mobile-top",
+   "site": "Ramp",
+   "group": "adjacent-b2b",
+   "url": "https://ramp.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:27:14.193Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "ramp-mobile-top.webp",
+   "limitations": [
+    "black announcement bar at the top is the site's own"
+   ]
+  },
+  {
+   "id": "mercury-home-top",
+   "site": "Mercury",
+   "group": "adjacent-b2b",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:45.741Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "mercury-home-top.webp",
+   "limitations": [
+    "site's own FDIC disclosure bar overlays the bottom of the viewport"
+   ]
+  },
+  {
+   "id": "mercury-home-f2",
+   "site": "Mercury",
+   "group": "adjacent-b2b",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:49.595Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~1080px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "mercury-home-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "mercury-home-f3",
+   "site": "Mercury",
+   "group": "adjacent-b2b",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:26:53.853Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "mercury-home-f3.webp",
+   "limitations": []
+  },
+  {
+   "id": "mercury-inner-top",
+   "site": "Mercury",
+   "group": "adjacent-b2b",
+   "url": "https://mercury.com/pricing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:27:00.653Z",
+   "page_type": "pricing",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "mercury-inner-top.webp",
+   "limitations": [
+    "site's own FDIC disclosure bar overlays the bottom of the viewport"
+   ]
+  },
+  {
+   "id": "mercury-mobile-top",
+   "site": "Mercury",
+   "group": "adjacent-b2b",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T15:27:06.479Z",
+   "page_type": "home",
+   "frame": "viewport, top (mobile 390x844, isMobile)",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, no consent banner detected",
+   "screenshot": "mercury-mobile-top.webp",
+   "limitations": [
+    "site's own FDIC disclosure bar overlays the bottom of the viewport"
+   ]
+  }
+ ],
+ "styles": {
+  "sagiton": {
+   "url": "https://www.sagiton.pl/",
+   "measured_at": "2026-11-22T15:58:51.767Z",
+   "h1": {
+    "text": "Sagiton Digital Automation Agency",
+    "fontFamily": "\"Inter Tight\", sans-serif",
+    "fontSize": "102.4px",
+    "fontWeight": "500",
+    "lineHeight": "112px",
+    "letterSpacing": "0.5px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Czym się zajmujemy?",
+    "fontFamily": "\"Inter Tight\", sans-serif",
+    "fontSize": "40px",
+    "fontWeight": "700",
+    "lineHeight": "56px",
+    "letterSpacing": "0.5px",
+    "color": "rgb(0, 0, 0)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Od ponad 13 lat projektujemy rozwiązania IT dostarczające naszym klientom prawdziwą wartość biznesową",
+    "fontFamily": "\"Inter Tight\", sans-serif",
+    "fontSize": "24px",
+    "fontWeight": "300",
+    "lineHeight": "32px",
+    "letterSpacing": "0.5px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Bezpłatna konsultacja",
+    "fontFamily": "\"Inter Tight\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "20px",
+    "letterSpacing": "0.5px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(0, 179, 101)",
+    "borderRadius": "0px",
+    "padding": "16px 32px",
+    "textTransform": "none",
+    "border": "2px solid rgb(0, 179, 101)",
+    "boxShadow": "rgba(2, 3, 3, 0.2) 0px 3px 7px 0px",
+    "location": "hero",
+    "size_css_px": {
+     "width": 251,
+     "height": 56
+    }
+   },
+   "bodyBackground": "rgb(19, 19, 19)",
+   "heroBackground": "rgb(19, 19, 19)",
+   "heroBackgroundDetail": {
+    "element": "body.body-main",
+    "backgroundColor": "rgb(19, 19, 19)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "webflow-icons",
+    "Inter Tight",
+    "Lato",
+    "Montserrat",
+    "Noto Sans Display",
+    "Poppins"
+   ],
+   "fontsLoadedWeights": {
+    "webflow-icons": [
+     "400"
+    ],
+    "Inter Tight": [
+     "300",
+     "400",
+     "500",
+     "600",
+     "700"
+    ],
+    "Lato": [
+     "100",
+     "300",
+     "400",
+     "700",
+     "900"
+    ],
+    "Montserrat": [
+     "100",
+     "200",
+     "300",
+     "400",
+     "500",
+     "600",
+     "700",
+     "800",
+     "900"
+    ],
+    "Noto Sans Display": [
+     "300",
+     "400",
+     "500",
+     "600",
+     "700"
+    ],
+    "Poppins": [
+     "300",
+     "400",
+     "500",
+     "600",
+     "700"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Sagiton Digital Automation Agency",
+    "fontFamily": "\"Inter Tight\", sans-serif",
+    "fontSize": "102.4px",
+    "fontWeight": "500",
+    "lineHeight": "112px",
+    "letterSpacing": "0.5px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Kontakt",
+     "fill": "solid",
+     "backgroundColor": "rgb(0, 179, 101)",
+     "color": "rgb(255, 255, 255)",
+     "borderRadius": "0px",
+     "border": "2px solid rgb(0, 179, 101)",
+     "y": 22
+    }
+   ],
+   "notes": [
+    "body background-color is rgb(19, 19, 19) but sections below the hero render on white (see home-f2/f3); the hero shows a dark network-pattern image"
+   ]
+  },
+  "automation-house": {
+   "url": "https://automation.house/",
+   "measured_at": "2026-11-22T15:58:51.322Z",
+   "h1": {
+    "text": "Wdrożenia AI, automatyzacje i ClickUp dla firm, które rosną. Zaczynamy od tego, co dziś najbardziej blokuje Twój zespół.",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "28px",
+    "letterSpacing": "normal",
+    "color": "rgb(176, 176, 176)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Zaufali nam",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "20px",
+    "letterSpacing": "normal",
+    "color": "rgb(176, 176, 176)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Nieważne, czy wszystko stoi jeszcze na Excelu, czy macie już pierwsze wdrożenia AI. Znajdź swoją firmę poniżej.",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "28px",
+    "letterSpacing": "normal",
+    "color": "rgb(176, 176, 176)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Porozmawiajmy",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "24px",
+    "letterSpacing": "normal",
+    "color": "rgb(8, 7, 14)",
+    "backgroundColor": "rgb(100, 215, 255)",
+    "borderRadius": "3.35544e+07px",
+    "padding": "0px 28px",
+    "textTransform": "none",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(100, 215, 255) 0px 8px 32px -8px",
+    "location": "hero",
+    "size_css_px": {
+     "width": 206,
+     "height": 52
+    }
+   },
+   "bodyBackground": "rgb(8, 7, 14)",
+   "heroBackground": "rgb(8, 7, 14)",
+   "heroBackgroundDetail": {
+    "element": "section.relative.isolate.overflow-hidden",
+    "backgroundColor": "rgb(8, 7, 14)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgb(8, 7, 14)",
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "fontsLoadedWeights": {
+    "objectSans": [
+     "400",
+     "700"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Wdrażamy AI i układamy procesy w Twojej firmie. Pierwszy efekt najpóźniej po 30 dniach.",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "60px",
+    "fontWeight": "700",
+    "lineHeight": "60px",
+    "letterSpacing": "-1.2px",
+    "color": "rgb(250, 250, 251)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(250, 250, 251)",
+     "rgb(100, 215, 255)"
+    ]
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Porozmawiajmy",
+     "fill": "solid",
+     "backgroundColor": "rgb(100, 215, 255)",
+     "color": "rgb(8, 7, 14)",
+     "borderRadius": "3.35544e+07px",
+     "border": null,
+     "y": 18
+    },
+    {
+     "text": "Wasz problem? Porozmawiajmy",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(101, 215, 255, 0.15)",
+     "color": "rgb(100, 215, 255)",
+     "borderRadius": "3.35544e+07px",
+     "border": "rgba(100, 215, 255, 0.60)",
+     "y": 713
+    }
+   ],
+   "notes": [
+    "the first visible <h1> is the 18 px grey sub-headline; the visually dominant headline is a <p> (60 px, weight 700) recorded under largestTextAboveFold; first visible <h2> is a 14 px eyebrow label"
+   ]
+  },
+  "linkwith-it": {
+   "url": "https://linkwith.it/",
+   "measured_at": "2026-11-22T15:58:52.241Z",
+   "h1": {
+    "text": "Automatyzacja AI Która Zmienia Biznes",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "72px",
+    "fontWeight": "700",
+    "lineHeight": "72px",
+    "letterSpacing": "normal",
+    "color": "rgb(248, 250, 252)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(135deg, rgb(2, 156, 232), rgb(166, 95, 242))",
+     "rgb(248, 250, 252)"
+    ]
+   },
+   "h2": {
+    "text": "Integrujemy z Ekosystemem Narzędzi,",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "letterSpacing": "normal",
+    "color": "rgb(248, 250, 252)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(248, 250, 252)",
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(135deg, rgb(2, 156, 232), rgb(166, 95, 242))"
+    ]
+   },
+   "body": {
+    "text": "Tworzymy inteligentne automatyzacje z N8N i AI, które oszczędzają czas i zwiększają zyski. Gdy potrzeba więcej - piszemy dedykowany kod.",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "24px",
+    "fontWeight": "600",
+    "lineHeight": "32px",
+    "letterSpacing": "normal",
+    "color": "rgb(148, 163, 184)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Rozpocznij Automatyzację",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "20px",
+    "letterSpacing": "normal",
+    "color": "rgb(26, 33, 45)",
+    "backgroundColor": "rgb(2, 156, 232)",
+    "borderRadius": "10px",
+    "padding": "0px 32px",
+    "textTransform": "none",
+    "boxShadow": "rgba(2, 132, 197, 0.3) 0px 0px 40px 0px",
+    "location": "hero",
+    "size_css_px": {
+     "width": 273,
+     "height": 44
+    }
+   },
+   "bodyBackground": "rgb(26, 33, 45)",
+   "heroBackground": "rgb(26, 33, 45)",
+   "heroBackgroundDetail": {
+    "element": "div.min-h-screen.bg-background.flex",
+    "backgroundColor": "rgb(26, 33, 45)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [],
+   "fontsLoadedWeights": {},
+   "largestTextAboveFold": {
+    "text": "Automatyzacja AI Która Zmienia Biznes",
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "fontSize": "72px",
+    "fontWeight": "700",
+    "lineHeight": "72px",
+    "letterSpacing": "normal",
+    "color": "rgb(248, 250, 252)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(135deg, rgb(2, 156, 232), rgb(166, 95, 242))",
+     "rgb(248, 250, 252)"
+    ]
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Umów konsultację",
+     "fill": "solid",
+     "backgroundColor": "rgb(2, 156, 232)",
+     "color": "rgb(26, 33, 45)",
+     "borderRadius": "10px",
+     "border": null,
+     "y": 12
+    },
+    {
+     "text": "Zobacz Nasze Projekty",
+     "fill": "solid",
+     "backgroundColor": "rgb(26, 33, 45)",
+     "color": "rgb(166, 95, 242)",
+     "borderRadius": "10px",
+     "border": "1px solid rgb(166, 95, 242)",
+     "y": 571
+    }
+   ],
+   "notes": [
+    "document.fonts reported no loaded webfonts; computed stack starts with ui-sans-serif, system-ui",
+    "part of the h1 is painted with a clipped linear-gradient (rgb(2,156,232) → rgb(166,95,242))"
+   ]
+  },
+  "no-code-pl": {
+   "url": "https://www.no-code.pl/",
+   "measured_at": "2026-11-22T15:58:50.725Z",
+   "h1": {
+    "text": "Sukces Twojej firmy w erze automatyzacji & AI",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "52px",
+    "fontWeight": "700",
+    "lineHeight": "62.4px",
+    "letterSpacing": "normal",
+    "color": "rgb(37, 40, 55)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Usługi",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "44px",
+    "fontWeight": "700",
+    "lineHeight": "52.8px",
+    "letterSpacing": "normal",
+    "color": "rgb(37, 40, 55)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 0px 0px 85px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Wejdź na wyższy poziom biznesu razem z No-Code.pl. Dostarczamy nowoczesne rozwiązania no-code i low-code, automatyzujemy procesy oraz pomaga",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "21px",
+    "letterSpacing": "normal",
+    "color": "rgb(37, 40, 55)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": null,
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgb(255, 255, 255)",
+   "heroBackgroundDetail": {
+    "element": "div#no-code.hero",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "backgroundImage": "url(\"https://www.no-code.pl/templates/no-code/images/bulb.webp\")"
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "bootstrap-icons",
+    "Poppins"
+   ],
+   "fontsLoadedWeights": {
+    "bootstrap-icons": [
+     "normal"
+    ],
+    "Poppins": [
+     "400",
+     "700"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Sukces Twojej firmy w erze automatyzacji & AI",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "52px",
+    "fontWeight": "700",
+    "lineHeight": "62.4px",
+    "letterSpacing": "normal",
+    "color": "rgb(37, 40, 55)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [],
+   "notes": [
+    "no button-styled CTA found in the header or hero (all <a>/<button> elements in the first 900 px were checked for a solid background or border); header \"Kontakt\" is a plain text link"
+   ]
+  },
+  "office-samurai": {
+   "url": "https://office-samurai.com/pl/",
+   "measured_at": "2026-11-22T15:59:01.391Z",
+   "h1": {
+    "text": "Automatyzacja AI & Process Intelligence",
+    "fontFamily": "LokalSyne, \"Sans serif\"",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "57.6px",
+    "letterSpacing": "normal",
+    "color": "rgb(20, 20, 20)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Zależy nam na długotrwałym partnerstwie",
+    "fontFamily": "LokalSyne, \"Sans serif\"",
+    "fontSize": "40px",
+    "fontWeight": "600",
+    "lineHeight": "52px",
+    "letterSpacing": "normal",
+    "color": "rgb(20, 20, 20)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Mierz, analizuj i automatyzuj procesy biznesowe z wykorzystaniem AI.",
+    "fontFamily": "LokalMontserrat, \"Sans serif\"",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "normal",
+    "color": "rgb(20, 20, 20)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Kontakt",
+    "fontFamily": "LokalMontserrat, \"Sans serif\"",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "24px",
+    "letterSpacing": "normal",
+    "color": "rgb(20, 20, 20)",
+    "backgroundColor": "rgb(255, 114, 58)",
+    "borderRadius": "0px",
+    "padding": "8px 16px",
+    "textTransform": "none",
+    "location": "header",
+    "size_css_px": {
+     "width": 98,
+     "height": 40
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgb(237, 237, 237)",
+   "heroBackgroundDetail": {
+    "element": "div.elementor-element.elementor-element-2e18408.e-flex",
+    "backgroundColor": "rgb(237, 237, 237)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "LokalMontserrat",
+    "LokalSyne"
+   ],
+   "fontsLoadedWeights": {
+    "LokalMontserrat": [
+     "400",
+     "500",
+     "600",
+     "700"
+    ],
+    "LokalSyne": [
+     "400",
+     "500",
+     "600",
+     "700"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Automatyzacja AI & Process Intelligence",
+    "fontFamily": "LokalSyne, \"Sans serif\"",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "57.6px",
+    "letterSpacing": "normal",
+    "color": "rgb(20, 20, 20)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [],
+   "notes": [
+    "the only button-styled CTA above the fold is \"Kontakt\" in the header; the hero itself has a text link \"Poznaj nasze usługi ↓\"",
+    "fonts are self-hosted under the names LokalSyne and LokalMontserrat"
+   ]
+  },
+  "digital-teammates": {
+   "url": "https://dtmates.com/",
+   "measured_at": "2026-11-22T15:59:15.955Z",
+   "h1": {
+    "text": "Automatyzacja procesów biznesowych",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "40px",
+    "fontWeight": "600",
+    "lineHeight": "54px",
+    "letterSpacing": "-1.24679px",
+    "color": "rgb(0, 0, 0)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Rozwiązania",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "19.2px",
+    "letterSpacing": "-0.13838px",
+    "color": "rgb(111, 192, 188)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 0px 15px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Dostarczamy Cyfrowych Współpracowników. Automatyzujemy powtarzalne procesy biznesowe – budujemy, utrzymujemy i przeszkalamy roboty, które ro",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "24px",
+    "letterSpacing": "normal",
+    "color": "rgb(84, 86, 90)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "CHCESZ OFERTĘ? ZOSTAW DANE KONTAKTOWE",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "20.44px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(111, 192, 188)",
+    "borderRadius": "0px",
+    "padding": "13px 15px 14px",
+    "textTransform": "uppercase",
+    "border": "2px solid rgba(0, 0, 0, 0)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 1px 0px",
+    "location": "hero",
+    "size_css_px": {
+     "width": 378,
+     "height": 51
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgba(0, 0, 0, 0)",
+   "heroBackgroundDetail": {
+    "element": "div.bg-section.aos-init.aos-animate",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "url(\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzQyIiBoZWlnaHQ9IjExMjAiIHZpZXdCb3g9IjAgMCA3NDIgMTEyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNzI0LjU2MS0xNjMuNTA5IDEzMS40NjQgNzUuMzdWNjIuNTk4bC0xMzEuNDY0I"
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "icomoon",
+    "icomoon-brands",
+    "Poppins",
+    "aileronregular"
+   ],
+   "fontsLoadedWeights": {
+    "icomoon": [
+     "400"
+    ],
+    "icomoon-brands": [
+     "400"
+    ],
+    "Poppins": [
+     "400",
+     "500",
+     "600",
+     "700",
+     "900"
+    ],
+    "aileronregular": [
+     "normal"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Automatyzacja procesów biznesowych",
+    "fontFamily": "Poppins, sans-serif",
+    "fontSize": "40px",
+    "fontWeight": "600",
+    "lineHeight": "54px",
+    "letterSpacing": "-1.24679px",
+    "color": "rgb(0, 0, 0)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Zatrudniamy",
+     "fill": "solid",
+     "backgroundColor": "rgb(173, 255, 135)",
+     "color": "rgb(70, 195, 207)",
+     "borderRadius": "50%",
+     "border": null,
+     "y": 17
+    }
+   ],
+   "notes": [
+    "hero container background is an inline SVG pattern on a transparent background-color (page background white)"
+   ]
+  },
+  "flobotics": {
+   "url": "https://www.flobotics.io/",
+   "measured_at": "2026-11-22T15:58:59.585Z",
+   "h1": {
+    "text": "We automate the work between your systems.",
+    "fontFamily": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+    "fontSize": "59.4px",
+    "fontWeight": "800",
+    "lineHeight": "54.648px",
+    "letterSpacing": "-2.97px",
+    "color": "rgb(21, 24, 26)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Every minute of busywork is a minute someone waits.",
+    "fontFamily": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+    "fontSize": "68px",
+    "fontWeight": "780",
+    "lineHeight": "68px",
+    "letterSpacing": "-2.72px",
+    "color": "rgb(232, 236, 235)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(232, 236, 235)",
+     "rgb(21, 24, 26)"
+    ]
+   },
+   "body": {
+    "text": "We build AI agents and automations that connect your EHR, LIS, billing systems, and payer portals, eliminating repetitive work without repla",
+    "fontFamily": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+    "fontSize": "22px",
+    "fontWeight": "400",
+    "lineHeight": "34.1px",
+    "letterSpacing": "normal",
+    "color": "rgb(42, 48, 51)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Book a 30-minute call →",
+    "fontFamily": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "600",
+    "lineHeight": "16.5px",
+    "letterSpacing": "0.15px",
+    "color": "rgb(244, 246, 245)",
+    "backgroundColor": "rgb(21, 24, 26)",
+    "borderRadius": "0px",
+    "padding": "14px 18px",
+    "textTransform": "none",
+    "border": "1px solid rgb(21, 24, 26)",
+    "location": "hero",
+    "size_css_px": {
+     "width": 224,
+     "height": 47
+    }
+   },
+   "bodyBackground": "rgb(244, 246, 245)",
+   "heroBackground": "rgb(244, 246, 245)",
+   "heroBackgroundDetail": {
+    "element": "body",
+    "backgroundColor": "rgb(244, 246, 245)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "Archivo",
+    "Martian Mono",
+    "Newsreader"
+   ],
+   "fontsLoadedWeights": {
+    "Archivo": [
+     "100 900"
+    ],
+    "Martian Mono": [
+     "100 800"
+    ],
+    "Newsreader": [
+     "200 800"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Every minute of busywork is a minute someone waits.",
+    "fontFamily": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+    "fontSize": "68px",
+    "fontWeight": "780",
+    "lineHeight": "68px",
+    "letterSpacing": "-2.72px",
+    "color": "rgb(232, 236, 235)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(232, 236, 235)",
+     "rgb(21, 24, 26)"
+    ]
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Our promise",
+     "fill": "solid",
+     "backgroundColor": "rgb(242, 194, 48)",
+     "color": "rgb(21, 24, 26)",
+     "borderRadius": "0px",
+     "border": null,
+     "y": 23
+    },
+    {
+     "text": "Click me",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(21, 24, 26)",
+     "borderRadius": "0px",
+     "border": "1px solid rgb(174, 182, 183)",
+     "y": 16
+    },
+    {
+     "text": "Book a call →",
+     "fill": "solid",
+     "backgroundColor": "rgb(21, 24, 26)",
+     "color": "rgb(244, 246, 245)",
+     "borderRadius": "0px",
+     "border": "1px solid rgb(21, 24, 26)",
+     "y": 16
+    },
+    {
+     "text": "See client results →",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(21, 24, 26)",
+     "borderRadius": "0px",
+     "border": "1px solid rgb(21, 24, 26)",
+     "y": 550
+    }
+   ],
+   "notes": [
+    "largestTextAboveFold is the <h2> of the next (dark) section, partly visible at the bottom of the first viewport"
+   ]
+  },
+  "zapier": {
+   "url": "https://zapier.com/",
+   "measured_at": "2026-11-22T15:58:59.748Z",
+   "h1": {
+    "text": "Welcome to automation in the agentic era",
+    "fontFamily": "\"Degular Display\", DegularDisplay, \"DegularDisplay Fallback\", Inter, \"Inter Fallback\", system-ui, ui-sans-serif, sans-serif, sans-serif",
+    "fontSize": "56px",
+    "fontWeight": "500",
+    "lineHeight": "56px",
+    "letterSpacing": "normal",
+    "color": "rgb(32, 21, 21)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "TRUSTED BY THE WORLD’S BEST COMPANIES",
+    "fontFamily": "Inter, Inter, \"Inter Fallback\", system-ui, ui-sans-serif, sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "letterSpacing": "0.48px",
+    "color": "rgb(96, 93, 82)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 24px",
+    "textTransform": "uppercase"
+   },
+   "body": {
+    "text": "Start building in your favorite AI tool, then run and govern trusted workflows on Zapier.",
+    "fontFamily": "Inter, Inter, \"Inter Fallback\", system-ui, ui-sans-serif, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "21px",
+    "letterSpacing": "normal",
+    "color": "rgb(54, 52, 46)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Start free with email",
+    "fontFamily": "Inter, Inter, \"Inter Fallback\", system-ui, ui-sans-serif, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 254, 251)",
+    "backgroundColor": "rgb(255, 79, 0)",
+    "borderRadius": "4px",
+    "padding": "8px 16px",
+    "textTransform": "none",
+    "border": "1px solid rgb(255, 79, 0)",
+    "location": "hero",
+    "size_css_px": {
+     "width": 189,
+     "height": 40
+    }
+   },
+   "bodyBackground": "rgb(255, 254, 251)",
+   "heroBackground": "rgb(255, 254, 251)",
+   "heroBackgroundDetail": {
+    "element": "body",
+    "backgroundColor": "rgb(255, 254, 251)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "DegularDisplay",
+    "Serrif",
+    "Inter"
+   ],
+   "fontsLoadedWeights": {
+    "DegularDisplay": [
+     "500"
+    ],
+    "Serrif": [
+     "300"
+    ],
+    "Inter": [
+     "400",
+     "500",
+     "600",
+     "700"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Welcome to automation in the agentic era",
+    "fontFamily": "\"Degular Display\", DegularDisplay, \"DegularDisplay Fallback\", Inter, \"Inter Fallback\", system-ui, ui-sans-serif, sans-serif, sans-serif",
+    "fontSize": "56px",
+    "fontWeight": "500",
+    "lineHeight": "56px",
+    "letterSpacing": "normal",
+    "color": "rgb(32, 21, 21)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Products",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 79, 0)",
+     "color": "rgb(32, 21, 21)",
+     "borderRadius": "0px",
+     "border": null,
+     "y": 10
+    },
+    {
+     "text": "Solutions",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 79, 0)",
+     "color": "rgb(32, 21, 21)",
+     "borderRadius": "0px",
+     "border": null,
+     "y": 10
+    },
+    {
+     "text": "Resources",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 79, 0)",
+     "color": "rgb(32, 21, 21)",
+     "borderRadius": "0px",
+     "border": null,
+     "y": 10
+    },
+    {
+     "text": "Sign up",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 79, 0)",
+     "color": "rgb(255, 254, 251)",
+     "borderRadius": "18px",
+     "border": "1px solid rgb(255, 79, 0)",
+     "y": 10
+    },
+    {
+     "text": "Start free with Google",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(32, 21, 21)",
+     "borderRadius": "4px",
+     "border": "1px solid rgb(32, 21, 21)",
+     "y": 379
+    }
+   ],
+   "notes": [
+    "first visible <h2> is a 12 px uppercase eyebrow label"
+   ]
+  },
+  "n8n": {
+   "url": "https://n8n.io/",
+   "measured_at": "2026-11-22T15:59:09.492Z",
+   "h1": {
+    "text": "Build the agent. Understand its workflow. Build the agent. Understand its workflow.",
+    "fontFamily": "\"n8n Baumer Uniwidth\", Helvetica, system-ui, -apple-system, sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "500",
+    "lineHeight": "54.4px",
+    "letterSpacing": "-0.64px",
+    "color": "rgb(22, 22, 22)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(22, 22, 22)",
+     "color(srgb 0.0862745 0.0862745 0.0862745) (= rgb(22, 22, 22))"
+    ]
+   },
+   "h2": {
+    "text": "The USB-C for your AI stack",
+    "fontFamily": "\"n8n Baumer Uniwidth\", Helvetica, system-ui, -apple-system, sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "500",
+    "lineHeight": "48px",
+    "letterSpacing": "-0.48px",
+    "color": "rgb(22, 22, 22)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "n8n is the platform for agents and workflows you can follow. Open any step, see what it does, and explain to anyone who runs it.",
+    "fontFamily": "\"n8n Baumer Uniwidth\", Helvetica, system-ui, -apple-system, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "22px",
+    "letterSpacing": "normal",
+    "color": "rgb(22, 22, 22)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "GET STARTED",
+    "fontFamily": "\"n8n Baumer Mono\", ui-monospace, \"SF Mono\", monospace",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "letterSpacing": "0.28px",
+    "color": "rgb(33, 33, 33)",
+    "backgroundColor": "rgb(255, 188, 202)",
+    "borderRadius": "9999px",
+    "padding": "12px 16px",
+    "textTransform": "uppercase",
+    "location": "hero",
+    "size_css_px": {
+     "width": 127,
+     "height": 42
+    }
+   },
+   "bodyBackground": "rgb(250, 250, 250)",
+   "heroBackground": "rgb(250, 250, 250)",
+   "heroBackgroundDetail": {
+    "element": "body.antialiased",
+    "backgroundColor": "rgb(250, 250, 250)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "n8n Baumer Uniwidth",
+    "n8n Baumer Mono"
+   ],
+   "fontsLoadedWeights": {
+    "n8n Baumer Uniwidth": [
+     "400",
+     "500"
+    ],
+    "n8n Baumer Mono": [
+     "400"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Build the agent. Understand its workflow. Build the agent. Understand its workflow.",
+    "fontFamily": "\"n8n Baumer Uniwidth\", Helvetica, system-ui, -apple-system, sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "500",
+    "lineHeight": "54.4px",
+    "letterSpacing": "-0.64px",
+    "color": "rgb(22, 22, 22)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(22, 22, 22)",
+     "color(srgb 0.0862745 0.0862745 0.0862745) (= rgb(22, 22, 22))"
+    ]
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "GET STARTED",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 188, 202)",
+     "color": "rgb(33, 33, 33)",
+     "borderRadius": "9999px",
+     "border": null,
+     "y": 50
+    },
+    {
+     "text": "TALK TO SALES",
+     "fill": "solid",
+     "backgroundColor": "rgb(217, 217, 217)",
+     "color": "rgb(22, 22, 22)",
+     "borderRadius": "9999px",
+     "border": null,
+     "y": 393
+    }
+   ],
+   "notes": [
+    "h1 text is duplicated in the DOM (innerText repeats the sentence twice)"
+   ]
+  },
+  "workato": {
+   "url": "https://www.workato.com/",
+   "measured_at": "2026-11-22T15:59:10.233Z",
+   "h1": {
+    "text": "The Platform to Govern & Scale Enterprise AI",
+    "fontFamily": "Besley, Georgia, serif",
+    "fontSize": "56px",
+    "fontWeight": "600",
+    "lineHeight": "61.6px",
+    "letterSpacing": "normal",
+    "color": "rgb(4, 20, 26)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(90deg, rgb(255, 255, 255), rgb(240, 253, 253))",
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(90deg, rgb(143, 232, 234) 9%, rgb(164, 195, 234) 70%, rgb(195, 169, 255))"
+    ]
+   },
+   "h2": {
+    "text": "The Neutral Control & Execution Platform",
+    "fontFamily": "Figtree, Helvetica, Arial, sans-serif",
+    "fontSize": "40px",
+    "fontWeight": "600",
+    "lineHeight": "44px",
+    "letterSpacing": "normal",
+    "color": "rgba(0, 0, 0, 0)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(90deg, rgb(4, 20, 26), rgb(0, 151, 153))",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(90deg, rgb(4, 20, 26), rgb(0, 151, 153))"
+    ]
+   },
+   "body": {
+    "text": "The control & execution platform to govern AI, connect apps and data, and orchestrate workflows and agents",
+    "fontFamily": "Figtree, Helvetica, Arial, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "23.4px",
+    "letterSpacing": "normal",
+    "color": "rgb(244, 245, 246)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Talk to sales",
+    "fontFamily": "Figtree, Helvetica, Arial, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "lineHeight": "16px",
+    "letterSpacing": "normal",
+    "color": "rgb(5, 44, 80)",
+    "backgroundColor": "rgb(0, 212, 216)",
+    "borderRadius": "999px",
+    "padding": "15px 30px",
+    "textTransform": "none",
+    "border": "2px solid rgb(0, 212, 216)",
+    "location": "hero",
+    "size_css_px": {
+     "width": 166,
+     "height": 48
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgb(4, 36, 65)",
+   "heroBackgroundDetail": {
+    "element": "header.hero-rebrand",
+    "backgroundColor": "rgb(4, 36, 65)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "Besley",
+    "Figtree",
+    "Mr Eaves Xl Modot"
+   ],
+   "fontsLoadedWeights": {
+    "Besley": [
+     "400 900"
+    ],
+    "Figtree": [
+     "300 900"
+    ],
+    "Mr Eaves Xl Modot": [
+     "400"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "The Platform to Govern & Scale Enterprise AI",
+    "fontFamily": "Besley, Georgia, serif",
+    "fontSize": "56px",
+    "fontWeight": "600",
+    "lineHeight": "61.6px",
+    "letterSpacing": "normal",
+    "color": "rgb(4, 20, 26)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(90deg, rgb(255, 255, 255), rgb(240, 253, 253))",
+     "rgba(0, 0, 0, 0) + clipped linear-gradient(90deg, rgb(143, 232, 234) 9%, rgb(164, 195, 234) 70%, rgb(195, 169, 255))"
+    ]
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Start for free",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(244, 247, 251)",
+     "borderRadius": "999px",
+     "border": "2px solid rgb(244, 247, 251)",
+     "y": 23
+    },
+    {
+     "text": "Talk to sales",
+     "fill": "solid",
+     "backgroundColor": "rgb(0, 212, 216)",
+     "color": "rgb(5, 44, 80)",
+     "borderRadius": "999px",
+     "border": "2px solid rgb(0, 212, 216)",
+     "y": 23
+    },
+    {
+     "text": "Start for free",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(244, 247, 251)",
+     "borderRadius": "999px",
+     "border": "2px solid rgb(244, 247, 251)",
+     "y": 541
+    }
+   ],
+   "notes": [
+    "h1 computed color is rgb(4, 20, 26) but its text is painted by descendants using background-clip:text gradients (white → rgb(240,253,253); and rgb(143,232,234) → rgb(195,169,255)) on the dark hero"
+   ]
+  },
+  "relevance-ai": {
+   "url": "https://relevanceai.com/",
+   "measured_at": "2026-11-22T15:59:11.035Z",
+   "h1": {
+    "text": "Grow revenue with AI Factories for GTM",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "fontSize": "72px",
+    "fontWeight": "500",
+    "lineHeight": "79.2px",
+    "letterSpacing": "-3.24px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Agents do work. AI Factories deliver outcomes.",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "fontSize": "52px",
+    "fontWeight": "500",
+    "lineHeight": "57.2px",
+    "letterSpacing": "-2.34px",
+    "color": "rgb(13, 0, 26)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(13, 0, 26)",
+     "rgb(13, 0, 26) + clipped linear-gradient(90deg, rgb(50, 26, 213), rgb(77, 64, 236), rgb(104, 95, 255) 70%, rgb(134, 130, 255))"
+    ]
+   },
+   "body": {
+    "text": "It's time to industrialize your revenue supply chain. AI Factories for GTM drive awareness, leads and revenue KPIs.",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "fontSize": "20px",
+    "fontWeight": "400",
+    "lineHeight": "30px",
+    "letterSpacing": "normal",
+    "color": "rgba(255, 255, 255, 0.88)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Read announcement",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "600",
+    "lineHeight": "15px",
+    "letterSpacing": "normal",
+    "color": "rgb(26, 20, 80)",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "borderRadius": "9999px",
+    "padding": "0px 22px",
+    "textTransform": "none",
+    "location": "hero",
+    "size_css_px": {
+     "width": 193,
+     "height": 48
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgba(0, 0, 0, 0)",
+   "heroBackgroundDetail": {
+    "element": "section.rh-hero.rh2-hero2.rd-inview",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(rgb(26, 20, 80), rgb(47, 37, 146), rgb(77, 64, 236) 40%, rgb(134, 130, 255), rgb(185, 180, 255) 76%, rgb(220, 217, 255) 90%, rgb(242, 239, 255))"
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "Inter"
+   ],
+   "fontsLoadedWeights": {
+    "Inter": [
+     "400",
+     "500",
+     "600"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Grow revenue with AI Factories for GTM",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "fontSize": "72px",
+    "fontWeight": "500",
+    "lineHeight": "79.2px",
+    "letterSpacing": "-3.24px",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Book a demo",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 255, 255)",
+     "color": "rgb(26, 20, 80)",
+     "borderRadius": "9999px",
+     "border": null,
+     "y": 18
+    }
+   ],
+   "notes": [
+    "hero background is a vertical linear-gradient from rgb(26, 20, 80) to rgb(242, 239, 255) on a transparent background-color"
+   ]
+  },
+  "lindy": {
+   "url": "https://www.lindy.ai/",
+   "measured_at": "2026-11-22T15:25:54.843Z",
+   "h1": {
+    "text": "Hire Lindy, get it done.",
+    "fontFamily": "\"STK Bureau Serif\", Georgia, serif",
+    "fontSize": "103.68px",
+    "fontWeight": "400",
+    "lineHeight": "98.496px",
+    "letterSpacing": "-3.6288px",
+    "color": "rgb(15, 30, 46)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "I handle the work that never stops.",
+    "fontFamily": "\"STK Bureau Serif\", Georgia, serif",
+    "fontSize": "46px",
+    "fontWeight": "400",
+    "lineHeight": "46.92px",
+    "letterSpacing": "-0.46px",
+    "color": "rgb(15, 30, 46)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Lindy is the AI employee that plugs into your tools, learns how you work, and takes real work off your plate.",
+    "fontFamily": "Inter, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    "fontSize": "20px",
+    "fontWeight": "400",
+    "lineHeight": "30px",
+    "letterSpacing": "normal",
+    "color": "rgb(100, 94, 87)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Try for free →",
+    "fontFamily": "Inter, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "21px",
+    "letterSpacing": "normal",
+    "color": "rgb(252, 250, 245)",
+    "backgroundColor": "rgb(15, 30, 46)",
+    "borderRadius": "999px",
+    "padding": "0px 18px",
+    "textTransform": "none",
+    "location": "hero",
+    "size_css_px": {
+     "width": 131,
+     "height": 40
+    }
+   },
+   "bodyBackground": "rgb(252, 250, 245)",
+   "heroBackground": "rgb(252, 250, 245)",
+   "heroBackgroundDetail": {
+    "element": "body",
+    "backgroundColor": "rgb(252, 250, 245)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "STK Bureau Serif",
+    "Inter",
+    "Manrope"
+   ],
+   "fontsLoadedWeights": {
+    "STK Bureau Serif": [
+     "400"
+    ],
+    "Inter": [
+     "100 900"
+    ],
+    "Manrope": [
+     "200 800"
+    ]
+   },
+   "largestTextAboveFold": null,
+   "otherButtonsAboveFold": [
+    {
+     "text": "Try for free",
+     "fill": "solid",
+     "backgroundColor": "rgb(15, 30, 46)",
+     "color": "rgb(252, 250, 245)",
+     "borderRadius": "999px",
+     "border": null,
+     "y": 20
+    },
+    {
+     "text": "Chase invoices",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Answer leads",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Client reports",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Watch ad spend",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Get reviews",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Find customers",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 643
+    },
+    {
+     "text": "Plan social posts",
+     "fill": "solid",
+     "backgroundColor": "rgba(255, 255, 255, 0.92)",
+     "color": "rgb(15, 30, 46)",
+     "borderRadius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.92)",
+     "y": 689
+    }
+   ],
+   "notes": [
+    "styles taken from the same page load as the screenshots (the site served a different variant in a later load: h1 67.68 px instead of 103.68 px); largestTextAboveFold not recorded for this load",
+    "second line of the h1 is painted with a clipped gold linear-gradient (rgb(247,184,68) → rgb(198,136,9)), measured in a later load"
+   ]
+  },
+  "linear": {
+   "url": "https://linear.app/",
+   "measured_at": "2026-11-22T15:59:24.676Z",
+   "h1": {
+    "text": "The product development system for teams and agents The product development system for teams and agents",
+    "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "510",
+    "lineHeight": "64px",
+    "letterSpacing": "-1.408px",
+    "color": "rgb(247, 248, 248)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "A new species of product tool. Purpose-built for modern teams with AI workflows at its core, Linear sets a new standard for planning and bui",
+    "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "510",
+    "lineHeight": "48px",
+    "letterSpacing": "-1.056px",
+    "color": "rgb(138, 143, 152)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 32px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "rgb(247, 248, 248)",
+     "rgb(138, 143, 152)"
+    ]
+   },
+   "body": {
+    "text": "Purpose-built for planning and building products. Designed for the AI era.",
+    "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "-0.165px",
+    "color": "rgb(138, 143, 152)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Sign up",
+    "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "510",
+    "lineHeight": "32px",
+    "letterSpacing": "normal",
+    "color": "rgb(8, 9, 10)",
+    "backgroundColor": "rgb(229, 229, 230)",
+    "borderRadius": "9999px",
+    "padding": "0px 12px",
+    "textTransform": "none",
+    "border": "1px solid rgb(229, 229, 230)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 8px 2px 0px, rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px",
+    "location": "header",
+    "size_css_px": {
+     "width": 73,
+     "height": 32
+    }
+   },
+   "bodyBackground": "rgb(8, 9, 10)",
+   "heroBackground": "rgb(8, 9, 10)",
+   "heroBackgroundDetail": {
+    "element": "div",
+    "backgroundColor": "rgb(8, 9, 10)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgb(8, 9, 10)",
+   "fontsLoaded": [
+    "Inter Variable",
+    "Berkeley Mono"
+   ],
+   "fontsLoadedWeights": {
+    "Inter Variable": [
+     "100 900"
+    ],
+    "Berkeley Mono": [
+     "100 900"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "The product development system for teams and agents The product development system for teams and agents",
+    "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "510",
+    "lineHeight": "64px",
+    "letterSpacing": "-1.408px",
+    "color": "rgb(247, 248, 248)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [],
+   "notes": [
+    "the only button-styled CTA above the fold is \"Sign up\" in the header; h1 text is duplicated in the DOM"
+   ]
+  },
+  "attio": {
+   "url": "https://attio.com/",
+   "measured_at": "2026-11-22T15:59:26.421Z",
+   "h1": {
+    "text": "Welcome to agentic revenue.",
+    "fontFamily": "interDisplay, \"interDisplay Fallback\"",
+    "fontSize": "64px",
+    "fontWeight": "600",
+    "lineHeight": "60.8px",
+    "letterSpacing": "-1.28px",
+    "color": "lab(10.7201 -0.0959039 -1.54182)",
+    "color_srgb": "rgb(28, 29, 31)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 0px 9.6px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "The intelligent system that never sleeps. Picks up leads at 2am. Catches renewals before they slip. Hands you the answer before you ask.",
+    "fontFamily": "interDisplay, \"interDisplay Fallback\"",
+    "fontSize": "40px",
+    "fontWeight": "500",
+    "lineHeight": "44px",
+    "letterSpacing": "-0.4px",
+    "color": "lab(10.7201 -0.0959039 -1.54182)",
+    "color_srgb": "rgb(28, 29, 31)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "lab(10.7201 -0.0959039 -1.54182) (= rgb(28, 29, 31))",
+     "lab(50.3787 -1.31875 -9.56043) (= rgb(111, 121, 136))"
+    ]
+   },
+   "body": {
+    "text": "Attio is the platform that builds pipeline, advances deals, and grows accounts around the clock.",
+    "fontFamily": "inter, \"inter Fallback\"",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "23.4px",
+    "letterSpacing": "-0.18px",
+    "color": "lab(50.3787 -1.31875 -9.56043)",
+    "color_srgb": "rgb(111, 121, 136)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Start for free",
+    "fontFamily": "inter, \"inter Fallback\"",
+    "fontSize": "14px",
+    "fontWeight": "500",
+    "lineHeight": "20px",
+    "letterSpacing": "-0.07px",
+    "color": "lab(96.1596 -0.0828803 -1.13571)",
+    "color_srgb": "rgb(243, 244, 246)",
+    "backgroundColor": "lab(12.7212 0.103362 -2.22102)",
+    "backgroundColor_srgb": "rgb(32, 33, 36)",
+    "backgroundImage": "radial-gradient(at 50% -10%, lab(12.7212 0.103362 -2.22102) 0%, lab(12.7212 0.103362 -2.22102) 100%)",
+    "borderRadius": "10px",
+    "padding": "0px 12px",
+    "textTransform": "none",
+    "border": "1px solid lab(37.426 -1.09151 -9.33263)",
+    "border_srgb": "rgb(80, 89, 103)",
+    "location": "hero",
+    "size_css_px": {
+     "width": 110,
+     "height": 36
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgb(255, 255, 255)",
+   "heroBackgroundDetail": {
+    "element": "section.border-subtle-stroke.border-b.bg-primary-background",
+    "backgroundColor": "lab(99.9987 0.0337958 0.000309944)",
+    "backgroundImage": null,
+    "backgroundColor_srgb": "rgb(255, 255, 255)"
+   },
+   "htmlBackground": "rgb(0, 0, 0)",
+   "fontsLoaded": [
+    "JetBrains Mono",
+    "inter",
+    "interDisplay",
+    "tiemposText"
+   ],
+   "fontsLoadedWeights": {
+    "JetBrains Mono": [
+     "100 800"
+    ],
+    "inter": [
+     "400",
+     "500",
+     "600"
+    ],
+    "interDisplay": [
+     "500",
+     "600"
+    ],
+    "tiemposText": [
+     "400"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Welcome to agentic revenue.",
+    "fontFamily": "interDisplay, \"interDisplay Fallback\"",
+    "fontSize": "64px",
+    "fontWeight": "600",
+    "lineHeight": "60.8px",
+    "letterSpacing": "-1.28px",
+    "color": "lab(10.7201 -0.0959039 -1.54182)",
+    "color_srgb": "rgb(28, 29, 31)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px 0px 9.6px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Sign in",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 255, 255)",
+     "color": "rgb(46, 50, 56)",
+     "borderRadius": "10px",
+     "border": "rgb(202, 208, 217)",
+     "y": 64
+    },
+    {
+     "text": "Start for free",
+     "fill": "solid",
+     "backgroundColor": "rgb(32, 33, 36)",
+     "color": "rgb(243, 244, 246)",
+     "borderRadius": "10px",
+     "border": "rgb(80, 89, 103)",
+     "y": 64
+    },
+    {
+     "text": "GTM lessons from Elena Verna and more",
+     "fill": "solid",
+     "backgroundColor": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 29, 31)",
+     "borderRadius": "13px",
+     "border": "rgb(237, 239, 243)",
+     "y": 212
+    },
+    {
+     "text": "Talk to sales",
+     "fill": "solid",
+     "backgroundColor": "rgb(255, 255, 255)",
+     "color": "rgb(46, 50, 56)",
+     "borderRadius": "10px",
+     "border": "rgb(202, 208, 217)",
+     "y": 446
+    }
+   ],
+   "notes": [
+    "computed colours are returned by the browser in lab(); *_srgb fields hold the sRGB conversion done via a detached canvas",
+    "CTA has a subtle radial-gradient background-image over its background-color"
+   ],
+   "bodyBackground_asComputed": "lab(99.9987 0.0337958 0.000309944)"
+  },
+  "ramp": {
+   "url": "https://ramp.com/",
+   "measured_at": "2026-11-22T15:59:28.571Z",
+   "h1": {
+    "text": "Time is money. Save both.",
+    "fontFamily": "Lausanne, Arial, sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "400",
+    "lineHeight": "64px",
+    "letterSpacing": "-0.01px",
+    "color": "lab(2.83994 0.367254 0.969091)",
+    "color_srgb": "rgb(12, 10, 8)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Join 85,000 of the world’s most ambitious companies growing 3.2x faster than the average American business.",
+    "fontFamily": "Lausanne, Arial, sans-serif",
+    "fontSize": "28px",
+    "fontWeight": "400",
+    "lineHeight": "32px",
+    "letterSpacing": "normal",
+    "color": "lab(2.83994 0.367254 0.969091)",
+    "color_srgb": "rgb(12, 10, 8)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none",
+    "textColorsOfDescendants": [
+     "lab(2.83994 0.367254 0.969091) (= rgb(12, 10, 8))",
+     "lab(2.83994 0.367254 0.969091 / 0.6) (= rgba(12, 10, 8, 0.60))"
+    ]
+   },
+   "body": {
+    "text": "Start with your company website URL, then add any context about your business or spend challenges.",
+    "fontFamily": "Lausanne, Arial, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "22px",
+    "letterSpacing": "normal",
+    "color": "lab(2.83994 0.367254 0.969091 / 0.6)",
+    "color_srgb": "rgba(12, 10, 8, 0.60)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Get started for free",
+    "fontFamily": "Lausanne, Arial, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "10.8px",
+    "letterSpacing": "normal",
+    "color": "lab(2.83994 0.367254 0.969091)",
+    "color_srgb": "rgb(12, 10, 8)",
+    "backgroundColor": "lab(92.1406 -20.4979 84.7726)",
+    "backgroundColor_srgb": "rgb(228, 242, 34)",
+    "borderRadius": "8px",
+    "padding": "0px 20px",
+    "textTransform": "none",
+    "location": "hero",
+    "size_css_px": {
+     "width": 176,
+     "height": 52
+    }
+   },
+   "bodyBackground": "rgb(255, 255, 255)",
+   "heroBackground": "rgb(255, 255, 255)",
+   "heroBackgroundDetail": {
+    "element": "body",
+    "backgroundColor": "lab(100 0 0)",
+    "backgroundImage": null,
+    "backgroundColor_srgb": "rgb(255, 255, 255)"
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "Lausanne",
+    "Material Icons",
+    "Material Icons Outlined"
+   ],
+   "fontsLoadedWeights": {
+    "Lausanne": [
+     "400"
+    ],
+    "Material Icons": [
+     "400"
+    ],
+    "Material Icons Outlined": [
+     "400"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Time is money. Save both.",
+    "fontFamily": "Lausanne, Arial, sans-serif",
+    "fontSize": "64px",
+    "fontWeight": "400",
+    "lineHeight": "64px",
+    "letterSpacing": "-0.01px",
+    "color": "lab(2.83994 0.367254 0.969091)",
+    "color_srgb": "rgb(12, 10, 8)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "See a demo",
+     "fill": "solid",
+     "backgroundColor": "rgb(228, 242, 34)",
+     "color": "rgb(12, 10, 8)",
+     "borderRadius": "6px",
+     "border": null,
+     "y": 53
+    },
+    {
+     "text": "Get started",
+     "fill": "solid",
+     "backgroundColor": "rgb(26, 25, 25)",
+     "color": "rgb(255, 255, 255)",
+     "borderRadius": "6px",
+     "border": null,
+     "y": 53
+    }
+   ],
+   "notes": [
+    "computed colours are returned by the browser in lab(); *_srgb fields hold the sRGB conversion done via a detached canvas"
+   ],
+   "bodyBackground_asComputed": "lab(100 0 0)"
+  },
+  "mercury": {
+   "url": "https://mercury.com/",
+   "measured_at": "2026-11-22T15:59:28.202Z",
+   "h1": {
+    "text": "Radically different banking",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "49.3472px",
+    "fontWeight": "480",
+    "lineHeight": "54.2819px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "h2": {
+    "text": "Loved by 450K+ of the most ambitious entrepreneurs on the planet",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "42px",
+    "fontWeight": "480",
+    "lineHeight": "48.3px",
+    "letterSpacing": "0.42px",
+    "color": "rgb(237, 237, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "body": {
+    "text": "Everything you do with money. All in one place.",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "24px",
+    "fontWeight": "480",
+    "lineHeight": "28.8px",
+    "letterSpacing": "0.48px",
+    "color": "rgb(237, 237, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "cta": {
+    "text": "Open account",
+    "fontFamily": "arcadia, \"arcadia Fallback\"",
+    "fontSize": "16px",
+    "fontWeight": "420",
+    "lineHeight": "16px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(82, 102, 235)",
+    "borderRadius": "32px",
+    "padding": "0px 20px",
+    "textTransform": "none",
+    "location": "hero",
+    "size_css_px": {
+     "width": 145,
+     "height": 40
+    }
+   },
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "heroBackground": "rgb(23, 23, 33)",
+   "heroBackgroundDetail": {
+    "element": "div.dark-neutral-theme.pointer-events-none.relative",
+    "backgroundColor": "rgb(23, 23, 33)",
+    "backgroundImage": null
+   },
+   "htmlBackground": "rgba(0, 0, 0, 0)",
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "fontsLoadedWeights": {
+    "arcadia": [
+     "360 500"
+    ],
+    "arcadiaDisplay": [
+     "320 480"
+    ]
+   },
+   "largestTextAboveFold": {
+    "text": "Radically different banking",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "49.3472px",
+    "fontWeight": "480",
+    "lineHeight": "54.2819px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "textTransform": "none"
+   },
+   "otherButtonsAboveFold": [
+    {
+     "text": "Open account",
+     "fill": "solid",
+     "backgroundColor": "rgb(82, 102, 235)",
+     "color": "rgb(255, 255, 255)",
+     "borderRadius": "32px",
+     "border": null,
+     "y": 20
+    },
+    {
+     "text": "Launch demo",
+     "fill": "outline-only",
+     "backgroundColor": "rgba(175, 178, 206, 0.2)",
+     "color": "rgb(237, 237, 243)",
+     "borderRadius": "40px",
+     "border": "1px solid rgba(175, 178, 206, 0.36)",
+     "y": 311
+    }
+   ],
+   "notes": [
+    "body and html background-color are transparent (rgba(0,0,0,0)); the hero container measures rgb(23, 23, 33) but is visually covered by a full-bleed landscape image (see home-top)",
+    "body sample is the first <p> ≥ 14 px after the h1, which is a 24 px tagline"
+   ]
+  }
+ },
+ "sites": {
+  "sagiton": {
+   "name": "Sagiton",
+   "url": "https://www.sagiton.pl/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://www.sagiton.pl/uslugi/automatyzacja-procesow-biznesowych",
+   "inner_page_type": "service",
+   "html_lang": "pl",
+   "page_title": "Agencja automatyzacji i AI, Wrocław, Warszawa | Sagiton",
+   "what_they_sell": "Meta description: \"Nie jesteśmy zwykłym software house'm. Wspieramy firmy w automatyzacji i digitalizacji oraz dynamicznym rozwoju technologicznym.\" (page title: \"Agencja automatyzacji i AI, Wrocław, Warszawa | Sagiton\")",
+   "why_candidate": "Polish agency positioned as automation + AI for companies, with separate industry pages incl. logistics and manufacturing (seen in its navigation links)."
+  },
+  "automation-house": {
+   "name": "Automation House",
+   "url": "https://automation.house/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://automation.house/automatyzacje",
+   "inner_page_type": "service",
+   "html_lang": "pl-PL",
+   "page_title": "Transformacja AI dla firm, które poważnie myślą o wzroście - Automation House",
+   "what_they_sell": "H1: \"Wdrożenia AI, automatyzacje i ClickUp dla firm, które rosną. Zaczynamy od tego, co dziś najbardziej blokuje Twój zespół.\"",
+   "why_candidate": "Polish firm selling AI implementation + process automation to growing companies; listed by the requester as a candidate (old domain automationhouse.pl no longer resolves to the firm, current site is automation.house)."
+  },
+  "linkwith-it": {
+   "name": "LinkWith.it",
+   "url": "https://linkwith.it/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://linkwith.it/uslugi/automatyzacje",
+   "inner_page_type": "service",
+   "html_lang": "pl",
+   "page_title": "LinkWith.it - Automatyzacja Przyszłości",
+   "what_they_sell": "Hero text: \"Tworzymy inteligentne automatyzacje z N8N i AI, które oszczędzają czas i zwiększają zyski. Gdy potrzeba więcej - piszemy dedykowany kod.\"",
+   "why_candidate": "Small Polish n8n/Make + AI automation agency found via web search (n8n/Make agency query)."
+  },
+  "no-code-pl": {
+   "name": "No-Code.pl",
+   "url": "https://www.no-code.pl/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://www.no-code.pl/automatyzacje.html",
+   "inner_page_type": "service",
+   "html_lang": "pl",
+   "page_title": "Automatyzacja procesów i Sztuczna inteligencja (AI) w Twojej firmie - Agencja No-Code.pl Poznań",
+   "what_they_sell": "Hero text: \"Dostarczamy nowoczesne rozwiązania no-code i low-code, automatyzujemy procesy oraz pomagamy rozwijać firmy dzięki skutecznemu wykorzystaniu sztucznej inteligencji.\"",
+   "why_candidate": "Polish (Poznań, per page title) no-code/low-code automation + AI agency found via web search."
+  },
+  "office-samurai": {
+   "name": "Office Samurai",
+   "url": "https://office-samurai.com/pl/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://office-samurai.com/pl/automation-rpa/",
+   "inner_page_type": "service",
+   "html_lang": "pl-PL",
+   "page_title": "Office Samurai - Office Samurai",
+   "what_they_sell": "Hero text: \"W Office Samurai pomagamy dużym organizacjom obniżyć koszty operacyjne nawet o 25% i zwiększyć produktywność o ponad 50%. Robimy to, skutecznie łącząc Process Intelligence z automatyzacją opartą na AI.\"",
+   "why_candidate": "RPA / AI-automation consultancy with a Polish-language site aimed at large organisations (enterprise track); listed by the requester as a candidate."
+  },
+  "digital-teammates": {
+   "name": "Digital Teammates",
+   "url": "https://dtmates.com/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://dtmates.com/nasze-uslugi/",
+   "inner_page_type": "service",
+   "html_lang": "pl-PL",
+   "page_title": "Optymalizacja Procesów Biznesowych. Automatyzacja. Identyfikacja. Robotyzacja - Digital Teammates",
+   "what_they_sell": "Hero text: \"Dostarczamy Cyfrowych Współpracowników. Automatyzujemy powtarzalne procesy biznesowe – budujemy, utrzymujemy i przeszkalamy roboty, które rozliczane są za faktycznie wykonaną pracę.\"",
+   "why_candidate": "Polish RPA / robot-as-a-service provider (Digital Teammates S.A., Warszawa per its own consent text); listed by the requester as a candidate."
+  },
+  "flobotics": {
+   "name": "Flobotics",
+   "url": "https://www.flobotics.io/",
+   "group": "pl-competitor",
+   "inner_page_url": "https://www.flobotics.io/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "AI Automation for Healthcare RCM | Flobotics",
+   "what_they_sell": "Hero text: \"We build AI agents and automations that connect your EHR, LIS, billing systems, and payer portals, eliminating repetitive work without replacing the software your team already relies on.\"",
+   "why_candidate": "Listed by the requester as a candidate RPA/AI-automation service firm; site is English-only and targets US healthcare revenue-cycle operations (Polish origin not verified from the site)."
+  },
+  "zapier": {
+   "name": "Zapier",
+   "url": "https://zapier.com/",
+   "group": "intl-automation",
+   "inner_page_url": "https://zapier.com/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Zapier: Automate AI Workflows, Agents, and Apps",
+   "what_they_sell": "Meta description: \"Build and scale AI workflows and agents across 9,000+ apps with Zapier—the most connected AI orchestration platform. Trusted by 3 million+ businesses.\"",
+   "why_candidate": "International automation product named in the brief."
+  },
+  "n8n": {
+   "name": "n8n",
+   "url": "https://n8n.io/",
+   "group": "intl-automation",
+   "inner_page_url": "https://n8n.io/pricing/",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "AI Workflow Automation Platform - n8n",
+   "what_they_sell": "Meta description: \"n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.\"",
+   "why_candidate": "International automation product named in the brief (also the tool several Polish competitors build on)."
+  },
+  "workato": {
+   "name": "Workato",
+   "url": "https://www.workato.com/",
+   "group": "intl-automation",
+   "inner_page_url": "https://www.workato.com/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Govern & Scale Enterprise AI on the #1 iPaaS | Workato",
+   "what_they_sell": "Meta description: \"Workato connects apps, data, workflows, and AI agents on one enterprise platform to securely orchestrate, automate, and govern work.\"",
+   "why_candidate": "International enterprise automation/iPaaS product named in the brief."
+  },
+  "relevance-ai": {
+   "name": "Relevance AI",
+   "url": "https://relevanceai.com/",
+   "group": "intl-automation",
+   "inner_page_url": "https://relevanceai.com/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Industrialize Your Revenue Supply Chain | Relevance AI",
+   "what_they_sell": "Meta description: \"Grow without headcount. AI factories run your repeatable revenue work, measure every outcome and answer to you.\"",
+   "why_candidate": "International AI-agent product named in the brief."
+  },
+  "lindy": {
+   "name": "Lindy",
+   "url": "https://www.lindy.ai/",
+   "group": "intl-automation",
+   "inner_page_url": "https://www.lindy.ai/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Lindy: Hire an AI Employee That Gets Work Done",
+   "what_they_sell": "Hero text: \"Lindy is the AI employee that plugs into your tools, learns how you work, and takes real work off your plate.\"",
+   "why_candidate": "International AI-agent product named in the brief."
+  },
+  "linear": {
+   "name": "Linear",
+   "url": "https://linear.app/",
+   "group": "adjacent-b2b",
+   "inner_page_url": "https://linear.app/customers",
+   "inner_page_type": "case-study",
+   "html_lang": "en",
+   "page_title": "Linear – The system for product development",
+   "what_they_sell": "Meta description: \"Purpose-built for planning and building products with AI agents.\"",
+   "why_candidate": "Adjacent B2B brand named in the brief for strong visual identity."
+  },
+  "attio": {
+   "name": "Attio",
+   "url": "https://attio.com/",
+   "group": "adjacent-b2b",
+   "inner_page_url": "https://attio.com/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Attio: The CRM for agentic revenue",
+   "what_they_sell": "Hero text: \"Attio is the platform that builds pipeline, advances deals, and grows accounts around the clock.\"",
+   "why_candidate": "Adjacent B2B brand named in the brief for strong visual identity."
+  },
+  "ramp": {
+   "name": "Ramp",
+   "url": "https://ramp.com/",
+   "group": "adjacent-b2b",
+   "inner_page_url": "https://ramp.com/customers",
+   "inner_page_type": "case-study",
+   "html_lang": "en-us",
+   "page_title": "Spend Management, Corporate Cards & Accounts Payable Solutions | Ramp",
+   "what_they_sell": "Hero text: \"Cards, expenses, bill payments, and banking* – in the blink of AI.\"",
+   "why_candidate": "Adjacent B2B (finance) brand named in the brief; business-finance category close to the blocked Revolut Business layout model."
+  },
+  "mercury": {
+   "name": "Mercury",
+   "url": "https://mercury.com/",
+   "group": "adjacent-b2b",
+   "inner_page_url": "https://mercury.com/pricing",
+   "inner_page_type": "pricing",
+   "html_lang": "en",
+   "page_title": "Online Business Banking For Startups, Small Businesses & Scaling Companies",
+   "what_they_sell": "Meta description: \"Everything you do with money. All in one place. Apply in 10 minutes for business banking that transforms how you operate.\"",
+   "why_candidate": "Adjacent B2B (business banking) brand named in the brief; business-finance category close to the blocked Revolut Business layout model."
+  }
+ },
+ "blocked": [
+  {
+   "site": "Revolut Business (PL)",
+   "group": "layout-model",
+   "url": "https://www.revolut.com/pl-PL/business/",
+   "reason": "HTTP 403 with a Cloudflare human-verification page (\"Just a quick security check\" / checkbox \"Potwierdź, że jesteś człowiekiem\") on desktop, mobile and the inner URL https://www.revolut.com/pl-PL/business/business-account-plans/; 2 attempts (3.8 s and 15 s waits); the verification checkbox was not interacted with; no frames saved"
+  },
+  {
+   "site": "Make",
+   "group": "intl-automation",
+   "url": "https://www.make.com/en",
+   "reason": "HTTP 403 with a Cloudflare page \"Performing security verification\" / checkbox \"Verify you are human\" on desktop, mobile and https://www.make.com/en/pricing; 2 attempts (3.8 s and 15 s waits); the verification checkbox was not interacted with; no frames saved"
+  }
+ ]
+}
