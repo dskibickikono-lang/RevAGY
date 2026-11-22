@@ -76,6 +76,16 @@ bez zmian (D-015, D-021).
   kontroli obejmuje cały dokument podstrony. Stopka w `BaseLayout.astro` (strona główna, kontakt, polityka, 404) ma
   dalej zwykłe `h4`. Na stronie głównej zostaje przeskok `h2 → h4`.
 
+- **Nagłówek na wąskich telefonach.** Nowy test wąskich telefonów w CI pokazał 2 px przewijania w poziomie na
+  wszystkich 8 podstronach przy szerokości 375 px. Na 390 i 393 px było bez przewijania. Przyczyna: elementy wiersza
+  `.header-row` mają `flex: none` i się nie kurczą. Logo (ok. 121 px), odstęp 24 px i `.header-actions`
+  („Umów konsultację” 163 px + 8 px + przycisk menu 44 px) przy lewym marginesie 16 px kończą się na ok. 377 px.
+  To błąd zastany we wspólnych stylach (`styles.css`, linie 142, 167, 185–191). Poprawka dotyczy tylko podstron:
+  w `podstrony.css` przy `max-width: 389px` jest `gap: 8px` w `.header-row` i `padding: 0 12px` dla
+  `.header-actions .btn-dark`. Obie wartości już są w `styles.css`. Prawy brzeg wypada wtedy na ok. 353 px, więc
+  nagłówek mieści się też na 360 px. Wersja stylu podbita do `podstrony.css?v=2`. Test wąskich telefonów wypisuje
+  teraz przy błędzie do trzech elementów wychodzących poza okno.
+
 ## Decyzje do podjęcia przez właściciela
 
 1. **„Finanse” z menu i stopki strony głównej.** Na stronie głównej pozycja „Finanse” dalej prowadzi do
@@ -102,6 +112,10 @@ bez zmian (D-015, D-021).
    co skreślić.
 5. **Sekcja „Ten sam mechanizm w innym dziale”.** Czy zostaje opis `stan-zalogi`, czy sekcja znika do czasu
    opisu wdrożenia z działu finansów. Taki opis wprowadza właściciel (D-034).
+6. **Nagłówek strony głównej na 375 px.** Strona główna ma ten sam nagłówek ze wspólnego `styles.css`, więc na 375 px
+   najpewniej też wychodzi ok. 2 px poza ekran. Tego nie mierzyliśmy, bo test wąskich telefonów obejmuje tylko
+   podstrony. Poprawka dla strony głównej wymaga zmiany `styles.css` i podbicia jego wersji, czyli zmiany
+   strony głównej (migawka, plik etapu, kontrakt).
 
 ## Do uzupełnienia przez właściciela
 
