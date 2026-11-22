@@ -64,6 +64,14 @@ jobs:
       - name: Testy deploy/wydanie.sh
         run: npm run test:deploy
 
+      - name: Wzorce nginx (składnia i żądania kontrolne)
+        run: |
+          command -v nginx >/dev/null 2>&1 || { sudo apt-get update && sudo apt-get install -y --no-install-recommends nginx; }
+          npm run test:nginx
+
+      - name: Skrypt kopii zapasowej Matomo (atrapa Dockera)
+        run: npm run test:kopia
+
       - name: Paczka wydania
         run: |
           set -eu

@@ -1,0 +1,45 @@
+name: Kontrola produkcji
+
+# Uruchamiany ręcznie po wydaniu (deploy/PROMPT-AGENT-VPS.md, Faza 4). Tylko odczyt produkcji:
+# porównuje nagłówki bezpieczeństwa z https://revagy.pl z plikiem deploy/nginx/revagy-naglowki.conf
+# (tools/check-produkcja.cjs) i opcjonalnie wykonuje test dymny z atrapą Matomo. Niczego nie wdraża.
+on:
+  workflow_dispatch:
+    inputs:
+      dymny:
+        description: 'Wykonać także test dymny przeciwko produkcji'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  kontrola:
+    name: Nagłówki i kody odpowiedzi produkcji
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Nagłówki produkcji zgodne z repozytorium
+        run: node tools/check-produkcja.cjs https://revagy.pl
+
+      - run: npm ci
+        if: ${{ inputs.dymny }}
+
+      - name: Chromium dla testu dymnego
+        if: ${{ inputs.dymny }}
+        run: npx playwright install --with-deps chromium
+
+      - name: Test dymny przeciwko produkcji (atrapa Matomo)
+        if: ${{ inputs.dymny }}
+        run: node tools/smoke-test.cjs https://revagy.pl
