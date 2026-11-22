@@ -3,12 +3,13 @@ id: T-027
 title: Etap 9 — podstrona działowa „Sprzedaż” (/sprzedaz.html)
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-9-sprzedaz
 base: main (5bac11d)
 depends_on: T-021
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/41
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-027, D-028, D-029, D-031, D-033, D-034, D-039]
 ---
 
@@ -101,9 +102,14 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
   | 666 | `a` „Sprzedaż” w kolumnie „Dla działów” stopki | `href` | `#zastosowania` | `sprzedaz.html` |
 
   Teksty, znaczniki, kolejność i wygląd bez zmian. Kafel „Sprzedaż” w `#zastosowania` bez zmian.
-- **Nowe klasy CSS: brak.** Strona używa wyłącznie istniejących klas z `finanse.astro`
-  i `wdrozenia.astro` (`section-tight` w sekcjach opisów wdrożeń, jak na `/wdrozenia.html`). `podstrony.css` i `styles.css` bez zmian,
-  więc parametry `?v=` też.
+- **Nowa klasa CSS: jedna.** `.bez-lamania { white-space: nowrap; }` w `public/assets/css/podstrony.css`, użyta raz,
+  w `h1` strony sprzedaży. Powód: nagłówki mają `text-wrap: balance`, które dopuszcza podział wyrazu na łączniku.
+  Poza tym strona używa wyłącznie istniejących klas z `finanse.astro` i `wdrozenia.astro` (`section-tight`
+  w sekcjach opisów wdrożeń, jak na `/wdrozenia.html`). Po zmianie pliku stylów jego parametr rośnie do
+  `podstrony.css?v=4`, więc HTML wszystkich dziewięciu podstron zmienia się o ten jeden atrybut. `styles.css` bez zmian.
+- **Nagłówek strony na telefonie.** Na zrzutach 393 i 375 px słowo „follow-upy” w `h1` łamało się na łączniku.
+  W `h1` to słowo stoi teraz w `<span class="bez-lamania">`. Tekst nagłówka się nie zmienił. Atrybutu `style` użyć
+  nie wolno: walidator dopuszcza na podstronach tylko `style="--d:<liczba>ms"`.
 - **Nazwy systemów.** Zero nazw własnych, także w pytaniach, tekście kadru i `alt` (D-018, D-033). Tylko kategorie:
   „CRM”, „poczta”, „formularz na stronie”, „arkusz”.
 - **Modele AI i miejsce wdrożenia.** Ocena zapytania idzie „według Waszych kryteriów”. Strona nie rozstrzyga, czy dane
@@ -149,6 +155,55 @@ wytycznych dla strony „Sprzedaż”. Treść opiera się na repozytorium; z Dy
 9. Kadr: firma „POLPAK” bez formy prawnej (test sceny odrzuca formy prawne) i etykiety poglądowe.
 10. Raport zgodności z celem czasu reakcji: czy powstaje regularnie co miesiąc? Jeśli tak, zdanie o raporcie może
     wrócić do opisu „Nowy lead i obsługa CRM z komunikatora zespołu”.
+
+11. Lighthouse: wydajność `/sprzedaz.html` ma 1 punkt zapasu nad progiem (91 przy progu 90). Obniża ją przesunięcie
+    układu przy podmianie kroju pisma we wstępie. Przyczyna jest wspólna dla podstron: układ podstron nie wczytuje
+    kroju nagłówków z wyprzedzeniem, a strona główna to robi. Propozycja: osobna zmiana układu podstron z pomiarem
+    wszystkich stron z `tools/lighthouse.json`.
+
+## Runda 1 — wynik CI (2026-11-22)
+
+- Czubek `2920e8d` (run 45047188053). Walidator zgłosił wyłącznie zapowiedziane różnice przy niezmienionym kontrakcie:
+  nadmiarowy plik `sprzedaz.html`, inna suma `sitemap.xml`, niezgodność `index.html` i ośmiu podstron z kontraktem
+  (po dwa odnośniki „Sprzedaż”), brak pliku kadru. Pozostałe pięć kroków kontroli przeszło: zbudowana strona główna
+  jest równa migawce, a jej różnica względem bazy to dwa dozwolone atrybuty; kontrola treści, kontrola filmów
+  i testy narzędzi bez błędów.
+- Kadr `sprzedaz-kadr.jpg` z `render-media` (run 45047188141): 1600×900, 128 511 B (limit 150 000 B).
+
+## Runda 2 (2026-11-22)
+
+- Kontrakt policzony z builda CI (`tools/update-contract.cjs`). Zmienione wpisy: `index.html` i osiem podstron
+  (odnośniki „Sprzedaż”), `sitemap.xml`; nowe: `sprzedaz.html` i `assets/video/sprzedaz-kadr.jpg`.
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach: 70 plików, 13/13 stron, testy narzędzi 108/108.
+- Przewidziany manifest wydania: `3c72134406b7ee98ef47324bc856564405e5e083a715fde2153d2b82349763ca`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `175973f` (run 45047468420), zielony:
+
+- `check:dist`: 6 z 6 kroków, 70 plików, 13/13 stron zgodnych z kontraktem i z zapisanym HTML. Manifest ten sam co
+  przewidziany.
+- Test dymny: 294 z 294, 0 błędów, 0 pominiętych, w tym brak poziomego przewijania na 393×852 i 375×667.
+  Testy `wydanie.sh`: 16 z 16.
+- Zrzuty 1280, 393, 390 i 375 px w artefakcie `podglad-<sha>`.
+
+## Lighthouse (2026-11-22)
+
+Przebieg dla `175973f` (run 45047468431), telefon, mediana z 3 przebiegów:
+
+| Strona | Wydajność | Dostępność | SEO |
+|---|---|---|---|
+| `sprzedaz.html` | 91 (próg 90) | 96 (próg 95) | 100 (próg 100) |
+| `finanse.html` | 97 | 96 | 100 |
+
+Jedyny niezaliczony audyt dostępności to `color-contrast`: stan wejściowy animacji `.reveal`, jak na Finansach.
+Wydajność obniża przesunięcie układu (CLS 0,19) przy podmianie kroju pisma we wstępie. Patrz decyzja 11.
+
+## Po rundzie 2: nagłówek na telefonie
+
+Poprawka `h1` (opis w „Ustaleniach”) zmienia `sprzedaz.html`, plik `assets/css/podstrony.css` i parametr `?v=` stylów
+podstron na dziewięciu podstronach. Kontrakt jest policzony z builda CI z naniesionymi tymi samymi zmianami.
+Wynik CI i Lighthouse dla czubka gałęzi jest w opisie PR #41.
 
 ## Do uzupełnienia przez właściciela
 

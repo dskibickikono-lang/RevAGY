@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
-      "size": 2192
+      "sha256": "48835a860b3845459ca5bd842b0d519a4768f39591b203f105bfc177b637ae1a",
+      "size": 2368
     },
     "assets/css/styles.css": {
       "sha256": "566c669fd9443a2eb62af2268de5bb1ae953845ecae0f518410f523078c44b7a",
@@ -228,15 +228,15 @@
       "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "0aafb2b7437ca8a9ab7c6de7a1fc0bd5de22aaabab27a0adaa9b5ec327853aca",
+      "sha256": "978df9daeca386d98b7b8d0d3ab54d101890d0994be1da74e00d107040382dbb",
       "size": 24171
     },
     "dla-firm.html": {
-      "sha256": "032e621bce5cf9956518dbb363bb120a1a27079df8424b2d385ff8534861d616",
+      "sha256": "bd50d9005084ef7f6f3dcfaa157d2f50a02132b0348104737d6a7f7aea7f8f8a",
       "size": 24750
     },
     "finanse.html": {
-      "sha256": "90321d92f7cc4a43a9376ec95db3f8146b652dd075a91760f36ade3ac2853fdb",
+      "sha256": "5fd0068ad09c6da249570a43e7eb5ceb8ce2edf7ddf1e02cb68848f84490154f",
       "size": 25064
     },
     "index.html": {
@@ -244,11 +244,11 @@
       "size": 46551
     },
     "integracja-systemow.html": {
-      "sha256": "706dd8655f272b1b1768baef9f06e81176e8942084ceac0810cfabc6d866fc46",
+      "sha256": "77011aa7d308bc3dd543e120f53b1e799d52ab8cd1aeb61059afecd1b9f0b3ef",
       "size": 25714
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "afcb5d27e65a7299ec7e4ad407d09a8053cc91973dc0d1a156fe26207a42fb08",
+      "sha256": "26d9ca730d3ab46a05ffb642571216aeeab168cfced72f76ebcfc3eb33a87466",
       "size": 24357
     },
     "kontakt.html": {
@@ -260,19 +260,19 @@
       "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "093aea1ada1d7db2d015e265a4b29480af9fcc512444ad69a85fa3240ae5fc95",
+      "sha256": "b0ac31ec259d0826d850be3a802986adef372ee667427024c2b433b3ee0449ce",
       "size": 23887
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "20aa6f7c3f05e5c4d06c8dd8b00390ae450ffa121fd07c99a87285d5d555c69a",
+      "sha256": "79e264cdc516b4d299536e96f917f26af455b1175213d128097360f1df184832",
       "size": 24716
     },
     "sprzedaz.html": {
-      "sha256": "cf1d5f353b4c44827c7f8056da636d5d621f6ffe2b252994d9df58265e28365e",
-      "size": 27471
+      "sha256": "ed12c96b26770c4f5db2f410603b1646c4d867bd80087a7f2e69e126ff529e83",
+      "size": 27504
     },
     "wdrozenia.html": {
-      "sha256": "b64a4d7c2f8930d8cbd4629b52ad47186a7377f7b327185c7d029e7e5480ced6",
+      "sha256": "c80c38379aec9f03be4b8a3a7b217dee75bcc06105b2d1ea3aad7343b772450e",
       "size": 22478
     }
   },
@@ -631,7 +631,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1921,7 +1921,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -2332,7 +2332,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3561,7 +3561,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -3997,7 +3997,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5254,7 +5254,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -8514,7 +8514,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -9859,7 +9859,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -10265,7 +10265,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11421,7 +11421,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -12536,7 +12536,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13615,7 +13615,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -14026,7 +14026,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15275,7 +15275,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -15691,7 +15691,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16935,7 +16935,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",
@@ -17351,7 +17351,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -18542,7 +18542,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=4"
         },
         {
           "tag": "a",

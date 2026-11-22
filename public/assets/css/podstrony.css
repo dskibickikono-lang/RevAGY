@@ -33,3 +33,6 @@
 /* dwa kafle pakietów w siatce .plans (trzy kolumny na stronie głównej): dwie kolumny, wyśrodkowane; na wąskim ekranie jedna */
 .plans.plans-dwa { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; }
 @media (max-width: 900px) { .plans.plans-dwa { grid-template-columns: 1fr; } }
+
+/* wyraz z łącznikiem w nagłówku (np. „follow-upy”): nie łamie się na łączniku; text-wrap: balance dopuszcza tam podział */
+.bez-lamania { white-space: nowrap; }
