@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-4-dane-i-bezpieczenstwo
-base: feat/etap-3-dla-firm (aa350e5)
+base: feat/etap-3-dla-firm (7776daf)
 depends_on: T-011
 pr: —
 sha: —
