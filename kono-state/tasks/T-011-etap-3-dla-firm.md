@@ -3,14 +3,14 @@ id: T-011
 title: Etap 3 — podstrona „Dla firm 5–250 osób” (/dla-firm.html)
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-3-dla-firm
 base: feat/etap-2-wdrozenia (877b57e)
 depends_on: T-010
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/12 (baza feat/etap-2-wdrozenia)
+sha: 45e71e9a87d878fa517a0a76c267d66e80cc7536 (kod i testy; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-016, D-019, D-021, D-022, D-025, D-028, D-029, D-031, D-032, D-033, D-038]
 ---
 
@@ -60,6 +60,16 @@ tylko jeden odnośnik. Wygląd i motyw strony głównej zostają bez zmian (D-01
   Pozostałe strony i pliki bez zmian.
 - Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 45 plików, 7/7 stron, testy narzędzi 68/68.
 - Przewidziany manifest wydania: `044b68d22b8332415f6b51c3482a25866ae22fa4c595a2e4baf283ed6b860fbe`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `45e71e9` (run 44966554675), zielony:
+
+- `check:dist`: 5 z 5 kroków, 45 plików, 7/7 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `044b68d22b8332415f6b51c3482a25866ae22fa4c595a2e4baf283ed6b860fbe`, ten sam co przewidziany.
+- Strona główna względem etapu 2: jedna zmiana (dopisany odnośnik), geometria równa bazie poza `#pakiety`.
+- Test dymny: 117 z 117, 0 pominiętych. Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 68 z 68.
+- Zrzuty 1280 i 390 px w artefakcie `podglad-<sha>`.
 
 ## Do uzupełnienia przez właściciela
 
