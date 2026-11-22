@@ -1,6 +1,8 @@
 # Komunikacja i oferta REVAGY — jak mówić do grupy docelowej i o jakie produkty rosnąć
 
-Karta: T-024 · Data: 22.11.2026 · Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
+Karta: T-024 · Data: 22.11.2026 · Wersja 2, po odpowiedziach właściciela na siedem pytań. Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
+
+Rozdział 0 zawiera aktualny stan superzdania i rankingu. Rozdziały 4 i 6 zostają w brzmieniu wersji 1 jako zapis tego, z czego wyszliśmy.
 
 Materiał dowodowy leży obok, w folderze `komunikacja-i-oferta/`:
 
@@ -16,8 +18,85 @@ Oznaczenia Q001–Q149 w tym raporcie to numery cytatów z `quotes.csv`. Każde 
 1. **Podstrony mówią językiem klienta, strona główna jeszcze nie.** Podstrony obiecują „dane wpisujesz raz”, podają warunki i mówią, czego REVAGY nie robi. Strona główna obiecuje „procesy, które robią się same” i agentów AI. Klienci w zebranych wypowiedziach boją się właśnie tego, co „samo”: 14 ze 148 doświadczeń to nieufność do AI i automatu, a księgowi wprost liczą koszt błędu ([Q080](https://wykop.pl/wpis/78516755/ksiegowosc-sztucznainteligencja-ai-pracbaza-zawodu)).
 2. **Klient boi się wdrożenia i dostawcy bardziej niż ręcznej pracy.** Koszt i ryzyko wdrożenia: 43 ze 148 doświadczeń. Uzależnienie od dostawcy: 30. Ręczne przepisywanie: 29. Przekaz powinien najpierw zdejmować ryzyko (mały zakres, znana cena, co się dzieje, gdy coś stanie), a dopiero potem liczyć godziny.
 3. **Najmocniejsze dowody, własne i publiczne, są w kadrach, księgowości i raportach.** Tam są cztery wdrożenia ze strony i tam jest większość głosów klientów. Sprzedaż, obsługa klienta i marketing, od których zaczyna strona główna, nie mają w repozytorium ani wdrożenia, ani mocnych cytatów.
-4. **Rosnąć warto przez trzy pakiety o stałym zakresie, a nie przez nową grupę docelową.** W ocenie PRES remisują: jedna kolejka faktur kosztowych (K01), godziny i umowy do kadr i płac bez wpisywania (K02), raport dzienny albo zmianowy bez ręcznych eksportów (K07). Każdy ma wynik 16 na 20. Wybór należy do właściciela.
-5. **Superzdanie jest robocze.** Kierunek wynika z rejestru decyzji i z dowodów, ale dwóch rzeczy nie da się ustalić bez właściciela: kto płacił za dotychczasowe wdrożenia i czy usługę da się powtarzać bez jego osobistej pracy. Pytania są w rozdziale 4, w jednej paczce.
+4. **Rosnąć warto przez pakiety o stałym zakresie, a nie przez nową grupę docelową.** Po odpowiedziach właściciela na czele są: godziny i umowy do kadr i płac bez wpisywania (K02) oraz jedna kolejka faktur kosztowych (K01), po 16 na 20, a za nimi raport bez ręcznych eksportów (K07), 15. Wybór należy do właściciela.
+5. **Superzdanie ma odpowiedzi właściciela i czeka na jedno potwierdzenie brzmienia.** Ocena zostaje: mała firma usługowa. Zespół i stała cena zdejmują dwie luki. Zostaje jedna: popyt poza poleceniami nie jest sprawdzony, a cel przychodu wymaga projektów większych niż te, które dziś przychodzą.
+
+---
+
+## 0. Aktualizacja po odpowiedziach właściciela (wersja 2)
+
+Właściciel odpowiedział 22.11.2026 na siedem pytań z rozdziału 4. Nazw klientów i kwot nie zapisuję w repozytorium, bo jest publiczne (D-034); są w rozmowie z właścicielem.
+
+### Co wiemy teraz
+
+| Pytanie | Odpowiedź właściciela | Co to zmienia |
+|---|---|---|
+| 1. Czas i zespół | 60 godzin tygodniowo. Wdrożenia może wykonać także wspólnik oraz specjaliści, którym już można zlecać zadania. | Dostarczenie nie zależy od jednej osoby. Nie jest to jeszcze sprawdzone na płatnym wdrożeniu wykonanym bez właściciela. |
+| 2. Cel i przepustowość | Cel przychodu na 12 miesięcy podany. Przepustowość: liczba wdrożeń od maja razy trzy. | Szacunek poniżej. |
+| 3. Kto płacił | Połowa z czterech wdrożeń była płatna. Były wdrożenia poza grupą powiązaną. | Jest płacący klient spoza grupy. Rząd wielkości kwoty jednego projektu jest znany. |
+| 4. Kto przychodzi | Polecenia. Małe firmy z prostymi automatyzacjami poczty i dokumentów. Właściciel chce iść w przeciwną stronę. | Dzisiejszy napływ nie jest grupą docelową. Popyt w grupie docelowej nie jest sprawdzony. |
+| 5. Cena | Cena wdrożenia podana po audycie jest stała (D-040). | Przykład 5 z przewodnika tonu nie wymaga już zastrzeżenia. |
+| 6. Agent AI | Działa u klienta. W agencji pracy prowadzi korespondencję e-mailową i przez komunikator oraz negocjuje z przedstawicielami. | Zdania o agentach na stronie głównej mają pokrycie. Brakuje opisu tego wdrożenia na stronie wdrożeń. |
+| 7. Pierwszy tor | Wstępnie: portfolio w firmach 5–250 osób. Produkcja i logistyka później, ze względu na ryzyko przy jednoosobowej działalności (D-041). | Raport i ranking liczone pod firmy 5–250 osób. |
+
+### Szacunek przepustowości
+
+- **Wdrożenia od maja 2026 r. widoczne w repozytorium:** 5 (cztery opisane na stronie wdrożeń i jeden pilotaż w produkcji), w ok. 6,5 miesiąca. To ok. 0,8 wdrożenia miesięcznie.
+- **Razy trzy** (wspólnik i zespół, według wskazania właściciela): ok. 2,3 wdrożenia miesięcznie, czyli ok. 28 w 12 miesięcy.
+- **Niepewność:** właściciel wymienił też projekty, których nie potrafię przypisać do tych pięciu. Jeśli są osobne, wdrożeń było 6–7, a szacunek rośnie do ok. 33–39 rocznie. Liczbę powinien potwierdzić właściciel.
+- **Wniosek:** przy ok. 28–39 wdrożeniach rocznie cel przychodu wymaga średniej wartości wdrożenia wyraźnie wyższej niż jedyny znany dziś projekt, i to przy założeniu, że płatne są wszystkie, a nie połowa. Liczby są w rozmowie z właścicielem. Do celu prowadzą dwie rzeczy naraz: większe projekty (górna część grupy 5–250 osób) i przychód powtarzalny z opieki.
+
+### Superzdanie
+
+Brzmienie bez zmian:
+
+> Ludzie z kadr, księgowości i biura w firmach 5–250 osób potrzebują danych wpisanych raz i zgodnych w każdym systemie. Obecne rozwiązania zostawiają ich z klepaniem z palca i arkuszem obok systemu, przez co błędy wychodzą przy wypłacie, fakturze albo kontroli. Chcemy, żeby mogli ufać danym bez ich przepisywania i ponownego sprawdzania. Nasze podejście to łączenie systemów, które firma już ma, po jednym zmierzonym procesie.
+
+| Punkt | Wersja 1 | Wersja 2 |
+|---|---|---|
+| Kto płaci | Powód płacącego był hipotezą | Jest płacący klient spoza grupy powiązanej; połowa wdrożeń była płatna. Dowód: odpowiedź właściciela. |
+| Koszt po stronie płacącego | Pieniądze: nieznane | Znany rząd wielkości jednego projektu, sprzedanego z dużymi rabatami. Jeden punkt danych. |
+| Ilu kupujących | 62 788 firm małych i średnich | Bez zmian. Dla większych projektów realną pulą jest 14 359 firm średnich (50–249 osób). |
+| Powtarzalność problemu | Codziennie albo co miesiąc | Bez zmian. |
+| Alternatywy | Dodatek producenta, zmiana programu, samodzielna budowa, osoba do wklepywania | Bez zmian. Stała cena (D-040) jest powodem wyboru wobec wdrożeń „bez końca”. |
+| Powtarzalność bez właściciela | Nieznana | Jest wspólnik i specjaliści gotowi do zleceń. Założenie do sprawdzenia: pierwsze płatne wdrożenie wykonane bez właściciela. |
+
+**Ocena: small business / service** (mała firma usługowa). Bez zmian.
+
+- **Co się poprawiło:** zespół poza właścicielem, stała cena, płacący klient spoza grupy, działający agent AI.
+- **Dlaczego ocena nie rośnie:** sprzedaż opiera się na poleceniach, przychodzą firmy mniejsze niż docelowe, a badanie rynku i popytu jest dopiero przed właścicielem. Cel przychodu jest ambicją, nie dowodem.
+- **Co ją zmieni:** trzy płatne wdrożenia tego samego pakietu w firmach 50–250 osób, pozyskane poza poleceniami, z których przynajmniej jedno wykona zespół bez właściciela.
+- **Następny krok poza rozmową** (wymaga osobnej zgody, bo to kontakt z ludźmi): w 14 dni 10 konsultacji jednego procesu z głównymi księgowymi albo kadrowymi firm 50–250 osób spoza poleceń. Próg: co najmniej 3 z 10 kupują audyt za 1 990 zł.
+
+**Do potwierdzenia przez właściciela, jeden raz:** czy superzdanie zostaje w tym brzmieniu, czy zmieniamy grupę na firmy 50–250 osób. Druga wersja lepiej pasuje do celu przychodu, ale zawęża D-016, więc wymaga decyzji.
+
+### Ranking produktów, wersja 2
+
+Wynik porównania po odpowiedziach: portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów. Zmieniła się tylko oś Strategic fit trzech kandydatów. Status: propozycja, czeka na przegląd właściciela.
+
+| Miejsce | ID | Propozycja produktu | P | R | E | S | PRES | Zmiana |
+|---|---|---|---|---|---|---|---|---|
+| 1–2 | K01 | Jedna kolejka faktur kosztowych ze statusami | 4 | 4 | 4 | 4 | **16** | bez zmian |
+| 1–2 | K02 | Godziny, premie i umowy do kadr i płac bez wpisywania | 4 | 3 | 4 | 5 | **16** | bez zmian |
+| 3 | K07 | Raport dzienny albo zmianowy bez ręcznych eksportów | 3 | 4 | 4 | 4 | **15** | S z 5 na 4: produkcja i logistyka później |
+| 4–5 | K03 | Przejęcie i opieka nad istniejącymi połączeniami | 4 | 3 | 3 | 4 | **14** | S z 3 na 4: przychód powtarzalny, zespół do utrzymania |
+| 4–5 | K06 | Kalendarz zezwoleń i komplet dokumentów na kontrolę | 5 | 2 | 3 | 4 | **14** | bez zmian |
+| 6–7 | K09 | Własne połączenie sklepu zamiast abonamentu od obrotu | 5 | 2 | 4 | 2 | **13** | bez zmian |
+| 6–7 | K11 | Pilot jednego zastosowania AI z miarą użycia | 3 | 2 | 3 | 5 | **13** | S z 4 na 5: działający agent u klienta |
+| 8–11 | K04 | Uzgodnienia wpłat zbiorczych | 3 | 3 | 2 | 4 | **12** | bez zmian |
+| 8–11 | K05 | Przypomnienia o należnościach z jednym statusem | 3 | 3 | 2 | 4 | **12** | bez zmian |
+| 8–11 | K08 | Zamówienia i awizacje z e-maili do systemu | 3 | 3 | 2 | 4 | **12** | bez zmian |
+| 8–11 | K12 | Pobieranie faktur klientów z KSeF dla biur rachunkowych | 4 | 2 | 4 | 2 | **12** | bez zmian |
+| 12 | K10 | Przegląd automatyzacji zbudowanej samodzielnie | 3 | 2 | 3 | 2 | **10** | bez zmian |
+
+**Rekomendacja:** K02 jako pierwszy pakiet do portfolio (gotowy dowód i gotowa strona), K01 jako drugi (najgłośniejszy temat, wymaga pierwszego wdrożenia w finansach). Do każdego pakietu warto dołożyć opiekę o stałej miesięcznej cenie: odpowiada na najczęstszy lęk klientów i daje przychód powtarzalny, bez którego cel się nie domyka. K09, K10 i K12 są bliskie temu, od czego właściciel chce odejść, czyli małym firmom i prostym automatyzacjom.
+
+### Co odpowiedzi zmieniają w przewodniku tonu
+
+- **Przykład 5 (cena):** zdanie „Cenę wdrożenia znasz po audycie, przed podpisaniem umowy” można wzmocnić słowem „stałą”, bo cena nie rośnie w trakcie (D-040).
+- **Przykład 8 (pasek „24/7”):** zdanie o agentach ma pokrycie, więc może zostać. Brakuje mu dowodu na stronie: opisu wdrożenia agenta w agencji pracy, który wprowadza właściciel po zgodzie spółki (D-034).
+- **Przykład 2 (kafel o agentach):** zasada zostaje. Agent, który negocjuje i pisze do ludzi, tym bardziej potrzebuje zdania o tym, kiedy oddaje sprawę człowiekowi.
+- **Tematy treści:** tygodnie 9 i 10 (produkcja) można zamienić na raport dla zarządu w firmie 5–250 osób, skoro tor produkcji jest odłożony.
 
 ---
 
@@ -207,7 +286,7 @@ Rejestr i strona wskazują agencje pracy jako źródło wdrożeń (D-020). W kwe
 
 ---
 
-## 4. Superzdanie
+## 4. Superzdanie (wersja 1; aktualny stan w rozdziale 0)
 
 **Wersja robocza:**
 
@@ -235,7 +314,7 @@ Co to zdanie odsiewa: wymianę systemów, agentów AI jako cel sam w sobie, duż
 
 **Proponowany następny krok poza rozmową** (wymaga osobnej zgody, bo to kontakt z ludźmi): w ciągu 14 dni 10 konsultacji jednego procesu z głównymi księgowymi albo kadrowymi firm 20–250 osób spoza grupy. Próg: co najmniej 3 z 10 kupują audyt za 1 990 zł.
 
-### Pytania do właściciela — jedna paczka
+### Pytania do właściciela — jedna paczka (odpowiedzi z 22.11.2026 w rozdziale 0)
 
 1. Ile godzin tygodniowo masz na wdrożenia i kto poza Tobą może je dziś wykonać albo utrzymać?
 2. Jaki jest cel przychodu na 12 miesięcy i ile wdrożeń naraz jesteś w stanie prowadzić?
@@ -284,7 +363,7 @@ Temat 8 wymaga ostrożności: dowody mówią, że firmom bardziej doskwiera niep
 
 ---
 
-## 6. Ranking produktów
+## 6. Ranking produktów (wersja 1; aktualny ranking w rozdziale 0)
 
 Oceniana jest potrzeba klienta, nie rozwiązanie. Wynik porównania: więcej płatnych audytów i wdrożeń w dwóch torach z D-016, z wejściem z D-019. Ten wynik przyjąłem z rejestru; jeśli właściciel ma inny cel, oś Strategic fit trzeba ocenić od nowa. Pełne uzasadnienia i źródła każdej oceny: `oceny/pres-prioritization.md`.
 

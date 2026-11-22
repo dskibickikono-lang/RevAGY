@@ -11,7 +11,7 @@ base: main (43efbf5)
 depends_on: —
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (baza main)
 sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (raport i materiał dowodowy; kolejne commity zmieniają tylko kartę)
-decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034]
+decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-040, D-041, D-042]
 ---
 
 # T-024 — Komunikacja i oferta: raport
@@ -72,3 +72,22 @@ jest pusty. Cytaty w raporcie głównym sprawdzone skryptem jako dosłowne fragm
 
 - Kontakt z ludźmi (10 konsultacji poza grupą jako test superzdania) to propozycja; wymaga osobnej zgody.
 - Dane z CRM o tym, kto przychodzi na konsultacje, nie były czytane: brak wskazania lejka i zgody.
+
+## Runda 2 (2026-11-22): odpowiedzi właściciela
+
+PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedział na siedem pytań z rozdziału 4.
+
+- Raport: nowy rozdział 0 z odpowiedziami, szacunkiem przepustowości, superzdaniem w wersji 2 i rankingiem w wersji 2.
+  Nazw klientów i kwot nie ma w repozytorium (publiczne, D-034).
+- Karta ocen PRES, wersja 2: zmiana osi Strategic fit dla K07 (5 → 4), K03 (3 → 4) i K11 (4 → 5). Ranking: K01 i K02
+  po 16, K07 15, K03 i K06 po 14, K09 i K11 po 13, K04, K05, K08, K12 po 12, K10 10.
+- Rejestr decyzji: dopisane D-040 (stała cena wdrożenia), D-041 (wstępnie najpierw firmy 5–250 osób), D-042 (większe
+  projekty niż proste automatyzacje). Brzmienie wpisów do sprawdzenia przez właściciela.
+- Superzdanie: ocena bez zmian („small business / service”); czeka na jedno potwierdzenie brzmienia.
+
+## Do decyzji właściciela po rundzie 2
+
+1. Superzdanie: zostaje dla firm 5–250 osób czy zawężamy do 50–250 osób (to zawęża D-016).
+2. Wybór kandydatów z rankingu. Rekomendacja agenta: K02, potem K01, z opieką o stałej miesięcznej cenie.
+3. Potwierdzenie liczby wdrożeń od maja (w repozytorium widać 5).
+4. Sprawy z rundy 1 nadal otwarte: sposób dostępu do forów GOFIN i Wykop; przykłady „po” na stronie.

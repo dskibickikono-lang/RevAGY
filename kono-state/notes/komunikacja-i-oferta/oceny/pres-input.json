@@ -1,8 +1,8 @@
 {
- "outcome": "Więcej płatnych audytów i wdrożeń w dwóch torach oferty (firmy 5–250 osób; produkcja i logistyka), z wejściem przez bezpłatną konsultację jednego procesu. Wynik przyjęty przez agenta z D-016 i D-019, do potwierdzenia przez właściciela.",
+ "outcome": "Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-040, D-041, D-042) oraz D-016 i D-019.",
  "population": "Polskie firmy B2B zatrudniające 5–250 osób oraz zakłady produkcyjne i firmy logistyczne (62 788 przedsiębiorstw małych i średnich w 2024 r. wg PARP/GUS; firm 5–9 osób nie policzono).",
  "window": "Wypowiedzi publiczne z lat 2008–2026 zebrane 22.11.2026 (148 doświadczeń) oraz treści strony revagy.pl w stanie z 22.11.2026.",
- "revision": 1,
+ "revision": 2,
  "review_status": "proposed",
  "selected_opportunity_ids": [],
  "opportunities": [
@@ -135,11 +135,11 @@
      ]
     },
     "strategic_fit": {
-     "value": 3,
-     "rationale": "Opieka jest czwartym krokiem ścieżki (D-019), więc usługa pasuje do oferty, ale wejście przez przejęcie cudzej pracy omija konsultację i audyt jednego procesu.",
+     "value": 4,
+     "rationale": "Opieka jest czwartym krokiem ścieżki (D-019) i daje przychód powtarzalny, którego wymaga cel właściciela przy obecnej liczbie wdrożeń. Zespół poza właścicielem może utrzymywać wdrożenia (odpowiedź 1). Wejście przez przejęcie cudzej pracy nadal omija konsultację, więc nie 5. Wersja 1: 3.",
      "source_refs": [
       "REJESTR_DECYZJI_BIZNESOWYCH.md#D-019",
-      "src/pages/dla-firm.astro"
+      "komunikacja-i-oferta.md#rozdzial-0"
      ]
     }
    }
@@ -303,11 +303,11 @@
      ]
     },
     "strategic_fit": {
-     "value": 5,
-     "rationale": "Raport zmianowy jest procesem pilota Enterprise (D-030), a raport dla zarządu jednym z czterech wdrożeń (D-020). Obsługuje oba tory z D-016.",
+     "value": 4,
+     "rationale": "Raport dla zarządu jest jednym z czterech wdrożeń (D-020) i pasuje do firm 5–250 osób. Raport zmianowy w pilocie Enterprise (D-030) przestaje podnosić ocenę, bo właściciel odkłada produkcję i logistykę (D-041). Wersja 1: 5.",
      "source_refs": [
-      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-030",
-      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-016"
+      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-041",
+      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-020"
      ]
     }
    }
@@ -471,10 +471,11 @@
      ]
     },
     "strategic_fit": {
-     "value": 4,
-     "rationale": "Wdrażanie AI w B2B jest przedmiotem sprzedaży (D-001). Brak własnego opisanego wdrożenia AI na stronie, więc nie 5.",
+     "value": 5,
+     "rationale": "Wdrażanie AI w B2B jest przedmiotem sprzedaży (D-001), a właściciel potwierdził działającego u klienta agenta AI, który prowadzi korespondencję i negocjacje (odpowiedź 6). Opis tego wdrożenia nie jest jeszcze na stronie. Wersja 1: 4.",
      "source_refs": [
-      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-001"
+      "REJESTR_DECYZJI_BIZNESOWYCH.md#D-001",
+      "komunikacja-i-oferta.md#rozdzial-0"
      ]
     }
    }

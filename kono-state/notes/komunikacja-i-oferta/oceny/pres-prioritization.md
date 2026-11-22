@@ -1,11 +1,11 @@
 # Karta ocen PRES — kandydaci na nowe produkty i usługi REVAGY
 
-Status: **propozycja agenta, czeka na przegląd właściciela.** Żaden kandydat nie jest wybrany. Wersja 1 z 22.11.2026.
+Status: **propozycja agenta, czeka na przegląd właściciela.** Żaden kandydat nie jest wybrany. Wersja 2 z 22.11.2026: po odpowiedziach właściciela zmieniono wynik porównania i oś Strategic fit dla K03, K07 i K11. Pozostałe oceny bez zmian.
 
 ## Zakres
 
 - **Produkt:** usługi REVAGY (automatyzacja i wdrażanie AI w B2B, D-001).
-- **Wynik, do którego porównujemy:** Więcej płatnych audytów i wdrożeń w dwóch torach oferty (firmy 5–250 osób; produkcja i logistyka), z wejściem przez bezpłatną konsultację jednego procesu. Wynik przyjęty przez agenta z D-016 i D-019, do potwierdzenia przez właściciela.
+- **Wynik, do którego porównujemy:** Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-040, D-041, D-042) oraz D-016 i D-019.
 - **Populacja:** Polskie firmy B2B zatrudniające 5–250 osób oraz zakłady produkcyjne i firmy logistyczne (62 788 przedsiębiorstw małych i średnich w 2024 r. wg PARP/GUS; firm 5–9 osób nie policzono).
 - **Okno i źródła:** Wypowiedzi publiczne z lat 2008–2026 zebrane 22.11.2026 (148 doświadczeń) oraz treści strony revagy.pl w stanie z 22.11.2026. Cytaty: `../kwerenda/quotes.csv`, ustalenia: `../kwerenda/report.md`.
 - **Ograniczenia:** wzmianki w próbie nie są udziałem w rynku; 120 ze 149 cytatów pochodzi z dwóch źródeł; skargi nie dowodzą gotowości do zapłaty. Oś Reach jest oceną agenta opartą na tym, kogo problem dotyczy i jak często wraca, nie pomiarem.
@@ -17,14 +17,14 @@ Status: **propozycja agenta, czeka na przegląd właściciela.** Żaden kandydat
 |---|---|---|---|---|---|---|---|---|
 | K01 | Osoba prowadząca księgi w firmie nie wie, które faktury kosztowe z KSeF, poczty i papieru są już pobrane, opisane i zaksięgowane, bo program księgowy nie pokazuje statusów albo łączy się z KSeF tylko częściowo. | Jedna kolejka faktur kosztowych (KSeF, poczta, papier) ze statusami | 4 | 4 | 4 | 4 | **16** | propozycja |
 | K02 | Osoba z kadr i płac co miesiąc wpisuje ręcznie godziny, premie i dane umów setek osób do programu kadrowo-płacowego, bo program nie przyjmuje ich z arkusza ani z drugiego systemu. | Godziny, premie i umowy do kadr i płac bez wpisywania | 4 | 3 | 4 | 5 | **16** | propozycja |
-| K07 | Planista, kierownik albo analityk codziennie wyciąga dane z systemu ERP ręcznie do arkusza, żeby zobaczyć stan produkcji, załogi albo sprzedaży, bo raport z systemu nie odpowiada na jego pytanie. | Raport dzienny albo zmianowy bez ręcznych eksportów | 3 | 4 | 4 | 5 | **16** | propozycja |
+| K07 | Planista, kierownik albo analityk codziennie wyciąga dane z systemu ERP ręcznie do arkusza, żeby zobaczyć stan produkcji, załogi albo sprzedaży, bo raport z systemu nie odpowiada na jego pytanie. | Raport dzienny albo zmianowy bez ręcznych eksportów | 3 | 4 | 4 | 4 | **15** | propozycja |
+| K03 | Firma, która ma już połączenia albo automatyzacje zbudowane przez jedną osobę lub dawnego wykonawcę, zostaje bez nikogo, kto je naprawi, gdy przestaną działać. | Przejęcie i opieka nad istniejącymi połączeniami | 4 | 3 | 3 | 4 | **14** | propozycja |
 | K06 | Firma zatrudniająca cudzoziemców dowiaduje się o kończącym się zezwoleniu albo o brakującym dokumencie za późno, a przy kontroli nie ma kompletu dokumentów w jednym miejscu. | Kalendarz zezwoleń i komplet dokumentów na kontrolę | 5 | 2 | 3 | 4 | **14** | propozycja |
-| K03 | Firma, która ma już połączenia albo automatyzacje zbudowane przez jedną osobę lub dawnego wykonawcę, zostaje bez nikogo, kto je naprawi, gdy przestaną działać. | Przejęcie i opieka nad istniejącymi połączeniami | 4 | 3 | 3 | 3 | **13** | propozycja |
 | K09 | Sprzedawca internetowy płaci rosnący abonament platformie, której używa tylko do pobierania zamówień i łączenia z firmami kurierskimi, i nie ma jak się od niej uniezależnić. | Własne połączenie sklepu z magazynem i kurierami zamiast abonamentu od obrotu | 5 | 2 | 4 | 2 | **13** | propozycja |
+| K11 | Firma kupiła licencje albo pilotaż AI dla zespołu i po kilku miesiącach nie widzi, żeby ktoś z nich korzystał ani co się dzięki nim zmieniło. | Pilot jednego zastosowania AI z miarą użycia | 3 | 2 | 3 | 5 | **13** | propozycja |
 | K04 | Księgowa ręcznie rozbija i dopasowuje do faktur wpłaty zbiorcze i przelewy z nietypowym tytułem, bo program nie pozwala ich uzgodnić. | Uzgodnienia wpłat zbiorczych i nietypowych przelewów | 3 | 3 | 2 | 4 | **12** | propozycja |
 | K05 | Osoba odpowiedzialna za należności pisze przypomnienia o zapłacie ręcznie i ustala niezapłacone faktury w arkuszu, przez co status należności zna jedna osoba. | Przypomnienia o należnościach z jednym statusem | 3 | 3 | 2 | 4 | **12** | propozycja |
 | K08 | Pracownik biura przepisuje do systemu zamówienia, specyfikacje i awizacje, które przychodzą e-mailem albo w arkuszu, każde w innym układzie. | Zamówienia i awizacje z e-maili do systemu | 3 | 3 | 2 | 4 | **12** | propozycja |
-| K11 | Firma kupiła licencje albo pilotaż AI dla zespołu i po kilku miesiącach nie widzi, żeby ktoś z nich korzystał ani co się dzięki nim zmieniło. | Pilot jednego zastosowania AI z miarą użycia | 3 | 2 | 3 | 4 | **12** | propozycja |
 | K12 | Biuro rachunkowe musi pobierać faktury kosztowe wielu klientów z KSeF, ponosi za to opłaty u producenta programu i spiera się z klientami, kto odpowiada za komplet faktur. | Pobieranie faktur klientów z KSeF dla biur rachunkowych | 4 | 2 | 4 | 2 | **12** | propozycja |
 | K10 | Osoba, która sama buduje automatyzację w gotowym narzędziu, utyka na szczególe technicznym i nie ma kogo zapytać poza sprzedawcami kursów. | Przegląd automatyzacji zbudowanej samodzielnie | 3 | 2 | 3 | 2 | **10** | propozycja |
 
@@ -50,14 +50,14 @@ Potrzeba: Osoba z kadr i płac co miesiąc wpisuje ręcznie godziny, premie i da
 - **Evidence: 4.** Sześć niezależnych wypowiedzi z dwóch forów plus własne wdrożenie REVAGY z pomiarem na stronie (ok. 12 godzin tygodniowo mniej, ok. 90% mniej korekt). Sposób pomiaru nie jest jeszcze opisany (pole jakMierzone puste). Źródła: [Q118](https://forum.insert.com.pl/index.php?/topic/107509-sumaryczna-ewidencja-czasu-pracy-import-z-excela/), [Q120](https://forum.gofin.pl/1558499/ktory-program-kadrowo-placowy-wybrac), [Q121](https://forum.gofin.pl/1476007/archiwum/potrzebuje-programu-kadrowo-placowego), [Q119](https://forum.gofin.pl/1524126/archiwum/biuro-rachunkowe-pue-xml-i-automatyzacja-pracy), `src/pages/wdrozenia.astro#umowy`, `src/data/dowody.mjs`.
 - **Strategic fit: 5.** Pierwsza podstrona sprzedażowa to systemy bez przepisywania danych (D-017), a przykład na niej to właśnie system HR i kadry i płace. Mechanizm i dowód są już w ofercie. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-017`, `src/pages/integracja-systemow.astro`.
 
-### K07 — Raport dzienny albo zmianowy bez ręcznych eksportów (PRES 16)
+### K07 — Raport dzienny albo zmianowy bez ręcznych eksportów (PRES 15)
 
 Potrzeba: Planista, kierownik albo analityk codziennie wyciąga dane z systemu ERP ręcznie do arkusza, żeby zobaczyć stan produkcji, załogi albo sprzedaży, bo raport z systemu nie odpowiada na jego pytanie.
 
 - **Pain: 3.** Praca powtarzana codziennie i dwie wersje prawdy („zlecenia planowane swoje, Excel swoje”), bez opisanych strat poza czasem. Źródła: [Q023](https://forumsap.pl/viewtopic.php?t=7063), [Q024](https://forumsap.pl/viewtopic.php?t=7063), [Q127](https://wykop.pl/wpis/84025895/).
 - **Reach: 4.** Codzienna czynność w firmach, które mają system ERP i arkusz obok; pojawia się w produkcji, kadrach i analityce. Źródła: [Q127](https://wykop.pl/wpis/84025895/), [Q124](https://wykop.pl/wpis/68929959/hej-mirki-mam-zagwozdke-mam-raport-w-power-bi-ktor), [Q126](https://wykop.pl/wpis/77884337/), [Q120](https://forum.gofin.pl/1558499/ktory-program-kadrowo-placowy-wybrac), [Q121](https://forum.gofin.pl/1476007/archiwum/potrzebuje-programu-kadrowo-placowego).
 - **Evidence: 4.** Osiem niezależnych wypowiedzi z trzech źródeł oraz dwa własne wdrożenia REVAGY z liczbami na stronie (raport zarządu z ok. 6 godzin tygodniowo do zera; różnica 29 osób między systemami). Głosu kierownika zmiany o własnym raporcie zmianowym nie znaleziono. Źródła: [Q023](https://forumsap.pl/viewtopic.php?t=7063), [Q127](https://wykop.pl/wpis/84025895/), [Q128](https://wykop.pl/wpis/81337719/), [Q125](https://www.capterra.pl/reviews/127646/erecruiter), `src/pages/wdrozenia.astro#raport`, `src/pages/produkcja-i-logistyka.astro#dowod`.
-- **Strategic fit: 5.** Raport zmianowy jest procesem pilota Enterprise (D-030), a raport dla zarządu jednym z czterech wdrożeń (D-020). Obsługuje oba tory z D-016. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-030`, `REJESTR_DECYZJI_BIZNESOWYCH.md#D-016`.
+- **Strategic fit: 4.** Raport dla zarządu jest jednym z czterech wdrożeń (D-020) i pasuje do firm 5–250 osób. Raport zmianowy w pilocie Enterprise (D-030) przestaje podnosić ocenę, bo właściciel odkłada produkcję i logistykę (D-041). Wersja 1: 5. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-041`, `REJESTR_DECYZJI_BIZNESOWYCH.md#D-020`.
 
 ### K06 — Kalendarz zezwoleń i komplet dokumentów na kontrolę (PRES 14)
 
@@ -68,14 +68,14 @@ Potrzeba: Firma zatrudniająca cudzoziemców dowiaduje się o kończącym się z
 - **Evidence: 3.** Dziesięć wypowiedzi o cudzoziemcach, ale tylko trzy dotyczą terminów; reszta to niepewność procedur i urząd, których automat nie rozwiąże. Jest własne wdrożenie REVAGY (alert 30 dni wcześniej, ok. 5 godzin tygodniowo mniej). Źródła: [Q063](https://forum.gofin.pl/1532719/archiwum/cudzoziemiec-oczekiwanie-na-przedluzenie-zezwolenia), [Q067](https://forum.gofin.pl/1387869/archiwum/zatrudnienei-cudzoziemca-termin-waznosci-oswiadczenia), [Q066](https://forum.gofin.pl/1445515/archiwum/bledna-forma-zatrudnienia-cudzoziemca-na-podstawie), [Q060](https://forum.gofin.pl/1558334/umowa-o-prace-z-ob-ukrainy-czy-to-wystarczy), `src/pages/wdrozenia.astro#zezwolenia`.
 - **Strategic fit: 4.** Własne wdrożenie do pokazania (D-020) i dostęp do agencji pracy. Mieści się w torze firm 5–250 osób. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-020`, `src/pages/wdrozenia.astro#zezwolenia`.
 
-### K03 — Przejęcie i opieka nad istniejącymi połączeniami (PRES 13)
+### K03 — Przejęcie i opieka nad istniejącymi połączeniami (PRES 14)
 
 Potrzeba: Firma, która ma już połączenia albo automatyzacje zbudowane przez jedną osobę lub dawnego wykonawcę, zostaje bez nikogo, kto je naprawi, gdy przestaną działać.
 
 - **Pain: 4.** Skutki są duże, gdy się zdarzą: 5000 pozycji do ręcznego wpisania, firma stojąca tydzień, automat, który „zaczyna robić głupoty”. Źródła: [Q123](https://forumsap.pl/viewtopic.php?t=8723), [Q140](https://wykop.pl/wpis/30588827/), [Q108](https://www.forbes.pl/technologie/sztuczna-inteligencja-w-polskich-firmach-szefowie-zdradzaja-konkretne-efekty/cm95737), [Q079](https://wykop.pl/wpis/81249183/czy-ktos-ma-jakies-sensowne-przyklady-uzycia-agent).
 - **Reach: 3.** Dotyczy firm, które już coś zautomatyzowały; zdarzenie jest rzadkie, ale wraca przy każdej zmianie systemu. Źródła: [Q072](https://wykop.pl/link/6772701/najwieksze-porazki-wdrozenia-systemow-erp), [Q014](https://wykop.pl/wpis/81338661/sharepoint-crm-chcialbym-utworzyc-zlecic-service-a), [Q143](https://wykop.pl/wpis/85045431/siemka-mam-doswiadczenie-w-pisaniu-aplikacji-produ).
 - **Evidence: 3.** Osiem niezależnych wypowiedzi, ale różnorodnych: część o systemach ERP, część o agentach AI. Żadna nie opisuje wprost porzuconej automatyzacji od agencji. Ujęcie „przejęcie i utrzymanie” jest częściowo wnioskiem agenta. Źródła: [Q123](https://forumsap.pl/viewtopic.php?t=8723), [Q072](https://wykop.pl/link/6772701/najwieksze-porazki-wdrozenia-systemow-erp), [Q079](https://wykop.pl/wpis/81249183/czy-ktos-ma-jakies-sensowne-przyklady-uzycia-agent), [Q108](https://www.forbes.pl/technologie/sztuczna-inteligencja-w-polskich-firmach-szefowie-zdradzaja-konkretne-efekty/cm95737), [Q143](https://wykop.pl/wpis/85045431/siemka-mam-doswiadczenie-w-pisaniu-aplikacji-produ), [Q141](https://cdn.3lance.pl/viewtopic.php?t=1492).
-- **Strategic fit: 3.** Opieka jest czwartym krokiem ścieżki (D-019), więc usługa pasuje do oferty, ale wejście przez przejęcie cudzej pracy omija konsultację i audyt jednego procesu. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-019`, `src/pages/dla-firm.astro`.
+- **Strategic fit: 4.** Opieka jest czwartym krokiem ścieżki (D-019) i daje przychód powtarzalny, którego wymaga cel właściciela przy obecnej liczbie wdrożeń. Zespół poza właścicielem może utrzymywać wdrożenia (odpowiedź 1). Wejście przez przejęcie cudzej pracy nadal omija konsultację, więc nie 5. Wersja 1: 3. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-019`, `komunikacja-i-oferta.md#rozdzial-0`.
 
 ### K09 — Własne połączenie sklepu z magazynem i kurierami zamiast abonamentu od obrotu (PRES 13)
 
@@ -113,14 +113,14 @@ Potrzeba: Pracownik biura przepisuje do systemu zamówienia, specyfikacje i awiz
 - **Evidence: 2.** Cztery wypowiedzi z lat 2017–2021, żadna nowsza. Źródła: [Q006](https://wykop.pl/wpis/52751281/poszukuje-optymalnego-rozwiazania-ktore-pozwolilob), [Q109](https://wykop.pl/wpis/30127019/czym-okielznac-dane-w-excelu-dokladniej-chodzi-o-r/), [Q016](https://www.wykop.pl/wpis/61467057/mam-obecnie-pewien-formularz-w-excelu-ktory-udoste/), [Q022](https://forumsap.pl/viewtopic.php?t=7349).
 - **Strategic fit: 4.** Zamówienia z e-maili i plików do systemu ERP są na stronie przykładem dobrego pierwszego procesu. Źródła: `src/pages/jak-wybrac-pierwszy-proces.astro`.
 
-### K11 — Pilot jednego zastosowania AI z miarą użycia (PRES 12)
+### K11 — Pilot jednego zastosowania AI z miarą użycia (PRES 13)
 
 Potrzeba: Firma kupiła licencje albo pilotaż AI dla zespołu i po kilku miesiącach nie widzi, żeby ktoś z nich korzystał ani co się dzięki nim zmieniło.
 
 - **Pain: 3.** Stracony wydatek i wycofane wdrożenia, bez skutków dla działania firmy. Źródła: [Q087](https://wykop.pl/link/8014715/firmy-kupuja-ai-ale-nie-potrafia-go-wykorzystac-rosna-martwe-subskrypcje), [Q075](https://www.forbes.pl/biznes/lepiej-zorganizowany-chaos-polskie-firmy-inwestuja-w-ai-ale-same-nie-wiedza-po-co/gbx39sv), [Q077](https://www.forbes.pl/biznes/lepiej-zorganizowany-chaos-polskie-firmy-inwestuja-w-ai-ale-same-nie-wiedza-po-co/gbx39sv).
 - **Reach: 2.** AI używa 8,4% polskich firm zatrudniających 10 i więcej osób (Eurostat, 2025), więc problem dotyczy małej części populacji. Źródła: [źródło](https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2), [Q087](https://wykop.pl/link/8014715/firmy-kupuja-ai-ale-nie-potrafia-go-wykorzystac-rosna-martwe-subskrypcje).
 - **Evidence: 3.** Siedem wypowiedzi, z czego cztery to słowa szefów firm dla prasy, a część pochodzi z dużych firm spoza populacji. Źródła: [Q087](https://wykop.pl/link/8014715/firmy-kupuja-ai-ale-nie-potrafia-go-wykorzystac-rosna-martwe-subskrypcje), [Q091](https://wykop.pl/link/8014715/firmy-kupuja-ai-ale-nie-potrafia-go-wykorzystac-rosna-martwe-subskrypcje), [Q075](https://www.forbes.pl/biznes/lepiej-zorganizowany-chaos-polskie-firmy-inwestuja-w-ai-ale-same-nie-wiedza-po-co/gbx39sv), [Q077](https://www.forbes.pl/biznes/lepiej-zorganizowany-chaos-polskie-firmy-inwestuja-w-ai-ale-same-nie-wiedza-po-co/gbx39sv), [Q108](https://www.forbes.pl/technologie/sztuczna-inteligencja-w-polskich-firmach-szefowie-zdradzaja-konkretne-efekty/cm95737), [Q043](https://www.forbes.pl/biznes/lepiej-zorganizowany-chaos-polskie-firmy-inwestuja-w-ai-ale-same-nie-wiedza-po-co/gbx39sv).
-- **Strategic fit: 4.** Wdrażanie AI w B2B jest przedmiotem sprzedaży (D-001). Brak własnego opisanego wdrożenia AI na stronie, więc nie 5. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-001`.
+- **Strategic fit: 5.** Wdrażanie AI w B2B jest przedmiotem sprzedaży (D-001), a właściciel potwierdził działającego u klienta agenta AI, który prowadzi korespondencję i negocjacje (odpowiedź 6). Opis tego wdrożenia nie jest jeszcze na stronie. Wersja 1: 4. Źródła: `REJESTR_DECYZJI_BIZNESOWYCH.md#D-001`, `komunikacja-i-oferta.md#rozdzial-0`.
 
 ### K12 — Pobieranie faktur klientów z KSeF dla biur rachunkowych (PRES 12)
 
@@ -142,18 +142,26 @@ Potrzeba: Osoba, która sama buduje automatyzację w gotowym narzędziu, utyka n
 
 ## Rekomendacja i przegląd
 
-**Proponowany kierunek: K01, K02 i K07.** Mają ten sam wynik (16), więc ich kolejność jest decyzją właściciela, a nie wynikiem karty. Wszystkie trzy są odmianą tego, co strona już obiecuje: dane wpisane raz. Żaden nie wymaga nowej grupy docelowej.
+**Proponowany kierunek: K02 i K01, potem K07.** K01 i K02 mają ten sam wynik (16), K07 jest o punkt niżej (15). Różnica jednego punktu nie rozstrzyga, więc kolejność jest decyzją właściciela.
 
-- **K02** ma najmocniejsze dopasowanie (D-017, własne wdrożenie z liczbami), ale węższy zasięg.
+- **K02** ma najmocniejsze dopasowanie (D-017, własne wdrożenie z liczbami) i najkrótszą drogę do opisu w portfolio.
 - **K01** ma najświeższe i najliczniejsze głosy klientów (2026), ale REVAGY nie ma jeszcze opisanego wdrożenia w finansach.
-- **K07** jako jedyny obsługuje oba tory z D-016, ale wśród cytatów nie ma głosu kierownika zmiany.
+- **K07** stracił punkt, bo tor produkcji i logistyki jest odłożony (D-041). Raport dla zarządu w firmach 5–250 osób zostaje mocnym kandydatem.
 
-**Remisy do rozmowy.** K06 (14) różni się od czołówki o dwa punkty; jego wynik podniosłyby wypowiedzi o przegapionych terminach, a obniżyłoby potwierdzenie, że firmom brakuje wiedzy o procedurach, a nie przypomnienia. K03 i K09 (13) oraz K04, K05, K08, K11 i K12 (12) leżą w granicy jednego punktu od siebie, więc karta ich nie rozstrzyga.
+**Co się zmieniło względem wersji 1.**
+
+| ID | Oś | Było | Jest | Powód |
+|---|---|---|---|---|
+| K07 | Strategic fit | 5 | 4 | Produkcja i logistyka później (D-041) |
+| K03 | Strategic fit | 3 | 4 | Przychód powtarzalny jest potrzebny do celu; zespół może utrzymywać wdrożenia |
+| K11 | Strategic fit | 4 | 5 | Właściciel potwierdził działającego u klienta agenta AI |
+
+**Remisy do rozmowy.** K06 i K03 mają po 14, K11 i K09 po 13, a K04, K05, K08 i K12 po 12. W każdej z tych grup karta nie wskazuje kolejności.
 
 **Co może zmienić kolejność.**
 
-- Jeśli właściciel ma własne rozmowy albo zapytania o należności, zamówienia z e-maili lub uzgodnienia, Evidence dla K05, K08 i K04 wzrośnie z 2.
-- Jeśli biura rachunkowe albo sprzedawcy internetowi mają wejść do grupy docelowej, Strategic fit dla K12 i K09 wzrośnie z 2 i oba wejdą do czołówki. To wymagałoby nowej decyzji obok D-016.
-- Jeśli REVAGY ma działające wdrożenie agenta AI u klienta, Strategic fit dla K11 wzrośnie do 5.
+- Jeśli właściciel ma własne zapytania o należności, zamówienia z e-maili lub uzgodnienia, Evidence dla K05, K08 i K04 wzrośnie z 2.
+- K11 ma dziś Evidence 3, bo głosy klientów o nieużywanym AI pochodzą częściowo z prasy i z dużych firm. Opis wdrożenia agenta z liczbami na stronie wdrożeń (po zgodzie spółki, D-034) nie zmieni tej osi, ale da dowód sprzedażowy.
+- K09 i K12 leżą poza grupą 5–250 osób i są bliskie temu, od czego właściciel chce odejść (małe firmy, proste automatyzacje). Zostają z oceną 2 na osi Strategic fit.
 
-**Do decyzji właściciela:** które oceny poprawić i których kandydatów wybrać. Rekomendacja agenta nie jest wyborem.
+**Do decyzji właściciela:** które oceny poprawić i których kandydatów wybrać. Odpowiedzi z 22.11.2026 zmieniły założenia karty, ale nie były przeglądem ocen ani wyborem kandydatów.
