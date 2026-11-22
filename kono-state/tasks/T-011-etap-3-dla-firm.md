@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-3-dla-firm
-base: feat/etap-2-wdrozenia (077e28b)
+base: feat/etap-2-wdrozenia (877b57e)
 depends_on: T-010
 pr: —
 sha: —
