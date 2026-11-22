@@ -45,6 +45,18 @@ export const FILMY = {
     czasSekundy: null,
     dataPublikacji: null,
   },
+  'dane-i-bezpieczenstwo': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Schemat: dwa systemy firmy połączone integracją z oznaczonym zakresem dostępu, pod nimi dziennik z wpisem zawierającym poprzednią wartość i etykieta „miejsce przetwarzania wskazane w umowie powierzenia”. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Dostęp tylko do potrzebnych pól, wyjątek u człowieka',
+    opis: 'Rekord przechodzi z systemu źródłowego do docelowego przez integrację, która widzi tylko uzgodnione pola. Wartość powyżej progu czeka na decyzję osoby po stronie klienta, a zapis trafia do dziennika z poprzednią wartością. Miejsce przetwarzania wskazuje umowa powierzenia. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: null,
+    dataPublikacji: null,
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

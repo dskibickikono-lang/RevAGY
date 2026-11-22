@@ -49,6 +49,8 @@
     { "id": "df-scale-5-procesow", "fraza": "Do 5 procesów i agent AI", "strony": ["dla-firm.html"], "rodzaj": "warunek-oferty", "zrodlo": "strona główna (kafel Scale, lista „Wdrożenie”)", "jakMierzone": null, "status": "potwierdzone" },
     { "id": "df-scale-sprinty-2-tygodnie", "fraza": "Sprinty co 2 tygodnie", "strony": ["dla-firm.html"], "rodzaj": "warunek-oferty", "zrodlo": "strona główna (kafel Scale, lista „Wdrożenie”)", "jakMierzone": null, "status": "potwierdzone" },
     { "id": "df-trzy-sposoby", "fraza": "na jeden z trzech sposobów", "strony": ["dla-firm.html"], "rodzaj": "fakt", "zrodlo": "fakty do treści z 21.11.2026 (trzy drogi łączenia)", "jakMierzone": null, "status": "potwierdzone" },
-    { "id": "df-cztery-kroki", "fraza": "Cztery kroki od rozmowy do działającej automatyzacji", "strony": ["dla-firm.html"], "rodzaj": "fakt", "zrodlo": "D-019 (konsultacja, audyt, wdrożenie, opieka)", "jakMierzone": null, "status": "potwierdzone" }
+    { "id": "df-cztery-kroki", "fraza": "Cztery kroki od rozmowy do działającej automatyzacji", "strony": ["dla-firm.html"], "rodzaj": "fakt", "zrodlo": "D-019 (konsultacja, audyt, wdrożenie, opieka)", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "dib-trzy-zasady", "fraza": "Trzy zasady każdej integracji", "strony": ["dane-i-bezpieczenstwo.html"], "rodzaj": "fakt", "zrodlo": "fakty do treści z 21.11.2026 (minimalny zakres dostępu, dziennik zapisów, wyjątki u człowieka)", "jakMierzone": null, "status": "potwierdzone" },
+    { "id": "dib-trzy-drogi", "fraza": "jedną z trzech dróg", "strony": ["dane-i-bezpieczenstwo.html"], "rodzaj": "fakt", "zrodlo": "fakty do treści z 21.11.2026 (trzy drogi łączenia)", "jakMierzone": null, "status": "potwierdzone" }
   ]
 }
