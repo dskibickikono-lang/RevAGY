@@ -3,7 +3,7 @@
 Strona firmy REVAGY (automatyzacja procesów i wdrożenia AI w B2B — ze szczególnym uwzględnieniem agencji pracy tymczasowej, rekrutacji oraz firm produkcyjnych i magazynowych) pod `https://revagy.pl`.
 
 Projekt generuje czystą statyczną stronę w Astro (`output: 'static'`, `build.format: 'file'`, `trailingSlash: 'never'`, `compressHTML: false`) z zachowaniem oryginalnego DOM, stylów CSS, skryptów w `public/assets/js/`, lokalnych fontów i własnych filmów, bez bundlowania klienta i bez katalogu `/_astro/`.
-Analityka jest własna (Matomo na `stats.revagy.pl`) i włącza się dopiero po zgodzie odwiedzającego.
+Analityka (własne Matomo na `stats.revagy.pl` oraz Microsoft Clarity) włącza się dopiero po zgodzie odwiedzającego w tym samym banerze.
 
 ## Wymagania
 
@@ -41,10 +41,13 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 | `public/assets/css/styles.css` | style, tokeny kolorów i typografii |
 | `public/assets/js/app.js` | animacje i interakcje (menu, liczniki, kalkulator, sticky scroll, karuzela, marquee, taby, filtry, FAQ, Journey Rail) |
 | `public/assets/js/analytics.js` | baner zgody i zdarzenia dla Matomo (`stats.revagy.pl`, `siteId = 1`, w tym `lead:accepted`) |
+| `public/assets/js/clarity.js`, `src/components/Clarity.astro` | Microsoft Clarity (projekt `zhlvuu1fed`) ładowany wyłącznie po zgodzie analitycznej z banera; znacznik wspólny dla `BaseLayout` i `PodstronaLayout` |
 | `public/assets/js/kontakt.js` | obsługa formularza kontaktowego, Cloudflare Turnstile i wysyłki do `POST /api/kontakt` (`forms-gateway`) |
 | `public/assets/video/` | 3 filmy strony głównej (`.webm` + `.mp4`) z plakatami `.jpg` oraz media miejsc na film podstron: kadr `<nazwa>-kadr.jpg` albo film `<nazwa>.webm`, `.mp4` i kadr startowy `.jpg` |
 | `public/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
 | `public/favicon.ico`, `public/robots.txt`, `public/sitemap.xml`, `public/site.webmanifest` | pliki główne kopiowane bezpośrednio do `dist/` |
+| `public/BingSiteAuth.xml`, `public/<klucz>.txt` | weryfikacja Bing Webmaster Tools i publiczny klucz IndexNow |
+| `tools/indexnow-ping.cjs` | ręczne zgłoszenie adresów z `public/sitemap.xml` do IndexNow po wydaniu (nie jest częścią CI) |
 | `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256, braku inline JS/`/_astro/`, danych strukturalnych JSON-LD i plików `llms*.txt` |
 | `tools/smoke-test.cjs` | rozszerzony test dymny w Chromium (Playwright) z wbudowanym serwerem TLS (`--serve=dist`) i atrapą Matomo |
 | `tools/test-formularz.cjs` | test formularza kontaktowego (osobny build z kluczem testowym Turnstile, atrapa `forms-gateway` i Matomo) |
@@ -92,6 +95,17 @@ sh deploy/wydanie.sh <sciezka-do-dist> <nowy-sha> <oczekiwany-biezacy-sha> <mani
 sh deploy/wydanie.sh --rollback <docelowy-sha> <oczekiwany-biezacy-sha> [<manifest-referencyjny> <sha256-manifestu>]
 ```
 
+### Po wydaniu: IndexNow (ręcznie, właściciel)
+
+Po wdrożeniu artefaktu na produkcję właściciel zgłasza adresy z mapy witryny do IndexNow (Bing i inne wyszukiwarki):
+
+```bash
+node tools/indexnow-ping.cjs --dry-run   # podgląd listy adresów i zgłoszenia, bez sieci
+node tools/indexnow-ping.cjs             # sprawdza https://revagy.pl/<klucz>.txt i wysyła listę do api.indexnow.org
+```
+
+Skrypt nie ma zależności (Node 22, wbudowany `fetch`), czyta klucz z jedynego pliku `public/<32 znaki hex>.txt` i adresy z `public/sitemap.xml`. Odpowiedź 200 albo 202 oznacza przyjęcie. Nie jest wpięty w CI: zgłoszenie ma sens dopiero wtedy, gdy nowe strony są już na produkcji. Klucz jest publiczny z definicji.
+
 Szczegółowa procedura operacyjna dla obecnej architektury serwera (Caddy `:80/:443` → lokalny nginx `127.0.0.1:8092`) znajduje się w `deploy/PROMPT-AGENT-VPS.md`.
 Po zmianie stylów lub skryptów podbij parametr `?v=` w `src/layouts/BaseLayout.astro`, aby przeglądarki pobrały nową wersję.
 
@@ -100,6 +114,7 @@ Po zmianie stylów lub skryptów podbij parametr `?v=` w `src/layouts/BaseLayout
 | Warstwa | Co zapisuje | Kiedy |
 |---|---|---|
 | Matomo (`stats.revagy.pl`) | odsłony, źródło wejścia, kliknięcia z nazwą sekcji, widoki i czas sekcji, przewinięcie, aktywny czas, ustawienia kalkulatora, identyfikator przyjętego formularza, IP, przeglądarka | po zgodzie w banerze |
+| Microsoft Clarity (projekt `zhlvuu1fed`, `www.clarity.ms`) | nagrania sesji z maskowaniem, mapy kliknięć, IP, przeglądarka; ciasteczka `_clck`, `_clsk` | po zgodzie w banerze, tylko na `revagy.pl`; wycofanie zgody: `clarity('consent', false)` i brak ładowania przy kolejnych wejściach |
 | Logi nginx + GoAccess (`stats.revagy.pl/logi/`) | IP, user agent, adres, strona odsyłająca, kod odpowiedzi każdego żądania, także botów; boty AI jako osobne pozycje i dzienne zestawienie `stats.revagy.pl/logi/boty-ai.txt` | zawsze, 90 dni |
 
 ## Filmy

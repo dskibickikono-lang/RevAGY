@@ -818,15 +818,32 @@ function main() {
     }
   }
 
+  // Niezmienniki clarity.js (T-022): ta sama zgoda co Matomo, tylko domena produkcyjna, projekt zhlvuu1fed
+  const clarityEntry = actualMap.get('assets/js/clarity.js');
+  if (clarityEntry) {
+    const cjs = fs.readFileSync(clarityEntry.full, 'utf8');
+    const invariants = [
+      "tagUrl: 'https://www.clarity.ms/tag/zhlvuu1fed'",
+      "hosts: ['revagy.pl', 'www.revagy.pl']",
+      "storageKey: 'revagy-zgoda-analityka'",
+      "if (readChoice() === 'tak') start();",
+      "window.clarity('consent', false)",
+    ];
+    for (const inv of invariants) {
+      if (!cjs.includes(inv)) errors.push(`Naruszenie niezmiennika w clarity.js: brak ${inv}`);
+    }
+  }
+
   // Sprawdź każdą stronę HTML i pełny kontrakt DOM
-  // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js wszędzie (podstrony ścieżką względną).
+  // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js i clarity.js (T-022) wszędzie
+  // (podstrony ścieżką względną).
   // Nowe podstrony: lista skryptów z tools/podstrony.json (ma pierwszeństwo przed tablicą poniżej).
-  const defaultPageScripts = ['assets/js/analytics.js?v=4'];
+  const defaultPageScripts = ['assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'];
   const podstrony = readPodstronyScripts();
   errors.push(...podstrony.errors);
   const expectedScripts = {
-    '404.html': ['/assets/js/analytics.js?v=4'],
-    'index.html': ['assets/js/app.js?v=4', 'assets/js/analytics.js?v=4'],
+    '404.html': ['/assets/js/analytics.js?v=4', '/assets/js/clarity.js?v=1'],
+    'index.html': ['assets/js/app.js?v=4', 'assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'],
     'kontakt.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
     ...podstrony.map,
