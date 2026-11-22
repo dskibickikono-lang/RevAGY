@@ -1,6 +1,6 @@
 # Audyt SEO i pozycjonowania marki REVAGY
 
-Stan: 2026-11-22 · karta T-024 · build z `main` `43efbf5` · tylko raport, bez zmian w kodzie.
+Stan: 2026-11-22 · karta T-025 · build z `main` `43efbf5` · tylko raport, bez zmian w kodzie.
 Źródła i pełne notatki z badania: [`audyt-seo-zrodla.md`](audyt-seo-zrodla.md).
 
 ## 0. Odpowiedź w pięciu punktach
@@ -16,8 +16,9 @@ Stan: 2026-11-22 · karta T-024 · build z `main` `43efbf5` · tylko raport, bez
 4. **Dla odpowiedzi AI nie ma dowodu, że pomagają zabiegi techniczne** (schema, `llms.txt`). To, co koreluje
    z wymienianiem marki, to obecność poza własną stroną: wzmianki, katalogi, zestawienia. Dowody są korelacyjne
    i pochodzą z dużych anglojęzycznych marek, więc dla REVAGY to hipoteza do sprawdzenia pomiarem.
-5. **Bez danych z Search Console i Bing nie da się ocenić indeksacji, zapytań ani pozycji.** Te części raportu są
-   oznaczone jako zablokowane (rozdział 7). Wolumenów fraz nie podaję nigdzie: brak danych.
+5. **Google ma w indeksie 1 stronę (dane Search Console do 15.11.2026).** Dziewięć podstron dopiero czeka na
+   pierwsze odwiedziny robota; mapa witryny została zgłoszona 22.11. Zapytań i pozycji nie oceniam: strona ma
+   9 dni, danych jest za mało (rozdział 7). Wolumenów fraz nie podaję nigdzie: brak danych.
 
 ## 1. Stan techniczny w liczbach
 
@@ -156,7 +157,7 @@ społecznościowych pokazuje ten sam obraz.
 
 | # | Luka | Dowód | Waga |
 |---|---|---|---|
-| L1 | Nie wiadomo, czy strona jest w indeksie Google i Bing | brak dostępu do Search Console i Bing; wyszukiwarka testowa nie zwróciła żadnej strony z `revagy.pl` | krytyczna |
+| L1 | W indeksie Google jest 1 strona z 11; stan w Bing nieznany | Search Console, dane do 15.11.2026; mapa witryny zgłoszona 22.11 | krytyczna, ale spodziewana przy 9-dniowej stronie |
 | L2 | Marka bez śladu poza własną stroną | zapytania `revagy`, `revagy.pl`: 0 trafień własnych; LinkedIn nie wystąpił | krytyczna |
 | L3 | Publiczne repozytorium jest dziś jedynym wystąpieniem marki w indeksie | widoczne tytuły PR-ów i karty zadań | do decyzji właściciela |
 | L4 | Kolizja nazwy: Revagy, LLC (Lenexa, Kansas, USA), rozliczenia laboratoryjne | wynik wyszukiwania; nota z 20.11 (rozdz. 4) mówiła, że nazwa jest wolna | średnia |
@@ -290,7 +291,7 @@ osobną kartę, plan zmian i zgodę; pozycje dotykające strony głównej wymaga
 
 | # | Działanie | Kto | Priorytet | Nakład |
 |---|---|---|---|---|
-| 1 | Weryfikacja `revagy.pl` w Google Search Console, zgłoszenie sitemapy; to samo w Bing Webmaster Tools; uruchomienie `indexnow-ping` | właściciel | P1 | 1 h |
+| 1 | Search Console: prośba o zindeksowanie 9 podstron i wyjaśnienie 10 kontra 11 adresów w mapie (weryfikacja i mapa zrobione 22.11); Bing Webmaster Tools: weryfikacja, mapa, `indexnow-ping` | właściciel | P1 | 1 h |
 | 2 | Wgranie CSP z T-022 na serwer (Clarity) | właściciel | P1 | 0,5 h |
 | 3 | Decyzja: repozytorium publiczne czy prywatne | właściciel | P1 | 0,1 h |
 | 4 | Podstrony w stopce i menu (dziś 1 z 9); linki do dwóch poradników ze strony głównej | agent | P1 | 3 h |
@@ -328,28 +329,42 @@ osobną kartę, plan zmian i zgodę; pozycje dotykające strony głównej wymaga
 
 Suma szacunku: do 30 dni ok. 26 h, do 60 dni ok. 37 h, do 90 dni ok. 69 h.
 
-## 7. Zablokowane: potrzebne dane od właściciela
+## 7. Dane z Search Console i co nadal jest zablokowane
 
-Nie mam dostępu do Google Search Console ani Bing Webmaster Tools. Bez nich nie oceniam i nie zgaduję:
+### 7.1 Indeksacja (eksport „Indeksowanie stron” od właściciela, pobrany 22.11.2026)
 
-1. **Indeksacji**: ile z 11 adresów jest w indeksie i z jakim statusem.
-2. **Zapytań i pozycji**: na co strona się wyświetla, z jaką średnią pozycją i CTR.
-3. **Core Web Vitals od użytkowników**: w raporcie są tylko wyniki laboratoryjne.
-4. **Linków przychodzących**: raport „Linki” z Search Console.
+Usługa domenowa `revagy.pl` jest zweryfikowana. Raport obejmuje wszystkie znane strony i ma dane do 15.11.2026.
 
-Strona istnieje od 13.11.2026 (9 dni w dniu audytu), więc danych o zapytaniach i pozycjach jest dziś za mało
-na jakikolwiek wniosek, a raport Core Web Vitals od użytkowników będzie pusty. Na tym etapie liczy się
-wyłącznie indeksacja.
+| Dzień | W indeksie | Poza indeksem | Wyświetlenia |
+|---|---|---|---|
+| 13.11.2026 | brak danych | brak danych | 0 |
+| 14.11.2026 | brak danych | brak danych | 0 |
+| 15.11.2026 | 1 | 1 | 11 |
 
-Potrzebuję teraz:
+- Poza indeksem: 1 adres z powodem „Strona z przekierowaniem”. Usługa domenowa obejmuje też warianty `http`
+  i `www`, które przekierowują 301 na `https://revagy.pl/` (rozdział 1.4), więc to najpewniej taki wariant,
+  a nie błąd. Eksport nie zawiera listy adresów, więc tego nie potwierdzam.
+- Problemów niekrytycznych: 0.
+- Raport jest sprzed budowy podstron (etapy 1–8 powstały 21–22.11), więc mówi tylko o stronie głównej.
+  Podstrony pojawią się w nim po kilku dniach od zgłoszenia mapy.
+- **Rozbieżność do wyjaśnienia:** Search Console pokazuje w mapie zgłoszonej 22.11 **10** adresów, a plik
+  `https://revagy.pl/sitemap.xml` ma dziś **11**. Możliwe, że Google pobrał mapę przed wydaniem z `finanse.html`.
+  Jeśli po ponownym pobraniu mapy nadal będzie 10, trzeba sprawdzić, którego adresu brakuje.
+- 11 wyświetleń w dniu 15.11 to za mało, żeby cokolwiek wnioskować o zapytaniach.
 
-- Informacji, czy usługa `revagy.pl` jest zweryfikowana w Search Console i w Bing Webmaster Tools oraz od kiedy.
-- Jeśli tak: eksportu „Indeksowanie stron” (ile z 11 adresów jest w indeksie, z jakim statusem) i stanu
-  zgłoszonej sitemapy; albo dostępu do odczytu.
-- Jeśli nie: punkt 1 planu jest pierwszym krokiem.
+### 7.2 Nadal bez danych
 
-Później, bez pośpiechu: „Skuteczność” (zapytania i strony) za cały okres od startu. Pierwszy sensowny odczyt
-to około 4 tygodnie po zaindeksowaniu, pełny przegląd po 8–12 tygodniach (punkt 20 planu).
+1. **Zapytania i pozycje**: strona ma 9 dni. Pierwszy sensowny odczyt około 4 tygodnie po zaindeksowaniu
+   podstron, pełny przegląd po 8–12 tygodniach (punkt 20 planu).
+2. **Core Web Vitals od użytkowników**: za mały ruch; w raporcie są tylko wyniki laboratoryjne.
+3. **Linki przychodzące**: raport „Linki” z Search Console, przy okazji przeglądu z punktu 20.
+4. **Bing Webmaster Tools**: nie wiem, czy witryna jest zweryfikowana i czy `indexnow-ping` był uruchomiony.
+
+### 7.3 Co przyspiesza indeksację dziś
+
+- Search Console, „Sprawdzenie adresu URL” → „Poproś o zindeksowanie” dla 9 podstron (limit dzienny Google;
+  kilka minut pracy właściciela).
+- Linki do podstron w menu i stopce (punkt 4 planu): robot trafia do nich ze strony głównej, a nie tylko z mapy.
 
 ## 8. Ograniczenia tego raportu
 

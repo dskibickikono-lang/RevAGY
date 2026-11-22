@@ -1,6 +1,6 @@
 # Audyt SEO REVAGY: rejestr źródeł i notatki z badania
 
-Stan: 2026-11-22 · karta T-024 · załącznik do [`audyt-seo.md`](audyt-seo.md).
+Stan: 2026-11-22 · karta T-025 · załącznik do [`audyt-seo.md`](audyt-seo.md).
 Trzy strumienie badania zapisane w całości: wyniki wyszukiwania i konkurenci, odpowiedzi AI, miejsca dla marki.
 Oznaczenia statusu źródeł są opisane na początku każdej części. Pomiar Lighthouse: tabela w raporcie głównym
 (Lighthouse 13.6.0, 11 stron × 3 przebiegi, build z `43efbf5`).
