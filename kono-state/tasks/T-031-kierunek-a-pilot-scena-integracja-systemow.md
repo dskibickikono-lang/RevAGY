@@ -10,7 +10,7 @@ branch: skibiai/trusting-shannon-g9jhj1
 base: main (da8d1ae)
 depends_on: T-026
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (ten sam PR co T-026: moodboard, studium i pilot)
-sha: (uzupełniane po commicie)
+sha: ed443c9
 decisions: [D-015, D-021, D-022, D-031, D-033, D-045, D-048]
 ---
 
