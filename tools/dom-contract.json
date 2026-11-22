@@ -128,20 +128,20 @@
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "64b0241447ea68771e87947245bc8f0e5a6d06274d99bde69c14bfb73808c474",
-      "size": 1747
+      "sha256": "66dbe91824654abfa82492cc0b3520d09b9d615115d48abbcd3023b96d744d77",
+      "size": 1754
     },
     "index.html": {
-      "sha256": "08c4cc7cb8f3d901d5bcf33024d669defef698903b12e4304fb2360c478cf7c9",
-      "size": 45825
+      "sha256": "bd748c4419faa8625211cecf6297246483c345ca328f7dc671d3210a2a90ef0c",
+      "size": 46038
     },
     "kontakt.html": {
-      "sha256": "6d98b41034a9eb6c45b771b12753dd7b58c360edfd3d4e5908ce301ff3140c65",
-      "size": 8223
+      "sha256": "0c2c6138e62b425a3f432798813d47de53d70aa1766e493e0db6202bb518c573",
+      "size": 8232
     },
     "polityka-prywatnosci.html": {
-      "sha256": "276f5bbac58058d36f4365ce4f3ad02bdc6ece6bd50f26b46fd30c2fdc21606f",
-      "size": 7859
+      "sha256": "b946cc54885cfc7e2d3070a10a551a28f2e8b048f93c33054a036439a6e91424",
+      "size": 7866
     }
   },
   "pages": {
@@ -290,7 +290,7 @@
           "class": "btn btn-dark",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "/",
@@ -375,7 +375,7 @@
           "charset": null,
           "name": "description",
           "property": null,
-          "content": "REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu."
+          "content": "REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Zacznij od bezpłatnej konsultacji jednego procesu."
         },
         {
           "charset": null,
@@ -861,7 +861,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-count": "120"
+            "data-count": "3"
           },
           "aria": {}
         },
@@ -871,7 +871,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-count": "60"
+            "data-count": "25"
           },
           "aria": {}
         },
@@ -1820,7 +1820,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-track": "E-mail: Umów audyt"
+            "data-track": "E-mail: Umów konsultację"
           },
           "aria": {}
         },
@@ -2227,7 +2227,7 @@
           "class": "btn btn-dark",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "#mozliwosci",
@@ -2276,14 +2276,14 @@
           "class": "btn btn-dark btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów bezpłatny audyt"
+          "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#kontakt",
           "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów bezpłatny audyt"
+          "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#film",
@@ -2297,7 +2297,7 @@
           "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Sprawdź to w audycie"
+          "text": "Sprawdź to na konsultacji"
         },
         {
           "href": "#kontakt",
@@ -2321,18 +2321,18 @@
           "text": "Porozmawiajmy"
         },
         {
-          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
           "class": "cta-mail",
           "dataTrack": "E-mail: adres",
           "ariaLabel": null,
           "text": "kontakt@revagy.pl"
         },
         {
-          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
           "class": "btn btn-accent btn-lg",
-          "dataTrack": "E-mail: Umów audyt",
+          "dataTrack": "E-mail: Umów konsultację",
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "#top",
@@ -2430,7 +2430,7 @@
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "mailto:kontakt@revagy.pl",
@@ -2588,7 +2588,7 @@
           "value": null,
           "checked": false,
           "style": null,
-          "text": "85 zł"
+          "text": "65 zł"
         },
         {
           "id": "calc-rate",
@@ -2598,7 +2598,7 @@
           "min": "40",
           "max": "250",
           "step": "5",
-          "value": "85",
+          "value": "65",
           "checked": false,
           "style": null,
           "text": ""
@@ -2718,7 +2718,7 @@
           "value": null,
           "checked": false,
           "style": null,
-          "text": "127 000"
+          "text": "97 000"
         },
         {
           "id": "res-fte",
@@ -2953,12 +2953,12 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji"
+          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja"
         },
         {
           "tag": "a",
           "attr": "href",
-          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji"
+          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja"
         },
         {
           "tag": "a",
@@ -3097,7 +3097,7 @@
           "charset": null,
           "name": "description",
           "property": null,
-          "content": "Napisz do REVAGY ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu automatyzacji procesów."
+          "content": "Napisz do REVAGY ze służbowej skrzynki. Wrócimy z terminem bezpłatnej konsultacji jednego procesu."
         },
         {
           "charset": null,
@@ -3264,7 +3264,7 @@
           "name": null,
           "for": null,
           "data": {
-            "data-track": "Kontakt E-mail: Umów audyt"
+            "data-track": "Kontakt E-mail: Umów konsultację"
           },
           "aria": {}
         },
@@ -3313,21 +3313,21 @@
           "class": "btn btn-dark",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
-          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
           "class": "cta-mail",
           "dataTrack": "Kontakt E-mail: adres",
           "ariaLabel": null,
           "text": "kontakt@revagy.pl"
         },
         {
-          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+          "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
           "class": "btn btn-accent btn-lg",
-          "dataTrack": "Kontakt E-mail: Umów audyt",
+          "dataTrack": "Kontakt E-mail: Umów konsultację",
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "./",
@@ -3390,12 +3390,12 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji"
+          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja"
         },
         {
           "tag": "a",
           "attr": "href",
-          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji"
+          "val": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja"
         },
         {
           "tag": "a",
@@ -3648,7 +3648,7 @@
           "class": "btn btn-dark",
           "dataTrack": null,
           "ariaLabel": null,
-          "text": "Umów audyt"
+          "text": "Umów konsultację"
         },
         {
           "href": "mailto:kontakt@revagy.pl",
@@ -3752,7 +3752,7 @@
     }
   },
   "contactForm": {
-    "htmlSha256": "502a1ae726cf921aa8d82b840cb467c4915d1ac627eb277da99aa10578f92dcf",
+    "htmlSha256": "ba2aa79c4944fe5ea3951ab5112a76eba751bdda78d691432f601c9769df308e",
     "script": "assets/js/kontakt.js?v=1"
   },
   "structuredData": {
@@ -3799,5 +3799,10 @@
       ],
       "sectionsMatchSitemap": true
     }
+  },
+  "mediaBudget": {
+    "assets/video/*.mp4": 1100000,
+    "assets/video/*.webm": 700000,
+    "assets/video/*.jpg": 150000
   }
 }

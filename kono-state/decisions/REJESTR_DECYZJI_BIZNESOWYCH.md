@@ -22,6 +22,30 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-012 | 2026-11-20 | Informacja o zawieszeniu działalności od 2026-02-01 jest nieaktualna; działalność prowadzona. Zamyka otwartą kwestię z T-001. | właściciel („zawieszona nieaktualny”, T-006) | obowiązuje |
 | D-013 | 2026-11-20 | Rozpoznawalność marki: wdrażamy dane strukturalne Organization/WebSite, `llms.txt` i `llms-full.txt` generowane przy buildzie oraz pomiar botów AI w logach serwera (wariant „B + krótka nota A” z T-006). | właściciel („B plus krótką notę z A”) | obowiązuje |
 | D-014 | 2026-11-20 | Dane marki zgodne z profilem LinkedIn: opis marki = słowa właściciela z LinkedIn (pierwsze zdanie opisu + hasło), rok założenia 2021, telefon +48 504 037 538 publicznie w stopce strony, w JSON-LD i w `llms.txt`. Forma na LinkedIn: jednoosobowa działalność (nie „Partnership”). | właściciel („Dokładnie tak, zrób to wszystko”, T-006) | obowiązuje |
+| D-015 | 2026-11-21 | Wygląd, animacje, wizualizacje, wideo i motyw strony głównej zostają w 100%. Rozbudowa idzie małymi etapami. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-016 | 2026-11-21 | Dwa tory oferty: pakiety dla firm 5–250 osób oraz Enterprise, czyli produkcja i logistyka. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-017 | 2026-11-21 | Pierwsza podstrona sprzedażowa: systemy bez przepisywania danych. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-018 | 2026-11-21 | Nazw własnych systemów nie ma w nagłówkach ani w opisach wdrożeń. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-019 | 2026-11-21 | Wejście: bezpłatna konsultacja jednego procesu, potem płatny audyt, potem wdrożenie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-020 | 2026-11-21 | Wdrożenia do pokazania: cztery wskazane przez właściciela, każde z etykietą powiązania z grupą. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-021 | 2026-11-21 | Poprzednia przebudowa naruszyła układ strony głównej oraz kolory, krój i odstępy. To są kryteria odbioru każdego etapu. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-022 | 2026-11-21 | Każda nowa podstrona ma zarezerwowane miejsce na film. Filmy powstaną dopiero po zbudowaniu stron. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-023 | 2026-11-21 | Tabela zmian tekstu strony głównej (etap 0) zatwierdzona. Obejmuje także stronę kontaktu oraz przyciski w skróconych nagłówkach podstron i strony błędu. Odpowiedzi FAQ o miejscu danych i o koszcie audytu zmieniamy w całości. Nazwy zdarzeń analityki przy przyciskach e-mail zmieniamy razem z napisami. Zastępuje D-009 w zakresie tych tekstów, w tym nowej liczby „25 minut”. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-024 | 2026-11-21 | Stawka domyślna kalkulatora: 65 zł za godzinę (było 85 zł). Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-025 | 2026-11-21 | „14 dni” podajemy z warunkiem: 14 dni roboczych od dnia, w którym mamy dostęp do systemów. Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-026 | 2026-11-21 | Liczby „120+” i „60%” w pasku pod hero oraz czasy reakcji w pakietach zmieniamy. Zastępuje D-009 w tym punkcie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-027 | 2026-11-21 | Firma w przykładowym ekranie: „POLPAK Sp. z o.o.” (było „Stalmet Sp. z o.o.”). Pisownia potwierdzona przez właściciela 21.11: P-O-L-P-A-K. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-028 | 2026-11-21 | Na stronie podajemy kwotę audytu 1 990 zł i zwrot w 14 dni. Zastępuje D-009 („pakiety bez cen”) w tym zakresie. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-029 | 2026-11-21 | Na stronie dla firm 5–250 osób podajemy ceny „od”. Zastępuje D-009 w tym zakresie. Kwot jeszcze nie ma. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-030 | 2026-11-21 | Na stronie Enterprise podajemy płatny pilot z kryterium sukcesu. Zakres i kryterium przygotowuje agent. Kwoty jeszcze nie ma. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-031 | 2026-11-21 | Podstrony dostają własny plik układu. Układ bazowy strony głównej zostaje bez zmian. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-032 | 2026-11-21 | Kadry i filmy renderujemy w GitHub Actions, z rezerwą na stację roboczą. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-033 | 2026-11-21 | Na stronie nie podajemy nazw własnych systemów, tylko kategorie, na przykład „system ERP”, „system HR”, „program kadrowo-płacowy”. Dotyczy także FAQ i tabel technicznych. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-034 | 2026-11-21 | Nazwy spółek, etykiety powiązań, zgody i cytaty do opisów wdrożeń wprowadza właściciel. Do tego czasu opisy są anonimowe, a cytatów nie ma. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-035 | 2026-11-21 | Sześć potwierdzeń do etapu 1 (punkty a–f z dokumentu wejściowego, rozdział 12, krok 3) właściciel potwierdził. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-036 | 2026-11-21 | Pomiar źródła wejścia: zgoda na kroki S1–S4 z planu (pola w CRM, zmiana serwera formularza, jego wydanie, nowa wersja informacji pod formularzem). | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-037 | 2026-11-21 | Stare przekierowania: tam, gdzie nowa strona odpowiada staremu adresowi, przekierowanie prowadzi na nową stronę. Pozostałe zostają. | właściciel, decyzje z 21.11.2026 | obowiązuje |
+| D-038 | 2026-11-21 | Adresy i tytuły stron etapu 6, teksty i miejsca odnośników na stronie głównej, scenariusze filmów i dobór liczb do filmów ustala agent. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 
@@ -33,6 +57,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 ## Otwarte kwestie (do decyzji właściciela)
 
 - Opinie klientów i cennik: brak danych, na stronie ich nie ma.
+- Kwoty „od” dla pakietów (D-029) i cena pilota Enterprise (D-030) nie są jeszcze podane.
 - Analityka bez zgody odwiedzającego: przyjęte rozwiązanie zapisuje kliknięcia i czas dopiero po zgodzie
   w banerze (wybór agenta, D-008 tego nie rozstrzyga). Zmiana wymaga decyzji właściciela.
 - ~~Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01.~~ Rozstrzygnięte przez D-012 (nieaktualne).

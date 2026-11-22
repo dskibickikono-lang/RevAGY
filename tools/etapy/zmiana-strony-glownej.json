@@ -1,0 +1,233 @@
+{
+  "etap": "0",
+  "opis": "Etap 0, prawda na stronie: korekta tekstów strony głównej (D-023–D-027). Różnica między tools/baseline/index.baza.html (wydanie 9389fe6) a tools/baseline/index.html. Zmieniają się wyłącznie teksty i wartości atrybutów; znaczniki, klasy i kolejność bez zmian. Teksty: węzły tekstowe po zwinięciu białych znaków i obcięciu końców; atrybuty: wartości po zdekodowaniu encji, jak w parseHtml z tools/validate-dist.cjs.",
+  "strona-glowna": {
+    "teksty": [
+      {
+        "bylo": "Umów audyt",
+        "jest": "Umów konsultację",
+        "razy": 3
+      },
+      {
+        "bylo": "Umów bezpłatny audyt",
+        "jest": "Umów bezpłatną konsultację",
+        "razy": 2
+      },
+      {
+        "bylo": "do pierwszej działającej automatyzacji",
+        "jest": "roboczych od dostępu do systemów do pierwszej automatyzacji",
+        "razy": 1
+      },
+      {
+        "bylo": "120",
+        "jest": "3",
+        "razy": 1
+      },
+      {
+        "bylo": "+",
+        "jest": "drogi",
+        "razy": 1
+      },
+      {
+        "bylo": "systemów, które łączymy bez wymiany tego, co już masz",
+        "jest": "łączenia systemów: interfejs API, wymiana plików albo baza danych",
+        "razy": 1
+      },
+      {
+        "bylo": "60",
+        "jest": "25",
+        "razy": 1
+      },
+      {
+        "bylo": "%",
+        "jest": "min",
+        "razy": 1
+      },
+      {
+        "bylo": "powtarzalnej pracy biurowej da się oddać automatom",
+        "jest": "trwa bezpłatna konsultacja jednego procesu",
+        "razy": 1
+      },
+      {
+        "bylo": "Stalmet Sp. z o.o.",
+        "jest": "POLPAK Sp. z o.o.",
+        "razy": 1
+      },
+      {
+        "bylo": "85 zł",
+        "jest": "65 zł",
+        "razy": 1
+      },
+      {
+        "bylo": "Oszczędność w roku",
+        "jest": "Wartość odzyskanego czasu w roku",
+        "razy": 1
+      },
+      {
+        "bylo": "127 000",
+        "jest": "97 000",
+        "razy": 1
+      },
+      {
+        "bylo": "Sprawdź to w audycie",
+        "jest": "Sprawdź to na konsultacji",
+        "razy": 1
+      },
+      {
+        "bylo": "Pierwsza automatyzacja: do 14 dni",
+        "jest": "Pierwsza automatyzacja: 14 dni roboczych od dostępu do systemów",
+        "razy": 1
+      },
+      {
+        "bylo": "Reakcja do 1 dnia roboczego",
+        "jest": "Czas reakcji zapisany w umowie",
+        "razy": 1
+      },
+      {
+        "bylo": "Monitoring 7 dni w tygodniu",
+        "jest": "Monitoring przepływów z alertami",
+        "razy": 1
+      },
+      {
+        "bylo": "Reakcja do 4 godzin",
+        "jest": "Krótszy czas reakcji, zapisany w umowie",
+        "razy": 1
+      },
+      {
+        "bylo": "Monitoring całodobowy",
+        "jest": "Monitoring w zakresie ustalonym w umowie",
+        "razy": 1
+      },
+      {
+        "bylo": "Umowa powierzenia danych, przetwarzanie w Unii Europejskiej i minimalny zakres dostępu dla każdej integracji.",
+        "jest": "Umowę powierzenia przygotowujemy pod Waszą organizację. Każda integracja dostaje minimalny zakres dostępu.",
+        "razy": 1
+      },
+      {
+        "bylo": "Nie ma tu Twojego? Zadaj je na audycie, jest bezpłatny.",
+        "jest": "Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.",
+        "razy": 1
+      },
+      {
+        "bylo": "Pierwsza automatyzacja działa zwykle w ciągu 14 dni od audytu. Wdrożenie dla całego działu to najczęściej 6–10 tygodni, prowadzone w dwutygodniowych sprintach.",
+        "jest": "Pierwsza automatyzacja działa po 14 dniach roboczych od dnia, w którym mamy dostęp do systemów. Wdrożenie dla całego działu to najczęściej 6–10 tygodni, prowadzone w dwutygodniowych sprintach.",
+        "razy": 1
+      },
+      {
+        "bylo": "W Unii Europejskiej, na podstawie umowy powierzenia. W pakiecie Enterprise wdrażamy rozwiązanie w Waszej chmurze lub na Waszych serwerach.",
+        "jest": "Umowę powierzenia przygotowujemy pod Waszą organizację przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.",
+        "razy": 1
+      },
+      {
+        "bylo": "Pierwsza rozmowa i wstępny audyt są bezpłatne. Kończą się listą procesów z szacunkiem godzin do odzyskania, którą możecie wykorzystać także bez nas.",
+        "jest": "Konsultacja jednego procesu trwa 25 minut i jest bezpłatna. Dostajecie po niej jednostronicową kartę procesu. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie.",
+        "razy": 1
+      },
+      {
+        "bylo": "Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnego audytu.",
+        "jest": "Napisz do nas ze służbowej skrzynki. Wrócimy z terminem bezpłatnej konsultacji.",
+        "razy": 1
+      },
+      {
+        "bylo": "Audyt automatyzacji",
+        "jest": "Konsultacja jednego procesu",
+        "razy": 1
+      }
+    ],
+    "atrybuty": [
+      {
+        "znacznik": "meta",
+        "atrybut": "content",
+        "bylo": "REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Pierwsza automatyzacja w 14 dni od audytu.",
+        "jest": "REVAGY automatyzuje procesy i wdraża AI w firmach B2B: sprzedaż, finanse, obsługa klienta i operacje. Zacznij od bezpłatnej konsultacji jednego procesu.",
+        "razy": 1
+      },
+      {
+        "znacznik": "span",
+        "atrybut": "data-count",
+        "bylo": "120",
+        "jest": "3",
+        "razy": 1
+      },
+      {
+        "znacznik": "span",
+        "atrybut": "data-count",
+        "bylo": "60",
+        "jest": "25",
+        "razy": 1
+      },
+      {
+        "znacznik": "input",
+        "atrybut": "value",
+        "bylo": "85",
+        "jest": "65",
+        "razy": 1
+      },
+      {
+        "znacznik": "a",
+        "atrybut": "href",
+        "bylo": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atny%20audyt%20automatyzacji",
+        "jest": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
+        "razy": 2
+      },
+      {
+        "znacznik": "a",
+        "atrybut": "data-track",
+        "bylo": "E-mail: Umów audyt",
+        "jest": "E-mail: Umów konsultację",
+        "razy": 1
+      }
+    ],
+    "dodane": [],
+    "usuniete": []
+  },
+  "geometria": {
+    "sekcje": [
+      {
+        "selektor": "header",
+        "opis": "Przyciski „Umów konsultację” w nagłówku i „Umów bezpłatną konsultację” w menu mobilnym są dłuższe niż dotychczasowe napisy."
+      },
+      {
+        "selektor": "main > section:nth-of-type(1)",
+        "opis": "Przycisk „Umów bezpłatną konsultację” w hero jest dłuższy o 6 znaków i w 390 px może zawinąć się do drugiej linii."
+      },
+      {
+        "selektor": "main > section:nth-of-type(2)",
+        "opis": "Nowe podpisy liczb i jednostki „drogi” oraz „min” są dłuższe niż „+” i „%”, więc kafle mogą urosnąć."
+      },
+      {
+        "selektor": "#mozliwosci",
+        "opis": "Nazwa firmy w przykładowym ekranie zmienia się na „POLPAK Sp. z o.o.”, o znak krótszą; wpis zapobiegawczo."
+      },
+      {
+        "selektor": "#kalkulator",
+        "opis": "Podpis „Wartość odzyskanego czasu w roku” i przycisk „Sprawdź to na konsultacji” są dłuższe w wąskiej kolumnie wyniku."
+      },
+      {
+        "selektor": "#proces",
+        "opis": "Opis kroku 3 „Pierwsza automatyzacja: 14 dni roboczych od dostępu do systemów” jest dłuższy i może zająć drugą linię."
+      },
+      {
+        "selektor": "#pakiety",
+        "opis": "Nowe punkty o monitoringu i czasie reakcji w kaflach opieki są dłuższe."
+      },
+      {
+        "selektor": "#bezpieczenstwo",
+        "opis": "Nowy tekst kafla o RODO ma inną długość niż poprzedni."
+      },
+      {
+        "selektor": "#faq",
+        "opis": "Wstęp i trzy odpowiedzi FAQ mają nowe brzmienie o innej długości."
+      },
+      {
+        "selektor": "#kontakt",
+        "opis": "Wstęp formularza, napis opcji tematu i przycisk „Umów konsultację” są dłuższe."
+      },
+      {
+        "selektor": "footer",
+        "opis": "Odnośnik „Umów konsultację” w stopce jest dłuższy niż „Umów audyt”."
+      }
+    ],
+    "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
+  }
+}

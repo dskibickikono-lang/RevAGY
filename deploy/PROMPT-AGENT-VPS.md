@@ -48,6 +48,18 @@ curl -s --compressed https://skibilabs.pl/ | sha256sum
 curl -s -o /dev/null -w 'sms-dlr=%{http_code}\n' https://sms-dlr.skibilabs.pl/
 ```
 
+Odczytaj różnicę manifestów bieżącego i nowego wydania (tylko odczyt, bez `sudo`). Manifest nowego wydania to plik `revagy-dist-$NEW_SHA.manifest.sha256` z artefaktu CI (Faza 1), więc ten krok wykonaj po jego pobraniu i sprawdzeniu `SHA256SUMS`, przed Fazą 3:
+
+```bash
+OLD_SHA="<OCZEKIWANY_BIEZACY_SHA_Z_ZATWIERDZENIA>"
+NEW_SHA="<PELNY_SHA_ZATWIERDZONEGO_COMMITA>"
+WORK="$HOME/revagy-release/$NEW_SHA"
+# składnia <( ) wymaga bash
+diff <(sort /var/www/revagy.pl/manifests/"$OLD_SHA".sha256) <(sort "$WORK/revagy-dist-$NEW_SHA.manifest.sha256")
+```
+
+Lista zmienionych, dodanych i usuniętych plików musi być taka sama jak lista zmian opisana w PR danego etapu (np. dla etapu 0: wyłącznie `index.html`, `kontakt.html`, `polityka-prywatnosci.html`, `404.html`, `llms.txt`, `llms-full.txt`). Każdy inny plik na liście, zwłaszcza `assets/css/styles.css`, `assets/js/*` albo `assets/video/*`, wstrzymuje wydanie do wyjaśnienia z właścicielem.
+
 ---
 
 ## Faza 1. Artefakt z CI i weryfikacja sum

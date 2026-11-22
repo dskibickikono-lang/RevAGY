@@ -50,7 +50,16 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Test dymny (lokalny TLS, atrapa Matomo)
-        run: npm run test:smoke -- --serve=dist
+        run: npm run test:smoke -- --serve=dist --zrzuty="$RUNNER_TEMP/podglad"
+
+      - name: Zrzuty strony do podglądu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: podglad-${{ github.sha }}
+          path: ${{ runner.temp }}/podglad/
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Testy deploy/wydanie.sh
         run: npm run test:deploy
@@ -81,3 +90,12 @@ jobs:
           path: ${{ runner.temp }}/release/
           if-no-files-found: error
           retention-days: 30
+
+      - name: Katalog dist przy błędzie (do odtworzenia kontraktu)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-roboczy-${{ github.sha }}
+          path: dist/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,12 +1,26 @@
 #!/usr/bin/env node
-/* Walidator katalogu wynikowego (site/ lub dist/) dla strony REVAGY.
-   Sprawdza kompletność 37 plików, brak symlinki/hardlinków/wykonywalnych/_astro/inline JS,
-   sumy SHA-256 wszystkich 31 publicznych assetów, pełny kontrakt DOM/SEO z tools/dom-contract.json,
-   dane strukturalne JSON-LD (jedyny dopuszczony blok <script> bez src, nie jest wykonywany)
-   oraz pliki generowane przy buildzie: llms.txt i llms-full.txt.
+/* Walidator katalogu wynikowego (dist/) dla strony REVAGY.
+   Liczby plików i stron bierze z tools/dom-contract.json (nic nie jest wpisane na stałe). Sprawdza:
+   - kompletność: każdy plik z kontraktu jest, żadnego nadmiarowego; brak symlinków, hardlinków,
+     plików wykonywalnych, katalogu _astro/ i inline JS;
+   - sumy SHA-256 i rozmiary plików publicznych (publicFiles) oraz stron HTML (htmlBaseline);
+   - blokadę strony głównej: dist/index.html bajtowo równy migawce tools/baseline/index.html;
+   - pełny kontrakt DOM/SEO każdej strony (pages) i formularz kontaktowy (contactForm);
+   - listę skryptów stron (dla nowych podstron z tools/podstrony.json, jeśli plik istnieje);
+   - mapę witryny: adresy z sitemap.xml = adresy kanoniczne stron bez noindex, w obie strony;
+   - limity wagi mediów (mediaBudget);
+   - dane strukturalne JSON-LD (jedyny dopuszczony blok <script> bez src, nie jest wykonywany)
+     oraz pliki generowane przy buildzie: llms.txt i llms-full.txt.
 
    Użycie:
-     node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>]
+     node tools/validate-dist.cjs <katalog> [--manifest-out=<ścieżka>] [--bez-blokad-bajtowych]
+
+   --bez-blokad-bajtowych  wyłącza wyłącznie migawkę strony głównej i htmlBaseline (sumy stron HTML).
+     Tylko dla tools/test-formularz.cjs, który buduje stronę z testowym kluczem Turnstile, więc strony
+     z formularzem różnią się bajtowo od wydania. Wszystkie pozostałe kontrole działają. Nie używać w CI.
+
+   Eksport (dla tools/update-contract.cjs i narzędzi porównujących):
+     parseHtml, extractHtmlContract, pageComparison, collectFiles, sha256File
 */
 'use strict';
 
@@ -597,10 +611,145 @@ function checkGeneratedFiles(targetDir, spec, actualMap) {
   return errs;
 }
 
+const ROOT = path.join(__dirname, '..');
+const SNAPSHOT_PATH = path.join(__dirname, 'baseline', 'index.html');
+const PODSTRONY_PATH = path.join(__dirname, 'podstrony.json');
+
+// Formularz kontaktowy: jedna wspólna suma HTML (klucz witryny zastąpiony stałą), a kontrakt DOM
+// strony liczony jest z HTML bez formularza i bez jego skryptu. Tej samej funkcji używa update-contract.cjs.
+function pageComparison(pageRel, html) {
+  const result = { comparisonHtml: html, formCount: 0, formHash: null, sitekeyOk: true, hasForm: false };
+  const forms = [...html.matchAll(/<form\b[\s\S]*?<\/form>/g)];
+  if ((pageRel === 'index.html' || pageRel === 'kontakt.html') && forms.length) {
+    const formHtml = forms[0][0];
+    const sitekey = formHtml.match(/data-sitekey="([^"]+)"/);
+    const normalizedForm = formHtml.replace(/data-sitekey="[^"]*"/, 'data-sitekey="PUBLIC_SITEKEY"');
+    result.hasForm = true;
+    result.formCount = forms.length;
+    result.sitekeyOk = Boolean(sitekey && sitekey[1].trim());
+    result.formHash = crypto.createHash('sha256').update(normalizedForm).digest('hex');
+    result.comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/?assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
+  }
+  return result;
+}
+
+// Pliki katalogu wynikowego z sumami (ta sama lista co w manifeście wydania)
+function collectFiles(targetDir) {
+  const { files, errors } = walkDirStrict(targetDir);
+  const actualMap = new Map();
+  const manifestLines = [];
+  for (const f of files) {
+    const hash = sha256File(f.full);
+    actualMap.set(f.rel, { sha256: hash, size: f.size, full: f.full });
+    manifestLines.push(`${hash}  ${f.rel}\n`);
+  }
+  return { files, errors, actualMap, manifestLines };
+}
+
+// Blokada strony głównej: bajtowa zgodność z migawką, przy różnicy numer i treść pierwszej innej linii
+function checkSnapshot(actualMap) {
+  const entry = actualMap.get('index.html');
+  if (!entry) return [];
+  const rel = path.relative(ROOT, SNAPSHOT_PATH).split(path.sep).join('/');
+  if (!fs.existsSync(SNAPSHOT_PATH)) return [`Brak migawki strony głównej ${rel}`];
+  const want = fs.readFileSync(SNAPSHOT_PATH);
+  const got = fs.readFileSync(entry.full);
+  if (want.equals(got)) return [];
+  const a = want.toString('utf8').split('\n');
+  const b = got.toString('utf8').split('\n');
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) i++;
+  const cut = (s) => (s === undefined ? '(brak linii)' : JSON.stringify(s.length > 240 ? `${s.slice(0, 240)}…` : s));
+  return [
+    `index.html różni się od migawki ${rel} (${got.length} B, migawka ${want.length} B). Pierwsza różnica w linii ${i + 1}:`
+      + `\n      migawka: ${cut(a[i])}\n      dist:    ${cut(b[i])}`
+      + `\n    Jeśli zmiana jest zamierzona: node tools/update-contract.cjs <dist> --snapshot`,
+  ];
+}
+
+// htmlBaseline: suma i rozmiar każdej strony wpisanej w to pole
+function checkHtmlBaseline(contract, actualMap) {
+  const errs = [];
+  for (const [rel, meta] of Object.entries(contract.htmlBaseline || {})) {
+    const got = actualMap.get(rel);
+    if (!got) { errs.push(`htmlBaseline: brak strony ${rel}`); continue; }
+    if (got.sha256 !== meta.sha256 || got.size !== meta.size) {
+      errs.push(`htmlBaseline: rozbieżność strony ${rel}: oczekiwano ${meta.sha256} (${meta.size} B), jest ${got.sha256} (${got.size} B)`);
+    }
+  }
+  return errs;
+}
+
+// Mapa witryny = adresy kanoniczne stron bez noindex, w obie strony
+function checkSitemap(targetDir, actualMap) {
+  const errs = [];
+  const sitemapPath = path.join(targetDir, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) return ['sitemap.xml: brak pliku'];
+  const locs = [...fs.readFileSync(sitemapPath, 'utf8').matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  const inSitemap = new Set(locs);
+  if (inSitemap.size !== locs.length) errs.push('sitemap.xml: zdublowane adresy');
+  const canonicals = new Map();
+  for (const [rel, entry] of actualMap) {
+    if (!rel.endsWith('.html')) continue;
+    const parsed = extractHtmlContract(fs.readFileSync(entry.full, 'utf8'));
+    const robots = parsed.meta.find((m) => (m.name || '').toLowerCase() === 'robots');
+    if (robots && /noindex/i.test(robots.content || '')) continue;
+    if (!parsed.canonical) { errs.push(`${rel}: strona bez noindex nie ma adresu kanonicznego`); continue; }
+    if (canonicals.has(parsed.canonical)) errs.push(`${rel}: ten sam adres kanoniczny co ${canonicals.get(parsed.canonical)} (${parsed.canonical})`);
+    canonicals.set(parsed.canonical, rel);
+  }
+  for (const [url, rel] of canonicals) {
+    if (!inSitemap.has(url)) errs.push(`sitemap.xml: brak adresu kanonicznego strony ${rel} (${url})`);
+  }
+  for (const url of inSitemap) {
+    if (!canonicals.has(url)) errs.push(`sitemap.xml: adres ${url} nie jest adresem kanonicznym żadnej strony bez noindex`);
+  }
+  return errs;
+}
+
+// mediaBudget: { "assets/video/*.mp4": 1100000, ... } — gwiazdka obejmuje znaki bez „/”
+function checkMediaBudget(contract, actualMap) {
+  const errs = [];
+  for (const [pattern, maxBytes] of Object.entries(contract.mediaBudget || {})) {
+    const re = new RegExp(`^${pattern.split('*').map((s) => s.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*')}$`);
+    for (const [rel, entry] of actualMap) {
+      if (re.test(rel) && entry.size > maxBytes) {
+        errs.push(`mediaBudget: ${rel} ma ${entry.size} B, limit dla ${pattern} to ${maxBytes} B`);
+      }
+    }
+  }
+  return errs;
+}
+
+// tools/podstrony.json (opcjonalny): { "strony": [ { "plik": "…html", "film": "…" | null, "skrypty": ["…"] } ] }
+// Bez "skrypty" strona dostaje listę domyślną (analytics.js).
+function readPodstronyScripts() {
+  if (!fs.existsSync(PODSTRONY_PATH)) return { map: {}, errors: [] };
+  try {
+    const data = JSON.parse(fs.readFileSync(PODSTRONY_PATH, 'utf8'));
+    const map = {};
+    for (const s of data.strony || []) {
+      if (!s || typeof s.plik !== 'string' || (s.skrypty !== undefined && !Array.isArray(s.skrypty))) {
+        return { map: {}, errors: ['tools/podstrony.json: każda strona musi mieć pole "plik", a "skrypty" (jeśli jest) musi być tablicą'] };
+      }
+      if (s.skrypty) map[s.plik] = s.skrypty;
+    }
+    return { map, errors: [] };
+  } catch (e) {
+    return { map: {}, errors: [`tools/podstrony.json: niepoprawny JSON (${e.message})`] };
+  }
+}
+
 function main() {
   const args = process.argv.slice(2);
   const targetArg = args.find((a) => !a.startsWith('--'));
   const manifestArg = args.find((a) => a.startsWith('--manifest-out='));
+  const bezBlokadBajtowych = args.includes('--bez-blokad-bajtowych');
+  const unknownArgs = args.filter((a) => a.startsWith('--') && !a.startsWith('--manifest-out=') && a !== '--bez-blokad-bajtowych');
+  if (unknownArgs.length) {
+    console.error(`Nieznane opcje: ${unknownArgs.join(' ')}`);
+    process.exit(1);
+  }
   if (!targetArg) {
     console.error('Użycie: node tools/validate-dist.cjs <katalog> [--manifest-out=<plik>]');
     process.exit(1);
@@ -614,14 +763,7 @@ function main() {
   const contractPath = path.join(__dirname, 'dom-contract.json');
   const contract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
 
-  const { files, errors } = walkDirStrict(targetDir);
-  const actualMap = new Map();
-  const manifestLines = [];
-  for (const f of files) {
-    const hash = sha256File(f.full);
-    actualMap.set(f.rel, { sha256: hash, size: f.size, full: f.full });
-    manifestLines.push(`${hash}  ${f.rel}\n`);
-  }
+  const { files, errors, actualMap, manifestLines } = collectFiles(targetDir);
 
   const generatedFiles = contract.generatedFiles || {};
   const expectedAll = new Set([
@@ -636,7 +778,7 @@ function main() {
     if (!expectedAll.has(act)) errors.push(`Nadmiarowy plik w katalogu: ${act}`);
   }
 
-  // Sprawdź 31 publicznych assetów bajt po bajcie
+  // Sprawdź publiczne assety bajt po bajcie
   for (const [rel, meta] of Object.entries(contract.publicFiles)) {
     const got = actualMap.get(rel);
     if (!got) continue;
@@ -644,6 +786,18 @@ function main() {
       errors.push(`Rozbieżność pliku publicznego ${rel}: oczekiwano ${meta.sha256} (${meta.size} B), jest ${got.sha256} (${got.size} B)`);
     }
   }
+
+  // Strony HTML: sumy z htmlBaseline i bajtowa migawka strony głównej
+  if (bezBlokadBajtowych) {
+    console.log('UWAGA: --bez-blokad-bajtowych — migawka strony głównej i htmlBaseline NIE są sprawdzane.');
+  } else {
+    errors.push(...checkHtmlBaseline(contract, actualMap));
+    errors.push(...checkSnapshot(actualMap));
+  }
+
+  // Mapa witryny i limity wagi mediów
+  errors.push(...checkSitemap(targetDir, actualMap));
+  errors.push(...checkMediaBudget(contract, actualMap));
 
   // Sprawdź niezmienniki analytics.js
   const analyticsEntry = actualMap.get('assets/js/analytics.js');
@@ -663,14 +817,17 @@ function main() {
 
   // Sprawdź każdą stronę HTML i pełny kontrakt DOM
   // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js wszędzie (podstrony ścieżką względną).
+  // Nowe podstrony: lista skryptów z tools/podstrony.json (ma pierwszeństwo przed tablicą poniżej).
   const defaultPageScripts = ['assets/js/analytics.js?v=4'];
+  const podstrony = readPodstronyScripts();
+  errors.push(...podstrony.errors);
   const expectedScripts = {
     '404.html': ['/assets/js/analytics.js?v=4'],
     'index.html': ['assets/js/app.js?v=4', 'assets/js/analytics.js?v=4'],
     'kontakt.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
+    ...podstrony.map,
   };
-
 
   for (const [pageRel, expectedDom] of Object.entries(contract.pages)) {
     const entry = actualMap.get(pageRel);
@@ -679,19 +836,14 @@ function main() {
     if (html.includes('/_astro/')) errors.push(`${pageRel}: zawiera zabronioną referencję /_astro/`);
 
     const parsed = extractHtmlContract(html);
-    let comparisonHtml = html;
     let pageScripts = expectedScripts[pageRel] || defaultPageScripts;
-    const forms = [...html.matchAll(/<form\b[\s\S]*?<\/form>/g)];
-    if ((pageRel === 'index.html' || pageRel === 'kontakt.html') && forms.length) {
-      if (forms.length !== 1) errors.push(`${pageRel}: oczekiwano jednego formularza`);
-      const formHtml = forms[0][0];
-      const sitekey = formHtml.match(/data-sitekey="([^"]+)"/);
-      if (!sitekey || !sitekey[1].trim()) errors.push(`${pageRel}: formularz bez klucza witryny`);
-      const normalizedForm = formHtml.replace(/data-sitekey="[^"]*"/, 'data-sitekey="PUBLIC_SITEKEY"');
-      const formHash = crypto.createHash('sha256').update(normalizedForm).digest('hex');
-      if (formHash !== contract.contactForm.htmlSha256) errors.push(`${pageRel}: formularz niezgodny z kontraktem HTML`);
+    const cmp = pageComparison(pageRel, html);
+    const { comparisonHtml } = cmp;
+    if (cmp.hasForm) {
+      if (cmp.formCount !== 1) errors.push(`${pageRel}: oczekiwano jednego formularza`);
+      if (!cmp.sitekeyOk) errors.push(`${pageRel}: formularz bez klucza witryny`);
+      if (cmp.formHash !== contract.contactForm.htmlSha256) errors.push(`${pageRel}: formularz niezgodny z kontraktem HTML`);
       pageScripts = [contract.contactForm.script, ...pageScripts];
-      comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/?assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
     }
     if (parsed.stylesCount > 0) errors.push(`${pageRel}: zawiera wygenerowany blok <style>`);
     if (parsed.astroAttrs.length > 0) errors.push(`${pageRel}: zawiera atrybuty Astro (${parsed.astroAttrs.slice(0, 5).join(', ')})`);
@@ -754,11 +906,15 @@ function main() {
   const pageCount = Object.keys(contract.pages).length;
   const genCount = Object.keys(generatedFiles).length;
   const manifestSha = crypto.createHash('sha256').update(manifestLines.join('')).digest('hex');
-  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM, ${genCount} plików generowanych). Manifest SHA-256: ${manifestSha}`);
+  const baselineCount = Object.keys(contract.htmlBaseline || {}).length;
+  const bajtowo = bezBlokadBajtowych
+    ? 'htmlBaseline i migawka POMINIĘTE (--bez-blokad-bajtowych)'
+    : `${baselineCount}/${baselineCount} stron zgodnych z htmlBaseline, index.html zgodny z migawką`;
+  console.log(`WALIDACJA OK: ${files.length} plików (${publicCount}/${publicCount} assetów zgodnych bajtowo, ${pageCount}/${pageCount} stron zgodnych z kontraktem DOM, ${bajtowo}, ${genCount} plików generowanych). Manifest SHA-256: ${manifestSha}`);
 }
 
 if (require.main === module) {
   main();
 } else {
-  module.exports = { extractHtmlContract };
+  module.exports = { parseHtml, extractHtmlContract, pageComparison, collectFiles, sha256File };
 }
