@@ -4,6 +4,7 @@
   "host": "revagy.pl",
   "przebiegi": 3,
   "strony": [
-    { "plik": "finanse.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } }
+    { "plik": "finanse.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } },
+    { "plik": "sprzedaz.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } }
   ]
 }

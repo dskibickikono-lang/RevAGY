@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: zapytanie od odbioru do przypisania handlowca</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
+     z chwili POSTER_AT = 12 s (D-038; zapytanie z formularza na stronie w kolejce, wszystkie pola odczytane
+     i sprawdzone, ocena według kryteriów i propozycja przypisania handlowca czekają na akceptację,
+     do klienta nic nie wyszło, oś kroków ze znacznikiem na „Akceptacja”).
+     Pod etap filmowy: każdy element, który ma się pojawiać, ma własne id i stałe miejsce
+     w układzie (bez skoków), tło jest nieruchome, a window.render(t) już woła TL.apply(t), więc wystarczy dopisać
+     atrybuty data-at/data-out i ruch znacznika osi.
+     Dane poglądowe: bez nazw systemów, bez form prawnych, bez liczb (dane osoby zamaskowane). Firma w przykładzie
+     jak na ekranie strony głównej (D-027), bez formy prawnej. -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 440px; opacity: .42; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .36; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 560px; top: -300px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 56px 64px; display: grid; grid-template-rows: 1fr auto; gap: 30px; }
+  .top { display: grid; grid-template-columns: 340px 1fr 440px; gap: 24px; min-height: 0; }
+  .panel { border-radius: 30px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 60px 1fr; }
+  .panel.paper { background: var(--paper); color: var(--ink); border-color: transparent; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 15px; color: var(--dim); }
+  .paper .bar { border-color: var(--mist-2); color: var(--ink-2); }
+  .bar b { color: #fff; font-weight: 500; }
+  .paper .bar b { color: var(--ink); }
+  .bar .tag { margin-left: auto; font-size: 13px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+  .paper .bar .tag { border-color: var(--mist-2); }
+  .body { padding: 22px; display: grid; gap: 12px; align-content: start; }
+
+  /* kolejka zapytań: źródła; karta zapytania */
+  .src { border-radius: 20px; border: 1.5px solid var(--line); padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
+  .src svg { width: 36px; height: 36px; flex: none; }
+  .src b { font-family: var(--display); font-size: 19px; font-weight: 650; display: block; }
+  .src span { font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .src.on { border-color: var(--accent); background: rgba(255, 91, 20, .12); }
+  .doc { border-radius: 24px; background: var(--paper); color: var(--ink); padding: 18px; display: grid; gap: 10px; }
+  .doc .doc-title { font-family: var(--display); font-size: 20px; font-weight: 650; letter-spacing: -.01em; }
+  .doc .doc-meta { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+  .mid { display: grid; grid-template-rows: auto 1fr; gap: 20px; min-height: 0; }
+
+  /* odczyt i kontrola pól zapytania */
+  .field { display: grid; grid-template-columns: 170px 1fr auto; align-items: center; gap: 16px; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 18px; padding: 13px 18px; }
+  .field span { font-size: 16px; color: var(--dim); }
+  .field b { font-family: var(--display); font-size: 19px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .field em { font-style: normal; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .field.ok { border-color: rgba(25, 183, 122, .55); }
+
+  /* do akceptacji */
+  .acc-title { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .row { display: grid; gap: 4px; border-bottom: 1.5px solid var(--mist-2); padding-bottom: 12px; }
+  .row span { font-size: 15px; color: var(--ink-2); }
+  .row b { font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; line-height: 1.2; }
+  .who { display: flex; align-items: center; gap: 12px; font-size: 16px; color: var(--ink-2); }
+  .who i { width: 34px; height: 34px; border-radius: 50%; background: var(--mist-2); flex: none; }
+  .sent { font-family: var(--mono); font-size: 14px; color: var(--ink-2); border: 1.5px dashed var(--mist-2); border-radius: 14px; padding: 10px 14px; }
+  .decide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .decide b { text-align: center; font-family: var(--display); font-size: 18px; font-weight: 650; border-radius: 999px; padding: 12px 10px; }
+  .decide .go { background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
+  .decide .stop { border: 1.5px solid var(--ink); color: var(--ink); }
+
+  /* oś kroków procesu */
+  .axis { border-radius: 28px; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); padding: 22px 30px 24px; display: grid; gap: 16px; }
+  .track { position: relative; height: 12px; border-radius: 999px; background: var(--night-3); }
+  .track .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 75%; border-radius: 999px; background: linear-gradient(90deg, var(--plum), var(--accent)); }
+  .track .pin { position: absolute; top: 50%; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: var(--paper); border: 5px solid var(--accent); }
+  .track .s1 { left: 0; } .track .s2 { left: 25%; } .track .s3 { left: 50%; } .track .s4 { left: 75%; } .track .s5 { left: 100%; }
+  .track .now { left: 75%; background: var(--accent); border-color: var(--paper); }
+  .steps { position: relative; height: 30px; }
+  .steps span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; color: var(--dim); }
+  .steps span.done { color: #fff; }
+  .steps span.cur { color: var(--accent); }
+  .steps .k1 { left: 0; transform: none; } .steps .k2 { left: 25%; } .steps .k3 { left: 50%; } .steps .k4 { left: 75%; } .steps .k5 { left: 100%; transform: translateX(-100%); }
+  .note { font-family: var(--mono); font-size: 13px; color: var(--dim); text-align: right; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <div class="top">
+      <section class="panel" id="p-kolejka">
+        <div class="bar"><b>Kolejka zapytań</b><span class="tag">jedno miejsce</span></div>
+        <div class="body">
+          <div class="src on" id="src-formularz">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="5" fill="none" stroke="#b9b2bb" stroke-width="2.4"/><path d="M12 15h16M12 21h16M12 27h9" stroke="#b9b2bb" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div><b>Formularz na stronie</b><span>zapytanie ofertowe</span></div>
+          </div>
+          <div class="src" id="src-poczta">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="9" width="30" height="22" rx="4" fill="none" stroke="#b9b2bb" stroke-width="2.4"/><path d="m6 11 14 11 14-11" fill="none" stroke="#b9b2bb" stroke-width="2.4" stroke-linejoin="round"/></svg>
+            <div><b>Poczta</b><span>wiadomość od klienta</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="mid">
+        <div class="doc" id="doc">
+          <p class="doc-title">Zapytanie</p>
+          <p class="doc-meta">POLPAK · formularz na stronie</p>
+        </div>
+        <section class="panel" id="p-kontrola">
+          <div class="bar"><b>Odczyt i kontrola</b><span class="tag" id="tag-kontrola">przed zapisem</span></div>
+          <div class="body">
+            <div class="field ok" id="f-firma"><span>Firma</span><b>POLPAK</b><em>nowa w CRM</em></div>
+            <div class="field ok" id="f-osoba"><span>Osoba do kontaktu</span><b>•••• ••••</b><em>podana</em></div>
+            <div class="field ok" id="f-temat"><span>Czego dotyczy</span><b>opakowania na zamówienie</b><em>opisane</em></div>
+            <div class="field ok" id="f-termin"><span>Termin</span><b>oczekiwany przez klienta</b><em>podany</em></div>
+            <div class="field ok" id="f-kryteria"><span>Kryteria</span><b>według Waszych reguł</b><em>spełnione</em></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel paper" id="p-akceptacja">
+        <div class="bar"><b>Do akceptacji</b><span class="tag">decyzja człowieka</span></div>
+        <div class="body">
+          <p class="acc-title">Propozycja według Waszych kryteriów</p>
+          <div class="row" id="r-ocena"><span>Ocena</span><b>pasuje do kryteriów</b></div>
+          <div class="row" id="r-handlowiec"><span>Handlowiec</span><b>opiekun regionu</b></div>
+          <div class="row" id="r-zadanie"><span>Zadanie</span><b>pierwszy kontakt z klientem</b></div>
+          <div class="who" id="who"><i></i><span>Czeka na: szef zespołu handlowego</span></div>
+          <p class="sent" id="sent">Do klienta: nic nie wysłano</p>
+          <div class="decide" id="decide"><b class="go">Akceptuję</b><b class="stop">Do poprawy</b></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="axis">
+      <div class="track"><i class="fill" id="fill"></i><i class="pin s1"></i><i class="pin s2"></i><i class="pin s3"></i><i class="pin s4"></i><i class="pin s5"></i><i class="pin now" id="now"></i></div>
+      <div class="steps">
+        <span class="k1 done">Odbiór</span><span class="k2 done">Odczyt</span><span class="k3 done">Ocena</span><span class="k4 cur">Akceptacja</span><span class="k5">CRM</span>
+      </div>
+      <p class="note">Dane poglądowe</p>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 14;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 12 s (D-038): wszystkie pola sprawdzone, propozycja czeka na akceptację, znacznik na „Akceptacja”.
+window.POSTER_AT = 12;
+const { apply } = TL;
+const TAU = Math.PI * 2;
+
+// Poświaty nieruchome (tło bez ruchu), w tym samym położeniu w każdej chwili osi czasu.
+['g1', 'g2', 'g3'].forEach((id, i) => {
+  const a = TAU * 12 / 14 + i * 2.1;
+  document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+});
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję. Etap filmowy dopisze data-at/data-out
+// (apply) oraz ruch #fill i #now wzdłuż pięciu kroków osi.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  apply(t);
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>

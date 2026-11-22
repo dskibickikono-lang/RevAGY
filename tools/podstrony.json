@@ -39,6 +39,11 @@
       "plik": "finanse.html",
       "film": "finanse",
       "skrypty": ["assets/js/app.js?v=5", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=5", "assets/js/clarity.js?v=1"]
+    },
+    {
+      "plik": "sprzedaz.html",
+      "film": "sprzedaz",
+      "skrypty": ["assets/js/app.js?v=5", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=5", "assets/js/clarity.js?v=1"]
     }
   ]
 }

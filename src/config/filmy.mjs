@@ -81,6 +81,16 @@ export const FILMY = {
     czasSekundy: 14,
     dataPublikacji: '2026-11-22',
   },
+  'sprzedaz': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Poglądowy ekran: zapytanie z formularza na stronie po odczycie i kontroli pól, z oceną według kryteriów i propozycją przypisania handlowca, czeka na akceptację osoby z działu sprzedaży. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: zapytanie od odbioru do przypisania handlowca',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Zapytanie od odbioru do przypisania handlowca',
+    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a ocena według kryteriów klienta i propozycja przypisania handlowca czekają na akceptację osoby po stronie klienta. Po akceptacji zapytanie trafia do CRM z zadaniem dla handlowca. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

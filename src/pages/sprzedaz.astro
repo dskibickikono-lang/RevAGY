@@ -1,0 +1,226 @@
+---
+// Etap 9 (T-027): podstrona działowa „Sprzedaż”. Trzy procesy w kolejności z menu: kwalifikacja leadów, oferty, follow-upy.
+// Bez nazw własnych systemów, także CRM (D-018, D-033). Wiadomości i przypomnienia dotyczą tylko osób, które same się
+// zgłosiły albo już są w rozmowie. Strona nie rozstrzyga, czy dane klienta przetwarzają modele AI
+// (BEZPIECZENSTWO.aiNaDanychKlienta), i nie obiecuje wdrożenia u klienta (BEZPIECZENSTWO.wdrozenieUKlienta).
+// Opis wdrożenia pochodzi z innego działu (kandydaci-zgloszenia, D-034), z treścią i liczbami jak na /wdrozenia.html.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
+import Autor from '../components/Autor.astro';
+
+const aktualizacja = '2026-11-22';
+
+const pytania = [
+  {
+    pytanie: 'Czy to zastąpi handlowca?',
+    odpowiedz: 'Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porządkowanie danych. Rozmowa z klientem, cena, rabat i warunki oferty oraz akceptacja oferty i wiadomości zostają u handlowców i u osób, które wskażecie.',
+  },
+  {
+    pytanie: 'Jakie systemy CRM obsługujecie?',
+    odpowiedz: 'Są trzy drogi: interfejs API, wymiana plików albo dostęp do bazy danych za zgodą dostawcy. Którą da się zastosować, zależy od tego, co udostępnia Wasz CRM, i od jego licencji. Jeśli CRM nie ma eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.',
+    odnosnik: { href: 'porownanie-rozwiazan.html', tekst: 'Porównanie rozwiązań' },
+  },
+  {
+    pytanie: 'Czy wysyłacie wiadomości do klientów za nas?',
+    odpowiedz: 'Domyślnie nie. Wiadomość powstaje jako szkic, a wysyła ją handlowiec po akceptacji. Które wiadomości mogą wychodzić bez akceptacji, ustalacie z nami w audycie. Wiadomości dotyczą tylko osób, które same się zgłosiły albo już są z Wami w rozmowie.',
+  },
+  {
+    pytanie: 'Czy musimy zmieniać CRM albo pocztę?',
+    odpowiedz: 'Nie. Łączymy systemy, na których pracujecie.',
+  },
+  {
+    pytanie: 'Od którego procesu zacząć?',
+    odpowiedz: 'Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład kwalifikacji leadów. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.',
+    odnosnik: { href: 'jak-wybrac-pierwszy-proces.html', tekst: 'Jak wybrać pierwszy proces do automatyzacji' },
+  },
+  {
+    pytanie: 'Ile to kosztuje?',
+    odpowiedz: 'Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.',
+  },
+];
+---
+<PodstronaLayout
+  plik="sprzedaz.html"
+  tytul="Automatyzacja w dziale sprzedaży: leady, oferty, follow-upy | REVAGY"
+  opis="Zapytania, oferty i przypomnienia o dalszym kroku bez ręcznego przepisywania do CRM. Rozmowa z klientem i cena zostają u Was. Umów bezpłatną konsultację."
+  okruszek="Sprzedaż"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Automatyzacja procesów w dziale sprzedaży',
+    opis: 'Automatyzacja kwalifikacji zapytań, przygotowania ofert i przypomnień o dalszym kroku. Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja zostają po stronie klienta.',
+    rodzaj: 'Automatyzacja procesów',
+  }}
+  pytania={pytania}
+  film="sprzedaz"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Kwalifikacja leadów, oferty i follow-upy bez ręcznego przepisywania</h1>
+      <p class="lead">Automatyzujemy trzy procesy działu sprzedaży: kwalifikację leadów, czyli zapytań od firm, które same się zgłosiły, przygotowanie ofert i follow-upy, czyli przypomnienia o dalszym kroku. Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja zostają u Was.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <p>Dla dyrektora sprzedaży, szefa zespołu handlowego i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#kwalifikacja">Zobacz, co się zmienia w procesach</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Zapytanie od odbioru do przypisania handlowca</h2>
+      <p class="lead">Zapytanie z formularza na stronie albo z poczty trafia do jednej kolejki. Jego pola są odczytane i sprawdzone, a ocena według Waszych kryteriów i propozycja przypisania handlowca czekają na akceptację osoby po Waszej stronie.</p>
+      <ul class="ticks">
+        <li>Zapytanie trafia do jednej kolejki, bez względu na to, jak przyszło.</li>
+        <li>Odczytane pola przechodzą kontrolę przed zapisem.</li>
+        <li>Ocena i przypisanie handlowca czekają na akceptację człowieka.</li>
+        <li>Po akceptacji zapytanie trafia do CRM z zadaniem dla handlowca.</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="sprzedaz" />
+  </section>
+
+  <section class="section wrap" id="kwalifikacja">
+    <header class="section-head reveal">
+      <h2 class="h2">Kwalifikacja leadów</h2>
+      <p class="lead">Odbiór, odczyt, ocena i przypisanie handlowca do akceptacji.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Zapytania przychodzą przez formularz na stronie, na wspólną skrzynkę i do skrzynek handlowców. Ktoś je zbiera, przepisuje dane do CRM, szuka handlowca, który się nimi zajmie, i pilnuje, żeby żadne nie zginęło.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Zapytania z formularza na stronie i z poczty trafiają do jednej kolejki.</li>
+          <li>Pola zapytania są odczytane: firma, osoba do kontaktu, czego dotyczy i oczekiwany termin.</li>
+          <li>Kontrola przed zapisem wychwytuje firmę, która już jest w CRM, i zapytanie bez danych do kontaktu.</li>
+          <li>Ocena według kryteriów, które spisujemy z Wami w audycie, i propozycja przypisania handlowca czekają na akceptację.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Akceptacja oceny i przypisania handlowca. Zapytanie, które nie przeszło kontroli, trafia do wskazanej osoby z opisem, czego brakuje.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="oferty">
+    <header class="section-head reveal">
+      <h2 class="h2">Oferty</h2>
+      <p class="lead">Szablon, dane z CRM i oferta do akceptacji.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Handlowiec kopiuje poprzednią ofertę, przepisuje dane klienta z CRM i pozycje z cennika, a potem szuka osoby, która ją zatwierdzi. Wersje krążą w poczcie, a kto zgodził się na rabat, trudno potem odtworzyć.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Oferta powstaje z Waszego szablonu, z danymi klienta i zapytania z CRM.</li>
+          <li>Pozycje i ceny katalogowe są pobrane z Waszego cennika.</li>
+          <li>Kontrola przed zapisem wychwytuje brakujące pole i pozycję spoza cennika.</li>
+          <li>Oferta czeka na akceptację osoby, którą wskażecie, a w CRM zostaje zapisana jej wersja, status i to, kto ją zaakceptował.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Cena, rabat, warunki i akceptacja oferty. Zapytanie, które nie pasuje do szablonu, na przykład niestandardowy zakres, trafia do handlowca, który prowadzi rozmowę.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="follow-upy">
+    <header class="section-head reveal">
+      <h2 class="h2">Follow-upy</h2>
+      <p class="lead">Przypomnienia o dalszym kroku, statusy w CRM i raport lejka.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Ktoś przegląda listę wysłanych ofert, pamięta, do kogo wrócić, i notuje w arkuszu, kto obiecał odpowiedź. Status rozmowy z klientem zna jedna osoba.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Przypomnienie o dalszym kroku przychodzi do handlowca według terminów ustalonych z Wami, po wysłaniu oferty i po rozmowie.</li>
+          <li>Wiadomość do klienta, który dostał ofertę, powstaje jako szkic i czeka na akceptację handlowca.</li>
+          <li>Status każdej rozmowy widać w CRM: wysłana oferta, odpowiedź klienta, ustalony termin.</li>
+          <li>Raport lejka, czyli ile zapytań i ofert jest na każdym etapie, powstaje z danych w CRM.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Rozmowa z klientem i decyzja o dalszym kroku. Odpowiedź klienta, która nie pasuje do schematu, na przykład prośba o zmianę warunków, trafia do osoby, która prowadzi relację.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="kroki">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak zaczynamy</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</li>
+      <li>Audyt procesu, 3–5 dni roboczych, 1 990 zł, w całości wliczane we wdrożenie. 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Wdrożenie. Pierwsza automatyzacja: 14 dni roboczych od dnia, w którym mamy dostęp do systemów.</li>
+      <li>Opieka: monitoring i czas reakcji zapisane w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap" id="wdrozenie">
+    <header class="section-head reveal">
+      <h2 class="h2">Ten sam mechanizm w innym dziale</h2>
+      <p class="lead">Opis poniżej nie pochodzi z działu sprzedaży, tylko z rekrutacji. Mechanizm jest ten sam: zgłoszenie z formularza trafia do systemu bez ręcznego przenoszenia. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
+    </header>
+    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w 5 minut">
+      <p class="autor">Rekrutacja, nie dział sprzedaży.</p>
+      <p>Zgłoszenia kandydatów czekały na ręczne przeniesienie do systemu rekrutacyjnego. Zanim rekruter je zobaczył, mijało ok. 48 godzin.</p>
+      <p><strong>Co połączyliśmy:</strong> formularze zgłoszeniowe i system rekrutacyjny.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>kandydat w systemie w 5 minut zamiast po ok. 48 godzinach</li>
+        <li>ok. 30% więcej kontaktów z kandydatami tego samego dnia</li>
+      </ul>
+    </OpisWdrozenia>
+    <Ujawnienie />
+  </section>
+
+  <section class="section wrap" id="dane">
+    <header class="section-head reveal">
+      <h2 class="h2">Dane z CRM i umowa powierzenia</h2>
+      <p class="lead">Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu, a każdy zapis ma wpis w dzienniku. Mamy ubezpieczenie odpowiedzialności zawodowej na 1 mln zł. Odpowiedzi dla działu IT są na stronie <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>.</p>
+    </header>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania działu sprzedaży</h2>
+      <p class="lead">Nie ma tu Waszego? Zadajcie je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Zacznijmy od jednego procesu w sprzedaży</h2>
+        <p class="lead">Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
