@@ -74,8 +74,8 @@
       "size": 75489
     },
     "assets/js/analytics.js": {
-      "sha256": "8c67cde3482c36d84a23d27068186c0cac7ac008cf5342065570afc17386a6b6",
-      "size": 8296
+      "sha256": "33890ae945454f8a4ee4d4ff937e374738f23d4ac09b74c7af2fb4eff0da692b",
+      "size": 8348
     },
     "assets/js/app.js": {
       "sha256": "a7a04ed5fa8cbd15973e3737018ceef816707ec17b129a633e794a2ee3e50f27",
@@ -220,51 +220,51 @@
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "3f3dc2dedfd0e94adbc59abd55d19097c38991f7fbfebf3da60fb6718826e7c2",
+      "sha256": "f1f8787e162d1083f958362c20440f9ce7a8659dbc32df1b5c367115dafa9fea",
       "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "23ec7de5aebca34b08d52c6b2d9733b6fb1369923377971f327b8871c7db0b4d",
+      "sha256": "4575d387a915dc9a96f72c26b10a9361a9084148121c0dc753d9c6854879065f",
       "size": 24175
     },
     "dla-firm.html": {
-      "sha256": "362953c12e7ad257df3b70607223da3e417e44d98e49b7cf541585486dd6749a",
+      "sha256": "97911513bb887abaf4405b4c2eaa91afd8b54f474bf098f151235b02ae3a116f",
       "size": 24754
     },
     "finanse.html": {
-      "sha256": "342931150289659b82c7816a185b39edb7bc7a99886607bda05fdd5acca441e1",
+      "sha256": "90bae3191df6e3bb91db59ef506ceee37dc76c1f1c134589aa926835b130bb37",
       "size": 25068
     },
     "index.html": {
-      "sha256": "ca6d4c351eee6590e1d3ca23d092819ca0bf381217477540e5bee9053d97a514",
+      "sha256": "eb16834e4dad14b99bd38edc4383394ec95990b937870611a40f7fbda64c2f82",
       "size": 46551
     },
     "integracja-systemow.html": {
-      "sha256": "f1ca878ae0269c53965ec6c555c19432e41f039938fe1e9c57d02d4469e29c7e",
+      "sha256": "1ed3e6d253bdea9eeb7c9b0b7b0818b3db33d97b1836d1a2bac7d6f3e7b492d2",
       "size": 25718
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "96e2b874d851c4ce2da2a14b365998b83c33cba4dd9d6807b7362f4b3bbcb8ac",
+      "sha256": "e2a3e9cf8724584690150e5c11ff379cb1ffd6a51fca5b921258f8d174994efa",
       "size": 24361
     },
     "kontakt.html": {
-      "sha256": "a0cd35ccd45f0f61c327f23302dc9d1d96c33d2eacec9c78314f53609e3b909c",
+      "sha256": "3ca8435fbaedb3c31f3228075fc2ba9646dd72ebe83c8f6c73ac1c0518b64b27",
       "size": 8287
     },
     "polityka-prywatnosci.html": {
-      "sha256": "a5b5e9c261590ad941a747d039c33ac351ed7c59c394254555af9b8c5b9110bd",
+      "sha256": "a98f022e6b53f3de0fdfaee7a6e2357307d1c6856a6704d115bcdd9570a3b2f7",
       "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "3ee043fc3062e9ff9a1dc844b73be59ce98039c3b5d12d7f1cde5c274036a9f7",
+      "sha256": "62253374c154c79cc89c0f214e0db0f415382fe0e7f51b1de1e3a8fd600088a1",
       "size": 23891
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "eba6ec812128f6ee37485316e56ec2154c4d610ecf9d04bff308911d86ad3eab",
+      "sha256": "5fbacfb868aeaee259bbc09b60c2c5f0105db4d6f815f068e96bf6c8f99b5ea3",
       "size": 24720
     },
     "wdrozenia.html": {
-      "sha256": "78a82049582f7db3f5e24c7315171263c134effdc07a2f5d1b7c28a00149067f",
+      "sha256": "eb841c17a82fcb6baeb9f39546c06915b9cf65d1dc3d1e2785dc83e865b9b410",
       "size": 22482
     }
   },
@@ -328,7 +328,7 @@
       ],
       "scripts": [
         {
-          "src": "/assets/js/analytics.js?v=4",
+          "src": "/assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -479,7 +479,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "/assets/js/analytics.js?v=4"
+          "val": "/assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -646,7 +646,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -2173,7 +2173,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -2347,7 +2347,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -3838,7 +3838,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -4012,7 +4012,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -5521,7 +5521,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -5696,7 +5696,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -8355,7 +8355,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -8529,7 +8529,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -10106,7 +10106,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -10280,7 +10280,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -11678,7 +11678,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -11770,7 +11770,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -12037,7 +12037,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -12122,7 +12122,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -12384,7 +12384,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -12551,7 +12551,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -13867,7 +13867,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -14041,7 +14041,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -15532,7 +15532,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",
@@ -15706,7 +15706,7 @@
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=4",
+          "src": "assets/js/analytics.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -17139,7 +17139,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=4"
+          "val": "assets/js/analytics.js?v=5"
         },
         {
           "tag": "script",

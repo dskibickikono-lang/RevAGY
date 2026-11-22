@@ -1,14 +1,14 @@
 {
-  "etap": "T-023",
-  "opis": "T-023, przycisk filmu (decyzja właściciela z 22.11.2026): zmiana zachowania dostępności bez zmiany wyglądu. app.js przy wstrzymaniu i wznowieniu filmu zmienia tylko aria-pressed; nazwa dostępna przycisku zostaje stała („Wstrzymaj film”). Jedyna zmiana strony głównej to wersja skryptu w znaczniku <script>: assets/js/app.js?v=4 na assets/js/app.js?v=5. Różnica między tools/baseline/index.baza.html (migawka z main 0e72e39, po etapie 8) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
+  "etap": "T-024",
+  "opis": "T-024, baner zgody po włączeniu Microsoft Clarity (propozycja do akceptacji właściciela z 22.11.2026): w analytics.js zdanie „Dane zostają na naszym serwerze.” zastąpione zdaniem „Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity.”. Baner jest wstawiany skryptem, więc HTML strony głównej zmienia się tylko o wersję skryptu w znaczniku <script>: assets/js/analytics.js?v=4 na assets/js/analytics.js?v=5. Różnica między tools/baseline/index.baza.html (migawka z main 43efbf5, po T-023) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
       {
         "znacznik": "script",
         "atrybut": "src",
-        "bylo": "assets/js/app.js?v=4",
-        "jest": "assets/js/app.js?v=5",
+        "bylo": "assets/js/analytics.js?v=4",
+        "jest": "assets/js/analytics.js?v=5",
         "razy": 1
       }
     ],
