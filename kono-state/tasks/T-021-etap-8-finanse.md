@@ -3,14 +3,14 @@ id: T-021
 title: Etap 8 — podstrona działowa „Finanse” (/finanse.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-8-finanse
 base: main (a3ce70d)
 depends_on: T-014
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/24
-sha: cbeae8a8d0bf7dbc8463cedd7740dc59016d69c9 (zmiany)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/24 (scalony do main)
+sha: 15d0da1fbdc010c8634f06b26078bb42665f0265 (zmiany); main po scaleniu PR #24: 0e72e39d14418df7a88129c3ddebb2da0090dd85
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-028, D-029, D-031, D-033, D-034]
 ---
 
@@ -61,7 +61,6 @@ Wygląd od 390 px wzwyż zostaje bez zmian (D-015, D-021).
 6. Strona główna: `tools/baseline/index.baza.html` to migawka z `main` (`a3ce70d`, po T-022). `tools/baseline/index.html`
    to ta baza z siedmioma zmianami atrybutów. `tools/etapy/zmiana-strony-glownej.json` to etap „8” z trzema wpisami
    `atrybuty`. Szczegóły w sekcji „Strona główna: różnice migawki względem bazy”.
-9. Scalenie `origin/main` (PR #23, T-022) przez commit scalenia. Kontrakt wzięty z `main`, przeliczy go PM.
 7. `tools/dom-contract.json`: kontrakt policzony przez PM z builda CI (rundy niżej).
 8. Pomiar Lighthouse w CI (w repozytorium nie było żadnego, a na VPS nie da się go uruchomić):
    - `tools/lighthouse.cjs` z testami i konfiguracją `tools/lighthouse.json` (strona, progi, wersja Lighthouse 13.6.0,
@@ -71,9 +70,13 @@ Wygląd od 390 px wzwyż zostaje bez zmian (D-015, D-021).
    - Lighthouse uruchamia się przez `npx` w dokładnej wersji. Nie jest zależnością w `package.json`, bo pliku
      `package-lock.json` nie da się odtworzyć na VPS;
    - build jest podawany lokalnie pod nazwą hosta produkcji (TLS z certyfikatem samopodpisanym, gzip), tak jak
-     w teście dymnym. Dzięki temu audyt adresu kanonicznego ocenia stronę, a nie środowisko. To nie jest pomiar produkcji.
+     w teście dymnym. Dzięki temu audyt adresu kanonicznego ocenia stronę, a nie środowisko. To nie jest pomiar produkcji;
+   - status nazywa się `Lighthouse podstron` i pojawia się w każdym PR. Gdy PR zmienia tylko `kono-state/` albo
+     `README.md`, job kończy się sukcesem bez pomiaru, więc wymagany status nie blokuje PR-ów z samymi kartami.
+9. Scalenie `origin/main` (PR #23, T-022) przez commit scalenia `3922b6c`. Kontrakt wzięty z `main` i przeliczony
+   przez PM z builda CI (runda 4).
 
-## Runda 1 — wynik CI (2026-11-22)
+## Runda 1 — wynik CI (2026-11-22, przed dociągnięciem `main`)
 
 - Przebieg dla `9312c78` (run 45023421165). Astro zbudowało 12 stron. Walidator zgłosił wyłącznie błędy zapowiedziane
   przy niezmienionym kontrakcie: nadmiarowy plik `finanse.html`, brak pliku kadru, inna suma `sitemap.xml`
@@ -81,7 +84,7 @@ Wygląd od 390 px wzwyż zostaje bez zmian (D-015, D-021).
   kontroli przeszło; kontrola treści objęła osiem podstron.
 - Strona główna bez zmian: migawka identyczna z bazą.
 
-## Runda 2 (2026-11-22)
+## Runda 2 (2026-11-22, przed dociągnięciem `main`)
 
 - Kadr `public/assets/video/finanse-kadr.jpg` z artefaktu `media-<sha>`: 120 982 B przy limicie 150 000 B,
   1600×900, sha256 `7f459331…89ba`.
@@ -91,28 +94,43 @@ Wygląd od 390 px wzwyż zostaje bez zmian (D-015, D-021).
 - Przebieg dla `350e25d` (run 45023639319): `check:dist` zielone, ale test dymny pokazał 2 px przewijania w poziomie
   na 375 px na wszystkich ośmiu podstronach (opis w „Ustaleniach”, punkt „Nagłówek na wąskich telefonach”).
 
-## Runda 3 — poprawka nagłówka (2026-11-22)
+## Runda 3 — poprawka nagłówka (2026-11-22, przed dociągnięciem `main`)
 
 - Reguła w `podstrony.css` i wersja `?v=2`. Kontrakt policzony z builda rundy 2 z naniesioną tą samą zmianą
   (nowy plik stylu i `?v=2` w ośmiu podstronach). Zmienione wpisy: osiem podstron i `assets/css/podstrony.css`.
 - Lokalnie `check-all` przechodzi we wszystkich 6 krokach: 63 pliki, 12/12 stron, testy narzędzi 104/104.
-- Przewidziany manifest wydania: `04337bcbad4bed774ddba78c8b09b089846ff8087bc309b2d712cfc8c0a84854`.
+- Manifest tej rundy: `04337bcbad4bed774ddba78c8b09b089846ff8087bc309b2d712cfc8c0a84854`, potwierdzony przez CI dla
+  `cbeae8a` (run 45024310484). Zastąpiony manifestem z rundy 4.
+
+## Runda 4 — po dociągnięciu `main` i decyzjach właściciela (2026-11-22)
+
+- Przebieg dla `6958d09` (run 45027819814) przy kontrakcie z `main`. Walidator zgłosił wyłącznie zapowiedziane
+  różnice: nadmiarowe `finanse.html` i kadr, inne sumy `styles.css` i `sitemap.xml` oraz niezgodność wszystkich
+  11 stron z kontraktem. Powody: `styles.css?v=5` na każdej stronie; na podstronach także `podstrony.css?v=3`,
+  odnośnik „Finanse” i `aria-level`; na stronie głównej siedem atrybutów. Pozostałe pięć kroków przeszło,
+  w tym porównanie strony głównej z bazą.
+- Zbudowany `index.html` jest bajtowo równy migawce `tools/baseline/index.html`. Kadr z ponownego renderu ma tę samą
+  sumę co plik w repozytorium.
+- Kontrakt policzony z tego builda (`tools/update-contract.cjs`): 12 stron, 52 pliki publiczne. Lokalnie `check-all`
+  przechodzi we wszystkich 6 krokach, testy narzędzi 108/108.
+- Przewidziany manifest wydania: `84317a14dcadbec3151d2e8c1813f024d8b0ec105d621cc3e1df135a619eb2e5`.
 
 ## Wynik CI (2026-11-22)
 
-Przebieg dla `cbeae8a` (run 45024310484), zielony:
+Przebieg dla `15d0da1` (run 45028068177), zielony:
 
-- `check:dist`: 6 z 6 kroków, 63 pliki, 12/12 stron zgodnych z kontraktem i z zapisanym HTML.
-  Manifest `04337bcbad4bed774ddba78c8b09b089846ff8087bc309b2d712cfc8c0a84854`, ten sam co przewidziany.
-- Strona główna bez zmian względem `main`.
-- Test dymny: 232 z 233, 0 błędów, 1 pominięte (geometria strony głównej względem bazy, bo strona główna jest
-  identyczna z bazą). `finanse.html` bez przewijania w poziomie na 1280, 390, 393 i 375 px.
-  Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 104 z 104.
+- `check:dist`: 6 z 6 kroków, 66 plików, 12/12 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `84317a14dcadbec3151d2e8c1813f024d8b0ec105d621cc3e1df135a619eb2e5`, ten sam co przewidziany.
+- Strona główna względem `main`: siedem zmian atrybutów (sekcja „Strona główna: różnice migawki względem bazy”).
+  Wysokości nagłówka, sekcji i stopki na 1280 i 390 px równe bazie.
+- Test dymny: 261 z 261, 0 błędów, 0 pominiętych. Strona główna i wszystkie osiem podstron bez przewijania
+  w poziomie na 393 i 375 px.
+- Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 108 z 108.
 - Zrzuty 1280, 390, 393 i 375 px w artefakcie `podglad-<sha>`.
 
 ## Lighthouse (2026-11-22)
 
-Przebieg dla `cbeae8a` (run 45024310523), Lighthouse 13.6.0, telefon, symulowane łącze, mediana z 3 przebiegów:
+Przebieg dla `15d0da1` (run 45028068221), Lighthouse 13.6.0, telefon, symulowane łącze, mediana z 3 przebiegów:
 
 | Kategoria | Wynik | Próg | Przebiegi |
 |---|---|---|---|
@@ -120,7 +138,8 @@ Przebieg dla `cbeae8a` (run 45024310523), Lighthouse 13.6.0, telefon, symulowane
 | Dostępność | 96 | 95 | 96, 96, 96 |
 | SEO | 100 | 100 | 100, 100, 100 |
 
-- Pomiar dotyczy builda z CI podawanego lokalnie, a nie produkcji.
+- Pomiar dotyczy builda z CI podawanego lokalnie, a nie produkcji. W pięciu przebiegach workflow w tym PR mediana
+  wydajności wynosiła 96 albo 97, dostępność 96, SEO 100.
 - Jedyny niezaliczony audyt to `color-contrast`. Dotyczy 58 elementów w sekcjach poniżej pierwszego ekranu, które
   w chwili pomiaru czekają na animację wejścia (`.js-motion .reveal` w `styles.css` ma `opacity: .16`). Zmierzone
   barwy `#d9d9d9` i `#e6e5e6` to kolory tekstu `--ink` i `--ink-2` przy tej przezroczystości, a nie kolory po
@@ -211,3 +230,12 @@ Ten etap nie dodaje nowych pól w danych strony. Strona korzysta z istniejących
 - `src/data/bezpieczenstwo.mjs`: `aiNaDanychKlienta`, `wdrozenieUKlienta`. Strona finansów ich nie pokazuje.
 - `tools/rejestr-twierdzen.json`: data odczytu stanu załogi (`is-stan-zalogi-568-539.jakMierzone`) i opis pomiaru
   „ok. 6 godzin tygodniowo” (`wd-raport-6-godzin-do-zera.jakMierzone`, dziś `null`).
+
+## Scalenie (2026-11-22)
+
+- PR #24 scalony do `main` commitem `0e72e39d14418df7a88129c3ddebb2da0090dd85`. Scalony został czubek `15d0da1`;
+  commit z uzupełnieniem tej karty powstał chwilę po scaleniu i wchodzi do `main` razem z PR etapu T-023.
+- CI na `main` dla `0e72e39` (run 45028365694): zielone, manifest wydania
+  `84317a14dcadbec3151d2e8c1813f024d8b0ec105d621cc3e1df135a619eb2e5`, ten sam co przewidziany. Test dymny 261 z 261.
+- Niewdrożone. Wydanie na serwer wymaga osobnej zgody właściciela dla konkretnej wersji.
+- Gałąź pomocniczą `podglad/etap-8-finanse` (zrzuty do opisu PR) usuwa właściciel.

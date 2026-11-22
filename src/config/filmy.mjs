@@ -78,6 +78,8 @@ export const FILMY = {
     tytul: 'Faktura kosztowa od odbioru do akceptacji',
     opis: 'Faktura kosztowa trafia do jednej kolejki, jej pola są odczytane i sprawdzone, a propozycja opisu i dekretacji czeka na akceptację osoby po stronie klienta. Po akceptacji faktura trafia do programu księgowego. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: 14,
+    dataPublikacji: '2026-11-22',
   },
 };
 

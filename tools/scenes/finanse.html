@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <title>Scena: faktura kosztowa od odbioru do akceptacji</title>
 <link rel="stylesheet" href="scene.css">
-<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
-     z chwili POSTER_AT = 12 s (D-038; faktura w kolejce, wszystkie pola odczytane i sprawdzone,
-     propozycja opisu i dekretacji czeka na akceptację, oś kroków ze znacznikiem na „Akceptacja”).
-     Pod etap filmowy: każdy element, który ma się pojawiać, ma własne id i stałe miejsce
-     w układzie (bez skoków), tło jest nieruchome, a window.render(t) już woła TL.apply(t), więc wystarczy dopisać
-     atrybuty data-at/data-out i ruch znacznika osi.
+<!-- Scena filmu F6 (D-022, D-032, D-038), 14 s w pętli: faktura kosztowa od odbioru do akceptacji.
+     Panele, źródła, nazwy pól i oś kroków są widoczne przez cały czas; wartości, plakietki kontroli,
+     propozycja i przyciski pojawiają się w swoich stałych miejscach (opacity i małe przesunięcie, bez skoków).
+     Kadr startowy w chwili POSTER_AT = 12 s ma kompozycję dotychczasowego kadru: wszystkie pola sprawdzone,
+     propozycja czeka na akceptację, znacznik na „Akceptacja”. Tło nieruchome.
      Dane poglądowe: bez nazw systemów i firm, bez form prawnych, bez liczb (numer i kwoty zamaskowane). -->
 <style>
   #stage { width: 1600px; height: 900px; }
@@ -59,6 +58,7 @@
   .decide b { text-align: center; font-family: var(--display); font-size: 18px; font-weight: 650; border-radius: 999px; padding: 12px 10px; }
   .decide .go { background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
   .decide .stop { border: 1.5px solid var(--ink); color: var(--ink); }
+  .decide b { will-change: transform, opacity; }
 
   /* oś kroków procesu */
   .axis { border-radius: 28px; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); padding: 22px 30px 24px; display: grid; gap: 16px; }
@@ -93,7 +93,7 @@
             <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 5h13l7 7v23H11z" fill="none" stroke="#b9b2bb" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 20h10M16 26h10" stroke="#b9b2bb" stroke-width="2.4" stroke-linecap="round"/></svg>
             <div><b>KSeF</b><span>faktura ustrukturyzowana</span></div>
           </div>
-          <div class="doc" id="doc">
+          <div class="doc t" id="doc" data-at="0.6" data-out="13.3">
             <p class="doc-title">Faktura kosztowa</p>
             <p class="doc-meta">FV/••/•••• · Przykładowy dostawca</p>
             <i class="w1"></i><i class="w2"></i><i class="w3"></i><i class="w4"></i>
@@ -104,22 +104,22 @@
       <section class="panel" id="p-kontrola">
         <div class="bar"><b>Odczyt i kontrola</b><span class="tag" id="tag-kontrola">przed zapisem</span></div>
         <div class="body">
-          <div class="field ok" id="f-dostawca"><span>Dostawca</span><b>Przykładowy dostawca</b><em>znany</em></div>
-          <div class="field ok" id="f-numer"><span>Numer</span><b>FV/••/••••</b><em>bez duplikatu</em></div>
-          <div class="field ok" id="f-daty"><span>Daty</span><b>wystawienia i płatności</b><em>odczytane</em></div>
-          <div class="field ok" id="f-kwoty"><span>Kwoty</span><b>netto, VAT, brutto</b><em>sumują się</em></div>
-          <div class="field ok" id="f-rachunek"><span>Rachunek</span><b>•••• •••• ••••</b><em>bez zmiany</em></div>
+          <div class="field ok" id="f-dostawca"><span>Dostawca</span><b class="t" data-at="2.4" data-out="13.3" data-dx="16" data-dy="0">Przykładowy dostawca</b><em class="t" data-at="2.8" data-dur="0.4" data-out="13.3" data-dy="0" data-sc="0.8">znany</em></div>
+          <div class="field ok" id="f-numer"><span>Numer</span><b class="t" data-at="3.3" data-out="13.3" data-dx="16" data-dy="0">FV/••/••••</b><em class="t" data-at="3.7" data-dur="0.4" data-out="13.3" data-dy="0" data-sc="0.8">bez duplikatu</em></div>
+          <div class="field ok" id="f-daty"><span>Daty</span><b class="t" data-at="4.2" data-out="13.3" data-dx="16" data-dy="0">wystawienia i płatności</b><em class="t" data-at="4.6" data-dur="0.4" data-out="13.3" data-dy="0" data-sc="0.8">odczytane</em></div>
+          <div class="field ok" id="f-kwoty"><span>Kwoty</span><b class="t" data-at="5.1" data-out="13.3" data-dx="16" data-dy="0">netto, VAT, brutto</b><em class="t" data-at="5.5" data-dur="0.4" data-out="13.3" data-dy="0" data-sc="0.8">sumują się</em></div>
+          <div class="field ok" id="f-rachunek"><span>Rachunek</span><b class="t" data-at="6.0" data-out="13.3" data-dx="16" data-dy="0">•••• •••• ••••</b><em class="t" data-at="6.4" data-dur="0.4" data-out="13.3" data-dy="0" data-sc="0.8">bez zmiany</em></div>
         </div>
       </section>
 
       <section class="panel paper" id="p-akceptacja">
         <div class="bar"><b>Do akceptacji</b><span class="tag">decyzja człowieka</span></div>
         <div class="body">
-          <p class="acc-title">Propozycja według Waszych reguł</p>
-          <div class="row" id="r-opis"><span>Opis kosztu</span><b>Usługi transportowe</b></div>
-          <div class="row" id="r-dekretacja"><span>Dekretacja</span><b>konto kosztów i miejsce powstania</b></div>
-          <div class="who" id="who"><i></i><span>Czeka na: osoba z działu finansów</span></div>
-          <div class="decide" id="decide"><b class="go">Akceptuję</b><b class="stop">Do poprawy</b></div>
+          <p class="acc-title t" data-at="7.4" data-out="13.3" data-dy="8">Propozycja według Waszych reguł</p>
+          <div class="row" id="r-opis"><span>Opis kosztu</span><b class="t" data-at="7.6" data-out="13.3" data-dy="10">Usługi transportowe</b></div>
+          <div class="row" id="r-dekretacja"><span>Dekretacja</span><b class="t" data-at="8.0" data-out="13.3" data-dy="10">konto kosztów i miejsce powstania</b></div>
+          <div class="who t" id="who" data-at="8.5" data-out="13.3" data-dy="10"><i></i><span>Czeka na: osoba z działu finansów</span></div>
+          <div class="decide t" id="decide" data-at="8.9" data-out="13.3" data-dy="10" data-sc="0.96"><b class="go" id="go">Akceptuję</b><b class="stop" id="stop">Do poprawy</b></div>
         </div>
       </section>
     </div>
@@ -127,7 +127,7 @@
     <div class="axis">
       <div class="track"><i class="fill" id="fill"></i><i class="pin s1"></i><i class="pin s2"></i><i class="pin s3"></i><i class="pin s4"></i><i class="pin s5"></i><i class="pin now" id="now"></i></div>
       <div class="steps">
-        <span class="k1 done">Odbiór</span><span class="k2 done">Odczyt</span><span class="k3 done">Kontrola</span><span class="k4 cur">Akceptacja</span><span class="k5">Program księgowy</span>
+        <span class="k1" id="k1">Odbiór</span><span class="k2" id="k2">Odczyt</span><span class="k3" id="k3">Kontrola</span><span class="k4" id="k4">Akceptacja</span><span class="k5" id="k5">Program księgowy</span>
       </div>
       <p class="note">Dane poglądowe</p>
     </div>
@@ -140,7 +140,7 @@ window.DURATION = 14;
 window.SIZE = [1600, 900];
 // Kadr startowy filmu: 12 s (D-038): wszystkie pola sprawdzone, propozycja czeka na akceptację, znacznik na „Akceptacja”.
 window.POSTER_AT = 12;
-const { apply } = TL;
+const { clamp, ease, prog, lerp, apply } = TL;
 const TAU = Math.PI * 2;
 
 // Poświaty nieruchome (tło bez ruchu), w tym samym położeniu w każdej chwili osi czasu.
@@ -149,12 +149,68 @@ const TAU = Math.PI * 2;
   document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
 });
 
-// Szkielet: każda chwila t pokazuje tę samą kompozycję. Etap filmowy dopisze data-at/data-out
-// (apply) oraz ruch #fill i #now wzdłuż pięciu kroków osi.
+// Znacznik osi: [od, do, położenie w % osi]. Kroki leżą w 0, 25, 50, 75 i 100 %.
+// Odbiór 0–1,6 s, Odczyt od 2,2 s, Kontrola od 5,2 s, Akceptacja od 7,6 s (także w POSTER_AT), Program księgowy od 12,85 s.
+const RUCHY = [[1.6, 2.2, 25], [4.6, 5.2, 50], [7.0, 7.6, 75], [12.35, 12.85, 100]];
+// Powrót pętli: od 13,3 s cały obraz przechodzi płynnie do stanu z 0 s (koniec ok. 13,9 s).
+const POWROT = 13.3;
+// Każde pole: plakietka kontroli pojawia się 0,4 s po wartości; wtedy ramka pola robi się zielona.
+const PLAKIETKI = [['f-dostawca', 2.8], ['f-numer', 3.7], ['f-daty', 4.6], ['f-kwoty', 5.5], ['f-rachunek', 6.4]];
+// Akceptacja po kadrze startowym: przycisk „Akceptuję” wciśnięty i zaznaczony.
+const KLIK = 12.1;
+
+const fill = document.getElementById('fill');
+const now = document.getElementById('now');
+const go = document.getElementById('go');
+const stop = document.getElementById('stop');
+const pola = PLAKIETKI.map(([id, at]) => [document.getElementById(id), at]);
+const kroki = ['k1', 'k2', 'k3', 'k4', 'k5'].map((id, i) => [document.getElementById(id), i * 25]);
+
+const DIM = [185, 178, 187];   // --dim: krok przed znacznikiem
+const WHITE = [255, 255, 255]; // krok za znacznikiem
+const ACCENT = [255, 91, 20];  // --accent: krok, na którym stoi znacznik
+const mix = (a, b, p) => a.map((v, i) => lerp(v, b[i], p));
+const rgb = (c) => `rgb(${c.map((v) => Math.round(v)).join(', ')})`;
+
+// Położenie znacznika w chwili t (bez powrotu pętli).
+const pozycja = (t) => {
+  let x = 0;
+  for (const [od, doo, cel] of RUCHY) x = lerp(x, cel, ease(clamp((t - od) / (doo - od))));
+  return x;
+};
+// Kolor napisu kroku przy położeniu znacznika x.
+const kolorKroku = (x, k) => {
+  const za = clamp((x - k + 12.5) / 12.5);
+  const na = clamp(1 - Math.abs(x - k) / 12.5);
+  return mix(mix(DIM, WHITE, za), ACCENT, na);
+};
+const X0 = pozycja(0);
+
 window.render = (t) => {
   const T = window.DURATION;
   t = ((t % T) + T) % T;
   apply(t);
+
+  // r: postęp powrotu do stanu z 0 s; 0 do 13,3 s, 1 od ok. 13,9 s.
+  const r = ease(clamp((t - POWROT) / 0.6));
+
+  const x = lerp(pozycja(t), X0, r);
+  fill.style.width = `${x.toFixed(2)}%`;
+  now.style.left = `${x.toFixed(2)}%`;
+  kroki.forEach(([el, k]) => { el.style.color = rgb(mix(kolorKroku(pozycja(t), k), kolorKroku(X0, k), r)); });
+
+  // ramka pola: z --line do zielonej (jak .field.ok) razem z plakietką kontroli
+  pola.forEach(([el, at]) => {
+    const p = prog(t, at, 0.4) * (1 - r);
+    el.style.borderColor = `rgba(${Math.round(lerp(255, 25, p))}, ${Math.round(lerp(255, 183, p))}, ${Math.round(lerp(255, 122, p))}, ${lerp(0.13, 0.55, p).toFixed(3)})`;
+  });
+
+  // „Akceptuję”: krótkie wciśnięcie (skala nie przekracza 1), potem obwódka zaznaczenia; „Do poprawy” przygasa.
+  const wcisk = prog(t, KLIK, 0.15) * (1 - prog(t, KLIK + 0.15, 0.25));
+  const zazn = prog(t, KLIK + 0.1, 0.3) * (1 - r);
+  go.style.transform = `scale(${(1 - 0.05 * wcisk).toFixed(4)})`;
+  go.style.boxShadow = `0 0 0 3px rgba(255, 255, 255, ${zazn.toFixed(3)}), 0 0 0 6px rgba(20, 17, 20, ${zazn.toFixed(3)}), 0 12px 30px -8px rgba(255, 91, 20, .7)`;
+  stop.style.opacity = (1 - 0.55 * zazn).toFixed(4);
 };
 TL.live(window.render, window.DURATION);
 </script>
