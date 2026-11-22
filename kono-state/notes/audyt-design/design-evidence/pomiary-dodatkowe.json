@@ -1,0 +1,5560 @@
+{
+ "zrodlo": "http://127.0.0.1:4321/",
+ "data": "2026-11-22T15:15:40.373Z",
+ "strony": {
+  "index-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 8,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Procesy, które robią się same"
+    ],
+    [
+     2,
+     "Jeden partner od pierwszej integracji do agentów"
+    ],
+    [
+     3,
+     "Sprzedaż, która sama się porządkuje"
+    ],
+    [
+     3,
+     "Agenci AI na pierwszej linii"
+    ],
+    [
+     3,
+     "Dokumenty bez przepisywania"
+    ],
+    [
+     3,
+     "Raporty, które liczą się same"
+    ],
+    [
+     2,
+     "Policz, ile godzin odzyska Twój zespół"
+    ],
+    [
+     2,
+     "Od audytu do działającego wdrożenia w czterech k"
+    ],
+    [
+     3,
+     "Audyt procesów"
+    ],
+    [
+     3,
+     "Projekt i zwrot"
+    ],
+    [
+     3,
+     "Wdrożenie i integracje"
+    ],
+    [
+     3,
+     "Opieka i rozwój"
+    ],
+    [
+     2,
+     "Co automatyzujemy w każdym dziale"
+    ],
+    [
+     3,
+     "Handlowiec zaczyna dzień od gotowej listy"
+    ],
+    [
+     3,
+     "Faktura wchodzi i sama trafia do księgi"
+    ],
+    [
+     3,
+     "Klient dostaje odpowiedź w minutę, także w nocy"
+    ],
+    [
+     3,
+     "Kampanie i raporty bez ręcznego klejenia danych"
+    ],
+    [
+     3,
+     "Zamówienie przechodzi z maila do magazynu"
+    ],
+    [
+     3,
+     "Nowa osoba ma dostęp do wszystkiego pierwszego d"
+    ],
+    [
+     2,
+     "Pracujemy na tym, co już macie"
+    ],
+    [
+     2,
+     "Zapytanie ofertowe obsłużone w trzy minuty"
+    ],
+    [
+     2,
+     "Pakiet dopasowany do etapu firmy"
+    ],
+    [
+     3,
+     "Start"
+    ],
+    [
+     3,
+     "Scale"
+    ],
+    [
+     3,
+     "Enterprise"
+    ],
+    [
+     2,
+     "Dane firmy zostają pod Waszą kontrolą"
+    ],
+    [
+     3,
+     "Zgodność z RODO"
+    ],
+    [
+     3,
+     "Człowiek zatwierdza wyjątki"
+    ],
+    [
+     3,
+     "Pełny dziennik działań"
+    ],
+    [
+     2,
+     "Najczęstsze pytania"
+    ],
+    [
+     3,
+     "Od czego zacząć, jeśli nigdy nie automatyzowaliś"
+    ],
+    [
+     3,
+     "Czy musimy zmieniać CRM albo ERP?"
+    ],
+    [
+     3,
+     "Ile trwa wdrożenie?"
+    ],
+    [
+     3,
+     "Co się dzieje, gdy agent AI się pomyli?"
+    ],
+    [
+     3,
+     "Gdzie przetwarzane są nasze dane?"
+    ],
+    [
+     3,
+     "Ile kosztuje audyt?"
+    ],
+    [
+     2,
+     "Sprawdź, co w Twojej firmie może robić się samo"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "11": 162,
+    "12": 139,
+    "13": 620,
+    "14": 334,
+    "15": 1744,
+    "16": 34,
+    "17": 2753,
+    "18": 53,
+    "19": 17,
+    "20": 76,
+    "22": 203,
+    "24": 350,
+    "28": 385,
+    "34": 16,
+    "36": 20,
+    "40": 66,
+    "56": 336,
+    "60": 20,
+    "72": 47,
+    "92": 29,
+    "120": 4,
+    "19.4": 1077
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 6285,
+    "Onest": 1873,
+    "JetBrains Mono": 327
+   },
+   "textChars": 8485,
+   "lineLength": {
+    "blocks": 35,
+    "medianCharsPerLine": 43,
+    "max": 66
+   },
+   "centeredBlocks3PlusLines": 0,
+   "centeredExamples": [],
+   "interactive": {
+    "total": 60,
+    "under44": 36,
+    "under44Inline": 7,
+    "under24": 23,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "input. „” 530×28",
+     "input. „” 530×28"
+    ],
+    "under24Examples": [
+     "input „” 13×13",
+     "input „” 13×13",
+     "input „” 13×13",
+     "button „Kopiuj adres” 84×23",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/hero-flow.jpg",
+     "sources": [
+      "assets/video/hero-flow.webm",
+      "assets/video/hero-flow.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "metadata",
+     "controls": false,
+     "ariaLabel": null,
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1104,
+     "renderedH": 621,
+     "toggle": false
+    },
+    {
+     "poster": "assets/video/dashboard.jpg",
+     "sources": [
+      "assets/video/dashboard.webm",
+      "assets/video/dashboard.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": null,
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 715,
+     "renderedH": 500,
+     "toggle": false
+    },
+    {
+     "poster": "assets/video/agent-demo.jpg",
+     "sources": [
+      "assets/video/agent-demo.webm",
+      "assets/video/agent-demo.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: agent AI obsługuje zapytanie ofertowe",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 10,
+    ".btn-dark": 2,
+    ".btn-light": 2,
+    ".btn-ghost": 1,
+    ".btn-glass": 1,
+    ".btn-accent": 2,
+    ".btn-outline": 2,
+    ".btn-lg": 5,
+    ".chip": 1,
+    ".hero": 1,
+    ".hero-video": 1,
+    ".hero-feed": 1,
+    ".stats": 1,
+    ".stat": 4,
+    ".bento": 1,
+    ".card": 4,
+    ".card-mist": 1,
+    ".card-night": 1,
+    ".card-accent": 1,
+    ".card-video": 1,
+    ".mock": 3,
+    ".calc": 1,
+    ".seg": 2,
+    "input[type=range]": 3,
+    ".band-night": 1,
+    ".story": 1,
+    ".device": 1,
+    ".carousel": 1,
+    ".use": 6,
+    ".round-btn": 2,
+    ".marquee": 1,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".plans": 1,
+    ".plan": 3,
+    ".plan-featured": 1,
+    ".plan-flag": 1,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 6,
+    ".cta": 1,
+    ".cta-form": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 6,
+    ".link-btn": 7,
+    ".section": 9,
+    ".section-head": 7,
+    ".section-head.left": 1,
+    ".lead": 10,
+    ".display": 1,
+    ".display-2": 1,
+    ".h2": 9,
+    ".h3": 17,
+    ".h4": 3,
+    ".reveal": 23,
+    "[style]": 32,
+    "video": 3
+   },
+   "inlineStyles": [
+    "div.hero-media: transform: translate3d(0px, 0px, 0px);",
+    "i.: width:100%",
+    "i.hot: width:40%"
+   ],
+   "surface": {
+    "pageHeight": 13086,
+    "darkBlocksPx": 4777,
+    "tintedBlocksPx": 715,
+    "darkShare": 0.37,
+    "tintedShare": 0.05,
+    "count": 5
+   },
+   "animations": 45
+  },
+  "integracja-systemow-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 11,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Dane wpisujesz raz. Pozostałe systemy dostają je"
+    ],
+    [
+     2,
+     "Jak połączyć system HR z programem kadrowo-płaco"
+    ],
+    [
+     2,
+     "Znasz to z własnej firmy?"
+    ],
+    [
+     3,
+     "Ta sama umowa wpisana dwa razy"
+    ],
+    [
+     3,
+     "Zmiana w jednym systemie nie dochodzi do drugieg"
+    ],
+    [
+     3,
+     "Raport sklejany z trzech eksportów"
+    ],
+    [
+     2,
+     "Trzy drogi łączenia systemów"
+    ],
+    [
+     2,
+     "Co dokładnie przechodzi między systemami"
+    ],
+    [
+     2,
+     "Jeden rekord w drodze z systemu HR do kadr i pła"
+    ],
+    [
+     2,
+     "Zapis z kontrolą"
+    ],
+    [
+     2,
+     "Jak to działa w praktyce"
+    ],
+    [
+     3,
+     "Agencja pracy"
+    ],
+    [
+     2,
+     "Co dostajesz po konsultacji"
+    ],
+    [
+     2,
+     "Od rozmowy do działającej integracji"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Czy musimy wymieniać któryś system?"
+    ],
+    [
+     3,
+     "Nasz system nie ma API. Co wtedy?"
+    ],
+    [
+     3,
+     "Co się stanie, gdy dostawca zaktualizuje system?"
+    ],
+    [
+     3,
+     "Jakie systemy już łączyliście?"
+    ],
+    [
+     3,
+     "Czy jesteście partnerem dostawców tych systemów?"
+    ],
+    [
+     3,
+     "Czy integracja korzysta z modeli AI?"
+    ],
+    [
+     3,
+     "Co z danymi osobowymi?"
+    ],
+    [
+     3,
+     "Mamy ERP i system magazynowy. Czy to ta sama met"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     2,
+     "Sprawdźmy, jak połączyć Twoje systemy"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1350,
+    "16": 34,
+    "17": 1876,
+    "20": 125,
+    "22": 320,
+    "28": 13,
+    "56": 322,
+    "72": 91,
+    "19.4": 1765
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5143,
+    "Onest": 1130
+   },
+   "textChars": 6273,
+   "lineLength": {
+    "blocks": 22,
+    "medianCharsPerLine": 51,
+    "max": 85
+   },
+   "centeredBlocks3PlusLines": 4,
+   "centeredExamples": [
+    "Łączymy systemy, na których już pracujesz. Zespół ",
+    "Są trzy drogi: interfejs API, wymiana plików albo ",
+    "Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i"
+   ],
+   "interactive": {
+    "total": 43,
+    "under44": 27,
+    "under44Inline": 4,
+    "under24": 20,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „Porównanie rozwiązań” 174×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23",
+     "a „Sprzedaż” 64×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/integracja-systemow.jpg",
+     "sources": [
+      "assets/video/integracja-systemow.webm",
+      "assets/video/integracja-systemow.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: rekord pracownika przechodzi z systemu HR do kadr i płac",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 3,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 4,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 9,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 2,
+    ".ticks": 2,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 2,
+    ".section": 12,
+    ".section-head": 11,
+    ".section-head.left": 1,
+    ".lead": 10,
+    ".display-2": 2,
+    ".h2": 10,
+    ".h3": 1,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 3,
+    "video": 1,
+    "table": 2
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 9640,
+    "darkBlocksPx": 1267,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.13,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 8
+  },
+  "wdrozenia-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 6,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Cztery wdrożenia. Co było, co połączyliśmy, co s"
+    ],
+    [
+     2,
+     "Cztery procesy przed i po połączeniu systemów"
+    ],
+    [
+     2,
+     "Jak czytać te opisy"
+    ],
+    [
+     3,
+     "Umowy bez przepisywania"
+    ],
+    [
+     3,
+     "Jeden raport zarządu z kilku źródeł"
+    ],
+    [
+     3,
+     "Alert o kończącym się zezwoleniu 30 dni wcześnie"
+    ],
+    [
+     3,
+     "Kandydat w systemie w 5 minut"
+    ],
+    [
+     2,
+     "Co łączy te cztery wdrożenia"
+    ],
+    [
+     3,
+     "Systemy zostały"
+    ],
+    [
+     3,
+     "Człowiek zatwierdza wyjątki"
+    ],
+    [
+     3,
+     "Każdy zapis ma ślad"
+    ],
+    [
+     2,
+     "Jak zacząć u siebie"
+    ],
+    [
+     2,
+     "Pytania o wdrożenia"
+    ],
+    [
+     3,
+     "Dlaczego nie podajecie nazw firm?"
+    ],
+    [
+     3,
+     "Skąd są te liczby?"
+    ],
+    [
+     3,
+     "Czy u nas wyjdzie tak samo?"
+    ],
+    [
+     3,
+     "Mamy inne systemy niż w tych opisach. Czy to prz"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji albo logistyce. Czy to te "
+    ],
+    [
+     2,
+     "Który proces u Ciebie przepisuje się ręcznie?"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 91,
+    "15": 1195,
+    "16": 34,
+    "17": 2219,
+    "20": 73,
+    "22": 197,
+    "28": 136,
+    "56": 130,
+    "72": 105,
+    "19.4": 1071
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4788,
+    "Onest": 774
+   },
+   "textChars": 5562,
+   "lineLength": {
+    "blocks": 23,
+    "medianCharsPerLine": 59,
+    "max": 97
+   },
+   "centeredBlocks3PlusLines": 1,
+   "centeredExamples": [
+    "Umowa trafia z dokumentu do dwóch systemów. Trzy ź"
+   ],
+   "interactive": {
+    "total": 41,
+    "under44": 29,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „integracji systemów” 153×20",
+     "a „Produkcja i logistyka” 159×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/wdrozenia.jpg",
+     "sources": [
+      "assets/video/wdrozenia.webm",
+      "assets/video/wdrozenia.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: cztery procesy przed i po połączeniu systemów",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 7,
+    ".dowod": 4,
+    ".faq": 1,
+    ".qa": 5,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 7,
+    ".kroki": 1,
+    ".autor": 3,
+    ".uwaga": 1,
+    ".link-btn": 4,
+    ".section": 11,
+    ".section-head": 6,
+    ".section-head.left": 1,
+    ".lead": 6,
+    ".display-2": 2,
+    ".h2": 5,
+    ".h3": 4,
+    ".h4": 3,
+    ".reveal": 15,
+    "[style]": 3,
+    "video": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8191,
+    "darkBlocksPx": 1267,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.15,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 20
+  },
+  "dla-firm-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 7,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Automatyzacja dla firmy od 5 do 250 osób. Zaczyn"
+    ],
+    [
+     2,
+     "Co może robić się samo w Twojej firmie"
+    ],
+    [
+     2,
+     "Cztery kroki od rozmowy do działającej automatyz"
+    ],
+    [
+     2,
+     "Co dostajesz na każdym kroku"
+    ],
+    [
+     2,
+     "Pakiety Start i Scale"
+    ],
+    [
+     3,
+     "Start"
+    ],
+    [
+     3,
+     "Scale"
+    ],
+    [
+     2,
+     "Produkcja, magazyn albo wiele spółek?"
+    ],
+    [
+     2,
+     "Pytania, które zadaje mała firma"
+    ],
+    [
+     3,
+     "Od czego zacząć?"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     3,
+     "Co jeśli się rozmyślimy?"
+    ],
+    [
+     3,
+     "Czy trzeba wymieniać systemy?"
+    ],
+    [
+     3,
+     "Kto po naszej stronie musi mieć czas?"
+    ],
+    [
+     3,
+     "Ile trwa pierwsze wdrożenie?"
+    ],
+    [
+     3,
+     "Co z danymi osobowymi?"
+    ],
+    [
+     2,
+     "Który proces kosztuje Cię najwięcej godzin?"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 332,
+    "14": 66,
+    "15": 1939,
+    "16": 34,
+    "17": 1815,
+    "18": 34,
+    "20": 12,
+    "22": 172,
+    "36": 10,
+    "56": 208,
+    "72": 114,
+    "19.4": 1564
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5561,
+    "Onest": 739
+   },
+   "textChars": 6300,
+   "lineLength": {
+    "blocks": 26,
+    "medianCharsPerLine": 59,
+    "max": 73
+   },
+   "centeredBlocks3PlusLines": 3,
+   "centeredExamples": [
+    "Łączymy systemy, na których już pracujesz, i oddaj",
+    "Po konsultacji masz kartę procesu. Audyt kończy si",
+    "Dla zakładów produkcyjnych i firm logistycznych ma"
+   ],
+   "interactive": {
+    "total": 47,
+    "under44": 31,
+    "under44Inline": 8,
+    "under24": 22,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „Jak wybrać pierwszy proces” 351×20",
+     "a „Integracja systemów” 160×20",
+     "a „Dane i bezpieczeństwo” 178×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/dla-firm.jpg",
+     "sources": [
+      "assets/video/dla-firm.webm",
+      "assets/video/dla-firm.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: od konsultacji do opieki, cztery kroki współpracy",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 8,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-accent": 1,
+    ".btn-outline": 2,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".plans": 1,
+    ".plan": 2,
+    ".plan-featured": 1,
+    ".plan-flag": 1,
+    ".faq": 1,
+    ".qa": 7,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 6,
+    ".section": 8,
+    ".section-head": 7,
+    ".section-head.left": 1,
+    ".lead": 8,
+    ".display-2": 2,
+    ".h2": 6,
+    ".h3": 2,
+    ".reveal": 12,
+    "[style]": 2,
+    "video": 1,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8230,
+    "darkBlocksPx": 1238,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.15,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 27
+  },
+  "dane-i-bezpieczenstwo-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 8,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Dane i bezpieczeństwo: stan na dziś"
+    ],
+    [
+     2,
+     "Czego dotyczy ta strona"
+    ],
+    [
+     2,
+     "Trzy zasady każdej integracji"
+    ],
+    [
+     3,
+     "Minimalny zakres dostępu"
+    ],
+    [
+     3,
+     "Wpis w dzienniku przy każdym zapisie"
+    ],
+    [
+     3,
+     "Wyjątki zatwierdza człowiek"
+    ],
+    [
+     2,
+     "Którędy idą dane"
+    ],
+    [
+     2,
+     "Dostęp tylko do potrzebnych pól, wyjątek u człow"
+    ],
+    [
+     2,
+     "Co obowiązuje dziś"
+    ],
+    [
+     2,
+     "Czego jeszcze nie publikujemy"
+    ],
+    [
+     2,
+     "Pytania, które zwykle zadaje dział IT"
+    ],
+    [
+     3,
+     "Gdzie będą przetwarzane nasze dane?"
+    ],
+    [
+     3,
+     "Jakich uprawnień potrzebujecie?"
+    ],
+    [
+     3,
+     "Czy zobaczymy, co integracja zmieniła?"
+    ],
+    [
+     3,
+     "Kto decyduje w nietypowych przypadkach?"
+    ],
+    [
+     3,
+     "Czy zapis da się cofnąć?"
+    ],
+    [
+     3,
+     "Z jakich dostawców korzystacie?"
+    ],
+    [
+     3,
+     "Jak szybko reagujecie na awarię?"
+    ],
+    [
+     3,
+     "Czy macie ubezpieczenie?"
+    ],
+    [
+     3,
+     "Co się dzieje z danymi, które wpisuję w formular"
+    ],
+    [
+     2,
+     "Sprawdźcie nas na konkretnym procesie"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1302,
+    "16": 34,
+    "17": 1826,
+    "20": 99,
+    "22": 317,
+    "56": 204,
+    "72": 72,
+    "19.4": 1343
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4734,
+    "Onest": 840
+   },
+   "textChars": 5574,
+   "lineLength": {
+    "blocks": 21,
+    "medianCharsPerLine": 43,
+    "max": 84
+   },
+   "centeredBlocks3PlusLines": 3,
+   "centeredExamples": [
+    "Dane, które zostawiacie na stronie revagy.pl, to o",
+    "Integracja łączy Wasze systemy jedną z trzech dróg",
+    "Integracja widzi tylko pola uzgodnione dla danego "
+   ],
+   "interactive": {
+    "total": 44,
+    "under44": 28,
+    "under44Inline": 5,
+    "under24": 20,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „polityka prywatności” 160×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23",
+     "a „Sprzedaż” 64×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/dane-i-bezpieczenstwo.jpg",
+     "sources": [
+      "assets/video/dane-i-bezpieczenstwo.webm",
+      "assets/video/dane-i-bezpieczenstwo.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 9,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 3,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 3,
+    ".section": 9,
+    ".section-head": 8,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 7,
+    ".h4": 3,
+    ".reveal": 14,
+    "[style]": 3,
+    "video": 1,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 7996,
+    "darkBlocksPx": 1267,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.16,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 12
+  },
+  "produkcja-i-logistyka-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 9,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Najpierw 14 dni na jednej linii. Potem decyzja."
+    ],
+    [
+     2,
+     "Gdzie na hali i w magazynie uciekają godziny"
+    ],
+    [
+     3,
+     "Raport zmianowy sklejany ręcznie"
+    ],
+    [
+     3,
+     "Te same dane w kilku systemach"
+    ],
+    [
+     3,
+     "Każdy system pokazuje inną liczbę"
+    ],
+    [
+     2,
+     "Co obejmuje pilot"
+    ],
+    [
+     2,
+     "Jedna linia, jeden proces, jedno kryterium"
+    ],
+    [
+     2,
+     "Przykładowe kryteria sukcesu do umowy"
+    ],
+    [
+     2,
+     "Co już mamy z produkcji"
+    ],
+    [
+     3,
+     "Zakład produkcyjny"
+    ],
+    [
+     2,
+     "Co dostaje Wasz dział IT"
+    ],
+    [
+     2,
+     "Od rozmowy do decyzji"
+    ],
+    [
+     2,
+     "Pytania dyrektora operacyjnego"
+    ],
+    [
+     3,
+     "Ile kosztuje pilot?"
+    ],
+    [
+     3,
+     "Ile kosztuje pakiet po pilocie?"
+    ],
+    [
+     3,
+     "Czy musimy wymieniać system ERP albo system maga"
+    ],
+    [
+     3,
+     "Kto po naszej stronie musi być zaangażowany?"
+    ],
+    [
+     3,
+     "Ile macie wdrożeń w produkcji?"
+    ],
+    [
+     3,
+     "Gdzie będą przetwarzane dane zakładu?"
+    ],
+    [
+     3,
+     "Co po zakończeniu pilota?"
+    ],
+    [
+     2,
+     "Wybierzmy jedną linię albo jedną zmianę"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1933,
+    "16": 34,
+    "17": 1426,
+    "20": 107,
+    "22": 241,
+    "28": 18,
+    "56": 238,
+    "72": 86,
+    "19.4": 1768
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5318,
+    "Onest": 910
+   },
+   "textChars": 6228,
+   "lineLength": {
+    "blocks": 28,
+    "medianCharsPerLine": 47,
+    "max": 88
+   },
+   "centeredBlocks3PlusLines": 3,
+   "centeredExamples": [
+    "Pilot zaczyna się od dostępu do systemów i zapisan",
+    "Zasady dostępu, dziennika zapisów, umowy powierzen",
+    "Kiedy się nie da. Program bez eksportu, którego do"
+   ],
+   "interactive": {
+    "total": 43,
+    "under44": 29,
+    "under44Inline": 6,
+    "under24": 20,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „Dane i bezpieczeństwo” 178×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23",
+     "a „Sprzedaż” 64×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/produkcja-i-logistyka.jpg",
+     "sources": [
+      "assets/video/produkcja-i-logistyka.webm",
+      "assets/video/produkcja-i-logistyka.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: 14 dni pilota na jednej linii produkcyjnej",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    },
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 3,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 4,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 7,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 3,
+    ".ticks": 2,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 2,
+    ".link-btn": 4,
+    ".section": 10,
+    ".section-head": 9,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 8,
+    ".h3": 1,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 3,
+    "video": 1,
+    "table": 3
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8855,
+    "darkBlocksPx": 1267,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.14,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 9
+  },
+  "finanse-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 9,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Faktury kosztowe, windykacja i uzgodnienia bez r"
+    ],
+    [
+     2,
+     "Faktura kosztowa od odbioru do akceptacji"
+    ],
+    [
+     2,
+     "Faktury kosztowe"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Windykacja"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Uzgodnienia"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Jak zaczynamy"
+    ],
+    [
+     2,
+     "Ten sam mechanizm w innym dziale"
+    ],
+    [
+     3,
+     "Jeden raport zarządu z kilku źródeł"
+    ],
+    [
+     2,
+     "Dane finansowe i umowa powierzenia"
+    ],
+    [
+     2,
+     "Pytania działu finansów"
+    ],
+    [
+     3,
+     "Czy to zastąpi księgową?"
+    ],
+    [
+     3,
+     "Co z fakturami w KSeF?"
+    ],
+    [
+     3,
+     "Nasz program księgowy nie ma API. Co wtedy?"
+    ],
+    [
+     3,
+     "Czy musimy zmieniać program księgowy albo bank?"
+    ],
+    [
+     3,
+     "Od którego procesu zacząć?"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     2,
+     "Zacznijmy od jednego procesu w finansach"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 119,
+    "15": 1332,
+    "16": 34,
+    "17": 2801,
+    "20": 126,
+    "22": 178,
+    "28": 35,
+    "56": 180,
+    "72": 109,
+    "19.4": 1572
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 6021,
+    "Onest": 776
+   },
+   "textChars": 6797,
+   "lineLength": {
+    "blocks": 29,
+    "medianCharsPerLine": 42,
+    "max": 97
+   },
+   "centeredBlocks3PlusLines": 3,
+   "centeredExamples": [
+    "Automatyzujemy trzy procesy działu finansów: obieg",
+    "Opis poniżej nie pochodzi z działu finansów, tylko",
+    "Umowę powierzenia podpisujemy przed startem prac i"
+   ],
+   "interactive": {
+    "total": 44,
+    "under44": 31,
+    "under44Inline": 8,
+    "under24": 22,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „pilot dla produkcji i logi” 213×20",
+     "a „Porównanie rozwiązań” 174×20",
+     "a „Jak wybrać pierwszy proces” 351×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/finanse.jpg",
+     "sources": [
+      "assets/video/finanse.webm",
+      "assets/video/finanse.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: faktura kosztowa od odbioru do akceptacji człowieka",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 1218,
+     "renderedH": 685,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 3,
+    ".trust": 10,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 6,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 2,
+    ".link-btn": 6,
+    ".section": 10,
+    ".section-head": 9,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 8,
+    ".h3": 1,
+    ".h4": 9,
+    ".reveal": 20,
+    "[style]": 7,
+    "video": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8961,
+    "darkBlocksPx": 1267,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.14,
+    "tintedShare": 0,
+    "count": 2
+   },
+   "animations": 23
+  },
+  "jak-wybrac-pierwszy-proces-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 11,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Jak wybrać pierwszy proces do automatyzacji"
+    ],
+    [
+     2,
+     "Który proces wziąć na początek?"
+    ],
+    [
+     2,
+     "Kryteria wyboru pierwszego procesu"
+    ],
+    [
+     2,
+     "Jak zmierzyć stan wyjściowy przed startem"
+    ],
+    [
+     2,
+     "Przykład: jak zamienić pomiar na liczbę"
+    ],
+    [
+     2,
+     "Czego nie brać na początek"
+    ],
+    [
+     2,
+     "Przykłady dobrych kandydatów"
+    ],
+    [
+     3,
+     "Umowy z systemu HR do kadr i płac"
+    ],
+    [
+     3,
+     "Zamówienia z e-maili i plików PDF do systemu ERP"
+    ],
+    [
+     3,
+     "Raport tygodniowy sklejany z kilku eksportów"
+    ],
+    [
+     2,
+     "Co przygotować na konsultację"
+    ],
+    [
+     2,
+     "Co dostajesz po konsultacji"
+    ],
+    [
+     2,
+     "Co dzieje się po karcie"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Mam kilku kandydatów. Którego wybrać?"
+    ],
+    [
+     3,
+     "Czy pomiar jest warunkiem konsultacji?"
+    ],
+    [
+     3,
+     "Czy jeden proces to nie za mało?"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji albo w magazynie. Co wtedy"
+    ],
+    [
+     3,
+     "Ile kosztuje wdrożenie?"
+    ],
+    [
+     2,
+     "Masz kandydata? Sprawdźmy go razem"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 2688,
+    "16": 34,
+    "17": 1843,
+    "20": 137,
+    "22": 179,
+    "56": 285,
+    "72": 77,
+    "19.4": 2421
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 7173,
+    "Onest": 868
+   },
+   "textChars": 8041,
+   "lineLength": {
+    "blocks": 33,
+    "medianCharsPerLine": 58,
+    "max": 88
+   },
+   "centeredBlocks3PlusLines": 3,
+   "centeredExamples": [
+    "Weź proces, który za każdym razem przebiega tak sa",
+    "Jeśli proces nie spełnia jednego kryterium, zapisz",
+    "Liczby w tym przykładzie są poglądowe. Jeśli proce"
+   ],
+   "interactive": {
+    "total": 43,
+    "under44": 29,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „Produkcja i logistyka” 159×20",
+     "a „Dla firm” 62×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 5,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 5,
+    ".kroki": 2,
+    ".autor": 1,
+    ".uwaga": 2,
+    ".link-btn": 7,
+    ".section": 12,
+    ".section-head": 11,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 10,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 2,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 9225,
+    "darkBlocksPx": 582,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.06,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 27
+  },
+  "porownanie-rozwiazan-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 10,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Jak skończyć z przepisywaniem danych? Cztery dro"
+    ],
+    [
+     2,
+     "Którą drogę wybrać?"
+    ],
+    [
+     2,
+     "Droga 1. Połączenie istniejących systemów"
+    ],
+    [
+     2,
+     "Droga 2. Automat klikający po ekranie"
+    ],
+    [
+     2,
+     "Droga 3. Wymiana systemu na nowy"
+    ],
+    [
+     2,
+     "Droga 4. Przepisywanie zostaje u ludzi"
+    ],
+    [
+     2,
+     "Cztery drogi obok siebie"
+    ],
+    [
+     2,
+     "Kiedy REVAGY nie jest właściwym wyborem"
+    ],
+    [
+     2,
+     "Jak wybrać drogę dla swojego procesu"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Skąd mam wiedzieć, czy mój system ma interfejs A"
+    ],
+    [
+     3,
+     "Czy połączenie przetrwa, gdy kiedyś wymienimy sy"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji i logistyce. Czy to ta sam"
+    ],
+    [
+     3,
+     "Ile kosztuje sprawdzenie, która droga pasuje?"
+    ],
+    [
+     2,
+     "Sprawdźmy, która droga pasuje do Twojego procesu"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 4366,
+    "16": 34,
+    "17": 1183,
+    "20": 12,
+    "22": 206,
+    "56": 273,
+    "72": 112,
+    "19.4": 1622
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 7286,
+    "Onest": 899
+   },
+   "textChars": 8185,
+   "lineLength": {
+    "blocks": 33,
+    "medianCharsPerLine": 70,
+    "max": 116
+   },
+   "centeredBlocks3PlusLines": 2,
+   "centeredExamples": [
+    "Dane, które ktoś przepisuje z jednego systemu do d",
+    "Jeśli Twoje systemy mają interfejs API, eksport pl"
+   ],
+   "interactive": {
+    "total": 41,
+    "under44": 30,
+    "under44Inline": 7,
+    "under24": 23,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "button.nav-link „Rozwiązania” 132×40",
+     "button.nav-link „Dla działów” 126×40",
+     "a.nav-link „Jak wdrażamy” 126×40",
+     "a.nav-link „Pakiety” 80×40",
+     "a.nav-link „FAQ” 58×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Automatyzacja procesów” 174×23"
+    ],
+    "under24Examples": [
+     "a „Systemy bez przepisywania ” 272×20",
+     "a „Dane i bezpieczeństwo” 177×20",
+     "a „Produkcja i logistyka” 159×20",
+     "a „Dla firm” 62×20",
+     "a „Automatyzacja procesów” 174×23",
+     "a „Agenci AI” 66×23"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 1238,
+     "scrollW": 1238,
+     "overflow": false,
+     "caption": false,
+     "thScope": 9,
+     "th": 9,
+     "focusable": false,
+     "cols": 5
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".faq": 1,
+    ".qa": 4,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 1,
+    ".link-btn": 6,
+    ".section": 11,
+    ".section-head": 10,
+    ".section-head.left": 1,
+    ".lead": 8,
+    ".display-2": 2,
+    ".h2": 9,
+    ".reveal": 12,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8654,
+    "darkBlocksPx": 582,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.07,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 27
+  },
+  "kontakt-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Sprawdź, co w Twojej firmie może robić się samo"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 164,
+    "15": 29,
+    "17": 33,
+    "19": 17,
+    "20": 6,
+    "72": 47,
+    "19.4": 79
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 260,
+    "Onest": 115
+   },
+   "textChars": 375,
+   "lineLength": {
+    "blocks": 0,
+    "medianCharsPerLine": 0,
+    "max": 0
+   },
+   "centeredBlocks3PlusLines": 0,
+   "centeredExamples": [],
+   "interactive": {
+    "total": 9,
+    "under44": 4,
+    "under44Inline": 3,
+    "under24": 3,
+    "examples": [
+     "a.logo „REVAGY” 120×30"
+    ],
+    "under24Examples": [
+     "a „Strona główna” 86×16",
+     "button „Ustawienia prywatności” 140×20",
+     "a „kontakt@revagy.pl” 110×16"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 3,
+    ".btn-dark": 1,
+    ".btn-ghost": 1,
+    ".btn-accent": 1,
+    ".btn-lg": 1,
+    ".cta": 1,
+    ".cta-form": 1,
+    ".footer-legal": 1,
+    ".link-btn": 1,
+    ".section": 1,
+    ".lead": 1,
+    ".display-2": 1,
+    "[style]": 2
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto",
+    "div.footer-legal: margin-top:0"
+   ],
+   "surface": {
+    "pageHeight": 1024,
+    "darkBlocksPx": 579,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.57,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 1
+  },
+  "polityka-prywatnosci-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Polityka prywatności"
+    ],
+    [
+     2,
+     "Kto odpowiada za dane"
+    ],
+    [
+     2,
+     "Jakie dane zbieramy i po co"
+    ],
+    [
+     2,
+     "Ciasteczka i pamięć przeglądarki"
+    ],
+    [
+     2,
+     "Jak zmienić zdanie"
+    ],
+    [
+     2,
+     "Komu przekazujemy dane"
+    ],
+    [
+     2,
+     "Twoje prawa"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 207,
+    "15": 2445,
+    "17": 2326,
+    "20": 6,
+    "24": 131,
+    "56": 20,
+    "19.4": 163
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4955,
+    "Onest": 250,
+    "JetBrains Mono": 43,
+    "monospace": 50
+   },
+   "textChars": 5298,
+   "lineLength": {
+    "blocks": 25,
+    "medianCharsPerLine": 18,
+    "max": 92
+   },
+   "centeredBlocks3PlusLines": 0,
+   "centeredExamples": [],
+   "interactive": {
+    "total": 10,
+    "under44": 7,
+    "under44Inline": 6,
+    "under24": 5,
+    "examples": [
+     "a.logo „REVAGY” 120×30"
+    ],
+    "under24Examples": [
+     "a „kontakt@revagy.pl” 144×20",
+     "a „kontakt@revagy.pl” 144×20",
+     "a „Strona główna” 86×16",
+     "button „Ustawienia prywatności” 140×20",
+     "a „kontakt@revagy.pl” 110×16"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 778,
+     "scrollW": 778,
+     "overflow": false,
+     "caption": false,
+     "thScope": 0,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 778,
+     "scrollW": 778,
+     "overflow": false,
+     "caption": false,
+     "thScope": 0,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 2,
+    ".btn-dark": 1,
+    ".btn-ghost": 1,
+    ".footer-legal": 1,
+    ".doc-page": 1,
+    ".doc-table": 2,
+    ".link-btn": 2,
+    ".lead": 1,
+    "[style]": 3,
+    "table": 2
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto",
+    "p.: margin-top:44px",
+    "div.footer-legal: margin-top:0"
+   ],
+   "surface": {
+    "pageHeight": 3650,
+    "darkBlocksPx": 0,
+    "tintedBlocksPx": 0,
+    "darkShare": 0,
+    "tintedShare": 0,
+    "count": 0
+   },
+   "animations": 0
+  },
+  "404-desktop": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 0
+   },
+   "headings": [
+    [
+     1,
+     "Tej strony nie ma w naszym obiegu"
+    ]
+   ],
+   "fontSizeChars": {
+    "14": 8,
+    "15": 16,
+    "17": 30,
+    "20": 6,
+    "72": 33,
+    "19.4": 101
+   },
+   "fontFamilyChars": {
+    "Onest": 85,
+    "JetBrains Mono": 8,
+    "Instrument Sans": 101
+   },
+   "textChars": 194,
+   "lineLength": {
+    "blocks": 1,
+    "medianCharsPerLine": 51,
+    "max": 51
+   },
+   "centeredBlocks3PlusLines": 0,
+   "centeredExamples": [],
+   "interactive": {
+    "total": 4,
+    "under44": 1,
+    "under44Inline": 0,
+    "under24": 0,
+    "examples": [
+     "a.logo „REVAGY” 120×30"
+    ],
+    "under24Examples": []
+   },
+   "images": [],
+   "videos": [],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 3,
+    ".btn-dark": 1,
+    ".btn-light": 1,
+    ".btn-glass": 1,
+    ".btn-lg": 2,
+    ".lost": 1,
+    ".lead": 1,
+    ".display-2": 1,
+    "[style]": 1
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto"
+   ],
+   "surface": {
+    "pageHeight": 900,
+    "darkBlocksPx": 595,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.66,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 1
+  },
+  "index-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 8,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Procesy, które robią się same"
+    ],
+    [
+     2,
+     "Jeden partner od pierwszej integracji do agentów"
+    ],
+    [
+     3,
+     "Sprzedaż, która sama się porządkuje"
+    ],
+    [
+     3,
+     "Agenci AI na pierwszej linii"
+    ],
+    [
+     3,
+     "Dokumenty bez przepisywania"
+    ],
+    [
+     3,
+     "Raporty, które liczą się same"
+    ],
+    [
+     2,
+     "Policz, ile godzin odzyska Twój zespół"
+    ],
+    [
+     2,
+     "Od audytu do działającego wdrożenia w czterech k"
+    ],
+    [
+     3,
+     "Audyt procesów"
+    ],
+    [
+     3,
+     "Projekt i zwrot"
+    ],
+    [
+     3,
+     "Wdrożenie i integracje"
+    ],
+    [
+     3,
+     "Opieka i rozwój"
+    ],
+    [
+     2,
+     "Co automatyzujemy w każdym dziale"
+    ],
+    [
+     3,
+     "Handlowiec zaczyna dzień od gotowej listy"
+    ],
+    [
+     3,
+     "Faktura wchodzi i sama trafia do księgi"
+    ],
+    [
+     3,
+     "Klient dostaje odpowiedź w minutę, także w nocy"
+    ],
+    [
+     3,
+     "Kampanie i raporty bez ręcznego klejenia danych"
+    ],
+    [
+     3,
+     "Zamówienie przechodzi z maila do magazynu"
+    ],
+    [
+     3,
+     "Nowa osoba ma dostęp do wszystkiego pierwszego d"
+    ],
+    [
+     2,
+     "Pracujemy na tym, co już macie"
+    ],
+    [
+     2,
+     "Zapytanie ofertowe obsłużone w trzy minuty"
+    ],
+    [
+     2,
+     "Pakiet dopasowany do etapu firmy"
+    ],
+    [
+     3,
+     "Start"
+    ],
+    [
+     3,
+     "Scale"
+    ],
+    [
+     3,
+     "Enterprise"
+    ],
+    [
+     2,
+     "Dane firmy zostają pod Waszą kontrolą"
+    ],
+    [
+     3,
+     "Zgodność z RODO"
+    ],
+    [
+     3,
+     "Człowiek zatwierdza wyjątki"
+    ],
+    [
+     3,
+     "Pełny dziennik działań"
+    ],
+    [
+     2,
+     "Najczęstsze pytania"
+    ],
+    [
+     3,
+     "Od czego zacząć, jeśli nigdy nie automatyzowaliś"
+    ],
+    [
+     3,
+     "Czy musimy zmieniać CRM albo ERP?"
+    ],
+    [
+     3,
+     "Ile trwa wdrożenie?"
+    ],
+    [
+     3,
+     "Co się dzieje, gdy agent AI się pomyli?"
+    ],
+    [
+     3,
+     "Gdzie przetwarzane są nasze dane?"
+    ],
+    [
+     3,
+     "Ile kosztuje audyt?"
+    ],
+    [
+     2,
+     "Sprawdź, co w Twojej firmie może robić się samo"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "11": 152,
+    "12": 156,
+    "13": 646,
+    "14": 207,
+    "15": 1688,
+    "16": 51,
+    "17": 3830,
+    "18": 593,
+    "20": 76,
+    "22": 394,
+    "24": 20,
+    "28": 86,
+    "32": 336,
+    "36": 67,
+    "44": 29,
+    "64": 4
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 6157,
+    "Onest": 1861,
+    "JetBrains Mono": 317
+   },
+   "textChars": 8335,
+   "lineLength": {
+    "blocks": 37,
+    "medianCharsPerLine": 31,
+    "max": 49
+   },
+   "centeredBlocks3PlusLines": 6,
+   "centeredExamples": [
+    "Zaczynamy od procesu, który kosztuje Was najwięcej",
+    "Nie wymieniamy systemów. Łączymy je tak, żeby dane",
+    "Agent czyta wiadomość, sprawdza stan w ERP, przygo"
+   ],
+   "interactive": {
+    "total": 55,
+    "under44": 32,
+    "under44Inline": 7,
+    "under24": 25,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "input. „” 310×28",
+     "input. „” 310×28",
+     "input. „” 310×28",
+     "input. „” 13×13",
+     "input. „” 13×13",
+     "input. „” 13×13"
+    ],
+    "under24Examples": [
+     "input „” 13×13",
+     "input „” 13×13",
+     "input „” 13×13",
+     "a „Zobacz, jak łączymy system” 221×20",
+     "a „Zobacz pakiety dla firm” 179×20",
+     "a „Zobacz, jak chronimy dane” 206×20"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/hero-flow.jpg",
+     "sources": [
+      "assets/video/hero-flow.webm",
+      "assets/video/hero-flow.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "metadata",
+     "controls": false,
+     "ariaLabel": null,
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 700,
+     "renderedH": 394,
+     "toggle": false
+    },
+    {
+     "poster": "assets/video/dashboard.jpg",
+     "sources": [
+      "assets/video/dashboard.webm",
+      "assets/video/dashboard.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": null,
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 358,
+     "renderedH": 440,
+     "toggle": false
+    },
+    {
+     "poster": "assets/video/agent-demo.jpg",
+     "sources": [
+      "assets/video/agent-demo.webm",
+      "assets/video/agent-demo.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: agent AI obsługuje zapytanie ofertowe",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 10,
+    ".btn-dark": 2,
+    ".btn-light": 2,
+    ".btn-ghost": 1,
+    ".btn-glass": 1,
+    ".btn-accent": 2,
+    ".btn-outline": 2,
+    ".btn-lg": 5,
+    ".chip": 1,
+    ".hero": 1,
+    ".hero-video": 1,
+    ".hero-feed": 1,
+    ".stats": 1,
+    ".stat": 4,
+    ".bento": 1,
+    ".card": 4,
+    ".card-mist": 1,
+    ".card-night": 1,
+    ".card-accent": 1,
+    ".card-video": 1,
+    ".mock": 3,
+    ".calc": 1,
+    ".seg": 2,
+    "input[type=range]": 3,
+    ".band-night": 1,
+    ".story": 1,
+    ".device": 1,
+    ".carousel": 1,
+    ".use": 6,
+    ".round-btn": 2,
+    ".marquee": 1,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".plans": 1,
+    ".plan": 3,
+    ".plan-featured": 1,
+    ".plan-flag": 1,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 6,
+    ".cta": 1,
+    ".cta-form": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 6,
+    ".link-btn": 7,
+    ".section": 9,
+    ".section-head": 7,
+    ".section-head.left": 1,
+    ".lead": 10,
+    ".display": 1,
+    ".display-2": 1,
+    ".h2": 9,
+    ".h3": 17,
+    ".h4": 3,
+    ".reveal": 23,
+    "[style]": 32,
+    "video": 3
+   },
+   "inlineStyles": [
+    "div.hero-media: transform: translate3d(0px, 0px, 0px);",
+    "i.: width:100%",
+    "i.hot: width:40%"
+   ],
+   "surface": {
+    "pageHeight": 14008,
+    "darkBlocksPx": 7337,
+    "tintedBlocksPx": 4505,
+    "darkShare": 0.52,
+    "tintedShare": 0.32,
+    "count": 20
+   },
+   "animations": 45
+  },
+  "integracja-systemow-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 11,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Dane wpisujesz raz. Pozostałe systemy dostają je"
+    ],
+    [
+     2,
+     "Jak połączyć system HR z programem kadrowo-płaco"
+    ],
+    [
+     2,
+     "Znasz to z własnej firmy?"
+    ],
+    [
+     3,
+     "Ta sama umowa wpisana dwa razy"
+    ],
+    [
+     3,
+     "Zmiana w jednym systemie nie dochodzi do drugieg"
+    ],
+    [
+     3,
+     "Raport sklejany z trzech eksportów"
+    ],
+    [
+     2,
+     "Trzy drogi łączenia systemów"
+    ],
+    [
+     2,
+     "Co dokładnie przechodzi między systemami"
+    ],
+    [
+     2,
+     "Jeden rekord w drodze z systemu HR do kadr i pła"
+    ],
+    [
+     2,
+     "Zapis z kontrolą"
+    ],
+    [
+     2,
+     "Jak to działa w praktyce"
+    ],
+    [
+     3,
+     "Agencja pracy"
+    ],
+    [
+     2,
+     "Co dostajesz po konsultacji"
+    ],
+    [
+     2,
+     "Od rozmowy do działającej integracji"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Czy musimy wymieniać któryś system?"
+    ],
+    [
+     3,
+     "Nasz system nie ma API. Co wtedy?"
+    ],
+    [
+     3,
+     "Co się stanie, gdy dostawca zaktualizuje system?"
+    ],
+    [
+     3,
+     "Jakie systemy już łączyliście?"
+    ],
+    [
+     3,
+     "Czy jesteście partnerem dostawców tych systemów?"
+    ],
+    [
+     3,
+     "Czy integracja korzysta z modeli AI?"
+    ],
+    [
+     3,
+     "Co z danymi osobowymi?"
+    ],
+    [
+     3,
+     "Mamy ERP i system magazynowy. Czy to ta sama met"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     2,
+     "Sprawdźmy, jak połączyć Twoje systemy"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1294,
+    "16": 34,
+    "17": 3641,
+    "18": 320,
+    "20": 125,
+    "22": 13,
+    "32": 322,
+    "36": 91
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5099,
+    "Onest": 1118
+   },
+   "textChars": 6217,
+   "lineLength": {
+    "blocks": 27,
+    "medianCharsPerLine": 33,
+    "max": 43
+   },
+   "centeredBlocks3PlusLines": 8,
+   "centeredExamples": [
+    "Łączymy systemy, na których już pracujesz. Zespół ",
+    "Są trzy drogi: interfejs API, wymiana plików albo ",
+    "REVAGY to automatyzacja procesów i wdrożenia AI dl"
+   ],
+   "interactive": {
+    "total": 38,
+    "under44": 22,
+    "under44Inline": 4,
+    "under24": 19,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „Porównanie rozwiązań” 174×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23",
+     "a „Sprzedaż” 64×23",
+     "a „Finanse” 54×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/integracja-systemow.jpg",
+     "sources": [
+      "assets/video/integracja-systemow.webm",
+      "assets/video/integracja-systemow.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: rekord pracownika przechodzi z systemu HR do kadr i płac",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 3,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 4,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 9,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 2,
+    ".ticks": 2,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 2,
+    ".section": 12,
+    ".section-head": 11,
+    ".section-head.left": 1,
+    ".lead": 10,
+    ".display-2": 2,
+    ".h2": 10,
+    ".h3": 1,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 3,
+    "video": 1,
+    "table": 2
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8684,
+    "darkBlocksPx": 422,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.05,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 8
+  },
+  "wdrozenia-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 6,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Cztery wdrożenia. Co było, co połączyliśmy, co s"
+    ],
+    [
+     2,
+     "Cztery procesy przed i po połączeniu systemów"
+    ],
+    [
+     2,
+     "Jak czytać te opisy"
+    ],
+    [
+     3,
+     "Umowy bez przepisywania"
+    ],
+    [
+     3,
+     "Jeden raport zarządu z kilku źródeł"
+    ],
+    [
+     3,
+     "Alert o kończącym się zezwoleniu 30 dni wcześnie"
+    ],
+    [
+     3,
+     "Kandydat w systemie w 5 minut"
+    ],
+    [
+     2,
+     "Co łączy te cztery wdrożenia"
+    ],
+    [
+     3,
+     "Systemy zostały"
+    ],
+    [
+     3,
+     "Człowiek zatwierdza wyjątki"
+    ],
+    [
+     3,
+     "Każdy zapis ma ślad"
+    ],
+    [
+     2,
+     "Jak zacząć u siebie"
+    ],
+    [
+     2,
+     "Pytania o wdrożenia"
+    ],
+    [
+     3,
+     "Dlaczego nie podajecie nazw firm?"
+    ],
+    [
+     3,
+     "Skąd są te liczby?"
+    ],
+    [
+     3,
+     "Czy u nas wyjdzie tak samo?"
+    ],
+    [
+     3,
+     "Mamy inne systemy niż w tych opisach. Czy to prz"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji albo logistyce. Czy to te "
+    ],
+    [
+     2,
+     "Który proces u Ciebie przepisuje się ręcznie?"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 91,
+    "15": 1139,
+    "16": 34,
+    "17": 3290,
+    "18": 197,
+    "20": 73,
+    "22": 136,
+    "32": 130,
+    "36": 105
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4744,
+    "Onest": 762
+   },
+   "textChars": 5506,
+   "lineLength": {
+    "blocks": 30,
+    "medianCharsPerLine": 32,
+    "max": 41
+   },
+   "centeredBlocks3PlusLines": 5,
+   "centeredExamples": [
+    "Każdy opis podaje rodzaj firmy, kategorie połączon",
+    "REVAGY to firma, która automatyzuje procesy i wdra",
+    "Umowa trafia z dokumentu do dwóch systemów. Trzy ź"
+   ],
+   "interactive": {
+    "total": 36,
+    "under44": 24,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „integracji systemów” 153×20",
+     "a „dla firm” 58×20",
+     "a „Produkcja i logistyka” 159×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/wdrozenia.jpg",
+     "sources": [
+      "assets/video/wdrozenia.webm",
+      "assets/video/wdrozenia.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: cztery procesy przed i po połączeniu systemów",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 7,
+    ".dowod": 4,
+    ".faq": 1,
+    ".qa": 5,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 7,
+    ".kroki": 1,
+    ".autor": 3,
+    ".uwaga": 1,
+    ".link-btn": 4,
+    ".section": 11,
+    ".section-head": 6,
+    ".section-head.left": 1,
+    ".lead": 6,
+    ".display-2": 2,
+    ".h2": 5,
+    ".h3": 4,
+    ".h4": 3,
+    ".reveal": 15,
+    "[style]": 3,
+    "video": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 7889,
+    "darkBlocksPx": 397,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.05,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 20
+  },
+  "dla-firm-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 7,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Automatyzacja dla firmy od 5 do 250 osób. Zaczyn"
+    ],
+    [
+     2,
+     "Co może robić się samo w Twojej firmie"
+    ],
+    [
+     2,
+     "Cztery kroki od rozmowy do działającej automatyz"
+    ],
+    [
+     2,
+     "Co dostajesz na każdym kroku"
+    ],
+    [
+     2,
+     "Pakiety Start i Scale"
+    ],
+    [
+     3,
+     "Start"
+    ],
+    [
+     3,
+     "Scale"
+    ],
+    [
+     2,
+     "Produkcja, magazyn albo wiele spółek?"
+    ],
+    [
+     2,
+     "Pytania, które zadaje mała firma"
+    ],
+    [
+     3,
+     "Od czego zacząć?"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     3,
+     "Co jeśli się rozmyślimy?"
+    ],
+    [
+     3,
+     "Czy trzeba wymieniać systemy?"
+    ],
+    [
+     3,
+     "Kto po naszej stronie musi mieć czas?"
+    ],
+    [
+     3,
+     "Ile trwa pierwsze wdrożenie?"
+    ],
+    [
+     3,
+     "Co z danymi osobowymi?"
+    ],
+    [
+     2,
+     "Który proces kosztuje Cię najwięcej godzin?"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 332,
+    "14": 66,
+    "15": 1883,
+    "16": 34,
+    "17": 3379,
+    "18": 206,
+    "20": 12,
+    "28": 10,
+    "32": 208,
+    "36": 114
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5517,
+    "Onest": 727
+   },
+   "textChars": 6244,
+   "lineLength": {
+    "blocks": 29,
+    "medianCharsPerLine": 33,
+    "max": 41
+   },
+   "centeredBlocks3PlusLines": 8,
+   "centeredExamples": [
+    "Łączymy systemy, na których już pracujesz, i oddaj",
+    "REVAGY to firma, która automatyzuje procesy i wdra",
+    "Gotowe zastosowania, od których firmy B2B zaczynaj"
+   ],
+   "interactive": {
+    "total": 42,
+    "under44": 26,
+    "under44Inline": 8,
+    "under24": 23,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „wdrożeń” 68×20",
+     "a „produkcja i logistyka” 158×20",
+     "a „Jak wybrać pierwszy proces” 351×20",
+     "a „Integracja systemów” 160×20",
+     "a „Dane i bezpieczeństwo” 178×20",
+     "a „Agenci AI” 66×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/dla-firm.jpg",
+     "sources": [
+      "assets/video/dla-firm.webm",
+      "assets/video/dla-firm.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: od konsultacji do opieki, cztery kroki współpracy",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 8,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-accent": 1,
+    ".btn-outline": 2,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".plans": 1,
+    ".plan": 2,
+    ".plan-featured": 1,
+    ".plan-flag": 1,
+    ".faq": 1,
+    ".qa": 7,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 6,
+    ".section": 8,
+    ".section-head": 7,
+    ".section-head.left": 1,
+    ".lead": 8,
+    ".display-2": 2,
+    ".h2": 6,
+    ".h3": 2,
+    ".reveal": 12,
+    "[style]": 2,
+    "video": 1,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 7915,
+    "darkBlocksPx": 1145,
+    "tintedBlocksPx": 663,
+    "darkShare": 0.14,
+    "tintedShare": 0.08,
+    "count": 3
+   },
+   "animations": 27
+  },
+  "dane-i-bezpieczenstwo-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 8,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Dane i bezpieczeństwo: stan na dziś"
+    ],
+    [
+     2,
+     "Czego dotyczy ta strona"
+    ],
+    [
+     2,
+     "Trzy zasady każdej integracji"
+    ],
+    [
+     3,
+     "Minimalny zakres dostępu"
+    ],
+    [
+     3,
+     "Wpis w dzienniku przy każdym zapisie"
+    ],
+    [
+     3,
+     "Wyjątki zatwierdza człowiek"
+    ],
+    [
+     2,
+     "Którędy idą dane"
+    ],
+    [
+     2,
+     "Dostęp tylko do potrzebnych pól, wyjątek u człow"
+    ],
+    [
+     2,
+     "Co obowiązuje dziś"
+    ],
+    [
+     2,
+     "Czego jeszcze nie publikujemy"
+    ],
+    [
+     2,
+     "Pytania, które zwykle zadaje dział IT"
+    ],
+    [
+     3,
+     "Gdzie będą przetwarzane nasze dane?"
+    ],
+    [
+     3,
+     "Jakich uprawnień potrzebujecie?"
+    ],
+    [
+     3,
+     "Czy zobaczymy, co integracja zmieniła?"
+    ],
+    [
+     3,
+     "Kto decyduje w nietypowych przypadkach?"
+    ],
+    [
+     3,
+     "Czy zapis da się cofnąć?"
+    ],
+    [
+     3,
+     "Z jakich dostawców korzystacie?"
+    ],
+    [
+     3,
+     "Jak szybko reagujecie na awarię?"
+    ],
+    [
+     3,
+     "Czy macie ubezpieczenie?"
+    ],
+    [
+     3,
+     "Co się dzieje z danymi, które wpisuję w formular"
+    ],
+    [
+     2,
+     "Sprawdźcie nas na konkretnym procesie"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1246,
+    "16": 34,
+    "17": 3169,
+    "18": 317,
+    "20": 99,
+    "32": 204,
+    "36": 72
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4690,
+    "Onest": 828
+   },
+   "textChars": 5518,
+   "lineLength": {
+    "blocks": 30,
+    "medianCharsPerLine": 34,
+    "max": 45
+   },
+   "centeredBlocks3PlusLines": 9,
+   "centeredExamples": [
+    "Opisujemy, jak integracja dostaje dostęp do Waszyc",
+    "Ta strona opisuje dane w Waszych systemach, z któr",
+    "Dane, które zostawiacie na stronie revagy.pl, to o"
+   ],
+   "interactive": {
+    "total": 39,
+    "under44": 23,
+    "under44Inline": 5,
+    "under24": 20,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „polityka prywatności” 160×20",
+     "a „Integracja systemów” 159×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23",
+     "a „Sprzedaż” 64×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/dane-i-bezpieczenstwo.jpg",
+     "sources": [
+      "assets/video/dane-i-bezpieczenstwo.webm",
+      "assets/video/dane-i-bezpieczenstwo.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 9,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 3,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 1,
+    ".link-btn": 3,
+    ".section": 9,
+    ".section-head": 8,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 7,
+    ".h4": 3,
+    ".reveal": 14,
+    "[style]": 3,
+    "video": 1,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 7564,
+    "darkBlocksPx": 422,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.06,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 14
+  },
+  "produkcja-i-logistyka-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 9,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Najpierw 14 dni na jednej linii. Potem decyzja."
+    ],
+    [
+     2,
+     "Gdzie na hali i w magazynie uciekają godziny"
+    ],
+    [
+     3,
+     "Raport zmianowy sklejany ręcznie"
+    ],
+    [
+     3,
+     "Te same dane w kilku systemach"
+    ],
+    [
+     3,
+     "Każdy system pokazuje inną liczbę"
+    ],
+    [
+     2,
+     "Co obejmuje pilot"
+    ],
+    [
+     2,
+     "Jedna linia, jeden proces, jedno kryterium"
+    ],
+    [
+     2,
+     "Przykładowe kryteria sukcesu do umowy"
+    ],
+    [
+     2,
+     "Co już mamy z produkcji"
+    ],
+    [
+     3,
+     "Zakład produkcyjny"
+    ],
+    [
+     2,
+     "Co dostaje Wasz dział IT"
+    ],
+    [
+     2,
+     "Od rozmowy do decyzji"
+    ],
+    [
+     2,
+     "Pytania dyrektora operacyjnego"
+    ],
+    [
+     3,
+     "Ile kosztuje pilot?"
+    ],
+    [
+     3,
+     "Ile kosztuje pakiet po pilocie?"
+    ],
+    [
+     3,
+     "Czy musimy wymieniać system ERP albo system maga"
+    ],
+    [
+     3,
+     "Kto po naszej stronie musi być zaangażowany?"
+    ],
+    [
+     3,
+     "Ile macie wdrożeń w produkcji?"
+    ],
+    [
+     3,
+     "Gdzie będą przetwarzane dane zakładu?"
+    ],
+    [
+     3,
+     "Co po zakończeniu pilota?"
+    ],
+    [
+     2,
+     "Wybierzmy jedną linię albo jedną zmianę"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 1877,
+    "16": 34,
+    "17": 3194,
+    "18": 241,
+    "20": 107,
+    "22": 18,
+    "32": 238,
+    "36": 86
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5274,
+    "Onest": 898
+   },
+   "textChars": 6172,
+   "lineLength": {
+    "blocks": 32,
+    "medianCharsPerLine": 33,
+    "max": 42
+   },
+   "centeredBlocks3PlusLines": 10,
+   "centeredExamples": [
+    "W zakładzie produkcyjnym albo magazynie zaczynamy ",
+    "REVAGY to firma, która automatyzuje procesy i wdra",
+    "Pilot to osobna, płatna umowa z jasnym końcem. Nie"
+   ],
+   "interactive": {
+    "total": 38,
+    "under44": 24,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „Dane i bezpieczeństwo” 177×20",
+     "a „Integracja systemów” 159×20",
+     "a „Dane i bezpieczeństwo” 178×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/produkcja-i-logistyka.jpg",
+     "sources": [
+      "assets/video/produkcja-i-logistyka.webm",
+      "assets/video/produkcja-i-logistyka.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: 14 dni pilota na jednej linii produkcyjnej",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 2,
+     "th": 2,
+     "focusable": false,
+     "cols": 2
+    },
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 3,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 1,
+    ".trust": 4,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 7,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 3,
+    ".ticks": 2,
+    ".kroki": 1,
+    ".autor": 1,
+    ".uwaga": 2,
+    ".link-btn": 4,
+    ".section": 10,
+    ".section-head": 9,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 8,
+    ".h3": 1,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 3,
+    "video": 1,
+    "table": 3
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8444,
+    "darkBlocksPx": 422,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.05,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 11
+  },
+  "finanse-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 9,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Faktury kosztowe, windykacja i uzgodnienia bez r"
+    ],
+    [
+     2,
+     "Faktura kosztowa od odbioru do akceptacji"
+    ],
+    [
+     2,
+     "Faktury kosztowe"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Windykacja"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Uzgodnienia"
+    ],
+    [
+     3,
+     "Dziś"
+    ],
+    [
+     3,
+     "Po wdrożeniu"
+    ],
+    [
+     3,
+     "Co zostaje człowiekowi"
+    ],
+    [
+     2,
+     "Jak zaczynamy"
+    ],
+    [
+     2,
+     "Ten sam mechanizm w innym dziale"
+    ],
+    [
+     3,
+     "Jeden raport zarządu z kilku źródeł"
+    ],
+    [
+     2,
+     "Dane finansowe i umowa powierzenia"
+    ],
+    [
+     2,
+     "Pytania działu finansów"
+    ],
+    [
+     3,
+     "Czy to zastąpi księgową?"
+    ],
+    [
+     3,
+     "Co z fakturami w KSeF?"
+    ],
+    [
+     3,
+     "Nasz program księgowy nie ma API. Co wtedy?"
+    ],
+    [
+     3,
+     "Czy musimy zmieniać program księgowy albo bank?"
+    ],
+    [
+     3,
+     "Od którego procesu zacząć?"
+    ],
+    [
+     3,
+     "Ile to kosztuje?"
+    ],
+    [
+     2,
+     "Zacznijmy od jednego procesu w finansach"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 119,
+    "15": 1276,
+    "16": 34,
+    "17": 4373,
+    "18": 178,
+    "20": 126,
+    "22": 35,
+    "32": 180,
+    "36": 109
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 5977,
+    "Onest": 764
+   },
+   "textChars": 6741,
+   "lineLength": {
+    "blocks": 34,
+    "medianCharsPerLine": 33,
+    "max": 42
+   },
+   "centeredBlocks3PlusLines": 7,
+   "centeredExamples": [
+    "Automatyzujemy trzy procesy działu finansów: obieg",
+    "REVAGY to firma, która automatyzuje procesy i wdra",
+    "Dla dyrektora finansowego, głównej księgowej i wła"
+   ],
+   "interactive": {
+    "total": 39,
+    "under44": 24,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „Wdrożenia” 85×20",
+     "a „Porównanie rozwiązań” 174×20",
+     "a „Jak wybrać pierwszy proces” 351×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [
+    {
+     "poster": "assets/video/finanse.jpg",
+     "sources": [
+      "assets/video/finanse.webm",
+      "assets/video/finanse.mp4"
+     ],
+     "autoplayAttr": false,
+     "dataAutoplay": true,
+     "muted": true,
+     "loop": true,
+     "playsinline": true,
+     "preload": "none",
+     "controls": false,
+     "ariaLabel": "Animacja: faktura kosztowa od odbioru do akceptacji człowieka",
+     "ariaHidden": null,
+     "tracks": 0,
+     "renderedW": 315,
+     "renderedH": 177,
+     "toggle": true
+    }
+   ],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".film": 1,
+    ".film video": 1,
+    ".film-toggle": 1,
+    ".trio": 3,
+    ".trust": 10,
+    ".dowod": 1,
+    ".faq": 1,
+    ".qa": 6,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 2,
+    ".link-btn": 6,
+    ".section": 10,
+    ".section-head": 9,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 8,
+    ".h3": 1,
+    ".h4": 9,
+    ".reveal": 20,
+    "[style]": 7,
+    "video": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 9033,
+    "darkBlocksPx": 422,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.05,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 23
+  },
+  "jak-wybrac-pierwszy-proces-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 11,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Jak wybrać pierwszy proces do automatyzacji"
+    ],
+    [
+     2,
+     "Który proces wziąć na początek?"
+    ],
+    [
+     2,
+     "Kryteria wyboru pierwszego procesu"
+    ],
+    [
+     2,
+     "Jak zmierzyć stan wyjściowy przed startem"
+    ],
+    [
+     2,
+     "Przykład: jak zamienić pomiar na liczbę"
+    ],
+    [
+     2,
+     "Czego nie brać na początek"
+    ],
+    [
+     2,
+     "Przykłady dobrych kandydatów"
+    ],
+    [
+     3,
+     "Umowy z systemu HR do kadr i płac"
+    ],
+    [
+     3,
+     "Zamówienia z e-maili i plików PDF do systemu ERP"
+    ],
+    [
+     3,
+     "Raport tygodniowy sklejany z kilku eksportów"
+    ],
+    [
+     2,
+     "Co przygotować na konsultację"
+    ],
+    [
+     2,
+     "Co dostajesz po konsultacji"
+    ],
+    [
+     2,
+     "Co dzieje się po karcie"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Mam kilku kandydatów. Którego wybrać?"
+    ],
+    [
+     3,
+     "Czy pomiar jest warunkiem konsultacji?"
+    ],
+    [
+     3,
+     "Czy jeden proces to nie za mało?"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji albo w magazynie. Co wtedy"
+    ],
+    [
+     3,
+     "Ile kosztuje wdrożenie?"
+    ],
+    [
+     2,
+     "Masz kandydata? Sprawdźmy go razem"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 2632,
+    "16": 34,
+    "17": 4264,
+    "18": 179,
+    "20": 137,
+    "32": 285,
+    "36": 77
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 7129,
+    "Onest": 856
+   },
+   "textChars": 7985,
+   "lineLength": {
+    "blocks": 46,
+    "medianCharsPerLine": 36,
+    "max": 47
+   },
+   "centeredBlocks3PlusLines": 13,
+   "centeredExamples": [
+    "Pierwszy proces decyduje, czy automatyzacja obroni",
+    "Weź proces, który za każdym razem przebiega tak sa",
+    "Nie zaczynaj od procesu, który boli najbardziej, j"
+   ],
+   "interactive": {
+    "total": 38,
+    "under44": 26,
+    "under44Inline": 8,
+    "under24": 23,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „porównania czterech dróg” 203×20",
+     "a „Wdrożenia” 85×20",
+     "a „Dane i bezpieczeństwo” 177×20",
+     "a „Produkcja i logistyka” 159×20",
+     "a „Dla firm” 62×20",
+     "a „Agenci AI” 66×23"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 4,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".trio": 1,
+    ".trust": 3,
+    ".faq": 1,
+    ".qa": 5,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 5,
+    ".kroki": 2,
+    ".autor": 1,
+    ".uwaga": 2,
+    ".link-btn": 7,
+    ".section": 12,
+    ".section-head": 11,
+    ".section-head.left": 1,
+    ".lead": 9,
+    ".display-2": 2,
+    ".h2": 10,
+    ".h4": 3,
+    ".reveal": 19,
+    "[style]": 2,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 9777,
+    "darkBlocksPx": 397,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.04,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 29
+  },
+  "porownanie-rozwiazan-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 10,
+    "nav": 6,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Jak skończyć z przepisywaniem danych? Cztery dro"
+    ],
+    [
+     2,
+     "Którą drogę wybrać?"
+    ],
+    [
+     2,
+     "Droga 1. Połączenie istniejących systemów"
+    ],
+    [
+     2,
+     "Droga 2. Automat klikający po ekranie"
+    ],
+    [
+     2,
+     "Droga 3. Wymiana systemu na nowy"
+    ],
+    [
+     2,
+     "Droga 4. Przepisywanie zostaje u ludzi"
+    ],
+    [
+     2,
+     "Cztery drogi obok siebie"
+    ],
+    [
+     2,
+     "Kiedy REVAGY nie jest właściwym wyborem"
+    ],
+    [
+     2,
+     "Jak wybrać drogę dla swojego procesu"
+    ],
+    [
+     2,
+     "Pytania"
+    ],
+    [
+     3,
+     "Skąd mam wiedzieć, czy mój system ma interfejs A"
+    ],
+    [
+     3,
+     "Czy połączenie przetrwa, gdy kiedyś wymienimy sy"
+    ],
+    [
+     3,
+     "Pracujemy w produkcji i logistyce. Czy to ta sam"
+    ],
+    [
+     3,
+     "Ile kosztuje sprawdzenie, która droga pasuje?"
+    ],
+    [
+     2,
+     "Sprawdźmy, która droga pasuje do Twojego procesu"
+    ],
+    [
+     2,
+     "Rozwiązania"
+    ],
+    [
+     2,
+     "Dla działów"
+    ],
+    [
+     2,
+     "Firma"
+    ],
+    [
+     2,
+     "Kontakt"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 311,
+    "14": 66,
+    "15": 4310,
+    "16": 34,
+    "17": 2805,
+    "18": 206,
+    "20": 12,
+    "32": 273,
+    "36": 112
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 7242,
+    "Onest": 887
+   },
+   "textChars": 8129,
+   "lineLength": {
+    "blocks": 38,
+    "medianCharsPerLine": 36,
+    "max": 47
+   },
+   "centeredBlocks3PlusLines": 9,
+   "centeredExamples": [
+    "Dane, które ktoś przepisuje z jednego systemu do d",
+    "Jeśli Twoje systemy mają interfejs API, eksport pl",
+    "Zanim wybierzesz, policz stan wyjściowy: ile razy "
+   ],
+   "interactive": {
+    "total": 36,
+    "under44": 24,
+    "under44Inline": 6,
+    "under24": 21,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.logo „REVAGY” 120×30",
+     "a. „Agenci AI” 66×23",
+     "a. „Integracje” 69×23",
+     "a. „Analityka” 65×23",
+     "a. „Sprzedaż” 64×23",
+     "a. „Finanse” 54×23"
+    ],
+    "under24Examples": [
+     "a „Dane i bezpieczeństwo” 177×20",
+     "a „Produkcja i logistyka” 159×20",
+     "a „Dla firm” 62×20",
+     "a „Agenci AI” 66×23",
+     "a „Integracje” 69×23",
+     "a „Analityka” 65×23"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 599,
+     "overflow": true,
+     "caption": false,
+     "thScope": 9,
+     "th": 9,
+     "focusable": false,
+     "cols": 5
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".main-nav": 1,
+    ".nav-panel": 2,
+    ".mobile-menu": 1,
+    ".btn": 6,
+    ".btn-dark": 3,
+    ".btn-light": 1,
+    ".btn-ghost": 1,
+    ".btn-outline": 1,
+    ".btn-lg": 4,
+    ".faq": 1,
+    ".qa": 4,
+    ".cta": 1,
+    ".footer-grid": 1,
+    ".footer-legal": 1,
+    ".doc-table": 1,
+    ".ticks": 6,
+    ".kroki": 1,
+    ".autor": 1,
+    ".link-btn": 6,
+    ".section": 11,
+    ".section-head": 10,
+    ".section-head.left": 1,
+    ".lead": 8,
+    ".display-2": 2,
+    ".h2": 9,
+    ".reveal": 12,
+    "table": 1
+   },
+   "inlineStyles": [],
+   "surface": {
+    "pageHeight": 8969,
+    "darkBlocksPx": 422,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.05,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 27
+  },
+  "kontakt-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Sprawdź, co w Twojej firmie może robić się samo"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 164,
+    "15": 16,
+    "16": 17,
+    "17": 112,
+    "20": 6,
+    "36": 47
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 260,
+    "Onest": 102
+   },
+   "textChars": 362,
+   "lineLength": {
+    "blocks": 1,
+    "medianCharsPerLine": 26,
+    "max": 26
+   },
+   "centeredBlocks3PlusLines": 1,
+   "centeredExamples": [
+    "Napisz do nas ze służbowej skrzynki. Wrócimy z ter"
+   ],
+   "interactive": {
+    "total": 8,
+    "under44": 6,
+    "under44Inline": 3,
+    "under24": 3,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40",
+     "a.cta-mail „kontakt@revagy.pl” 304×24"
+    ],
+    "under24Examples": [
+     "a „Strona główna” 86×16",
+     "button „Ustawienia prywatności” 140×20",
+     "a „kontakt@revagy.pl” 110×16"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 3,
+    ".btn-dark": 1,
+    ".btn-ghost": 1,
+    ".btn-accent": 1,
+    ".btn-lg": 1,
+    ".cta": 1,
+    ".cta-form": 1,
+    ".footer-legal": 1,
+    ".link-btn": 1,
+    ".section": 1,
+    ".lead": 1,
+    ".display-2": 1,
+    "[style]": 2
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto",
+    "div.footer-legal: margin-top:0"
+   ],
+   "surface": {
+    "pageHeight": 844,
+    "darkBlocksPx": 461,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.55,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 1
+  },
+  "polityka-prywatnosci-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 1
+   },
+   "headings": [
+    [
+     1,
+     "Polityka prywatności"
+    ],
+    [
+     2,
+     "Kto odpowiada za dane"
+    ],
+    [
+     2,
+     "Jakie dane zbieramy i po co"
+    ],
+    [
+     2,
+     "Ciasteczka i pamięć przeglądarki"
+    ],
+    [
+     2,
+     "Jak zmienić zdanie"
+    ],
+    [
+     2,
+     "Komu przekazujemy dane"
+    ],
+    [
+     2,
+     "Twoje prawa"
+    ]
+   ],
+   "fontSizeChars": {
+    "13": 207,
+    "15": 2432,
+    "17": 2489,
+    "20": 6,
+    "24": 131,
+    "32": 20
+   },
+   "fontFamilyChars": {
+    "Instrument Sans": 4955,
+    "Onest": 237,
+    "JetBrains Mono": 43,
+    "monospace": 50
+   },
+   "textChars": 5285,
+   "lineLength": {
+    "blocks": 26,
+    "medianCharsPerLine": 11,
+    "max": 43
+   },
+   "centeredBlocks3PlusLines": 0,
+   "centeredExamples": [],
+   "interactive": {
+    "total": 9,
+    "under44": 8,
+    "under44Inline": 6,
+    "under24": 5,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40"
+    ],
+    "under24Examples": [
+     "a „kontakt@revagy.pl” 144×20",
+     "a „kontakt@revagy.pl” 144×20",
+     "a „Strona główna” 86×16",
+     "button „Ustawienia prywatności” 140×20",
+     "a „kontakt@revagy.pl” 110×16"
+    ]
+   },
+   "images": [],
+   "videos": [],
+   "tables": [
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 0,
+     "th": 4,
+     "focusable": false,
+     "cols": 4
+    },
+    {
+     "clientW": 356,
+     "scrollW": 560,
+     "overflow": true,
+     "caption": false,
+     "thScope": 0,
+     "th": 3,
+     "focusable": false,
+     "cols": 3
+    }
+   ],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 2,
+    ".btn-dark": 1,
+    ".btn-ghost": 1,
+    ".footer-legal": 1,
+    ".doc-page": 1,
+    ".doc-table": 2,
+    ".link-btn": 2,
+    ".lead": 1,
+    "[style]": 3,
+    "table": 2
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto",
+    "p.: margin-top:44px",
+    "div.footer-legal: margin-top:0"
+   ],
+   "surface": {
+    "pageHeight": 5239,
+    "darkBlocksPx": 0,
+    "tintedBlocksPx": 0,
+    "darkShare": 0,
+    "tintedShare": 0,
+    "count": 0
+   },
+   "animations": 0
+  },
+  "404-mobile": {
+   "lang": "pl",
+   "landmarks": {
+    "header": 1,
+    "nav": 0,
+    "main": 1,
+    "footer": 0
+   },
+   "headings": [
+    [
+     1,
+     "Tej strony nie ma w naszym obiegu"
+    ]
+   ],
+   "fontSizeChars": {
+    "14": 8,
+    "15": 16,
+    "17": 131,
+    "20": 6,
+    "36": 33
+   },
+   "fontFamilyChars": {
+    "Onest": 85,
+    "JetBrains Mono": 8,
+    "Instrument Sans": 101
+   },
+   "textChars": 194,
+   "lineLength": {
+    "blocks": 1,
+    "medianCharsPerLine": 34,
+    "max": 34
+   },
+   "centeredBlocks3PlusLines": 1,
+   "centeredExamples": [
+    "Adres jest błędny albo strona została przeniesiona"
+   ],
+   "interactive": {
+    "total": 4,
+    "under44": 2,
+    "under44Inline": 0,
+    "under24": 0,
+    "examples": [
+     "a.logo „REVAGY” 120×30",
+     "a.btn „Umów konsultację” 163×40"
+    ],
+    "under24Examples": []
+   },
+   "images": [],
+   "videos": [],
+   "tables": [],
+   "svgNoHidden": 0,
+   "components": {
+    ".site-header": 1,
+    ".btn": 3,
+    ".btn-dark": 1,
+    ".btn-light": 1,
+    ".btn-glass": 1,
+    ".btn-lg": 2,
+    ".lost": 1,
+    ".lead": 1,
+    ".display-2": 1,
+    "[style]": 1
+   },
+   "inlineStyles": [
+    "div.header-actions: margin-left:auto"
+   ],
+   "surface": {
+    "pageHeight": 844,
+    "darkBlocksPx": 490,
+    "tintedBlocksPx": 0,
+    "darkShare": 0.58,
+    "tintedShare": 0,
+    "count": 1
+   },
+   "animations": 1
+  }
+ },
+ "strona_glowna": {
+  "baner_zgody_desktop": {
+   "banner": {
+    "x": 16,
+    "y": 658,
+    "w": 420,
+    "h": 226
+   },
+   "viewportShare": 0.07,
+   "cta": [
+    {
+     "el": "Umów bezpłatną konsultację",
+     "covered": 1
+    },
+    {
+     "el": "Zobacz agenta w akcji",
+     "covered": 0.23
+    }
+   ],
+   "lead": [
+    {
+     "el": "Łączymy Twój CRM, ERP i skrzyn",
+     "covered": 0.56
+    }
+   ],
+   "h1": [
+    {
+     "el": "Procesy, które robią się same",
+     "covered": 0
+    }
+   ],
+   "role": "dialog",
+   "ariaModal": null,
+   "domPosition": "8/8"
+  },
+  "fonty_wczytane_desktop": [
+   "Onest 100 900 U+100-2BA, U+",
+   "Onest 100 900 U+0-FF, U+131",
+   "Instrument Sans 400 700 U+100-2BA, U+",
+   "Instrument Sans 400 700 U+0-FF, U+131",
+   "JetBrains Mono 100 800 U+100-2BA, U+",
+   "JetBrains Mono 100 800 U+0-FF, U+131"
+  ],
+  "baner_zgody_mobile": {
+   "banner": {
+    "x": 16,
+    "y": 582,
+    "w": 358,
+    "h": 246
+   },
+   "viewportShare": 0.27,
+   "cta": [
+    {
+     "el": "Umów bezpłatną konsultację",
+     "covered": 1
+    },
+    {
+     "el": "Zobacz agenta w akcji",
+     "covered": 1
+    }
+   ],
+   "lead": [
+    {
+     "el": "Łączymy Twój CRM, ERP i skrzyn",
+     "covered": 0.12
+    }
+   ],
+   "h1": [
+    {
+     "el": "Procesy, które robią się same",
+     "covered": 0
+    }
+   ],
+   "role": "dialog",
+   "ariaModal": null,
+   "domPosition": "8/8"
+  },
+  "fonty_wczytane_mobile": [
+   "Onest 100 900 U+100-2BA, U+",
+   "Onest 100 900 U+0-FF, U+131",
+   "Instrument Sans 400 700 U+100-2BA, U+",
+   "Instrument Sans 400 700 U+0-FF, U+131",
+   "JetBrains Mono 100 800 U+100-2BA, U+",
+   "JetBrains Mono 100 800 U+0-FF, U+131"
+  ],
+  "stany_hover": {
+   ".header-actions .btn-dark": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgb(20, 17, 20)",
+      "rgb(46, 41, 48)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".header-actions .btn-ghost": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgba(0, 0, 0, 0)",
+      "rgb(244, 241, 238)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".hero-cta .btn-light": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgb(255, 255, 255)",
+      "rgb(244, 241, 238)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".hero-cta .btn-glass": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgba(255, 255, 255, 0.16)",
+      "rgba(255, 255, 255, 0.26)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".main-nav a.nav-link": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgba(0, 0, 0, 0)",
+      "rgb(244, 241, 238)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".bento .card-mist": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "boxShadow": [
+      "none",
+      "rgba(20, 17, 20, 0.4) 0px 34px 60px -34px"
+     ],
+     "transform": [
+      "none",
+      "matrix(1, 0, 0, 1, 0, -6)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".calc-result .btn-light": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgb(255, 255, 255)",
+      "rgb(244, 241, 238)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".plan-featured .btn-accent": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "boxShadow": [
+      "none",
+      "rgb(255, 91, 20) 0px 10px 30px -8px"
+     ],
+     "transform": [
+      "none",
+      "matrix(1, 0, 0, 1, 0, -1)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".plan .btn-outline": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgba(0, 0, 0, 0)",
+      "rgb(20, 17, 20)"
+     ],
+     "color": [
+      "rgb(20, 17, 20)",
+      "rgb(255, 255, 255)"
+     ],
+     "outlineColor": [
+      "rgb(20, 17, 20)",
+      "rgb(255, 255, 255)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".trust": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "borderTopColor": [
+      "rgb(225, 219, 212)",
+      "rgb(20, 17, 20)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".round-btn:not(:disabled)": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "backgroundColor": [
+      "rgb(244, 241, 238)",
+      "rgb(20, 17, 20)"
+     ],
+     "color": [
+      "rgb(20, 17, 20)",
+      "rgb(255, 255, 255)"
+     ],
+     "borderTopColor": [
+      "rgb(20, 17, 20)",
+      "rgb(255, 255, 255)"
+     ],
+     "outlineColor": [
+      "rgb(20, 17, 20)",
+      "rgb(255, 255, 255)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".use": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "transform": [
+      "none",
+      "matrix(1, 0, 0, 1, 0, -6)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".site-footer nav a": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "color": [
+      "rgb(98, 92, 99)",
+      "rgb(20, 17, 20)"
+     ],
+     "borderTopColor": [
+      "rgb(98, 92, 99)",
+      "rgb(20, 17, 20)"
+     ],
+     "outlineColor": [
+      "rgb(98, 92, 99)",
+      "rgb(20, 17, 20)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".cta-form .btn-accent": {
+    "hoverPotwierdzony": true,
+    "zmiana": {
+     "boxShadow": [
+      "none",
+      "rgb(255, 91, 20) 0px 10px 30px -8px"
+     ],
+     "transform": [
+      "none",
+      "matrix(1, 0, 0, 1, 0, -1)"
+     ]
+    },
+    "bezZmiany": false
+   },
+   ".qa button": {
+    "hoverPotwierdzony": true,
+    "zmiana": {},
+    "bezZmiany": true
+   }
+  },
+  "fokus_klawiatura": {
+   "kroki": 40,
+   "wszystkieZObrysem": true,
+   "niewidoczneWKolejnosci": 0,
+   "kolejnosc": [
+    "a.skip „Przejdź do treści”",
+    "a.logo „REVAGY”",
+    "button.nav-link „Rozwiązania”",
+    "button.nav-link „Dla działów”",
+    "a.nav-link „Jak wdrażamy”",
+    "a.nav-link „Pakiety”",
+    "a.nav-link „FAQ”",
+    "a.btn „Policz zwrot”",
+    "a.btn „Umów konsultację”",
+    "a.btn „Umów bezpłatną konsultac”",
+    "a.btn „Zobacz agenta w akcji”",
+    "input. „”",
+    "input. „”",
+    "input. „”",
+    "input. „”",
+    "a.btn „Sprawdź to na konsultacj”",
+    "a.link-btn „Zobacz cztery wdrożenia”",
+    "button.round-btn „”",
+    "div.carousel „Sprzedaż\n        Handlow”",
+    "a.link-btn „Zobacz, jak łączymy syst”",
+    "button.film-toggle „”",
+    "a.link-btn „Zobacz pakiety dla firm”",
+    "button. „Wdrożenie”",
+    "button. „Stała opieka”",
+    "a.btn „Zapytaj o Start”",
+    "a.btn „Zapytaj o Scale”",
+    "a.link-btn „Pilot dla produkcji i lo”",
+    "a.btn „Porozmawiajmy”",
+    "a.link-btn „Zobacz, jak chronimy dan”",
+    "button. „Od czego zacząć, jeśli n”",
+    "button. „Czy musimy zmieniać CRM ”",
+    "button. „Ile trwa wdrożenie?”",
+    "button. „Co się dzieje, gdy agent”",
+    "button. „Gdzie przetwarzane są na”",
+    "button. „Ile kosztuje audyt?”",
+    "a.cta-mail „kontakt@revagy.pl”",
+    "a.btn „Umów konsultację”",
+    "button.link-btn „Kopiuj adres”",
+    "a.logo „REVAGY”",
+    "a. „Automatyzacja procesów”"
+   ],
+   "obrys": "solid 3px rgb(255, 91, 20), offset 3px"
+  },
+  "ograniczony_ruch": {
+   "jsMotion": false,
+   "animacjeBiegnace": 0,
+   "filmy": [
+    {
+     "paused": true,
+     "currentTime": 0
+    },
+    {
+     "paused": true,
+     "currentTime": 0
+    },
+    {
+     "paused": true,
+     "currentTime": 0
+    }
+   ],
+   "revealOpacity": "1"
+  },
+  "ruch_domyslny": {
+   "animacjeBiegnace": 26,
+   "nieskonczone": 26,
+   "filmy": [
+    {
+     "paused": false,
+     "currentTime": 2.5,
+     "src": "hero-flow.webm"
+    },
+    {
+     "paused": true,
+     "currentTime": 0,
+     "src": "dashboard.webm"
+    },
+    {
+     "paused": true,
+     "currentTime": 0,
+     "src": "agent-demo.webm"
+    }
+   ]
+  }
+ }
+}
