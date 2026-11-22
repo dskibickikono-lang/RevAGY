@@ -34,6 +34,7 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 | `src/pages/integracja-systemow.astro`, `src/pages/wdrozenia.astro`, `src/pages/dla-firm.astro`, `src/pages/dane-i-bezpieczenstwo.astro`, `src/pages/produkcja-i-logistyka.astro` | podstrony sprzedażowe, każda z miejscem na film (kadr albo film) |
 | `src/pages/porownanie-rozwiazan.astro`, `src/pages/jak-wybrac-pierwszy-proces.astro` | strony poradnikowe, bez filmu |
 | `src/pages/finanse.astro` | podstrona działowa „Finanse” (`finanse.html`: faktury kosztowe, windykacja, uzgodnienia) z miejscem na film; prowadzą do niej pozycje „Finanse” w menu i stopce podstron |
+| `src/pages/sprzedaz.astro` | podstrona działowa „Sprzedaż” (`sprzedaz.html`: kwalifikacja leadów, oferty, follow-upy) z miejscem na film; prowadzą do niej pozycje „Sprzedaż” w menu i stopce strony głównej i podstron |
 | `src/layouts/PodstronaLayout.astro`, `src/components/` | układ podstron (nagłówek, stopka, adres kanoniczny, dane strukturalne) i komponenty: `MiejsceNaFilm`, `Pytania`, `OpisWdrozenia`, `Autor`, `Ujawnienie` |
 | `src/config/filmy.mjs`, `src/config/podstrony.mjs` | opisy miejsc na film (tekst zastępczy, tytuł, czas, data) i wspólne ustawienia podstron |
 | `src/data/dowody.mjs`, `src/data/oferta.mjs`, `src/data/bezpieczenstwo.mjs`, `src/data/poradniki.mjs` | wartości, które wpisuje wyłącznie właściciel (nazwy firm, „jak mierzone”, cytaty, ceny, zgody); puste pole to `null` i wtedy zależny od niego element nie pokazuje się na stronie |
