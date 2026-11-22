@@ -33,8 +33,3 @@
 /* dwa kafle pakietów w siatce .plans (trzy kolumny na stronie głównej): dwie kolumny, wyśrodkowane; na wąskim ekranie jedna */
 .plans.plans-dwa { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; }
 @media (max-width: 900px) { .plans.plans-dwa { grid-template-columns: 1fr; } }
-
-/* wąskie telefony (poniżej 390 px, np. 375 i 360 px): wiersz nagłówka (logo, „Umów konsultację”, przycisk menu)
-   ma elementy flex: none i wychodził o ok. 2 px poza ekran. Mniejszy odstęp i węższy przycisk mieszczą go w oknie.
-   Tylko podstrony; strona główna ma ten sam nagłówek ze styles.css (T-021). */
-@media (max-width: 389px) { .header-row { gap: 8px; } .header-actions .btn-dark { padding: 0 12px; } }

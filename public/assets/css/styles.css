@@ -190,6 +190,9 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   .header-actions .btn-ghost { display: none; }
   .header-actions .btn-dark { height: 40px; padding: 0 16px; }
 }
+/* wąskie telefony (poniżej 390 px, np. 375 i 360 px): logo, „Umów konsultację” i przycisk menu mają flex: none
+   i wychodziły o ok. 2 px poza ekran. Mniejszy odstęp i węższy przycisk mieszczą wiersz w oknie; od 390 px bez zmian (T-021). */
+@media (max-width: 389px) { .header-row { gap: 8px; } .header-actions .btn-dark { padding: 0 12px; } }
 
 /* ---------- hero ---------- */
 .hero-outer { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
