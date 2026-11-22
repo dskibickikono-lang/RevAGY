@@ -125,9 +125,17 @@
       "sha256": "5499a456572196dd2106a281ff5358c309b1a9c44fb1fa54208bd2f14bc4adcd",
       "size": 629686
     },
-    "assets/video/integracja-systemow-kadr.jpg": {
-      "sha256": "ca13e40a597c9140b90069f33f059e3339852db47f034ed4a0d3b297ee3a3045",
-      "size": 115088
+    "assets/video/integracja-systemow.jpg": {
+      "sha256": "272176ccd7a8566a2b0d82cd166a4e45204bd85f6ecbe5ce11b76e98ea981984",
+      "size": 108983
+    },
+    "assets/video/integracja-systemow.mp4": {
+      "sha256": "d8955c33e1ee45e57fe910c9dba77485a5d629cb3a55561a22bd0a6c7f8f924b",
+      "size": 242649
+    },
+    "assets/video/integracja-systemow.webm": {
+      "sha256": "77f742aca837f6dccd64c1689af6667fbf81f3baadededf7d6e5c0e6d6cee084",
+      "size": 291247
     },
     "assets/video/produkcja-i-logistyka-kadr.jpg": {
       "sha256": "03f230a974b1061f544f7721d29aa81eb6c6aeff147026f9516906c02379a4ed",
@@ -172,8 +180,8 @@
       "size": 46438
     },
     "integracja-systemow.html": {
-      "sha256": "dec5c7ca97058f182a32df2949dad7ff0531bb882d161cd7c37fd61ef5d4d4ae",
-      "size": 24363
+      "sha256": "85dd33e91c9ea0e6451e7caeb6994f4bc1fefa9fe3318380f6cafb3ccf1a8fbe",
+      "size": 25604
     },
     "jak-wybrac-pierwszy-proces.html": {
       "sha256": "45441b77fc092c4976d07ac7afa264984af7b5db9aa1ec4f8247268aa4f987f3",
@@ -6763,6 +6771,52 @@
           "aria": {}
         },
         {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: rekord pracownika przechodzi z systemu HR do kadr i płac"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
           "tag": "section",
           "id": "kontrola",
           "name": null,
@@ -7644,7 +7698,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/integracja-systemow.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: rekord pracownika przechodzi z systemu HR do kadr i płac",
+          "sources": [
+            {
+              "src": "assets/video/integracja-systemow.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/integracja-systemow.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -7793,9 +7866,19 @@
           "val": "#karta"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/integracja-systemow.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/integracja-systemow-kadr.jpg"
+          "val": "assets/video/integracja-systemow.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/integracja-systemow.mp4"
         },
         {
           "tag": "a",
@@ -7920,7 +8003,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"name\":\"Integracja systemów bez przepisywania danych\",\"headline\":\"Integracja systemów firmy bez przepisywania danych | REVAGY\",\"description\":\"Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Integracja systemów bez przepisywania danych\",\"item\":\"https://revagy.pl/integracja-systemow.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\",\"name\":\"Integracja systemów bez przepisywania danych\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.\",\"serviceType\":\"Integracja systemów\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać któryś system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz system nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Co się stanie, gdy dostawca zaktualizuje system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy już łączyliście?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy jesteście partnerem dostawców tych systemów?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Pracujemy na dokumentacji i dostępach klienta.\"}},{\"@type\":\"Question\",\"name\":\"Czy integracja korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.\"}},{\"@type\":\"Question\",\"name\":\"Mamy ERP i system magazynowy. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"name\":\"Integracja systemów bez przepisywania danych\",\"headline\":\"Integracja systemów firmy bez przepisywania danych | REVAGY\",\"description\":\"Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Integracja systemów bez przepisywania danych\",\"item\":\"https://revagy.pl/integracja-systemow.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\",\"name\":\"Integracja systemów bez przepisywania danych\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.\",\"serviceType\":\"Integracja systemów\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać któryś system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz system nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Co się stanie, gdy dostawca zaktualizuje system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy już łączyliście?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy jesteście partnerem dostawców tych systemów?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Pracujemy na dokumentacji i dostępach klienta.\"}},{\"@type\":\"Question\",\"name\":\"Czy integracja korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.\"}},{\"@type\":\"Question\",\"name\":\"Mamy ERP i system magazynowy. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/integracja-systemow.html#film\",\"name\":\"Rekord pracownika z systemu HR w kadrach i płacach, wpisany raz\",\"description\":\"Pięć pól przechodzi z systemu HR do programu kadrowo-płacowego. Każde mija swoją kontrolę, stawka poza zakresem czeka na decyzję człowieka, a zapis trafia do dziennika. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/integracja-systemow.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/integracja-systemow.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"}}]}",
           "attrs": [
             "type"
           ]

@@ -45,3 +45,21 @@ i pozostałe strony nie zmieniają się ani o bajt.
 ## Do akceptacji właściciela
 
 - Film na podglądzie: oś czasu, tempo, napis „wpisane raz”.
+
+## Runda 1 — wynik CI (2026-11-22)
+
+- `ci.yml` zielony: strona została w stanie „kadr”, manifest taki sam jak w etapie 6.
+- `render-media.yml` wyrenderował film: mp4 242 649 B (limit 1 100 000), webm 291 247 B (limit 700 000),
+  kadr startowy 108 983 B (limit 150 000); 14 s, 1600×900, 30 kl./s.
+- Klatki z dziesięciu chwil osi czasu obejrzane: przebieg zgodny ze scenariuszem, kadr startowy w 11 s ma
+  kompozycję dotychczasowego kadru, pętla wraca do stanu początkowego.
+
+## Runda 2 (2026-11-22)
+
+- Trzy pliki filmu dodane, `integracja-systemow-kadr.jpg` usunięty. Przebieg z samymi plikami był czerwony
+  zgodnie z zapowiedzią (brak kadru w kontrakcie, trzy nadmiarowe pliki, strona w stanie „film” poza kontraktem).
+- Kontrakt policzony z builda CI (`tools/update-contract.cjs`). Zmienił się tylko wpis `integracja-systemow.html`
+  (pola `videos`, `keyedElements`, `localRefs`, `jsonLd` i suma strony) oraz `publicFiles` (+3 pliki, −kadr).
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza, że zmiana odpowiada
+  etapowi `film-integracja-systemow`.
+- Przewidziany manifest wydania: `92557c90e16cb06a64d13a4f73fce3edfe965eb0c92ca1a30c4cd48de4a02e04`.
