@@ -3,17 +3,15 @@ id: T-024
 title: "Baner zgody: zdanie o miejscu danych po włączeniu Microsoft Clarity"
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: fix/baner-zgody-clarity
 base: main (c1f4d5c)
 depends_on: T-022
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/28
-sha: 9156d5321e2eeb7985517b23ea204c4f4f571180 (kod i kontrakt; kolejne commity zmieniają tylko kartę)
-pr: (uzupełniane po otwarciu PR)
-sha: (uzupełniane po commicie)
-decisions: [D-015, D-021, D-039]
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/28 (scalony do main)
+sha: 9156d5321e2eeb7985517b23ea204c4f4f571180 (kod i kontrakt); main po scaleniu PR #28: 7cd0f71f89d60f7262de0db106545a18f48d7dbb
+decisions: [D-015, D-021, D-039, D-040]
 ---
 
 # T-024 — Baner zgody: zdanie o miejscu danych po włączeniu Microsoft Clarity
@@ -98,3 +96,18 @@ Do czasu tego wdrożenia Clarity jest blokowane przez CSP także po zgodzie (str
 - Lighthouse dla `/finanse.html` (run 45037408708): wydajność 97, dostępność 96, SEO 100.
 - Baner na zrzutach 375 i 393 px ma jeden wiersz tekstu więcej (sześć zamiast pięciu) i mieści się na ekranie
   razem z przyciskami.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- Właściciel przyjął brzmienie z PR („Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft
+  Clarity.”) i scalił PR #28 do `main` commitem `7cd0f71f89d60f7262de0db106545a18f48d7dbb`. Decyzja zapisana jako D-040.
+- CI na `main` (run 45037997117): `check:dist` 6 z 6, test dymny 271 z 271, testy `wydanie.sh` 16 z 16,
+  manifest `e5bd79533c98510e18ad4f90b250be46b583bc283a0b0b957d42ed3a355010b7`, ten sam co przewidziany.
+- Wdrożone na produkcję w wydaniu `7cd0f71f89d60f7262de0db106545a18f48d7dbb` (poprzednie: `43efbf5f8a246d33a9c4f68f3552616c2665fc7a`).
+  Względem poprzedniego wydania zmieniło się 12 stron i `assets/js/analytics.js`.
+- Razem z wydaniem podmieniony plik nagłówków nginx (krok 2 z karty T-022): w CSP doszły źródła `clarity.ms`
+  i `c.bing.com`, pozostałe nagłówki bez zmian. `nginx -t` poprawne, nginx przeładowany.
+- Po wydaniu: strony i pliki tekstowe bajtowo równe plikom z CI, `analytics.js` na produkcji ma nowe zdanie,
+  nagłówek CSP zawiera `clarity.ms`, hosty współdzielone bez zmian.
+- Do sprawdzenia przez właściciela w przeglądarce: bez zgody zero żądań do `clarity.ms`, po „Zgadzam się” żądanie
+  taga Clarity (krok 3 z karty T-022).

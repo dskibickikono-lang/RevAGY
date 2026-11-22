@@ -47,6 +47,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-037 | 2026-11-21 | Stare przekierowania: tam, gdzie nowa strona odpowiada staremu adresowi, przekierowanie prowadzi na nową stronę. Pozostałe zostają. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-038 | 2026-11-21 | Adresy i tytuły stron etapu 6, teksty i miejsca odnośników na stronie głównej, scenariusze filmów i dobór liczb do filmów ustala agent. | właściciel, decyzje z 21.11.2026 | obowiązuje |
 | D-039 | 2026-11-22 | Bing Webmaster Tools (plik `BingSiteAuth.xml`), IndexNow (klucz publiczny, zgłoszenie ręczne po wydaniu) oraz Microsoft Clarity (projekt `zhlvuu1fed`) ładowany wyłącznie po zgodzie analitycznej w istniejącym banerze. Tekst polityki prywatności do akceptacji właściciela. | właściciel, zlecenie T-022 | obowiązuje |
+| D-040 | 2026-11-22 | Baner zgody mówi: „Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity.” Zastępuje zdanie „Dane zostają na naszym serwerze.”. Nagłówek CSP dla Clarity trafia na serwer razem z wydaniem tej zmiany, nie wcześniej. | właściciel, wybór z 22.11.2026 (CSP wstrzymane do poprawy banera) i scalenie PR #28 (T-024) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 
@@ -61,6 +62,6 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 - Kwoty „od” dla pakietów (D-029) i cena pilota Enterprise (D-030) nie są jeszcze podane.
 - Analityka bez zgody odwiedzającego: przyjęte rozwiązanie zapisuje kliknięcia i czas dopiero po zgodzie
   w banerze (wybór agenta, D-008 tego nie rozstrzyga). Zmiana wymaga decyzji właściciela.
-- Baner zgody (`analytics.js`) mówi „Dane zostają na naszym serwerze”; po włączeniu Microsoft Clarity (D-039) to zdanie
-  nie jest już pełne. Zmiana tekstu banera wymaga decyzji właściciela (T-022 nie zmienia tekstów, D-015, D-021).
+- ~~Baner zgody (`analytics.js`) mówi „Dane zostają na naszym serwerze”; po włączeniu Microsoft Clarity (D-039) to zdanie
+  nie jest już pełne.~~ Rozstrzygnięte przez D-040 (T-024, wdrożone 22.11.2026).
 - ~~Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01.~~ Rozstrzygnięte przez D-012 (nieaktualne).

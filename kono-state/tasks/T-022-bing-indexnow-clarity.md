@@ -3,7 +3,7 @@ id: T-022
 title: Bing Webmaster Tools + IndexNow + Microsoft Clarity za zgodą
 channel: pm-local
 requested_by: owner
-status: zmergowane
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/bing-indexnow-clarity
@@ -114,7 +114,7 @@ także nowa treść.
 
 - Krok 1: część strony wdrożona w wydaniu `43efbf5f8a246d33a9c4f68f3552616c2665fc7a` (manifest
   `f1754f7d53b323fccf58058de6541a0aeb1e89955602658c23b407c4d6dcf097`).
-- Krok 2 (CSP): **niewykonany** decyzją właściciela z 22.11.2026. Plik nagłówków na serwerze jest w wersji sprzed
+- Krok 2 (CSP): **niewykonany w wydaniu `43efbf5`** decyzją właściciela z 22.11.2026 (wykonany później, sekcja niżej). Plik nagłówków na serwerze jest w wersji sprzed
   T-022, więc Clarity jest blokowane przez CSP także po zgodzie; strona działa. Nagłówki zostaną podmienione razem
   z wydaniem poprawki zdania w banerze zgody (karta T-024).
 - Krok 3: `BingSiteAuth.xml` odpowiada 200 z typem `text/xml`, plik klucza IndexNow odpowiada 200. Nagłówek CSP
@@ -122,3 +122,15 @@ także nowa treść.
 - Krok 4 (Bing Webmaster Tools): po stronie właściciela.
 - Krok 5 (IndexNow): wykonany na polecenie właściciela; 11 adresów z mapy strony, odpowiedź 202 (przyjęte, klucz
   czeka na weryfikację).
+
+## Stan wdrożenia po wydaniu `7cd0f71` (2026-11-22, dopisał PM)
+
+- Krok 2 (CSP): **wykonany** razem z wydaniem poprawki banera zgody (T-024, D-040). Plik
+  `/etc/nginx/snippets/revagy-naglowki.conf` jest równy szablonowi z `main` (końce linii LF); zmieniła się tylko
+  linia CSP i dwa wiersze komentarza. Kopia poprzedniej wersji została na serwerze w katalogu operatora.
+- Krok 3: nagłówek CSP strony głównej, podstron i `clarity.js` zawiera `clarity.ms`; `BingSiteAuth.xml` 200
+  `text/xml`; plik klucza IndexNow 200. Sprawdzenie w przeglądarce (bez zgody zero żądań do `clarity.ms`,
+  po zgodzie żądanie taga) zostaje po stronie właściciela.
+- Krok 4 (Bing Webmaster Tools): po stronie właściciela.
+- Krok 5 (IndexNow): wykonany przy wydaniu `43efbf5`, odpowiedź 202.
+- Otwarty punkt o tekście banera zamknięty decyzją D-040.
