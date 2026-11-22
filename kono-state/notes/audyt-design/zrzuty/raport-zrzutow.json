@@ -1,0 +1,194 @@
+[
+  {
+    "strona": "index",
+    "widok": "desktop",
+    "wysokosc": 13086,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "integracja-systemow",
+    "widok": "desktop",
+    "wysokosc": 9640,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "wdrozenia",
+    "widok": "desktop",
+    "wysokosc": 8191,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "dla-firm",
+    "widok": "desktop",
+    "wysokosc": 8230,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "dane-i-bezpieczenstwo",
+    "widok": "desktop",
+    "wysokosc": 7996,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "produkcja-i-logistyka",
+    "widok": "desktop",
+    "wysokosc": 8855,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "finanse",
+    "widok": "desktop",
+    "wysokosc": 8961,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "jak-wybrac-pierwszy-proces",
+    "widok": "desktop",
+    "wysokosc": 9225,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "porownanie-rozwiazan",
+    "widok": "desktop",
+    "wysokosc": 8654,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "kontakt",
+    "widok": "desktop",
+    "wysokosc": 1024,
+    "czesci": 1,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "polityka-prywatnosci",
+    "widok": "desktop",
+    "wysokosc": 3650,
+    "czesci": 1,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "404",
+    "widok": "desktop",
+    "wysokosc": 900,
+    "czesci": 1,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "index",
+    "widok": "mobile",
+    "wysokosc": 14008,
+    "czesci": 3,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "integracja-systemow",
+    "widok": "mobile",
+    "wysokosc": 8684,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "wdrozenia",
+    "widok": "mobile",
+    "wysokosc": 7889,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "dla-firm",
+    "widok": "mobile",
+    "wysokosc": 7915,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "dane-i-bezpieczenstwo",
+    "widok": "mobile",
+    "wysokosc": 7564,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "produkcja-i-logistyka",
+    "widok": "mobile",
+    "wysokosc": 8444,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "finanse",
+    "widok": "mobile",
+    "wysokosc": 9033,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "jak-wybrac-pierwszy-proces",
+    "widok": "mobile",
+    "wysokosc": 9777,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "porownanie-rozwiazan",
+    "widok": "mobile",
+    "wysokosc": 8969,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "kontakt",
+    "widok": "mobile",
+    "wysokosc": 844,
+    "czesci": 1,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "polityka-prywatnosci",
+    "widok": "mobile",
+    "wysokosc": 5243,
+    "czesci": 2,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  },
+  {
+    "strona": "404",
+    "widok": "mobile",
+    "wysokosc": 844,
+    "czesci": 1,
+    "przepelnieniePoziome": 0,
+    "bledyJS": []
+  }
+]

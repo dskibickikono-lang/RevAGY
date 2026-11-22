@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "2.0",
+  "snapshots": [
+    {
+      "id": "index-desktop-default",
+      "path": "index-desktop-default.json"
+    },
+    {
+      "id": "integracja-systemow-desktop-default",
+      "path": "integracja-systemow-desktop-default.json"
+    },
+    {
+      "id": "jak-wybrac-pierwszy-proces-desktop-default",
+      "path": "jak-wybrac-pierwszy-proces-desktop-default.json"
+    },
+    {
+      "id": "polityka-prywatnosci-desktop-default",
+      "path": "polityka-prywatnosci-desktop-default.json"
+    },
+    {
+      "id": "kontakt-desktop-default",
+      "path": "kontakt-desktop-default.json"
+    },
+    {
+      "id": "404-desktop-default",
+      "path": "404-desktop-default.json"
+    },
+    {
+      "id": "index-mobile-default",
+      "path": "index-mobile-default.json"
+    },
+    {
+      "id": "integracja-systemow-mobile-default",
+      "path": "integracja-systemow-mobile-default.json"
+    },
+    {
+      "id": "jak-wybrac-pierwszy-proces-mobile-default",
+      "path": "jak-wybrac-pierwszy-proces-mobile-default.json"
+    },
+    {
+      "id": "polityka-prywatnosci-mobile-default",
+      "path": "polityka-prywatnosci-mobile-default.json"
+    },
+    {
+      "id": "kontakt-mobile-default",
+      "path": "kontakt-mobile-default.json"
+    },
+    {
+      "id": "404-mobile-default",
+      "path": "404-mobile-default.json"
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "index-desktop-default-zrzut",
+      "path": "index-desktop-default.webp",
+      "snapshotId": "index-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "integracja-systemow-desktop-default-zrzut",
+      "path": "integracja-systemow-desktop-default.webp",
+      "snapshotId": "integracja-systemow-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "jak-wybrac-pierwszy-proces-desktop-default-zrzut",
+      "path": "jak-wybrac-pierwszy-proces-desktop-default.webp",
+      "snapshotId": "jak-wybrac-pierwszy-proces-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "polityka-prywatnosci-desktop-default-zrzut",
+      "path": "polityka-prywatnosci-desktop-default.webp",
+      "snapshotId": "polityka-prywatnosci-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "kontakt-desktop-default-zrzut",
+      "path": "kontakt-desktop-default.webp",
+      "snapshotId": "kontakt-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "404-desktop-default-zrzut",
+      "path": "404-desktop-default.webp",
+      "snapshotId": "404-desktop-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "index-mobile-default-zrzut",
+      "path": "index-mobile-default.webp",
+      "snapshotId": "index-mobile-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "integracja-systemow-mobile-default-zrzut",
+      "path": "integracja-systemow-mobile-default.webp",
+      "snapshotId": "integracja-systemow-mobile-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "jak-wybrac-pierwszy-proces-mobile-default-zrzut",
+      "path": "jak-wybrac-pierwszy-proces-mobile-default.webp",
+      "snapshotId": "jak-wybrac-pierwszy-proces-mobile-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "polityka-prywatnosci-mobile-default-zrzut",
+      "path": "polityka-prywatnosci-mobile-default.webp",
+      "snapshotId": "polityka-prywatnosci-mobile-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "kontakt-mobile-default-zrzut",
+      "path": "kontakt-mobile-default.webp",
+      "snapshotId": "kontakt-mobile-default",
+      "capture": "viewport"
+    },
+    {
+      "id": "404-mobile-default-zrzut",
+      "path": "404-mobile-default.webp",
+      "snapshotId": "404-mobile-default",
+      "capture": "viewport"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "fonts-ready",
+      "status": "passed",
+      "detail": "document.fonts.ready rozstrzygnięte; faktycznie wczytane kroje sprawdzone osobno w pomiary-dodatkowe.json"
+    },
+    {
+      "kind": "hover-focus",
+      "status": "passed",
+      "detail": "Stany hover i fokus klawiaturą zmierzone osobno (wartości przed/po dla wskazanych selektorów): pomiary-dodatkowe.json → stany. Nie są to pełne migawki ekstraktora."
+    },
+    {
+      "kind": "dolne-regiony",
+      "status": "passed",
+      "detail": "Migawka ekstraktora obejmuje cały dokument (limit 400 elementów), nie tylko widoczny ekran; zrzut przy migawce pokazuje górę strony. Dolne sekcje pokazują zrzuty całych stron w ../zrzuty/."
+    },
+    {
+      "kind": "dark-mode",
+      "status": "skipped",
+      "detail": "Strona deklaruje color-scheme: light i nie ma przełącznika motywu; wariantu ciemnego nie ma."
+    },
+    {
+      "kind": "disabled",
+      "status": "skipped",
+      "detail": "Stan disabled widoczny tylko na przycisku karuzeli (.round-btn:disabled) — obecny na zrzucie strony głównej; przycisk formularza niezmierzony (formularz nie renderuje się lokalnie)."
+    }
+  ],
+  "limitations": [
+    "Lokalny build (astro preview, http://127.0.0.1:4321), nie produkcja revagy.pl.",
+    "Pomiar stylów dla 6 z 12 stron; pozostałe strony ofertowe używają tego samego układu (PodstronaLayout) i są udokumentowane zrzutami w ../zrzuty/.",
+    "Dwie szerokości próbkowania: 1440 i 390 px. To nie są progi układu.",
+    "Ekstraktor ogranicza próbkę do 400 elementów na stan; pseudo-elementy i wnętrze filmów nie są mierzone.",
+    "Formularz kontaktowy nie renderuje się w lokalnym buildzie (brak klucza Turnstile), więc jego pola nie zostały zmierzone.",
+    "Brak trybu ciemnego na stronie (color-scheme: light)."
+  ]
+}
