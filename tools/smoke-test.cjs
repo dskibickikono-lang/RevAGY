@@ -828,7 +828,16 @@ if (require.main === module) (async () => {
             const roz = roznicaStylow(wzorce[szer], await pg.evaluate(zbierzStyleWPrzegladarce));
             const nowe = [...roz.kolory.map((x) => `kolor ${x}`), ...roz.kroje.map((x) => `krój ${x}`), ...roz.rozmiary.map((x) => `rozmiar ${x}`)];
             check(`${p} (${szer}): kolory, kroje i rozmiary pisma są podzbiorem strony głównej, kontaktu i polityki`, nowe.length === 0, nowe.slice(0, 12).join(' | '));
-            if (zrzutyDir) await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+            if (zrzutyDir) {
+              // Kadr ma loading="lazy": bez przewinięcia do ramki pełny zrzut pokazałby ją pustą.
+              if (ramka && !ramka.film) {
+                await scrollTo(pg, '.film');
+                await pg.waitForFunction(() => { const i = document.querySelector('.film img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 8000 }).catch(() => {});
+                await pg.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+                await pg.waitForTimeout(300);
+              }
+              await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+            }
             if (szer === 1280 && ramka && ramka.film) {
               await scrollTo(pg, '.film');
               await pg.waitForTimeout(1200);
