@@ -29,23 +29,30 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 | `src/config/marka.mjs` | jedno źródło danych marki (nazwa, opis, dane rejestrowe, profil LinkedIn) dla JSON-LD i `llms.txt` |
 | `integrations/llms-txt.mjs` | integracja Astro: po buildzie generuje `dist/llms.txt` i `dist/llms-full.txt` ze stron z `sitemap.xml` |
 | `src/config/kontakt.ts` | konfiguracja klucza witryny Turnstile (`PUBLIC_TURNSTILE_SITEKEY`) i klauzuli RODO formularza |
-| `src/pages/index.astro` | strona główna P0 (hero, statystyki, logo wall, bento, triggery, produkty, case studies, proces, kalkulator ROI 65 zł/h, film, pakiety, integracje, FAQ, kontakt) |
-| `src/pages/realizacje.astro`, `src/pages/oferta.astro`, `src/pages/bezpieczenstwo.astro`, `src/pages/kontakt.astro`, `src/pages/polityka-prywatnosci.astro` | podstrony P0 (`realizacje.html`, `oferta.html`, `bezpieczenstwo.html`, `kontakt.html`, `polityka-prywatnosci.html`) |
-| `src/pages/dla-agencji-pracy.astro`, `src/pages/dla-produkcji-i-magazynow.astro`, `src/pages/realizacje/grupa-kono.astro`, `src/pages/porownanie.astro` | podstrony lejka P1 (`dla-agencji-pracy.html`, `dla-produkcji-i-magazynow.html`, `realizacje/grupa-kono.html`, `porownanie.html`) |
-| `src/pages/produkty/obieg-dokumentow.astro` | podstrona produktu P2 (`produkty/obieg-dokumentow.html`) |
+| `src/pages/index.astro` | strona główna; jej wygląd i motyw są chronione migawką (`tools/baseline/index.html`) |
+| `src/pages/kontakt.astro`, `src/pages/polityka-prywatnosci.astro` | strona kontaktu z formularzem i polityka prywatności (`kontakt.html`, `polityka-prywatnosci.html`) |
+| `src/pages/integracja-systemow.astro`, `src/pages/wdrozenia.astro`, `src/pages/dla-firm.astro`, `src/pages/dane-i-bezpieczenstwo.astro`, `src/pages/produkcja-i-logistyka.astro` | podstrony sprzedażowe, każda z miejscem na film (kadr albo film) |
+| `src/pages/porownanie-rozwiazan.astro`, `src/pages/jak-wybrac-pierwszy-proces.astro` | strony poradnikowe, bez filmu |
+| `src/layouts/PodstronaLayout.astro`, `src/components/` | układ podstron (nagłówek, stopka, adres kanoniczny, dane strukturalne) i komponenty: `MiejsceNaFilm`, `Pytania`, `OpisWdrozenia`, `Autor`, `Ujawnienie` |
+| `src/config/filmy.mjs`, `src/config/podstrony.mjs` | opisy miejsc na film (tekst zastępczy, tytuł, czas, data) i wspólne ustawienia podstron |
+| `src/data/dowody.mjs`, `src/data/oferta.mjs`, `src/data/bezpieczenstwo.mjs`, `src/data/poradniki.mjs` | wartości, które wpisuje wyłącznie właściciel (nazwy firm, „jak mierzone”, cytaty, ceny, zgody); puste pole to `null` i wtedy zależny od niego element nie pokazuje się na stronie |
+| `public/assets/css/podstrony.css`, `public/assets/js/wejscie.js` | style podstron (tylko wartości ze `styles.css`) i zapis pierwszego wejścia na podstronie dla formularza kontaktowego |
 | `src/pages/404.astro` | strona błędu (`404.html`) |
-| `public/assets/css/styles.css` | style, tokeny kolorów i typografii, komponenty kinetyczne i podstron P0–P2 |
+| `public/assets/css/styles.css` | style, tokeny kolorów i typografii |
 | `public/assets/js/app.js` | animacje i interakcje (menu, liczniki, kalkulator, sticky scroll, karuzela, marquee, taby, filtry, FAQ, Journey Rail) |
 | `public/assets/js/analytics.js` | baner zgody i zdarzenia dla Matomo (`stats.revagy.pl`, `siteId = 1`, w tym `lead:accepted`) |
 | `public/assets/js/kontakt.js` | obsługa formularza kontaktowego, Cloudflare Turnstile i wysyłki do `POST /api/kontakt` (`forms-gateway`) |
-| `public/assets/video/` | 3 filmy (`.webm` + `.mp4`) i plakaty `.jpg` |
+| `public/assets/video/` | 3 filmy strony głównej (`.webm` + `.mp4`) z plakatami `.jpg` oraz media miejsc na film podstron: kadr `<nazwa>-kadr.jpg` albo film `<nazwa>.webm`, `.mp4` i kadr startowy `.jpg` |
 | `public/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
 | `public/favicon.ico`, `public/robots.txt`, `public/sitemap.xml`, `public/site.webmanifest` | pliki główne kopiowane bezpośrednio do `dist/` |
 | `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256, braku inline JS/`/_astro/`, danych strukturalnych JSON-LD i plików `llms*.txt` |
 | `tools/smoke-test.cjs` | rozszerzony test dymny w Chromium (Playwright) z wbudowanym serwerem TLS (`--serve=dist`) i atrapą Matomo |
 | `tools/test-formularz.cjs` | test formularza kontaktowego (osobny build z kluczem testowym Turnstile, atrapa `forms-gateway` i Matomo) |
 | `tools/test-wydanie.cjs` | izolowane testy skryptu publikacji i rollbacku `deploy/wydanie.sh` |
-| `tools/scenes/`, `tools/render-videos.cjs`, `tools/render-images.cjs` | źródła i generatory filmów, `og.jpg` i ikon do `public/` |
+| `tools/podstrony.json`, `tools/rejestr-twierdzen.json` | lista podstron objętych kontrolami oraz rejestr liczb i twierdzeń: każda liczba na podstronie musi mieć tu wiersz ze źródłem |
+| `tools/baseline/`, `tools/etapy/`, `tools/compare-home.cjs` | migawka strony głównej, lista zamierzonych zmian etapu i porównanie, które odrzuca każdą zmianę strony głównej spoza listy |
+| `tools/check-all.cjs`, `tools/check-tresc.cjs`, `tools/check-podstrony-css.cjs`, `tools/update-contract.cjs` | komplet kontroli katalogu wynikowego, kontrola treści podstron, kontrola stylów podstron i odtworzenie kontraktu z builda CI |
+| `tools/scenes/`, `tools/render-videos.cjs`, `tools/render-kadr.cjs`, `tools/render-images.cjs` | źródła i generatory filmów, kadrów podstron, `og.jpg` i ikon do `public/`; kadry i filmy renderuje w GitHub Actions `.github/workflows/render-media.yml` |
 | `deploy/` | runbook operacyjny (`PROMPT-AGENT-VPS.md`), szablony nginx (wariant A + `/api/kontakt`), Matomo, GoAccess, logrotate i atomowy skrypt wydania `wydanie.sh` |
 | `kono-state/` | rejestr decyzji i karty zadań |
 
@@ -54,8 +61,8 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 ```bash
 npm ci
 npm run build
-npm run check:dist                           # waliduje dist/ (37 plików, SHA-256 assetów i stron, kontrakt DOM dla 4 stron, JSON-LD, llms*.txt) i uruchamia narzędzia ochrony motywu
-npm run test:smoke -- --serve=dist           # pełny test dymny na lokalnym TLS z atrapą Matomo (strona główna + podstrony P0-P2)
+npm run check:dist                           # waliduje dist/ (SHA-256 assetów i stron, kontrakt DOM każdej strony, JSON-LD, llms*.txt) i uruchamia narzędzia ochrony motywu
+npm run test:smoke -- --serve=dist           # pełny test dymny na lokalnym TLS z atrapą Matomo (strona główna + podstrony z tools/podstrony.json)
 npm run test:form                            # test formularza kontaktowego (Turnstile + forms-gateway + CSP + Matomo)
 npm run test:deploy                          # izolowane testy deploy/wydanie.sh (POSIX sh/dash, flock, staging, rollback)
 ```
