@@ -3,14 +3,14 @@ id: T-010
 title: Etap 2 — podstrona „Wdrożenia” (/wdrozenia.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-2-wdrozenia
 base: feat/etap-1-integracja-systemow (32d6298)
 depends_on: T-009
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/11 (baza feat/etap-1-integracja-systemow)
-sha: 077e28bc594576120b42c2ae5c90d67ad5bbee3c (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/11 (scalony do main)
+sha: 077e28bc594576120b42c2ae5c90d67ad5bbee3c (zmiany); main po scaleniu PR #11: f346d2475aa225af34ef0d44abdc45a8c96e975c
 decisions: [D-015, D-018, D-019, D-020, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-038]
 ---
 
@@ -73,3 +73,9 @@ Przebieg dla `077e28b` (run 44965882291), zielony:
   - rodzaj firmy w dwóch opisach;
   - zdanie ujawnienia, nagłówek sekcji dowodów (`naglowekDowodow`) i `takzePozaGrupa`.
 - Miejsce odnośnika na stronie głównej potwierdza właściciel na podglądzie.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #11 scalony do `main` commitem `f346d2475aa225af34ef0d44abdc45a8c96e975c`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

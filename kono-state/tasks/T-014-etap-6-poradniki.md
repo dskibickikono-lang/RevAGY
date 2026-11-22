@@ -3,14 +3,14 @@ id: T-014
 title: Etap 6 — poradniki (/porownanie-rozwiazan.html, /jak-wybrac-pierwszy-proces.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-6-poradniki
 base: feat/etap-5-produkcja-i-logistyka (09ab4b7)
 depends_on: T-013
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/15 (baza feat/etap-5-produkcja-i-logistyka)
-sha: 9e4a046ee320eb4e2dfbd2e283271e72638c1333 (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/15 (scalony do main)
+sha: 9e4a046ee320eb4e2dfbd2e283271e72638c1333 (zmiany); main po scaleniu PR #15: e9e3a03b8a0843aba65abb717a6ba397917a9ba2
 decisions: [D-015, D-019, D-021, D-025, D-028, D-030, D-031, D-033, D-038]
 ---
 
@@ -69,3 +69,9 @@ Przebieg dla `9e4a046` (run 44968175872), zielony:
 ## Do uzupełnienia przez właściciela
 
 - `src/data/poradniki.mjs`: `odpowiedzAutomatEkranowy`.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #15 scalony do `main` commitem `e9e3a03b8a0843aba65abb717a6ba397917a9ba2`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

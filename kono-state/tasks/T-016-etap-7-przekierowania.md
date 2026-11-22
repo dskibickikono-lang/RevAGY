@@ -3,14 +3,14 @@ id: T-016
 title: Etap 7 — przekierowania starych adresów na nowe podstrony (D-037) i README po rozbudowie
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-7-przekierowania
 base: feat/etap-6-poradniki (fd7a45f)
 depends_on: T-014
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/16 (baza feat/etap-6-poradniki)
-sha: 31ac29e3498b7086c6c68940cb4c8da715100c46 (zmiana; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/16 (scalony do main)
+sha: 31ac29e3498b7086c6c68940cb4c8da715100c46 (zmiany); main po scaleniu PR #16: 14701666a1c1faebb8fe5fec2fd43a888d3688cb
 decisions: [D-037]
 ---
 
@@ -64,3 +64,12 @@ CI nie sprawdza samych przekierowań: działają dopiero po podmianie pliku ngin
 
 - Dwa adresy bez odpowiednika (`/dla-agencji-pracy.html`, `/produkty/obieg-dokumentow.html`) zostają na stronie
   głównej. Jeśli mają prowadzić gdzie indziej, potrzebna decyzja.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #16 scalony do `main` commitem `14701666a1c1faebb8fe5fec2fd43a888d3688cb`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.
+- Plik nginx na serwerze podmieniony tego samego dnia, po wydaniu strony i za osobną zgodą właściciela.
+  Osiem starych adresów sprawdzonych: każdy zwraca 301, a po przejściu 200. Sześć prowadzi na nowe podstrony,
+  dwa bez odpowiednika na stronę główną. Pozostałe domeny na serwerze bez zmian.

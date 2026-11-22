@@ -3,14 +3,14 @@ id: T-008
 title: Etap 0 — prawda na stronie (korekta tekstów) i blokada strony głównej
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-21
-updated: 2026-11-21
+updated: 2026-11-22
 branch: feat/etap-0-prawda-na-stronie
 base: main (9389fe6)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/9
-sha: d4ef7cf82bd5c9e8169f4ba45a3d09eb0c03972b
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/9 (scalony do main)
+sha: d4ef7cf82bd5c9e8169f4ba45a3d09eb0c03972b (zmiany); main po scaleniu PR #9: 9414a0b8bb113468372ec45b00cc0a46d5520622
 decisions: [D-015, D-019, D-021, D-022, D-023, D-024, D-025, D-026, D-027, D-028]
 ---
 
@@ -86,3 +86,8 @@ Pierwszy build tej gałęzi w CI, przebieg 44956996245 dla commita `d4ef7cf`: ws
 
 Scala właściciel. Wydanie wymaga osobnej zgody na konkretny SHA.
 
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #9 scalony do `main` commitem `9414a0b8bb113468372ec45b00cc0a46d5520622`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

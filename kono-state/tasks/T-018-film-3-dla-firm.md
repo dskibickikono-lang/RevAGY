@@ -3,14 +3,14 @@ id: T-018
 title: Etap filmowy F3 — film w miejscu na film strony /dla-firm.html
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-3-dla-firm
 base: feat/film-2-wdrozenia (eeab98d)
 depends_on: T-011, T-015
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/19 (baza feat/film-2-wdrozenia)
-sha: 16e8633693c2455415fb3b151525238de6e8a299 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/19 (scalony do main)
+sha: 16e8633693c2455415fb3b151525238de6e8a299 (zmiany); main po scaleniu PR #19: b15bdffeaafbdda9913bfdfdc33243bcecbc2ab4
 decisions: [D-015, D-019, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -52,3 +52,9 @@ ani o bajt.
 - Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
   `film-dla-firm`. Manifest wydania: `321f295f48213769316dd31d4d3e293c7668c37c0153b4f1884a34694f181cdd`.
 - Wynik przebiegu CI po tym commicie jest w opisie PR #19.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #19 scalony do `main` commitem `b15bdffeaafbdda9913bfdfdc33243bcecbc2ab4`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

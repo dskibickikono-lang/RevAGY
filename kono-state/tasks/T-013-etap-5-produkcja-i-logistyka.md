@@ -3,14 +3,14 @@ id: T-013
 title: Etap 5 — podstrona „Produkcja i logistyka” (/produkcja-i-logistyka.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-5-produkcja-i-logistyka
 base: feat/etap-4-dane-i-bezpieczenstwo (1538754)
 depends_on: T-012
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/14 (baza feat/etap-4-dane-i-bezpieczenstwo)
-sha: 81dd1a9bf3cfec753e2b00b6452e4cec3fae9e92 (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/14 (scalony do main)
+sha: 81dd1a9bf3cfec753e2b00b6452e4cec3fae9e92 (zmiany); main po scaleniu PR #14: 9d7ae321d0b06458b9a8c0531d36c5846b168835
 decisions: [D-015, D-016, D-019, D-021, D-022, D-030, D-031, D-032, D-033, D-034, D-038]
 ---
 
@@ -80,3 +80,9 @@ Przebieg dla `81dd1a9` (run 44967622033), zielony:
   `kategorieSystemowPilotazu`, `zdanieRozdzialDanych`.
 - `src/data/dowody.mjs`, wpis `pilotaz-produkcja`: `zgodaNaWynik`, nazwa, etykieta, skala, „jak mierzone”.
 - `src/data/bezpieczenstwo.mjs`: `wdrozenieUKlienta`. Pole jest wspólne ze stroną etapu 4.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #14 scalony do `main` commitem `9d7ae321d0b06458b9a8c0531d36c5846b168835`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

@@ -3,14 +3,14 @@ id: T-020
 title: Etap filmowy F5 — film w miejscu na film strony /produkcja-i-logistyka.html
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-5-produkcja-i-logistyka
 base: feat/film-4-dane-i-bezpieczenstwo (09a0f9b)
 depends_on: T-013, T-015
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/21 (baza feat/film-4-dane-i-bezpieczenstwo)
-sha: c5521aa908eecc50792cc6ce9807f9953eb3c7c3 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/21 (scalony do main)
+sha: c5521aa908eecc50792cc6ce9807f9953eb3c7c3 (zmiany); main po scaleniu PR #21: 5fe5c29571e12cd4221d2a146b7d53fba3037816
 decisions: [D-015, D-021, D-022, D-030, D-032, D-033, D-038]
 ---
 
@@ -52,3 +52,9 @@ zmian. Strona główna i pozostałe strony nie zmieniają się ani o bajt.
 - Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
   `film-produkcja-i-logistyka`. Manifest wydania: `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.
 - Wynik przebiegu CI po tym commicie jest w opisie PR #21.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #21 scalony do `main` commitem `5fe5c29571e12cd4221d2a146b7d53fba3037816`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.
