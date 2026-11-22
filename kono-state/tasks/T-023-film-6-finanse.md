@@ -51,7 +51,30 @@ zmian. Strona główna i pozostałe strony nie zmieniają się ani o bajt.
 Decyzją właściciela z 22.11.2026 w tym samym etapie przycisk filmu zmienia tylko `aria-pressed`, a jego nazwa
 dostępna jest stała. Zmiana dotyczy `public/assets/js/app.js`, wspólnego ze stroną główną, i idzie osobnym PR
 ustawionym na tym PR, bo kontrola etapu filmowego (`tools/compare-film.cjs`) pozwala w PR z filmem zmienić
-tylko stronę z filmem. Szczegóły dopisze PM.
+tylko stronę z filmem.
+
+Szczegóły (PR #26, gałąź `fix/przycisk-filmu-aria-pressed`, baza `feat/film-6-finanse`):
+
+- Przycisk pauzy przy filmie ma same ikony. Ma stałą nazwę dostępną „Wstrzymaj film”, a stan (wstrzymany albo
+  odtwarzany) przekazuje tylko `aria-pressed`: `true` po wstrzymaniu, `false` przy odtwarzaniu. Do tej pory
+  `app.js` zmieniał też `aria-label` na „Odtwórz film”, więc czytnik ekranu dostawał naraz inną nazwę i stan
+  wciśnięcia. Ta linia zniknęła (wniosek z review).
+- `app.js` jest wspólny, więc zmiana obejmuje film strony głównej (`#film`) i filmy wszystkich podstron.
+  Znaczniki przycisku w `MiejsceNaFilm.astro` i `index.astro` już miały `aria-label="Wstrzymaj film"`
+  i `aria-pressed="false"`, więc zostają bez zmian.
+- Wygląd się nie zmienia: ikony przełącza CSS po `aria-pressed`.
+- Wersja skryptu to `app.js?v=5` na dziewięciu stronach, które go ładują (strona główna i osiem podstron).
+  `kontakt.html`, `polityka-prywatnosci.html` i `404.html` go nie ładują.
+- Test dymny sprawdza na stronie głównej i na podstronach w stanie „film”, że po wstrzymaniu i po wznowieniu nazwa
+  zostaje „Wstrzymaj film”, a `aria-pressed` ma wartość `true`, a potem `false`.
+- Różnica migawki strony głównej: baza `tools/baseline/index.baza.html` to `tools/baseline/index.html` z `main`.
+  Migawka różni się od niej jedną wartością atrybutu: `script`, `src`, `assets/js/app.js?v=4` →
+  `assets/js/app.js?v=5`. Teksty, znaczniki, kolejność i geometria bez zmian. Plik etapu
+  `tools/etapy/zmiana-strony-glownej.json` ma jeden wpis `atrybuty`.
+- Kontrakt policzony z builda CI: zmienia się suma `app.js` i wpisy dziewięciu stron. Lokalnie `check-all`
+  przechodzi we wszystkich 6 krokach, zbudowany `index.html` jest równy migawce. Przewidziany manifest wydania
+  po obu PR-ach etapu: `f1754f7d53b323fccf58058de6541a0aeb1e89955602658c23b407c4d6dcf097`.
+- Wynik przebiegu CI jest w opisie PR #26.
 
 ## Rundy 1 i 2 (2026-11-22)
 
