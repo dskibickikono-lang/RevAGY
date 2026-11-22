@@ -53,6 +53,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-043 | 2026-11-22 | Kierunek sprzedaży: większe projekty niż proste automatyzacje poczty i dokumentów dla małych firm, które dziś przychodzą z poleceń. | właściciel („Ja chce iść w drugą stronę”, odpowiedzi do T-024) | obowiązuje |
 | D-044 | 2026-11-22 | Superzdanie i kierunek sprzedaży: firmy 50–250 osób. Zawęża D-016 w zakresie tego, do kogo kierujemy sprzedaż i nowe treści. Teksty strony z zakresem „5–250 osób” zostają bez zmian do osobnej decyzji. | właściciel („50–250 osób”, odpowiedź na pytanie z T-024) | obowiązuje |
 | D-045 | 2026-11-22 | Pierwszy pakiet do portfolio: K02, czyli godziny, premie i umowy do kadr i płac bez ręcznego wpisywania (ranking z raportu T-024). Zakres, cena i miejsce na stronie wymagają osobnego planu i akceptacji. | właściciel („K02 (kadry i płace)”, T-024) | obowiązuje |
+| D-046 | 2026-11-22 | Odnośnik „Kadry i płace” do strony `/kadry-i-place.html` w menu „Dla działów” i w stopce, także na stronie głównej. Zmiana wyglądu strony głównej ograniczona do tych dwóch odnośników (D-015 i D-021 pozostają w mocy dla reszty). Cena pakietu na stronie: „po audycie, stała”. | właściciel („akceptuję kroki 1–2, cena po audycie, stała”; „Tak dodać”, T-028) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 

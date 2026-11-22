@@ -1,6 +1,6 @@
 {
-  "etap": "T-024",
-  "opis": "T-024, baner zgody po włączeniu Microsoft Clarity (propozycja do akceptacji właściciela z 22.11.2026): w analytics.js zdanie „Dane zostają na naszym serwerze.” zastąpione zdaniem „Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity.”. Baner jest wstawiany skryptem, więc HTML strony głównej zmienia się tylko o wersję skryptu w znaczniku <script>: assets/js/analytics.js?v=4 na assets/js/analytics.js?v=5. Różnica między tools/baseline/index.baza.html (migawka z main 43efbf5, po T-023) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
+  "etap": "T-028",
+  "opis": "T-028, decyzja właściciela z 22.11.2026 („Tak dodać”): odnośnik „Kadry i płace” do nowej podstrony kadry-i-place.html w panelu menu „Dla działów” (po pozycji „Finanse”) i w kolumnie stopki „Dla działów” (po „Finanse”). Wcześniejsza zmiana z T-024 (baner zgody) zostaje na liście: assets/js/analytics.js?v=4 na ?v=5. Różnica między tools/baseline/index.baza.html a tools/baseline/index.html. Pozostałe teksty, atrybuty i znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
@@ -12,11 +12,29 @@
         "razy": 1
       }
     ],
-    "dodane": [],
+    "dodane": [
+      {
+        "znacznik": "a",
+        "href": "kadry-i-place.html",
+        "tekst": "Kadry i płace Godziny, premie i umowy bez wpisywania",
+        "razy": 1
+      },
+      {
+        "znacznik": "a",
+        "href": "kadry-i-place.html",
+        "tekst": "Kadry i płace",
+        "razy": 1
+      }
+    ],
     "usuniete": []
   },
   "geometria": {
-    "sekcje": [],
+    "sekcje": [
+      {
+        "selektor": "footer",
+        "opis": "Piąty odnośnik „Kadry i płace” w kolumnie stopki „Dla działów”: kolumna ma o jedną pozycję więcej niż pozostałe, więc stopka może urosnąć o wysokość jednego odnośnika. Panel menu jest pozycjonowany absolutnie i nie zmienia wysokości nagłówka."
+      }
+    ],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
   }
 }

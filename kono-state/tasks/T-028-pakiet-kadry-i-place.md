@@ -11,7 +11,7 @@ base: main (da8d1ae)
 depends_on: T-024
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/39 (baza main)
 sha: 763ae644c4c7aa67f6ecee462aa07d9c2d47198a (runda 2: kadr i kontrakt; runda 1: 3c6c43d); kolejne commity zmieniają tylko kartę
-decisions: [D-015, D-017, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-041, D-043, D-044, D-045]
+decisions: [D-015, D-017, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-041, D-043, D-044, D-045, D-046]
 ---
 
 # T-028 — Pakiet K02: kadry i płace
@@ -30,8 +30,8 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
 
 ## Granice
 
-- Strona główna i pozostałe podstrony bez zmian (D-015, D-021). Menu i stopka nie dostają odnośnika do nowej strony:
-  to zmiana układów wspólnych i strony głównej, wymaga osobnej decyzji właściciela.
+- Runda 1 i 2: strona główna i pozostałe podstrony bez zmian (D-015, D-021). Runda 3, po decyzji właściciela (D-046):
+  odnośnik „Kadry i płace” w menu „Dla działów” i w stopce na wszystkich stronach, w tym na stronie głównej.
 - Bez kwot pakietu i opieki: właściciel wybrał „cena po audycie, stała”.
 - Bez nowych liczb o REVAGY. Opis wdrożenia powtarza treść i liczby ze strony `/wdrozenia.html` (D-034).
 - Kroki 3–5 planu (dane do opisu wdrożenia, przesunięcie tematów treści, test popytu) nie są objęte tą kartą.
@@ -70,9 +70,20 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
 - Render mediów: sukces (przebieg 45044813884).
 - Kolejne commity tej gałęzi zmieniają tylko kartę.
 
+## Runda 3 (2026-11-22): odnośnik w menu i stopce (D-046, „Tak dodać”)
+
+- `src/layouts/BaseLayout.astro` i `src/layouts/PodstronaLayout.astro`: pozycja „Kadry i płace” w panelu „Dla działów”
+  (po „Finanse”) i odnośnik w kolumnie stopki „Dla działów” (po „Finanse”). Menu mobilne bez zmian.
+- Strona główna: `tools/baseline/index.html` to nowa migawka; `tools/etapy/zmiana-strony-glownej.json` (etap „T-028”)
+  wymienia dwa dodane odnośniki, zachowuje wpis z T-024 i zgłasza stopkę jako sekcję, która może urosnąć o jeden wiersz.
+  Baza `tools/baseline/index.baza.html` bez zmian.
+- `tools/dom-contract.json` przeliczony: zmieniają się wszystkie strony HTML (menu i stopka są wspólne).
+- Lokalnie: build 13 stron, `npm run check:dist` 6 z 6 OK. Podgląd strony głównej: panel menu z pięcioma pozycjami,
+  stopka z piątym odnośnikiem, w 390 px bez przewijania w poziomie. Test dymny (geometria) i Lighthouse uruchamia CI.
+
 ## Do decyzji właściciela
 
 1. Brzmienie tekstów strony (propozycja agenta według przewodnika tonu z T-024).
-2. Odnośnik do strony w menu „Dla działów” i w stopce: zmienia układy wspólne i stronę główną.
+2. Odnośnik w menu i stopce: zrobione w rundzie 3 (D-046). Do sprawdzenia: kolejność pozycji i podpis w menu.
 3. Nazwa handlowa pakietu i jego miejsce obok Start i Scale (opis w `kono-state/notes/pakiet-kadry-i-place.md`).
 4. Karta T-024 nadal ma status `do-przegladu`; jej raport jest scalony (PR #33 i #36).

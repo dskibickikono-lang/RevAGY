@@ -228,32 +228,32 @@
       "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "4575d387a915dc9a96f72c26b10a9361a9084148121c0dc753d9c6854879065f",
-      "size": 24175
+      "sha256": "c50ca3861246c0a09cd35ed441485df786afd27a445911825b04760b24ca267c",
+      "size": 24348
     },
     "dla-firm.html": {
-      "sha256": "97911513bb887abaf4405b4c2eaa91afd8b54f474bf098f151235b02ae3a116f",
-      "size": 24754
+      "sha256": "d5ca8e909d20f570a2be49f66a8b5e79fb85a5555b9cb628f7bbd06ff5710270",
+      "size": 24927
     },
     "finanse.html": {
-      "sha256": "90bae3191df6e3bb91db59ef506ceee37dc76c1f1c134589aa926835b130bb37",
-      "size": 25068
+      "sha256": "4bb4f1e83de7081427e1be67651019ead7426dae60bff796b462b20c97b4f1af",
+      "size": 25241
     },
     "index.html": {
-      "sha256": "eb16834e4dad14b99bd38edc4383394ec95990b937870611a40f7fbda64c2f82",
-      "size": 46551
+      "sha256": "00f9b1c0c66a9c9c490dc9465f8bddd0a38eb4bd2074c18dc02d165dff587810",
+      "size": 46724
     },
     "integracja-systemow.html": {
-      "sha256": "1ed3e6d253bdea9eeb7c9b0b7b0818b3db33d97b1836d1a2bac7d6f3e7b492d2",
-      "size": 25718
+      "sha256": "6c6bb5b423c281aedde87b26be6c5793b07939bc5d938de2810559592c49302f",
+      "size": 25891
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "e2a3e9cf8724584690150e5c11ff379cb1ffd6a51fca5b921258f8d174994efa",
-      "size": 24361
+      "sha256": "b9d9c1f29f3a0794ca9f520055747b76cd24f72f7ea46b1076f6b8767a0d2acd",
+      "size": 24534
     },
     "kadry-i-place.html": {
-      "sha256": "8b17c404146ef6b584632f9a736a70c1304b2a45b4f46300e4876068b766ff33",
-      "size": 25980
+      "sha256": "82a0b365be5a1ee9aff8568454145e0862f97ee1bf7ab0c4a02b59db4b8980cc",
+      "size": 26153
     },
     "kontakt.html": {
       "sha256": "3ca8435fbaedb3c31f3228075fc2ba9646dd72ebe83c8f6c73ac1c0518b64b27",
@@ -264,16 +264,16 @@
       "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "62253374c154c79cc89c0f214e0db0f415382fe0e7f51b1de1e3a8fd600088a1",
-      "size": 23891
+      "sha256": "4d7b811f51b02b00c2c4b184ab150a72767351596e5fa24222bd323b4fbd584f",
+      "size": 24064
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "5fbacfb868aeaee259bbc09b60c2c5f0105db4d6f815f068e96bf6c8f99b5ea3",
-      "size": 24720
+      "sha256": "cfa55868a1948a827dc4cc964a0dd6232fe390f23e490a84074678f48557c85a",
+      "size": 24893
     },
     "wdrozenia.html": {
-      "sha256": "eb841c17a82fcb6baeb9f39546c06915b9cf65d1dc3d1e2785dc83e865b9b410",
-      "size": 22482
+      "sha256": "e8f1f9fb26bce7dbc40715c8d576ee94ba18f952d7dd63a41670e380fbca113f",
+      "size": 22655
     }
   },
   "pages": {
@@ -1610,6 +1610,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -1792,6 +1799,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -1966,6 +1980,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -2107,6 +2126,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -3215,6 +3239,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -3432,6 +3463,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -3606,6 +3644,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -3772,6 +3815,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -4922,6 +4970,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -5125,6 +5180,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -5299,6 +5361,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -5455,6 +5522,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -7421,6 +7493,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -7657,6 +7736,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "#zastosowania",
@@ -8083,6 +8169,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "#zastosowania"
         },
         {
@@ -8294,6 +8385,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -9555,6 +9651,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -9728,6 +9831,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -9904,6 +10014,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -10040,6 +10155,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -11101,6 +11221,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -11311,6 +11438,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -11466,6 +11600,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -11612,6 +11751,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -12773,6 +12917,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -12976,6 +13127,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -13131,6 +13289,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -13277,6 +13440,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -14967,6 +15135,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -15170,6 +15345,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -15325,6 +15507,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -15466,6 +15653,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -16622,6 +16814,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -16811,6 +17010,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -16985,6 +17191,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -17131,6 +17342,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -18229,6 +18445,13 @@
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -18418,6 +18641,13 @@
           "text": "Finanse"
         },
         {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
           "href": "./#zastosowania",
           "class": null,
           "dataTrack": null,
@@ -18592,6 +18822,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "./#zastosowania"
         },
         {
@@ -18738,6 +18973,11 @@
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
