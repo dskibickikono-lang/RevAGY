@@ -1,6 +1,6 @@
 {
-  "etap": "2",
-  "opis": "Etap 2, wdrożenia: jeden odnośnik do nowej podstrony /wdrozenia.html dopisany na końcu akapitu wprowadzającego sekcji #zastosowania. Różnica między tools/baseline/index.baza.html (migawka etapu 1) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
+  "etap": "3",
+  "opis": "Etap 3, dla firm 5–250 osób: jeden odnośnik do nowej podstrony /dla-firm.html dopisany na końcu akapitu wprowadzającego sekcji #pakiety. Różnica między tools/baseline/index.baza.html (migawka etapu 2) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
@@ -8,8 +8,8 @@
       {
         "znacznik": "a",
         "klasa": "link-btn",
-        "href": "wdrozenia.html",
-        "tekst": "Zobacz cztery wdrożenia",
+        "href": "dla-firm.html",
+        "tekst": "Zobacz pakiety dla firm",
         "razy": 1
       }
     ],
@@ -18,8 +18,8 @@
   "geometria": {
     "sekcje": [
       {
-        "selektor": "#zastosowania",
-        "opis": "Odnośnik „Zobacz cztery wdrożenia” na końcu akapitu wprowadzającego karuzeli może przenieść akapit do kolejnej linii."
+        "selektor": "#pakiety",
+        "opis": "Odnośnik „Zobacz pakiety dla firm” na końcu akapitu wprowadzającego może przenieść akapit do kolejnej linii."
       }
     ],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
