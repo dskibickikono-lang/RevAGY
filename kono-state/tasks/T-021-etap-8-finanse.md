@@ -3,12 +3,14 @@ id: T-021
 title: Etap 8 — podstrona działowa „Finanse” (/finanse.html)
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-8-finanse
 base: main (e10cab9)
 depends_on: T-014
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/24
+sha: cbeae8a8d0bf7dbc8463cedd7740dc59016d69c9 (zmiany)
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-028, D-029, D-031, D-033, D-034]
 ---
 
@@ -49,7 +51,72 @@ bez zmian (D-015, D-021).
      przewijania w poziomie, a z `--zrzuty` robią też pełny zrzut.
 6. Strona główna bez zmian: `tools/etapy/zmiana-strony-glownej.json` z pustymi listami, `index.baza.html`
    równe `index.html`.
-7. `tools/dom-contract.json` bez zmian. Kontrakt policzy PM w rundzie 2.
+7. `tools/dom-contract.json`: kontrakt policzony przez PM z builda CI (rundy niżej).
+8. Pomiar Lighthouse w CI (w repozytorium nie było żadnego, a na VPS nie da się go uruchomić):
+   - `tools/lighthouse.cjs` z testami i konfiguracją `tools/lighthouse.json` (strona, progi, wersja Lighthouse 13.6.0,
+     3 przebiegi, mediana), skrypt `test:lighthouse` w `package.json`;
+   - osobny workflow `.github/workflows/lighthouse.yml` dla PR. Próg niespełniony kończy go błędem, ale nie blokuje
+     artefaktu wydania z `ci.yml`;
+   - Lighthouse uruchamia się przez `npx` w dokładnej wersji. Nie jest zależnością w `package.json`, bo pliku
+     `package-lock.json` nie da się odtworzyć na VPS;
+   - build jest podawany lokalnie pod nazwą hosta produkcji (TLS z certyfikatem samopodpisanym, gzip), tak jak
+     w teście dymnym. Dzięki temu audyt adresu kanonicznego ocenia stronę, a nie środowisko. To nie jest pomiar produkcji.
+
+## Runda 1 — wynik CI (2026-11-22)
+
+- Przebieg dla `9312c78` (run 45023421165). Astro zbudowało 12 stron. Walidator zgłosił wyłącznie błędy zapowiedziane
+  przy niezmienionym kontrakcie: nadmiarowy plik `finanse.html`, brak pliku kadru, inna suma `sitemap.xml`
+  i niezgodność siedmiu podstron z kontraktem (odnośnik „Finanse” i `aria-level` w stopce). Pozostałe pięć kroków
+  kontroli przeszło; kontrola treści objęła osiem podstron.
+- Strona główna bez zmian: migawka identyczna z bazą.
+
+## Runda 2 (2026-11-22)
+
+- Kadr `public/assets/video/finanse-kadr.jpg` z artefaktu `media-<sha>`: 120 982 B przy limicie 150 000 B,
+  1600×900, sha256 `7f459331…89ba`.
+- Kontrakt policzony z builda CI z dołożonym kadrem (`tools/update-contract.cjs`). Zmienione wpisy: siedem
+  wcześniejszych podstron i `sitemap.xml`; nowe: `finanse.html` i kadr. `index.html`, `kontakt.html`,
+  `polityka-prywatnosci.html` i `404.html` bez zmian.
+- Przebieg dla `350e25d` (run 45023639319): `check:dist` zielone, ale test dymny pokazał 2 px przewijania w poziomie
+  na 375 px na wszystkich ośmiu podstronach (opis w „Ustaleniach”, punkt „Nagłówek na wąskich telefonach”).
+
+## Runda 3 — poprawka nagłówka (2026-11-22)
+
+- Reguła w `podstrony.css` i wersja `?v=2`. Kontrakt policzony z builda rundy 2 z naniesioną tą samą zmianą
+  (nowy plik stylu i `?v=2` w ośmiu podstronach). Zmienione wpisy: osiem podstron i `assets/css/podstrony.css`.
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach: 63 pliki, 12/12 stron, testy narzędzi 104/104.
+- Przewidziany manifest wydania: `04337bcbad4bed774ddba78c8b09b089846ff8087bc309b2d712cfc8c0a84854`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `cbeae8a` (run 45024310484), zielony:
+
+- `check:dist`: 6 z 6 kroków, 63 pliki, 12/12 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `04337bcbad4bed774ddba78c8b09b089846ff8087bc309b2d712cfc8c0a84854`, ten sam co przewidziany.
+- Strona główna bez zmian względem `main`.
+- Test dymny: 232 z 233, 0 błędów, 1 pominięte (geometria strony głównej względem bazy, bo strona główna jest
+  identyczna z bazą). `finanse.html` bez przewijania w poziomie na 1280, 390, 393 i 375 px.
+  Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 104 z 104.
+- Zrzuty 1280, 390, 393 i 375 px w artefakcie `podglad-<sha>`.
+
+## Lighthouse (2026-11-22)
+
+Przebieg dla `cbeae8a` (run 45024310523), Lighthouse 13.6.0, telefon, symulowane łącze, mediana z 3 przebiegów:
+
+| Kategoria | Wynik | Próg | Przebiegi |
+|---|---|---|---|
+| Wydajność | 97 | 90 | 97, 96, 97 |
+| Dostępność | 96 | 95 | 96, 96, 96 |
+| SEO | 100 | 100 | 100, 100, 100 |
+
+- Pomiar dotyczy builda z CI podawanego lokalnie, a nie produkcji.
+- Jedyny niezaliczony audyt to `color-contrast`. Dotyczy 58 elementów w sekcjach poniżej pierwszego ekranu, które
+  w chwili pomiaru czekają na animację wejścia (`.js-motion .reveal` w `styles.css` ma `opacity: .16`). Zmierzone
+  barwy `#d9d9d9` i `#e6e5e6` to kolory tekstu `--ink` i `--ink-2` przy tej przezroczystości, a nie kolory po
+  wejściu sekcji. Animacja jest wspólna ze stroną główną, więc zostaje bez zmian.
+- Audyt kolejności nagłówków przechodzi.
+- Przesunięcie układu (CLS) 0,10–0,11 w trzech przebiegach: `h1` przestawia się po wczytaniu kroju pisma. Kroje
+  i ich wczytywanie są wspólne dla całego serwisu.
 
 ## Ustalenia
 
@@ -116,6 +183,12 @@ bez zmian (D-015, D-021).
    najpewniej też wychodzi ok. 2 px poza ekran. Tego nie mierzyliśmy, bo test wąskich telefonów obejmuje tylko
    podstrony. Poprawka dla strony głównej wymaga zmiany `styles.css` i podbicia jego wersji, czyli zmiany
    strony głównej (migawka, plik etapu, kontrakt).
+7. **Kolejność scalania z PR #23** (Bing, IndexNow, Clarity, T-022). Oba PR-y zmieniają te same pliki:
+   `PodstronaLayout.astro`, `tools/dom-contract.json`, `tools/podstrony.json`, `tools/smoke-test.cjs`,
+   `public/sitemap.xml`, `tools/etapy/zmiana-strony-glownej.json` i `README.md`. Drugi w kolejności wymaga
+   dociągnięcia `main` i ponownego policzenia kontraktu.
+8. **Pomiar Lighthouse jako wymagany status.** Workflow działa przy każdym PR. Żeby blokował scalenie, właściciel
+   musi dodać go jako wymagany status w ochronie gałęzi `main`.
 
 ## Do uzupełnienia przez właściciela
 
