@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-4-dane-i-bezpieczenstwo
-base: feat/film-1-integracja-systemow (839b560)
+base: feat/film-3-dla-firm (a75fe9e)
 depends_on: T-012, T-015
 pr: —
 sha: —
