@@ -1,4 +1,4 @@
-# Audyt kodu strony RevAGY (T-025)
+# Audyt kodu strony RevAGY (T-028, wcześniej T-025)
 
 - Data: 2026-11-22. Kanał: pm-local. Zlecił: właściciel.
 - Zakres: `src/`, `public/assets/js/` (skrypty stron), `tools/`, `integrations/`, `deploy/`, `.github/workflows/`, `astro.config.mjs`.
@@ -328,4 +328,12 @@ zmienia HTML wszystkich stron i wymaga aktualizacji kontraktu.
 - Narzędzie przeglądu działało w jednym przebiegu na cel, bez osobnej weryfikacji każdego znaleziska;
   numery linii sprawdziłem skryptem względem 7cd0f71, a znaleziska I-01, S-09, D-01, D-03, D-12, D-13, T-05 i T-09
   potwierdziłem wykonaniem lub odczytem.
-- W trakcie audytu inna sesja zajęła numer T-024 na `main`; karta audytu ma numer T-025.
+- Numer karty: T-028 (od 22.11.2026). Audyt zaczynał jako T-024, potem T-025; oba numery zajęły równolegle inne karty.
+
+## 12. Stan po audycie (aktualizacja 22.11.2026)
+
+- K-01 i K-02: wdrożone, PR #37 (karta T-027).
+- S-05, D-05, K-03: skrót treści w adresach zasobów, karta T-030.
+- D-02, D-03, D-04, D-06, D-12, D-13, D-17: wzorce i testy w repo, karta T-029; instalacja na serwerze po stronie właściciela.
+- D-01: zamknięte. Odczyt produkcji 22.11.2026 po wydaniu 7cd0f71: CSP zawiera hosty `clarity.ms`, nagłówki zgodne z repo (`npm run check:prod`, 33 sprawdzenia).
+- S-03: decyzja właściciela D-046 (filmy w hero dostają przycisk wstrzymania); wdrożenie czeka na zgodę na etap 5.
