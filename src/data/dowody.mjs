@@ -6,7 +6,8 @@
 
 export const DOWODY = {
   wdrozenia: {
-    // Podstrona /integracja-systemow.html, sekcja „Jak to działa w praktyce”.
+    // Agencja pracy: umowy bez przepisywania. Jedno wdrożenie, dwie strony:
+    // /integracja-systemow.html (sekcja „Jak to działa w praktyce”) i /wdrozenia.html (sekcja #umowy).
     'agencja-pracy-umowy': {
       // Nazwa spółki, np. 'Przykład Sp. z o.o.'. Tylko po pisemnej zgodzie spółki na nazwę i liczby.
       nazwaSpolki: null,
@@ -29,19 +30,59 @@ export const DOWODY = {
         { kategoria: 'Program kadrowo-płacowy', droga: null, kierunek: 'Przyjmuje dane z podpisanej umowy' },
       ],
     },
-    // Podstrona /integracja-systemow.html, kafel „Raport sklejany z trzech eksportów” (stan załogi 568 i 539).
+    // Grupa spółek: jeden raport zarządu z kilku źródeł (stan załogi 568 i 539). Jedno wdrożenie, dwie strony:
+    // /integracja-systemow.html (kafel „Raport sklejany z trzech eksportów”, tylko etykieta w nawiasie)
+    // i /wdrozenia.html (sekcja #raport, pełny opis).
     'stan-zalogi': {
-      // Etykieta powiązania (np. nazwa grupy), pokazywana w nawiasie po zdaniu z liczbami.
+      // Nazwa spółki albo grupy. Tylko po pisemnej zgodzie na nazwę i liczby.
+      nazwaSpolki: null,
+      // Etykieta powiązania (np. nazwa grupy), pokazywana w nawiasie po zdaniu z liczbami i w podpisie opisu.
       etykietaPowiazania: null,
+      // Skala, np. liczba spółek i osób. Każda liczba wymaga wiersza w tools/rejestr-twierdzen.json.
+      skala: null,
+      // Jak mierzone: data odczytu obu systemów i okres pomiaru godzin przygotowania raportu.
+      jakMierzone: null,
+      // Cytat: { tresc, osoba, rola } albo null. Tylko prawdziwa wypowiedź z pisemną zgodą.
+      cytat: null,
+      // Bez tabeli szczegółów technicznych (drogi łączenia do uzupełnienia przez właściciela).
+      szczegolyTechniczne: null,
     },
     // Odpowiedź FAQ o ERP i systemie magazynowym (jeden pilotaż w produkcji).
     'pilotaz-produkcja': {
       // Etykieta powiązania spółki, w której był pilotaż, np. 'w spółce powiązanej z grupą'.
       etykietaPowiazania: null,
     },
+    // Podstrona /wdrozenia.html, sekcja #zezwolenia („Alert o kończącym się zezwoleniu 30 dni wcześniej”).
+    'alert-zezwolenia': {
+      // Rodzaj firmy, np. 'Agencja pracy'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
+      rodzajFirmy: null,
+      // Nazwa spółki. Tylko po pisemnej zgodzie spółki na nazwę i liczby.
+      nazwaSpolki: null,
+      // Etykieta powiązania z grupą. Tekst wpisuje właściciel.
+      etykietaPowiazania: null,
+      // Skala firmy. Każda liczba wymaga wiersza w tools/rejestr-twierdzen.json.
+      skala: null,
+      // Jak mierzone: okres i próba.
+      jakMierzone: null,
+      // Cytat: { tresc, osoba, rola } albo null. Tylko prawdziwa wypowiedź z pisemną zgodą.
+      cytat: null,
+      // Bez tabeli szczegółów technicznych (drogi łączenia do uzupełnienia przez właściciela).
+      szczegolyTechniczne: null,
+    },
+    // Podstrona /wdrozenia.html, sekcja #kandydaci („Kandydat w systemie w 5 minut”).
+    'kandydaci-zgloszenia': {
+      // Rodzaj firmy, np. 'Agencja pracy'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
+      rodzajFirmy: null,
+      nazwaSpolki: null,
+      etykietaPowiazania: null,
+      skala: null,
+      jakMierzone: null,
+      cytat: null,
+      szczegolyTechniczne: null,
+    },
   },
 
-  // Zdanie ujawnienia pod opisami wdrożeń. Tekst wpisuje właściciel.
+  // Zdanie ujawnienia pod opisami wdrożeń (raz na stronę, komponent Ujawnienie). Tekst wpisuje właściciel.
   zdanieUjawnienia: null,
 
   // Czy wolno pisać „Wdrażamy także poza nią” w nagłówku sekcji dowodów. Ustawia właściciel.

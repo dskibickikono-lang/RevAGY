@@ -4,6 +4,11 @@
       "plik": "integracja-systemow.html",
       "film": "integracja-systemow",
       "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+    },
+    {
+      "plik": "wdrozenia.html",
+      "film": "wdrozenia",
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
     }
   ]
 }
