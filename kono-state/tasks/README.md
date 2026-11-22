@@ -5,15 +5,44 @@
 - Przy kilku sesjach naraz dwie karty mogą dostać ten sam numer. Wtedy zmienia numer karta scalona później,
   a w jej treści zostaje zdanie, pod jakim numerem występuje w starszych PR i commitach.
 
-## Stan na 22.11.2026
+## Stan na 23.11.2026
 
-| Numer | Karty | Uwaga |
-|---|---|---|
-| T-024 | `T-024-baner-zgody-clarity.md`, `T-024-komunikacja-i-oferta-raport.md` | Numer zdublowany. Karta raportu o komunikacji należy do innej, czynnej sesji, a decyzje D-041 do D-045 powołują się na „T-024”, więc jej numeru nie zmieniałem. Do decyzji właściciela |
-| T-025 | `T-025-audyt-seo-i-pozycjonowanie-marki.md` | Audyt kodu, który też miał T-025, ma teraz T-028 |
-| T-028 | `T-028-audyt-kodu-strony.md` | W PR #35 i #37 oraz w commitach występuje jako T-025 |
-| T-029, T-030 | etapy 2 i 3 po audycie kodu | |
-| T-031 | `T-031-etap-5-formularz-dostepnosc-testy.md` | Etap 5 po audycie kodu, PR #40 |
-| T-032 | `T-032-etap-9-sprzedaz.md` | Etap 9, podstrona „Sprzedaż”, PR #41. W pierwszych commitach PR #41 karta występowała jako T-027 |
-| T-033 | `T-033-kierunek-a-pilot-scena-integracja-systemow.md` | Pilot kierunku A, PR #38. W PR #38 i w commitach sprzed odświeżenia występuje jako T-031 |
-| T-034 | `T-034-pakiet-kadry-i-place.md` | Pakiet kadry i płace, PR #39. W PR #39 i w commitach sprzed odświeżenia występuje jako T-028; decyzja o odnośniku w menu to D-049 (wcześniej D-046) |
+Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania na produkcję. W nawiasie SHA merge’a.
+
+| Numer | Karta | Status | PR (merge) | Uwaga |
+|---|---|---|---|---|
+| T-001 | Prototyp strony REVAGY | zmergowane | #1 (dc82217) |  |
+| T-002 | Wersja produkcyjna i przygotowanie wdrożenia revagy.pl | zmergowane | #1 (dc82217) |  |
+| T-003 | Migracja 1:1 do Astro (static) | zmergowane | #2 (9f8c86f) |  |
+| T-004 | Poprawka hardeningu wydania po review PR #2 | zmergowane | #2 (9f8c86f) | Karta założona wstecz 23.11.2026 |
+| T-005 | Build w CI i artefakt wydania, VPS bez Node | zmergowane | #3 (899e85f, do `migration/astro-static`), #4 (d3b253e) | Do main razem z PR #2 |
+| T-006 | Rozpoznawalność marki: JSON-LD, llms.txt, boty AI | zmergowane | #6 (47d7d86) |  |
+| T-007 | CI: `PUBLIC_TURNSTILE_SITEKEY` w buildzie | zmergowane | #7 (dc984b6) | Karta założona wstecz 23.11.2026 |
+| T-008 | Etap 0: prawda na stronie | wdrozone | #9 (9414a0b) |  |
+| T-009 | Etap 1: integracja systemów | wdrozone | #10 (d7016c0) |  |
+| T-010 | Etap 2: wdrożenia | wdrozone | #11 (f346d24) |  |
+| T-011 | Etap 3: dla firm | wdrozone | #12 (0aee686) |  |
+| T-012 | Etap 4: dane i bezpieczeństwo | wdrozone | #13 (d5d3458) |  |
+| T-013 | Etap 5: produkcja i logistyka | wdrozone | #14 (9d7ae32) |  |
+| T-014 | Etap 6: poradniki | wdrozone | #15 (e9e3a03) |  |
+| T-015 | Film F1: integracja systemów | wdrozone | #17 (e2743c2) |  |
+| T-016 | Etap 7: przekierowania | wdrozone | #16 (1470166) |  |
+| T-017 | Film F2: wdrożenia | wdrozone | #18 (c3c64c9) |  |
+| T-018 | Film F3: dla firm | wdrozone | #19 (b15bdff) |  |
+| T-019 | Film F4: dane i bezpieczeństwo | wdrozone | #20 (c6582f2) |  |
+| T-020 | Film F5: produkcja i logistyka | wdrozone | #21 (5fe5c29) |  |
+| T-021 | Etap 8: finanse | wdrozone | #24 (0e72e39) |  |
+| T-022 | Bing Webmaster Tools, IndexNow, Clarity za zgodą | wdrozone | #23 (a3ce70d) |  |
+| T-023 | Film F6: finanse | wdrozone | #25 (1002463), #26 (43efbf5) |  |
+| T-024 | Baner zgody: zdanie o Microsoft Clarity | wdrozone | #28 (7cd0f71) | Jedyna karta T-024 od 22.11.2026 (raport komunikacji to T-035) |
+| T-025 | Audyt SEO i pozycjonowania marki | zmergowane | #29 (9856b6f), #31 (28a02ab) | Audyt kodu, który też miał T-025, ma teraz T-028. Punkty „Nadal zablokowane” otwarte |
+| T-026 | Audyt designu i identyfikacji | zmergowane | #32 (2cd36d0), #34 (ccc9b71), #38 (a653e8a) | Założona jako T-024 |
+| T-027 | astro.config: adres bazowy i schemat zmiennej | zmergowane | #37 (da8d1ae) |  |
+| T-028 | Audyt kodu strony | zmergowane | #35 (3e87a2e) | W PR #35 i #37 oraz w commitach występuje jako T-025 |
+| T-029 | Etap 2 po audycie kodu: Matomo, nginx, kontrola produkcji | zmergowane | #40 (7b6fc4c) | Kroki serwerowe czekają na wdrożenie |
+| T-030 | Etap 3 po audycie kodu: skrót treści w adresach zasobów | zmergowane | #40 (7b6fc4c) |  |
+| T-031 | Etap 5 po audycie kodu: formularz, dostępność, testy | zmergowane | #40 (7b6fc4c) |  |
+| T-032 | Etap 9: sprzedaż | zmergowane | #41 (6a2efde) | W pierwszych commitach PR #41 jako T-027. Decyzje właściciela 1–11 otwarte |
+| T-033 | Kierunek A, pilot sceny na /integracja-systemow.html | zmergowane | #38 (a653e8a) | W PR #38 i w commitach sprzed odświeżenia jako T-031 |
+| T-034 | Pakiet K02: kadry i płace | zmergowane | #39 (ca9b92b) | W PR #39 i w commitach sprzed odświeżenia jako T-028; menu: D-049 (wcześniej D-046) |
+| T-035 | Raport: komunikacja i oferta | zmergowane | #33 (5bac11d), #36 (5e29276) | Wcześniej T-024, przenumerowana 22.11.2026 (kolizja z banerem zgody, PR #28); w D-041…D-045 dopisek „wcześniej T-024”. Punkty „Otwarte” otwarte |
