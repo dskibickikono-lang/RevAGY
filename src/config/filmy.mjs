@@ -66,8 +66,8 @@ export const FILMY = {
     tytul: 'Pilot na jednej linii produkcyjnej, od dnia 1 do dnia 14',
     opis: 'Na początku pilota dostęp do systemów i kryterium sukcesu zapisane w umowie. Dane z hali trafiają do raportu zmianowego bez przepisywania, rozbieżność zatwierdza kierownik zmiany, a na końcu wynik jest porównany z kryterium i zapada decyzja. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
-    czasSekundy: null,
-    dataPublikacji: null,
+    czasSekundy: 14,
+    dataPublikacji: '2026-11-22',
   },
 };
 
