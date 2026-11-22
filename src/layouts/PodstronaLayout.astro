@@ -1,7 +1,8 @@
 ---
 // Układ podstron (D-031). BaseLayout.astro zostaje bez zmian.
 // Nagłówek i stopka to kopia znaczników strony głównej z BaseLayout.astro (pełne menu,
-// menu mobilne, pełna stopka), z odnośnikami do sekcji w postaci ./#sekcja.
+// menu mobilne, pełna stopka). Pozycje menu i stopki prowadzą do sekcji strony głównej (./#sekcja),
+// z wyjątkiem „Finanse”, które prowadzi do finanse.html (T-021).
 // Adres kanoniczny, dane do udostępnień i dane strukturalne powstają z właściwości,
 // więc strona nie wpisuje ich ręcznie.
 import { MARKA, jsonDoSkryptu } from '../config/marka.mjs';
@@ -196,6 +197,8 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
 
 <footer class="site-footer">
   <div class="wrap">
+    {/* aria-level="2": nagłówki kolumn stopki są dla czytników ekranu na poziomie 2, więc po ostatnim h2 w <main>
+        nie ma przeskoku poziomu (T-021). Znacznik h4 zostaje dla stylu .site-footer h4 ze styles.css. */}
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="logo" href="./" aria-label="REVAGY, strona główna">
@@ -205,19 +208,19 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
         <p>Automatyzacja procesów i wdrożenia AI dla firm B2B.</p>
       </div>
       <nav aria-label="Rozwiązania">
-        <h4>Rozwiązania</h4>
+        <h4 aria-level="2">Rozwiązania</h4>
         <a href="./#mozliwosci">Automatyzacja procesów</a><a href="./#mozliwosci">Agenci AI</a><a href="./#integracje">Integracje</a><a href="./#mozliwosci">Analityka</a>
       </nav>
       <nav aria-label="Dla działów">
-        <h4>Dla działów</h4>
+        <h4 aria-level="2">Dla działów</h4>
         <a href="./#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
-        <h4>Firma</h4>
+        <h4 aria-level="2">Firma</h4>
         <a href="./#proces">Jak wdrażamy</a><a href="./#pakiety">Pakiety</a><a href="./#bezpieczenstwo">Bezpieczeństwo</a><a href="./#faq">FAQ</a>
       </nav>
       <nav aria-label="Kontakt">
-        <h4>Kontakt</h4>
+        <h4 aria-level="2">Kontakt</h4>
         <a href="./#kontakt">Umów konsultację</a><a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a><a href="tel:+48504037538">+48 504 037 538</a><a href="./#kalkulator">Kalkulator zwrotu</a>
       </nav>
     </div>

@@ -171,16 +171,37 @@ test('check-tresc: KSeF to udokumentowany wyjątek (T-021), nazwa dostawcy dalej
   assert.equal(sprawdzWyjatki('KSeF', NAZWY).length, 1);
 });
 
-test('check-tresc: nagłówki w <main> — jeden h1 na początku, bez przeskoku poziomu', () => {
+test('check-tresc: nagłówki — jeden h1 na początku <main>, bez przeskoku poziomu w całym dokumencie', () => {
   assert.deepEqual(sprawdz(strona({ main: '<h2>Sekcja</h2><h3>Kafel</h3><h2>Druga</h2><h3>Pytanie</h3>' })), []);
   const przeskok = sprawdz(strona({ main: '<h2>Sekcja</h2><h4>Kafel</h4>' }));
   assert.equal(przeskok.length, 1, przeskok.join('\n'));
-  assert.match(przeskok[0], /przeskok z <h2> do <h4> przy „Kafel”/);
+  assert.match(przeskok[0], /przeskok z poziomu 2 do poziomu 4 \(<h4>\) przy „Kafel”/);
   assert.ok(sprawdz(strona({ main: '<h1>Drugi tytuł</h1>' })).some((x) => /dokładnie jeden <h1>, jest 2/.test(x)));
   const bezH1 = strona().replace('<h1>Systemy, które same wymieniają dane</h1>', '<h2>Systemy, które same wymieniają dane</h2>');
   assert.ok(sprawdz(bezH1).some((x) => /pierwszy nagłówek w <main> to <h2>/.test(x)));
-  // h4 w stopce układu (poza <main>) nie jest przeskokiem w <main>
-  assert.deepEqual(sprawdz(strona().replace('<footer class="site-footer">', '<footer class="site-footer"><nav><h4>Dla działów</h4></nav>')), []);
+});
+
+test('check-tresc: nagłówki stopki — h4 po h2 to przeskok, aria-level="2" go usuwa, błędne aria-level nie maskuje', () => {
+  const zeStopka = (h4) => strona({ main: '<h2>Ostatnia sekcja</h2>' }).replace('<footer class="site-footer">', `<footer class="site-footer"><nav>${h4}</nav>`);
+  const bez = sprawdz(zeStopka('<h4>Dla działów</h4>'));
+  assert.equal(bez.length, 1, bez.join('\n'));
+  assert.match(bez[0], /przeskok z poziomu 2 do poziomu 4 \(<h4>\) przy „Dla działów”/);
+  assert.deepEqual(sprawdz(zeStopka('<h4 aria-level="2">Dla działów</h4><h4 aria-level="2">Firma</h4>')), []);
+  for (const zla of ['0', '-1', 'dwa', '', '2.5']) {
+    const b = sprawdz(zeStopka(`<h4 aria-level="${zla}">Dla działów</h4>`));
+    assert.ok(b.some((x) => /przeskok z poziomu 2 do poziomu 4/.test(x)), `aria-level="${zla}": ${b.join('\n')}`);
+  }
+});
+
+test('check-tresc: reguła nagłówków nie dotyczy stron spoza tools/podstrony.json', () => {
+  // Strona główna (BaseLayout) ma h4 w stopce po h2: CLI sprawdza tylko pliki z listy podstron.
+  const dir = tmp();
+  const pod = zapisz(dir, 'podstrony.json', { strony: [{ plik: 'integracja-systemow.html', film: 'integracja-systemow', skrypty: ['app.js'] }] });
+  zapisz(dir, 'dist/integracja-systemow.html', strona({ film: FILM }));
+  zapisz(dir, 'dist/index.html', strona({ main: '<h2>Sekcja</h2><h4>Przeskok</h4>' }));
+  const r = uruchom([SKRYPT, `--dist=${path.join(dir, 'dist')}`, `--podstrony=${pod}`]);
+  assert.equal(r.kod, 0, r.err);
+  assert.doesNotMatch(r.out + r.err, /index\.html/);
 });
 
 test('check-tresc CLI: pusta lista podstron — kod 0', () => {
