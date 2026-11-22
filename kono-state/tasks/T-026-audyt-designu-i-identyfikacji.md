@@ -9,8 +9,8 @@ updated: 2026-11-22
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (43efbf5 — stan badany; gałąź odświeżana po każdym scaleniu)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (moodboard; wcześniejsze części scalone w #32 i #34)
-sha: fb1a746 (moodboard i rozdziały 7–8 raportu); wcześniej 2bd7b4c (#32), d554004 (#34)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (moodboard i studium kierunku A; wcześniejsze części scalone w #32 i #34)
+sha: 204ac02 (studium kierunku A i plan), fb1a746 (moodboard i rozdziały 7–8 raportu); wcześniej 2bd7b4c (#32), d554004 (#34)
 decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033, D-034, D-040, D-044, D-045]
 ---
 
@@ -87,6 +87,7 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
 - Build lokalny: 12 stron, bez błędów (na 43efbf5 i ponownie na 5bac11d).
 - CI na PR #34: „Lighthouse podstron” — sukces. Zmiany w `kono-state/` są wyłączone z głównego CI (`paths-ignore`).
 - Moodboard: wyrenderowany przy 1440 i 390 px, 40 obrazów wczytanych, brak przepełnień, 8 tabel bez nieregularnych wierszy.
+- Studium kierunku A: wyrenderowane przy 1440 i 390 px, 23 obrazy wczytane, brak przepełnień, 10 tabel bez nieregularnych wierszy.
 
 ## Ograniczenia
 
