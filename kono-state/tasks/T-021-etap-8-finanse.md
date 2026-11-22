@@ -7,7 +7,7 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-8-finanse
-base: main (e10cab9)
+base: main (a3ce70d)
 depends_on: T-014
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/24
 sha: cbeae8a8d0bf7dbc8463cedd7740dc59016d69c9 (zmiany)
@@ -21,8 +21,9 @@ decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-028, D-029, D-031
 Podstrona działowa dla dyrektora finansowego, głównej księgowej i właściciela firmy 5–250 osób (D-016).
 Pokazuje trzy procesy w kolejności z menu „Dla działów”: faktury kosztowe, windykację i uzgodnienia.
 Przy każdym procesie są trzy części: „Dziś”, „Po wdrożeniu” i „Co zostaje człowiekowi”. Wejście jak na pozostałych
-podstronach: bezpłatna konsultacja, płatny audyt, wdrożenie (D-019, D-025, D-028). Strona główna zostaje
-bez zmian (D-015, D-021).
+podstronach: bezpłatna konsultacja, płatny audyt, wdrożenie (D-019, D-025, D-028). Strona główna dostaje tylko
+zmiany zatwierdzone przez właściciela 22.11.2026: odnośniki „Finanse”, nagłówki stopki i nagłówek na 375 px.
+Wygląd od 390 px wzwyż zostaje bez zmian (D-015, D-021).
 
 ## Zakres
 
@@ -32,25 +33,35 @@ bez zmian (D-015, D-021).
 2. Miejsce na film w stanie „kadr” (D-022): wpis `finanse` w `src/config/filmy.mjs`, bez `czasSekundy`
    i `dataPublikacji`. Kadr `finanse-kadr.jpg` renderuje CI (`render-media.yml`, D-032).
 3. Opis wdrożenia z innego działu: `stan-zalogi` (raport zarządu z kilku źródeł), anonimowy, z treścią
-   i liczbami jak na `/wdrozenia.html` (D-034), z `<Ujawnienie />` pod opisem.
+   i liczbami jak na `/wdrozenia.html` (D-034), z `<Ujawnienie />` pod opisem. Podpis: „Grupa spółek. Raport dla
+   zarządu, nie dział finansów.”
 4. Pliki wspólne:
    - `src/layouts/PodstronaLayout.astro`: dwa odnośniki „Finanse” (panel „Dla działów” w menu i kolumna
      „Dla działów” w stopce) z `./#zastosowania` na `finanse.html`. Cztery nagłówki kolumn stopki (`h4`) dostają
      `aria-level="2"`, więc po ostatnim `h2` w `<main>` nie ma przeskoku poziomu. Znacznik `h4` i wygląd zostają
      (styl `.site-footer h4` w `styles.css`). Komentarz nagłówkowy układu opisuje wyjątek „Finanse”;
-   - `tools/podstrony.json`, `public/sitemap.xml`, `tools/rejestr-twierdzen.json`.
+   - `src/layouts/BaseLayout.astro` (decyzje właściciela 1 i 5): dwa odnośniki „Finanse” na `finanse.html` oraz
+     `aria-level="2"` na czterech `h4` stopki. Komentarz stoi we frontmatterze, żeby nie zmieniać wypisanego HTML;
+   - `public/assets/css/styles.css` (`?v=5` w obu układach): reguła nagłówka dla `max-width: 389px` przeniesiona
+     z `podstrony.css` (`?v=3`, reguła usunięta). Działa na wszystkich stronach z jednego miejsca;
+   - `tools/podstrony.json` (każda strona z `clarity.js?v=1` po T-022), `public/sitemap.xml`,
+     `tools/rejestr-twierdzen.json`.
 5. Narzędzia:
    - `tools/nazwy-systemow.json`: „KSeF” przeniesiony z listy `nazwy` do udokumentowanej listy `wyjatki`;
    - `tools/check-tresc.cjs` sprawdza format wyjątków i to, że wyjątek nie stoi jednocześnie na liście nazw;
    - nowa reguła kontroli treści dla stron z `tools/podstrony.json`: jeden `h1`, który jest pierwszym nagłówkiem
      w `<main>`, a w całym dokumencie (razem ze stopką) bez przeskoku poziomu w dół o więcej niż jeden. Poziom to
      `aria-level`, gdy jest liczbą całkowitą ≥ 1, inaczej numer znacznika. Strona główna, kontakt, polityka i 404
-     nie są objęte regułą. Na obecnym wydaniu reguła zgłasza przeskok w stopce na 7 podstronach (bez `aria-level`).
-     Po zmianie układu znika on na wszystkich podstronach;
-   - `tools/smoke-test.cjs`: dwa wąskie widoki telefonu dla podstron (393×852 i 375×667). Sprawdzają brak
-     przewijania w poziomie, a z `--zrzuty` robią też pełny zrzut.
-6. Strona główna bez zmian: `tools/etapy/zmiana-strony-glownej.json` z pustymi listami, `index.baza.html`
-   równe `index.html`.
+     nie są objęte regułą. Na wydaniu sprzed etapu reguła zgłasza przeskok w stopce na 7 podstronach (bez
+     `aria-level`). Po zmianie układu przeskok znika na wszystkich podstronach. Stopka strony głównej ma od tego
+     etapu `aria-level="2"`, ale strona główna nadal nie jest objęta regułą;
+   - `tools/smoke-test.cjs`: dwa wąskie widoki telefonu (393×852 i 375×667) dla strony głównej i podstron. Sprawdzają
+     brak przewijania w poziomie, a przy błędzie wypisują do trzech elementów poza oknem. Z `--zrzuty` robią też
+     pełny zrzut. Geometria strony głównej względem bazy zostaje dla 1280 i 390 px.
+6. Strona główna: `tools/baseline/index.baza.html` to migawka z `main` (`a3ce70d`, po T-022). `tools/baseline/index.html`
+   to ta baza z siedmioma zmianami atrybutów. `tools/etapy/zmiana-strony-glownej.json` to etap „8” z trzema wpisami
+   `atrybuty`. Szczegóły w sekcji „Strona główna: różnice migawki względem bazy”.
+9. Scalenie `origin/main` (PR #23, T-022) przez commit scalenia. Kontrakt wzięty z `main`, przeliczy go PM.
 7. `tools/dom-contract.json`: kontrakt policzony przez PM z builda CI (rundy niżej).
 8. Pomiar Lighthouse w CI (w repozytorium nie było żadnego, a na VPS nie da się go uruchomić):
    - `tools/lighthouse.cjs` z testami i konfiguracją `tools/lighthouse.json` (strona, progi, wersja Lighthouse 13.6.0,
@@ -136,64 +147,67 @@ Przebieg dla `cbeae8a` (run 45024310523), Lighthouse 13.6.0, telefon, symulowane
 - **Przycisk filmu (otwarty punkt dla etapu filmowego).** W stanie „kadr” strona nie ma przycisku filmu.
   Wniosek z review: przycisk ma zmieniać tylko `aria-pressed`, bez równoległej zmiany `aria-label`. Przycisk z samymi
   ikonami musi zachować stałą nazwę dostępną (na przykład „Wstrzymaj film”). Dotyczy to
-  `src/components/MiejsceNaFilm.astro` i `public/assets/js/app.js:110-111`. `app.js` jest wspólny ze stroną główną,
-  więc zmiana wymaga osobnej decyzji właściciela.
+  `src/components/MiejsceNaFilm.astro` i `public/assets/js/app.js:110-111`. `app.js` jest wspólny ze stroną główną.
+  Właściciel przypisał tę zmianę do etapu filmowego T-023 (decyzja 4).
 - **Nagłówki.** W `<main>` ostatni nagłówek to `h2` w sekcji `#wezwanie`, a po nim stoją nagłówki kolumn stopki.
-  Na podstronach przeskok jest usunięty: stopka w `PodstronaLayout.astro` ma `h4` z `aria-level="2"`, a reguła
-  kontroli obejmuje cały dokument podstrony. Stopka w `BaseLayout.astro` (strona główna, kontakt, polityka, 404) ma
-  dalej zwykłe `h4`. Na stronie głównej zostaje przeskok `h2 → h4`.
+  Przeskok jest usunięty na podstronach i na stronie głównej: stopki w `PodstronaLayout.astro` i `BaseLayout.astro`
+  mają `h4` z `aria-level="2"`. Kontakt, polityka i 404 nie mają stopki z nagłówkami. Reguła kontroli obejmuje cały
+  dokument podstrony.
 
 - **Nagłówek na wąskich telefonach.** Nowy test wąskich telefonów w CI pokazał 2 px przewijania w poziomie na
   wszystkich 8 podstronach przy szerokości 375 px. Na 390 i 393 px było bez przewijania. Przyczyna: elementy wiersza
   `.header-row` mają `flex: none` i się nie kurczą. Logo (ok. 121 px), odstęp 24 px i `.header-actions`
   („Umów konsultację” 163 px + 8 px + przycisk menu 44 px) przy lewym marginesie 16 px kończą się na ok. 377 px.
-  To błąd zastany we wspólnych stylach (`styles.css`, linie 142, 167, 185–191). Poprawka dotyczy tylko podstron:
-  w `podstrony.css` przy `max-width: 389px` jest `gap: 8px` w `.header-row` i `padding: 0 12px` dla
-  `.header-actions .btn-dark`. Obie wartości już są w `styles.css`. Prawy brzeg wypada wtedy na ok. 353 px, więc
-  nagłówek mieści się też na 360 px. Wersja stylu podbita do `podstrony.css?v=2`. Test wąskich telefonów wypisuje
-  teraz przy błędzie do trzech elementów wychodzących poza okno.
+  To błąd zastany we wspólnych stylach (`styles.css`, linie 142, 167, 185–191). Najpierw (runda 3) poprawka objęła
+  tylko podstrony, w `podstrony.css?v=2`. Po decyzji właściciela 5 reguła jest w `styles.css` (`?v=5`), przy stylach
+  nagłówka: przy `max-width: 389px` jest `gap: 8px` w `.header-row` i `padding: 0 12px` dla
+  `.header-actions .btn-dark`. Obie wartości już były w `styles.css`. Działa teraz także na stronie głównej,
+  a z `podstrony.css` (`?v=3`) zniknęła. Prawy brzeg wypada na ok. 353 px, więc nagłówek mieści się też na 360 px.
+  Test wąskich telefonów obejmuje stronę główną i przy błędzie wypisuje do trzech elementów wychodzących poza okno.
 
-## Decyzje do podjęcia przez właściciela
+## Decyzje właściciela (2026-11-22)
 
-1. **„Finanse” z menu i stopki strony głównej.** Na stronie głównej pozycja „Finanse” dalej prowadzi do
-   `#zastosowania`. Podpięcie jej pod `finanse.html` wymaga zmiany `src/layouts/BaseLayout.astro`, czyli strony
-   głównej. W tym etapie strona główna jest bez zmian. Gdyby właściciel się zgodził, trzeba by zmienić:
-   - w `BaseLayout.astro`: `href` w panelu „Dla działów” menu (`<a href="#zastosowania"><strong>Finanse</strong>…`)
-     i w kolumnie „Dla działów” stopki (`<a href="#zastosowania">Finanse</a>`) na `finanse.html`;
-   - migawkę `tools/baseline/index.html`, bazę `tools/baseline/index.baza.html` i plik etapu
-     `tools/etapy/zmiana-strony-glownej.json` z dwoma wpisami w `atrybuty`;
-   - opcjonalnie odnośnik w kaflu „Finanse” w sekcji `#zastosowania` w `src/pages/index.astro`;
-   - kontrakt `index.html` w rundzie 2.
-   Zmienia się tylko atrybut `href`, więc układ i geometria sekcji zostają bez zmian. Te dwa odnośniki są tylko
-   w `index.html`. `kontakt.html`, `polityka-prywatnosci.html` i `404.html` też używają `BaseLayout.astro`, ale mają
-   skrócony nagłówek bez tych pozycji (sprawdzone na obecnym wydaniu).
-2. **Przycisk filmu** (punkt w „Ustaleniach”): czy zmieniamy `MiejsceNaFilm.astro` i `app.js:110-111` tak, żeby
-   przycisk zmieniał tylko `aria-pressed`, przy stałej nazwie dostępnej. Zmiana dotyczy także filmów strony głównej.
-3. **Kolejność nagłówków w stopce `BaseLayout.astro`** (strona główna, kontakt, polityka, 404): czy dodajemy tam
-   `aria-level="2"` tak samo jak na podstronach. To zmiana strony głównej (migawka, plik etapu, kontrakt).
-   Na podstronach jest już poprawione.
-4. **Treść „Po wdrożeniu” i odpowiedzi w pytaniach.** Część „Po wdrożeniu” w trzech procesach przygotował agent
-   na podstawie opisu procesów w zleceniu. Dotyczy to zakresu automatyzacji, na przykład kontroli duplikatu
-   i zmienionego rachunku dostawcy, harmonogramu przypomnień i raportu różnic. Tak samo powstały odpowiedzi
-   w pytaniach, w tym brzmienie odpowiedzi o KSeF. Właściciel potwierdza je w przeglądzie PR albo wskazuje,
-   co skreślić.
-5. **Sekcja „Ten sam mechanizm w innym dziale”.** Czy zostaje opis `stan-zalogi`, czy sekcja znika do czasu
-   opisu wdrożenia z działu finansów. Taki opis wprowadza właściciel (D-034).
-6. **Nagłówek strony głównej na 375 px.** Strona główna ma ten sam nagłówek ze wspólnego `styles.css`, więc na 375 px
-   najpewniej też wychodzi ok. 2 px poza ekran. Tego nie mierzyliśmy, bo test wąskich telefonów obejmuje tylko
-   podstrony. Poprawka dla strony głównej wymaga zmiany `styles.css` i podbicia jego wersji, czyli zmiany
-   strony głównej (migawka, plik etapu, kontrakt).
-7. **Kolejność scalania z PR #23** (Bing, IndexNow, Clarity, T-022). Oba PR-y zmieniają te same pliki:
-   `PodstronaLayout.astro`, `tools/dom-contract.json`, `tools/podstrony.json`, `tools/smoke-test.cjs`,
-   `public/sitemap.xml`, `tools/etapy/zmiana-strony-glownej.json` i `README.md`. Drugi w kolejności wymaga
-   dociągnięcia `main` i ponownego policzenia kontraktu.
-8. **Pomiar Lighthouse jako wymagany status.** Workflow działa przy każdym PR. Żeby blokował scalenie, właściciel
-   musi dodać go jako wymagany status w ochronie gałęzi `main`.
+1. **Menu strony głównej:** tak, tylko dwa odnośniki „Finanse” w `BaseLayout.astro` (panel „Dla działów” w menu
+   i kolumna „Dla działów” w stopce) na `finanse.html`. Kafel w `#zastosowania` bez zmian.
+2. **Treść „Po wdrożeniu” i odpowiedzi w pytaniach (w tym KSeF):** zostają jako propozycje. Właściciel poprawi je
+   w przeglądzie PR. Lista do odhaczenia jest w opisie PR.
+3. **Opis wdrożenia z innego działu:** zostaje, z podpisem „Grupa spółek. Raport dla zarządu, nie dział finansów.”
+   W rejestrze `is-stan-zalogi-568-539.jakMierzone` to „Odczyt stanu załogi z dwóch systemów. Data odczytu do
+   uzupełnienia przez właściciela.” `wd-raport-6-godzin-do-zera.jakMierzone` zostaje `null`. Liczba ma źródło
+   (materiały właściciela, D-020, D-034), ale brakuje opisu pomiaru.
+   Brakuje: daty odczytu stanu załogi i opisu pomiaru dla „ok. 6 godzin tygodniowo”.
+4. **Film:** następny etap. Karta T-023 `film-6-finanse`, gałąź `feat/film-6-finanse` od `main` po scaleniu PR #24,
+   tym samym procesem co T-015–T-020. W tamtym etapie także przycisk filmu w `app.js`: zmienia się tylko
+   `aria-pressed`, a nazwa dostępna jest stała. Dotyczy też strony głównej.
+5. **Strona główna na 375 px i stopka:** tak, tym samym kodem co na podstronach (reguła nagłówka w `styles.css`,
+   `aria-level="2"` w stopce `BaseLayout.astro`).
+6. **PR #23:** scalony. `main` (`a3ce70d`) dociągnięty do tej gałęzi przez commit scalenia.
+7. **Lighthouse:** zostaje jako workflow. Ochronę gałęzi ustawia właściciel. Nazwa statusu: `Lighthouse podstron`.
+
+## Strona główna: różnice migawki względem bazy
+
+Baza `tools/baseline/index.baza.html` to `tools/baseline/index.html` z `main` (`a3ce70d`). Migawka
+`tools/baseline/index.html` różni się od niej wyłącznie siedmioma wartościami atrybutów:
+
+| Linia | Znacznik | Atrybut | Było | Jest |
+|---|---|---|---|---|
+| 30 | `link` (arkusz stylów) | `href` | `assets/css/styles.css?v=4` | `assets/css/styles.css?v=5` |
+| 61 | `a` „Finanse” w panelu „Dla działów” menu | `href` | `#zastosowania` | `finanse.html` |
+| 661 | `h4` „Rozwiązania” w stopce | `aria-level` | brak | `2` |
+| 665 | `h4` „Dla działów” w stopce | `aria-level` | brak | `2` |
+| 666 | `a` „Finanse” w kolumnie „Dla działów” stopki | `href` | `#zastosowania` | `finanse.html` |
+| 669 | `h4` „Firma” w stopce | `aria-level` | brak | `2` |
+| 673 | `h4` „Kontakt” w stopce | `aria-level` | brak | `2` |
+
+Teksty, znaczniki i ich kolejność zostają bez zmian. Wygląd od 390 px wzwyż się nie zmienia. Poniżej 390 px nagłówek
+ma mniejszy odstęp (8 px zamiast 24 px) i węższy przycisk „Umów konsultację” (padding 12 px zamiast 16 px).
 
 ## Do uzupełnienia przez właściciela
 
-Ten etap nie dodaje nowych pól. Strona korzysta z istniejących pól, które są dziś `null`:
+Ten etap nie dodaje nowych pól w danych strony. Strona korzysta z istniejących pól, które są dziś `null`:
 
 - `src/data/dowody.mjs`, wpis `stan-zalogi`: nazwa, etykieta powiązania, skala, „jak mierzone”, cytat;
   `zdanieUjawnienia` (wspólne dla podstron).
 - `src/data/bezpieczenstwo.mjs`: `aiNaDanychKlienta`, `wdrozenieUKlienta`. Strona finansów ich nie pokazuje.
+- `tools/rejestr-twierdzen.json`: data odczytu stanu załogi (`is-stan-zalogi-568-539.jakMierzone`) i opis pomiaru
+  „ok. 6 godzin tygodniowo” (`wd-raport-6-godzin-do-zera.jakMierzone`, dziś `null`).
