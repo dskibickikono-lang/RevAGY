@@ -108,7 +108,6 @@
   if (toggle && mainVideo) {
     const sync = () => {
       toggle.setAttribute('aria-pressed', String(mainVideo.paused));
-      toggle.setAttribute('aria-label', mainVideo.paused ? 'Odtwórz film' : 'Wstrzymaj film');
     };
     toggle.addEventListener('click', () => {
       if (mainVideo.paused) { userPaused.delete(mainVideo); tryPlay(mainVideo); }
