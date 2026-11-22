@@ -403,7 +403,11 @@ if (require.main === module) (async () => {
       check('strona główna odpowiada 200', res.status() === 200, String(res.status()));
       check('tytuł zawiera REVAGY', (await page.title()).includes('REVAGY'));
       check('baner zgody widoczny przy pierwszej wizycie', await page.locator('.consent').isVisible());
-      const ld = await page.evaluate(() => {
+      // T-024: baner mówi, że statystyki trafiają także do Microsoft Clarity.
+      const tekstBanera = (await page.locator('.consent').innerText()).replace(/\s+/g, ' ');
+      check('baner zgody wymienia Microsoft Clarity i nie mówi, że dane zostają na naszym serwerze',
+        tekstBanera.includes('Microsoft Clarity') && !tekstBanera.includes('zostają na naszym serwerze'), tekstBanera);
+      const ld =await page.evaluate(() => {
         const el = document.querySelectorAll('script[type="application/ld+json"]');
         if (el.length !== 1) return { n: el.length };
         try { return { n: el.length, data: JSON.parse(el[0].textContent) }; } catch (e) { return { n: el.length, err: String(e) }; }
