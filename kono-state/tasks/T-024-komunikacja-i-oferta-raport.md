@@ -7,11 +7,11 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/serene-bohr-2hdmui
-base: main (43efbf5)
+base: main (43efbf5 runda 1, 5bac11d runda 2)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (baza main)
-sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (raport i materiał dowodowy; kolejne commity zmieniają tylko kartę)
-decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034]
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (runda 1, scalony), https://github.com/dskibickikono-lang/RevAGY/pull/36 (runda 2, baza main)
+sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (runda 1), a8d9e3cc4b9217e9aad368f1d40a175cd584d0dc (runda 2; kolejne commity zmieniają tylko kartę)
+decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-041, D-042, D-043, D-044, D-045]
 ---
 
 # T-024 — Komunikacja i oferta: raport
@@ -72,3 +72,43 @@ jest pusty. Cytaty w raporcie głównym sprawdzone skryptem jako dosłowne fragm
 
 - Kontakt z ludźmi (10 konsultacji poza grupą jako test superzdania) to propozycja; wymaga osobnej zgody.
 - Dane z CRM o tym, kto przychodzi na konsultacje, nie były czytane: brak wskazania lejka i zgody.
+
+## Runda 2 (2026-11-22): odpowiedzi właściciela
+
+PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedział na siedem pytań z rozdziału 4.
+
+- Raport: nowy rozdział 0 z odpowiedziami, szacunkiem przepustowości, superzdaniem w wersji 2 i rankingiem w wersji 2.
+  Nazw klientów i kwot nie ma w repozytorium (publiczne, D-034).
+- Karta ocen PRES, wersja 2: zmiana osi Strategic fit dla K07 (5 → 4), K03 (3 → 4) i K11 (4 → 5). Ranking: K01 i K02
+  po 16, K07 15, K03 i K06 po 14, K09 i K11 po 13, K04, K05, K08, K12 po 12, K10 10.
+- Rejestr decyzji: dopisane D-041 (stała cena wdrożenia), D-042 (wstępnie najpierw firmy 5–250 osób), D-043 (większe
+  projekty niż proste automatyzacje). Brzmienie wpisów do sprawdzenia przez właściciela.
+- Superzdanie: ocena bez zmian („small business / service”); czeka na jedno potwierdzenie brzmienia.
+
+## Do decyzji właściciela po rundzie 2
+
+1. Superzdanie: zostaje dla firm 5–250 osób czy zawężamy do 50–250 osób (to zawęża D-016).
+2. Wybór kandydatów z rankingu. Rekomendacja agenta: K02, potem K01, z opieką o stałej miesięcznej cenie.
+3. Potwierdzenie liczby wdrożeń od maja (w repozytorium widać 5).
+4. Sprawy z rundy 1 nadal otwarte: sposób dostępu do forów GOFIN i Wykop; przykłady „po” na stronie.
+
+Testy rundy 2: nie uruchamiano i nie dotyczy (tylko `kono-state/`, CI pomija). Sumy PRES przeliczone skryptem.
+
+## Runda 3 (2026-11-22): decyzja o grupie
+
+Właściciel: „50–250 osób”. Dopisane D-044. Superzdanie potwierdzone dla firm 50–250 osób, ocena bez zmian
+(„small business / service”). Karta ocen PRES w wersji 3: zmieniona populacja, oceny bez zmian. Teksty strony z zakresem
+„5–250 osób” nie były ruszane; ich zmiana wymaga osobnej decyzji i karty. Punkt 1 z listy „Do decyzji właściciela po
+rundzie 2” jest zamknięty. Testy: nie dotyczy (tylko `kono-state/`).
+
+## Runda 4 (2026-11-22): wybór pakietu i poprawka numerów decyzji
+
+- Właściciel wybrał K02 (kadry i płace) jako pierwszy pakiet do portfolio: D-045.
+- Poprawka numerów: wpisy z rund 2 i 3 dostały numery D-040–D-043, a na `main` numer D-040 zajął w tym czasie wpis
+  o banerze zgody z innej karty. Wpisy tej karty mają teraz numery D-041 (stała cena), D-042 (kolejność torów), D-043
+  (większe projekty), D-044 (firmy 50–250 osób). Treść wpisów bez zmian.
+- Błąd agenta w tej rundzie: commit e3c0808 wyzerował przez pomyłkę w skrypcie cztery pliki (raport, kartę ocen, dane
+  ocen, tę kartę). Kolejny commit przywraca je z 8525396 i nanosi zmiany. Bez `--force`, historia zostaje.
+- Uwaga dla właściciela: w `kono-state/tasks/` są trzy karty z numerem T-024 (ta, audyt designu, baner zgody),
+  założone równolegle w różnych sesjach. Tej karty nie przenumerowuję bez decyzji.
+- Następny krok: plan pakietu K02 przedstawiony właścicielowi do akceptacji; bez zmian w kodzie do tego czasu.
