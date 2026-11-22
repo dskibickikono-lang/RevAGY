@@ -32,7 +32,7 @@ Znaleziska z `kono-state/notes/audyt-kodu.md`: S-03, S-08, S-11, T-02, T-04.
 
 ## Do akceptacji właściciela
 
-1. **Wygląd i miejsce przycisku w hero** (jedyna zmiana wyglądu strony głównej). Zrzuty przekazane w rozmowie.
+1. **Wygląd i miejsce przycisku w hero** (jedyna zmiana wyglądu strony głównej): zaakceptowane przez właściciela 22.11.2026 („akceptuję”, po obejrzeniu zrzutów).
 2. **Nowy tekst formularza** przy niezaładowanej ochronie przed spamem (cytat wyżej). To mój tekst, nie z rejestru.
 3. **Film pulpitu** (sekcja „Możliwości”) dalej gra w pętli bez przycisku: D-046 mówi o hero, więc go nie ruszałem.
    WCAG 2.2.2 pozostaje dla niego niespełnione.
