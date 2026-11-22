@@ -10,11 +10,13 @@
                     node tools/smoke-test.cjs https://revagy.pl:18443 --map=127.0.0.1 --local-harness=/path/to/dist
    Produkcja (żądania do stats.revagy.pl przechwytywane atrapą):
                     node tools/smoke-test.cjs https://revagy.pl
-   Pełne zrzuty strony głównej i podstron z tools/podstrony.json (1280 i 390 px):
+   Pełne zrzuty strony głównej i podstron z tools/podstrony.json (1280, 390, 393 i 375 px):
                     node tools/smoke-test.cjs --serve=dist --zrzuty=zrzuty
 
    W trybie --serve test porównuje też wysokości sekcji strony głównej z bazą (tools/lib/baza.cjs),
    podawaną przez lokalny serwer pod /__baza.html. Podstrony z tools/podstrony.json są sprawdzane w każdym trybie.
+   Strona główna i podstrony są też sprawdzane w dwóch wąskich widokach telefonu (393×852 i 375×667): brak przewijania
+   w poziomie (ze szczegółem o elementach poza oknem) i, z --zrzuty, pełny zrzut.
 
    Na domenie produkcyjnej żądania do stats.revagy.pl i do Microsoft Clarity (*.clarity.ms, c.bing.com)
    są przechwytywane i zastępowane atrapą, więc test nie zapisuje niczego w prawdziwych statystykach. */
@@ -326,6 +328,13 @@ async function newPage(browser, viewport, extra = {}, { enforceIsolation = false
 const PODGLADY = [
   { szer: 1280, viewport: { width: 1280, height: 800 }, extra: {} },
   { szer: 390, viewport: { width: 390, height: 844 }, extra: { hasTouch: true, isMobile: true } },
+];
+
+// Wąskie telefony dla strony głównej i podstron (etap 8, T-021): nagłówek, długie słowa i tabele nie mogą rozpychać strony.
+// Geometria strony głównej względem bazy zostaje tylko dla PODGLADY (1280 i 390 px).
+const WASKIE = [
+  { szer: 393, viewport: { width: 393, height: 852 }, extra: { hasTouch: true, isMobile: true } },
+  { szer: 375, viewport: { width: 375, height: 667 }, extra: { hasTouch: true, isMobile: true } },
 ];
 
 // Po załadowaniu strony: czekamy na kroje pisma i chwilę na skrypty.
@@ -936,6 +945,44 @@ if (require.main === module) (async () => {
       }
     } else {
       skip('podstrony z tools/podstrony.json', 'lista jest pusta');
+    }
+
+    /* ---------- 8b. Wąskie telefony: strona główna i podstrony (393×852, 375×667) ---------- */
+    // Wąskie telefony: brak przewijania w poziomie i pełny zrzut (--zrzuty), przy ograniczonym ruchu.
+    for (const p of ['/', ...podstrony.map((x) => x.plik)]) {
+      const adres = p === '/' ? '/' : `/${p}`;
+      for (const { szer, viewport, extra } of WASKIE) {
+        const { context: ctx, page: pg } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
+        await pg.goto(`${base}${adres}`, { waitUntil: 'load' });
+        await poZaladowaniu(pg);
+        // Przy przewijaniu: do trzech najgłębszych elementów, których prawy brzeg wychodzi poza okno (znacznik, klasy, px).
+        const poziomo = await pg.evaluate(() => {
+          const okno = document.documentElement.clientWidth;
+          const over = document.documentElement.scrollWidth - okno;
+          if (over <= 0) return { over, poza: [] };
+          const wystaje = [...document.body.querySelectorAll('*')].filter((e) => e.getBoundingClientRect().right > okno + 0.5);
+          const najglebsze = wystaje.filter((e) => !wystaje.some((x) => x !== e && e.contains(x)));
+          const poza = najglebsze.slice(0, 3).map((e) => {
+            const klasy = typeof e.className === 'string' && e.className.trim() ? `.${e.className.trim().split(/\s+/).join('.')}` : '';
+            return `${e.tagName.toLowerCase()}${klasy} prawy brzeg ${Math.round(e.getBoundingClientRect().right)} px`;
+          });
+          return { over, poza };
+        });
+        check(`${p} (${szer}): brak przewijania w poziomie`, poziomo.over === 0,
+          poziomo.poza.length ? `${poziomo.over} px; poza oknem ${szer} px: ${poziomo.poza.join(' | ')}` : String(poziomo.over));
+        if (zrzutyDir) {
+          // Kadr ma loading="lazy": bez przewinięcia do ramki pełny zrzut pokazałby ją pustą.
+          const zKadrem = await pg.evaluate(() => Boolean(document.querySelector('.film img')));
+          if (zKadrem) {
+            await scrollTo(pg, '.film');
+            await pg.waitForFunction(() => { const i = document.querySelector('.film img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 8000 }).catch(() => {});
+            await pg.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+            await pg.waitForTimeout(300);
+          }
+          await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+        }
+        await ctx.close();
+      }
     }
   } finally {
     await browser.close();

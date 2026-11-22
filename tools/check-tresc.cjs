@@ -14,7 +14,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { sprawdzStrone, sprawdzRejestr } = require('./lib/tresc.cjs');
+const { sprawdzStrone, sprawdzRejestr, sprawdzWyjatki } = require('./lib/tresc.cjs');
 const { wczytajPodstrony } = require('./lib/dane.cjs');
 
 function czytajJson(p, opis) {
@@ -42,10 +42,12 @@ function main(argv = process.argv.slice(2)) {
       console.log('check-tresc: lista podstron w tools/podstrony.json jest pusta — nie ma czego sprawdzać.');
       return 0;
     }
-    nazwy = czytajJson(opt('nazwy', path.join(tools, 'nazwy-systemow.json')), 'lista nazw systemów').nazwy;
+    const listaNazw = czytajJson(opt('nazwy', path.join(tools, 'nazwy-systemow.json')), 'lista nazw systemów');
+    nazwy = listaNazw.nazwy;
     frazy = czytajJson(opt('frazy', path.join(tools, 'zakazane-frazy.json')), 'lista zakazanych fraz').frazy;
     rejestr = czytajJson(opt('rejestr', path.join(tools, 'rejestr-twierdzen.json')), 'rejestr twierdzeń');
     if (!Array.isArray(nazwy) || !nazwy.every((x) => typeof x === 'string' && x.trim())) throw new Error('nazwy-systemow.json: "nazwy" musi być tablicą niepustych tekstów');
+    bledyRejestru.push(...sprawdzWyjatki(listaNazw.wyjatki, nazwy));
     if (!Array.isArray(frazy) || !frazy.every((x) => typeof x === 'string' && x.trim())) throw new Error('zakazane-frazy.json: "frazy" musi być tablicą niepustych tekstów');
     const r = sprawdzRejestr(rejestr);
     bledyRejestru.push(...r.bledy);

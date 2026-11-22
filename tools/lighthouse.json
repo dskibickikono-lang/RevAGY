@@ -1,0 +1,9 @@
+{
+  "opis": "Progi Lighthouse dla podstron (tools/lighthouse.cjs, workflow .github/workflows/lighthouse.yml). Pomiar na buildzie z CI podawanym lokalnie pod nazwą hosta produkcji (TLS z certyfikatem samopodpisanym, gzip), żeby adres kanoniczny zgadzał się z badanym adresem; tryb telefonu z symulowanym łączem, mediana z kilku przebiegów. To nie jest pomiar produkcji. Próg niespełniony zatrzymuje zmianę.",
+  "wersja": "13.6.0",
+  "host": "revagy.pl",
+  "przebiegi": 3,
+  "strony": [
+    { "plik": "finanse.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } }
+  ]
+}

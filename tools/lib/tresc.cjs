@@ -1,6 +1,6 @@
 'use strict';
 /* Reguły treści podstron: nazwy własne systemów (D-033), zakazane frazy, niewypełnione {{…}},
-   pokrycie liczb rejestrem twierdzeń oraz miejsce na film (plan 3.8, reguła filmSlots). */
+   pokrycie liczb rejestrem twierdzeń, kolejność nagłówków w całym dokumencie oraz miejsce na film (plan 3.8, reguła filmSlots). */
 
 const { parse, find, findAll, hasClass, has, textOf, collapse } = require('./html.cjs');
 
@@ -51,6 +51,50 @@ function sprawdzRejestr(rejestr) {
     if (t.rodzaj === 'wynik-wdrozenia' && !t.jakMierzone) ostrzezenia.push(`${gdzie}: wynik wdrożenia bez opisu „jak mierzone” (jakMierzone)`);
   });
   return { bledy, ostrzezenia };
+}
+
+/** Udokumentowane wyjątki z tools/nazwy-systemow.json ("wyjatki", np. KSeF, T-021): format i brak kolizji z listą nazw. */
+function sprawdzWyjatki(wyjatki, nazwy = []) {
+  if (wyjatki === undefined) return [];
+  if (!Array.isArray(wyjatki)) return ['nazwy-systemow.json: "wyjatki" musi być tablicą'];
+  const bledy = [];
+  const lista = new Set(nazwy.map((n) => String(n).toLowerCase()));
+  wyjatki.forEach((w, i) => {
+    const gdzie = `nazwy-systemow.json: wyjątek [${i}]${w && w.nazwa ? ` (${w.nazwa})` : ''}`;
+    if (!w || typeof w !== 'object') { bledy.push(`${gdzie}: wpis nie jest obiektem`); return; }
+    for (const pole of ['nazwa', 'uzasadnienie', 'zrodlo']) {
+      if (typeof w[pole] !== 'string' || !w[pole].trim()) bledy.push(`${gdzie}: brak pola "${pole}"`);
+    }
+    if (typeof w.nazwa === 'string' && lista.has(w.nazwa.toLowerCase())) bledy.push(`${gdzie}: nazwa jest jednocześnie na liście "nazwy"`);
+  });
+  return bledy;
+}
+
+/** Nagłówki podstrony: jeden <h1>, który jest pierwszym nagłówkiem w <main>, i w całym dokumencie (w kolejności
+    źródła, także stopka układu) bez przeskoku poziomu w dół o więcej niż jeden. Poziom to aria-level, gdy jest
+    liczbą całkowitą ≥ 1, inaczej numer znacznika (h4 z aria-level="2" ma poziom 2). Błędne aria-level nie maskuje
+    przeskoku: liczy się wtedy numer znacznika. Reguła działa tylko dla stron z tools/podstrony.json. */
+function poziomNaglowka(e) {
+  if (!/^h[1-6]$/.test(e.name)) return 0;
+  const a = e.attrs && e.attrs['aria-level'];
+  if (typeof a === 'string' && /^\s*[1-9]\d*\s*$/.test(a)) return Number(a);
+  return Number(e.name[1]);
+}
+
+function sprawdzNaglowki(doc, main) {
+  const bledy = [];
+  const opis = (e) => (e.attrs && e.attrs['aria-level'] !== undefined ? `<${e.name} aria-level="${e.attrs['aria-level']}">` : `<${e.name}>`);
+  const h1 = findAll(doc, (e) => e.name === 'h1').length;
+  if (h1 !== 1) bledy.push(`nagłówki: oczekiwany dokładnie jeden <h1>, jest ${h1}`);
+  const wMain = findAll(main, (e) => poziomNaglowka(e) > 0);
+  if (wMain.length && wMain[0].name !== 'h1') bledy.push(`nagłówki: pierwszy nagłówek w <main> to ${opis(wMain[0])}, oczekiwano <h1>`);
+  const wszystkie = findAll(doc, (e) => poziomNaglowka(e) > 0);
+  for (let i = 1; i < wszystkie.length; i++) {
+    const a = poziomNaglowka(wszystkie[i - 1]);
+    const b = poziomNaglowka(wszystkie[i]);
+    if (b > a + 1) bledy.push(`nagłówki: przeskok z poziomu ${a} do poziomu ${b} (${opis(wszystkie[i])}) przy „${collapse(textOf(wszystkie[i])).slice(0, 60)}”`);
+  }
+  return bledy;
 }
 
 function sprawdzFilm(doc, film) {
@@ -178,9 +222,12 @@ function sprawdzStrone({ plik, html, strona = {}, nazwy = [], frazy = [], rejest
     bledy.push(...sprawdzLiczby(tresciLiczb, (rejestr && rejestr.twierdzenia) || [], plik));
   }
 
-  // 4. miejsce na film
+  // 4. kolejność nagłówków w całym dokumencie podstrony, pierwszy i jedyny h1 w <main>
+  if (main.length === 1) bledy.push(...sprawdzNaglowki(doc, main[0]));
+
+  // 5. miejsce na film
   bledy.push(...sprawdzFilm(doc, strona.film));
   return bledy;
 }
 
-module.exports = { sprawdzStrone, sprawdzRejestr, sprawdzFilm, sprawdzLiczby, frazaRe, spacje };
+module.exports = { sprawdzStrone, sprawdzRejestr, sprawdzFilm, sprawdzLiczby, sprawdzNaglowki, poziomNaglowka, sprawdzWyjatki, frazaRe, spacje };

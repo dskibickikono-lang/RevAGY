@@ -1,0 +1,223 @@
+---
+// Etap 8 (T-021): podstrona działowa „Finanse”. Trzy procesy w kolejności z menu: faktury kosztowe, windykacja, uzgodnienia.
+// Bez nazw własnych systemów (D-018, D-033); KSeF to nazwa systemu państwowego, dopuszczona na podstronach (T-021).
+// Strona nie rozstrzyga, czy dane klienta przetwarzają modele AI (BEZPIECZENSTWO.aiNaDanychKlienta), i nie obiecuje
+// wdrożenia u klienta (BEZPIECZENSTWO.wdrozenieUKlienta). Opis wdrożenia pochodzi z innego działu (stan-zalogi, D-034),
+// z treścią i liczbami jak na /wdrozenia.html. Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
+import Autor from '../components/Autor.astro';
+
+const aktualizacja = '2026-11-22';
+
+const pytania = [
+  {
+    pytanie: 'Czy to zastąpi księgową?',
+    odpowiedz: 'Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porównywanie danych. Akceptacja opisu i dekretacji, decyzje o eskalacji należności i wyjaśnianie różnic zostają u księgowej i u osób, które wskażecie.',
+  },
+  {
+    pytanie: 'Co z fakturami w KSeF?',
+    odpowiedz: 'Faktura z KSeF ma ustaloną strukturę, więc jej pól nie trzeba odczytywać z obrazu. Którą drogą faktury trafią do programu księgowego i co robimy z fakturami spoza KSeF, ustalamy w audycie.',
+  },
+  {
+    pytanie: 'Nasz program księgowy nie ma API. Co wtedy?',
+    odpowiedz: 'Sprawdzamy wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.',
+    odnosnik: { href: 'porownanie-rozwiazan.html', tekst: 'Porównanie rozwiązań' },
+  },
+  {
+    pytanie: 'Czy musimy zmieniać program księgowy albo bank?',
+    odpowiedz: 'Nie. Łączymy systemy, na których pracujecie.',
+  },
+  {
+    pytanie: 'Od którego procesu zacząć?',
+    odpowiedz: 'Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład obiegu faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.',
+    odnosnik: { href: 'jak-wybrac-pierwszy-proces.html', tekst: 'Jak wybrać pierwszy proces do automatyzacji' },
+  },
+  {
+    pytanie: 'Ile to kosztuje?',
+    odpowiedz: 'Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.',
+  },
+];
+---
+<PodstronaLayout
+  plik="finanse.html"
+  tytul="Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY"
+  opis="Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację."
+  okruszek="Finanse"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Automatyzacja procesów w dziale finansów',
+    opis: 'Automatyzacja obiegu faktur kosztowych, przypomnień o należnościach i uzgodnień z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają po stronie klienta.',
+    rodzaj: 'Automatyzacja procesów',
+  }}
+  pytania={pytania}
+  film="finanse"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Faktury kosztowe, windykacja i uzgodnienia bez ręcznego przepisywania</h1>
+      <p class="lead">Automatyzujemy trzy procesy działu finansów: obieg faktur kosztowych, przypomnienia o należnościach i uzgodnienia z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają u Was.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <p>Dla dyrektora finansowego, głównej księgowej i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#faktury">Zobacz, co się zmienia w procesach</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Faktura kosztowa od odbioru do akceptacji</h2>
+      <p class="lead">Faktura trafia do jednej kolejki. Jej pola są odczytane i sprawdzone, a propozycja opisu i dekretacji czeka na akceptację osoby po Waszej stronie.</p>
+      <ul class="ticks">
+        <li>Faktura trafia do jednej kolejki, bez względu na to, jak przyszła.</li>
+        <li>Odczytane pola przechodzą kontrolę przed zapisem.</li>
+        <li>Opis i dekretacja czekają na akceptację człowieka.</li>
+        <li>Po akceptacji faktura trafia do programu księgowego.</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="finanse" />
+  </section>
+
+  <section class="section wrap" id="faktury">
+    <header class="section-head reveal">
+      <h2 class="h2">Faktury kosztowe</h2>
+      <p class="lead">Odbiór, odczyt, opis i dekretacja do akceptacji.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Faktury przychodzą pocztą elektroniczną, na papierze i przez KSeF. Ktoś je zbiera, przepisuje pola do programu księgowego, szuka osoby, która opisze koszt, i pilnuje, żeby żadna nie zginęła.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Faktury z różnych źródeł trafiają do jednej kolejki.</li>
+          <li>Pola faktury są odczytane: dostawca, numer, daty, kwoty i pozycje.</li>
+          <li>Kontrola przed zapisem wychwytuje duplikat, kwoty, które się nie sumują, i zmieniony rachunek dostawcy.</li>
+          <li>Propozycja opisu i dekretacji według Waszych reguł czeka na akceptację.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Akceptacja opisu i dekretacji. Faktura, która nie przeszła kontroli, trafia do wskazanej osoby z opisem, co się nie zgadza.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="windykacja">
+    <header class="section-head reveal">
+      <h2 class="h2">Windykacja</h2>
+      <p class="lead">Przypomnienia, statusy i eskalacja należności.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Ktoś przegląda listę nierozliczonych faktur, pisze przypomnienia ręcznie i notuje w arkuszu, kto obiecał zapłacić. Status należności zna jedna osoba.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Przypomnienia wychodzą według harmonogramu ustalonego z Wami, przed terminem płatności i po nim.</li>
+          <li>Status każdej należności widać w jednym miejscu: wysłane przypomnienie, odpowiedź klienta, obiecana data.</li>
+          <li>Zapłacona faktura nie dostaje kolejnego przypomnienia.</li>
+          <li>Należność po ustalonym progu trafia do eskalacji.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Decyzja o eskalacji: telefon do klienta, wstrzymanie dostaw albo przekazanie sprawy dalej. Odpowiedź klienta, która nie pasuje do schematu, na przykład spór o fakturę, trafia do osoby, która prowadzi relację.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="uzgodnienia">
+    <header class="section-head reveal">
+      <h2 class="h2">Uzgodnienia</h2>
+      <p class="lead">Wyciągi z bankiem, salda i raport różnic.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Wyciąg z banku porównuje się z zapisami w programie księgowym pozycja po pozycji. Wpłata z innym tytułem albo przelew zbiorczy zabiera najwięcej czasu, a różnice wychodzą przy zamknięciu miesiąca.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Pozycje z wyciągu są dopasowane do faktur i zapisów według kwoty, numeru i kontrahenta.</li>
+          <li>Salda kont są porównane z bankiem.</li>
+          <li>Raport różnic pokazuje pozycje bez pary i powód, dla którego nie pasują.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Wyjaśnienie różnic z raportu i decyzja, jak je zaksięgować. Pozycja dopasowana niejednoznacznie nie jest księgowana sama, tylko czeka na Waszą decyzję.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="kroki">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak zaczynamy</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</li>
+      <li>Audyt procesu, 3–5 dni roboczych, 1 990 zł, w całości wliczane we wdrożenie. 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Wdrożenie. Pierwsza automatyzacja: 14 dni roboczych od dnia, w którym mamy dostęp do systemów.</li>
+      <li>Opieka: monitoring i czas reakcji zapisane w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap" id="wdrozenie">
+    <header class="section-head reveal">
+      <h2 class="h2">Ten sam mechanizm w innym dziale</h2>
+      <p class="lead">Opis poniżej nie pochodzi z działu finansów, tylko z raportowania dla zarządu. Mechanizm jest ten sam: dane z kilku systemów trafiają w jedno miejsce bez przepisywania. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
+    </header>
+    <OpisWdrozenia id="stan-zalogi" tytul="Jeden raport zarządu z kilku źródeł">
+      <p class="autor">Grupa spółek. Raport dla zarządu, nie dział finansów.</p>
+      <p>Raport dla zarządu powstawał ręcznie z kilku eksportów, a każdy system pokazywał inną liczbę. Dwa systemy różniły się stanem załogi o 29 osób (568 i 539). Wyszło to dopiero po połączeniu źródeł.</p>
+      <p><strong>Co połączyliśmy:</strong> systemy z danymi kadrowymi i operacyjnymi spółek oraz pulpit zarządczy.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>przygotowanie raportu zarządu: z ok. 6 godzin tygodniowo do zera</li>
+      </ul>
+    </OpisWdrozenia>
+    <Ujawnienie />
+  </section>
+
+  <section class="section wrap" id="dane">
+    <header class="section-head reveal">
+      <h2 class="h2">Dane finansowe i umowa powierzenia</h2>
+      <p class="lead">Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu, a każdy zapis ma wpis w dzienniku. Mamy ubezpieczenie odpowiedzialności zawodowej na 1 mln zł. Odpowiedzi dla działu IT są na stronie <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>.</p>
+    </header>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania działu finansów</h2>
+      <p class="lead">Nie ma tu Waszego? Zadajcie je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Zacznijmy od jednego procesu w finansach</h2>
+        <p class="lead">Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>

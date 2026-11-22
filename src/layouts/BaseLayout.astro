@@ -3,6 +3,10 @@ import { TURNSTILE_SITEKEY } from '../config/kontakt';
 import { grafOrganizacji, jsonDoSkryptu } from '../config/marka.mjs';
 import Clarity from '../components/Clarity.astro';
 
+// Stopka strony głównej: aria-level="2" przy czterech h4 kolumn stopki. Nagłówki kolumn stopki są dla czytników
+// ekranu na poziomie 2, więc po ostatnim h2 w <main> nie ma przeskoku poziomu (T-021). Znacznik h4 zostaje dla
+// stylu .site-footer h4 ze styles.css. Komentarz stoi tutaj, a nie przy stopce, żeby nie zmieniać wypisanego HTML.
+
 interface Props {
   title: string;
   description?: string;
@@ -53,7 +57,7 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
     <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   </>
 )}
-<link rel="stylesheet" href={`${base}assets/css/styles.css?v=4`}>
+<link rel="stylesheet" href={`${base}assets/css/styles.css?v=5`}>
 {jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd}></script>}
 </head>
 <body>
@@ -85,7 +89,7 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
         </button>
         <div class="nav-panel" id="panel-dzialy">
           <a href="#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
-          <a href="#zastosowania"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="finanse.html"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
           <a href="#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
           <a href="#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
         </div>
@@ -161,19 +165,19 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
         <p>Automatyzacja procesów i wdrożenia AI dla firm B2B.</p>
       </div>
       <nav aria-label="Rozwiązania">
-        <h4>Rozwiązania</h4>
+        <h4 aria-level="2">Rozwiązania</h4>
         <a href="#mozliwosci">Automatyzacja procesów</a><a href="#mozliwosci">Agenci AI</a><a href="#integracje">Integracje</a><a href="#mozliwosci">Analityka</a>
       </nav>
       <nav aria-label="Dla działów">
-        <h4>Dla działów</h4>
-        <a href="#zastosowania">Sprzedaż</a><a href="#zastosowania">Finanse</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
+        <h4 aria-level="2">Dla działów</h4>
+        <a href="#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
-        <h4>Firma</h4>
+        <h4 aria-level="2">Firma</h4>
         <a href="#proces">Jak wdrażamy</a><a href="#pakiety">Pakiety</a><a href="#bezpieczenstwo">Bezpieczeństwo</a><a href="#faq">FAQ</a>
       </nav>
       <nav aria-label="Kontakt">
-        <h4>Kontakt</h4>
+        <h4 aria-level="2">Kontakt</h4>
         <a href="#kontakt">Umów konsultację</a><a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a><a href="tel:+48504037538">+48 504 037 538</a><a href="#kalkulator">Kalkulator zwrotu</a>
       </nav>
     </div>
