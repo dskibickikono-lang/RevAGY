@@ -1,20 +1,26 @@
 'use strict';
 /* tools/lighthouse.cjs bez sieci i bez Chrome: konfiguracja, mediana, progi, lokalny serwer
-   oraz pełny przebieg z atrapą polecenia Lighthouse (skrypt Node zapisujący raport JSON). */
+   (HTTP do logiki żądań, HTTPS pod nazwą hosta z certyfikatem z openssl) oraz pełny przebieg
+   z atrapą polecenia Lighthouse (skrypt Node zapisujący raport JSON). Testy TLS wymagają openssl. */
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const { spawnSync } = require('node:child_process');
 const http = require('node:http');
+const https = require('node:https');
 const path = require('node:path');
 const zlib = require('node:zlib');
 const { tmp, zapisz, uruchom, TOOLS } = require('./pomoc.cjs');
 const lh = require('../lighthouse.cjs');
 
 const SKRYPT = path.join(TOOLS, 'lighthouse.cjs');
+const maOpenssl = spawnSync('openssl', ['version']).status === 0;
+const BEZ_OPENSSL = !maOpenssl && 'brak programu openssl na hoście (w CI jest): pomijam testy lokalnego TLS';
 
 const dobra = () => ({
   opis: 'test',
   wersja: '13.6.0',
+  host: 'revagy.pl',
   przebiegi: 3,
   strony: [{ plik: 'finanse.html', progi: { performance: 90, accessibility: 95, seo: 100 } }],
 });
@@ -35,6 +41,12 @@ test('lighthouse: błędne pola konfiguracji dają czytelne błędy', () => {
   const przypadki = [
     [(k) => { k.wersja = 'latest'; }, /„wersja” musi być dokładną wersją/],
     [(k) => { k.wersja = '^13.6.0'; }, /„wersja” musi być dokładną wersją/],
+    [(k) => { delete k.host; }, /„host” musi być zwykłą nazwą hosta/],
+    [(k) => { k.host = 'https://revagy.pl'; }, /„host” musi być zwykłą nazwą hosta/],
+    [(k) => { k.host = 'revagy.pl:443'; }, /„host” musi być zwykłą nazwą hosta/],
+    [(k) => { k.host = 'Revagy.PL'; }, /„host” musi być zwykłą nazwą hosta/],
+    [(k) => { k.host = '127.0.0.1'; }, /„host” musi być zwykłą nazwą hosta/],
+    [(k) => { k.host = 'revagy.pl/finanse'; }, /„host” musi być zwykłą nazwą hosta/],
     [(k) => { k.przebiegi = 0; }, /„przebiegi” musi być liczbą całkowitą/],
     [(k) => { k.przebiegi = 2.5; }, /„przebiegi” musi być liczbą całkowitą/],
     [(k) => { k.strony = []; }, /„strony” musi być niepustą listą/],
@@ -146,9 +158,10 @@ test('lighthouse: polecenie domyślne i podmienione', () => {
   assert.deepEqual(lh.polecenieLighthouse('13.6.0', { env: { LIGHTHOUSE_POLECENIE: 'node  /x/atrapa.cjs' } }), ['node', '/x/atrapa.cjs']);
   assert.deepEqual(lh.polecenieLighthouse('13.6.0', { opcja: '["node","/a b/atrapa.cjs"]', env: { LIGHTHOUSE_POLECENIE: 'inne' } }), ['node', '/a b/atrapa.cjs']);
   assert.throws(() => lh.polecenieLighthouse('13.6.0', { opcja: '[1]', env: {} }), /tablica JSON/);
-  const a = lh.argumentyLighthouse('http://127.0.0.1:1/finanse.html', '/w/finanse-1');
+  const a = lh.argumentyLighthouse('https://revagy.pl:1/finanse.html', '/w/finanse-1', 'revagy.pl');
+  assert.equal(a[0], 'https://revagy.pl:1/finanse.html');
   assert.ok(a.includes('--only-categories=performance,accessibility,seo'));
-  assert.ok(a.includes('--chrome-flags=--headless=new --no-sandbox'));
+  assert.ok(a.includes('--chrome-flags=--headless=new --no-sandbox --ignore-certificate-errors --host-resolver-rules="MAP revagy.pl 127.0.0.1"'));
   assert.ok(a.includes('--output=json') && a.includes('--output=html'));
 });
 
@@ -245,21 +258,54 @@ test('lighthouse: serwer odrzuca dowiązanie wskazujące poza katalog', async (t
   } finally { await s.close(); }
 });
 
+test('lighthouse: serwer HTTPS pod nazwą hosta z certyfikatem samopodpisanym dla tego hosta', { skip: BEZ_OPENSSL }, async () => {
+  const { dist } = distTestowy();
+  const tls = lh.utworzCertyfikat('revagy.pl');
+  const s = await lh.startSerwer(dist, { tls, host: 'revagy.pl' });
+  try {
+    assert.match(s.adres, /^https:\/\/revagy\.pl:\d+$/);
+    const r = await new Promise((resolve, reject) => {
+      https.get({
+        host: '127.0.0.1', port: s.port, path: '/finanse.html', servername: 'revagy.pl', rejectUnauthorized: false,
+        headers: { Host: `revagy.pl:${s.port}`, 'Accept-Encoding': 'gzip' },
+      }, (res) => {
+        const san = res.socket.getPeerCertificate().subjectaltname || '';
+        const c = [];
+        res.on('data', (d) => c.push(d));
+        res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: Buffer.concat(c), san }));
+      }).on('error', reject);
+    });
+    assert.equal(r.status, 200);
+    assert.match(r.san, /DNS:revagy\.pl/);
+    assert.equal(r.headers['content-encoding'], 'gzip');
+    assert.match(zlib.gunzipSync(r.body).toString('utf8'), /<title>Finanse<\/title>/);
+  } finally { await s.close(); }
+});
+
 /* ---------- pełny przebieg z atrapą ---------- */
 
-// Atrapa Lighthouse: pobiera adres z lokalnego serwera (dowód, że serwer działa w trakcie przebiegu),
+// Atrapa Lighthouse: sprawdza adres https://revagy.pl:<port>/… i flagi Chrome z mapowaniem hosta,
+// łączy się z 127.0.0.1:<port> po TLS z nagłówkiem Host, bez weryfikacji certyfikatu, i wymaga gzip
+// (dowód, że serwer działa w trakcie przebiegu),
 // zapisuje <output-path>.report.json i .report.html z wynikami z ATRAPA_WYNIKI dla kolejnego przebiegu.
 const ATRAPA = `'use strict';
 const fs = require('node:fs');
-const http = require('node:http');
+const https = require('node:https');
 const args = process.argv.slice(2);
 fs.appendFileSync(process.env.ATRAPA_LOG, JSON.stringify(args) + '\\n');
 if (process.env.ATRAPA_TRYB === 'blad') { console.error('Chrome się nie uruchomił'); process.exit(1); }
 const adres = args.find((a) => !a.startsWith('--'));
 const baza = args.find((a) => a.startsWith('--output-path=')).slice('--output-path='.length);
 const n = Number(baza.match(/-(\\d+)$/)[1]);
+const u = new URL(adres);
+const flagi = '--chrome-flags=--headless=new --no-sandbox --ignore-certificate-errors --host-resolver-rules="MAP revagy.pl 127.0.0.1"';
+if (u.protocol !== 'https:' || u.hostname !== 'revagy.pl' || !u.port) { console.error('zły adres ' + adres); process.exit(5); }
+if (!args.includes(flagi)) { console.error('brak flag Chrome z mapowaniem hosta'); process.exit(6); }
 const w = JSON.parse(process.env.ATRAPA_WYNIKI)[n - 1];
-http.get(adres, { headers: { 'Accept-Encoding': 'gzip' } }, (res) => {
+https.get({
+  host: '127.0.0.1', port: u.port, path: u.pathname, servername: u.hostname, rejectUnauthorized: false,
+  headers: { Host: u.host, 'Accept-Encoding': 'gzip' },
+}, (res) => {
   res.resume();
   res.on('end', () => {
     if (res.statusCode !== 200 || res.headers['content-encoding'] !== 'gzip') { console.error('zła odpowiedź ' + res.statusCode); process.exit(3); }
@@ -301,7 +347,7 @@ function przygotuj(wyniki, { tryb } = {}) {
 
 const wywolania = (log) => fs.readFileSync(log, 'utf8').trim().split('\n').map((l) => JSON.parse(l));
 
-test('lighthouse: przebieg z atrapą, progi spełnione — kod 0, raporty, wynik.json, wynik.md i podsumowanie joba', () => {
+test('lighthouse: przebieg z atrapą, progi spełnione — kod 0, raporty, wynik.json, wynik.md i podsumowanie joba', { skip: BEZ_OPENSSL }, () => {
   const p = przygotuj([
     { performance: 0.91, accessibility: 1, seo: 1 },
     { performance: 0.97, accessibility: 1, seo: 1 },
@@ -313,8 +359,8 @@ test('lighthouse: przebieg z atrapą, progi spełnione — kod 0, raporty, wynik
 
   const w = wywolania(p.log);
   assert.equal(w.length, 3);
-  assert.match(w[0][0], /^http:\/\/127\.0\.0\.1:\d+\/finanse\.html$/);
-  assert.ok(w[0].includes('--chrome-flags=--headless=new --no-sandbox'));
+  assert.match(w[0][0], /^https:\/\/revagy\.pl:\d+\/finanse\.html$/);
+  assert.ok(w[0].includes('--chrome-flags=--headless=new --no-sandbox --ignore-certificate-errors --host-resolver-rules="MAP revagy.pl 127.0.0.1"'));
   assert.ok(w[0].includes('--quiet'));
 
   for (let n = 1; n <= 3; n++) {
@@ -328,11 +374,11 @@ test('lighthouse: przebieg z atrapą, progi spełnione — kod 0, raporty, wynik
   assert.deepEqual(wynik.strony[0].kategorie.performance, { wyniki: [91, 97, 88], mediana: 91, prog: 90, ok: true });
   const md = fs.readFileSync(path.join(p.wynikiDir, 'wynik.md'), 'utf8');
   assert.match(md, /\| `finanse\.html` \| 91 \/ 90 \| 100 \/ 95 \| 100 \/ 100 \| OK \|/);
-  assert.match(md, /Nie jest to pomiar produkcji/);
+  assert.match(md, /pod nazwą hosta produkcji \(`revagy\.pl`\).*Nie jest to pomiar produkcji/);
   assert.equal(fs.readFileSync(p.summary, 'utf8').trim(), md.trim());
 });
 
-test('lighthouse: przebieg z atrapą, próg niespełniony — kod 1 i lista audytów do poprawy', () => {
+test('lighthouse: przebieg z atrapą, próg niespełniony — kod 1 i lista audytów do poprawy', { skip: BEZ_OPENSSL }, () => {
   const p = przygotuj([
     { performance: 0.95, accessibility: 0.9, seo: 1 },
     { performance: 0.95, accessibility: 0.93, seo: 1 },
@@ -352,7 +398,7 @@ test('lighthouse: przebieg z atrapą, próg niespełniony — kod 1 i lista audy
   assert.match(md, /- `color-contrast`: Kontrast kolorów/);
 });
 
-test('lighthouse: Lighthouse bez raportu — kod 2, opis błędu i wynik.json z błędem', () => {
+test('lighthouse: Lighthouse bez raportu — kod 2, opis błędu i wynik.json z błędem', { skip: BEZ_OPENSSL }, () => {
   const p = przygotuj([], { tryb: 'blad' });
   const r = p.run();
   assert.equal(r.kod, 2, r.out + r.err);
@@ -383,9 +429,20 @@ test('lighthouse: brak strony w dist, zła konfiguracja i brak argumentu — kod
   assert.match(bez.err, /Użycie/);
 });
 
-test('lighthouse: nieistniejące polecenie Lighthouse — kod 2', () => {
+test('lighthouse: nieistniejące polecenie Lighthouse — kod 2', { skip: BEZ_OPENSSL }, () => {
   const p = przygotuj([]);
   const r = uruchom([SKRYPT, p.dist, `--wyniki=${p.wynikiDir}`, `--konfig=${p.konfig}`, '--polecenie=/nie/ma/takiego-polecenia']);
   assert.equal(r.kod, 2, r.out + r.err);
   assert.match(r.err, /nie da się uruchomić \(spawn \/nie\/ma\/takiego-polecenia ENOENT\)/);
+});
+
+test('lighthouse: brak programu openssl — kod 2 z czytelnym komunikatem, bez uruchamiania Lighthouse', () => {
+  const p = przygotuj([]);
+  const pusty = tmp('revagy-lh-path-');
+  const r = uruchom([SKRYPT, p.dist, `--wyniki=${p.wynikiDir}`, `--konfig=${p.konfig}`], {
+    env: { PATH: pusty, LIGHTHOUSE_POLECENIE: JSON.stringify([process.execPath, path.join(p.root, 'atrapa.cjs')]), ATRAPA_LOG: p.log },
+  });
+  assert.equal(r.kod, 2, r.out + r.err);
+  assert.match(r.err, /brak programu openssl/);
+  assert.equal(fs.existsSync(p.log), false);
 });

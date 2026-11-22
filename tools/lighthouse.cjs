@@ -2,11 +2,15 @@
 /* Pomiar Lighthouse podstron REVAGY z progami, które zatrzymują zmianę.
 
    Czym ten pomiar jest: Lighthouse uruchamiany na zbudowanym katalogu dist/ z CI, podawanym
-   z lokalnego serwera HTTP na 127.0.0.1 (z gzip dla treści tekstowych i nagłówkami Cache-Control
-   jak w deploy/nginx). Tryb domyślny Lighthouse: telefon, symulowane wolne łącze i procesor.
+   lokalnie pod nazwą hosta produkcji (pole „host” w konfiguracji, np. https://revagy.pl:<port>/…):
+   serwer HTTPS na 127.0.0.1 i wolnym porcie z certyfikatem samopodpisanym tworzonym przez openssl,
+   gzip dla treści tekstowych i Cache-Control jak w deploy/nginx. Chrome dostaje mapowanie hosta
+   na 127.0.0.1 (--host-resolver-rules) i --ignore-certificate-errors. Dzięki temu adres kanoniczny
+   strony ma tę samą domenę co badany adres (audyt SEO „canonical”).
+   Tryb domyślny Lighthouse: telefon, symulowane wolne łącze i procesor.
    Każda strona jest mierzona kilka razy, a do progu porównywana jest mediana każdej kategorii.
 
-   Czym ten pomiar nie jest: to nie jest pomiar produkcji (https://revagy.pl). Nie ma tu TLS,
+   Czym ten pomiar nie jest: to nie jest pomiar produkcji. Nie ma tu prawdziwego certyfikatu,
    HTTP/2, Caddy ani prawdziwej sieci, a wynik wydajności zależy od obciążenia maszyny CI.
    Wynik mówi, czy sama strona (HTML, CSS, JS, obrazy, filmy) mieści się w progach.
 
@@ -22,14 +26,16 @@
 
    Gdy jest zmienna GITHUB_STEP_SUMMARY, tabela wyników jest dopisywana do podsumowania joba.
    Ścieżkę Chrome Lighthouse bierze ze zmiennej CHROME_PATH (w CI: Chromium Playwrighta).
+   Wymaga programu openssl (brak = kod 2).
 
    Kody wyjścia: 0 = wszystkie progi spełnione, 1 = co najmniej jeden próg niespełniony,
                  2 = błąd uruchomienia (zła konfiguracja, brak pliku, brak raportu Lighthouse itd.). */
 'use strict';
 
-const { spawn } = require('node:child_process');
+const { spawn, execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const http = require('node:http');
+const https = require('node:https');
 const os = require('node:os');
 const path = require('node:path');
 const zlib = require('node:zlib');
@@ -38,7 +44,9 @@ const KATEGORIE = ['performance', 'accessibility', 'seo'];
 const NAZWY_KATEGORII = { performance: 'Wydajność', accessibility: 'Dostępność', seo: 'SEO' };
 // Kategorie, dla których raport wypisuje niezaliczone audyty (co poprawić).
 const KATEGORIE_AUDYTOW = ['accessibility', 'seo'];
-const POLA_KONFIGU = ['opis', 'wersja', 'przebiegi', 'strony'];
+const POLA_KONFIGU = ['opis', 'wersja', 'host', 'przebiegi', 'strony'];
+// Zwykła nazwa hosta: małe litery, cyfry i myślniki w członach rozdzielonych kropkami, bez portu i schematu.
+const WZOR_HOSTA = /^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/;
 const MAX_PRZEBIEGOW = 9;
 const LIMIT_PRZEBIEGU_MS = 5 * 60 * 1000;
 
@@ -81,6 +89,9 @@ function sprawdzKonfiguracje(k) {
   if (k.opis !== undefined && typeof k.opis !== 'string') bledy.push('„opis” musi być tekstem');
   if (typeof k.wersja !== 'string' || !/^\d+\.\d+\.\d+$/.test(k.wersja)) {
     bledy.push('„wersja” musi być dokładną wersją Lighthouse, np. "13.6.0"');
+  }
+  if (typeof k.host !== 'string' || !WZOR_HOSTA.test(k.host) || /^[\d.]+$/.test(k.host)) {
+    bledy.push('„host” musi być zwykłą nazwą hosta produkcji, np. "revagy.pl" (bez schematu, portu i ścieżki)');
   }
   if (!Number.isInteger(k.przebiegi) || k.przebiegi < 1 || k.przebiegi > MAX_PRZEBIEGOW) {
     bledy.push(`„przebiegi” musi być liczbą całkowitą od 1 do ${MAX_PRZEBIEGOW}`);
@@ -206,11 +217,38 @@ function cacheControl(ext) {
 }
 
 /**
- * Lokalny serwer HTTP dla katalogu dist na 127.0.0.1 i wolnym porcie.
+ * Certyfikat samopodpisany dla hosta, tworzony przez openssl w katalogu tymczasowym.
+ * Katalog jest usuwany od razu po wczytaniu klucza i certyfikatu do pamięci.
+ * @returns {{key:Buffer, cert:Buffer}}
+ */
+function utworzCertyfikat(host, { env = process.env } = {}) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'revagy-lighthouse-tls-'));
+  const keyPath = path.join(dir, 'key.pem');
+  const certPath = path.join(dir, 'cert.pem');
+  try {
+    execFileSync('openssl', [
+      'req', '-x509', '-newkey', 'rsa:2048', '-nodes',
+      '-keyout', keyPath, '-out', certPath, '-days', '1',
+      '-subj', `/CN=${host}`,
+      '-addext', `subjectAltName=DNS:${host}`,
+    ], { stdio: ['ignore', 'ignore', 'pipe'], env });
+    return { key: fs.readFileSync(keyPath), cert: fs.readFileSync(certPath) };
+  } catch (e) {
+    if (e.code === 'ENOENT') throw new BladUruchomienia('brak programu openssl: nie da się utworzyć certyfikatu dla lokalnego TLS');
+    const stderr = e.stderr ? String(e.stderr).trim() : '';
+    throw new BladUruchomienia(`openssl nie utworzył certyfikatu dla ${host}: ${e.message}${stderr ? `\n${stderr}` : ''}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * Lokalny serwer dla katalogu dist na 127.0.0.1 i wolnym porcie: HTTP albo, z opcją tls {key, cert}, HTTPS.
  * Typy MIME, gzip dla treści tekstowych, 404 dla braków (treść 404.html, jeśli jest), 403 przy próbie wyjścia poza katalog.
+ * Z opcją host adres ma postać https://<host>:<port> (Chrome mapuje host na 127.0.0.1).
  * @returns {Promise<{adres:string, port:number, close:()=>Promise<void>}>}
  */
-function startSerwer(katalog) {
+function startSerwer(katalog, { tls = null, host = null } = {}) {
   const root = fs.realpathSync(path.resolve(katalog));
   const wPliku = (p) => p === root || p.startsWith(root + path.sep);
 
@@ -262,7 +300,7 @@ function startSerwer(katalog) {
     odpowiedz(req, res, status, naglowki, tresc);
   };
 
-  const serwer = http.createServer(handler);
+  const serwer = tls ? https.createServer({ key: tls.key, cert: tls.cert }, handler) : http.createServer(handler);
   const gniazda = new Set();
   serwer.on('connection', (s) => { gniazda.add(s); s.on('close', () => gniazda.delete(s)); });
   return new Promise((resolve, reject) => {
@@ -270,7 +308,7 @@ function startSerwer(katalog) {
     serwer.listen(0, '127.0.0.1', () => {
       const { port } = serwer.address();
       resolve({
-        adres: `http://127.0.0.1:${port}`,
+        adres: `${tls ? 'https' : 'http'}://${host || '127.0.0.1'}:${port}`,
         port,
         close: () => new Promise((done) => {
           serwer.close(() => done());
@@ -301,7 +339,12 @@ function polecenieLighthouse(wersja, { opcja, env }) {
   return slowa;
 }
 
-function argumentyLighthouse(adres, baza) {
+/** Flagi Chrome w formacie --chrome-flags Lighthouse (wartość ze spacjami w cudzysłowie). */
+function flagiChrome(host) {
+  return `--headless=new --no-sandbox --ignore-certificate-errors --host-resolver-rules="MAP ${host} 127.0.0.1"`;
+}
+
+function argumentyLighthouse(adres, baza, host) {
   return [
     adres,
     '--only-categories=performance,accessibility,seo',
@@ -309,7 +352,7 @@ function argumentyLighthouse(adres, baza) {
     '--output=html',
     `--output-path=${baza}`,
     '--quiet',
-    '--chrome-flags=--headless=new --no-sandbox',
+    `--chrome-flags=${flagiChrome(host)}`,
   ];
 }
 
@@ -351,7 +394,7 @@ function tabelaMarkdown(wynik) {
   const w = [];
   w.push(`### Lighthouse ${wynik.wersja}: ${wynik.ok ? 'progi spełnione' : wynik.blad ? 'błąd uruchomienia' : 'próg niespełniony'}`);
   w.push('');
-  w.push('Build z CI na lokalnym serwerze z gzip, telefon, symulowane łącze. Nie jest to pomiar produkcji.');
+  w.push(`Build z CI podawany lokalnie pod nazwą hosta produkcji${wynik.host ? ` (\`${wynik.host}\`)` : ''}: TLS z certyfikatem samopodpisanym, gzip; telefon, symulowane łącze. Nie jest to pomiar produkcji.`);
   w.push(`Mediana z ${wynik.przebiegi} przebiegów / próg.`);
   w.push('');
   if (wynik.strony.length) {
@@ -426,7 +469,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
   let katalogWynikow = null;
   let serwer = null;
-  const wynik = { wersja: null, przebiegi: null, adres: null, strony: [], ok: false, kod: 2, blad: null };
+  const wynik = { wersja: null, host: null, przebiegi: null, adres: null, strony: [], ok: false, kod: 2, blad: null };
   try {
     katalogWynikow = opcja('wyniki')
       ? path.resolve(opcja('wyniki'))
@@ -436,6 +479,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
     const konfig = wczytajKonfiguracje(path.resolve(opcja('konfig') || path.join(__dirname, 'lighthouse.json')));
     wynik.wersja = konfig.wersja;
+    wynik.host = konfig.host;
     wynik.przebiegi = konfig.przebiegi;
 
     const dist = path.resolve(distArg);
@@ -445,9 +489,10 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
     const polecenie = polecenieLighthouse(konfig.wersja, { opcja: opcja('polecenie'), env });
 
-    serwer = await startSerwer(dist);
+    const tls = utworzCertyfikat(konfig.host, { env });
+    serwer = await startSerwer(dist, { tls, host: konfig.host });
     wynik.adres = serwer.adres;
-    console.log(`[lighthouse] serwer: ${serwer.adres} (katalog ${dist})`);
+    console.log(`[lighthouse] serwer: ${serwer.adres} -> 127.0.0.1:${serwer.port}, TLS z certyfikatem samopodpisanym (katalog ${dist})`);
     console.log(`[lighthouse] polecenie: ${polecenie.join(' ')}`);
 
     for (const strona of konfig.strony) {
@@ -456,7 +501,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
       for (let n = 1; n <= konfig.przebiegi; n++) {
         const baza = path.join(katalogWynikow, `${nazwaBazowa(strona.plik)}-${n}`);
         console.log(`[lighthouse] ${strona.plik}: przebieg ${n} z ${konfig.przebiegi}`);
-        const r = await uruchomProces(polecenie, argumentyLighthouse(adres, baza), env);
+        const r = await uruchomProces(polecenie, argumentyLighthouse(adres, baza, konfig.host), env);
         const raport = wczytajRaport(baza);
         if (!raport) {
           const powod = r.blad ? `nie da się uruchomić (${r.blad})` : r.sygnal ? `sygnał ${r.sygnal}` : `kod ${r.kod}`;
@@ -498,5 +543,5 @@ if (require.main === module) {
 
 module.exports = {
   KATEGORIE, MIME, sprawdzKonfiguracje, wczytajKonfiguracje, mediana, wynikiKategorii, niezaliczoneAudyty,
-  ocenStrone, startSerwer, polecenieLighthouse, argumentyLighthouse, main,
+  ocenStrone, startSerwer, utworzCertyfikat, polecenieLighthouse, flagiChrome, argumentyLighthouse, main,
 };

@@ -1,7 +1,8 @@
 name: Lighthouse
 
 # Pomiar Lighthouse podstron z progami z tools/lighthouse.json (tools/lighthouse.cjs).
-# Mierzy build z tego joba podawany z lokalnego serwera z gzip na 127.0.0.1: telefon,
+# Mierzy build z tego joba podawany lokalnie pod nazwą hosta produkcji (TLS z certyfikatem
+# samopodpisanym, gzip), żeby adres kanoniczny zgadzał się z badanym adresem: telefon,
 # symulowane łącze, mediana z kilku przebiegów. To nie jest pomiar produkcji.
 # Próg niespełniony kończy job błędem i zatrzymuje zmianę. Osobny workflow, a nie krok w ci.yml,
 # żeby wahanie wyniku wydajności nie blokowało artefaktu wydania. VPS tego nie uruchamia.
