@@ -7,10 +7,10 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/serene-bohr-2hdmui
-base: main (43efbf5)
+base: main (43efbf5 runda 1, 5bac11d runda 2)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (baza main)
-sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (raport i materiał dowodowy; kolejne commity zmieniają tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (runda 1, scalony), https://github.com/dskibickikono-lang/RevAGY/pull/36 (runda 2, baza main)
+sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (runda 1), a8d9e3cc4b9217e9aad368f1d40a175cd584d0dc (runda 2; kolejne commity zmieniają tylko kartę)
 decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-040, D-041, D-042]
 ---
 
@@ -91,3 +91,5 @@ PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedzia
 2. Wybór kandydatów z rankingu. Rekomendacja agenta: K02, potem K01, z opieką o stałej miesięcznej cenie.
 3. Potwierdzenie liczby wdrożeń od maja (w repozytorium widać 5).
 4. Sprawy z rundy 1 nadal otwarte: sposób dostępu do forów GOFIN i Wykop; przykłady „po” na stronie.
+
+Testy rundy 2: nie uruchamiano i nie dotyczy (tylko `kono-state/`, CI pomija). Sumy PRES przeliczone skryptem.
