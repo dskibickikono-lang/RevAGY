@@ -3,14 +3,14 @@ id: T-021
 title: Etap 8 — podstrona działowa „Finanse” (/finanse.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-8-finanse
 base: main (a3ce70d)
 depends_on: T-014
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/24
-sha: 15d0da1fbdc010c8634f06b26078bb42665f0265 (zmiany)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/24 (scalony do main)
+sha: 15d0da1fbdc010c8634f06b26078bb42665f0265 (zmiany); main po scaleniu PR #24: 0e72e39d14418df7a88129c3ddebb2da0090dd85
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-028, D-029, D-031, D-033, D-034]
 ---
 
@@ -230,3 +230,12 @@ Ten etap nie dodaje nowych pól w danych strony. Strona korzysta z istniejących
 - `src/data/bezpieczenstwo.mjs`: `aiNaDanychKlienta`, `wdrozenieUKlienta`. Strona finansów ich nie pokazuje.
 - `tools/rejestr-twierdzen.json`: data odczytu stanu załogi (`is-stan-zalogi-568-539.jakMierzone`) i opis pomiaru
   „ok. 6 godzin tygodniowo” (`wd-raport-6-godzin-do-zera.jakMierzone`, dziś `null`).
+
+## Scalenie (2026-11-22)
+
+- PR #24 scalony do `main` commitem `0e72e39d14418df7a88129c3ddebb2da0090dd85`. Scalony został czubek `15d0da1`;
+  commit z uzupełnieniem tej karty powstał chwilę po scaleniu i wchodzi do `main` razem z PR etapu T-023.
+- CI na `main` dla `0e72e39` (run 45028365694): zielone, manifest wydania
+  `84317a14dcadbec3151d2e8c1813f024d8b0ec105d621cc3e1df135a619eb2e5`, ten sam co przewidziany. Test dymny 261 z 261.
+- Niewdrożone. Wydanie na serwer wymaga osobnej zgody właściciela dla konkretnej wersji.
+- Gałąź pomocniczą `podglad/etap-8-finanse` (zrzuty do opisu PR) usuwa właściciel.
