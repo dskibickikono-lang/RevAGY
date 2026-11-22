@@ -9,8 +9,8 @@ updated: 2026-11-22
 branch: skibiai/dreamy-johnson-hfb3j4
 base: main (43efbf5)
 depends_on: T-006, T-022
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/29 (baza main)
-sha: 4d537b485682548c631a8f63b79eaa5fefd28366 (raport i rejestr źródeł; kolejne commity zmieniają tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/29 (scalony, 9856b6f); uzupełnienie: https://github.com/dskibickikono-lang/RevAGY/pull/31 (baza main)
+sha: 4d537b485682548c631a8f63b79eaa5fefd28366 (raport); e883a34 (dane z Search Console, numer T-025)
 decisions: [D-001, D-011, D-013, D-015, D-018, D-021, D-033, D-034, D-039]
 ---
 
@@ -32,7 +32,8 @@ Wynik: `kono-state/notes/audyt-seo.md` + rejestr źródeł `kono-state/notes/aud
 
 ## Stan (2026-11-22)
 
-Raport gotowy, PR #29 do przeglądu. Zmiany wyłącznie w `kono-state/` (3 pliki), kod bez zmian.
+Raport scalony w PR #29. Uzupełnienie (dane z Search Console, numer T-025) czeka w PR #31, bo ostatni commit
+powstał w chwili scalenia PR #29 i nie wszedł do `main`. Zmiany wyłącznie w `kono-state/`, kod bez zmian.
 
 ## Wynik
 
