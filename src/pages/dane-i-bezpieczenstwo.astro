@@ -1,0 +1,205 @@
+---
+// Etap 4 (T-012): „Dane i bezpieczeństwo”, bez nazw własnych systemów i dostawców (D-033).
+// Tylko fakty potwierdzone 21.11.2026: umowa powierzenia przed startem prac z miejscem przetwarzania,
+// ubezpieczenie odpowiedzialności zawodowej, trzy drogi łączenia, minimalny zakres dostępu, dziennik zapisów.
+// Pola, które wpisuje właściciel, są w src/data/bezpieczenstwo.mjs; zdanie albo pytanie
+// pokazuje się dopiero wtedy, gdy pole ma wartość. „Stan na dzień” to data aktualizacji strony.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import Autor from '../components/Autor.astro';
+import { dataSlownie } from '../config/podstrony.mjs';
+import { maWartosc } from '../data/dowody.mjs';
+import { BEZPIECZENSTWO } from '../data/bezpieczenstwo.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const pytania = [
+  {
+    pytanie: 'Gdzie będą przetwarzane nasze dane?',
+    odpowiedz: 'Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem prac.'
+      + (maWartosc(BEZPIECZENSTWO.wdrozenieUKlienta) ? ` ${BEZPIECZENSTWO.wdrozenieUKlienta}` : ''),
+  },
+  {
+    pytanie: 'Jakich uprawnień potrzebujecie?',
+    odpowiedz: 'Tylko tych, których wymaga dana integracja. Dostęp do bazy danych jest tylko do odczytu.',
+  },
+  {
+    pytanie: 'Czy zobaczymy, co integracja zmieniła?',
+    odpowiedz: 'Tak. Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i jaka była poprzednia wartość.',
+  },
+  {
+    pytanie: 'Kto decyduje w nietypowych przypadkach?',
+    odpowiedz: 'Osoba po Waszej stronie. Progi, powyżej których integracja czeka na decyzję, ustalamy z Wami.',
+  },
+  {
+    pytanie: 'Czy zapis da się cofnąć?',
+    odpowiedz: 'Dziennik przechowuje poprzednią wartość, więc wiadomo, co przywrócić. W kadrach i płacach zapis można wycofać do zamknięcia okresu płacowego, później robi się korektę według procedury Waszych kadr.',
+  },
+  ...(maWartosc(BEZPIECZENSTWO.aiNaDanychKlienta)
+    ? [{ pytanie: 'Czy integracja korzysta z modeli AI na naszych danych?', odpowiedz: BEZPIECZENSTWO.aiNaDanychKlienta }]
+    : []),
+  {
+    pytanie: 'Z jakich dostawców korzystacie?',
+    odpowiedz: 'Listy nie publikujemy na stronie. Miejsce przetwarzania Waszych danych wskazujemy w umowie powierzenia.',
+  },
+  {
+    pytanie: 'Jak szybko reagujecie na awarię?',
+    odpowiedz: 'Monitoring i czas reakcji zapisujemy w umowie.',
+  },
+  {
+    pytanie: 'Czy macie ubezpieczenie?',
+    odpowiedz: 'Tak, ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.',
+  },
+  {
+    pytanie: 'Co się dzieje z danymi, które wpisuję w formularz na revagy.pl?',
+    odpowiedz: 'To dane strony, nie wdrożenia. Opisują je polityka prywatności i informacja pod formularzem, razem z listą odbiorców.',
+  },
+];
+---
+<PodstronaLayout
+  plik="dane-i-bezpieczenstwo.html"
+  tytul="Dane i bezpieczeństwo we wdrożeniach | REVAGY"
+  opis="Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację."
+  okruszek="Dane i bezpieczeństwo"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Bezpieczeństwo danych we wdrożeniach automatyzacji i integracji systemów',
+    opis: 'Każda integracja dostaje minimalny zakres dostępu, każdy zapis ma wpis w dzienniku, a wyjątki zatwierdza osoba po stronie klienta. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej miejsce przetwarzania danych.',
+  }}
+  pytania={pytania}
+  film="dane-i-bezpieczenstwo"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Dane i bezpieczeństwo: stan na dziś</h1>
+      <p class="lead">Opisujemy, jak integracja dostaje dostęp do Waszych systemów, co zapisuje i kto ją kontroluje. Piszemy też wprost, czego jeszcze nie publikujemy.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#pytania">Pytania działu IT</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="zakres">
+    <header class="section-head reveal">
+      <h2 class="h2">Czego dotyczy ta strona</h2>
+      <p class="lead">Ta strona opisuje dane w Waszych systemach, z którymi pracuje wdrożona przez nas automatyzacja albo integracja.</p>
+      <p>Dane, które zostawiacie na stronie revagy.pl, to osobny temat. Formularz kontaktowy, wiadomości e-mail i statystyki odwiedzin opisują <a class="link-btn" href="polityka-prywatnosci.html">polityka prywatności</a> i informacja pod formularzem. Tam wymieniamy odbiorców tych danych.</p>
+      <p>Stan opisany na tej stronie: <time datetime={aktualizacja}>{dataSlownie(aktualizacja)}</time>.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="zasady">
+    <header class="section-head reveal">
+      <h2 class="h2">Trzy zasady każdej integracji</h2>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Minimalny zakres dostępu</h3>
+        <p>Każda integracja dostaje tylko te uprawnienia, których potrzebuje do swojego zadania.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Wpis w dzienniku przy każdym zapisie</h3>
+        <p>Dziennik pokazuje, co zostało zapisane, skąd przyszło, kiedy i jaka była poprzednia wartość. Dzięki temu da się sprawdzić każdą zmianę.</p>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Wyjątki zatwierdza człowiek</h3>
+        <p>Progi ustalamy z Wami przed startem. Przypadek powyżej progu czeka na decyzję osoby po Waszej stronie.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="przeplyw">
+    <header class="section-head reveal">
+      <h2 class="h2">Którędy idą dane</h2>
+      <p class="lead">Integracja łączy Wasze systemy jedną z trzech dróg: przez interfejs API, przez wymianę plików albo przez dostęp do bazy danych za zgodą dostawcy. Dostęp do bazy danych jest tylko do odczytu. Zapis idzie wyłącznie drogą, którą wspiera dostawca systemu.</p>
+      <p>Droga danych wygląda zawsze tak samo:</p>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Integracja pobiera z systemu źródłowego tylko uzgodnione pola.</li>
+      <li>Dane przechodzą kontrolę przed zapisem.</li>
+      <li>Przypadek spoza progów zatrzymuje się i czeka na decyzję człowieka.</li>
+      <li>Zapis trafia do systemu docelowego i do dziennika.</li>
+    </ol>
+    <p class="lead uwaga reveal">Którą drogę da się zastosować, zależy od systemu i jego licencji. Opisujemy to na stronie <a class="link-btn" href="integracja-systemow.html">Integracja systemów</a>.</p>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Dostęp tylko do potrzebnych pól, wyjątek u człowieka</h2>
+      <p class="lead">Integracja widzi tylko pola uzgodnione dla danego zadania. Każdy zapis zostawia ślad w dzienniku, a przypadek powyżej progu trafia do osoby po Waszej stronie. Miejsce przetwarzania danych wskazuje umowa powierzenia.</p>
+      <ul class="ticks">
+        <li>Wasze systemy i integracja z oznaczonym zakresem dostępu.</li>
+        <li>Rekord przechodzi, pozostałe pola zostają poza zasięgiem integracji.</li>
+        <li>Wartość powyżej progu czeka na decyzję człowieka.</li>
+        <li>Wpis w dzienniku: co, skąd, kiedy, poprzednia wartość.</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="dane-i-bezpieczenstwo" />
+  </section>
+
+  <section class="section wrap" id="umowa">
+    <header class="section-head reveal">
+      <h2 class="h2">Co obowiązuje dziś</h2>
+      <p class="lead">Każdy z tych punktów da się zapisać w umowie.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Temat</th><th scope="col">Stan na dziś</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Umowa powierzenia przetwarzania danych</td><td>Podpisujemy ją przed startem prac. Wzór mamy gotowy.</td></tr>
+          <tr><td>Miejsce przetwarzania danych</td><td>Wskazujemy je w umowie powierzenia.</td></tr>
+          <tr><td>Zakres dostępu</td><td>Minimalny, osobno dla każdej integracji.</td></tr>
+          <tr><td>Dziennik zapisów</td><td>Każdy zapis: co, skąd, kiedy i jaka była poprzednia wartość.</td></tr>
+          <tr><td>Wyjątki</td><td>Zatwierdza osoba po Waszej stronie, według progów ustalonych z Wami.</td></tr>
+          <tr><td>Ubezpieczenie</td><td>Ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.</td></tr>
+          <tr><td>Monitoring i czas reakcji</td><td>Zapisujemy je w umowie.</td></tr>
+          {maWartosc(BEZPIECZENSTWO.wdrozenieUKlienta) && <tr><td>Wdrożenie u Was</td><td>{BEZPIECZENSTWO.wdrozenieUKlienta}</td></tr>}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section wrap" id="jeszcze-nie">
+    <header class="section-head reveal">
+      <h2 class="h2">Czego jeszcze nie publikujemy</h2>
+      <p class="lead">Te informacje podajemy w umowie albo na konsultacji, a nie na stronie:</p>
+      <ul class="ticks">
+        <li><strong>Listy dostawców, z których korzysta wdrożenie, i miejsc przetwarzania u każdego z nich.</strong> Miejsce przetwarzania Waszych danych wskazujemy w umowie powierzenia.</li>
+        <li><strong>Czasu reakcji na awarię.</strong> Zapisujemy go w umowie, dopasowany do zakresu opieki.</li>
+        <li><strong>Odpowiedzi na ankietę bezpieczeństwa.</strong> Jeśli Wasza firma ma własną ankietę, przyślijcie ją.{maWartosc(BEZPIECZENSTWO.odpowiedzNaAnkiete) && ` ${BEZPIECZENSTWO.odpowiedzNaAnkiete}`}</li>
+      </ul>
+      <p>Jeśli Wasza procedura zakupowa wymaga konkretnego dokumentu, powiedzcie o tym na konsultacji.</p>
+    </header>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania, które zwykle zadaje dział IT</h2>
+      <p class="lead">Nie ma tu Waszego? Zadajcie je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Sprawdźcie nas na konkretnym procesie</h2>
+        <p class="lead">Na bezpłatnej konsultacji jednego procesu, w 25 minut, odpowiemy na pytania Waszego działu IT dotyczące tego procesu.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>

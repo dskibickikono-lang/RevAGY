@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
+     z chwili POSTER_AT = 10,5 s scenariusza (D-038):
+     uzgodnione pola w systemie docelowym, pozostałe pola poza zasięgiem integracji, kwota powyżej
+     progu zatwierdzona przez osobę po stronie klienta, pełny wpis w dzienniku i etykieta miejsca
+     przetwarzania. Etap filmowy F1 doda oś czasu w window.render(t).
+     Dane są poglądowe, bez nazw własnych systemów, firm i dostawców. -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 420px; opacity: .45; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .38; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 560px; top: -300px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 40px 64px 48px; display: grid; grid-template-rows: auto 1fr auto; gap: 22px; }
+
+  .place { justify-self: center; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 16px; color: #fff; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 22px; }
+  .place i { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); }
+  .place span { color: var(--dim); }
+
+  .panels { display: grid; grid-template-columns: 1fr 230px 1fr; align-items: stretch; min-height: 0; }
+  .panel { border-radius: 34px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 64px 1fr; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 26px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 17px; color: var(--dim); }
+  .bar .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--night-3); }
+  .bar b { margin-left: 14px; color: #fff; font-weight: 500; }
+  .bar .tag { margin-left: auto; font-size: 14px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+  .fields { padding: 20px 26px; display: grid; gap: 10px; align-content: start; }
+  .field { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; align-items: center; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 20px; padding: 11px 20px; }
+  .field span { font-size: 15px; color: var(--dim); }
+  .field b { font-family: var(--display); font-size: 20px; font-weight: 650; letter-spacing: -.015em; grid-column: 1; }
+  .field em { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-family: var(--mono); font-size: 14px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .field.in { border-color: rgba(25, 183, 122, .55); }
+  .field.out { opacity: .34; border-style: dashed; }
+  .field.out em { background: transparent; color: var(--dim); border: 1.5px solid var(--line); }
+  .field.held { border-color: rgba(255, 91, 20, .7); }
+  .field.held em { background: var(--accent); }
+
+  .node { display: grid; align-content: center; justify-items: center; gap: 16px; position: relative; }
+  .node::before { content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 3px; background: linear-gradient(90deg, var(--dim) 50%, transparent 50%) 0 0 / 12px 3px; }
+  .hub { position: relative; display: grid; justify-items: center; gap: 10px; background: var(--night-2); border: 1.5px solid var(--line); border-radius: 26px; padding: 18px 16px; width: 200px; }
+  .hub i { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
+  .hub i svg { width: 26px; height: 26px; }
+  .hub b { font-family: var(--display); font-size: 19px; font-weight: 650; }
+  .hub small { font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 4px 10px; text-align: center; }
+  .person { position: relative; display: grid; justify-items: center; gap: 8px; background: var(--paper); color: var(--ink); border-radius: 22px; padding: 14px 14px; width: 200px; text-align: center; }
+  .person svg { width: 34px; height: 34px; }
+  .person b { font-family: var(--display); font-size: 16px; font-weight: 650; line-height: 1.2; }
+  .person span { font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 4px 10px; }
+
+  .log { border-radius: 28px; background: var(--paper); color: var(--ink); padding: 18px 26px; display: grid; gap: 6px; }
+  .log-title { font-family: var(--mono); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+  .log-row { display: grid; grid-template-columns: 1fr 1fr 150px 1fr 1.1fr; gap: 16px; align-items: baseline; font-size: 17px; padding: 9px 0; border-top: 1.5px solid var(--mist-2); }
+  .log-row.head { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); padding: 4px 0; border-top: 0; }
+  .log-row time, .log-row .src { font-family: var(--mono); font-size: 15px; color: var(--ink-2); }
+  .log-row b { font-family: var(--display); font-weight: 650; }
+  .log-row s { color: var(--ink-2); }
+  .log-row .who { font-size: 15px; color: var(--ink-2); text-align: right; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <p class="place"><i></i>Miejsce przetwarzania: <span>wskazane w umowie powierzenia</span></p>
+
+    <div class="panels">
+      <section class="panel">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>System źródłowy</b><span class="tag">źródło</span></div>
+        <ul class="fields">
+          <li class="field in"><span>Numer zamówienia</span><b>ZAM/2026/0418</b><em>uzgodnione</em></li>
+          <li class="field in"><span>Kwota netto</span><b>18 400,00 zł</b><em>uzgodnione</em></li>
+          <li class="field in"><span>Termin dostawy</span><b>12.12.2026</b><em>uzgodnione</em></li>
+          <li class="field out"><span>Dane kontaktowe</span><b>••••••••</b><em>poza zakresem</em></li>
+          <li class="field out"><span>Uwagi handlowe</span><b>••••••••</b><em>poza zakresem</em></li>
+        </ul>
+      </section>
+
+      <div class="node" aria-hidden="true">
+        <div class="hub">
+          <i><svg viewBox="0 0 14 14"><path d="M3 7h8M8 3.5 11.5 7 8 10.5" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+          <b>Integracja</b>
+          <small>zakres: uzgodnione pola</small>
+        </div>
+        <div class="person">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M6 35a14 14 0 0 1 28 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <b>Decyzja po Waszej stronie</b>
+          <span>zatwierdzone</span>
+        </div>
+      </div>
+
+      <section class="panel">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>System docelowy</b><span class="tag">cel</span></div>
+        <ul class="fields">
+          <li class="field in"><span>Numer zamówienia</span><b>ZAM/2026/0418</b><em>po kontroli</em></li>
+          <li class="field held"><span>Kwota netto · próg 15 000,00 zł</span><b>18 400,00 zł</b><em>zatwierdzone przez osobę</em></li>
+          <li class="field in"><span>Termin dostawy</span><b>12.12.2026</b><em>po kontroli</em></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="log">
+      <p class="log-title">Dziennik zapisów</p>
+      <div class="log-row head"><span>co</span><span>skąd</span><span>kiedy</span><span>poprzednia wartość</span><span class="who">kto zatwierdził</span></div>
+      <div class="log-row"><b>Kwota netto</b><span class="src">System źródłowy</span><time>10:42:07</time><span><s>16 900,00 zł</s> → 18 400,00 zł</span><span class="who">osoba po Waszej stronie</span></div>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 12;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 10,5 s scenariusza (pełny dziennik i etykieta widoczne jednocześnie).
+// Ten sam moment daje kadr przed filmem.
+window.POSTER_AT = 10.5;
+const TAU = Math.PI * 2;
+const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  glows.forEach((g, i) => {
+    const a = TAU * t / T + i * 2.1;
+    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  });
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>
