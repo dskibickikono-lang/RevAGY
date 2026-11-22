@@ -1,5 +1,5 @@
 ---
-// Scena pierwszego ekranu podstrony (kierunek A, D-048, T-031).
+// Scena pierwszego ekranu podstrony (kierunek A, D-048, T-033).
 // Ciemny zaokrąglony kontener (.cta ze styles.css, ten sam co pasek końcowy i scena strony kontaktu)
 // z poświatą hero strony głównej (.hero-shade): śliwka pod tekstem po lewej, pomarańcz niżej pośrodku.
 // Poświata paska końcowego (.cta-glow) ma pomarańcz w lewym dolnym rogu, czyli pod przyciskami i linią
@@ -10,6 +10,7 @@
 // Na telefonie (do 560 px) plakat jest ukryty w podstrony.css; loading="lazy" sprawia, że ukryty obraz nie jest pobierany.
 // Ramka plakatu celowo NIE ma klasy .film: testy i app.js biorą pierwszą .film na stronie jako miejsce na film.
 import { stanFilmu, WYMIARY_KADRU } from '../config/filmy.mjs';
+import { zasob } from '../config/zasoby.mjs';
 
 interface Props {
   // Klucz z src/config/filmy.mjs, np. 'integracja-systemow'. Bez wartości scena ma sam tekst.
@@ -28,7 +29,7 @@ const obraz = film ? (film.stan === 'film' ? film.poster : film.kadr) : null;
     </div>
     {film && (
       <div class="scena-kadr">
-        <img src={obraz} width={WYMIARY_KADRU.szerokosc} height={WYMIARY_KADRU.wysokosc} alt={film.alt} loading="lazy" decoding="async">
+        <img src={zasob(obraz)} width={WYMIARY_KADRU.szerokosc} height={WYMIARY_KADRU.wysokosc} alt={film.alt} loading="lazy" decoding="async">
       </div>
     )}
   </div>
