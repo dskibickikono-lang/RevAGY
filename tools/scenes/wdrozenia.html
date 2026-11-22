@@ -68,12 +68,12 @@
 
   .line { position: relative; height: 48px; margin: 4px 6px 0; }
   .line::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 3px; border-radius: 999px; background: var(--night-3); }
-  .line::after { content: ""; position: absolute; left: 0; width: 64%; top: 22px; height: 3px; border-radius: 999px; background: var(--dim); }
+  .line::after { content: ""; position: absolute; left: 0; width: 52%; top: 22px; height: 3px; border-radius: 999px; background: var(--dim); }
   .mark { position: absolute; top: 14px; width: 18px; height: 18px; border-radius: 50%; transform: translateX(-50%); }
-  .mark.now { left: 64%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255, 91, 20, .25); }
-  .mark.end { left: 100%; background: #fff; }
+  .mark.now { left: 52%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255, 91, 20, .25); }
+  .mark.end { left: calc(100% - 9px); background: #fff; }
   .line small { position: absolute; top: 34px; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--dim); white-space: nowrap; }
-  .line small.l1 { left: 64%; } .line small.l2 { left: 92%; }
+  .line small.l1 { left: 52%; } .line small.l2 { left: auto; right: 0; transform: none; }
 
   .form { display: grid; gap: 10px; }
   .form .card { gap: 2px; padding: 10px 16px; }
