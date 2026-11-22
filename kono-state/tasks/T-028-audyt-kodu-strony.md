@@ -1,21 +1,23 @@
 ---
-id: T-025
+id: T-028
 title: Pełny audyt kodu strony RevAGY (fundamenty przed dalszą budową) — tylko raport
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
 base: main (7cd0f71; audyt zaczęty na 43efbf5, main scalony do gałęzi bez rebase)
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/35 (baza main)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/35 (scalony do main, 3e87a2e)
 sha: 7a91d2edf9c796771b907a0c9d12a5cbb6dec2bc (raport i karta; kolejny commit zmienia tylko kartę)
 decisions: [D-010, D-013, D-015, D-021, D-031, D-033, D-036, D-039]
 ---
 
-# T-025 — Audyt kodu strony RevAGY
+# T-028 — Audyt kodu strony RevAGY
 
-Numer: karta powstała jako T-024, ale w trakcie audytu numer T-024 zajęła na `main` karta banera zgody
+Numer: T-028 od 22.11.2026 (porządek kart na polecenie właściciela). Wcześniej T-025, ale ten numer miała już
+na `main` karta audytu SEO; w raporcie, opisach PR #35 i #37 oraz w komunikatach commitów audyt występuje jako T-025.
+Historia: karta powstała jako T-024, ale w trakcie audytu numer T-024 zajęła na `main` karta banera zgody
 (PR #28). Po scaleniu `main` do gałęzi audyt dostał kolejny wolny numer, T-025.
 
 ## Cel

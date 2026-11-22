@@ -117,6 +117,19 @@
     mainVideo.addEventListener('pause', sync);
     sync();
   }
+  // Przyciski wstrzymania innych filmów (np. hero): data-video-pause="<id filmu>". Zmienia się tylko aria-pressed.
+  $$('[data-video-pause]').forEach((btn) => {
+    const v = document.getElementById(btn.dataset.videoPause);
+    if (!v) return;
+    const sync = () => btn.setAttribute('aria-pressed', String(v.paused));
+    btn.addEventListener('click', () => {
+      if (v.paused) { userPaused.delete(v); tryPlay(v); }
+      else { userPaused.add(v); v.pause(); }
+    });
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    sync();
+  });
 
   /* ---------- efekty zależne od scrolla ---------- */
   const parallax = $('[data-parallax]');

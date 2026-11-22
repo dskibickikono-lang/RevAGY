@@ -2,6 +2,7 @@
 import { TURNSTILE_SITEKEY } from '../config/kontakt';
 import { grafOrganizacji, jsonDoSkryptu } from '../config/marka.mjs';
 import Clarity from '../components/Clarity.astro';
+import { zasob } from '../config/zasoby.mjs';
 
 // Stopka strony głównej: aria-level="2" przy czterech h4 kolumn stopki. Nagłówki kolumn stopki są dla czytników
 // ekranu na poziomie 2, więc po ostatnim h2 w <main> nie ma przeskoku poziomu (T-021). Znacznik h4 zostaje dla
@@ -57,7 +58,7 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
     <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   </>
 )}
-<link rel="stylesheet" href={`${base}assets/css/styles.css?v=5`}>
+<link rel="stylesheet" href={`${base}${zasob('assets/css/styles.css')}`}>
 {jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd}></script>}
 </head>
 <body>
@@ -201,9 +202,9 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
 </footer>
 )}
 
-{loadKontaktScript && <script is:inline src={`${base}assets/js/kontakt.js?v=1`} defer></script>}
-{isHome && <script is:inline src="assets/js/app.js?v=5" defer></script>}
-<script is:inline src={`${base}assets/js/analytics.js?v=5`} defer></script>
+{loadKontaktScript && <script is:inline src={`${base}${zasob('assets/js/kontakt.js')}`} defer></script>}
+{isHome && <script is:inline src={zasob('assets/js/app.js')} defer></script>}
+<script is:inline src={`${base}${zasob('assets/js/analytics.js')}`} defer></script>
 <Clarity base={base} />
 </body>
 </html>

@@ -32,3 +32,20 @@ Przed włączeniem formularza na produkcji usługa `forms-gateway` (`forms_gatew
    - zwraca `409 idempotency_conflict` wyłącznie wtedy, gdy różni się biznesowa część ładunku (`payload_sha256`).
 
 Dzięki temu ponowne próby po przekroczeniu czasu odpowiedzi bramki (gateway timeout) wysłane z odświeżonym tokenem Turnstile (i nowym `t_ms`) nigdy nie utworzą duplikatu leada.
+
+## Panel Matomo za hasłem, HSTS na przekierowaniach, wersja nginx ukryta (T-029)
+
+Zmiany w `revagy.pl.conf` (D-03, D-12, D-13 z audytu T-028), do instalacji przez właściciela:
+
+- `stats.revagy.pl`: bez hasła dostępne są tylko `/matomo.js` i `/matomo.php` (tracker). Panel Matomo i wszystkie
+  pozostałe adresy wymagają dodatkowego hasła z `/etc/nginx/revagy-logi.htpasswd` (to samo co do `/logi/`),
+  a potem zwykłego logowania Matomo. Blokada instalatora (`revagy-stats-blokada*.conf`) nie jest już potrzebna.
+- `Strict-Transport-Security` także na przekierowaniach i na hoście `www`.
+- `server_tokens off`: nagłówek `Server` bez numeru wersji.
+
+Wdrożenie: skopiować `revagy.pl.conf` do `/etc/nginx/sites-available/`, `nginx -t`, `systemctl reload nginx`.
+Kontrola: `curl -s -o /dev/null -w '%{http_code}\n' https://stats.revagy.pl/` ma dać `401`,
+`https://stats.revagy.pl/matomo.js` ma dać `200`, a statystyki po zgodzie mają dalej trafiać do Matomo.
+Rollback: poprzedni plik vhosta, `nginx -t`, `systemctl reload nginx`.
+
+Test wzorców bez serwera: `npm run test:nginx` (składnia i 28 żądań kontrolnych na lokalnym nginx; krok w CI).
