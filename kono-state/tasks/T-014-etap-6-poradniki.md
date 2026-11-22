@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-6-poradniki
-base: feat/etap-5-produkcja-i-logistyka (9d57ca4)
+base: feat/etap-5-produkcja-i-logistyka (09ab4b7)
 depends_on: T-013
 pr: —
 sha: —
