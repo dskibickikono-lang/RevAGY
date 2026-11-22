@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: cztery procesy przed i po połączeniu systemów</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
+     z chwili POSTER_AT = 13 s scenariusza (cztery kafle obok siebie: umowa w dwóch systemach,
+     raport z trzech źródeł, alert o kończącym się zezwoleniu, zgłoszenie kandydata w systemie).
+     Etap filmowy doda oś czasu w window.render(t). Dane są poglądowe, bez nazw własnych
+     i bez liczb wyniku z wdrożeń (wchodzą dopiero po zgodzie właściciela i opisie pomiaru). -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 420px; opacity: .45; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .38; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 560px; top: -300px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 56px 64px; display: grid; grid-template-rows: 1fr auto; gap: 22px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; min-height: 0; }
+  .tile { border-radius: 34px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 64px 1fr; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 15px; color: var(--dim); }
+  .bar .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--night-3); }
+  .bar b { margin-left: 10px; color: #fff; font-weight: 500; font-size: 17px; }
+  .bar .tag { margin-left: auto; font-size: 13px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .body { padding: 22px; display: grid; gap: 14px; align-content: center; }
+
+  .card { background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 20px; padding: 14px 18px; display: grid; gap: 4px; }
+  .card span { font-size: 14px; color: var(--dim); }
+  .card b { font-family: var(--display); font-size: 19px; font-weight: 650; letter-spacing: -.015em; }
+  .card.ok { border-color: rgba(25, 183, 122, .55); }
+  .card.alert { border-color: rgba(255, 91, 20, .7); background: rgba(255, 91, 20, .12); }
+  .card .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .pill { font-style: normal; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 5px 11px; white-space: nowrap; }
+  .pill.accent { background: var(--accent); }
+
+  .doc { background: var(--paper); color: var(--ink); border-radius: 20px; padding: 16px 18px; display: grid; gap: 8px; }
+  .doc span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .doc b { font-family: var(--display); font-size: 19px; font-weight: 650; }
+  .doc i { display: block; height: 8px; border-radius: 999px; background: var(--mist-2); }
+  .doc i.short { width: 62%; }
+  .sign { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 6px; border-top: 1.5px dashed var(--mist-2); font-size: 14px; color: var(--ink-2); }
+  .sign svg { width: 92px; height: 30px; }
+
+  .flow { display: grid; place-items: center; height: 34px; position: relative; }
+  .flow::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 3px; transform: translateX(-50%); background: linear-gradient(180deg, var(--dim) 50%, transparent 50%) 0 0 / 3px 10px; }
+  .flow i { position: relative; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 10px 24px -8px rgba(255, 91, 20, .7); }
+  .flow i svg { width: 16px; height: 16px; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pair .card b { font-size: 16px; }
+  .note { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); }
+  .note svg { width: 26px; height: 26px; flex: none; }
+
+  .sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .src { background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 16px; padding: 12px; display: grid; gap: 8px; }
+  .src span { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .src i { display: block; height: 6px; border-radius: 999px; background: var(--night-3); }
+  .src i:nth-child(3) { width: 70%; }
+  .board { background: var(--paper); color: var(--ink); border-radius: 20px; padding: 16px 18px; display: grid; gap: 12px; }
+  .board > span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .metric { display: grid; gap: 6px; font-size: 15px; }
+  .metric em { display: block; height: 12px; border-radius: 999px; background: var(--mist-2); overflow: hidden; }
+  .metric em::after { content: ""; display: block; height: 100%; width: var(--w); background: var(--ink); border-radius: 999px; }
+  .chart { display: flex; align-items: flex-end; gap: 8px; height: 64px; }
+  .chart i { flex: 1; border-radius: 8px 8px 3px 3px; background: var(--mist-2); }
+  .chart i.hi { background: var(--accent); }
+
+  .line { position: relative; height: 48px; margin: 4px 6px 0; }
+  .line::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 3px; border-radius: 999px; background: var(--night-3); }
+  .line::after { content: ""; position: absolute; left: 0; width: 64%; top: 22px; height: 3px; border-radius: 999px; background: var(--dim); }
+  .mark { position: absolute; top: 14px; width: 18px; height: 18px; border-radius: 50%; transform: translateX(-50%); }
+  .mark.now { left: 64%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255, 91, 20, .25); }
+  .mark.end { left: 100%; background: #fff; }
+  .line small { position: absolute; top: 34px; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--dim); white-space: nowrap; }
+  .line small.l1 { left: 64%; } .line small.l2 { left: 92%; }
+
+  .form { display: grid; gap: 10px; }
+  .form .card { gap: 2px; padding: 10px 16px; }
+  .form .card b { font-size: 17px; }
+  .send { justify-self: start; font-family: var(--mono); font-size: 13px; color: var(--ink); background: #fff; border-radius: 999px; padding: 7px 16px; }
+
+  .foot { display: flex; justify-content: flex-end; font-family: var(--mono); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <div class="tiles">
+
+      <section class="tile">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Umowa</b><span class="tag">01</span></div>
+        <div class="body">
+          <div class="doc">
+            <span>Umowa · podpisana</span>
+            <b>Marta Przykładowa</b>
+            <i></i><i class="short"></i>
+            <div class="sign">podpis na tablecie<svg viewBox="0 0 92 30" aria-hidden="true"><path d="M4 22c8-14 14-16 16-8s4 10 10-2 8-10 10 0 6 6 12-4 10-6 14 2 10 4 22-2" fill="none" stroke="#141114" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="pair">
+            <div class="card ok"><span>System HR</span><b>zapisane</b></div>
+            <div class="card ok"><span>Kadry i płace</span><b>zapisane</b></div>
+          </div>
+          <p class="note"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6 20 17.5 8.5l2 2L8 22H6z" fill="none" stroke="#b9b2bb" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 4l18 18" stroke="#ff5b14" stroke-width="2.2" stroke-linecap="round"/></svg>bez ręcznego przepisywania</p>
+        </div>
+      </section>
+
+      <section class="tile">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Raport</b><span class="tag">02</span></div>
+        <div class="body">
+          <div class="sources">
+            <div class="src"><span>Spółka A</span><i></i><i></i></div>
+            <div class="src"><span>Spółka B</span><i></i><i></i></div>
+            <div class="src"><span>Spółka C</span><i></i><i></i></div>
+          </div>
+          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="board">
+            <span>Raport zarządu</span>
+            <div class="metric">Stan załogi<em style="--w:78%"></em></div>
+            <div class="metric">Godziny pracy<em style="--w:56%"></em></div>
+            <div class="chart" aria-hidden="true"><i style="height:46%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:74%"></i><i class="hi" style="height:88%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Zezwolenie</b><span class="tag">03</span></div>
+        <div class="body">
+          <div class="card">
+            <span>Kartoteka pracownika</span>
+            <b>Anna Przykładowa</b>
+            <div class="row"><span>Zezwolenie ważne do</span><b>15.02.2027</b></div>
+          </div>
+          <div class="line" aria-hidden="true"><i class="mark now"></i><i class="mark end"></i><small class="l1">dziś</small><small class="l2">koniec ważności</small></div>
+          <div class="card alert">
+            <div class="row"><b>Zezwolenie kończy się za 30 dni</b></div>
+            <span>Powiadomienie do osoby odpowiedzialnej</span>
+            <div class="row"><span>16.01.2027</span><em class="pill accent">alert</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile">
+        <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Kandydat</b><span class="tag">04</span></div>
+        <div class="body">
+          <div class="form">
+            <div class="card"><span>Imię i nazwisko</span><b>Piotr Przykładowy</b></div>
+            <div class="card"><span>Telefon</span><b>••• ••• 214</b></div>
+            <span class="send">zgłoszenie wysłane</span>
+          </div>
+          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="card ok">
+            <span>System rekrutacyjny</span>
+            <b>Piotr Przykładowy</b>
+            <div class="row"><span>nowe zgłoszenie</span><em class="pill">w systemie</em></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <p class="foot">Dane poglądowe</p>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 14;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 13 s scenariusza (cztery kafle obok siebie). Ten sam moment daje kadr przed filmem.
+window.POSTER_AT = 13;
+const TAU = Math.PI * 2;
+const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  glows.forEach((g, i) => {
+    const a = TAU * t / T + i * 2.1;
+    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  });
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>
