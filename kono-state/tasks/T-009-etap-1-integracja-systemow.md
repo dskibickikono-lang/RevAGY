@@ -3,14 +3,14 @@ id: T-009
 title: Etap 1 — podstrona „Systemy bez przepisywania danych” (/integracja-systemow.html) i fundament podstron
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-21
 updated: 2026-11-22
 branch: feat/etap-1-integracja-systemow
 base: feat/etap-0-prawda-na-stronie (7c6a067), od main (9389fe6)
 depends_on: T-008
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/10 (baza feat/etap-0-prawda-na-stronie)
-sha: 82e73343590d49b80836964c4b524f9cd1102f22 (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/10 (scalony do main)
+sha: 82e73343590d49b80836964c4b524f9cd1102f22 (zmiany); main po scaleniu PR #10: d7016c0dc96b0fa2574a939ab65531af56e7483c
 decisions: [D-015, D-017, D-018, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-035, D-036, D-038]
 ---
 
@@ -89,3 +89,9 @@ Przebieg dla `82e7334` (run 44964827742), zielony:
 - Pola w `src/data/dowody.mjs`: nazwa spółki, etykieta powiązania, skala, „jak mierzone”, cytat,
   drogi łączenia, zdanie ujawnienia.
 - Wyniki wdrożenia wychodzą anonimowo ze słowem „ok.” do czasu opisu „jak mierzone” (ZASADY 7.4).
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #10 scalony do `main` commitem `d7016c0dc96b0fa2574a939ab65531af56e7483c`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

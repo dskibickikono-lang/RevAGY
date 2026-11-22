@@ -3,14 +3,14 @@ id: T-012
 title: Etap 4 — podstrona „Dane i bezpieczeństwo” (/dane-i-bezpieczenstwo.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-4-dane-i-bezpieczenstwo
 base: feat/etap-3-dla-firm (7776daf)
 depends_on: T-011
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/13 (baza feat/etap-3-dla-firm)
-sha: 9fd40d28937b12abdbb4049543c68fb7da9f79dc (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/13 (scalony do main)
+sha: 9fd40d28937b12abdbb4049543c68fb7da9f79dc (zmiany); main po scaleniu PR #13: d5d3458b8b50ea0854778bbb839e1a898fd880ad
 decisions: [D-015, D-019, D-021, D-022, D-023, D-031, D-032, D-033, D-035, D-038]
 ---
 
@@ -73,3 +73,9 @@ Przebieg dla `9fd40d2` (run 44967048175), zielony:
   - `aiNaDanychKlienta`: odpowiedź o modelach AI na danych klienta;
   - `odpowiedzNaAnkiete`: zdanie o ankiecie bezpieczeństwa;
   - `wdrozenieUKlienta`: zdanie o wdrożeniu w chmurze albo na serwerach klienta.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #13 scalony do `main` commitem `d5d3458b8b50ea0854778bbb839e1a898fd880ad`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.

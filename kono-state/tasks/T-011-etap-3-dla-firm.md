@@ -3,14 +3,14 @@ id: T-011
 title: Etap 3 — podstrona „Dla firm 5–250 osób” (/dla-firm.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-3-dla-firm
 base: feat/etap-2-wdrozenia (877b57e)
 depends_on: T-010
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/12 (baza feat/etap-2-wdrozenia)
-sha: 45e71e9a87d878fa517a0a76c267d66e80cc7536 (kod i testy; commit z tym wpisem zmienia tylko kartę)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/12 (scalony do main)
+sha: 45e71e9a87d878fa517a0a76c267d66e80cc7536 (zmiany); main po scaleniu PR #12: 0aee686a9f53223871f9d86941218d0cb19d56b6
 decisions: [D-015, D-016, D-019, D-021, D-022, D-025, D-028, D-029, D-031, D-032, D-033, D-038]
 ---
 
@@ -75,3 +75,9 @@ Przebieg dla `45e71e9` (run 44966554675), zielony:
 
 - `src/data/oferta.mjs`: `cenaStartOd`, `cenaScaleOd`, `warunkiZakonczeniaUmowy`.
 - Miejsce i brzmienie odnośnika na stronie głównej potwierdza właściciel na podglądzie.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #12 scalony do `main` commitem `0aee686a9f53223871f9d86941218d0cb19d56b6`.
+- Wdrożone na produkcję w wydaniu `5fe5c29571e12cd4221d2a146b7d53fba3037816` (czubek `main` po scaleniu PR #9–#21),
+  manifest `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.
