@@ -1,32 +1,22 @@
 {
-  "etap": "T-034",
-  "opis": "T-034 (wcześniej T-028), decyzja właściciela z 22.11.2026 (D-049, wcześniej D-046, „Tak dodać”): odnośnik „Kadry i płace” do nowej podstrony kadry-i-place.html w panelu menu „Dla działów” (po pozycji „Finanse”) i w kolumnie stopki „Dla działów” (po „Finanse”). Różnica między tools/baseline/index.baza.html (migawka z main a653e8a, po T-030, T-031 i T-033) a tools/baseline/index.html. Pozostałe teksty, atrybuty i znaczniki bez zmian.",
+  "etap": "T-032",
+  "opis": "Etap 9 (T-032), podstrona działowa „Sprzedaż”: pozycja „Sprzedaż” w panelu „Dla działów” menu i w kolumnie „Dla działów” stopki prowadzi do sprzedaz.html zamiast do #zastosowania (zgoda właściciela w zleceniu etapu 9). Różnica między tools/baseline/index.baza.html (migawka z main ca9b92b, po T-030, T-031, T-033 i T-034) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
-    "atrybuty": [],
-    "dodane": [
+    "atrybuty": [
       {
         "znacznik": "a",
-        "href": "kadry-i-place.html",
-        "tekst": "Kadry i płace Godziny, premie i umowy bez wpisywania",
-        "razy": 1
-      },
-      {
-        "znacznik": "a",
-        "href": "kadry-i-place.html",
-        "tekst": "Kadry i płace",
-        "razy": 1
+        "atrybut": "href",
+        "bylo": "#zastosowania",
+        "jest": "sprzedaz.html",
+        "razy": 2
       }
     ],
+    "dodane": [],
     "usuniete": []
   },
   "geometria": {
-    "sekcje": [
-      {
-        "selektor": "footer",
-        "opis": "Piąty odnośnik „Kadry i płace” w kolumnie stopki „Dla działów”: kolumna ma o jedną pozycję więcej niż pozostałe, więc stopka może urosnąć o wysokość jednego odnośnika. Panel menu jest pozycjonowany absolutnie i nie zmienia wysokości nagłówka."
-      }
-    ],
+    "sekcje": [],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
   }
 }

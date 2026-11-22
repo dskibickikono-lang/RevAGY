@@ -91,6 +91,16 @@ export const FILMY = {
     opis: 'Arkusz godzin trafia do jednej kolejki, jego pola są odczytane i sprawdzone przed zapisem. Pozycja poza zakresem nie jest zapisywana i czeka na decyzję osoby po stronie klienta, a pozostałe trafiają do programu kadrowo-płacowego. Dane na ekranach są poglądowe.',
     // Uzupełni etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
   },
+  'sprzedaz': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Poglądowy ekran: zapytanie z formularza na stronie po odczycie i kontroli pól, zapisane w CRM z oceną według kryteriów, handlowcem przypisanym według regionu i zadaniem dla handlowca; powiadomienie do handlowca wysłane. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: zapytanie od odbioru do przypisania handlowca',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Zapytanie od odbioru do przypisania handlowca',
+    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a zapytanie trafia do CRM z oceną według kryteriów zespołu sprzedaży, handlowcem przypisanym według jego reguł i zadaniem dla handlowca. Handlowiec dostaje powiadomienie. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

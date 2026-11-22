@@ -50,3 +50,6 @@
 /* telefon: plakat ma tam ok. 318 px szerokości i jest nieczytelny, a jako największy element pierwszego ekranu
    wydłużał LCP z ok. 1,2 s do 2,7 s (Lighthouse, T-033). Obraz ma loading="lazy", więc ukryty nie jest pobierany. */
 @media (max-width: 560px) { .scena-kadr { display: none; } }
+
+/* wyraz z łącznikiem w nagłówku (np. „follow-upy”): nie łamie się na łączniku; text-wrap: balance dopuszcza tam podział */
+.bez-lamania { white-space: nowrap; }

@@ -97,6 +97,45 @@ export const DOWODY = {
       cytat: null,
       szczegolyTechniczne: null,
     },
+    // Podstrona /sprzedaz.html, sekcja #wdrozenie-zapytania („Zapytanie ze strony u handlowca z regionu”).
+    'sprzedaz-zapytania': {
+      // Rodzaj firmy, np. 'Firma usługowa'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
+      rodzajFirmy: null,
+      // Pozostałe pola wpisuje właściciel, tylko po pisemnej zgodzie spółki (D-034). Każda liczba wymaga
+      // wiersza w tools/rejestr-twierdzen.json; cytat tylko prawdziwy, z pisemną zgodą osoby.
+      nazwaSpolki: null,
+      etykietaPowiazania: null,
+      skala: null,
+      jakMierzone: null,
+      cytat: null,
+      szczegolyTechniczne: null,
+    },
+    // Podstrona /sprzedaz.html, sekcja #wdrozenie-oferty („Oferta z kalkulatora i z komunikatora zespołu”).
+    'sprzedaz-oferty': {
+      // Rodzaj firmy, np. 'Firma usługowa'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
+      rodzajFirmy: null,
+      // Pozostałe pola wpisuje właściciel, tylko po pisemnej zgodzie spółki (D-034). Każda liczba wymaga
+      // wiersza w tools/rejestr-twierdzen.json; cytat tylko prawdziwy, z pisemną zgodą osoby.
+      nazwaSpolki: null,
+      etykietaPowiazania: null,
+      skala: null,
+      jakMierzone: null,
+      cytat: null,
+      szczegolyTechniczne: null,
+    },
+    // Podstrona /sprzedaz.html, sekcja #wdrozenie-crm („Nowy lead i obsługa CRM z komunikatora zespołu”).
+    'sprzedaz-crm': {
+      // Rodzaj firmy, np. 'Firma usługowa'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
+      rodzajFirmy: null,
+      // Pozostałe pola wpisuje właściciel, tylko po pisemnej zgodzie spółki (D-034). Każda liczba wymaga
+      // wiersza w tools/rejestr-twierdzen.json; cytat tylko prawdziwy, z pisemną zgodą osoby.
+      nazwaSpolki: null,
+      etykietaPowiazania: null,
+      skala: null,
+      jakMierzone: null,
+      cytat: null,
+      szczegolyTechniczne: null,
+    },
   },
 
   // Zdanie ujawnienia pod opisami wdrożeń (raz na stronę, komponent Ujawnienie). Tekst wpisuje właściciel.
