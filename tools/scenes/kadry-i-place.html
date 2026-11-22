@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: godziny z arkusza w kadrach i płacach, wyjątek u człowieka</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (D-022, D-032), T-034. Jedna statyczna kompozycja: kadr startowy przyszłego filmu
+     z chwili POSTER_AT = 12 s (arkusz godzin w kolejce, cztery pola po kontroli, jedna pozycja poza zakresem
+     czeka na decyzję osoby z kadr i płac, oś kroków ze znacznikiem na „Wyjątki”).
+     Pod etap filmowy: każdy element, który ma się pojawiać, ma własne id i stałe miejsce w układzie (bez skoków),
+     tło jest nieruchome, a window.render(t) już woła TL.apply(t), więc wystarczy dopisać atrybuty data-at/data-out
+     i ruch znacznika osi.
+     Dane poglądowe: bez nazw systemów i firm, bez form prawnych, bez liczb (okres, godziny i stawka zamaskowane). -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 440px; opacity: .42; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .36; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 560px; top: -300px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 56px 64px; display: grid; grid-template-rows: 1fr auto; gap: 30px; }
+  .top { display: grid; grid-template-columns: 340px 1fr 440px; gap: 24px; min-height: 0; }
+  .panel { border-radius: 30px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 60px 1fr; }
+  .panel.paper { background: var(--paper); color: var(--ink); border-color: transparent; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 15px; color: var(--dim); }
+  .paper .bar { border-color: var(--mist-2); color: var(--ink-2); }
+  .bar b { color: #fff; font-weight: 500; }
+  .paper .bar b { color: var(--ink); }
+  .bar .tag { margin-left: auto; font-size: 13px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+  .paper .bar .tag { border-color: var(--mist-2); }
+  .body { padding: 22px; display: grid; gap: 12px; align-content: start; }
+
+  /* kolejka faktur: źródła i dokument */
+  .src { border-radius: 20px; border: 1.5px solid var(--line); padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
+  .src svg { width: 36px; height: 36px; flex: none; }
+  .src b { font-family: var(--display); font-size: 19px; font-weight: 650; display: block; }
+  .src span { font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .doc { margin-top: 6px; border-radius: 18px; background: var(--paper); color: var(--ink); padding: 18px; display: grid; gap: 10px; }
+  .doc .doc-title { font-family: var(--display); font-size: 20px; font-weight: 650; letter-spacing: -.01em; }
+  .doc .doc-meta { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+  .doc i { display: block; height: 10px; border-radius: 999px; background: var(--mist-2); }
+  .doc i.w1 { width: 92%; } .doc i.w2 { width: 70%; } .doc i.w3 { width: 84%; } .doc i.w4 { width: 46%; }
+
+  /* odczyt i kontrola pól */
+  .field { display: grid; grid-template-columns: 120px 1fr auto; align-items: center; gap: 16px; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 18px; padding: 13px 18px; }
+  .field span { font-size: 16px; color: var(--dim); }
+  .field b { font-family: var(--display); font-size: 19px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .field em { font-style: normal; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .field.ok { border-color: rgba(25, 183, 122, .55); }
+  .field.warn { border-color: var(--accent); }
+  .field.warn em { background: var(--accent); }
+
+  /* do akceptacji */
+  .acc-title { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .row { display: grid; gap: 4px; border-bottom: 1.5px solid var(--mist-2); padding-bottom: 12px; }
+  .row span { font-size: 15px; color: var(--ink-2); }
+  .row b { font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; line-height: 1.2; }
+  .who { display: flex; align-items: center; gap: 12px; font-size: 16px; color: var(--ink-2); }
+  .who i { width: 34px; height: 34px; border-radius: 50%; background: var(--mist-2); flex: none; }
+  .decide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .decide b { text-align: center; font-family: var(--display); font-size: 18px; font-weight: 650; border-radius: 999px; padding: 12px 10px; }
+  .decide .go { background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px -8px rgba(255, 91, 20, .7); }
+  .decide .stop { border: 1.5px solid var(--ink); color: var(--ink); }
+
+  /* oś kroków procesu */
+  .axis { border-radius: 28px; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); padding: 22px 30px 24px; display: grid; gap: 16px; }
+  .track { position: relative; height: 12px; border-radius: 999px; background: var(--night-3); }
+  .track .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 75%; border-radius: 999px; background: linear-gradient(90deg, var(--plum), var(--accent)); }
+  .track .pin { position: absolute; top: 50%; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: var(--paper); border: 5px solid var(--accent); }
+  .track .s1 { left: 0; } .track .s2 { left: 25%; } .track .s3 { left: 50%; } .track .s4 { left: 75%; } .track .s5 { left: 100%; }
+  .track .now { left: 75%; background: var(--accent); border-color: var(--paper); }
+  .steps { position: relative; height: 30px; }
+  .steps span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--display); font-size: 21px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; color: var(--dim); }
+  .steps span.done { color: #fff; }
+  .steps span.cur { color: var(--accent); }
+  .steps .k1 { left: 0; transform: none; } .steps .k2 { left: 25%; } .steps .k3 { left: 50%; } .steps .k4 { left: 75%; } .steps .k5 { left: 100%; transform: translateX(-100%); }
+  .note { font-family: var(--mono); font-size: 13px; color: var(--dim); text-align: right; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <div class="top">
+      <section class="panel" id="p-kolejka">
+        <div class="bar"><b>Źródła danych</b><span class="tag">jedno miejsce</span></div>
+        <div class="body">
+          <div class="src" id="src-arkusz">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="7" width="28" height="26" rx="4" fill="none" stroke="#b9b2bb" stroke-width="2.4"/><path d="M6 16h28M6 24h28M16 7v26" fill="none" stroke="#b9b2bb" stroke-width="2.4"/></svg>
+            <div><b>Arkusz godzin</b><span>plik od kierownika</span></div>
+          </div>
+          <div class="src" id="src-umowa">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 5h13l7 7v23H11z" fill="none" stroke="#b9b2bb" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 20h10M16 26h10" stroke="#b9b2bb" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div><b>Umowa</b><span>podpisany dokument</span></div>
+          </div>
+          <div class="doc" id="doc">
+            <p class="doc-title">Ewidencja godzin</p>
+            <p class="doc-meta">okres ••/•••• · Przykładowy dział</p>
+            <i class="w1"></i><i class="w2"></i><i class="w3"></i><i class="w4"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="p-kontrola">
+        <div class="bar"><b>Odczyt i kontrola</b><span class="tag" id="tag-kontrola">przed zapisem</span></div>
+        <div class="body">
+          <div class="field ok" id="f-pracownik"><span>Pracownik</span><b>Przykładowa osoba</b><em>w kartotece</em></div>
+          <div class="field ok" id="f-okres"><span>Okres</span><b>••/••••</b><em>otwarty</em></div>
+          <div class="field warn" id="f-godziny"><span>Godziny</span><b>••• w okresie</b><em>poza zakresem</em></div>
+          <div class="field ok" id="f-stawka"><span>Stawka</span><b>••,•• za godzinę</b><em>jak w umowie</em></div>
+          <div class="field ok" id="f-premia"><span>Premia</span><b>•••,••</b><em>w zakresie</em></div>
+        </div>
+      </section>
+
+      <section class="panel paper" id="p-akceptacja">
+        <div class="bar"><b>Wyjątek do decyzji</b><span class="tag">decyzja człowieka</span></div>
+        <div class="body">
+          <p class="acc-title">Pozycja nie została zapisana</p>
+          <div class="row" id="r-opis"><span>Co się nie zgadza</span><b>Godziny powyżej progu ustalonego z kadrami</b></div>
+          <div class="row" id="r-dekretacja"><span>Pozostałe pozycje arkusza</span><b>po kontroli, gotowe do zapisu</b></div>
+          <div class="who" id="who"><i></i><span>Czeka na: osoba z kadr i płac</span></div>
+          <div class="decide" id="decide"><b class="go">Zatwierdzam</b><b class="stop">Do poprawy</b></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="axis">
+      <div class="track"><i class="fill" id="fill"></i><i class="pin s1"></i><i class="pin s2"></i><i class="pin s3"></i><i class="pin s4"></i><i class="pin s5"></i><i class="pin now" id="now"></i></div>
+      <div class="steps">
+        <span class="k1 done">Odbiór</span><span class="k2 done">Odczyt</span><span class="k3 done">Kontrola</span><span class="k4 cur">Wyjątki</span><span class="k5">Kadry i płace</span>
+      </div>
+      <p class="note">Dane poglądowe</p>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 14;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 12 s: pola po kontroli, jedna pozycja czeka na decyzję człowieka, znacznik na „Wyjątki”.
+window.POSTER_AT = 12;
+const { apply } = TL;
+const TAU = Math.PI * 2;
+
+// Poświaty nieruchome (tło bez ruchu), w tym samym położeniu w każdej chwili osi czasu.
+['g1', 'g2', 'g3'].forEach((id, i) => {
+  const a = TAU * 12 / 14 + i * 2.1;
+  document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+});
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję. Etap filmowy dopisze data-at/data-out
+// (apply) oraz ruch #fill i #now wzdłuż pięciu kroków osi.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  apply(t);
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>

@@ -39,6 +39,11 @@
       "plik": "finanse.html",
       "film": "finanse",
       "skrypty": ["assets/js/app.js", "assets/js/wejscie.js", "assets/js/analytics.js", "assets/js/clarity.js"]
+    },
+    {
+      "plik": "kadry-i-place.html",
+      "film": "kadry-i-place",
+      "skrypty": ["assets/js/app.js", "assets/js/wejscie.js", "assets/js/analytics.js", "assets/js/clarity.js"]
     }
   ]
 }

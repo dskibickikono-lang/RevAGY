@@ -16,4 +16,4 @@
 | T-031 | `T-031-etap-5-formularz-dostepnosc-testy.md` | Etap 5 po audycie kodu, PR #40 |
 | T-032 | zarezerwowany: Sprzedaż (PR #41) | Karta dojdzie z PR #41 |
 | T-033 | `T-033-kierunek-a-pilot-scena-integracja-systemow.md` | Pilot kierunku A, PR #38. W PR #38 i w commitach sprzed odświeżenia występuje jako T-031 |
-| T-034 | zarezerwowany: Kadry i płace (PR #39) | Karta dojdzie z PR #39 |
+| T-034 | `T-034-pakiet-kadry-i-place.md` | Pakiet kadry i płace, PR #39. W PR #39 i w commitach sprzed odświeżenia występuje jako T-028; decyzja o odnośniku w menu to D-049 (wcześniej D-046) |
