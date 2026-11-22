@@ -1,0 +1,8 @@
+{
+  "opis": "Progi Lighthouse dla podstron (tools/lighthouse.cjs, workflow .github/workflows/lighthouse.yml). Pomiar na buildzie z CI podawanym z lokalnego serwera z gzip, tryb telefonu z symulowanym łączem, mediana z kilku przebiegów. To nie jest pomiar produkcji. Próg niespełniony zatrzymuje zmianę.",
+  "wersja": "13.6.0",
+  "przebiegi": 3,
+  "strony": [
+    { "plik": "finanse.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } }
+  ]
+}
