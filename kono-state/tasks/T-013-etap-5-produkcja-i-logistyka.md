@@ -44,6 +44,25 @@ odnośnik. Wygląd i motyw strony głównej zostają bez zmian (D-015, D-021).
    - plik etapu z jednym wpisem `dodane`.
 6. `tools/dom-contract.json` bez zmian. Kontrakt policzy PM w rundzie 2.
 
+## Runda 1 — wynik CI (2026-11-22)
+
+- Astro zbudowało 9 stron. Walidator zgłosił wyłącznie błędy zapowiedziane przy niezmienionym kontrakcie:
+  nadmiarowy plik `produkcja-i-logistyka.html`, brak pliku kadru, inna suma `sitemap.xml`, niezgodność
+  `index.html`, `wdrozenia.html` i `dla-firm.html` z kontraktem. Pozostałe cztery kroki kontroli przeszły.
+- Strony `integracja-systemow.html` i `dane-i-bezpieczenstwo.html` wyszły bajtowo bez zmian, więc komponent
+  pytań nie zmienia stron, które nie używają odnośnika pod odpowiedzią.
+- Zbudowany `index.html` jest bajtowo równy przewidzianej migawce.
+
+## Runda 2 (2026-11-22)
+
+- Kadr `public/assets/video/produkcja-i-logistyka-kadr.jpg` z artefaktu `media-<sha>`: 136 992 B przy limicie
+  150 000 B, sha256 `03f230a9…a4ed`.
+- Kontrakt policzony z builda CI z dołożonym kadrem (`tools/update-contract.cjs`). Zmienione wpisy:
+  `index.html`, `wdrozenia.html`, `dla-firm.html`, `sitemap.xml`; nowe: `produkcja-i-logistyka.html` i kadr.
+  Pozostałe strony i pliki bez zmian.
+- Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 49 plików, 9/9 stron, testy narzędzi 70/70.
+- Przewidziany manifest wydania: `741f6956cac725f9facd4d5a93845cdd431d73f8de7560a66423f3a405e934f5`.
+
 ## Do uzupełnienia przez właściciela
 
 - `src/data/oferta.mjs`: `cenaPilota`, `skutekNieosiagnieciaKryterium`, `zastepstwoWPilocie`,
