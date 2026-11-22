@@ -1,0 +1,194 @@
+---
+// Etap 6 (T-014): „Porównanie rozwiązań”. Porównujemy kategorie rozwiązań, nie marki (D-033).
+// Strona bez miejsca na film ("film": null w tools/podstrony.json; etap 6 nie wymaga filmu). Pole właściciela:
+// src/data/poradniki.mjs; pytanie pokazuje się dopiero wtedy, gdy pole ma wartość.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import Pytania from '../components/Pytania.astro';
+import Autor from '../components/Autor.astro';
+import { maWartosc } from '../data/dowody.mjs';
+import { poradnik } from '../data/poradniki.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const dane = poradnik('porownanie-rozwiazan');
+
+const pytania = [
+  {
+    pytanie: 'Skąd mam wiedzieć, czy mój system ma interfejs API?',
+    odpowiedz: 'Z dokumentacji dostawcy albo od administratora. Jeśli nie wiesz, sprawdzimy to razem na konsultacji.',
+  },
+  {
+    pytanie: 'Czy połączenie przetrwa, gdy kiedyś wymienimy system?',
+    odpowiedz: 'Nie w tej samej postaci, bo jest zbudowane dla konkretnego systemu.',
+  },
+  ...(maWartosc(dane.odpowiedzAutomatEkranowy)
+    ? [{ pytanie: 'Czy budujecie automaty klikające po ekranie?', odpowiedz: dane.odpowiedzAutomatEkranowy }]
+    : []),
+  {
+    pytanie: 'Pracujemy w produkcji i logistyce. Czy to ta sama metoda?',
+    odpowiedz: 'Tak. Wejściem jest płatny pilot jednej linii albo jednej zmiany. Opisujemy go na stronie „Produkcja i logistyka”.',
+    odnosnik: { href: 'produkcja-i-logistyka.html', tekst: 'Produkcja i logistyka' },
+  },
+  {
+    pytanie: 'Ile kosztuje sprawdzenie, która droga pasuje?',
+    odpowiedz: 'Konsultacja jednego procesu trwa 25 minut i jest bezpłatna. Audyt procesu trwa 3–5 dni roboczych, kosztuje 1 990 zł i jest w całości wliczany we wdrożenie, z 14 dniami na rezygnację z pełnym zwrotem. Pakiety opisuje strona „Dla firm”, a przykłady połączeń strona „Wdrożenia”.',
+    odnosnik: { href: 'dla-firm.html', tekst: 'Dla firm' },
+  },
+];
+---
+<PodstronaLayout
+  plik="porownanie-rozwiazan.html"
+  tytul="Integracja, automat czy nowy system? Porównanie | REVAGY"
+  opis="Cztery sposoby na przepisywanie danych między systemami: kiedy każdy ma sens, gdzie się kończy, co robi po aktualizacji. Umów bezpłatną konsultację."
+  okruszek="Porównanie rozwiązań"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Integracja systemów i automatyzacja procesów',
+    opis: 'Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy, zamiast ręcznego przepisywania danych i wymiany systemów.',
+  }}
+  pytania={pytania}
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Jak skończyć z przepisywaniem danych? Cztery drogi i ich granice</h1>
+      <p class="lead">Dane, które ktoś przepisuje z jednego systemu do drugiego, można połączyć, oddać automatowi klikającemu po ekranie, przenieść do nowego systemu albo zostawić ludziom. Porównujemy te drogi bez nazw dostawców: kiedy każda ma sens, czego wymaga i gdzie przestaje działać.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#tabela">Zobacz tabelę porównawczą</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="odpowiedz">
+    <header class="section-head reveal">
+      <h2 class="h2">Którą drogę wybrać?</h2>
+      <p class="lead">Jeśli Twoje systemy mają interfejs API, eksport plików albo dostawca zgadza się na odczyt z bazy danych, zacznij od sprawdzenia połączenia systemów: nie zależy od wyglądu ekranów. Automat klikający po ekranie ma sens, gdy żadnego z tych wejść do danych nie ma. Nowy system ma sens, gdy obecny przestaje wystarczać także z innych powodów niż przepisywanie. Ludziom zostaw procesy rzadkie i takie, w których każdy przypadek wymaga oceny.</p>
+      <p>Zanim wybierzesz, policz stan wyjściowy: ile razy w tygodniu, ile minut, ile poprawek. Jak to zmierzyć: <a class="link-btn" href="jak-wybrac-pierwszy-proces.html">Jak wybrać pierwszy proces do automatyzacji</a>.</p>
+      <p>REVAGY to firma, która łączy systemy, na których firmy B2B już pracują, i automatyzuje powtarzalne procesy bez wymiany tych systemów.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="polaczenie">
+    <header class="section-head reveal">
+      <h2 class="h2">Droga 1. Połączenie istniejących systemów</h2>
+      <p class="lead">Systemy wymieniają dane same: przez interfejs API, wymianę plików albo odczyt z bazy danych za zgodą dostawcy. Zespół zostaje przy swoich narzędziach.</p>
+      <ul class="ticks">
+        <li><strong>Kiedy ma sens:</strong> oba systemy zostają na dłużej, a przepisywane pola da się wskazać po nazwie, na przykład dane umowy albo kwotę faktury.</li>
+        <li><strong>Warunek:</strong> jedno z trzech wejść do danych: interfejs API, stały format plików albo pisemna zgoda dostawcy na dostęp do bazy przy licencji, która na to pozwala. Do tego osoba po Twojej stronie, która nada dostępy i zatwierdza wyjątki.</li>
+        <li><strong>Gdzie się kończy:</strong> na programie bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Z bazy tylko czytamy, zapis idzie drogą wspieraną przez dostawcę. Pliki przenoszą dane przy kolejnym przebiegu, nie natychmiast.</li>
+        <li><strong>Po zmianie w systemie dostawcy:</strong> nowa wersja interfejsu API może wymagać dostosowania. Monitoring wykrywa zatrzymany przepływ, a czas naprawy wynika z umowy. Zmiana wyglądu ekranów nie ma wpływu.</li>
+      </ul>
+      <p>Szczegóły trzech dróg: <a class="link-btn" href="integracja-systemow.html">Systemy bez przepisywania danych</a>. Dostępy i dziennik zapisów: <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="automat">
+    <header class="section-head reveal">
+      <h2 class="h2">Droga 2. Automat klikający po ekranie</h2>
+      <p class="lead">Program powtarza ruchy człowieka: otwiera okno, kopiuje pole i wkleja je w drugim systemie.</p>
+      <ul class="ticks">
+        <li><strong>Kiedy ma sens:</strong> system nie ma interfejsu API ani eksportu, dostawca nie zgadza się na odczyt z bazy, a proces musi przestać zależeć od ręcznej pracy przed wymianą systemu. Zapisz datę przeglądu tego rozwiązania.</li>
+        <li><strong>Warunek:</strong> ekrany, które rzadko się zmieniają, osobne konto dla automatu, licencja, która na to pozwala, i ktoś, kto regularnie sprawdza wyniki.</li>
+        <li><strong>Gdzie się kończy:</strong> na sytuacjach, których automat nie zna: nowym oknie z komunikatem, nowym polu, wolniej ładującym się ekranie. Sensu danych nie sprawdza, chyba że ktoś dopisze mu kontrole.</li>
+        <li><strong>Po zmianie w systemie dostawcy:</strong> zmiana wyglądu może zatrzymać automat albo przesunąć dane do niewłaściwego pola. Drugi przypadek trudniej zauważyć, dlatego po aktualizacji warto sprawdzić wyniki automatu.</li>
+      </ul>
+    </header>
+  </section>
+
+  <section class="section wrap" id="nowy-system">
+    <header class="section-head reveal">
+      <h2 class="h2">Droga 3. Wymiana systemu na nowy</h2>
+      <p class="lead">Jeden nowy system przejmuje zadania kilku starych, więc część danych przestaje wędrować między programami.</p>
+      <ul class="ticks">
+        <li><strong>Kiedy ma sens:</strong> obecny system blokuje firmę także poza przepisywaniem: nie obsługuje nowych wymagań, dostawca kończy jego rozwój albo zmianę i tak planujesz.</li>
+        <li><strong>Warunek:</strong> budżet i czas zespołu na wybór, przeniesienie danych, testy i szkolenie. Decyzja zarządu, bo zmienia się praca wielu osób.</li>
+        <li><strong>Gdzie się kończy:</strong> na systemach, które zostają obok, na przykład księgowości. Z nimi nowy system też trzeba połączyć, inaczej przepisywanie przenosi się na jego styk z resztą.</li>
+        <li><strong>Po zmianie w systemie dostawcy:</strong> aktualizacje są po stronie dostawcy nowego systemu. Połączenia zbudowane wokół starego trzeba zbudować od nowa.</li>
+      </ul>
+      <p>Wymianę systemu doradzamy tylko wtedy, gdy obecny blokuje połączenie.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="ludzie">
+    <header class="section-head reveal">
+      <h2 class="h2">Droga 4. Przepisywanie zostaje u ludzi</h2>
+      <ul class="ticks">
+        <li><strong>Kiedy ma sens:</strong> proces zdarza się rzadko, każdy przypadek wymaga oceny, a reguł nie da się zapisać. Także wtedy, gdy system i tak ma zniknąć.</li>
+        <li><strong>Warunek:</strong> instrukcja, co skąd przepisać. Druga osoba sprawdza pola, które wpływają na pieniądze albo umowy: numer rachunku, stawkę, daty.</li>
+        <li><strong>Gdzie się kończy:</strong> na wzroście liczby spraw. Koszt rośnie razem z nimi, a błąd w jednym polu wychodzi później, przy wypłacie albo fakturze.</li>
+        <li><strong>Po zmianie w systemie dostawcy:</strong> człowiek sam zauważy nowe pole albo przesunięty przycisk, więc aktualizacja zwykle nie zatrzymuje pracy.</li>
+      </ul>
+    </header>
+  </section>
+
+  <section class="section wrap" id="tabela">
+    <header class="section-head reveal">
+      <h2 class="h2">Cztery drogi obok siebie</h2>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><td></td><th scope="col">Połączenie systemów</th><th scope="col">Automat klikający po ekranie</th><th scope="col">Nowy system</th><th scope="col">Przepisywanie przez ludzi</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Kiedy ma sens</th><td>Systemy zostają na dłużej</td><td>Brak innego wejścia do danych</td><td>Obecny system blokuje firmę także poza przepisywaniem</td><td>Rzadki proces, każdy przypadek wymaga oceny</td></tr>
+          <tr><th scope="row">Warunek</th><td>API, stały format plików albo zgoda dostawcy na odczyt bazy</td><td>Stabilne ekrany, licencja, która pozwala na automat</td><td>Budżet, przeniesienie danych, decyzja zarządu</td><td>Instrukcja i druga osoba do sprawdzenia</td></tr>
+          <tr><th scope="row">Kontrola danych</th><td>Kontrola pól przed zapisem i dziennik zapisów</td><td>Tylko kontrole, które ktoś dopisze</td><td>Kontrole w nowym systemie; styk z resztą bez zmian</td><td>Uwaga osoby, która wpisuje</td></tr>
+          <tr><th scope="row">Po aktualizacji u dostawcy</th><td>Monitoring wykrywa zatrzymany przepływ</td><td>Automat może stanąć albo wpisać dane w złe pole</td><td>Stare połączenia do zbudowania od nowa</td><td>Praca idzie dalej</td></tr>
+          <tr><th scope="row">Praca zespołu</th><td>Bez zmian narzędzi</td><td>Bez zmian narzędzi</td><td>Nowe narzędzie i szkolenie</td><td>Bez zmian</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section wrap" id="nie-dla-nas">
+    <header class="section-head reveal">
+      <h2 class="h2">Kiedy REVAGY nie jest właściwym wyborem</h2>
+      <p class="lead">W tych przypadkach odradzamy współpracę.</p>
+      <ul class="ticks">
+        <li><strong>Planujesz wymianę systemu, którego dotyczy przepisywanie.</strong> Połączenie zniknie razem z nim. Wróć do nas, gdy nowy system trzeba będzie połączyć z resztą.</li>
+        <li><strong>Proces zdarza się rzadko albo każdy przypadek wymaga decyzji człowieka.</strong> Jeśli suma minut w tygodniu jest mała, połączenie się nie zwróci.</li>
+        <li><strong>Program nie ma interfejsu API ani eksportu, a dostawca nie zgadza się na dostęp do danych.</strong> Wtedy żadna z naszych trzech dróg łączenia nie działa.</li>
+        <li><strong>Reguł procesu nikt nie potrafi opisać albo zmieniają się z tygodnia na tydzień.</strong> Automat utrwali bałagan. Najpierw ustalcie reguły w zespole.</li>
+      </ul>
+    </header>
+  </section>
+
+  <section class="section wrap" id="jak-zdecydowac">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak wybrać drogę dla swojego procesu</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Policz stan wyjściowy: ile razy w tygodniu, ile minut, ile poprawek.</li>
+      <li>Sprawdź w dokumentacji i licencji, czy systemy mają interfejs API albo eksport i czy dostawca pozwala korzystać z danych.</li>
+      <li>Sprawdź, czy któryś z tych systemów ma zaplanowaną wymianę.</li>
+      <li>Wybierz drogę z tabeli albo zostaw proces ludziom i zapisz, kiedy wrócisz do tej decyzji.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania</h2>
+      <p class="lead">Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Sprawdźmy, która droga pasuje do Twojego procesu</h2>
+        <p class="lead">W 25 minut sprawdzamy, czy Twój proces da się połączyć i którą drogą. Karta procesu zostaje u Ciebie, nawet jeśli wybierzesz inną drogę.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>

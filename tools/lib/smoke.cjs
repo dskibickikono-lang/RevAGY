@@ -91,6 +91,23 @@ function sprawdzMenuHref(hrefs, idsStronyGlownej) {
   return problemy;
 }
 
+/**
+ * Ocena obecności ramki filmu na podstronie według wpisu w tools/podstrony.json.
+ * @param {string|null|undefined} film pole "film" wpisu: nazwa miejsca na film albo null (strona bez filmu)
+ * @param {object|null} ramka wynik pomiaru ramki .film w przeglądarce albo null, gdy jej nie ma
+ * @returns {{ nazwa: string, ok: boolean, detail: string, dalej: boolean }} dalej: czy sprawdzać proporcje i stan ramki
+ */
+function ocenRamkeFilmu(film, ramka) {
+  if (film === null) {
+    return ramka
+      ? { nazwa: 'strona bez filmu ("film": null) nie ma ramki .film', ok: false, detail: 'jest .film', dalej: false }
+      : { nazwa: 'strona bez filmu ("film": null) nie ma ramki .film', ok: true, detail: '', dalej: false };
+  }
+  return ramka
+    ? { nazwa: 'jest ramka .film', ok: true, detail: '', dalej: true }
+    : { nazwa: 'jest ramka .film', ok: false, detail: 'brak .film', dalej: false };
+}
+
 const proporcje16x9 = (w, h, tol = 1) => Number.isFinite(w) && Number.isFinite(h) && w > 0 && Math.abs((w * 9) / 16 - h) <= tol;
 
 const nazwaZrzutu = (plik, szerokosc) => `${plik === '/' || plik === 'index.html' ? 'index' : plik.replace(/\.html$/, '')}-${szerokosc}.png`;
@@ -105,6 +122,7 @@ module.exports = {
   roznicaStylow,
   sprawdzMenuHref,
   proporcje16x9,
+  ocenRamkeFilmu,
   nazwaZrzutu,
   adresKanoniczny,
 };

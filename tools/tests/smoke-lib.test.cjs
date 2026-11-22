@@ -5,7 +5,7 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { tmp, zapisz, TOOLS } = require('./pomoc.cjs');
 const {
-  porownajWysokosci, roznicaStylow, sprawdzMenuHref, proporcje16x9, nazwaZrzutu, adresKanoniczny,
+  porownajWysokosci, roznicaStylow, sprawdzMenuHref, proporcje16x9, ocenRamkeFilmu, nazwaZrzutu, adresKanoniczny,
   zmierzWysokosciWPrzegladarce, zbierzStyleWPrzegladarce,
 } = require('../lib/smoke.cjs');
 const { wczytajPodstrony, wczytajGeometrie } = require('../lib/dane.cjs');
@@ -133,4 +133,16 @@ test('baza: kolejność źródeł REVAGY_BAZA_PLIK → git → index.baza.html �
   const logi2 = [];
   assert.equal(wczytajBaze({ repoRoot: repo, env: { GITHUB_BASE_REF: 'main' }, log: (m) => logi2.push(m) }).html, 'lokalna');
   assert.match(logi2[0], /git fetch origin main/);
+});
+
+test('film: ocena ramki dla strony z filmem i bez filmu ("film": null)', () => {
+  const ramka = { w: 1280, h: 720, film: false };
+  assert.deepEqual(ocenRamkeFilmu('integracja-systemow', ramka), { nazwa: 'jest ramka .film', ok: true, detail: '', dalej: true });
+  assert.deepEqual(ocenRamkeFilmu('integracja-systemow', null), { nazwa: 'jest ramka .film', ok: false, detail: 'brak .film', dalej: false });
+  const bez = ocenRamkeFilmu(null, null);
+  assert.equal(bez.ok, true);
+  assert.equal(bez.dalej, false);
+  const zbedna = ocenRamkeFilmu(null, ramka);
+  assert.equal(zbedna.ok, false);
+  assert.equal(zbedna.dalej, false);
 });

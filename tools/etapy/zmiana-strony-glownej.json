@@ -1,27 +1,14 @@
 {
-  "etap": "5",
-  "opis": "Etap 5, produkcja i logistyka: jeden odnośnik do nowej podstrony /produkcja-i-logistyka.html dopisany na końcu opisu kafla Enterprise w sekcji #pakiety. Różnica między tools/baseline/index.baza.html (migawka etapu 4) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
+  "etap": "6",
+  "opis": "Etap 6, poradniki (/porownanie-rozwiazan.html i /jak-wybrac-pierwszy-proces.html): strona główna bez zmian. tools/baseline/index.baza.html (migawka etapu 5) jest równa tools/baseline/index.html.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
-    "dodane": [
-      {
-        "znacznik": "a",
-        "klasa": "link-btn",
-        "href": "produkcja-i-logistyka.html",
-        "tekst": "Pilot dla produkcji i logistyki",
-        "razy": 1
-      }
-    ],
+    "dodane": [],
     "usuniete": []
   },
   "geometria": {
-    "sekcje": [
-      {
-        "selektor": "#pakiety",
-        "opis": "Odnośnik „Pilot dla produkcji i logistyki” wydłuża opis kafla Enterprise (.plan-for, min-height 3em); kafle w rzędzie mają wspólną wysokość, więc cały rząd pakietów może urosnąć."
-      }
-    ],
+    "sekcje": [],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
   }
 }

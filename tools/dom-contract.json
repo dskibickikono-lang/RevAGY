@@ -150,8 +150,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "f9e077b21608231259aeeacf166098e83b6f8697dcc75255f21c154c62e717a0",
-      "size": 826
+      "sha256": "5444572e65b14ec24da3e8536e4d8e0d17b31172104831c2098d9e7a78b0ebc0",
+      "size": 1026
     }
   },
   "htmlBaseline": {
@@ -164,16 +164,20 @@
       "size": 22790
     },
     "dla-firm.html": {
-      "sha256": "5c96236a786997ee18c2958a4e83441325089d9884610a430cf0a3eb53376c68",
-      "size": 23376
+      "sha256": "0e87bd3c608e49044465dd7ffff2c202923e935121c2999ec2b2c2401f69ea3b",
+      "size": 23490
     },
     "index.html": {
       "sha256": "1a02dd017075e3957b0905561484086c2c48a56453454b18884aa120bf0efff8",
       "size": 46438
     },
     "integracja-systemow.html": {
-      "sha256": "6703c8bb5a8a8724a44e2415a518b19981e845697d500b05502fe762ee046460",
-      "size": 24276
+      "sha256": "dec5c7ca97058f182a32df2949dad7ff0531bb882d161cd7c37fd61ef5d4d4ae",
+      "size": 24363
+    },
+    "jak-wybrac-pierwszy-proces.html": {
+      "sha256": "45441b77fc092c4976d07ac7afa264984af7b5db9aa1ec4f8247268aa4f987f3",
+      "size": 24247
     },
     "kontakt.html": {
       "sha256": "0c2c6138e62b425a3f432798813d47de53d70aa1766e493e0db6202bb518c573",
@@ -182,6 +186,10 @@
     "polityka-prywatnosci.html": {
       "sha256": "b946cc54885cfc7e2d3070a10a551a28f2e8b048f93c33054a036439a6e91424",
       "size": 7866
+    },
+    "porownanie-rozwiazan.html": {
+      "sha256": "09c50e41bcf8d77f273d318feb48a2a5a4670eacbb3f90e2a2d66c556d2dbf89",
+      "size": 23777
     },
     "produkcja-i-logistyka.html": {
       "sha256": "52a6586cf54a7fd528d7bcf3e186a19261fa9fc102de70a6bf20f9ab33194ae8",
@@ -3039,6 +3047,13 @@
           "text": "produkcja i logistyka"
         },
         {
+          "href": "jak-wybrac-pierwszy-proces.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wybrać pierwszy proces do automatyzacji"
+        },
+        {
           "href": "integracja-systemow.html",
           "class": "link-btn",
           "dataTrack": null,
@@ -3365,6 +3380,11 @@
           "tag": "a",
           "attr": "href",
           "val": "produkcja-i-logistyka.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "jak-wybrac-pierwszy-proces.html"
         },
         {
           "tag": "a",
@@ -7477,6 +7497,13 @@
           "text": "Zobacz, co dostaniesz po rozmowie"
         },
         {
+          "href": "porownanie-rozwiazan.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Porównanie rozwiązań"
+        },
+        {
           "href": "kontakt.html",
           "class": "btn btn-light btn-lg",
           "dataTrack": null,
@@ -7773,6 +7800,11 @@
         {
           "tag": "a",
           "attr": "href",
+          "val": "porownanie-rozwiazan.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
           "val": "kontakt.html"
         },
         {
@@ -7889,6 +7921,1526 @@
       "jsonLd": [
         {
           "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"name\":\"Integracja systemów bez przepisywania danych\",\"headline\":\"Integracja systemów firmy bez przepisywania danych | REVAGY\",\"description\":\"Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Integracja systemów bez przepisywania danych\",\"item\":\"https://revagy.pl/integracja-systemow.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\",\"name\":\"Integracja systemów bez przepisywania danych\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.\",\"serviceType\":\"Integracja systemów\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać któryś system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz system nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Co się stanie, gdy dostawca zaktualizuje system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy już łączyliście?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy jesteście partnerem dostawców tych systemów?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Pracujemy na dokumentacji i dostępach klienta.\"}},{\"@type\":\"Question\",\"name\":\"Czy integracja korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.\"}},{\"@type\":\"Question\",\"name\":\"Mamy ERP i system magazynowy. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "jak-wybrac-pierwszy-proces.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Jak wybrać pierwszy proces do automatyzacji | REVAGY",
+      "canonical": "https://revagy.pl/jak-wybrac-pierwszy-proces.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Kryteria wyboru pierwszego procesu, pomiar stanu wyjściowego przed startem i co przygotować. Umów bezpłatną konsultację jednego procesu."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/jak-wybrac-pierwszy-proces.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Jak wybrać pierwszy proces do automatyzacji | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Kryteria wyboru pierwszego procesu, pomiar stanu wyjściowego przed startem i co przygotować. Umów bezpłatną konsultację jednego procesu."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/jak-wybrac-pierwszy-proces.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=1",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=1",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "odpowiedz",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kryteria",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pomiar",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "rachunek",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "czego-nie-brac",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "przyklady",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "przygotowanie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "karta",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "dalej",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "odpowiedz",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kryteria",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pomiar",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "rachunek",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "czego-nie-brac",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "przyklady",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "przygotowanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "karta",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "dalej",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Jak wybrać pierwszy proces do automatyzacji"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Który proces wziąć na początek?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Kryteria wyboru pierwszego procesu"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak zmierzyć stan wyjściowy przed startem"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Przykład: jak zamienić pomiar na liczbę"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Czego nie brać na początek"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Przykłady dobrych kandydatów"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Umowy z systemu HR do kadr i płac"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Zamówienia z e-maili i plików PDF do systemu ERP"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Raport tygodniowy sklejany z kilku eksportów"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co przygotować na konsultację"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co dostajesz po konsultacji"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co dzieje się po karcie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Mam kilku kandydatów. Którego wybrać?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy pomiar jest warunkiem konsultacji?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy jeden proces to nie za mało?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Pracujemy w produkcji albo w magazynie. Co wtedy?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile kosztuje wdrożenie?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Masz kandydata? Sprawdźmy go razem"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#kryteria",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprawdź kryteria"
+        },
+        {
+          "href": "porownanie-rozwiazan.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "porównania czterech dróg"
+        },
+        {
+          "href": "integracja-systemow.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Systemy bez przepisywania danych"
+        },
+        {
+          "href": "wdrozenia.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Wdrożenia"
+        },
+        {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dane i bezpieczeństwo"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Produkcja i logistyka"
+        },
+        {
+          "href": "dla-firm.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla firm"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=1"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#kryteria"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "porownanie-rozwiazan.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "integracja-systemow.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "wdrozenia.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dla-firm.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=1"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=4"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#strona\",\"url\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\",\"name\":\"Jak wybrać pierwszy proces\",\"headline\":\"Jak wybrać pierwszy proces do automatyzacji | REVAGY\",\"description\":\"Kryteria wyboru pierwszego procesu, pomiar stanu wyjściowego przed startem i co przygotować. Umów bezpłatną konsultację jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Jak wybrać pierwszy proces\",\"item\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#usluga\",\"name\":\"Konsultacja jednego procesu\",\"description\":\"Bezpłatna konsultacja jednego procesu, 25 minut. Po niej jednostronicowa karta procesu z metryką bazową, możliwą drogą łączenia i zakresem pierwszego kroku, która zostaje u klienta.\",\"url\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Mam kilku kandydatów. Którego wybrać?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Odrzuć te, które nie spełniają kryterium dostępu do danych. Z pozostałych weź ten, który kosztuje najwięcej godzin tygodniowo i ma najmniej wyjątków. Resztę zapisz na listę na później.\"}},{\"@type\":\"Question\",\"name\":\"Czy pomiar jest warunkiem konsultacji?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie.\"}},{\"@type\":\"Question\",\"name\":\"Czy jeden proces to nie za mało?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwszy krok ma pokazać wynik w liczbach na jednym procesie. Kolejne dokładamy tą samą metodą.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo w magazynie. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Kryteria są te same. Wejściem jest płatny pilot jednej linii albo jednej zmiany z kryterium sukcesu ustalonym przed startem. Opisujemy go na stronie „Produkcja i logistyka”.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna, a audyt kosztuje 1 990 zł i jest wliczany we wdrożenie. Pakiety są na stronie „Dla firm”.\"}}]}]}",
           "attrs": [
             "type"
           ]
@@ -8569,6 +10121,1444 @@
         }
       ],
       "jsonLd": []
+    },
+    "porownanie-rozwiazan.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Integracja, automat czy nowy system? Porównanie | REVAGY",
+      "canonical": "https://revagy.pl/porownanie-rozwiazan.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Cztery sposoby na przepisywanie danych między systemami: kiedy każdy ma sens, gdzie się kończy, co robi po aktualizacji. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/porownanie-rozwiazan.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Integracja, automat czy nowy system? Porównanie | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Cztery sposoby na przepisywanie danych między systemami: kiedy każdy ma sens, gdzie się kończy, co robi po aktualizacji. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/porownanie-rozwiazan.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=1",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=1",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "odpowiedz",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "polaczenie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "automat",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "nowy-system",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "ludzie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "tabela",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "nie-dla-nas",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "jak-zdecydowac",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "odpowiedz",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "polaczenie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "automat",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "nowy-system",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "ludzie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "tabela",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "nie-dla-nas",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "jak-zdecydowac",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Jak skończyć z przepisywaniem danych? Cztery drogi i ich granice"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Którą drogę wybrać?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Droga 1. Połączenie istniejących systemów"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Droga 2. Automat klikający po ekranie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Droga 3. Wymiana systemu na nowy"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Droga 4. Przepisywanie zostaje u ludzi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Cztery drogi obok siebie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Kiedy REVAGY nie jest właściwym wyborem"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak wybrać drogę dla swojego procesu"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Skąd mam wiedzieć, czy mój system ma interfejs API?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy połączenie przetrwa, gdy kiedyś wymienimy system?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Pracujemy w produkcji i logistyce. Czy to ta sama metoda?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile kosztuje sprawdzenie, która droga pasuje?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Sprawdźmy, która droga pasuje do Twojego procesu"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#tabela",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz tabelę porównawczą"
+        },
+        {
+          "href": "jak-wybrac-pierwszy-proces.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wybrać pierwszy proces do automatyzacji"
+        },
+        {
+          "href": "integracja-systemow.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Systemy bez przepisywania danych"
+        },
+        {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dane i bezpieczeństwo"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Produkcja i logistyka"
+        },
+        {
+          "href": "dla-firm.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla firm"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=1"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#tabela"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "jak-wybrac-pierwszy-proces.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "integracja-systemow.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dla-firm.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=1"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=4"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#strona\",\"url\":\"https://revagy.pl/porownanie-rozwiazan.html\",\"name\":\"Porównanie rozwiązań\",\"headline\":\"Integracja, automat czy nowy system? Porównanie | REVAGY\",\"description\":\"Cztery sposoby na przepisywanie danych między systemami: kiedy każdy ma sens, gdzie się kończy, co robi po aktualizacji. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Porównanie rozwiązań\",\"item\":\"https://revagy.pl/porownanie-rozwiazan.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#usluga\",\"name\":\"Integracja systemów i automatyzacja procesów\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy, zamiast ręcznego przepisywania danych i wymiany systemów.\",\"url\":\"https://revagy.pl/porownanie-rozwiazan.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/porownanie-rozwiazan.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Skąd mam wiedzieć, czy mój system ma interfejs API?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z dokumentacji dostawcy albo od administratora. Jeśli nie wiesz, sprawdzimy to razem na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy połączenie przetrwa, gdy kiedyś wymienimy system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie w tej samej postaci, bo jest zbudowane dla konkretnego systemu.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji i logistyce. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak. Wejściem jest płatny pilot jednej linii albo jednej zmiany. Opisujemy go na stronie „Produkcja i logistyka”.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje sprawdzenie, która droga pasuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jednego procesu trwa 25 minut i jest bezpłatna. Audyt procesu trwa 3–5 dni roboczych, kosztuje 1 990 zł i jest w całości wliczany we wdrożenie, z 14 dniami na rezygnację z pełnym zwrotem. Pakiety opisuje strona „Dla firm”, a przykłady połączeń strona „Wdrożenia”.\"}}]}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
     },
     "produkcja-i-logistyka.html": {
       "doctype": "html",

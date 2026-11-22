@@ -30,7 +30,7 @@ const { wczytajBaze } = require('./lib/baza.cjs');
 const { wczytajPodstrony, wczytajGeometrie } = require('./lib/dane.cjs');
 const {
   zmierzWysokosciWPrzegladarce, porownajWysokosci, zbierzStyleWPrzegladarce, roznicaStylow,
-  sprawdzMenuHref, proporcje16x9, nazwaZrzutu, adresKanoniczny,
+  sprawdzMenuHref, proporcje16x9, ocenRamkeFilmu, nazwaZrzutu, adresKanoniczny,
 } = require('./lib/smoke.cjs');
 
 const args = process.argv.slice(2);
@@ -793,8 +793,10 @@ if (require.main === module) (async () => {
             const r = f.getBoundingClientRect();
             return { w: r.width, h: r.height, film: Boolean(f.querySelector('video[data-main-video]')) };
           });
-          if (!ramka) {
-            check(`${p} (${szer}): jest ramka .film`, false, 'brak .film');
+          // "film": null w tools/podstrony.json: strona bez filmu, ramki ma nie być (bez dalszych sprawdzeń filmu).
+          const ocenaRamki = ocenRamkeFilmu(strona.film, ramka);
+          if (!ocenaRamki.dalej) {
+            check(`${p} (${szer}): ${ocenaRamki.nazwa}`, ocenaRamki.ok, ocenaRamki.detail);
           } else {
             check(`${p} (${szer}): ramka .film ma proporcje 16:9 (±1 px)`, proporcje16x9(ramka.w, ramka.h), `${ramka.w}×${ramka.h}`);
             await scrollTo(page, '.film');

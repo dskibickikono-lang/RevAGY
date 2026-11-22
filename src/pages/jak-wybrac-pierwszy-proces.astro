@@ -1,0 +1,214 @@
+---
+// Etap 6 (T-014): „Jak wybrać pierwszy proces do automatyzacji”, bez nazw własnych systemów (D-033).
+// Strona bez miejsca na film ("film": null w tools/podstrony.json; etap 6 nie wymaga filmu) i bez pól właściciela.
+// Liczby w sekcji „rachunek” są poglądowe i tak opisane w tekście.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import Pytania from '../components/Pytania.astro';
+import Autor from '../components/Autor.astro';
+
+const aktualizacja = '2026-11-21';
+
+const pytania = [
+  {
+    pytanie: 'Mam kilku kandydatów. Którego wybrać?',
+    odpowiedz: 'Odrzuć te, które nie spełniają kryterium dostępu do danych. Z pozostałych weź ten, który kosztuje najwięcej godzin tygodniowo i ma najmniej wyjątków. Resztę zapisz na listę na później.',
+  },
+  {
+    pytanie: 'Czy pomiar jest warunkiem konsultacji?',
+    odpowiedz: 'Nie.',
+  },
+  {
+    pytanie: 'Czy jeden proces to nie za mało?',
+    odpowiedz: 'Pierwszy krok ma pokazać wynik w liczbach na jednym procesie. Kolejne dokładamy tą samą metodą.',
+  },
+  {
+    pytanie: 'Pracujemy w produkcji albo w magazynie. Co wtedy?',
+    odpowiedz: 'Kryteria są te same. Wejściem jest płatny pilot jednej linii albo jednej zmiany z kryterium sukcesu ustalonym przed startem. Opisujemy go na stronie „Produkcja i logistyka”.',
+    odnosnik: { href: 'produkcja-i-logistyka.html', tekst: 'Produkcja i logistyka' },
+  },
+  {
+    pytanie: 'Ile kosztuje wdrożenie?',
+    odpowiedz: 'Konsultacja jest bezpłatna, a audyt kosztuje 1 990 zł i jest wliczany we wdrożenie. Pakiety są na stronie „Dla firm”.',
+    odnosnik: { href: 'dla-firm.html', tekst: 'Dla firm' },
+  },
+];
+---
+<PodstronaLayout
+  plik="jak-wybrac-pierwszy-proces.html"
+  tytul="Jak wybrać pierwszy proces do automatyzacji | REVAGY"
+  opis="Kryteria wyboru pierwszego procesu, pomiar stanu wyjściowego przed startem i co przygotować. Umów bezpłatną konsultację jednego procesu."
+  okruszek="Jak wybrać pierwszy proces"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Konsultacja jednego procesu',
+    opis: 'Bezpłatna konsultacja jednego procesu, 25 minut. Po niej jednostronicowa karta procesu z metryką bazową, możliwą drogą łączenia i zakresem pierwszego kroku, która zostaje u klienta.',
+  }}
+  pytania={pytania}
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Jak wybrać pierwszy proces do automatyzacji</h1>
+      <p class="lead">Pierwszy proces decyduje, czy automatyzacja obroni się w liczbach. Ten tekst pomaga go wybrać, zmierzyć jego dzisiejszy koszt i przygotować się do konsultacji.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#kryteria">Sprawdź kryteria</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="odpowiedz">
+    <header class="section-head reveal">
+      <h2 class="h2">Który proces wziąć na początek?</h2>
+      <p class="lead">Weź proces, który za każdym razem przebiega tak samo, zdarza się co tydzień, ma reguły, które da się zapisać, korzysta z danych w systemach, do których możesz dać dostęp, i którego dzisiejszy koszt potrafisz policzyć. Takim procesem bywa przepisywanie tych samych danych z jednego systemu do drugiego.</p>
+      <p>Nie zaczynaj od procesu, który boli najbardziej, jeśli jest rzadki albo pełen wyjątków. Pierwszy krok ma dać wynik, który da się zmierzyć i pokazać zespołowi.</p>
+      <p>Jeśli nie wiesz jeszcze, czy proces połączyć, oddać automatowi czy zostawić ludziom, zacznij od <a class="link-btn" href="porownanie-rozwiazan.html">porównania czterech dróg</a>.</p>
+      <p>REVAGY to firma, która łączy systemy, na których firmy B2B już pracują, i automatyzuje powtarzalne procesy bez wymiany tych systemów.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="kryteria">
+    <header class="section-head reveal">
+      <h2 class="h2">Kryteria wyboru pierwszego procesu</h2>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Kryterium</th><th scope="col">Pytanie kontrolne</th><th scope="col">Proces się nadaje, gdy…</th><th scope="col">Uwaga, gdy…</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Powtarzalność</td><td>Czy każdy przypadek przechodzi te same kroki?</td><td>Kroki i pola są za każdym razem te same</td><td>Duża część przypadków kończy się telefonem albo wyjątkiem</td></tr>
+          <tr><td>Częstość</td><td>Ile razy w tygodniu się zdarza?</td><td>Zdarza się co tydzień, najlepiej codziennie</td><td>Zdarza się raz w miesiącu albo rzadziej</td></tr>
+          <tr><td>Opisane reguły</td><td>Czy nowa osoba zrobi to z instrukcji?</td><td>Wiadomo, skąd brać dane, gdzie je wpisać i kiedy coś jest błędem</td><td>Decyzja zależy od doświadczenia jednej osoby</td></tr>
+          <tr><td>Dostęp do danych</td><td>Gdzie są dane i kto nada dostęp?</td><td>Dane są w systemie z interfejsem API, z eksportem albo w plikach o stałym układzie</td><td>Dane są na papierze, w prywatnych skrzynkach albo w programie bez eksportu</td></tr>
+          <tr><td>Policzalny stan wyjściowy</td><td>Czy wiesz, ile to dziś kosztuje?</td><td>Da się policzyć przypadki, minuty i poprawki</td><td>Nikt nie wie, ile tego jest, i nie da się tego sprawdzić</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal">Jeśli proces nie spełnia jednego kryterium, zapisz którego, i weź tę informację na konsultację. Brak dostępu do danych rozstrzyga się z administratorem albo dostawcą systemu. Brak reguł to praca dla Twojego zespołu, zanim cokolwiek zautomatyzujesz.</p>
+  </section>
+
+  <section class="section wrap" id="pomiar">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak zmierzyć stan wyjściowy przed startem</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Przez zwykły tydzień pracy zapisuj każdy przypadek procesu w prostej tabeli: data, kto go wykonał, ile minut zajął.</li>
+      <li>Licz minuty od otwarcia pierwszego systemu do zapisu w ostatnim, razem z szukaniem danych i dopytywaniem.</li>
+      <li>Policz poprawki: ile przypadków wróciło, bo w polu był błąd, i kto ten błąd znalazł.</li>
+      <li>Zapisz, gdzie błąd wychodzi na jaw: przy wypłacie, przy fakturze czy u klienta.</li>
+      <li>Odłóż kilka typowych przypadków z zakrytymi danymi osobowymi, żeby pokazać je na konsultacji.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap" id="rachunek">
+    <header class="section-head reveal">
+      <h2 class="h2">Przykład: jak zamienić pomiar na liczbę</h2>
+      <p class="lead">Liczby w tym przykładzie są poglądowe. Jeśli proces zajmuje 20 minut i zdarza się 30 razy w tygodniu, kosztuje 600 minut, czyli 10 godzin tygodniowo. Jeśli 3 z tych 30 przypadków wracają do poprawki, a każda poprawka zajmuje kolejne 15 minut, dochodzi 45 minut tygodniowo. Do tego dochodzi ryzyko, że błąd wyjdzie dopiero u klienta albo przy wypłacie.</p>
+      <p>Godziny tygodniowo i liczba poprawek to metryka bazowa. Po wdrożeniu zmierz je tak samo, tą samą tabelą i w porównywalnym tygodniu. Tylko wtedy porównanie jest uczciwe.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="czego-nie-brac">
+    <header class="section-head reveal">
+      <h2 class="h2">Czego nie brać na początek</h2>
+      <ul class="ticks">
+        <li><strong>Procesu, który właśnie się zmienia.</strong> Jeśli zespół ustala nowe zasady albo wymieniasz system, poczekaj, aż sytuacja się ustabilizuje.</li>
+        <li><strong>Procesu z wieloma wyjątkami.</strong> Jeśli większość przypadków wymaga decyzji człowieka, automat przejmie niewiele, a zespół dostanie dodatkową rzecz do pilnowania.</li>
+        <li><strong>Procesu, który dotyka wszystkich działów naraz.</strong> Pierwszy krok potrzebuje jednego właściciela po Twojej stronie, który zatwierdza wyjątki.</li>
+        <li><strong>Procesu rzadkiego, nawet jeśli bolesnego.</strong> Zamknięcie roku boli raz w roku. Przepisywanie zamówień boli codziennie.</li>
+        <li><strong>Procesu, którego nie da się zmierzyć.</strong> Bez stanu wyjściowego nie obronisz decyzji o kolejnym kroku.</li>
+        <li><strong>Procesu w programie bez eksportu, którego dostawca nie zgadza się na dostęp do danych.</strong> Takiego procesu nie połączymy.</li>
+      </ul>
+    </header>
+  </section>
+
+  <section class="section wrap" id="przyklady">
+    <header class="section-head reveal">
+      <h2 class="h2">Przykłady dobrych kandydatów</h2>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Umowy z systemu HR do kadr i płac</h3>
+        <p>Dane pracownika są wpisywane dwa razy. Pola są znane, reguły jasne, a błąd w numerze rachunku albo stawce wychodzi przy wypłacie.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Zamówienia z e-maili i plików PDF do systemu ERP</h3>
+        <p>Każde zamówienie ma te same pola: klient, pozycje, ilości, termin. Proces jest częsty i łatwo go policzyć.</p>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Raport tygodniowy sklejany z kilku eksportów</h3>
+        <p>Co tydzień ta sama praca i ten sam układ. Po połączeniu źródeł widać też, gdzie systemy pokazują różne liczby.</p>
+      </article>
+    </div>
+    <p class="lead uwaga reveal">Jak takie połączenia wyglądają w praktyce, pokazujemy na stronach <a class="link-btn" href="integracja-systemow.html">Systemy bez przepisywania danych</a> i <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
+  </section>
+
+  <section class="section wrap" id="przygotowanie">
+    <header class="section-head reveal">
+      <h2 class="h2">Co przygotować na konsultację</h2>
+      <p class="lead">Konsultacja trwa 25 minut i dotyczy jednego procesu. Im więcej z tej listy przyniesiesz, tym konkretniejsza będzie karta procesu.</p>
+      <ul class="ticks">
+        <li>Nazwę procesu i osobę, która go dziś wykonuje. Najlepiej, jeśli ta osoba jest na rozmowie.</li>
+        <li>Wynik pomiaru: przypadki w tygodniu, minuty na przypadek, liczbę poprawek.</li>
+        <li>Listę systemów, między którymi dane są przepisywane, z kategorią (na przykład system HR, program kadrowo-płacowy, system ERP) i informacją, kto jest ich administratorem.</li>
+        <li>Jeśli wiesz: czy systemy mają interfejs API albo eksport plików i co o dostępie mówi licencja.</li>
+        <li>Informację, czy któryś z systemów ma zaplanowaną wymianę.</li>
+        <li>Jeden przykładowy przypadek: dokument, z którego dane są przepisywane, i ekran, na który trafiają.</li>
+      </ul>
+      <p>Na konsultację wystarczy przykład z zakrytymi danymi. Jak pracujemy z dostępami i danymi: <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="karta">
+    <header class="section-head reveal">
+      <h2 class="h2">Co dostajesz po konsultacji</h2>
+      <p class="lead">Jednostronicową kartę procesu. Zostaje u Ciebie, także gdy nie zdecydujesz się na dalszą pracę. Na karcie są:</p>
+      <ul class="ticks">
+        <li>opis procesu;</li>
+        <li>miejsce, w którym dane są dziś przepisywane;</li>
+        <li>metryka bazowa: ile razy w tygodniu, ile minut, ile poprawek;</li>
+        <li>możliwa droga łączenia: interfejs API, wymiana plików albo dostęp do bazy danych za zgodą dostawcy;</li>
+        <li>zakres pierwszego kroku.</li>
+      </ul>
+      <p>Jeśli żadna droga łączenia nie jest możliwa, mówimy to na konsultacji.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="dalej">
+    <header class="section-head reveal">
+      <h2 class="h2">Co dzieje się po karcie</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu trwa 25 minut i kończy się kartą procesu.</li>
+      <li>Audyt procesu trwa 3–5 dni roboczych, kosztuje 1 990 zł, jest w całości wliczany we wdrożenie i daje 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do systemów.</li>
+      <li>Monitoring i czas reakcji po wdrożeniu zapisujemy w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania</h2>
+      <p class="lead">Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Masz kandydata? Sprawdźmy go razem</h2>
+        <p class="lead">Przynieś jeden proces i wynik pomiaru. Po 25 minutach masz kartę procesu, która zostaje u Ciebie.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
