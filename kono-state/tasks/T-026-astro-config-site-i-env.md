@@ -10,7 +10,7 @@ branch: skibiai/magical-mccarthy-unmqyo
 base: main (5bac11d, scalony do gałęzi bez rebase)
 depends_on: T-025 (audyt kodu)
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/35 (ten sam PR co raport audytu)
-sha: (uzupełniane po commicie)
+sha: b23ae9202ebf806cc2e4fc38e0b39eb525d5ff83 (kod; kolejny commit zmienia tylko kartę)
 decisions: [D-015, D-021]
 ---
 
