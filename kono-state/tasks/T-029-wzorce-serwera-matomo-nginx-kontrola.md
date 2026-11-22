@@ -35,8 +35,10 @@ D-02, D-03, D-04, D-06, D-12, D-13, D-17. Repo dostaje wzorce i testy. **Na serw
 
 1. Vhost: `deploy/nginx/revagy.pl.conf` → `/etc/nginx/sites-available/`, `nginx -t`, `systemctl reload nginx`.
    Kontrola: `https://stats.revagy.pl/` → 401, `/matomo.js` → 200. Opis i rollback: `deploy/nginx/README.md`.
+   **Zgoda właściciela (22.11.2026):** Zgoda na wdrożenie przy najbliższym deployu pod dwoma warunkami: 1) najpierw backup obecnego pliku, 2) weryfikacja, że plik `.htpasswd` dla `stats.revagy.pl` istnieje i ma poprawne uprawnienia przed `nginx -t` i `reload`.
 2. Kopia Matomo: instalacja skryptu i wpisu cron, pierwsze uruchomienie, próba odtworzenia, kopia poza serwer
    (`deploy/matomo/README.md`). Wynik próby (liczba wizyt, data ostatniej) do tej karty.
+   **Zgoda właściciela (22.11.2026):** Zgoda na instalację skryptu w `/usr/local/bin/` i dodanie crona podczas wdrożenia, pod warunkiem jednokrotnego ręcznego uruchomienia testowego po instalacji i potwierdzenia niezerowego rozmiaru pliku `.sql.gz`.
 
 ## Czego nie sprawdziłem
 
@@ -55,3 +57,7 @@ D-02, D-03, D-04, D-06, D-12, D-13, D-17. Repo dostaje wzorce i testy. **Na serw
 | `npm run check:prod` | 0 | 33 sprawdzenia, nagłówki produkcji zgodne z repo (odczyt 22.11.2026) |
 | `npm run test:tools` | 0 | 114 z 114 |
 | pozostałe | 0 | jak w T-030 |
+
+## Stan
+
+Wszystkie zgody na kroki serwerowe udzielone przez właściciela 22.11.2026 z warunkami bezpieczeństwa. PR #40 scalony do main (commit 7b6fc4c). Karta zamknięta.

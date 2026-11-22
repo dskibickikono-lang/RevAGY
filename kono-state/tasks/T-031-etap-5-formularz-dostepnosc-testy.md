@@ -36,12 +36,14 @@ Znaleziska z `kono-state/notes/audyt-kodu.md`: S-03, S-08, S-11, T-02, T-04.
 2. **Nowy tekst formularza** przy niezaładowanej ochronie przed spamem (cytat wyżej): zaakceptowany przez właściciela 22.11.2026 („akceptuję tekst formularza”).
 3. **Film pulpitu** (sekcja „Możliwości”) dalej gra w pętli bez przycisku: D-046 mówi o hero, więc go nie ruszałem.
    WCAG 2.2.2 pozostaje dla niego niespełnione.
+   **Decyzja właściciela (22.11.2026):** Zaplanować w osobnym zadaniu (niski priorytet), aby docelowo zamknąć temat WCAG na czysto dla audytów klientów enterprise/B2B; nie blokuje zamknięcia T-031.
 
 ## Nowe ustalenie
 
 Lighthouse dla strony głównej (telefon, symulowane wolne łącze): **wydajność 73–75** (przebiegi 72–82), przy 100 dla
 pozostałych trzech stron. LCP 4,1 s, czas blokowania 560 ms, FCP 0,9 s, CLS 0. Próg ustawiłem na 65, żeby pomiar
 pilnował regresji, a nie blokował dzisiejszego stanu. Poprawa to osobne zadanie (do planu).
+**Decyzja właściciela (22.11.2026):** Zatwierdzono próg 65 w CI jako tymczasowy bezpiecznik oraz wpisanie optymalizacji strony głównej (LCP/TBT) do rejestru planów z wysokim priorytetem. Karta T-031 zamknięta.
 
 ## Wyniki testów (Linux, Node 22.23.5, konfiguracja jak w CI)
 
@@ -57,3 +59,7 @@ Uwaga: testy przeglądarkowe na Chromium build 1243 zamiast przypiętego 1255; p
 | `npm run test:deploy` | 0 | 16 z 16 |
 | `npm run test:lighthouse` | 0 | główna 75 / 97 / 100; kontakt 100 / 100 / 100; integracja 100 / 96 / 100; finanse 100 / 96 / 100 |
 | `npm run test:nginx`, `npm run test:kopia` | 0 | 28 z 28, 9 z 9 |
+
+## Stan
+
+Wszystkie kwestie zaakceptowane przez właściciela 22.11.2026. PR #40 scalony do main (commit 7b6fc4c). Karta zamknięta.

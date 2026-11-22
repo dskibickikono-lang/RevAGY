@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
-      "size": 2192
+      "sha256": "54fcaa9c998b8a6292bb7a94e54f22a13047255352dfd60abd3cf8423c184cc0",
+      "size": 3910
     },
     "assets/css/styles.css": {
       "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
@@ -177,6 +177,10 @@
       "sha256": "77f742aca837f6dccd64c1689af6667fbf81f3baadededf7d6e5c0e6d6cee084",
       "size": 291247
     },
+    "assets/video/kadry-i-place-kadr.jpg": {
+      "sha256": "f8fb4716a84e051cd247f95f8f19a6fa9c4c34f5b13a50674936ede95ef39911",
+      "size": 125561
+    },
     "assets/video/produkcja-i-logistyka.jpg": {
       "sha256": "29ae14d3a78c022ce9eb63f6565b35a144a10035d17789c90fd0a6d1af45a6f1",
       "size": 137073
@@ -188,6 +192,10 @@
     "assets/video/produkcja-i-logistyka.webm": {
       "sha256": "be533473fb011aec9e45c9411d4cdccd798d96c9982dbdfa958cf938e79e1053",
       "size": 350175
+    },
+    "assets/video/sprzedaz-kadr.jpg": {
+      "sha256": "3022d0418894de09d106181acf9610cbf3054d13ecb9d55489bd02666c4eadf7",
+      "size": 128511
     },
     "assets/video/wdrozenia.jpg": {
       "sha256": "3118c474c2eccbbe05e9a595c65eb4fdb9aec2bfb9b97ecc48e3396f7ec5ab19",
@@ -214,8 +222,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "77167d615a37aa477e4a94ee8981c26d24281db644c92d5e7baf4e2a6a87461a",
-      "size": 1110
+      "sha256": "725b98d1fc5b4031d0b60e496587c7feff54db6ca556b9d7b2542babb732f187",
+      "size": 1285
     }
   },
   "htmlBaseline": {
@@ -224,28 +232,32 @@
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "fcd102f3e7cfbc9ae40ea9f1c67678ee4d2266153bd360de17e8aa00f1a7c215",
-      "size": 24250
+      "sha256": "f0210c88362f7f59755aae7f94c1cb9dc666ba49e0cdc833e4d0d7ca66898089",
+      "size": 24419
     },
     "dla-firm.html": {
-      "sha256": "1a070e73f086c6758691a86c1a8fe62ad89183880dd866b2c1bfd34ba8eec95e",
-      "size": 24829
+      "sha256": "b5f7999ff6ea23fa93cbac130ffed8cc46fe1002a5120b353b62c8625d53d062",
+      "size": 24998
     },
     "finanse.html": {
-      "sha256": "88af85ad3a409de3f1673aacf196912cbbb71f26414b291f1ca2a0a4fb0e24a5",
-      "size": 25143
+      "sha256": "a6f8e49079c15cc9fe41fd9b88c33c0dabd7dc7dd7ad0e212d77f17d1654f500",
+      "size": 25312
     },
     "index.html": {
-      "sha256": "c7ca153d4474b37b3e8464de8d55088ba20115f1781a1a9715677f21df1f54be",
-      "size": 47131
+      "sha256": "d558e2fcaf976ebaa915134ccd44de2f57e2e9381607aecb3263948fe2963c7a",
+      "size": 47304
     },
     "integracja-systemow.html": {
-      "sha256": "becdf2086416bf88a1fee82ca81a3ff44b4dbcc5a26a606a574dc2fb6d9a6443",
-      "size": 25793
+      "sha256": "6e6963344a639f124248313f69437dc1c2aea7712815e5cc26b2e5984929c336",
+      "size": 26448
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "e104d8978c6983e1194c95eea5f555f94991344f8bcdb672bc1cf2f24c41ea2f",
-      "size": 24403
+      "sha256": "900d244fe5878021190bb6f3f41c460f59e15347614aa9a9ff6c11cf6efd5919",
+      "size": 24572
+    },
+    "kadry-i-place.html": {
+      "sha256": "46b55272cb463a41e526a1835914a7381e2b841c6f084944b100f4ff3f2adab2",
+      "size": 26191
     },
     "kontakt.html": {
       "sha256": "cfc1f1176c0c8fbd14df54d667ce348075f868e4271d703d7cef4d2e36aa649b",
@@ -256,16 +268,20 @@
       "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "ccdb27a6e7f41de5ef5aadfe143132934f95cc00f10b380616994479d161d87f",
-      "size": 23933
+      "sha256": "49b0d72da95bb8c3041284026a59e0476897374b93d5c73b20c6f57b2f6c6235",
+      "size": 24102
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "4e32e8ea65538d67d65171ff926611d2bf9a30213c83107add02df0bdfca625d",
-      "size": 24795
+      "sha256": "09dfe00388cf2809d5fe01a50221f138cb502379486f531ecc1d51b121d8c7cc",
+      "size": 24964
+    },
+    "sprzedaz.html": {
+      "sha256": "fcc3afa3d8ec27936681c189dee67d6187d1c83d2146a3ea26b2fe545b62fae2",
+      "size": 27719
     },
     "wdrozenia.html": {
-      "sha256": "775ce6195428a008bbfc552370479e3f417d7a77f09ae6b5bc6fe2cb5101601f",
-      "size": 22557
+      "sha256": "fcb18eedc28503aafaaf38ec3eb0c982faf78da95a2715602c7aba504802a208",
+      "size": 22726
     }
   },
   "pages": {
@@ -623,7 +639,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1588,7 +1604,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -1600,6 +1616,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -1770,7 +1793,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -1782,6 +1805,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -1913,7 +1943,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -1948,12 +1978,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -2093,12 +2128,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -2324,7 +2364,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3193,7 +3233,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -3205,6 +3245,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -3410,7 +3457,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -3422,6 +3469,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -3553,7 +3607,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -3588,12 +3642,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -3758,12 +3817,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -3989,7 +4053,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -4900,7 +4964,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -4912,6 +4976,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -5103,7 +5174,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -5115,6 +5186,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -5246,7 +5324,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -5281,12 +5359,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -5441,12 +5524,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -7432,7 +7520,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -7444,6 +7532,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "#zastosowania",
@@ -7670,7 +7765,7 @@
           "text": "Analityka"
         },
         {
-          "href": "#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -7682,6 +7777,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "#zastosowania",
@@ -8098,12 +8200,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -8313,12 +8420,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -8539,7 +8651,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8608,7 +8720,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -8820,6 +8932,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -9566,7 +9688,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -9578,6 +9700,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -9679,14 +9808,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Sprawdźmy, jak połączyć Twoje systemy"
         },
         {
           "href": "#karta",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co dostaniesz po rozmowie"
@@ -9741,7 +9870,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -9753,6 +9882,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -9884,7 +10020,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -9919,12 +10055,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -10007,6 +10148,11 @@
           "val": "#karta"
         },
         {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/integracja-systemow.jpg?v=272176cc"
+        },
+        {
           "tag": "video",
           "attr": "poster",
           "val": "assets/video/integracja-systemow.jpg?v=272176cc"
@@ -10059,12 +10205,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -10290,7 +10441,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11112,7 +11263,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -11124,6 +11275,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -11322,7 +11480,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -11334,6 +11492,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -11446,7 +11611,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -11481,12 +11646,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -11631,12 +11801,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -11722,6 +11897,1695 @@
       "jsonLd": [
         {
           "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#strona\",\"url\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\",\"name\":\"Jak wybrać pierwszy proces\",\"headline\":\"Jak wybrać pierwszy proces do automatyzacji | REVAGY\",\"description\":\"Kryteria wyboru pierwszego procesu, pomiar stanu wyjściowego przed startem i co przygotować. Umów bezpłatną konsultację jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Jak wybrać pierwszy proces\",\"item\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#usluga\",\"name\":\"Konsultacja jednego procesu\",\"description\":\"Bezpłatna konsultacja jednego procesu, 25 minut. Po niej jednostronicowa karta procesu z metryką bazową, możliwą drogą łączenia i zakresem pierwszego kroku, która zostaje u klienta.\",\"url\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/jak-wybrac-pierwszy-proces.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Mam kilku kandydatów. Którego wybrać?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Odrzuć te, które nie spełniają kryterium dostępu do danych. Z pozostałych weź ten, który kosztuje najwięcej godzin tygodniowo i ma najmniej wyjątków. Resztę zapisz na listę na później.\"}},{\"@type\":\"Question\",\"name\":\"Czy pomiar jest warunkiem konsultacji?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie.\"}},{\"@type\":\"Question\",\"name\":\"Czy jeden proces to nie za mało?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwszy krok ma pokazać wynik w liczbach na jednym procesie. Kolejne dokładamy tą samą metodą.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo w magazynie. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Kryteria są te same. Wejściem jest płatny pilot jednej linii albo jednej zmiany z kryterium sukcesu ustalonym przed startem. Opisujemy go na stronie „Produkcja i logistyka”.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna, a audyt kosztuje 1 990 zł i jest wliczany we wdrożenie. Pakiety są na stronie „Dla firm”.\"}}]}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "kadry-i-place.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Kadry i płace bez ręcznego wpisywania | REVAGY",
+      "canonical": "https://revagy.pl/kadry-i-place.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Godziny, premie i dane z umów trafiają do programu kadrowo-płacowego bez ręcznego wpisywania. Program zostaje, wyjątki zatwierdza osoba z Waszych kadr. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/kadry-i-place.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Kadry i płace bez ręcznego wpisywania | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Godziny, premie i dane z umów trafiają do programu kadrowo-płacowego bez ręcznego wpisywania. Program zostaje, wyjątki zatwierdza osoba z Waszych kadr. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/kadry-i-place.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4e970d11",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=1e079d03",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=bca815f5",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=80d01b04",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=62081731",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "godziny",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "umowy",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pakiet",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kroki",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "dane",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-scale": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "godziny",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "umowy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pakiet",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kroki",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "dane",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-6"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-6"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-7",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-7"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-7",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-7"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-8",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-8"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-8",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-8"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Kadry i płace bez ręcznego wpisywania"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Godziny z arkusza w kadrach i płacach, wpisane raz"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Godziny i premie"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dziś"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Po wdrożeniu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co zostaje człowiekowi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Umowy i dane pracownika"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dziś"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Po wdrożeniu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co zostaje człowiekowi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co obejmuje pakiet"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak zaczynamy"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak to działa w praktyce"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Umowy bez przepisywania"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Dane pracowników i umowa powierzenia"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania działu kadr i płac"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy musimy zmieniać program kadrowo-płacowy?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Nasz program nie przyjmuje danych z arkusza. Co wtedy?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy to zastąpi osobę z kadr i płac?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co, jeśli automat trafi na błędną wartość?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy przenoszenie danych korzysta z modeli AI?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile to kosztuje?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co z danymi osobowymi pracowników?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Mamy mniej niż 50 osób. Czy to dla nas?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Który arkusz wpisujecie do płac co miesiąc?"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "sprzedaz.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "finanse.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#pakiet",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz, co obejmuje pakiet"
+        },
+        {
+          "href": "wdrozenia.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Wdrożenia"
+        },
+        {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dane i bezpieczeństwo"
+        },
+        {
+          "href": "porownanie-rozwiazan.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Porównanie rozwiązań"
+        },
+        {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dane i bezpieczeństwo"
+        },
+        {
+          "href": "dla-firm.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla firm"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "sprzedaz.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "finanse.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4e970d11"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "sprzedaz.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#pakiet"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/kadry-i-place-kadr.jpg"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "wdrozenia.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "porownanie-rozwiazan.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dla-firm.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "sprzedaz.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=1e079d03"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=bca815f5"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=80d01b04"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=62081731"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/kadry-i-place.html#strona\",\"url\":\"https://revagy.pl/kadry-i-place.html\",\"name\":\"Kadry i płace\",\"headline\":\"Kadry i płace bez ręcznego wpisywania | REVAGY\",\"description\":\"Godziny, premie i dane z umów trafiają do programu kadrowo-płacowego bez ręcznego wpisywania. Program zostaje, wyjątki zatwierdza osoba z Waszych kadr. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-22\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/kadry-i-place.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/kadry-i-place.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/kadry-i-place.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Kadry i płace\",\"item\":\"https://revagy.pl/kadry-i-place.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/kadry-i-place.html#usluga\",\"name\":\"Automatyzacja przepływu danych do kadr i płac\",\"description\":\"Godziny, premie i dane z umów trafiają z arkuszy albo z systemu HR do programu kadrowo-płacowego bez ręcznego wpisywania. Dane przechodzą kontrolę przed zapisem, a wyjątki zatwierdza osoba po stronie klienta.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/kadry-i-place.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/kadry-i-place.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/kadry-i-place.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy zmieniać program kadrowo-płacowy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz program nie przyjmuje danych z arkusza. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy interfejs API, potem wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu ani importu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.\"}},{\"@type\":\"Question\",\"name\":\"Czy to zastąpi osobę z kadr i płac?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Automat przenosi dane i sprawdza je przed zapisem. Naliczenie i zatwierdzenie listy płac, decyzje o wyjątkach i rozmowy z pracownikami zostają u Was.\"}},{\"@type\":\"Question\",\"name\":\"Co, jeśli automat trafi na błędną wartość?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wartość poza dopuszczalnym zakresem nie jest zapisywana, tylko czeka na decyzję osoby po Waszej stronie. Każdy zapis ma wpis w dzienniku z poprzednią wartością. Do zamknięcia okresu płacowego zapis można wycofać, później robimy korektę według procedury Waszych kadr.\"}},{\"@type\":\"Question\",\"name\":\"Czy przenoszenie danych korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cena wdrożenia jest stała: podajemy ją po audycie, przed podpisaniem umowy, i nie rośnie w trakcie prac.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi pracowników?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.\"}},{\"@type\":\"Question\",\"name\":\"Mamy mniej niż 50 osób. Czy to dla nas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zasada jest ta sama: zaczynamy od jednego procesu. Pakiety dla mniejszych firm opisujemy na stronie „Dla firm”.\"}}]}]}",
           "attrs": [
             "type"
           ]
@@ -12561,7 +14425,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13313,7 +15177,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -13325,6 +15189,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -13516,7 +15387,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -13528,6 +15399,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -13640,7 +15518,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -13675,12 +15553,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -13820,12 +15703,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -14051,7 +15939,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14968,7 +16856,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -14980,6 +16868,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -15157,7 +17052,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -15169,6 +17064,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -15300,7 +17202,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -15335,12 +17237,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -15485,12 +17392,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -15576,6 +17488,1690 @@
       "jsonLd": [
         {
           "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"name\":\"Produkcja i logistyka\",\"headline\":\"Automatyzacja w produkcji i logistyce: pilot | REVAGY\",\"description\":\"Płatny pilot na jednej linii albo zmianie: 14 dni, kryterium sukcesu ustalone przed startem, stała cena. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Produkcja i logistyka\",\"item\":\"https://revagy.pl/produkcja-i-logistyka.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\",\"name\":\"Pilot automatyzacji raportowania i przepływu danych w produkcji i logistyce\",\"description\":\"Płatny pilot na jednej linii albo jednej zmianie: 14 dni, jeden proces, kryterium sukcesu zapisane w umowie przed startem i stała cena. Cenę pakietu podajemy po pilocie.\",\"serviceType\":\"Pilot automatyzacji\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ile kosztuje pilot?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cena pilota po rozmowie. Jest stała i ustalamy ją przed startem.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje pakiet po pilocie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cenę pakietu podajemy po pilocie, gdy znamy wynik i zakres dalszej pracy.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać system ERP albo system magazynowy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie. Jeśli żadna droga łączenia nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi być zaangażowany?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba, która zna proces na linii albo zmianie, oraz osoba z IT, która nada dostęp. Wyjątki zatwierdza ktoś po Waszej stronie, według progów ustalonych z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Ile macie wdrożeń w produkcji?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Jeden pilotaż w zakładzie produkcyjnym. Opisujemy go wyżej.\"}},{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane dane zakładu?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem. Odpowiedzi dla działu IT są na stronie Dane i bezpieczeństwo.\"}},{\"@type\":\"Question\",\"name\":\"Co po zakończeniu pilota?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji w dalszej współpracy zapisujemy w umowie pakietu.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#film\",\"name\":\"Pilot na jednej linii produkcyjnej, od dnia 1 do dnia 14\",\"description\":\"Na początku pilota dostęp do systemów i kryterium sukcesu zapisane w umowie. Dane z hali trafiają do raportu zmianowego bez przepisywania, rozbieżność zatwierdza kierownik zmiany, a na końcu wynik jest porównany z kryterium i zapada decyzja. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/produkcja-i-logistyka.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/produkcja-i-logistyka.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\"}}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "sprzedaz.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Automatyzacja w dziale sprzedaży: leady, oferty, follow-upy | REVAGY",
+      "canonical": "https://revagy.pl/sprzedaz.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Zapytania, oferty i przypomnienia o dalszym kroku bez ręcznego przepisywania do CRM. Rozmowa z klientem i cena zostają u Was. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/sprzedaz.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Automatyzacja w dziale sprzedaży: leady, oferty, follow-upy | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Zapytania, oferty i przypomnienia o dalszym kroku bez ręcznego przepisywania do CRM. Rozmowa z klientem i cena zostają u Was. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/sprzedaz.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4e970d11",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=1e079d03",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=bca815f5",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=80d01b04",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=62081731",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kwalifikacja",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "oferty",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "follow-upy",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kroki",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-zapytania",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-oferty",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-crm",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "dane",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-scale": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kwalifikacja",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "oferty",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "follow-upy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kroki",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-zapytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-oferty",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wdrozenie-crm",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "dane",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-6"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-6"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-level": "2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Kwalifikacja leadów, oferty i follow-upy bez ręcznego przepisywania"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Zapytanie od odbioru do przypisania handlowca"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Kwalifikacja leadów"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dziś"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Po wdrożeniu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co zostaje człowiekowi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Oferty"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dziś"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Po wdrożeniu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co zostaje człowiekowi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Follow-upy"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dziś"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Po wdrożeniu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co zostaje człowiekowi"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak zaczynamy"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Wdrożenia w sprzedaży"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Zapytanie ze strony u handlowca z regionu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Oferta z kalkulatora i z komunikatora zespołu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Nowy lead i obsługa CRM z komunikatora zespołu"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Dane z CRM i umowa powierzenia"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania działu sprzedaży"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy to zastąpi handlowca?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Jakie systemy CRM obsługujecie?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy wysyłacie wiadomości do klientów za nas?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy musimy zmieniać CRM albo pocztę?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Od którego procesu zacząć?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Ile to kosztuje?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Zacznijmy od jednego procesu w sprzedaży"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "sprzedaz.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "finanse.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "pilot dla produkcji i logistyki"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#kwalifikacja",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz, co się zmienia w procesach"
+        },
+        {
+          "href": "wdrozenia.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Wdrożenia"
+        },
+        {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dane i bezpieczeństwo"
+        },
+        {
+          "href": "porownanie-rozwiazan.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Porównanie rozwiązań"
+        },
+        {
+          "href": "jak-wybrac-pierwszy-proces.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wybrać pierwszy proces do automatyzacji"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "sprzedaz.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "finanse.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4e970d11"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "sprzedaz.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#kwalifikacja"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/sprzedaz-kadr.jpg"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "wdrozenia.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "porownanie-rozwiazan.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "jak-wybrac-pierwszy-proces.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "sprzedaz.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=1e079d03"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=bca815f5"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=80d01b04"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=62081731"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/sprzedaz.html#strona\",\"url\":\"https://revagy.pl/sprzedaz.html\",\"name\":\"Sprzedaż\",\"headline\":\"Automatyzacja w dziale sprzedaży: leady, oferty, follow-upy | REVAGY\",\"description\":\"Zapytania, oferty i przypomnienia o dalszym kroku bez ręcznego przepisywania do CRM. Rozmowa z klientem i cena zostają u Was. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-22\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/sprzedaz.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/sprzedaz.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/sprzedaz.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Sprzedaż\",\"item\":\"https://revagy.pl/sprzedaz.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/sprzedaz.html#usluga\",\"name\":\"Automatyzacja procesów w dziale sprzedaży\",\"description\":\"Automatyzacja kwalifikacji zapytań, przygotowania ofert i follow-upów. Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja oferty zostają w zespole sprzedaży.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/sprzedaz.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/sprzedaz.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/sprzedaz.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy to zastąpi handlowca?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porządkowanie danych. Rozmowa z klientem, cena, rabat i warunki oferty oraz akceptacja oferty zostają u handlowców i u osób, które wskażecie.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy CRM obsługujecie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Są trzy drogi: interfejs API, wymiana plików albo dostęp do bazy danych za zgodą dostawcy. Którą da się zastosować, zależy od tego, co udostępnia Wasz CRM, i od jego licencji. Jeśli CRM nie ma interfejsu API ani eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.\"}},{\"@type\":\"Question\",\"name\":\"Czy wysyłacie wiadomości do klientów za nas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tylko te, które ustalicie. W audycie spisujemy z Wami, które wiadomości wychodzą same, z jaką treścią i w jakich terminach. Pozostałe powstają jako szkic, a wysyła je handlowiec.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy zmieniać CRM albo pocztę?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Od którego procesu zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład kwalifikacji leadów. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]}]}",
           "attrs": [
             "type"
           ]
@@ -15716,7 +19312,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=54fcaa9c",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16575,7 +20171,7 @@
           "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -16587,6 +20183,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płaceGodziny, premie i umowy bez wpisywania"
         },
         {
           "href": "./#zastosowania",
@@ -16764,7 +20367,7 @@
           "text": "Analityka"
         },
         {
-          "href": "./#zastosowania",
+          "href": "sprzedaz.html",
           "class": null,
           "dataTrack": null,
           "ariaLabel": null,
@@ -16776,6 +20379,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Finanse"
+        },
+        {
+          "href": "kadry-i-place.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kadry i płace"
         },
         {
           "href": "./#zastosowania",
@@ -16907,7 +20517,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=54fcaa9c"
         },
         {
           "tag": "a",
@@ -16942,12 +20552,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",
@@ -17092,12 +20707,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "./#zastosowania"
+          "val": "sprzedaz.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "finanse.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kadry-i-place.html"
         },
         {
           "tag": "a",

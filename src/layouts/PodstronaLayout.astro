@@ -2,7 +2,7 @@
 // Układ podstron (D-031). BaseLayout.astro zostaje bez zmian.
 // Nagłówek i stopka to kopia znaczników strony głównej z BaseLayout.astro (pełne menu,
 // menu mobilne, pełna stopka). Pozycje menu i stopki prowadzą do sekcji strony głównej (./#sekcja),
-// z wyjątkiem „Finanse”, które prowadzi do finanse.html (T-021).
+// z wyjątkiem „Sprzedaż” (sprzedaz.html, T-032), „Finanse” (finanse.html, T-021) i „Kadry i płace” (kadry-i-place.html, T-034).
 // Adres kanoniczny, dane do udostępnień i dane strukturalne powstają z właściwości,
 // więc strona nie wpisuje ich ręcznie.
 import { MARKA, jsonDoSkryptu } from '../config/marka.mjs';
@@ -162,8 +162,9 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
           <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-panel" id="panel-dzialy">
-          <a href="./#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
+          <a href="sprzedaz.html"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
           <a href="finanse.html"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="kadry-i-place.html"><strong>Kadry i płace</strong><span>Godziny, premie i umowy bez wpisywania</span></a>
           <a href="./#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
           <a href="./#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
         </div>
@@ -215,7 +216,7 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
       </nav>
       <nav aria-label="Dla działów">
         <h4 aria-level="2">Dla działów</h4>
-        <a href="./#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
+        <a href="sprzedaz.html">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="kadry-i-place.html">Kadry i płace</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
         <h4 aria-level="2">Firma</h4>

@@ -35,6 +35,22 @@
         "accessibility": 95,
         "seo": 100
       }
+    },
+    {
+      "plik": "kadry-i-place.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
+    },
+    {
+      "plik": "sprzedaz.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
     }
   ]
 }

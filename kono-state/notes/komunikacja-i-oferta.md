@@ -41,7 +41,7 @@ Właściciel odpowiedział 22.11.2026 na siedem pytań z rozdziału 4. Nazw klie
 
 ### Szacunek przepustowości
 
-- **Wdrożenia od maja 2026 r. widoczne w repozytorium:** 5 (cztery opisane na stronie wdrożeń i jeden pilotaż w produkcji), w ok. 6,5 miesiąca. To ok. 0,8 wdrożenia miesięcznie.
+- **Wdrożenia od maja 2026 r.:** 45 (potwierdzone przez właściciela 22.11.2026; w repozytorium opisano anonimowo 5 studiów przypadków), w ok. 6,5 miesiąca. To ok. 6,9 wdrożenia miesięcznie.
 - **Razy trzy** (wspólnik i zespół, według wskazania właściciela): ok. 2,3 wdrożenia miesięcznie, czyli ok. 28 w 12 miesięcy.
 - **Niepewność:** właściciel wymienił też projekty, których nie potrafię przypisać do tych pięciu. Jeśli są osobne, wdrożeń było 6–7, a szacunek rośnie do ok. 33–39 rocznie. Liczbę powinien potwierdzić właściciel.
 - **Wniosek:** przy ok. 28–39 wdrożeniach rocznie cel przychodu wymaga średniej wartości wdrożenia wyraźnie wyższej niż jedyny znany dziś projekt, i to przy założeniu, że płatne są wszystkie, a nie połowa. Liczby są w rozmowie z właścicielem. Do celu prowadzą dwie rzeczy naraz: większe projekty (górna część grupy 5–250 osób) i przychód powtarzalny z opieki.

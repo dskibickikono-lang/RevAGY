@@ -4,6 +4,7 @@
 // Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
 import Autor from '../components/Autor.astro';
@@ -73,17 +74,19 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Dane wpisujesz raz. Pozostałe systemy dostają je same.</h1>
-      <p class="lead">Łączymy systemy, na których już pracujesz. Zespół zostaje przy swoich narzędziach, a dane potrzebne do umów, rozliczeń i raportów trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Sprawdźmy, jak połączyć Twoje systemy</a>
-        <a class="btn btn-outline btn-lg" href="#karta">Zobacz, co dostaniesz po rozmowie</a>
+  {/* Kierunek A (D-048, T-033): pierwszy ekran jako scena z plakatem filmu. Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony film="integracja-systemow">
+      <h1 class="display-2 load-in">Dane wpisujesz raz. Pozostałe systemy dostają je same.</h1>
+      <p class="lead load-in" style="--d:80ms">Łączymy systemy, na których już pracujesz. Zespół zostaje przy swoich narzędziach, a dane potrzebne do umów, rozliczeń i raportów trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.</p>
+      <div class="hero-cta load-in" style="--d:160ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Sprawdźmy, jak połączyć Twoje systemy</a>
+        <a class="btn btn-glass btn-lg" href="#karta">Zobacz, co dostaniesz po rozmowie</a>
       </div>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section wrap" id="odpowiedz">

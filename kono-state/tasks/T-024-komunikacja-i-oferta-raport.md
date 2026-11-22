@@ -3,7 +3,7 @@ id: T-024
 title: Raport — jak REVAGY ma mówić do grupy docelowej i o jakie produkty rosnąć
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/serene-bohr-2hdmui
@@ -89,8 +89,12 @@ PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedzia
 
 1. Superzdanie: zostaje dla firm 5–250 osób czy zawężamy do 50–250 osób (to zawęża D-016).
 2. Wybór kandydatów z rankingu. Rekomendacja agenta: K02, potem K01, z opieką o stałej miesięcznej cenie.
-3. Potwierdzenie liczby wdrożeń od maja (w repozytorium widać 5).
-4. Sprawy z rundy 1 nadal otwarte: sposób dostępu do forów GOFIN i Wykop; przykłady „po” na stronie.
+3. Potwierdzenie liczby wdrożeń od maja: **45 wdrożeń** (potwierdzone przez właściciela 22.11.2026; w repozytorium opisano anonimowo 5).
+4. Sprawy z rundy 1: sposób dostępu do forów GOFIN i Wykop w celach badania rynku wewnętrznego zaakceptowany przez właściciela 22.11.2026.
+
+## Stan
+
+Raport i kwerenda zakończone, liczba wdrożeń potwierdzona (45), pakiet K02 wybrany i wdrożony (T-034). Raport scalony do main w PR #33 i #36. Karta zamknięta.
 
 Testy rundy 2: nie uruchamiano i nie dotyczy (tylko `kono-state/`, CI pomija). Sumy PRES przeliczone skryptem.
 

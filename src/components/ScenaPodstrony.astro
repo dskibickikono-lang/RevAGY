@@ -1,0 +1,36 @@
+---
+// Scena pierwszego ekranu podstrony (kierunek A, D-048, T-033).
+// Ciemny zaokrąglony kontener (.cta ze styles.css, ten sam co pasek końcowy i scena strony kontaktu)
+// z poświatą hero strony głównej (.hero-shade): śliwka pod tekstem po lewej, pomarańcz niżej pośrodku.
+// Poświata paska końcowego (.cta-glow) ma pomarańcz w lewym dolnym rogu, czyli pod przyciskami i linią
+// autora; kontrast linii autora spadał tam do 2,9:1, dlatego scena z tekstem po lewej bierze poświatę hero.
+// Układ (tekst po lewej, plakat po prawej) daje podstrony.css.
+// Treść (h1, wstęp, przyciski, linia autora) pisze strona w slocie.
+// Plakat to kadr startowy filmu z src/config/filmy.mjs (stan „film”); w stanie „kadr” obraz <nazwa>-kadr.jpg.
+// Na telefonie (do 560 px) plakat jest ukryty w podstrony.css; loading="lazy" sprawia, że ukryty obraz nie jest pobierany.
+// Ramka plakatu celowo NIE ma klasy .film: testy i app.js biorą pierwszą .film na stronie jako miejsce na film.
+import { stanFilmu, WYMIARY_KADRU } from '../config/filmy.mjs';
+import { zasob } from '../config/zasoby.mjs';
+
+interface Props {
+  // Klucz z src/config/filmy.mjs, np. 'integracja-systemow'. Bez wartości scena ma sam tekst.
+  film?: string;
+}
+
+const { film: nazwa } = Astro.props;
+const film = nazwa ? stanFilmu(nazwa) : null;
+const obraz = film ? (film.stan === 'film' ? film.poster : film.kadr) : null;
+---
+<div class="cta scena">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="scena-uklad">
+    <div class="scena-tekst">
+      <slot />
+    </div>
+    {film && (
+      <div class="scena-kadr">
+        <img src={zasob(obraz)} width={WYMIARY_KADRU.szerokosc} height={WYMIARY_KADRU.wysokosc} alt={film.alt} loading="lazy" decoding="async">
+      </div>
+    )}
+  </div>
+</div>

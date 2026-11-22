@@ -7,6 +7,8 @@ import { zasob } from '../config/zasoby.mjs';
 // Stopka strony głównej: aria-level="2" przy czterech h4 kolumn stopki. Nagłówki kolumn stopki są dla czytników
 // ekranu na poziomie 2, więc po ostatnim h2 w <main> nie ma przeskoku poziomu (T-021). Znacznik h4 zostaje dla
 // stylu .site-footer h4 ze styles.css. Komentarz stoi tutaj, a nie przy stopce, żeby nie zmieniać wypisanego HTML.
+// Pozycje „Sprzedaż” (panel „Dla działów” w menu i kolumna „Dla działów” w stopce) prowadzą do sprzedaz.html (T-032),
+// tak jak „Finanse” do finanse.html (T-021) i „Kadry i płace” do kadry-i-place.html (T-034). Pozostałe pozycje prowadzą do #zastosowania.
 
 interface Props {
   title: string;
@@ -89,8 +91,9 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
           <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-panel" id="panel-dzialy">
-          <a href="#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
+          <a href="sprzedaz.html"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
           <a href="finanse.html"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="kadry-i-place.html"><strong>Kadry i płace</strong><span>Godziny, premie i umowy bez wpisywania</span></a>
           <a href="#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
           <a href="#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
         </div>
@@ -171,7 +174,7 @@ const jsonLd = isHome ? jsonDoSkryptu(grafOrganizacji()) : null;
       </nav>
       <nav aria-label="Dla działów">
         <h4 aria-level="2">Dla działów</h4>
-        <a href="#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
+        <a href="sprzedaz.html">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="kadry-i-place.html">Kadry i płace</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
         <h4 aria-level="2">Firma</h4>

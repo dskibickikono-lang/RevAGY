@@ -1,123 +1,18 @@
 {
-  "etap": "T-030 i T-031",
-  "opis": "T-030 (zgoda właściciela z 22.11.2026, D-047): parametr ?v= w adresach stylów, skryptów i filmów strony głównej jest skrótem treści pliku liczonym przy buildzie zamiast numeru wpisywanego ręcznie; filmy i kadry dostają go po raz pierwszy. T-031 (D-046 i zgoda na etap 5 z 22.11.2026): film w hero dostaje przycisk wstrzymania w wyglądzie istniejącego przycisku filmu (.film-toggle) i identyfikator hero-video. Poza tym przyciskiem wygląd, treść i układ strony bez zmian.",
+  "etap": "T-032",
+  "opis": "Etap 9 (T-032), podstrona działowa „Sprzedaż”: pozycja „Sprzedaż” w panelu „Dla działów” menu i w kolumnie „Dla działów” stopki prowadzi do sprzedaz.html zamiast do #zastosowania (zgoda właściciela w zleceniu etapu 9). Różnica między tools/baseline/index.baza.html (migawka z main ca9b92b, po T-030, T-031, T-033 i T-034) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
       {
-        "znacznik": "link",
+        "znacznik": "a",
         "atrybut": "href",
-        "bylo": "assets/css/styles.css?v=5",
-        "jest": "assets/css/styles.css?v=4e970d11",
-        "razy": 1
-      },
-      {
-        "znacznik": "video",
-        "atrybut": "poster",
-        "bylo": "assets/video/hero-flow.jpg",
-        "jest": "assets/video/hero-flow.jpg?v=ba755d3b",
-        "razy": 1
-      },
-      {
-        "znacznik": "video",
-        "atrybut": "id",
-        "bylo": null,
-        "jest": "hero-video",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/hero-flow.webm",
-        "jest": "assets/video/hero-flow.webm?v=5499a456",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/hero-flow.mp4",
-        "jest": "assets/video/hero-flow.mp4?v=ec82f239",
-        "razy": 1
-      },
-      {
-        "znacznik": "video",
-        "atrybut": "poster",
-        "bylo": "assets/video/dashboard.jpg",
-        "jest": "assets/video/dashboard.jpg?v=a7bef08e",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/dashboard.webm",
-        "jest": "assets/video/dashboard.webm?v=ebe239ce",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/dashboard.mp4",
-        "jest": "assets/video/dashboard.mp4?v=cec91928",
-        "razy": 1
-      },
-      {
-        "znacznik": "video",
-        "atrybut": "poster",
-        "bylo": "assets/video/agent-demo.jpg",
-        "jest": "assets/video/agent-demo.jpg?v=cfadd0d2",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/agent-demo.webm",
-        "jest": "assets/video/agent-demo.webm?v=bcb5fb8f",
-        "razy": 1
-      },
-      {
-        "znacznik": "source",
-        "atrybut": "src",
-        "bylo": "assets/video/agent-demo.mp4",
-        "jest": "assets/video/agent-demo.mp4?v=bb7b4a16",
-        "razy": 1
-      },
-      {
-        "znacznik": "script",
-        "atrybut": "src",
-        "bylo": "assets/js/kontakt.js?v=1",
-        "jest": "assets/js/kontakt.js?v=cd88aead",
-        "razy": 1
-      },
-      {
-        "znacznik": "script",
-        "atrybut": "src",
-        "bylo": "assets/js/app.js?v=5",
-        "jest": "assets/js/app.js?v=1e079d03",
-        "razy": 1
-      },
-      {
-        "znacznik": "script",
-        "atrybut": "src",
-        "bylo": "assets/js/analytics.js?v=5",
-        "jest": "assets/js/analytics.js?v=80d01b04",
-        "razy": 1
-      },
-      {
-        "znacznik": "script",
-        "atrybut": "src",
-        "bylo": "assets/js/clarity.js?v=1",
-        "jest": "assets/js/clarity.js?v=62081731",
-        "razy": 1
+        "bylo": "#zastosowania",
+        "jest": "sprzedaz.html",
+        "razy": 2
       }
     ],
-    "dodane": [
-      {
-        "znacznik": "button",
-        "klasa": "film-toggle hero-toggle",
-        "tekst": "",
-        "razy": 1
-      }
-    ],
+    "dodane": [],
     "usuniete": []
   },
   "geometria": {
