@@ -3,11 +3,11 @@ id: T-002
 title: Wersja produkcyjna strony i przygotowanie wdrożenia revagy.pl
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-13
-updated: 2026-11-13
+updated: 2026-11-23
 branch: skibiai/fervent-curie-08fzzz
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/1
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/1 (scalony do main 13.11.2026, dc82217)
 sha: 03c9fc5dce1b1308f78f1e0415f4b24ccabc9a14
 decisions: [D-005, D-006, D-007, D-008, D-009]
 depends_on: T-001
@@ -68,3 +68,8 @@ prawdziwych telefonów, przełącznika anonimizacji IP w panelu Matomo (domyśln
 - Wpis w rejestrze firm pokazuje działalność jako zawieszoną od 2026-02-01. Do rozstrzygnięcia przed
   rozpoczęciem sprzedaży przez stronę.
 - Polityka prywatności to projekt do przejrzenia przez prawnika.
+
+## Stan
+
+PR #1 scalony do main 13.11.2026 (merge dc82217), razem z T-001. Status zmieniony na `zmergowane` 23.11.2026.
+Punkty z sekcji „Otwarte (po stronie właściciela)” nie były w tej karcie aktualizowane; ich stan opisują późniejsze karty.

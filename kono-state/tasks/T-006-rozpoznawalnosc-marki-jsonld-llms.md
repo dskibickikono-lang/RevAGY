@@ -3,12 +3,13 @@ id: T-006
 title: Rozpoznawalność marki — JSON-LD, llms.txt i pomiar botów AI
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-20
-updated: 2026-11-20
+updated: 2026-11-23
 branch: feat/rozpoznawalnosc-marki
 base: main (po scaleniu PR #5)
 depends_on: PR #5
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/6 (scalony do main 20.11.2026, 47d7d86)
 decisions: [D-011, D-012, D-013, D-014]
 ---
 
@@ -70,3 +71,7 @@ i pustym logu (`dash`). Smoke i formularz: CI.
 - Stopka: odnośnik `tel:+48504037538` w kolumnie „Kontakt” (11 stron); kontrakt DOM: wyłącznie +1 pozycja
   `anchors` na stronę (sprawdzone skryptem, który odrzuca każdą inną różnicę).
 - `check:dist`: OK, 45 plików. Smoke: CI.
+
+## Stan
+
+PR #6 scalony do main 20.11.2026 (merge 47d7d86). Status zmieniony na `zmergowane` 23.11.2026.

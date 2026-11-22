@@ -5,11 +5,11 @@ channel: pm-local
 requested_by: owner
 status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (43efbf5 — stan badany; gałąź odświeżana po każdym scaleniu)
 depends_on: —
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (moodboard i studium kierunku A; wcześniejsze części scalone w #32 i #34)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (scalony do main, a653e8a; moodboard i studium kierunku A; wcześniejsze części scalone w #32 i #34)
 sha: 204ac02 (studium kierunku A i plan), fb1a746 (moodboard i rozdziały 7–8 raportu); wcześniej 2bd7b4c (#32), d554004 (#34)
 decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033, D-034, D-040, D-044, D-045]
 ---
@@ -17,7 +17,7 @@ decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033
 # T-026 — Audyt designu i identyfikacji wizualnej REVAGY
 
 Karta założona 22.11.2026 jako T-024. Numer zmieniony na T-026, bo w tym samym czasie T-024 dostały dwie inne karty
-(`T-024-baner-zgody-clarity`, `T-024-komunikacja-i-oferta-raport`), a T-025 — dwie kolejne. Tamtych kart nie ruszałem.
+(`T-024-baner-zgody-clarity`, `T-024-komunikacja-i-oferta-raport`, dziś T-035), a T-025 — dwie kolejne. Tamtych kart nie ruszałem.
 
 ## Cel
 

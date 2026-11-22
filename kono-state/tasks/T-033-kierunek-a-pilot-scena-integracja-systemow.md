@@ -5,11 +5,11 @@ channel: pm-local
 requested_by: owner
 status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (da8d1ae), odświeżona merge z main (7b6fc4c) 22.11.2026
 depends_on: T-026
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (ten sam PR co T-026: moodboard, studium i pilot)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (scalony do main, a653e8a; ten sam PR co T-026: moodboard, studium i pilot)
 sha: ed443c9
 decisions: [D-015, D-021, D-022, D-031, D-033, D-045, D-048]
 ---

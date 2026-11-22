@@ -3,11 +3,11 @@ id: T-001
 title: Prototyp strony REVAGY (automatyzacja i AI w B2B)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-13
-updated: 2026-11-13
+updated: 2026-11-23
 branch: skibiai/fervent-curie-08fzzz
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/1
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/1 (scalony do main 13.11.2026, dc82217)
 sha: e707691815be27da788512b59f0f979de485b75e
 decisions: [D-001, D-002, D-003, D-004]
 ---
@@ -63,3 +63,8 @@ Podgląd (prywatny): https://claude.ai/artifact/Wwj4VPgZnfffYTn6dez9uP
 - Podłączenie formularza (dziś niczego nie wysyła).
 - Decyzja o hostingu i domenie; wdrożenie wymaga osobnej zgody właściciela.
 - Merge: wyłącznie właściciel.
+
+## Stan
+
+PR #1 scalony do main 13.11.2026 (merge dc82217), razem z T-002. Status zmieniony na `zmergowane` 23.11.2026.
+Punkty z sekcji „Otwarte” zostały przejęte przez kolejne karty (T-002, T-003 i dalsze); tej karty już nie prowadzimy.

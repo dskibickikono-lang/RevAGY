@@ -3,11 +3,12 @@ id: T-003
 title: Migracja 1:1 strony REVAGY do Astro (static) i bezpieczne wydanie
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-17
-updated: 2026-11-18
+updated: 2026-11-23
 branch: migration/astro-static
 base_sha: dc8221716605a74aa71657a531a120f618f0975b
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/2 (scalony do main 18.11.2026, 9f8c86f)
 depends_on: T-002
 decisions: [D-001, D-002, D-003, D-004, D-005, D-006, D-007, D-008, D-009]
 ---
@@ -75,3 +76,9 @@ Utworzono obie referencje poza repozytorium (`/home/kono/revagy-deploy/evidence-
 - **Status gotowości:** `gotowe do zatwierdzonego wdrożenia` (Faza E).
 - **Produkcja:** NIE przełączona (`/var/www/revagy.pl/current` nadal wskazuje `dc8221716605a74aa71657a531a120f618f0975b`).
 - **Merge:** wyłącznie właściciel po przeglądzie PR.
+
+## Stan
+
+PR #2 scalony do main 18.11.2026 (merge 9f8c86f), razem z T-004 (poprawka po review) i T-005 (PR #3 do gałęzi
+`migration/astro-static`). Status zmieniony na `zmergowane` 23.11.2026. Sekcja „Status wdrożenia” opisuje stan
+z dnia przygotowania PR; ta karta nie zawiera dowodu przełączenia produkcji.

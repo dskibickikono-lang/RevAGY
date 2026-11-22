@@ -3,13 +3,13 @@ id: T-032
 title: Etap 9 — podstrona działowa „Sprzedaż” (/sprzedaz.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: feat/etap-9-sprzedaz
 base: main (5bac11d), odświeżona scaleniem z main (ca9b92b)
 depends_on: T-021
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/41
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/41 (scalony do main, 6a2efde)
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-027, D-028, D-029, D-031, D-033, D-034, D-039]
 ---
 
@@ -245,3 +245,8 @@ Strona korzysta z pól, które są dziś `null`:
 - `src/data/dowody.mjs`, wpisy `sprzedaz-zapytania`, `sprzedaz-oferty`, `sprzedaz-crm` (nowe w poprawce 1): rodzaj
   firmy, nazwa, etykieta powiązania, skala, „jak mierzone”, cytat; `zdanieUjawnienia` (wspólne dla podstron).
 - `src/data/bezpieczenstwo.mjs`: `aiNaDanychKlienta`, `wdrozenieUKlienta`. Strona sprzedaży ich nie pokazuje.
+
+## Stan
+
+PR #41 scalony do main (merge 6a2efde). Bez wdrożenia na produkcję. Punkty 1–11 z sekcji „Decyzje do podjęcia
+przez właściciela” i pola z sekcji „Do uzupełnienia przez właściciela” pozostają otwarte.

@@ -5,11 +5,11 @@ channel: pm-local
 requested_by: owner
 status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: skibiai/dreamy-johnson-hfb3j4
 base: main (43efbf5)
 depends_on: T-006, T-022
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/29 (scalony, 9856b6f); uzupełnienie: https://github.com/dskibickikono-lang/RevAGY/pull/31 (baza main)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/29 (scalony, 9856b6f); uzupełnienie: https://github.com/dskibickikono-lang/RevAGY/pull/31 (scalony, 28a02ab)
 sha: 4d537b485682548c631a8f63b79eaa5fefd28366 (raport); e883a34 (dane z Search Console, numer T-025)
 decisions: [D-001, D-011, D-013, D-015, D-018, D-021, D-033, D-034, D-039, D-051, D-052]
 ---
@@ -34,6 +34,7 @@ Wynik: `kono-state/notes/audyt-seo.md` + rejestr źródeł `kono-state/notes/aud
 
 Raport scalony w PR #29. Uzupełnienie (dane z Search Console, numer T-025) czeka w PR #31, bo ostatni commit
 powstał w chwili scalenia PR #29 i nie wszedł do `main`. Zmiany wyłącznie w `kono-state/`, kod bez zmian.
+**Stan:** PR #31 scalony do main 22.11.2026 (28a02ab).
 
 ## Wynik
 
@@ -81,4 +82,6 @@ Przegląd po 8–12 tygodniach (punkt 20 planu). Bing Webmaster Tools: stan niez
 
 ## Stan
 
-Audyt SEO i plan działań zakończone i przyjęte. Decyzje D-051 (repozytorium publiczne) i D-052 (wizyty osobiste i profil Google w późniejszym etapie) wpisane do rejestru. Raport scalony do main w PR #29. Karta zamknięta.
+Audyt SEO i plan działań zakończone i przyjęte. Decyzje D-051 (repozytorium publiczne) i D-052 (wizyty osobiste i profil Google w późniejszym etapie) wpisane do rejestru. Raport scalony do main w PR #29 (9856b6f), uzupełnienie w PR #31 (28a02ab). Karta zamknięta.
+Punkty z sekcji „Nadal zablokowane” (zapytania, pozycje, Core Web Vitals, linki przychodzące, Bing Webmaster Tools)
+pozostają otwarte do przeglądu po 8–12 tygodniach.

@@ -6,11 +6,11 @@ channel: pm-local
 requested_by: owner
 status: zmergowane
 created: 2026-11-22
-updated: 2026-11-22
+updated: 2026-11-23
 branch: skibiai/serene-bohr-2hdmui
 base: main (da8d1ae); odświeżona merge z main a653e8a (PR #38 i #40)
-depends_on: T-024
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/39 (baza main)
+depends_on: T-035 (wcześniej T-024)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/39 (scalony do main, ca9b92b)
 sha: 763ae644c4c7aa67f6ecee462aa07d9c2d47198a (runda 2: kadr i kontrakt; runda 1: 3c6c43d); kolejne commity zmieniają tylko kartę
 decisions: [D-015, D-017, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-041, D-043, D-044, D-045, D-049]
 ---
@@ -24,7 +24,7 @@ w hero, PR #40). W PR #39 i w commitach sprzed odświeżenia karta występuje ja
 ## Cel
 
 Pierwszy pakiet do portfolio wybrany przez właściciela (D-045): godziny, premie i dane umów trafiają do programu
-kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.2026 kroki 1–2 planu z karty T-024
+kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.2026 kroki 1–2 planu z karty T-035 (wcześniej T-024)
 („akceptuję kroki 1–2, cena po audycie, stała”).
 
 ## Zakres
@@ -110,7 +110,8 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
 1. Brzmienie tekstów strony: **zaakceptowane przez właściciela 22.11.2026** („Akceptuję brzmienie tekstów dla /kadry-i-place.html”).
 2. Odnośnik w menu i stopce: **zaakceptowane przez właściciela 22.11.2026** (kolejność, nazwa „Kadry i płace” i podpis zatwierdzone).
 3. Nazwa handlowa pakietu: **„Auto Kadry i Płace”** — ustalona przez właściciela 22.11.2026.
-4. Karta T-024 nadal ma status `do-przegladu`; jej raport jest scalony (PR #33 i #36).
+4. Karta T-035 (wcześniej T-024) nadal ma status `do-przegladu`; jej raport jest scalony (PR #33 i #36).
+   **Stan:** karta ma status `zmergowane` (23.11.2026).
 
 ## Stan
 

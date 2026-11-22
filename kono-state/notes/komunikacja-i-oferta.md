@@ -1,6 +1,6 @@
 # Komunikacja i oferta REVAGY — jak mówić do grupy docelowej i o jakie produkty rosnąć
 
-Karta: T-024 · Data: 22.11.2026 · Wersja 3: po odpowiedziach właściciela na siedem pytań i po jego decyzji o grupie 50–250 osób (D-044). Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
+Karta: T-035 (wcześniej T-024) · Data: 22.11.2026 · Wersja 3: po odpowiedziach właściciela na siedem pytań i po jego decyzji o grupie 50–250 osób (D-044). Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
 
 Rozdział 0 zawiera aktualny stan superzdania i rankingu. Rozdziały 4 i 6 zostają w brzmieniu wersji 1 jako zapis tego, z czego wyszliśmy.
 
