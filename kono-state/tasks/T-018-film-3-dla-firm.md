@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-3-dla-firm
-base: 839b560
+base: feat/film-2-wdrozenia (eeab98d)
 depends_on: T-011, T-015
 pr: —
 sha: —
