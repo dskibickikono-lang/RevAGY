@@ -3,14 +3,14 @@ id: T-015
 title: Etap filmowy F1 — film w miejscu na film strony /integracja-systemow.html
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-1-integracja-systemow
 base: feat/etap-6-poradniki (fd7a45f)
 depends_on: T-009, T-014
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/17 (baza feat/etap-6-poradniki)
+sha: 2707110470100bb4d38bb45c7d73717c41d90d02 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -63,3 +63,15 @@ i pozostałe strony nie zmieniają się ani o bajt.
 - Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza, że zmiana odpowiada
   etapowi `film-integracja-systemow`.
 - Przewidziany manifest wydania: `92557c90e16cb06a64d13a4f73fce3edfe965eb0c92ca1a30c4cd48de4a02e04`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `2707110` (run 44969533601), zielony:
+
+- `check:dist`: 6 z 6 kroków, 53 pliki, 11/11 stron. Manifest
+  `92557c90e16cb06a64d13a4f73fce3edfe965eb0c92ca1a30c4cd48de4a02e04`, ten sam co przewidziany.
+- `compare-film`: zmiana kontraktu odpowiada etapowi `film-integracja-systemow` (tylko ta strona, ramka filmu
+  i dane strukturalne).
+- Test dymny: 189 z 190, 0 błędów, 1 pominięte (geometria strony głównej, która jest identyczna z bazą).
+  Stan „film”: wybrane źródło i odtwarzanie w kadrze, przycisk pauzy i wznowienia, odpowiedź 206 na zakres bajtów.
+- Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 82 z 82.
