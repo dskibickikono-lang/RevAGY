@@ -1,8 +1,8 @@
 {
  "outcome": "Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-040, D-041, D-042) oraz D-016 i D-019.",
- "population": "Polskie firmy B2B zatrudniające 5–250 osób oraz zakłady produkcyjne i firmy logistyczne (62 788 przedsiębiorstw małych i średnich w 2024 r. wg PARP/GUS; firm 5–9 osób nie policzono).",
+ "population": "Polskie firmy B2B zatrudniające 50–250 osób (14 359 przedsiębiorstw średnich w 2024 r. wg PARP/GUS), po decyzji właściciela D-043. W wersjach 1 i 2 populacją były firmy 5–250 osób oraz produkcja i logistyka; ocen nie zmieniano, bo wypowiedzi rzadko podają wielkość firmy.",
  "window": "Wypowiedzi publiczne z lat 2008–2026 zebrane 22.11.2026 (148 doświadczeń) oraz treści strony revagy.pl w stanie z 22.11.2026.",
- "revision": 2,
+ "revision": 3,
  "review_status": "proposed",
  "selected_opportunity_ids": [],
  "opportunities": [

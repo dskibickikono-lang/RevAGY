@@ -1,12 +1,12 @@
 # Karta ocen PRES — kandydaci na nowe produkty i usługi REVAGY
 
-Status: **propozycja agenta, czeka na przegląd właściciela.** Żaden kandydat nie jest wybrany. Wersja 2 z 22.11.2026: po odpowiedziach właściciela zmieniono wynik porównania i oś Strategic fit dla K03, K07 i K11. Pozostałe oceny bez zmian.
+Status: **propozycja agenta, czeka na przegląd właściciela.** Żaden kandydat nie jest wybrany. Wersja 3 z 22.11.2026 (populacja zawężona do firm 50–250 osób, D-043; oceny jak w wersji 2). Wersja 2: po odpowiedziach właściciela zmieniono wynik porównania i oś Strategic fit dla K03, K07 i K11. Pozostałe oceny bez zmian.
 
 ## Zakres
 
 - **Produkt:** usługi REVAGY (automatyzacja i wdrażanie AI w B2B, D-001).
 - **Wynik, do którego porównujemy:** Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-040, D-041, D-042) oraz D-016 i D-019.
-- **Populacja:** Polskie firmy B2B zatrudniające 5–250 osób oraz zakłady produkcyjne i firmy logistyczne (62 788 przedsiębiorstw małych i średnich w 2024 r. wg PARP/GUS; firm 5–9 osób nie policzono).
+- **Populacja:** Polskie firmy B2B zatrudniające 50–250 osób (14 359 przedsiębiorstw średnich w 2024 r. wg PARP/GUS), po decyzji właściciela D-043. W wersjach 1 i 2 populacją były firmy 5–250 osób oraz produkcja i logistyka; ocen nie zmieniano, bo wypowiedzi rzadko podają wielkość firmy.
 - **Okno i źródła:** Wypowiedzi publiczne z lat 2008–2026 zebrane 22.11.2026 (148 doświadczeń) oraz treści strony revagy.pl w stanie z 22.11.2026. Cytaty: `../kwerenda/quotes.csv`, ustalenia: `../kwerenda/report.md`.
 - **Ograniczenia:** wzmianki w próbie nie są udziałem w rynku; 120 ze 149 cytatów pochodzi z dwóch źródeł; skargi nie dowodzą gotowości do zapłaty. Oś Reach jest oceną agenta opartą na tym, kogo problem dotyczy i jak często wraca, nie pomiarem.
 - **Jak czytać:** PRES = Pain + Reach + Evidence + Strategic fit, każda oś 1–5, suma bez wag (4–20). Oceniana jest potrzeba klienta. Nazwa produktu obok to propozycja odpowiedzi na tę potrzebę i nie jest oceniana: ocena nie mówi nic o pracochłonności ani o tym, czy rozwiązanie zadziała.

@@ -11,7 +11,7 @@ base: main (43efbf5 runda 1, 5bac11d runda 2)
 depends_on: —
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/33 (runda 1, scalony), https://github.com/dskibickikono-lang/RevAGY/pull/36 (runda 2, baza main)
 sha: 8ac8f3b36b4c0e688b8ca639f045c64bf528c6f0 (runda 1), a8d9e3cc4b9217e9aad368f1d40a175cd584d0dc (runda 2; kolejne commity zmieniają tylko kartę)
-decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-040, D-041, D-042]
+decisions: [D-001, D-015, D-016, D-017, D-018, D-019, D-020, D-021, D-028, D-029, D-030, D-033, D-034, D-040, D-041, D-042, D-043]
 ---
 
 # T-024 — Komunikacja i oferta: raport
@@ -93,3 +93,10 @@ PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedzia
 4. Sprawy z rundy 1 nadal otwarte: sposób dostępu do forów GOFIN i Wykop; przykłady „po” na stronie.
 
 Testy rundy 2: nie uruchamiano i nie dotyczy (tylko `kono-state/`, CI pomija). Sumy PRES przeliczone skryptem.
+
+## Runda 3 (2026-11-22): decyzja o grupie
+
+Właściciel: „50–250 osób”. Dopisane D-043. Superzdanie potwierdzone dla firm 50–250 osób, ocena bez zmian
+(„small business / service”). Karta ocen PRES w wersji 3: zmieniona populacja, oceny bez zmian. Teksty strony z zakresem
+„5–250 osób” nie były ruszane; ich zmiana wymaga osobnej decyzji i karty. Punkt 1 z listy „Do decyzji właściciela po
+rundzie 2” jest zamknięty. Testy: nie dotyczy (tylko `kono-state/`).

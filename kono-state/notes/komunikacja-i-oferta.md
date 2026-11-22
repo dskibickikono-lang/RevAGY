@@ -1,6 +1,6 @@
 # Komunikacja i oferta REVAGY — jak mówić do grupy docelowej i o jakie produkty rosnąć
 
-Karta: T-024 · Data: 22.11.2026 · Wersja 2, po odpowiedziach właściciela na siedem pytań. Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
+Karta: T-024 · Data: 22.11.2026 · Wersja 3: po odpowiedziach właściciela na siedem pytań i po jego decyzji o grupie 50–250 osób (D-043). Status: raport do decyzji właściciela. Treści strony nie zostały zmienione.
 
 Rozdział 0 zawiera aktualny stan superzdania i rankingu. Rozdziały 4 i 6 zostają w brzmieniu wersji 1 jako zapis tego, z czego wyszliśmy.
 
@@ -19,7 +19,7 @@ Oznaczenia Q001–Q149 w tym raporcie to numery cytatów z `quotes.csv`. Każde 
 2. **Klient boi się wdrożenia i dostawcy bardziej niż ręcznej pracy.** Koszt i ryzyko wdrożenia: 43 ze 148 doświadczeń. Uzależnienie od dostawcy: 30. Ręczne przepisywanie: 29. Przekaz powinien najpierw zdejmować ryzyko (mały zakres, znana cena, co się dzieje, gdy coś stanie), a dopiero potem liczyć godziny.
 3. **Najmocniejsze dowody, własne i publiczne, są w kadrach, księgowości i raportach.** Tam są cztery wdrożenia ze strony i tam jest większość głosów klientów. Sprzedaż, obsługa klienta i marketing, od których zaczyna strona główna, nie mają w repozytorium ani wdrożenia, ani mocnych cytatów.
 4. **Rosnąć warto przez pakiety o stałym zakresie, a nie przez nową grupę docelową.** Po odpowiedziach właściciela na czele są: godziny i umowy do kadr i płac bez wpisywania (K02) oraz jedna kolejka faktur kosztowych (K01), po 16 na 20, a za nimi raport bez ręcznych eksportów (K07), 15. Wybór należy do właściciela.
-5. **Superzdanie ma odpowiedzi właściciela i czeka na jedno potwierdzenie brzmienia.** Ocena zostaje: mała firma usługowa. Zespół i stała cena zdejmują dwie luki. Zostaje jedna: popyt poza poleceniami nie jest sprawdzony, a cel przychodu wymaga projektów większych niż te, które dziś przychodzą.
+5. **Superzdanie jest potwierdzone dla firm 50–250 osób (D-043).** Ocena zostaje: mała firma usługowa. Zespół i stała cena zdejmują dwie luki. Zostaje jedna: popyt poza poleceniami nie jest sprawdzony, a cel przychodu wymaga projektów większych niż te, które dziś przychodzą.
 
 ---
 
@@ -48,15 +48,15 @@ Właściciel odpowiedział 22.11.2026 na siedem pytań z rozdziału 4. Nazw klie
 
 ### Superzdanie
 
-Brzmienie bez zmian:
+Brzmienie potwierdzone przez właściciela 22.11.2026 z grupą zawężoną do firm 50–250 osób (D-043):
 
-> Ludzie z kadr, księgowości i biura w firmach 5–250 osób potrzebują danych wpisanych raz i zgodnych w każdym systemie. Obecne rozwiązania zostawiają ich z klepaniem z palca i arkuszem obok systemu, przez co błędy wychodzą przy wypłacie, fakturze albo kontroli. Chcemy, żeby mogli ufać danym bez ich przepisywania i ponownego sprawdzania. Nasze podejście to łączenie systemów, które firma już ma, po jednym zmierzonym procesie.
+> Ludzie z kadr, księgowości i biura w firmach 50–250 osób potrzebują danych wpisanych raz i zgodnych w każdym systemie. Obecne rozwiązania zostawiają ich z klepaniem z palca i arkuszem obok systemu, przez co błędy wychodzą przy wypłacie, fakturze albo kontroli. Chcemy, żeby mogli ufać danym bez ich przepisywania i ponownego sprawdzania. Nasze podejście to łączenie systemów, które firma już ma, po jednym zmierzonym procesie.
 
 | Punkt | Wersja 1 | Wersja 2 |
 |---|---|---|
 | Kto płaci | Powód płacącego był hipotezą | Jest płacący klient spoza grupy powiązanej; połowa wdrożeń była płatna. Dowód: odpowiedź właściciela. |
 | Koszt po stronie płacącego | Pieniądze: nieznane | Znany rząd wielkości jednego projektu, sprzedanego z dużymi rabatami. Jeden punkt danych. |
-| Ilu kupujących | 62 788 firm małych i średnich | Bez zmian. Dla większych projektów realną pulą jest 14 359 firm średnich (50–249 osób). |
+| Ilu kupujących | 62 788 firm małych i średnich | 14 359 firm średnich (50–249 osób) po decyzji D-043. Szacunek górny, nie rynek dostępny. |
 | Powtarzalność problemu | Codziennie albo co miesiąc | Bez zmian. |
 | Alternatywy | Dodatek producenta, zmiana programu, samodzielna budowa, osoba do wklepywania | Bez zmian. Stała cena (D-040) jest powodem wyboru wobec wdrożeń „bez końca”. |
 | Powtarzalność bez właściciela | Nieznana | Jest wspólnik i specjaliści gotowi do zleceń. Założenie do sprawdzenia: pierwsze płatne wdrożenie wykonane bez właściciela. |
@@ -66,13 +66,14 @@ Brzmienie bez zmian:
 - **Co się poprawiło:** zespół poza właścicielem, stała cena, płacący klient spoza grupy, działający agent AI.
 - **Dlaczego ocena nie rośnie:** sprzedaż opiera się na poleceniach, przychodzą firmy mniejsze niż docelowe, a badanie rynku i popytu jest dopiero przed właścicielem. Cel przychodu jest ambicją, nie dowodem.
 - **Co ją zmieni:** trzy płatne wdrożenia tego samego pakietu w firmach 50–250 osób, pozyskane poza poleceniami, z których przynajmniej jedno wykona zespół bez właściciela.
+- **Status:** brzmienie potwierdzone. Ocena pozostaje taka sama; potwierdzenie brzmienia nie jest dowodem popytu.
 - **Następny krok poza rozmową** (wymaga osobnej zgody, bo to kontakt z ludźmi): w 14 dni 10 konsultacji jednego procesu z głównymi księgowymi albo kadrowymi firm 50–250 osób spoza poleceń. Próg: co najmniej 3 z 10 kupują audyt za 1 990 zł.
 
-**Do potwierdzenia przez właściciela, jeden raz:** czy superzdanie zostaje w tym brzmieniu, czy zmieniamy grupę na firmy 50–250 osób. Druga wersja lepiej pasuje do celu przychodu, ale zawęża D-016, więc wymaga decyzji.
+**Co wynika z zawężenia grupy.** Strona nadal mówi „firmy 5–250 osób” (D-016, strona `dla-firm`). D-043 dotyczy tego, do kogo kierujemy sprzedaż i nowe treści. Zmiana tekstów strony wymaga osobnej decyzji i karty. Persony P1 i P3 pasują do firm tej wielkości bez zmian: tam jest osobny dział kadr i księgowości. W tematach treści warto wskazywać skalę wprost, na przykład „kilkaset osób na liście płac”.
 
 ### Ranking produktów, wersja 2
 
-Wynik porównania po odpowiedziach: portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów. Zmieniła się tylko oś Strategic fit trzech kandydatów. Status: propozycja, czeka na przegląd właściciela.
+Wynik porównania po odpowiedziach: portfolio płatnych wdrożeń o stałej cenie, w projektach większych niż proste automatyzacje poczty i dokumentów. Zmieniła się tylko oś Strategic fit trzech kandydatów. Po decyzji D-043 populacją porównania są firmy 50–250 osób; ocen nie zmieniałem, bo zebrane wypowiedzi rzadko podają wielkość firmy. Zawężenie wzmacnia K02 (duże listy płac) i dodatkowo oddala K09, K10 i K12. Status: propozycja, czeka na przegląd właściciela.
 
 | Miejsce | ID | Propozycja produktu | P | R | E | S | PRES | Zmiana |
 |---|---|---|---|---|---|---|---|---|
