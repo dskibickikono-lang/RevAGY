@@ -75,8 +75,11 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
 - `src/layouts/BaseLayout.astro` i `src/layouts/PodstronaLayout.astro`: pozycja „Kadry i płace” w panelu „Dla działów”
   (po „Finanse”) i odnośnik w kolumnie stopki „Dla działów” (po „Finanse”). Menu mobilne bez zmian.
 - Strona główna: `tools/baseline/index.html` to nowa migawka; `tools/etapy/zmiana-strony-glownej.json` (etap „T-028”)
-  wymienia dwa dodane odnośniki, zachowuje wpis z T-024 i zgłasza stopkę jako sekcję, która może urosnąć o jeden wiersz.
-  Baza `tools/baseline/index.baza.html` bez zmian.
+  wymienia dwa dodane odnośniki i zgłasza stopkę jako sekcję, która może urosnąć o jeden wiersz.
+  Poprawka po CI (commit afe9fb8 czerwony na `compare-home`): CI porównuje migawkę z migawką na `main`, a lista
+  zawierała jeszcze wpis z T-024, który na `main` jest już uwzględniony. Baza `tools/baseline/index.baza.html` to teraz
+  migawka z `main` (da8d1ae), a lista ma tylko dwa dodane odnośniki. Błąd odtworzony lokalnie z `REVAGY_BAZA_REF=origin/main`
+  i po poprawce ta sama kontrola przechodzi.
 - `tools/dom-contract.json` przeliczony: zmieniają się wszystkie strony HTML (menu i stopka są wspólne).
 - Lokalnie: build 13 stron, `npm run check:dist` 6 z 6 OK. Podgląd strony głównej: panel menu z pięcioma pozycjami,
   stopka z piątym odnośnikiem, w 390 px bez przewijania w poziomie. Test dymny (geometria) i Lighthouse uruchamia CI.

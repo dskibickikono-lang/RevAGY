@@ -1,17 +1,9 @@
 {
   "etap": "T-028",
-  "opis": "T-028, decyzja właściciela z 22.11.2026 („Tak dodać”): odnośnik „Kadry i płace” do nowej podstrony kadry-i-place.html w panelu menu „Dla działów” (po pozycji „Finanse”) i w kolumnie stopki „Dla działów” (po „Finanse”). Wcześniejsza zmiana z T-024 (baner zgody) zostaje na liście: assets/js/analytics.js?v=4 na ?v=5. Różnica między tools/baseline/index.baza.html a tools/baseline/index.html. Pozostałe teksty, atrybuty i znaczniki bez zmian.",
+  "opis": "T-028, decyzja właściciela z 22.11.2026 (D-046, „Tak dodać”): odnośnik „Kadry i płace” do nowej podstrony kadry-i-place.html w panelu menu „Dla działów” (po pozycji „Finanse”) i w kolumnie stopki „Dla działów” (po „Finanse”). Różnica między tools/baseline/index.baza.html (migawka z main da8d1ae, po T-024 i T-027) a tools/baseline/index.html. Pozostałe teksty, atrybuty i znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
-    "atrybuty": [
-      {
-        "znacznik": "script",
-        "atrybut": "src",
-        "bylo": "assets/js/analytics.js?v=4",
-        "jest": "assets/js/analytics.js?v=5",
-        "razy": 1
-      }
-    ],
+    "atrybuty": [],
     "dodane": [
       {
         "znacznik": "a",
