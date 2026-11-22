@@ -6,7 +6,8 @@
    2. tools/compare-home.cjs --dist=<dist>          (jeśli plik istnieje)
    3. tools/check-podstrony-css.cjs                 (jeśli plik istnieje)
    4. tools/check-tresc.cjs --dist=<dist>           (jeśli plik istnieje)
-   5. node --test tools/tests/                      (jeśli katalog istnieje)
+   5. tools/compare-film.cjs                        (jeśli plik istnieje; etapy filmowe)
+   6. node --test tools/tests/                      (jeśli katalog istnieje)
 
    Użycie:
      node tools/check-all.cjs <dist> [argumenty walidatora]
@@ -33,6 +34,7 @@ function main(args = process.argv.slice(2), root = ROOT) {
     { name: 'compare-home', file: 'tools/compare-home.cjs', argv: ['tools/compare-home.cjs', `--dist=${dist}`] },
     { name: 'check-podstrony-css', file: 'tools/check-podstrony-css.cjs', argv: ['tools/check-podstrony-css.cjs'] },
     { name: 'check-tresc', file: 'tools/check-tresc.cjs', argv: ['tools/check-tresc.cjs', `--dist=${dist}`] },
+    { name: 'compare-film', file: 'tools/compare-film.cjs', argv: ['tools/compare-film.cjs'] },
     { name: 'tests', file: 'tools/tests', argv: ['--test', 'tools/tests/'] },
   ];
 

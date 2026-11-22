@@ -133,4 +133,26 @@ function sprawdzPodstrone(plik, html) {
   return bledy;
 }
 
-module.exports = { sprawdzPodstrone, widocznePytania, STYL_DOZWOLONY };
+/** Lokalne pliki wskazane w VideoObject (thumbnailUrl, contentUrl, embedUrl) jako ścieżki względne w dist/.
+    Adresy spoza https://revagy.pl i błędny JSON są pomijane (błąd JSON zgłasza sprawdzPodstrone). */
+function plikiVideoObject(html) {
+  const doc = parse(html);
+  const out = [];
+  for (const blok of findAll(doc, (e) => e.name === 'script' && (e.attrs.type || '').trim().toLowerCase() === 'application/ld+json')) {
+    let dane;
+    try { dane = JSON.parse(blok.children.map((c) => c.text || '').join('')); } catch { continue; }
+    const graf = Array.isArray(dane && dane['@graph']) ? dane['@graph'] : [dane];
+    for (const n of graf.filter((x) => typy(x).includes('VideoObject'))) {
+      for (const pole of ['thumbnailUrl', 'contentUrl', 'embedUrl']) {
+        if (typeof n[pole] !== 'string') continue;
+        let u;
+        try { u = new URL(n[pole]); } catch { out.push({ pole, rel: null, adres: n[pole] }); continue; }
+        if (u.origin !== new URL(ADRES_BAZOWY).origin) continue;
+        out.push({ pole, rel: decodeURIComponent(u.pathname.replace(/^\//, '')), adres: n[pole] });
+      }
+    }
+  }
+  return out;
+}
+
+module.exports = { sprawdzPodstrone, widocznePytania, plikiVideoObject, STYL_DOZWOLONY };

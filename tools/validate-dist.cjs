@@ -27,7 +27,7 @@
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
-const { sprawdzPodstrone } = require('./lib/podstrona.cjs');
+const { sprawdzPodstrone, plikiVideoObject } = require('./lib/podstrona.cjs');
 
 const VOID_TAGS = new Set([
   'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
@@ -898,6 +898,11 @@ function main() {
     if (!entry) { errors.push(`${plik}: brak strony wymienionej w tools/podstrony.json`); continue; }
     const htmlPodstrony = fs.readFileSync(entry.full, 'utf8');
     errors.push(...sprawdzPodstrone(plik, htmlPodstrony).map((b) => `${plik}: ${b}`));
+    // Stan „film”: kadr startowy i plik filmu wskazane w VideoObject muszą istnieć w dist/ (plan 3.8).
+    for (const v of plikiVideoObject(htmlPodstrony)) {
+      if (v.rel === null) errors.push(`${plik}: VideoObject.${v.pole} nie jest adresem URL (${v.adres})`);
+      else if (!actualMap.has(v.rel)) errors.push(`${plik}: VideoObject.${v.pole} wskazuje na nieistniejący plik ${v.rel}`);
+    }
     // Strona spoza kontraktu (pierwszy build etapu): odwołania lokalne sprawdzamy tutaj,
     // bo pętla po contract.pages jej jeszcze nie obejmuje (np. odnośnik w odpowiedzi FAQ, kadr filmu).
     if (!contract.pages[plik]) {
