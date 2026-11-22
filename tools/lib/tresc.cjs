@@ -1,6 +1,6 @@
 'use strict';
 /* Reguły treści podstron: nazwy własne systemów (D-033), zakazane frazy, niewypełnione {{…}},
-   pokrycie liczb rejestrem twierdzeń oraz miejsce na film (plan 3.8, reguła filmSlots). */
+   pokrycie liczb rejestrem twierdzeń, kolejność nagłówków w <main> oraz miejsce na film (plan 3.8, reguła filmSlots). */
 
 const { parse, find, findAll, hasClass, has, textOf, collapse } = require('./html.cjs');
 
@@ -51,6 +51,41 @@ function sprawdzRejestr(rejestr) {
     if (t.rodzaj === 'wynik-wdrozenia' && !t.jakMierzone) ostrzezenia.push(`${gdzie}: wynik wdrożenia bez opisu „jak mierzone” (jakMierzone)`);
   });
   return { bledy, ostrzezenia };
+}
+
+/** Udokumentowane wyjątki z tools/nazwy-systemow.json ("wyjatki", np. KSeF, T-021): format i brak kolizji z listą nazw. */
+function sprawdzWyjatki(wyjatki, nazwy = []) {
+  if (wyjatki === undefined) return [];
+  if (!Array.isArray(wyjatki)) return ['nazwy-systemow.json: "wyjatki" musi być tablicą'];
+  const bledy = [];
+  const lista = new Set(nazwy.map((n) => String(n).toLowerCase()));
+  wyjatki.forEach((w, i) => {
+    const gdzie = `nazwy-systemow.json: wyjątek [${i}]${w && w.nazwa ? ` (${w.nazwa})` : ''}`;
+    if (!w || typeof w !== 'object') { bledy.push(`${gdzie}: wpis nie jest obiektem`); return; }
+    for (const pole of ['nazwa', 'uzasadnienie', 'zrodlo']) {
+      if (typeof w[pole] !== 'string' || !w[pole].trim()) bledy.push(`${gdzie}: brak pola "${pole}"`);
+    }
+    if (typeof w.nazwa === 'string' && lista.has(w.nazwa.toLowerCase())) bledy.push(`${gdzie}: nazwa jest jednocześnie na liście "nazwy"`);
+  });
+  return bledy;
+}
+
+/** Nagłówki w <main>: pierwszy to h1, jedyny h1 w dokumencie, bez przeskoku poziomu w dół (np. h2 → h4).
+    Stopka układu (h4 po ostatnim h2 w <main>) leży poza <main> i nie jest tu sprawdzana. */
+function sprawdzNaglowki(doc, main) {
+  const poziom = (e) => (/^h[1-6]$/.test(e.name) ? Number(e.name[1]) : 0);
+  const bledy = [];
+  const h1 = findAll(doc, (e) => e.name === 'h1').length;
+  if (h1 !== 1) bledy.push(`nagłówki: oczekiwany dokładnie jeden <h1>, jest ${h1}`);
+  const naglowki = findAll(main, (e) => poziom(e) > 0);
+  if (!naglowki.length) return bledy;
+  if (poziom(naglowki[0]) !== 1) bledy.push(`nagłówki: pierwszy nagłówek w <main> to <${naglowki[0].name}>, oczekiwano <h1>`);
+  for (let i = 1; i < naglowki.length; i++) {
+    const a = poziom(naglowki[i - 1]);
+    const b = poziom(naglowki[i]);
+    if (b > a + 1) bledy.push(`nagłówki: przeskok z <h${a}> do <h${b}> przy „${collapse(textOf(naglowki[i])).slice(0, 60)}”`);
+  }
+  return bledy;
 }
 
 function sprawdzFilm(doc, film) {
@@ -178,9 +213,12 @@ function sprawdzStrone({ plik, html, strona = {}, nazwy = [], frazy = [], rejest
     bledy.push(...sprawdzLiczby(tresciLiczb, (rejestr && rejestr.twierdzenia) || [], plik));
   }
 
-  // 4. miejsce na film
+  // 4. kolejność nagłówków w <main>
+  if (main.length === 1) bledy.push(...sprawdzNaglowki(doc, main[0]));
+
+  // 5. miejsce na film
   bledy.push(...sprawdzFilm(doc, strona.film));
   return bledy;
 }
 
-module.exports = { sprawdzStrone, sprawdzRejestr, sprawdzFilm, sprawdzLiczby, frazaRe, spacje };
+module.exports = { sprawdzStrone, sprawdzRejestr, sprawdzFilm, sprawdzLiczby, sprawdzNaglowki, sprawdzWyjatki, frazaRe, spacje };

@@ -4,11 +4,12 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { tmp, zapisz, uruchom, TOOLS } = require('./pomoc.cjs');
-const { sprawdzStrone, sprawdzRejestr, sprawdzFilm } = require('../lib/tresc.cjs');
+const { sprawdzStrone, sprawdzRejestr, sprawdzFilm, sprawdzWyjatki } = require('../lib/tresc.cjs');
 const { parse } = require('../lib/html.cjs');
 
 const SKRYPT = path.join(TOOLS, 'check-tresc.cjs');
-const NAZWY = JSON.parse(fs.readFileSync(path.join(TOOLS, 'nazwy-systemow.json'), 'utf8')).nazwy;
+const LISTA_NAZW = JSON.parse(fs.readFileSync(path.join(TOOLS, 'nazwy-systemow.json'), 'utf8'));
+const NAZWY = LISTA_NAZW.nazwy;
 const FRAZY = JSON.parse(fs.readFileSync(path.join(TOOLS, 'zakazane-frazy.json'), 'utf8')).frazy;
 const REJESTR = JSON.parse(fs.readFileSync(path.join(TOOLS, 'rejestr-twierdzen.json'), 'utf8'));
 
@@ -147,9 +148,39 @@ test('check-tresc: rejestr — walidacja i ostrzeżenie o „jak mierzone”', (
 });
 
 test('check-tresc: listy startowe', () => {
-  for (const n of ['Pipedrive', 'Comarch ERP', 'PostgreSQL', 'KSeF']) assert.ok(NAZWY.includes(n), n);
+  for (const n of ['Pipedrive', 'Comarch ERP', 'PostgreSQL']) assert.ok(NAZWY.includes(n), n);
   assert.ok(!NAZWY.includes('REST i webhooki'));
   assert.ok(FRAZY.includes('w Unii Europejskiej'));
+});
+
+test('check-tresc: KSeF to udokumentowany wyjątek (T-021), nazwa dostawcy dalej jest błędem', () => {
+  assert.ok(!NAZWY.includes('KSeF'));
+  const ksef = (LISTA_NAZW.wyjatki || []).find((w) => w.nazwa === 'KSeF');
+  assert.ok(ksef, 'brak wyjątku KSeF w nazwy-systemow.json');
+  assert.match(ksef.zrodlo, /T-021/);
+  assert.ok(ksef.uzasadnienie.trim());
+  assert.deepEqual(sprawdzWyjatki(LISTA_NAZW.wyjatki, NAZWY), []);
+  assert.deepEqual(sprawdz(strona({ main: '<p>Faktura z KSeF ma ustaloną strukturę.</p>' })), []);
+  const b = sprawdz(strona({ main: '<p>Faktury z KSeF trafiają do Comarch ERP.</p>' }));
+  assert.equal(b.length, 1, b.join('\n'));
+  assert.match(b[0], /„Comarch ERP” w: treść <main>/);
+  // wyjątek nie może jednocześnie stać na liście nazw, a wpis musi mieć uzasadnienie i źródło
+  assert.ok(sprawdzWyjatki([{ nazwa: 'KSeF', uzasadnienie: 'x', zrodlo: 'T-021' }], ['KSeF']).some((x) => /jednocześnie na liście/.test(x)));
+  assert.ok(sprawdzWyjatki([{ nazwa: 'KSeF' }], []).some((x) => /brak pola "uzasadnienie"/.test(x)));
+  assert.deepEqual(sprawdzWyjatki(undefined, NAZWY), []);
+  assert.equal(sprawdzWyjatki('KSeF', NAZWY).length, 1);
+});
+
+test('check-tresc: nagłówki w <main> — jeden h1 na początku, bez przeskoku poziomu', () => {
+  assert.deepEqual(sprawdz(strona({ main: '<h2>Sekcja</h2><h3>Kafel</h3><h2>Druga</h2><h3>Pytanie</h3>' })), []);
+  const przeskok = sprawdz(strona({ main: '<h2>Sekcja</h2><h4>Kafel</h4>' }));
+  assert.equal(przeskok.length, 1, przeskok.join('\n'));
+  assert.match(przeskok[0], /przeskok z <h2> do <h4> przy „Kafel”/);
+  assert.ok(sprawdz(strona({ main: '<h1>Drugi tytuł</h1>' })).some((x) => /dokładnie jeden <h1>, jest 2/.test(x)));
+  const bezH1 = strona().replace('<h1>Systemy, które same wymieniają dane</h1>', '<h2>Systemy, które same wymieniają dane</h2>');
+  assert.ok(sprawdz(bezH1).some((x) => /pierwszy nagłówek w <main> to <h2>/.test(x)));
+  // h4 w stopce układu (poza <main>) nie jest przeskokiem w <main>
+  assert.deepEqual(sprawdz(strona().replace('<footer class="site-footer">', '<footer class="site-footer"><nav><h4>Dla działów</h4></nav>')), []);
 });
 
 test('check-tresc CLI: pusta lista podstron — kod 0', () => {

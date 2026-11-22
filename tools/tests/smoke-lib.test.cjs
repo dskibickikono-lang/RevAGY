@@ -57,6 +57,9 @@ test('film: proporcje 16:9 z tolerancją 1 px', () => {
 test('zrzuty i adresy', () => {
   assert.equal(nazwaZrzutu('/', 1280), 'index-1280.png');
   assert.equal(nazwaZrzutu('integracja-systemow.html', 390), 'integracja-systemow-390.png');
+  // wąskie widoki telefonu (393 i 375 px) dla podstron, np. finanse.html
+  assert.equal(nazwaZrzutu('finanse.html', 393), 'finanse-393.png');
+  assert.equal(nazwaZrzutu('finanse.html', 375), 'finanse-375.png');
   assert.equal(adresKanoniczny('wdrozenia.html'), 'https://revagy.pl/wdrozenia.html');
 });
 

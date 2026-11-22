@@ -1,7 +1,14 @@
 {
-  "opis": "Nazwy własne systemów, których nie podajemy na podstronach (D-033). Start: pasek integracji strony głównej (src/pages/index.astro:356-359), bez pozycji ogólnych.",
+  "opis": "Nazwy własne systemów, których nie podajemy na podstronach (D-033). Start: pasek integracji strony głównej (src/pages/index.astro:356-359), bez pozycji ogólnych. Nazwy z listy \"wyjatki\" nie są nazwami dostawców: wolno je podawać i nie mogą wrócić na listę \"nazwy\".",
   "nazwy": [
     "Pipedrive", "HubSpot", "Salesforce", "Asana", "Slack", "Microsoft 365", "Google Workspace", "n8n", "Make", "Comarch ERP", "SAP",
-    "BaseLinker", "Shopify", "WooCommerce", "enova365", "Subiekt", "Jira", "Notion", "Teams", "KSeF", "PostgreSQL"
+    "BaseLinker", "Shopify", "WooCommerce", "enova365", "Subiekt", "Jira", "Notion", "Teams", "PostgreSQL"
+  ],
+  "wyjatki": [
+    {
+      "nazwa": "KSeF",
+      "uzasadnienie": "Krajowy System e-Faktur to system państwowy, a nie produkt dostawcy. Właściciel dopuścił tę nazwę na podstronach w zleceniu etapu 8 z 22.11.2026. Reguła D-033 dla nazw dostawców obowiązuje bez zmian.",
+      "zrodlo": "T-021"
+    }
   ]
 }
