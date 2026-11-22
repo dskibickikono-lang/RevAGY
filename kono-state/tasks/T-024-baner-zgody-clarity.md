@@ -3,12 +3,14 @@ id: T-024
 title: "Baner zgody: zdanie o miejscu danych po włączeniu Microsoft Clarity"
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: fix/baner-zgody-clarity
 base: main (c1f4d5c)
 depends_on: T-022
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/28
+sha: 9156d5321e2eeb7985517b23ea204c4f4f571180 (kod i kontrakt; kolejne commity zmieniają tylko kartę)
 pr: (uzupełniane po otwarciu PR)
 sha: (uzupełniane po commicie)
 decisions: [D-015, D-021, D-039]
@@ -84,3 +86,15 @@ Do czasu tego wdrożenia Clarity jest blokowane przez CSP także po zgodzie (str
 
 - Notatka pod D-039 w rejestrze decyzji (`kono-state/decisions/REJESTR_DECYZJI_BIZNESOWYCH.md`) o tekście banera:
   przyjęte brzmienie i zamknięcie otwartej kwestii „Dane zostają na naszym serwerze”.
+
+## Kontrakt i wynik CI (2026-11-22)
+
+- Kontrakt policzony z plików wydania `43efbf5` z naniesioną tą samą zmianą (nowy `analytics.js` i `?v=5` na
+  dwunastu stronach). Zmienione wpisy: 12 stron i `assets/js/analytics.js`. Lokalnie `check-all` 6 z 6.
+- Przewidziany manifest wydania: `e5bd79533c98510e18ad4f90b250be46b583bc283a0b0b957d42ed3a355010b7`.
+- Przebieg CI dla `9156d53` (run 45037408718), zielony: `check:dist` 6 z 6, manifest ten sam co przewidziany;
+  test dymny 271 z 271, w tym nowe sprawdzenie tekstu banera; wysokości nagłówka, sekcji i stopki strony głównej
+  na 1280 i 390 px równe bazie; testy `wydanie.sh` 16 z 16.
+- Lighthouse dla `/finanse.html` (run 45037408708): wydajność 97, dostępność 96, SEO 100.
+- Baner na zrzutach 375 i 393 px ma jeden wiersz tekstu więcej (sześć zamiast pięciu) i mieści się na ekranie
+  razem z przyciskami.
