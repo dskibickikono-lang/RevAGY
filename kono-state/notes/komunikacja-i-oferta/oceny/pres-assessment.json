@@ -1,10 +1,12 @@
 {
-  "outcome": "Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-040, D-041, D-042) oraz D-016 i D-019.",
-  "population": "Polskie firmy B2B zatrudniające 50–250 osób (14 359 przedsiębiorstw średnich w 2024 r. wg PARP/GUS), po decyzji właściciela D-043. W wersjach 1 i 2 populacją były firmy 5–250 osób oraz produkcja i logistyka; ocen nie zmieniano, bo wypowiedzi rzadko podają wielkość firmy.",
+  "outcome": "Portfolio płatnych wdrożeń o stałej cenie w firmach 5–250 osób, w projektach większych niż proste automatyzacje poczty i dokumentów, z wejściem przez bezpłatną konsultację jednego procesu. Produkcja i logistyka później. Podstawa: odpowiedzi właściciela z 22.11.2026 (D-041, D-042, D-043) oraz D-016 i D-019.",
+  "population": "Polskie firmy B2B zatrudniające 50–250 osób (14 359 przedsiębiorstw średnich w 2024 r. wg PARP/GUS), po decyzji właściciela D-044. W wersjach 1 i 2 populacją były firmy 5–250 osób oraz produkcja i logistyka; ocen nie zmieniano, bo wypowiedzi rzadko podają wielkość firmy.",
   "window": "Wypowiedzi publiczne z lat 2008–2026 zebrane 22.11.2026 (148 doświadczeń) oraz treści strony revagy.pl w stanie z 22.11.2026.",
   "revision": 3,
   "review_status": "proposed",
-  "selected_opportunity_ids": [],
+  "selected_opportunity_ids": [
+    "K02"
+  ],
   "opportunities": [
     {
       "id": "K01",
@@ -316,9 +318,9 @@
         },
         "strategic_fit": {
           "value": 4,
-          "rationale": "Raport dla zarządu jest jednym z czterech wdrożeń (D-020) i pasuje do firm 5–250 osób. Raport zmianowy w pilocie Enterprise (D-030) przestaje podnosić ocenę, bo właściciel odkłada produkcję i logistykę (D-041). Wersja 1: 5.",
+          "rationale": "Raport dla zarządu jest jednym z czterech wdrożeń (D-020) i pasuje do firm 5–250 osób. Raport zmianowy w pilocie Enterprise (D-030) przestaje podnosić ocenę, bo właściciel odkłada produkcję i logistykę (D-042). Wersja 1: 5.",
           "source_refs": [
-            "REJESTR_DECYZJI_BIZNESOWYCH.md#D-041",
+            "REJESTR_DECYZJI_BIZNESOWYCH.md#D-042",
             "REJESTR_DECYZJI_BIZNESOWYCH.md#D-020"
           ]
         }
