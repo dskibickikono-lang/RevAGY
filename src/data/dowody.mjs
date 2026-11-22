@@ -110,7 +110,7 @@ export const DOWODY = {
       cytat: null,
       szczegolyTechniczne: null,
     },
-    // Podstrona /sprzedaz.html, sekcja #wdrozenie-oferty („Oferta z kalkulatora i z rozmowy zespołu”).
+    // Podstrona /sprzedaz.html, sekcja #wdrozenie-oferty („Oferta z kalkulatora i z komunikatora zespołu”).
     'sprzedaz-oferty': {
       // Rodzaj firmy, np. 'Firma usługowa'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
       rodzajFirmy: null,
@@ -123,7 +123,7 @@ export const DOWODY = {
       cytat: null,
       szczegolyTechniczne: null,
     },
-    // Podstrona /sprzedaz.html, sekcja #wdrozenie-crm („Nowy lead i CRM w komunikatorze zespołu”).
+    // Podstrona /sprzedaz.html, sekcja #wdrozenie-crm („Nowy lead i obsługa CRM z komunikatora zespołu”).
     'sprzedaz-crm': {
       // Rodzaj firmy, np. 'Firma usługowa'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
       rodzajFirmy: null,

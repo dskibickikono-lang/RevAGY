@@ -34,7 +34,7 @@ const pytania = [
   },
   {
     pytanie: 'Czy wysyłacie wiadomości do klientów za nas?',
-    odpowiedz: 'Tylko te, które ustalicie. W audycie spisujemy z Wami, które wiadomości wychodzą same, na przykład potwierdzenie otrzymania zapytania albo przypomnienie o ofercie, z jaką treścią i w jakich terminach. Pozostałe powstają jako szkic, a wysyła je handlowiec.',
+    odpowiedz: 'Tylko te, które ustalicie. W audycie spisujemy z Wami, które wiadomości wychodzą same, z jaką treścią i w jakich terminach. Pozostałe powstają jako szkic, a wysyła je handlowiec.',
   },
   {
     pytanie: 'Czy musimy zmieniać CRM albo pocztę?',
@@ -71,7 +71,7 @@ const pytania = [
     {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
     <div class="section-head reveal">
       <h1 class="display-2">Kwalifikacja leadów, oferty i follow-upy bez ręcznego przepisywania</h1>
-      <p class="lead">Automatyzujemy trzy procesy działu sprzedaży: kwalifikację leadów (czyli zapytań od firm), przygotowanie ofert i follow-upy (czyli przypomnienia i wiadomości o dalszym kroku). Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja oferty zostają u Was.</p>
+      <p class="lead">Automatyzujemy trzy procesy działu sprzedaży: kwalifikację leadów (zapytań od firm), przygotowanie ofert i follow-upy (przypomnienia i wiadomości o dalszym kroku). Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja oferty zostają u Was.</p>
       <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
       <p>Dla dyrektora sprzedaży, szefa zespołu handlowego i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
       <div class="hero-cta">
@@ -111,7 +111,7 @@ const pytania = [
         <ul class="ticks">
           <li>Zapytania z formularza na stronie i z poczty trafiają do jednej kolejki.</li>
           <li>Pola zapytania są odczytane, a dane firmy uzupełnione, na przykład z rejestrów publicznych po numerze NIP.</li>
-          <li>Kontrola przed zapisem rozpoznaje firmę, która już jest w CRM: ponowne zapytanie trafia do otwartej sprawy, a zapytanie obecnego klienta do jego opiekuna.</li>
+          <li>Kontrola przed zapisem rozpoznaje firmę, która już jest w CRM, i ponowne zapytanie w otwartej sprawie.</li>
           <li>Zapytanie trafia do CRM z oceną według Waszych kryteriów i zadaniem dla handlowca przypisanego według Waszych reguł, na przykład według regionu. Handlowiec dostaje powiadomienie.</li>
         </ul>
       </article>
@@ -189,7 +189,7 @@ const pytania = [
   <section class="section wrap" id="wdrozenie">
     <header class="section-head reveal">
       <h2 class="h2">Wdrożenia w sprzedaży</h2>
-      <p class="lead">Trzy opisy z wdrożeń w zespole handlowym firmy usługowej B2B. Opisy są anonimowe, a to, co działa w pilotażu, jest tak oznaczone. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
+      <p class="lead">Trzy opisy z wdrożeń w zespole handlowym firmy usługowej B2B. Są anonimowe, a to, co działa w pilotażu, jest tak oznaczone. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
     </header>
   </section>
 
@@ -200,15 +200,15 @@ const pytania = [
       <p><strong>Co połączyliśmy:</strong> formularze na stronie, arkusz z podziałem regionów, CRM oraz powiadomienia SMS i e-mail.</p>
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
-        <li>zapytanie firmy z formularza trafia do CRM z handlowcem przypisanym według regionu, ze stałych reguł; zgłoszenie bez wybranego tematu trafia e-mailem do wskazanej osoby</li>
-        <li>ponowne zgłoszenie od firmy z otwartą sprawą jest dopisywane do tej sprawy, a zapytanie od obecnego klienta dostaje w CRM jego dotychczasowego opiekuna</li>
-        <li>podział regionów zmienia się w jednym arkuszu, a codzienna kontrola wykrywa zapytania bez przypisanego handlowca</li>
+        <li>zapytanie firmy z formularza trafia do CRM z handlowcem przypisanym według regionu na podstawie stałych reguł; zapytanie, w którym nie wybrano tematu, trafia e-mailem do wskazanej osoby</li>
+        <li>ponowne zapytanie od firmy z otwartą sprawą jest dopisywane do tej sprawy, a zapytanie od obecnego klienta dostaje w CRM jego dotychczasowego opiekuna</li>
+        <li>podział regionów zmienia się w jednym arkuszu, a codzienna kontrola wykrywa zapytania, których reguły nie przypisały do handlowca</li>
       </ul>
     </OpisWdrozenia>
   </section>
 
   <section class="section section-tight wrap" id="wdrozenie-oferty">
-    <OpisWdrozenia id="sprzedaz-oferty" tytul="Oferta z kalkulatora i z rozmowy zespołu">
+    <OpisWdrozenia id="sprzedaz-oferty" tytul="Oferta z kalkulatora i z komunikatora zespołu">
       {maWartosc(oferty.rodzajFirmy) && <p class="autor">{oferty.rodzajFirmy}</p>}
       <p>Handlowcy wyceniali oferty ręcznie w arkuszach, wyniki różniły się między osobami, a w plikach roboczych koszty wewnętrzne mieszały się z tym, co miał zobaczyć klient.</p>
       <p><strong>Co połączyliśmy:</strong> kalkulator ofertowy w przeglądarce, CRM, komunikator zespołu i generator PDF.</p>
@@ -216,21 +216,21 @@ const pytania = [
       <ul class="ticks">
         <li>kalkulator osobno przygotowuje ofertę dla klienta i kalkulację wewnętrzną</li>
         <li>mapa w kalkulatorze pokazuje podział terenu między handlowców i bieżące zapotrzebowanie klientów ładowane z arkusza</li>
-        <li>w pilotażu handlowiec podaje w komunikatorze numer NIP, a agent pobiera dane firmy z CRM, pyta o brakujące dane i zapisuje w CRM notatkę z parametrami oferty; stawki i warunki podaje handlowiec</li>
-        <li>agent nie wysyła niczego klientowi: gotowy PDF wraca do rozmowy zespołu, a ofertę klientowi wysyła handlowiec</li>
+        <li>w pilotażu handlowiec wpisuje w komunikatorze numer NIP, a agent, czyli program w komunikatorze zespołu, pobiera dane firmy z CRM, pyta o brakujące dane i zapisuje w CRM notatkę z parametrami oferty; stawki i warunki podaje handlowiec</li>
+        <li>agent nie wysyła niczego klientowi: gotowy PDF wraca do wątku zespołu w komunikatorze, a ofertę klientowi wysyła handlowiec</li>
       </ul>
     </OpisWdrozenia>
   </section>
 
   <section class="section section-tight wrap" id="wdrozenie-crm">
-    <OpisWdrozenia id="sprzedaz-crm" tytul="Nowy lead i CRM w komunikatorze zespołu">
+    <OpisWdrozenia id="sprzedaz-crm" tytul="Nowy lead i obsługa CRM z komunikatora zespołu">
       {maWartosc(crm.rodzajFirmy) && <p class="autor">{crm.rodzajFirmy}</p>}
-      <p><strong>Co połączyliśmy:</strong> CRM, komunikator zespołu, SMS jako kanał zapasowy i pulpit czasu reakcji.</p>
+      <p><strong>Co połączyliśmy:</strong> CRM, komunikator zespołu, zapasowy SMS i pulpit czasu reakcji.</p>
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
         <li>o nowym leadzie z formularza przypisany handlowiec dostaje wiadomość w komunikatorze, a gdy wysyłka się nie uda, SMS</li>
-        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na kanały i regiony</li>
-        <li>w pilotażu handlowiec pisze albo nagrywa w komunikatorze, co zrobić, a agent zakłada w CRM firmę, osobę, leada albo zadanie z terminem i odpowiada numerem rekordu</li>
+        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na źródła leadów i regiony</li>
+        <li>w pilotażu handlowiec pisze albo nagrywa wiadomość głosową w komunikatorze, a agent zakłada w CRM firmę, osobę, leada albo zadanie z terminem i odpowiada numerem wpisu w CRM</li>
         <li>agent uzupełnia tylko puste pola, a przed założeniem firmy sprawdza ją po numerze NIP</li>
       </ul>
     </OpisWdrozenia>

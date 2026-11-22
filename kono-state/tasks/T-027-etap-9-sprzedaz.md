@@ -36,7 +36,7 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
    i `dataPublikacji`.
 3. Trzy opisy wdrożeń sprzedażowych (`OpisWdrozenia`, układ jak na `/wdrozenia.html`, `<Ujawnienie />` po ostatnim):
    `sprzedaz-zapytania` („Zapytanie ze strony u handlowca z regionu”), `sprzedaz-oferty` („Oferta z kalkulatora
-   i z rozmowy zespołu”), `sprzedaz-crm` („Nowy lead i CRM w komunikatorze zespołu”). Nowe wpisy w
+   i z komunikatora zespołu”), `sprzedaz-crm` („Nowy lead i obsługa CRM z komunikatora zespołu”). Nowe wpisy w
    `src/data/dowody.mjs`, wszystkie pola `null`; linia rodzaju firmy pokazuje się dopiero, gdy `rodzajFirmy` ma wartość.
    Opisy nie mają liczb.
 4. Pliki wspólne:
@@ -64,6 +64,10 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
   wdrożenia sprzedażowe istnieją. Opis z rekrutacji zniknął ze strony sprzedaży (zostaje na `/wdrozenia.html`,
   a z pola `strony` wierszy `wd-kandydaci-*` usunięto `sprzedaz.html`). W jego miejsce weszły trzy opisy wdrożeń
   sprzedażowych.
+- **Decyzja właściciela z 22.11.2026 („zatwierdzam”, po raporcie PM z badania wdrożeń).** Zatwierdzone: trzy anonimowe
+  opisy wdrożeń sprzedażowych zamiast opisu z rekrutacji, wyrównanie treści do strony głównej, opis mapy bez zdania
+  o stawkach, silnik leadów poza stroną. Decyzja nie rozstrzygała wprost liczb (punkt 2 niżej) ani oznaczenia
+  „w pilotażu” (punkt 5), więc oba punkty zostają otwarte. Ostateczne brzmienie właściciel ogląda w PR.
 - **Skąd są dowody.** PM sprawdził je w prywatnych repozytoriach właściciela, na serwerze i na Dysku, tylko do odczytu,
   i zweryfikował dwoma niezależnymi przeglądami. Mapa dowodów jest poza repozytorium. Do repo trafiły tylko brzmienia
   strony, bez nazw spółek, repozytoriów, systemów i osób.
@@ -78,8 +82,7 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
     z niego raport”: w materiałach jest jeden raport zgodności (12.10.2026), robi go osobne narzędzie wprost z CRM,
     a rytm miesięczny to plan bez harmonogramu. Patrz „Decyzje do podjęcia przez właściciela”, punkt 10.
 - **Czego nie ma na stronie i dlaczego.** Patrz „Decyzje do podjęcia przez właściciela”, punkty 2, 3, 4 i 6: liczby
-  z małej próby bez zgody na publikację, silnik leadów z ofert pracy, stawki z arkusza, czas przygotowania oferty
-  i premie handlowców.
+  z małej próby bez zgody na publikację, silnik leadów, stawki z arkusza i czas przygotowania oferty.
 - **Wyrównanie do strony głównej.** Strona główna i `/dla-firm.html` mówią: „Lead z formularza (…) trafia do CRM
   z uzupełnionymi danymi firmy, oceną i zadaniem dla handlowca”, „Kwalifikacja i wzbogacanie leadów”, „Oferty
   generowane z cennika”, „Follow-upy wysyłane na czas”. Pierwsza wersja strony sprzedaży mówiła, że ocena
@@ -127,25 +130,25 @@ wytycznych dla strony „Sprzedaż”. Treść opiera się na repozytorium; z Dy
 
 ## Decyzje do podjęcia przez właściciela
 
-1. Trzy opisy wdrożeń sprzedażowych: zgoda na brzmienie. Pola właściciela w `src/data/dowody.mjs` są puste
+1. Trzy opisy wdrożeń sprzedażowych: kierunek zatwierdzony 22.11.2026, ostateczne brzmienie do przejrzenia w PR.
+   Pola właściciela w `src/data/dowody.mjs` są puste
    (`rodzajFirmy`, etykieta powiązania, skala, cytat), a zdanie ujawnienia (`zdanieUjawnienia`) dalej jest `null`.
-2. Liczby, które mają źródło i opis pomiaru, ale nie weszły na stronę, bo nie ma zapisanej zgody na ich publikację
-   i dotyczą małej próby: „12 z 12 zapytań z formularza we wrześniu 2026 miało w CRM handlowca zgodnego z podziałem
-   regionów” (odczyt właściciela i etykiety przydziału z CRM, raport z 12.10.2026) oraz „wiadomość o nowym leadzie
-   wyszła najpóźniej 53 s po jego utworzeniu” (audyt 4 pierwszych leadów, 31.08–03.09.2026).
-3. Silnik leadów z ofert pracy (rejestr publiczny i portal ogłoszeń) nie jest opisany na stronie: pobiera dane
-   z portalu, a ostatni dowód działania jest z 12.10.2026. Czy i jak go pokazać, decyduje właściciel.
+2. Dwie liczby mają źródło i opis pomiaru, ale nie weszły na stronę, bo nie ma zapisanej zgody na ich publikację
+   i dotyczą małej próby: zgodność przydziału handlowca z podziałem regionów w jednym miesiącu (odczyt handlowca
+   przypisanego do zapytania i etykiety przydziału z CRM) oraz czas od utworzenia leada do wysłania powiadomienia
+   (audyt pierwszych leadów po wdrożeniu). Wartości PM podał właścicielowi w raporcie; w repozytorium ich nie ma.
+3. Silnik leadów (pozyskiwanie firm do kontaktu) nie jest opisany na stronie. Powody PM podał właścicielowi
+   w raporcie. Czy i jak go pokazać, decyduje właściciel.
 4. „Stawki ładowane z arkusza”: w kodzie kalkulatora z arkusza ładuje się bieżące zapotrzebowanie klientów na mapę,
    a stawkę wpisuje handlowiec. Strona mówi więc o mapie z podziałem terenu i zapotrzebowaniem z arkusza, bez zdania
    o stawkach. Do potwierdzenia. Samego podziału terenu, stawek i marż strona nie pokazuje.
 5. Agent ofert i agent CRM są oznaczone „w pilotażu”. Jeśli zespół używa ich na co dzień, oznaczenie trzeba zdjąć.
-6. Czas przygotowania oferty przed i po oraz premie handlowców: w materiałach są szacunki bez opisu pomiaru, więc
-   nie weszły na stronę.
+6. Czas przygotowania oferty przed i po: w materiałach są szacunki bez opisu pomiaru, więc nie weszły na stronę.
 7. Wiadomości do klientów: brzmienie odpowiedzi „Tylko te, które ustalicie…” to propozycja.
 8. Treść kafli „Po wdrożeniu” w trzech procesach to propozycje, jak na Finansach.
 9. Kadr: firma „POLPAK” bez formy prawnej (test sceny odrzuca formy prawne) i etykiety poglądowe.
 10. Raport zgodności z celem czasu reakcji: czy powstaje regularnie co miesiąc? Jeśli tak, zdanie o raporcie może
-    wrócić do opisu „Nowy lead i CRM w komunikatorze zespołu”.
+    wrócić do opisu „Nowy lead i obsługa CRM z komunikatora zespołu”.
 
 ## Do uzupełnienia przez właściciela
 
