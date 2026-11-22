@@ -37,11 +37,23 @@ bez zmian (D-015, D-021).
    - plik etapu z jednym wpisem `dodane`;
    - kontrakt `index.html` i `sitemap.xml`.
 
-## Runda 2 (po pierwszym przebiegu CI)
+## Runda 1 — wynik CI (2026-11-22)
 
-- Kadr `public/assets/video/wdrozenia-kadr.jpg` z artefaktu `media-<sha>`.
-- Kontrakt strony `wdrozenia.html` (`pages`, `htmlBaseline`) z artefaktu `dist-roboczy-<sha>` przez
-  `tools/update-contract.cjs`.
+- Astro zbudowało 6 stron. Walidator zgłosił jeden, przewidziany błąd: „Nadmiarowy plik w katalogu: wdrozenia.html”.
+  Pozostałe cztery kroki kontroli przeszły.
+- Zbudowany `index.html` jest bajtowo równy przewidzianej migawce.
+- `render-media.yml` dał kadr. Po obejrzeniu poprawiona scena: podpis osi czasu wychodził poza kafel.
+- Nagłówek sekcji dowodów jest polem właściciela (`naglowekDowodow`); bez wartości strona pokazuje
+  „Jak czytać te opisy”.
+
+## Runda 2 (2026-11-22)
+
+- Kadr `public/assets/video/wdrozenia-kadr.jpg` z artefaktu `media-<sha>`: 100 606 B przy limicie 150 000 B,
+  sha256 `1ac553a5…c092`.
+- Kontrakt policzony z builda CI z dołożonym kadrem (`tools/update-contract.cjs`): doszła strona
+  `wdrozenia.html` w `pages` i `htmlBaseline` oraz kadr w `publicFiles`. Pozostałe strony bez zmian.
+- Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 43 pliki, 6/6 stron, testy narzędzi 68/68.
+- Przewidziany manifest wydania: `4fa7664ae69e61a5d18cf28b4e8f17e716182d78d3e4f4d45300b95daa00fe91`.
 
 ## Do uzupełnienia przez właściciela
 
