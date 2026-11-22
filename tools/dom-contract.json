@@ -141,9 +141,17 @@
       "sha256": "86b9f19d6b63cb417b18eae4ff4f2266f96522abc514ca5373294994a9f18cff",
       "size": 347638
     },
-    "assets/video/finanse-kadr.jpg": {
-      "sha256": "7f4593313e53b28c2d49694fc2e85d66f678b23829f438a9686e4e83ff89f7ba",
-      "size": 120982
+    "assets/video/finanse.jpg": {
+      "sha256": "10ddb94391a60a1436e3d4ef062db429231a21d56411c8235620c0790acd413a",
+      "size": 120938
+    },
+    "assets/video/finanse.mp4": {
+      "sha256": "a47231d3d200de716fa93ea1c125e52b0a4926e3e301b3faba50ba5a46661d49",
+      "size": 278176
+    },
+    "assets/video/finanse.webm": {
+      "sha256": "07b0a507a81811c4057c4f166ed2599cfc99d5b8b9161ad4764f4d653e916024",
+      "size": 350513
     },
     "assets/video/hero-flow.jpg": {
       "sha256": "ba755d3bf5c922b159a3a994d7073775973b474cc371f7317152e8610965a84b",
@@ -224,8 +232,8 @@
       "size": 24754
     },
     "finanse.html": {
-      "sha256": "599cd5c910ffd658e091d7b2edca6786bada2ed717f91b7fca0d56f024e54976",
-      "size": 23925
+      "sha256": "b885b9217a9b0dbe173179532a94b768ece49da9bb71cae5bd77505828180e2d",
+      "size": 25068
     },
     "index.html": {
       "sha256": "7dbd28e8589678d185274d32966344564a24b2668aff4497a8252d54f367e385",
@@ -4270,6 +4278,52 @@
           "aria": {}
         },
         {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: faktura kosztowa od odbioru do akceptacji człowieka"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
           "tag": "section",
           "id": "faktury",
           "name": null,
@@ -5147,7 +5201,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/finanse.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: faktura kosztowa od odbioru do akceptacji człowieka",
+          "sources": [
+            {
+              "src": "assets/video/finanse.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/finanse.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -5301,9 +5374,19 @@
           "val": "#faktury"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/finanse.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/finanse-kadr.jpg"
+          "val": "assets/video/finanse.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/finanse.mp4"
         },
         {
           "tag": "a",
@@ -5448,7 +5531,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/finanse.html#strona\",\"url\":\"https://revagy.pl/finanse.html\",\"name\":\"Finanse\",\"headline\":\"Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY\",\"description\":\"Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-22\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/finanse.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/finanse.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/finanse.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Finanse\",\"item\":\"https://revagy.pl/finanse.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/finanse.html#usluga\",\"name\":\"Automatyzacja procesów w dziale finansów\",\"description\":\"Automatyzacja obiegu faktur kosztowych, przypomnień o należnościach i uzgodnień z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają po stronie klienta.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/finanse.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/finanse.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/finanse.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy to zastąpi księgową?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porównywanie danych. Akceptacja opisu i dekretacji, decyzje o eskalacji należności i wyjaśnianie różnic zostają u księgowej i u osób, które wskażecie.\"}},{\"@type\":\"Question\",\"name\":\"Co z fakturami w KSeF?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Faktura z KSeF ma ustaloną strukturę, więc jej pól nie trzeba odczytywać z obrazu. Którą drogą faktury trafią do programu księgowego i co robimy z fakturami spoza KSeF, ustalamy w audycie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz program księgowy nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy zmieniać program księgowy albo bank?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Od którego procesu zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład obiegu faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/finanse.html#strona\",\"url\":\"https://revagy.pl/finanse.html\",\"name\":\"Finanse\",\"headline\":\"Automatyzacja w dziale finansów: faktury, windykacja, uzgodnienia | REVAGY\",\"description\":\"Faktury kosztowe, przypomnienia o należnościach i uzgodnienia z bankiem bez ręcznego przepisywania. Akceptacja i wyjątki zostają u Was. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-22\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/finanse.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/finanse.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/finanse.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Finanse\",\"item\":\"https://revagy.pl/finanse.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/finanse.html#usluga\",\"name\":\"Automatyzacja procesów w dziale finansów\",\"description\":\"Automatyzacja obiegu faktur kosztowych, przypomnień o należnościach i uzgodnień z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają po stronie klienta.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/finanse.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/finanse.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/finanse.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy to zastąpi księgową?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Automatyzacja przejmuje zbieranie, przepisywanie i porównywanie danych. Akceptacja opisu i dekretacji, decyzje o eskalacji należności i wyjaśnianie różnic zostają u księgowej i u osób, które wskażecie.\"}},{\"@type\":\"Question\",\"name\":\"Co z fakturami w KSeF?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Faktura z KSeF ma ustaloną strukturę, więc jej pól nie trzeba odczytywać z obrazu. Którą drogą faktury trafią do programu księgowego i co robimy z fakturami spoza KSeF, ustalamy w audycie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz program księgowy nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy zmieniać program księgowy albo bank?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Od którego procesu zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład obiegu faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/finanse.html#film\",\"name\":\"Faktura kosztowa od odbioru do akceptacji\",\"description\":\"Faktura kosztowa trafia do jednej kolejki, jej pola są odczytane i sprawdzone, a propozycja opisu i dekretacji czeka na akceptację osoby po stronie klienta. Po akceptacji faktura trafia do programu księgowego. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/finanse.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/finanse.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/finanse.html#strona\"}}]}",
           "attrs": [
             "type"
           ]
