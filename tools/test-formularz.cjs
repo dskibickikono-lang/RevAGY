@@ -8,7 +8,7 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const babelParser = require('@babel/parser');
 const { chromium } = require('playwright');
-const { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS } = require('./smoke-test.cjs');
+const { startLocalHarness, SECURITY_HEADERS, MATOMO_MOCK_JS, CLARITY_MOCK_JS, CLARITY_TAG } = require('./smoke-test.cjs');
 const root = path.resolve(__dirname, '..');
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'revagy-form-'));
 const dist = path.join(temp, 'dist');
@@ -132,6 +132,11 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
             return route.fulfill({ contentType: 'application/javascript', body: mock });
           }
           return route.fulfill({ contentType: 'text/html', body: '<!doctype html><html lang="pl"><title>Ochrona</title></html>' });
+        }
+        // Microsoft Clarity (T-022) ładuje się po zgodzie: atrapa zamiast clarity.ms, żądania zapisane w stanie.
+        if (url.hostname.endsWith('.clarity.ms') || url.hostname === 'c.bing.com') {
+          (state.clarity = state.clarity || []).push(url.href);
+          return url.href === CLARITY_TAG ? route.fulfill({ contentType: 'application/javascript', body: CLARITY_MOCK_JS }) : route.fulfill({ status: 204, body: '' });
         }
         if (url.hostname === 'stats.revagy.pl') return route.fulfill({ contentType: 'application/javascript', body: url.pathname.endsWith('matomo.js') ? MATOMO_MOCK_JS : '' });
         if (url.origin === harness.tlsBase && url.pathname === '/api/kontakt') {
@@ -328,6 +333,10 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     const tracked = await page.evaluate(() => window.__wyslane);
     assert.deepEqual(tracked.filter((x) => x[0] === 'trackEvent' && x[1] === 'Formularz'), [['trackEvent', 'Formularz', 'Przyjęty', `revagy / ${leadId}`]]);
     for (const value of [first.body.name, first.body.email, first.body.company, first.body.phone, first.body.message]) assert.ok(!JSON.stringify(tracked).includes(value));
+    // Po zgodzie Clarity dostaje tylko sygnał zgody, bez wartości pól formularza.
+    const clarityCalls = await page.evaluate(() => window.__clarity || []);
+    assert.ok(clarityCalls.some((c) => c[0] === 'consentv2'), JSON.stringify(clarityCalls));
+    for (const value of [first.body.name, first.body.email, first.body.company, first.body.phone, first.body.message]) assert.ok(!JSON.stringify(clarityCalls).includes(value));
     const mobile = await page.locator('#kontakt-form').evaluate((form) => ({ overflow: document.documentElement.scrollWidth - innerWidth, small: [...form.querySelectorAll('input:not([name=website]),select,textarea')].some((el) => parseFloat(getComputedStyle(el).fontSize) < 16) }));
     assert.deepEqual(mobile, { overflow: 0, small: false });
     await page.setViewportSize({ width: 1440, height: 1000 });
@@ -407,14 +416,14 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(privateTab.requests[0].body.message, '');
     ok('brak JavaScript/fetch, błąd ładowania Turnstile + ponowienie z asynchronicznym callbackiem, UTM z podstrony i zablokowana pamięć przeglądarki');
 
-    for (const jsRel of ['public/assets/js/kontakt.js', 'public/assets/js/app.js', 'public/assets/js/analytics.js']) {
+    for (const jsRel of ['public/assets/js/kontakt.js', 'public/assets/js/app.js', 'public/assets/js/analytics.js', 'public/assets/js/clarity.js']) {
       const jsCode = fs.readFileSync(path.join(root, jsRel), 'utf8');
       const ast = babelParser.parse(jsCode, { sourceType: 'script' });
       const hits = [];
       findForbiddenSyntax(ast.program, jsRel, hits);
       assert.deepEqual(hits, [], `${jsRel}: wykryto niedozwoloną składnię ES2020+: ${hits.join(', ')}`);
     }
-    ok('zgodność składniowa AST app.js, kontakt.js i analytics.js (ES2018 / Safari 13)');
+    ok('zgodność składniowa AST app.js, kontakt.js, analytics.js i clarity.js (ES2018 / Safari 13)');
 
     const challengeErr = await setup();
     await challengeErr.context.addInitScript(() => { window.__failTurnstileErrorCallback = true; });

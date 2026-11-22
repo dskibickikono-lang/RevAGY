@@ -14,6 +14,14 @@ Log `forms-gateway.access.log` nie zawiera parametrów adresu ani ciała żądan
 
 Rollback dla właściciela: przywrócenie poprzednich plików vhosta i nagłówków, następnie `nginx -t` i `systemctl reload nginx`. Wydanie strony cofa `deploy/wydanie.sh --rollback <docelowy-sha> <oczekiwany-biezacy-sha>` zgodnie z głównym README. Wyłączenie formularza w kolejnym wydaniu wymaga builda z pustym kluczem.
 
+## Microsoft Clarity, Bing Webmaster Tools i IndexNow (T-022)
+
+CSP w `revagy-naglowki.conf` dopuszcza Microsoft Clarity, które strona ładuje wyłącznie po zgodzie analitycznej: `script-src` `https://www.clarity.ms` (tag) i `https://scripts.clarity.ms` (właściwy skrypt ładowany przez tag), `connect-src` `https://*.clarity.ms` (wysyłka danych do `[a-z].clarity.ms`), `img-src` `https://*.clarity.ms` i `https://c.bing.com`. Lista według dokumentacji Microsoft „Clarity Content Security Policy”. Bez zmiany CSP na produkcji przeglądarka zablokuje Clarity także po zgodzie (reszta strony działa).
+
+`/BingSiteAuth.xml` i `/<klucz IndexNow>.txt` leżą w korzeniu artefaktu i obsługuje je zwykłe `location /` (`try_files`, typ z `mime.types`: `text/xml` i `text/plain`). Vhost nie wymaga zmian.
+
+Wdrożenie (właściciel): skopiować `revagy-naglowki.conf` do `/etc/nginx/snippets/revagy-naglowki.conf`, `nginx -t`, `systemctl reload nginx`, następnie `curl -sI https://revagy.pl/ | grep -i content-security-policy` (ma zawierać `clarity.ms`). Rollback: poprzedni plik nagłówków, `nginx -t`, `systemctl reload nginx`.
+
 ### Warunek wstępny wdrożenia: kontrakt idempotencji `forms-gateway`
 
 Przed włączeniem formularza na produkcji usługa `forms-gateway` (`forms_gateway/validation.py` oraz `intake.py`) **MUSI** spełniać następujący kontrakt idempotencji:

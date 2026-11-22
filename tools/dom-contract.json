@@ -1,6 +1,14 @@
 {
   "baselineCommit": "9f8c86f65abe1a44f2eb6bdb0ed0e1ad72f1648f",
   "publicFiles": {
+    "0c8dd46a3a9f367c383554c85d42412e.txt": {
+      "sha256": "be73dfb12e6154ab3fdfe5845b7c6d290f74dd4e1d4c50819bb9bc118bcd9c2c",
+      "size": 32
+    },
+    "BingSiteAuth.xml": {
+      "sha256": "9b05bbf998005f351e69868bc26a21afab318439fd284460b0815b4fcd5f275a",
+      "size": 85
+    },
     "assets/css/podstrony.css": {
       "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
       "size": 2192
@@ -72,6 +80,10 @@
     "assets/js/app.js": {
       "sha256": "67411b94f815ac90d4043ae2977cca73363702b518f7a932f783787a7c9a4e1d",
       "size": 13545
+    },
+    "assets/js/clarity.js": {
+      "sha256": "620817311ec2db2c2079bbe63ba80d0b7bf67b0a9086de242ac9ad9984bea85d",
+      "size": 1911
     },
     "assets/js/kontakt.js": {
       "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
@@ -190,54 +202,54 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "5444572e65b14ec24da3e8536e4d8e0d17b31172104831c2098d9e7a78b0ebc0",
+      "sha256": "de9491ea63e385bdc96a15a160aa703e46483b6046af4299389f9ede7f865e00",
       "size": 1026
     }
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "66dbe91824654abfa82492cc0b3520d09b9d615115d48abbcd3023b96d744d77",
-      "size": 1754
+      "sha256": "15368840258ac8b5f71af54c381576a24cc683bb14390aaab92246b02c6a3032",
+      "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "aae5b4e5244027d06334dc267b8458de8be3b5cb0b5693d37e583a3eff4424bb",
-      "size": 24061
+      "sha256": "469b47172c50c68cb454aed8d9865a71ced2327f355240e57c94d41c4e9ed32b",
+      "size": 24116
     },
     "dla-firm.html": {
-      "sha256": "d8e43a92bbb52ee88ce41419d4d618a796e78969a15e70c1079c9119fe27eed9",
-      "size": 24640
+      "sha256": "a1ec7bd80158ffdd13c7d3a1af7b2a9ccadb04c94987ba1289328c909f3298f6",
+      "size": 24695
     },
     "index.html": {
-      "sha256": "1a02dd017075e3957b0905561484086c2c48a56453454b18884aa120bf0efff8",
-      "size": 46438
+      "sha256": "869f382cb1517cb97bda1285956ae72610f741868223b3af4332e9a318071f4a",
+      "size": 46493
     },
     "integracja-systemow.html": {
-      "sha256": "85dd33e91c9ea0e6451e7caeb6994f4bc1fefa9fe3318380f6cafb3ccf1a8fbe",
-      "size": 25604
+      "sha256": "642dade302327a601bdd1c47bac64f40af1e9213a43d091003c76a5ca90c73cd",
+      "size": 25659
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "45441b77fc092c4976d07ac7afa264984af7b5db9aa1ec4f8247268aa4f987f3",
-      "size": 24247
+      "sha256": "9aa56adf704726e7234940e8726bc49fe61d1a25fa6929ec95aada90969a5074",
+      "size": 24302
     },
     "kontakt.html": {
-      "sha256": "0c2c6138e62b425a3f432798813d47de53d70aa1766e493e0db6202bb518c573",
-      "size": 8232
+      "sha256": "07a7ea39d524035309c238ab34917758ff5448bbf501234ee2ac70938b793a0c",
+      "size": 8287
     },
     "polityka-prywatnosci.html": {
-      "sha256": "b946cc54885cfc7e2d3070a10a551a28f2e8b048f93c33054a036439a6e91424",
-      "size": 7866
+      "sha256": "e444f2472f971c96afd9f8eb8607ce09c3ea1328ae19bcadb96eb74fce8a4864",
+      "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "09c50e41bcf8d77f273d318feb48a2a5a4670eacbb3f90e2a2d66c556d2dbf89",
-      "size": 23777
+      "sha256": "7bedb915efd55e6195eabb483b6c478f758b8421bd4b5e7fe2b3ab412c1b7d31",
+      "size": 23832
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "6e7179d215cfab8c6b7003014f1e4ce28e15a7207d4a6a2387600f82f9ff2392",
-      "size": 24606
+      "sha256": "7e0fa2c14fa871ca8f1b27bf824256b58ac252f3c95313bab8bfc66395f91e49",
+      "size": 24661
     },
     "wdrozenia.html": {
-      "sha256": "6613dbf25870d7373231fd216fbf4d048bedf57898b05669cd4c676cbf89cbe5",
-      "size": 22368
+      "sha256": "c4e7131446affbfe1dc3f1a8e0d8c3f279609d38dcf678bf07615bfbab4102ff",
+      "size": 22423
     }
   },
   "pages": {
@@ -301,6 +313,13 @@
       "scripts": [
         {
           "src": "/assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "/assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -445,6 +464,11 @@
           "tag": "script",
           "attr": "src",
           "val": "/assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "/assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -607,6 +631,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -2087,6 +2118,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -2256,6 +2292,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -3700,6 +3743,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -3870,6 +3918,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -6482,6 +6537,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -6651,6 +6711,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -8181,6 +8248,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -8350,6 +8422,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -9701,6 +9780,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -9788,6 +9872,13 @@
       "scripts": [
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -10048,6 +10139,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -10128,6 +10224,13 @@
       "scripts": [
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -10383,6 +10486,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": []
@@ -10545,6 +10653,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -11814,6 +11929,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -11983,6 +12103,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -13427,6 +13554,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [
@@ -13596,6 +13728,13 @@
         },
         {
           "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/clarity.js?v=1",
           "defer": true,
           "async": false,
           "type": null,
@@ -14982,6 +15121,11 @@
           "tag": "script",
           "attr": "src",
           "val": "assets/js/analytics.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/clarity.js?v=1"
         }
       ],
       "jsonLd": [

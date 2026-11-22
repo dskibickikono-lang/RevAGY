@@ -1,0 +1,11 @@
+---
+// Microsoft Clarity (T-022): jeden znacznik dla BaseLayout i PodstronaLayout.
+// Sam plik public/assets/js/clarity.js ładuje tag clarity.ms dopiero po zgodzie analitycznej w banerze.
+interface Props {
+  // Prefiks ścieżki: '' dla stron w korzeniu, '/' dla strony błędu (jak w BaseLayout).
+  base?: string;
+}
+
+const { base = '' } = Astro.props;
+---
+<script is:inline src={`${base}assets/js/clarity.js?v=1`} defer></script>

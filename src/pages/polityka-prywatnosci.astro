@@ -9,7 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 <main id="start" class="wrap doc-page">
   <h1>Polityka prywatności</h1>
-  <p class="lead">Krótko: strona nie ma reklam ani zewnętrznych skryptów śledzących. Statystyki odwiedzin prowadzimy na własnym serwerze i tylko za Twoją zgodą.</p>
+  <p class="lead">Krótko: strona nie ma reklam. Statystyki odwiedzin prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity, w obu przypadkach tylko za Twoją zgodą.</p>
 
   <h2>Kto odpowiada za dane</h2>
   <p>Administratorem danych jest <strong>Dawid Skibicki</strong>, przedsiębiorca działający pod marką <strong>REVAGY</strong>, ul. Gabriela Narutowicza 7/7, 14-200 Iława, NIP 7441749535, REGON 389229155.</p>
@@ -52,12 +52,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <td>Sprawdzanie, które treści są przydatne, i poprawianie strony: Twoja zgoda (art. 6 ust. 1 lit. a RODO)</td>
           <td>13 miesięcy</td>
         </tr>
+        <tr>
+          <td><strong>Zgadzasz się na statystyki</strong> (Microsoft Clarity, tylko po zgodzie)</td>
+          <td>Nagranie przebiegu wizyty (ruchy kursora, kliknięcia, przewijanie, odwiedzone strony) z maskowaniem wpisywanych treści i danych wrażliwych, mapy kliknięć, adres IP, przeglądarka i urządzenie, przybliżona lokalizacja</td>
+          <td>Sprawdzanie, jak odwiedzający korzystają ze strony, i poprawianie jej czytelności: Twoja zgoda (art. 6 ust. 1 lit. a RODO)</td>
+          <td>Nagrania do 30 dni, zestawienia i mapy kliknięć do 13 miesięcy (według ustawień Microsoft Clarity)</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
   <h2>Ciasteczka i pamięć przeglądarki</h2>
-  <p>Bez zgody strona nie zapisuje żadnych ciasteczek. Po zgodzie Matomo zapisuje własne ciasteczka w domenie revagy.pl:</p>
+  <p>Bez zgody strona nie zapisuje żadnych ciasteczek i nie łączy się z Microsoft Clarity. Po zgodzie Matomo i Microsoft Clarity zapisują własne ciasteczka w domenie revagy.pl:</p>
   <div class="doc-table">
     <table>
       <thead>
@@ -67,6 +73,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <tr><td><code>_pk_id.*</code></td><td>Rozpoznaje powracającą przeglądarkę</td><td>13 miesięcy</td></tr>
         <tr><td><code>_pk_ses.*</code></td><td>Łączy odsłony w jedną wizytę</td><td>30 minut</td></tr>
         <tr><td><code>_pk_ref.*</code></td><td>Pamięta, skąd nastąpiło wejście</td><td>6 miesięcy</td></tr>
+        <tr><td><code>_clck</code></td><td>Microsoft Clarity: rozpoznaje powracającą przeglądarkę</td><td>1 rok</td></tr>
+        <tr><td><code>_clsk</code></td><td>Microsoft Clarity: łączy odsłony w jedną wizytę</td><td>1 dzień</td></tr>
       </tbody>
     </table>
   </div>
@@ -75,7 +83,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <p>Źródło pierwszego wejścia zapisujemy pod kluczem <code>fg_first_touch</code> w <code>sessionStorage</code>, bez ciasteczek. Zapis jest usuwany po zamknięciu karty. Cloudflare Turnstile, który chroni formularz przed spamem, ładuje się, gdy formularz pojawi się na ekranie lub zaczniesz go wypełniać.</p>
 
   <h2>Jak zmienić zdanie</h2>
-  <p>Zgodę możesz cofnąć w każdej chwili: <button type="button" class="link-btn" data-consent-open>otwórz ustawienia prywatności</button> i wybierz „Odrzucam”. Usuniemy wtedy ciasteczka statystyk z Twojej przeglądarki i przestaniemy zapisywać wizyty.</p>
+  <p>Zgodę możesz cofnąć w każdej chwili: <button type="button" class="link-btn" data-consent-open>otwórz ustawienia prywatności</button> i wybierz „Odrzucam”. Usuniemy wtedy ciasteczka statystyk (Matomo i Microsoft Clarity) z Twojej przeglądarki i przestaniemy zapisywać wizyty; przy kolejnych wejściach Microsoft Clarity nie będzie się ładować.</p>
 
   <h2>Komu przekazujemy dane</h2>
   <ul>
@@ -83,9 +91,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <li>Attio — system obsługi zapytań i relacji z klientami (CRM).</li>
     <li>Cloudflare — Turnstile, ochrona formularza przed spamem.</li>
     <li>Google — Workspace: poczta i powiadomienia.</li>
+    <li>Microsoft — Microsoft Clarity, statystyki i nagrania wizyt, tylko po zgodzie. Dostawca: Microsoft Ireland Operations Limited (Irlandia) oraz Microsoft Corporation (USA).</li>
   </ul>
-  <p>Część odbiorców może przetwarzać dane poza Europejskim Obszarem Gospodarczym (EOG) na podstawie standardowych klauzul umownych.</p>
-  <p>Statystyk nie udostępniamy firmom reklamowym ani zewnętrznym narzędziom analitycznym. Nie podejmujemy na ich podstawie zautomatyzowanych decyzji wobec odwiedzających.</p>
+  <p>Część odbiorców może przetwarzać dane poza Europejskim Obszarem Gospodarczym (EOG) na podstawie standardowych klauzul umownych. Microsoft Corporation może przetwarzać dane z Microsoft Clarity w USA na podstawie standardowych klauzul umownych oraz certyfikacji w programie EU-U.S. Data Privacy Framework.</p>
+  <p>Statystyk nie udostępniamy firmom reklamowym. Poza Microsoft Clarity, uruchamianym tylko za Twoją zgodą, nie przekazujemy ich zewnętrznym narzędziom analitycznym. Nie podejmujemy na ich podstawie zautomatyzowanych decyzji wobec odwiedzających.</p>
 
   <h2>Twoje prawa</h2>
   <ul>
@@ -97,6 +106,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </ul>
   <p>Żeby skorzystać z tych praw, napisz na <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a>.</p>
 
-  <p style="margin-top:44px">Wersja z 18 listopada 2026.</p>
+  <p style="margin-top:44px">Wersja z 22 listopada 2026.</p>
 </main>
 </BaseLayout>

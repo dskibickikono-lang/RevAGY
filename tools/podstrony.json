@@ -3,37 +3,37 @@
     {
       "plik": "integracja-systemow.html",
       "film": "integracja-systemow",
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "wdrozenia.html",
       "film": "wdrozenia",
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "dla-firm.html",
       "film": "dla-firm",
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "dane-i-bezpieczenstwo.html",
       "film": "dane-i-bezpieczenstwo",
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "produkcja-i-logistyka.html",
       "film": "produkcja-i-logistyka",
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "porownanie-rozwiazan.html",
       "film": null,
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     },
     {
       "plik": "jak-wybrac-pierwszy-proces.html",
       "film": null,
-      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4", "assets/js/clarity.js?v=1"]
     }
   ]
 }
