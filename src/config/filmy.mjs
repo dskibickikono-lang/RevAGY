@@ -30,8 +30,8 @@ export const FILMY = {
     tytul: 'Cztery procesy przed i po połączeniu systemów',
     opis: 'Umowa trafia z dokumentu do systemu HR oraz do kadr i płac, trzy źródła składają się w jeden raport zarządu, alert o kończącym się zezwoleniu przychodzi 30 dni przed końcem ważności, a zgłoszenie kandydata trafia do systemu rekrutacyjnego. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
-    czasSekundy: null,
-    dataPublikacji: null,
+    czasSekundy: 14,
+    dataPublikacji: '2026-11-22',
   },
   'dla-firm': {
     // Tekst zastępczy obrazu w stanie „kadr”.
