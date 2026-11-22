@@ -53,9 +53,9 @@ export const FILMY = {
     // VideoObject.name i VideoObject.description.
     tytul: 'Dostęp tylko do potrzebnych pól, wyjątek u człowieka',
     opis: 'Rekord przechodzi z systemu źródłowego do docelowego przez integrację, która widzi tylko uzgodnione pola. Wartość powyżej progu czeka na decyzję osoby po stronie klienta, a zapis trafia do dziennika z poprzednią wartością. Miejsce przetwarzania wskazuje umowa powierzenia. Dane na ekranach są poglądowe.',
-    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
-    czasSekundy: null,
-    dataPublikacji: null,
+    // Uzupełnia etap filmowy (F4): czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: 12,
+    dataPublikacji: '2026-11-22',
   },
   'produkcja-i-logistyka': {
     // Tekst zastępczy obrazu w stanie „kadr”.

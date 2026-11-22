@@ -93,9 +93,17 @@
       "sha256": "bcb5fb8faadccd1befa83a38bd1ce34a2634df78809da832eb321fdc853bac43",
       "size": 680012
     },
-    "assets/video/dane-i-bezpieczenstwo-kadr.jpg": {
-      "sha256": "3a9e11dae7b205013635115419481999701600f3c51f84658f215efa0248f4c3",
-      "size": 128897
+    "assets/video/dane-i-bezpieczenstwo.jpg": {
+      "sha256": "666e5eab491ea8faead818b969ff01781f57ef1a00983b8793488b5ed939e14b",
+      "size": 123745
+    },
+    "assets/video/dane-i-bezpieczenstwo.mp4": {
+      "sha256": "4258cd8590971a51be2946aef601c78acbaca44126d943722a505e69a3fb9481",
+      "size": 269654
+    },
+    "assets/video/dane-i-bezpieczenstwo.webm": {
+      "sha256": "29e7e61576342323aba5eb82cd9354ae423110eb610fef2a943c26c91f689bc8",
+      "size": 279632
     },
     "assets/video/dashboard.jpg": {
       "sha256": "a7bef08e721e1c06804ef3a53441734c86a1096a3a1d5aad81ae82cdea683e60",
@@ -184,8 +192,8 @@
       "size": 1754
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "ba7d865e9c5994606025d7708c4a2f45f26f467090b663ade67c410d07ac2427",
-      "size": 22790
+      "sha256": "aae5b4e5244027d06334dc267b8458de8be3b5cb0b5693d37e583a3eff4424bb",
+      "size": 24061
     },
     "dla-firm.html": {
       "sha256": "d8e43a92bbb52ee88ce41419d4d618a796e78969a15e70c1079c9119fe27eed9",
@@ -865,6 +873,52 @@
             "data-scale": ""
           },
           "aria": {}
+        },
+        {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -1719,7 +1773,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/dane-i-bezpieczenstwo.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem",
+          "sources": [
+            {
+              "src": "assets/video/dane-i-bezpieczenstwo.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/dane-i-bezpieczenstwo.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -1878,9 +1951,19 @@
           "val": "integracja-systemow.html"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/dane-i-bezpieczenstwo.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/dane-i-bezpieczenstwo-kadr.jpg"
+          "val": "assets/video/dane-i-bezpieczenstwo.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/dane-i-bezpieczenstwo.mp4"
         },
         {
           "tag": "a",
@@ -2000,7 +2083,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"name\":\"Dane i bezpieczeństwo\",\"headline\":\"Dane i bezpieczeństwo we wdrożeniach | REVAGY\",\"description\":\"Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dane i bezpieczeństwo\",\"item\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\",\"name\":\"Bezpieczeństwo danych we wdrożeniach automatyzacji i integracji systemów\",\"description\":\"Każda integracja dostaje minimalny zakres dostępu, każdy zapis ma wpis w dzienniku, a wyjątki zatwierdza osoba po stronie klienta. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej miejsce przetwarzania danych.\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane nasze dane?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem prac.\"}},{\"@type\":\"Question\",\"name\":\"Jakich uprawnień potrzebujecie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tylko tych, których wymaga dana integracja. Dostęp do bazy danych jest tylko do odczytu.\"}},{\"@type\":\"Question\",\"name\":\"Czy zobaczymy, co integracja zmieniła?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak. Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i jaka była poprzednia wartość.\"}},{\"@type\":\"Question\",\"name\":\"Kto decyduje w nietypowych przypadkach?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba po Waszej stronie. Progi, powyżej których integracja czeka na decyzję, ustalamy z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Czy zapis da się cofnąć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Dziennik przechowuje poprzednią wartość, więc wiadomo, co przywrócić. W kadrach i płacach zapis można wycofać do zamknięcia okresu płacowego, później robi się korektę według procedury Waszych kadr.\"}},{\"@type\":\"Question\",\"name\":\"Z jakich dostawców korzystacie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Listy nie publikujemy na stronie. Miejsce przetwarzania Waszych danych wskazujemy w umowie powierzenia.\"}},{\"@type\":\"Question\",\"name\":\"Jak szybko reagujecie na awarię?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji zapisujemy w umowie.\"}},{\"@type\":\"Question\",\"name\":\"Czy macie ubezpieczenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak, ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.\"}},{\"@type\":\"Question\",\"name\":\"Co się dzieje z danymi, które wpisuję w formularz na revagy.pl?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"To dane strony, nie wdrożenia. Opisują je polityka prywatności i informacja pod formularzem, razem z listą odbiorców.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"name\":\"Dane i bezpieczeństwo\",\"headline\":\"Dane i bezpieczeństwo we wdrożeniach | REVAGY\",\"description\":\"Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dane i bezpieczeństwo\",\"item\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\",\"name\":\"Bezpieczeństwo danych we wdrożeniach automatyzacji i integracji systemów\",\"description\":\"Każda integracja dostaje minimalny zakres dostępu, każdy zapis ma wpis w dzienniku, a wyjątki zatwierdza osoba po stronie klienta. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej miejsce przetwarzania danych.\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane nasze dane?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem prac.\"}},{\"@type\":\"Question\",\"name\":\"Jakich uprawnień potrzebujecie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tylko tych, których wymaga dana integracja. Dostęp do bazy danych jest tylko do odczytu.\"}},{\"@type\":\"Question\",\"name\":\"Czy zobaczymy, co integracja zmieniła?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak. Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i jaka była poprzednia wartość.\"}},{\"@type\":\"Question\",\"name\":\"Kto decyduje w nietypowych przypadkach?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba po Waszej stronie. Progi, powyżej których integracja czeka na decyzję, ustalamy z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Czy zapis da się cofnąć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Dziennik przechowuje poprzednią wartość, więc wiadomo, co przywrócić. W kadrach i płacach zapis można wycofać do zamknięcia okresu płacowego, później robi się korektę według procedury Waszych kadr.\"}},{\"@type\":\"Question\",\"name\":\"Z jakich dostawców korzystacie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Listy nie publikujemy na stronie. Miejsce przetwarzania Waszych danych wskazujemy w umowie powierzenia.\"}},{\"@type\":\"Question\",\"name\":\"Jak szybko reagujecie na awarię?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji zapisujemy w umowie.\"}},{\"@type\":\"Question\",\"name\":\"Czy macie ubezpieczenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak, ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.\"}},{\"@type\":\"Question\",\"name\":\"Co się dzieje z danymi, które wpisuję w formularz na revagy.pl?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"To dane strony, nie wdrożenia. Opisują je polityka prywatności i informacja pod formularzem, razem z listą odbiorców.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#film\",\"name\":\"Dostęp tylko do potrzebnych pól, wyjątek u człowieka\",\"description\":\"Rekord przechodzi z systemu źródłowego do docelowego przez integrację, która widzi tylko uzgodnione pola. Wartość powyżej progu czeka na decyzję osoby po stronie klienta, a zapis trafia do dziennika z poprzednią wartością. Miejsce przetwarzania wskazuje umowa powierzenia. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/dane-i-bezpieczenstwo.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/dane-i-bezpieczenstwo.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT12S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\"}}]}",
           "attrs": [
             "type"
           ]
