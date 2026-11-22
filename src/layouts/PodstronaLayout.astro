@@ -2,13 +2,14 @@
 // Układ podstron (D-031). BaseLayout.astro zostaje bez zmian.
 // Nagłówek i stopka to kopia znaczników strony głównej z BaseLayout.astro (pełne menu,
 // menu mobilne, pełna stopka). Pozycje menu i stopki prowadzą do sekcji strony głównej (./#sekcja),
-// z wyjątkiem „Sprzedaż”, które prowadzi do sprzedaz.html (T-032), i „Finanse”, które prowadzi do finanse.html (T-021).
+// z wyjątkiem „Sprzedaż” (sprzedaz.html, T-032), „Finanse” (finanse.html, T-021) i „Kadry i płace” (kadry-i-place.html, T-034).
 // Adres kanoniczny, dane do udostępnień i dane strukturalne powstają z właściwości,
 // więc strona nie wpisuje ich ręcznie.
 import { MARKA, jsonDoSkryptu } from '../config/marka.mjs';
 import { AUTOR, adresStrony, sprawdzDate } from '../config/podstrony.mjs';
 import { stanFilmu, videoObject } from '../config/filmy.mjs';
 import Clarity from '../components/Clarity.astro';
+import { zasob } from '../config/zasoby.mjs';
 
 interface Pytanie {
   pytanie: string;
@@ -130,8 +131,8 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
-<link rel="stylesheet" href="assets/css/podstrony.css?v=4">
+<link rel="stylesheet" href={zasob('assets/css/styles.css')}>
+<link rel="stylesheet" href={zasob('assets/css/podstrony.css')}>
 <script is:inline type="application/ld+json" set:html={jsonLd}></script>
 </head>
 <body>
@@ -163,6 +164,7 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
         <div class="nav-panel" id="panel-dzialy">
           <a href="sprzedaz.html"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
           <a href="finanse.html"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="kadry-i-place.html"><strong>Kadry i płace</strong><span>Godziny, premie i umowy bez wpisywania</span></a>
           <a href="./#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
           <a href="./#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
         </div>
@@ -214,7 +216,7 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
       </nav>
       <nav aria-label="Dla działów">
         <h4 aria-level="2">Dla działów</h4>
-        <a href="sprzedaz.html">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
+        <a href="sprzedaz.html">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="kadry-i-place.html">Kadry i płace</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
         <h4 aria-level="2">Firma</h4>
@@ -233,9 +235,9 @@ const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf 
   </div>
 </footer>
 
-<script is:inline src="assets/js/app.js?v=5" defer></script>
-<script is:inline src="assets/js/wejscie.js?v=1" defer></script>
-<script is:inline src="assets/js/analytics.js?v=5" defer></script>
+<script is:inline src={zasob('assets/js/app.js')} defer></script>
+<script is:inline src={zasob('assets/js/wejscie.js')} defer></script>
+<script is:inline src={zasob('assets/js/analytics.js')} defer></script>
 <Clarity />
 </body>
 </html>

@@ -6,6 +6,8 @@ interface Props {
   base?: string;
 }
 
+import { zasob } from '../config/zasoby.mjs';
+
 const { base = '' } = Astro.props;
 ---
-<script is:inline src={`${base}assets/js/clarity.js?v=1`} defer></script>
+<script is:inline src={`${base}${zasob('assets/js/clarity.js')}`} defer></script>

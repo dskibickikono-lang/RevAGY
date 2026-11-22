@@ -467,9 +467,42 @@ if (require.main === module) (async () => {
       check('karuzela obsługuje klawiaturę (ArrowLeft)', (await page.evaluate(() => document.querySelector('[data-carousel]').scrollLeft)) < afterArrow - 100);
       check('pasek integracji jest zapętlony', await page.evaluate(() => document.querySelector('[data-marquee]').children.length === 22));
 
+      // Film w hero ma własny przycisk wstrzymania (D-046): zmienia się tylko aria-pressed, nazwa zostaje.
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(600);
+      const heroPrzed = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { jest: Boolean(v && b), paused: v ? v.paused : null, pressed: b ? b.getAttribute('aria-pressed') : null }; });
+      await page.click('[data-video-pause="hero-video"]');
+      await page.waitForTimeout(200);
+      const heroPauza = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { paused: v.paused, pressed: b.getAttribute('aria-pressed'), label: b.getAttribute('aria-label') }; });
+      await page.click('[data-video-pause="hero-video"]');
+      await page.waitForTimeout(400);
+      const heroWznowienie = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { paused: v.paused, pressed: b.getAttribute('aria-pressed') }; });
+      check('film w hero: przycisk wstrzymuje i wznawia, zmienia się tylko aria-pressed',
+        heroPrzed.jest && heroPrzed.paused === false && heroPrzed.pressed === 'false'
+        && heroPauza.paused === true && heroPauza.pressed === 'true' && heroPauza.label === 'Wstrzymaj film w tle'
+        && heroWznowienie.paused === false && heroWznowienie.pressed === 'false',
+        JSON.stringify({ heroPrzed, heroPauza, heroWznowienie }));
+      // Baner zgody a „Ustawienia prywatności” (S-11). Gdy baner już stoi (pierwsza wizyta), klik przenosi do niego fokus
+      // i niczego nie zamyka. Gdy banera nie ma, klik go otwiera z fokusem, a Escape zamyka i oddaje fokus przyciskowi.
+      const banerFokus = await page.evaluate(() => {
+        const przycisk = document.querySelector('[data-consent-open]');
+        if (!przycisk) return { jest: false };
+        const bylOtwarty = Boolean(document.querySelector('.consent'));
+        przycisk.focus();
+        przycisk.click();
+        const baner = document.querySelector('.consent');
+        const wBanerze = Boolean(baner) && document.activeElement === baner;
+        if (bylOtwarty) return { jest: true, bylOtwarty, wBanerze, ok: wBanerze && Boolean(document.querySelector('.consent')) };
+        baner.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        const zamkniety = !document.querySelector('.consent');
+        const fokusWrocil = document.activeElement === przycisk;
+        return { jest: true, bylOtwarty, wBanerze, zamkniety, fokusWrocil, ok: wBanerze && zamkniety && fokusWrocil };
+      });
+      check('baner zgody: „Ustawienia prywatności” przenoszą fokus do banera', banerFokus.jest && banerFokus.ok, JSON.stringify(banerFokus));
+
       await scrollTo(page, '#film');
       await page.waitForTimeout(1500);
-      const videos = await page.evaluate(() => [...document.querySelectorAll('video')].map((v) => ({ src: v.currentSrc.split('/').pop(), ready: v.readyState })));
+      const videos = await page.evaluate(() => [...document.querySelectorAll('video')].map((v) => ({ src: v.currentSrc.split('/').pop().split('?')[0], ready: v.readyState })));
       check('3 filmy mają wybrane źródło', videos.length === 3 && videos.every((v) => /\.(webm|mp4)$/.test(v.src)), JSON.stringify(videos));
       check('film z agentem odtwarza się w kadrze', await page.evaluate(() => { const v = document.querySelector('[data-main-video]'); return !v.paused && v.readyState >= 2; }));
       await page.click('[data-video-toggle]');
@@ -896,7 +929,7 @@ if (require.main === module) (async () => {
               check(`${p} (${szer}): stan „kadr” — obraz załadowany`, img && img.complete && img.nw > 0 && img.nh > 0, JSON.stringify(img));
             } else if (szer === 1280) {
               await page.waitForTimeout(1500);
-              const v = await page.evaluate(() => { const x = document.querySelector('[data-main-video]'); return { src: x.currentSrc.split('/').pop(), paused: x.paused, ready: x.readyState }; });
+              const v = await page.evaluate(() => { const x = document.querySelector('[data-main-video]'); return { src: x.currentSrc.split('/').pop().split('?')[0], paused: x.paused, ready: x.readyState }; });
               check(`${p}: stan „film” — wybrane źródło i odtwarzanie w kadrze`, /\.(webm|mp4)$/.test(v.src) && !v.paused && v.ready >= 2, JSON.stringify(v));
               await page.click('[data-video-toggle]');
               await page.waitForTimeout(200);
@@ -923,7 +956,7 @@ if (require.main === module) (async () => {
               });
               const zrodlaFilmu = Object.entries(zakresy);
               check(`${p}: stan „film” — źródła filmu odpowiadają 206 na zakres bajtów`,
-                zrodlaFilmu.length === 2 && zrodlaFilmu.every(([src, r]) => r.status === 206 && r.range.startsWith('bytes 0-1023/') && r.ct.includes(src.endsWith('.webm') ? 'video/webm' : 'video/mp4')),
+                zrodlaFilmu.length === 2 && zrodlaFilmu.every(([src, r]) => r.status === 206 && r.range.startsWith('bytes 0-1023/') && r.ct.includes(src.split('?')[0].endsWith('.webm') ? 'video/webm' : 'video/mp4')),
                 JSON.stringify(zakresy));
             }
           }

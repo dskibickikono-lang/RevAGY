@@ -1,13 +1,15 @@
 # Audyt designu i identyfikacji wizualnej REVAGY
 
-Karta: T-024 · Data: 22.11.2026 · Zakres: tylko analiza, bez zmian w kodzie strony.
+Karta: T-026 (założona jako T-024; numer zmieniony po kolizji z dwiema innymi kartami T-024) · Data: 22.11.2026 · Zakres: tylko analiza, bez zmian w kodzie strony.
 Stan badany: lokalny build `main` 43efbf5 (`npm run build` + `astro preview`), 12 stron, komputer 1440×900 i telefon 390×844.
+W trakcie audytu `main` doszedł do 5bac11d: jedyna zmiana strony to dłuższe zdanie w banerze zgody (D-040). Baner zmierzyłem ponownie na 5bac11d; reszta pomiarów jest z 43efbf5.
 
 Materiały:
 
 - [DESIGN.md](audyt-design/DESIGN.md) — styl, tokeny, typografia, kolory, komponenty, każda wartość z dowodem.
 - [komponenty.md](audyt-design/komponenty.md) — 22 rodziny komponentów, warianty, niespójności, dostępność (v1, do oceny).
-- [moodboard.html](audyt-design/moodboard.html) — kierunki rozwoju na tle konkurencji. **Czeka na Twój wybór.**
+- [moodboard.html](audyt-design/moodboard.html) — kierunki rozwoju na tle konkurencji. Wybrany kierunek: **A — Scena wszędzie** (22.11.2026).
+- [kierunek-a-studium.html](audyt-design/kierunek-a-studium.html) — pogłębione studium kierunku A z planem zmian. **Czeka na Twoją akceptację etapu A1.**
 - [zrzuty/](audyt-design/zrzuty/) — wszystkie strony na obu szerokościach, klatki filmów.
 - [design-evidence/](audyt-design/design-evidence/) — migawki stylów i [pomiary-dodatkowe.json](audyt-design/design-evidence/pomiary-dodatkowe.json).
 
@@ -69,7 +71,7 @@ REVAGY sprzedaje usługę wykonywaną przez konkretną osobę, a strona pokazuje
 | # | Co | Dowód | Dotyka strony głównej |
 | --- | --- | --- | --- |
 | B1 | Film „agent-demo” pokazuje firmę „Stalmet Sp. z o.o.”; D-027 ustala „POLPAK Sp. z o.o.” i tak jest w tekście strony. Źródło sceny: `tools/scenes/agent-demo.html` | [klatka filmu](audyt-design/zrzuty/film-agent-demo-stalmet.webp) | tak — film, nie układ |
-| B2 | Baner zgody przy pierwszej wizycie zasłania główny przycisk hero w 100% i 56% wstępu (komputer); na telefonie zasłania oba przyciski i zajmuje 27% ekranu. Przycisk z fokusem jest wtedy niewidoczny (WCAG 2.2, 2.4.11 AA) | [komputer](audyt-design/zrzuty/index-desktop-baner-zgody.webp), [telefon](audyt-design/zrzuty/index-mobile-baner-zgody.webp); pomiary → `baner_zgody_*` | tak — baner, nie układ |
+| B2 | Baner zgody przy pierwszej wizycie zasłania główny przycisk hero w 100% i 58% wstępu (komputer, baner 420×246 px); na telefonie zasłania oba przyciski w 100% i zajmuje 29% ekranu (358×267 px). Pomiar na `main` 5bac11d, po wydłużeniu zdania w D-040; przed nim baner był o 20 px niższy i zasłaniał to samo. Przycisk z fokusem jest wtedy niewidoczny (WCAG 2.2, 2.4.11 AA). Tekstu banera nie oceniam — ustala go D-040; chodzi o położenie | [komputer](audyt-design/zrzuty/index-desktop-baner-zgody-po-D-040.webp), [telefon](audyt-design/zrzuty/index-mobile-baner-zgody-po-D-040.webp); wcześniejszy pomiar: pomiary → `baner_zgody_*` | tak — baner, nie układ |
 | B3 | Menu i stopka na podstronach prowadzą do kotwic strony głównej. Z 9 podstron w menu jest tylko „Finanse”; osiem pozostałych jest dostępnych wyłącznie z odnośników w treści. Nie ma stanu „jesteś tutaj” | komponenty.md karta 1; odnośniki w `dist/integracja-systemow.html` | tak — treść menu |
 | B4 | Taśma na stronie głównej wymienia nazwy własne systemów; D-018 i D-033 mówią o kategoriach. D-015 mówi, że strona główna zostaje. Nie rozstrzygam | [index-desktop-cala-02](audyt-design/zrzuty/index-desktop-cala-02.webp) | tak |
 
@@ -152,3 +154,79 @@ Kolumna „Decyzja” mówi, czy pozycja dotyka strony głównej (D-015) i wymag
 
 Pozycje 5–11 zależą od kierunku, który wybierzesz w moodboardzie: każdy kierunek odpowiada na nie inaczej.
 
+## 7. Kierunki rozwoju — do Twojego wyboru
+
+Pełny materiał: [moodboard.html](audyt-design/moodboard.html). Próba: 16 działających stron — 7 firm usługowych od
+automatyzacji (6 polskojęzycznych), 5 narzędzi do automatyzacji, 4 marki B2B o wyrazistej identyfikacji; 80 zrzutów
+i pomiary stylów w [moodboard-evidence/](audyt-design/moodboard-evidence/). Revolut Business (wzorzec z D-002) i Make
+zablokowały robota planszą „potwierdź, że jesteś człowiekiem”, więc nie ma ich w porównaniu.
+
+Co widać w próbie:
+
+- Ciemny albo barwny pierwszy ekran ma 7 z 16 stron; poświatę pokrewną hero REVAGY mają Automation House i LinkWith.it.
+- Dowód z zewnątrz (znak klienta, ocena, opinia z nazwiskiem, liczba z odnośnikiem do opisu wdrożenia) pokazuje 14 z 16 stron. REVAGY jest dziś w grupie bez niego.
+- Tytuł REVAGY (92 px, grubość 750) należy do najcięższych; większość próby mieści się w 48–72 px i 400–600.
+- Żadna z sześciu polskojęzycznych firm usługowych nie używa schematu przepływu jako głównego obrazu.
+
+Każdy kierunek odpowiada na pytanie, co ma być głównym obrazem podstrony. Żaden nie zmienia strony głównej (D-015).
+
+| Kierunek | Główny obraz podstrony | Wzorce w próbie | Czego wymaga od Ciebie | Pozycje z listy zmian |
+| --- | --- | --- | --- | --- |
+| **A — Scena wszędzie** | ciemna scena z poświatą i kadrem filmu, jak na stronie głównej | Automation House, Mercury; przestroga: LinkWith.it | niczego | 5, częściowo 6 |
+| **B — Dowód na papierze** | liczba z wdrożenia i dokument; jasny, rzeczowy układ do lewej | Flobotics, Ramp | liczb i z czasem zgód (D-034), kwot (D-029, D-030) | 5–9 |
+| **C — Schemat przepływu** | schemat z węzłów-kategorii, bez nazw własnych systemów | n8n, Workato, Zapier; zalążek w hero REVAGY | niczego na start | 5, 8, 14, 21 |
+| **D — Twarz i podpis** | zdjęcie założyciela i podpis pod obietnicą | Lindy, Digital Teammates, Office Samurai (postać) | zdjęcia i decyzji „ja” czy „my” | 11, 22, częściowo 5 |
+
+Moja rekomendacja, niezatwierdzona: **B + C**. Papier, liczby i tekst do lewej rozwiązują najwięcej pozycji z listy (5–9),
+a schemat z węzłów-kategorii daje podstronom własny obraz, który już istnieje w hero i zamienia D-033 w zasadę rysunku.
+A zostaje tam, gdzie scena już jest (film, pasek końcowy). D dochodzi, gdy będzie zdjęcie.
+
+**Rozstrzygnięte 22.11.2026:** wybrałeś kierunek **A — Scena wszędzie**. Studium i plan są w rozdziale 9.
+
+## 8. Ograniczenia audytu
+
+- Build lokalny, nie produkcja; jedna przeglądarka (Chromium), dwie szerokości (1440 i 390 px).
+- Formularza kontaktowego, otwartego menu i menu mobilnego nie widziałem.
+- Zgodności z WCAG nie stwierdzam: policzyłem kontrasty z tokenów, zmierzyłem fokus, cele dotykowe i geometrię banera; czytnika ekranu, powiększenia 400% i szerokości 320 px nie sprawdzałem.
+- Podstron na telefonie poza „Integracją systemów” nie oglądałem w całości; opieram się tam na pomiarach.
+- Profilu LinkedIn (D-011) nie porównałem ze stroną — brak dostępu.
+- Ocena „co działa” i „co nie działa” jest oceną projektową opartą na pomiarach, nie wynikiem badań z użytkownikami ani danych o konwersji.
+
+## 9. Wybrany kierunek A i plan zmian
+
+Pełne studium: [kierunek-a-studium.html](audyt-design/kierunek-a-studium.html); 51 zrzutów i pomiary w
+[kierunek-a-evidence/](audyt-design/kierunek-a-evidence/). Obejrzałem po pięć typów stron Automation House i Mercury
+oraz własne sceny REVAGY.
+
+Co wyszło:
+
+- Udział ciemnych ekranów (kadry 1440×900 co 900 px, „ciemny” = średnia jasność poniżej 0,30): Automation House 100% na
+  każdym z pięciu typów stron; Mercury 67% na stronie głównej i 12–25% na podstronach, przy czym treść stron produktu
+  jest tam w całości jasna, a ciemne są przypisy prawne i stopka; REVAGY 33% na stronie głównej i 0 pełnych ciemnych
+  ekranów na podstronach.
+- Scenę na każdej podstronie ma w tej próbie tylko Automation House. Mercury daje zasadę umiaru, nie dowód.
+- REVAGY ma już siedem scen o tej samej geometrii (tło `#141114`, zaokrąglenie 40 px, 12 px od krawędzi okna).
+  Dwie z nich są pierwszym ekranem strony: na kontakcie i na 404. Wzór „sceny tytułowej” istnieje więc w kodzie.
+- Zaokrąglony kontener sceny jest znakiem rozpoznawczym REVAGY: obie strony referencyjne prowadzą scenę od krawędzi do krawędzi.
+- Kierunek A nie poprawia czytelności tekstu i tabel na podstronach (pozycje 7–9) — to osobne poprawki.
+
+Propozycja kalibracji (niezatwierdzona): trzy sceny na podstronę — wejście, dowód, koniec — i ok. 25–35% ciemnych
+ekranów, tak jak na stronie głównej. Dla strony pilotażowej szacuję 29% wobec 13% dziś.
+
+Trzy wzory pierwszego ekranu: scena z kadrem filmu (6 podstron ofertowych), scena tytułowa (2 poradniki),
+scena z liczbami („Wdrożenia”). Kontakt, 404, polityka prywatności i strona główna bez zmian.
+
+### Plan zmian — do akceptacji, nic nie jest wykonane
+
+| Etap | Zakres | Pliki | Odbiór |
+| --- | --- | --- | --- |
+| A0 | Wpis Twojego wyboru do rejestru decyzji (kolejny wolny numer, dziś D-046): „Kierunek rozwoju wizualnego podstron: A — Scena wszędzie; strona główna bez zmian” | `kono-state/decisions/REJESTR_DECYZJI_BIZNESOWYCH.md` | wpis zgodny z Twoją odpowiedzią |
+| A1 | Pilot: pierwszy ekran `integracja-systemow` jako scena z plakatem filmu (przykład z kadr i płac, zgodny z D-045) | nowy `src/components/ScenaPodstrony.astro`; kilkanaście wierszy układu w `public/assets/css/podstrony.css`; pierwsza sekcja w `src/pages/integracja-systemow.astro`; wersja arkusza w `PodstronaLayout.astro`; kontrakt podstron w `tools/`, jeśli testy tego wymagają | `dist/index.html` identyczny bajtowo; zrzuty przed i po (1440, 390, 360 px); tytuł i oba przyciski nad zgięciem na telefonie; kontrast tytułu na poświacie ≥ 4,5:1; fokus; ograniczony ruch; Lighthouse nie gorszy; testy repo na Linuksie z wynikiem podanym wprost |
+| A2 | Scena dowodu na tej samej stronie: „Agencja pracy” z liczbami | `src/components/OpisWdrozenia.astro` albo nowy komponent; `podstrony.css` | jak A1; liczby potwierdzone przez Ciebie |
+| A3 | Pozostałe strony: 5 ofertowych, „Wdrożenia”, 2 poradniki | strony w `src/pages/` | jak A1, strona po stronie |
+
+Strona główna, `styles.css` i `BaseLayout.astro` nie są w żadnym etapie. Trzy pozycje P0 z rozdziału 6
+(film „agent-demo”, baner zgody, menu) czekają osobno na Twoją zgodę.
+
+Cztery drobne decyzje przy pilocie, z moją propozycją: w scenie cały plakat filmu (nie zbliżenie); przyciski jak w hero —
+jasny i szklany; poradniki dostają scenę tytułową; w scenie dowodu „ok. 12 h tygodniowo” i „ok. 90% mniej korekt”.

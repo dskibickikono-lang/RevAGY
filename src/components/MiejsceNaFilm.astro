@@ -4,6 +4,7 @@
 // Komponent daje samą ramkę (.film-outer). Sekcję <section class="section" id="film">
 // i tekst obok (nagłówek, zdanie, lista kroków) pisze strona.
 import { stanFilmu, WYMIARY_KADRU } from '../config/filmy.mjs';
+import { zasob } from '../config/zasoby.mjs';
 
 interface Props {
   // Klucz z src/config/filmy.mjs, np. 'integracja-systemow'.
@@ -17,9 +18,9 @@ const film = stanFilmu(nazwa);
   <div class="film" data-scale>
     {film.stan === 'film' ? (
       <>
-        <video data-autoplay data-main-video muted loop playsinline preload="none" poster={film.poster} aria-label={film.etykieta}>
-          <source src={film.webm} type="video/webm">
-          <source src={film.mp4} type="video/mp4">
+        <video data-autoplay data-main-video muted loop playsinline preload="none" poster={zasob(film.poster)} aria-label={film.etykieta}>
+          <source src={zasob(film.webm)} type="video/webm">
+          <source src={zasob(film.mp4)} type="video/mp4">
         </video>
         <button class="film-toggle" type="button" data-video-toggle aria-label="Wstrzymaj film" aria-pressed="false">
           <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>

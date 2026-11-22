@@ -27,7 +27,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
+<link rel="stylesheet" href="assets/css/styles.css?v=4e970d11">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://revagy.pl/#organizacja","name":"REVAGY","url":"https://revagy.pl/","description":"Procesy, które robią się same. W REVAGY projektujemy i wdrażamy automatyzacje procesów oraz agentów AI dla firm B2B. Łączymy Twój CRM, ERP i skrzynki w jeden obieg, a powtarzalną pracę oddajemy agentom AI.","email":"kontakt@revagy.pl","telephone":"+48504037538","foundingDate":"2021","logo":{"@type":"ImageObject","url":"https://revagy.pl/assets/img/icon-512.png","width":512,"height":512},"image":"https://revagy.pl/assets/img/og.jpg","taxID":"7441749535","identifier":[{"@type":"PropertyValue","propertyID":"REGON","value":"389229155"}],"address":{"@type":"PostalAddress","streetAddress":"ul. Gabriela Narutowicza 7/7","postalCode":"14-200","addressLocality":"Iława","addressCountry":"PL"},"founder":{"@type":"Person","name":"Dawid Skibicki"},"areaServed":{"@type":"Country","name":"Polska"},"knowsAbout":["automatyzacja procesów biznesowych","wdrożenia AI w firmach B2B","integracje CRM i ERP","automatyzacja kadr i rekrutacji","automatyzacja dla agencji pracy","obieg dokumentów"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"kontakt@revagy.pl","telephone":"+48504037538","availableLanguage":["pl"]},"sameAs":["https://www.linkedin.com/company/revagy/"]},{"@type":"WebSite","@id":"https://revagy.pl/#strona","url":"https://revagy.pl/","name":"REVAGY","inLanguage":"pl-PL","publisher":{"@id":"https://revagy.pl/#organizacja"}}]}</script>
 </head>
 <body>
@@ -59,6 +59,7 @@
         <div class="nav-panel" id="panel-dzialy">
           <a href="#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
           <a href="finanse.html"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="kadry-i-place.html"><strong>Kadry i płace</strong><span>Godziny, premie i umowy bez wpisywania</span></a>
           <a href="#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
           <a href="#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
         </div>
@@ -101,9 +102,9 @@
   <section class="hero-outer">
     <div class="hero" data-hero>
       <div class="hero-media" data-parallax>
-        <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-flow.jpg">
-          <source src="assets/video/hero-flow.webm" type="video/webm">
-          <source src="assets/video/hero-flow.mp4" type="video/mp4">
+        <video class="hero-video" id="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-flow.jpg?v=ba755d3b">
+          <source src="assets/video/hero-flow.webm?v=5499a456" type="video/webm">
+          <source src="assets/video/hero-flow.mp4?v=ec82f239" type="video/mp4">
         </video>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
@@ -130,6 +131,11 @@
           <li><span class="feed-ico i-box"></span><span><b>Zamówienie 58 213</b> przekazane do magazynu</span><time>6 min</time></li>
         </ul>
       </aside>
+
+      <button class="film-toggle hero-toggle" type="button" data-video-pause="hero-video" aria-label="Wstrzymaj film w tle" aria-pressed="false">
+        <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"></path></svg>
+        <svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor"></path></svg>
+      </button>
     </div>
   </section>
 
@@ -216,9 +222,9 @@
       </article>
 
       <article class="card card-video span-7 reveal" style="--d:80ms">
-        <video data-autoplay muted loop playsinline preload="none" poster="assets/video/dashboard.jpg">
-          <source src="assets/video/dashboard.webm" type="video/webm">
-          <source src="assets/video/dashboard.mp4" type="video/mp4">
+        <video data-autoplay muted loop playsinline preload="none" poster="assets/video/dashboard.jpg?v=a7bef08e">
+          <source src="assets/video/dashboard.webm?v=ebe239ce" type="video/webm">
+          <source src="assets/video/dashboard.mp4?v=cec91928" type="video/mp4">
         </video>
         <div class="card-copy on-video">
           <h3 class="h3">Raporty, które liczą się same</h3>
@@ -455,9 +461,9 @@
     </header>
     <div class="film-outer">
       <div class="film" data-scale>
-        <video data-autoplay data-main-video muted loop playsinline preload="none" poster="assets/video/agent-demo.jpg" aria-label="Animacja: agent AI obsługuje zapytanie ofertowe">
-          <source src="assets/video/agent-demo.webm" type="video/webm">
-          <source src="assets/video/agent-demo.mp4" type="video/mp4">
+        <video data-autoplay data-main-video muted loop playsinline preload="none" poster="assets/video/agent-demo.jpg?v=cfadd0d2" aria-label="Animacja: agent AI obsługuje zapytanie ofertowe">
+          <source src="assets/video/agent-demo.webm?v=bcb5fb8f" type="video/webm">
+          <source src="assets/video/agent-demo.mp4?v=bb7b4a16" type="video/mp4">
         </video>
         <button class="film-toggle" type="button" data-video-toggle aria-label="Wstrzymaj film" aria-pressed="false">
           <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"></path></svg>
@@ -663,7 +669,7 @@
       </nav>
       <nav aria-label="Dla działów">
         <h4 aria-level="2">Dla działów</h4>
-        <a href="#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
+        <a href="#zastosowania">Sprzedaż</a><a href="finanse.html">Finanse</a><a href="kadry-i-place.html">Kadry i płace</a><a href="#zastosowania">Obsługa klienta</a><a href="#zastosowania">Logistyka</a>
       </nav>
       <nav aria-label="Firma">
         <h4 aria-level="2">Firma</h4>
@@ -684,9 +690,9 @@
 
 
 
-<script src="assets/js/kontakt.js?v=1" defer></script>
-<script src="assets/js/app.js?v=5" defer></script>
-<script src="assets/js/analytics.js?v=5" defer></script>
-<script src="assets/js/clarity.js?v=1" defer></script>
+<script src="assets/js/kontakt.js?v=cd88aead" defer></script>
+<script src="assets/js/app.js?v=1e079d03" defer></script>
+<script src="assets/js/analytics.js?v=80d01b04" defer></script>
+<script src="assets/js/clarity.js?v=62081731" defer></script>
 </body>
 </html>

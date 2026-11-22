@@ -83,7 +83,7 @@ function main() {
   setField('pages', pages);
   if (uniqueForms.size === 1) {
     const [formHash] = uniqueForms;
-    if (!contract.contactForm) contract.contactForm = { htmlSha256: null, script: 'assets/js/kontakt.js?v=1' };
+    if (!contract.contactForm) contract.contactForm = { htmlSha256: null, script: 'assets/js/kontakt.js' };
     if (contract.contactForm.htmlSha256 !== formHash) changed.push('contactForm.htmlSha256');
     contract.contactForm.htmlSha256 = formHash;
   } else {

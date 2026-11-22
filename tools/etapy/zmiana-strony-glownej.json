@@ -1,6 +1,6 @@
 {
   "etap": "T-032",
-  "opis": "Etap 9 (T-032), podstrona działowa „Sprzedaż”: pozycja „Sprzedaż” w panelu „Dla działów” menu i w kolumnie „Dla działów” stopki prowadzi do sprzedaz.html zamiast do #zastosowania (zgoda właściciela w zleceniu etapu 9). Różnica między tools/baseline/index.baza.html (migawka z main 5bac11d, po T-024) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
+  "opis": "Etap 9 (T-032), podstrona działowa „Sprzedaż”: pozycja „Sprzedaż” w panelu „Dla działów” menu i w kolumnie „Dla działów” stopki prowadzi do sprzedaz.html zamiast do #zastosowania (zgoda właściciela w zleceniu etapu 9). Różnica między tools/baseline/index.baza.html (migawka z main ca9b92b, po T-030, T-031, T-033 i T-034) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [

@@ -7,7 +7,7 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-9-sprzedaz
-base: main (5bac11d)
+base: main (5bac11d), odświeżona scaleniem z main (ca9b92b)
 depends_on: T-021
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/41
 decisions: [D-015, D-016, D-018, D-019, D-021, D-022, D-025, D-027, D-028, D-029, D-031, D-033, D-034, D-039]
@@ -107,8 +107,8 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
 - **Nowa klasa CSS: jedna.** `.bez-lamania { white-space: nowrap; }` w `public/assets/css/podstrony.css`, użyta raz,
   w `h1` strony sprzedaży. Powód: nagłówki mają `text-wrap: balance`, które dopuszcza podział wyrazu na łączniku.
   Poza tym strona używa wyłącznie istniejących klas z `finanse.astro` i `wdrozenia.astro` (`section-tight`
-  w sekcjach opisów wdrożeń, jak na `/wdrozenia.html`). Po zmianie pliku stylów jego parametr rośnie do
-  `podstrony.css?v=4`, więc HTML wszystkich dziewięciu podstron zmienia się o ten jeden atrybut. `styles.css` bez zmian.
+  w sekcjach opisów wdrożeń, jak na `/wdrozenia.html`). Po zmianie pliku stylów zmienia się skrót treści
+  w jego adresie (`zasob()`, T-030), więc HTML wszystkich podstron zmienia się o ten jeden atrybut. `styles.css` bez zmian.
 - **Nagłówek strony na telefonie.** Na zrzutach 393 i 375 px słowo „follow-upy” w `h1` łamało się na łączniku.
   W `h1` to słowo stoi teraz w `<span class="bez-lamania">`. Tekst nagłówka się nie zmienił. Atrybutu `style` użyć
   nie wolno: walidator dopuszcza na podstronach tylko `style="--d:<liczba>ms"`.
@@ -204,8 +204,39 @@ Wydajność obniża przesunięcie układu (CLS 0,19) przy podmianie kroju pisma 
 ## Po rundzie 2: nagłówek na telefonie
 
 Poprawka `h1` (opis w „Ustaleniach”) zmienia `sprzedaz.html`, plik `assets/css/podstrony.css` i parametr `?v=` stylów
-podstron na dziewięciu podstronach. Kontrakt jest policzony z builda CI z naniesionymi tymi samymi zmianami.
+podstron na wszystkich podstronach (po odświeżeniu: skrót treści z `zasob()`). Kontrakt jest policzony z builda CI z naniesionymi tymi samymi zmianami.
 Wynik CI i Lighthouse dla czubka gałęzi jest w opisie PR #41.
+
+## Odświeżenie do main (2026-11-22)
+
+Gałąź scalona z `origin/main` (`ca9b92b`, po PR #38, #39 i #40) zwykłym `git merge`, bez rebase i bez force-push.
+Treści merytoryczne strony (opisy wdrożeń, dowody, teksty) bez zmian.
+
+- **Konflikty (11 plików), rozwiązane z zachowaniem obu podstron, „Kadry i płace” (T-034) i „Sprzedaż”:**
+  - `src/layouts/BaseLayout.astro`, `src/layouts/PodstronaLayout.astro`: kolejność z main (Sprzedaż, Finanse,
+    Kadry i płace, Obsługa klienta, …); „Sprzedaż” w panelu menu i w stopce prowadzi do `sprzedaz.html`. Arkusze
+    stylów podstron przez `zasob()` z main zamiast `styles.css?v=5` i `podstrony.css?v=4`. Komentarze o wyjątkach
+    w menu wymieniają obie podstrony.
+  - `public/sitemap.xml`: `kadry-i-place.html`, potem `sprzedaz.html`.
+  - `src/config/filmy.mjs`: wpis `kadry-i-place`, potem `sprzedaz`.
+  - `public/assets/css/podstrony.css`: style sceny z main (D-048, T-033), po nich `.bez-lamania`.
+  - `tools/podstrony.json`: wpis `sprzedaz.html` dopisany po `kadry-i-place.html`, skrypty bez ręcznych `?v=N`.
+  - `tools/lighthouse.json`: format i lista z main (strona główna, kontakt, integracja, finanse, kadry i płace)
+    oraz `sprzedaz.html` z tymi samymi progami (90/95/100).
+  - `tools/etapy/zmiana-strony-glownej.json`: etap T-032, dwie zmiany `href` „Sprzedaż” (`#zastosowania` →
+    `sprzedaz.html`) względem nowej bazy.
+  - Pliki generowane nie scalane ręcznie: `tools/baseline/index.baza.html` = migawka `tools/baseline/index.html`
+    z main `ca9b92b`; `tools/baseline/index.html` i `tools/dom-contract.json` odtworzone z builda
+    (`node tools/update-contract.cjs dist --snapshot`). Migawka różni się od bazy tylko dwoma odnośnikami „Sprzedaż”.
+  - Bez konfliktu scaliły się `README.md` i `tools/rejestr-twierdzen.json`.
+- **Ręczne `?v=N`:** usunięte (layout podstron, `tools/podstrony.json`, migawki). Plakat i źródła filmu idą przez
+  `zasob()` w `MiejsceNaFilm.astro` z main. Obraz kadru `sprzedaz-kadr.jpg` jest bez parametru, jak kadry innych
+  podstron: T-030 wyłącza `*-kadr.jpg` z wersjonowania.
+- **Decyzje:** gałąź nie dodaje wpisów do rejestru decyzji, więc numerów po D-049 nie nadawałem.
+- **Numer karty:** T-032 jest wolny na main; tabela w `kono-state/tasks/README.md` wskazuje tę kartę i PR #41.
+- **Wynik lokalny (build jak CI):** `check:dist` 6 z 6 kroków: 72 pliki, 14/14 stron zgodnych z kontraktem
+  i z `htmlBaseline`; `compare-home` także z bazą `origin/main`; testy narzędzi 128/128; test dymny 319 z 319,
+  0 błędów, 0 pominiętych. Lighthouse dla czubka gałęzi trzeba odczytać z CI.
 
 ## Do uzupełnienia przez właściciela
 
