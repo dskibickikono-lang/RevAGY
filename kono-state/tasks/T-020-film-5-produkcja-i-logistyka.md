@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-5-produkcja-i-logistyka
-base: 839b560
+base: feat/film-4-dane-i-bezpieczenstwo (09a0f9b)
 depends_on: T-013, T-015
 pr: —
 sha: —
