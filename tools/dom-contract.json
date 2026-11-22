@@ -153,9 +153,17 @@
       "sha256": "77f742aca837f6dccd64c1689af6667fbf81f3baadededf7d6e5c0e6d6cee084",
       "size": 291247
     },
-    "assets/video/produkcja-i-logistyka-kadr.jpg": {
-      "sha256": "03f230a974b1061f544f7721d29aa81eb6c6aeff147026f9516906c02379a4ed",
-      "size": 136992
+    "assets/video/produkcja-i-logistyka.jpg": {
+      "sha256": "29ae14d3a78c022ce9eb63f6565b35a144a10035d17789c90fd0a6d1af45a6f1",
+      "size": 137073
+    },
+    "assets/video/produkcja-i-logistyka.mp4": {
+      "sha256": "d2917dac77ddae8816d10932358f115c66e1f34a44df93638f8f519f011291a0",
+      "size": 293068
+    },
+    "assets/video/produkcja-i-logistyka.webm": {
+      "sha256": "be533473fb011aec9e45c9411d4cdccd798d96c9982dbdfa958cf938e79e1053",
+      "size": 350175
     },
     "assets/video/wdrozenia.jpg": {
       "sha256": "3118c474c2eccbbe05e9a595c65eb4fdb9aec2bfb9b97ecc48e3396f7ec5ab19",
@@ -224,8 +232,8 @@
       "size": 23777
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "52a6586cf54a7fd528d7bcf3e186a19261fa9fc102de70a6bf20f9ab33194ae8",
-      "size": 23361
+      "sha256": "6e7179d215cfab8c6b7003014f1e4ce28e15a7207d4a6a2387600f82f9ff2392",
+      "size": 24606
     },
     "wdrozenia.html": {
       "sha256": "6613dbf25870d7373231fd216fbf4d048bedf57898b05669cd4c676cbf89cbe5",
@@ -12249,6 +12257,52 @@
           "aria": {}
         },
         {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: 14 dni pilota na jednej linii produkcyjnej"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
           "tag": "section",
           "id": "kryteria",
           "name": null,
@@ -13062,7 +13116,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/produkcja-i-logistyka.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: 14 dni pilota na jednej linii produkcyjnej",
+          "sources": [
+            {
+              "src": "assets/video/produkcja-i-logistyka.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/produkcja-i-logistyka.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -13211,9 +13284,19 @@
           "val": "#pilot"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/produkcja-i-logistyka.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/produkcja-i-logistyka-kadr.jpg"
+          "val": "assets/video/produkcja-i-logistyka.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/produkcja-i-logistyka.mp4"
         },
         {
           "tag": "a",
@@ -13348,7 +13431,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"name\":\"Produkcja i logistyka\",\"headline\":\"Automatyzacja w produkcji i logistyce: pilot | REVAGY\",\"description\":\"Płatny pilot na jednej linii albo zmianie: 14 dni, kryterium sukcesu ustalone przed startem, stała cena. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Produkcja i logistyka\",\"item\":\"https://revagy.pl/produkcja-i-logistyka.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\",\"name\":\"Pilot automatyzacji raportowania i przepływu danych w produkcji i logistyce\",\"description\":\"Płatny pilot na jednej linii albo jednej zmianie: 14 dni, jeden proces, kryterium sukcesu zapisane w umowie przed startem i stała cena. Cenę pakietu podajemy po pilocie.\",\"serviceType\":\"Pilot automatyzacji\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ile kosztuje pilot?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cena pilota po rozmowie. Jest stała i ustalamy ją przed startem.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje pakiet po pilocie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cenę pakietu podajemy po pilocie, gdy znamy wynik i zakres dalszej pracy.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać system ERP albo system magazynowy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie. Jeśli żadna droga łączenia nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi być zaangażowany?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba, która zna proces na linii albo zmianie, oraz osoba z IT, która nada dostęp. Wyjątki zatwierdza ktoś po Waszej stronie, według progów ustalonych z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Ile macie wdrożeń w produkcji?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Jeden pilotaż w zakładzie produkcyjnym. Opisujemy go wyżej.\"}},{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane dane zakładu?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem. Odpowiedzi dla działu IT są na stronie Dane i bezpieczeństwo.\"}},{\"@type\":\"Question\",\"name\":\"Co po zakończeniu pilota?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji w dalszej współpracy zapisujemy w umowie pakietu.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"name\":\"Produkcja i logistyka\",\"headline\":\"Automatyzacja w produkcji i logistyce: pilot | REVAGY\",\"description\":\"Płatny pilot na jednej linii albo zmianie: 14 dni, kryterium sukcesu ustalone przed startem, stała cena. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Produkcja i logistyka\",\"item\":\"https://revagy.pl/produkcja-i-logistyka.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#usluga\",\"name\":\"Pilot automatyzacji raportowania i przepływu danych w produkcji i logistyce\",\"description\":\"Płatny pilot na jednej linii albo jednej zmianie: 14 dni, jeden proces, kryterium sukcesu zapisane w umowie przed startem i stała cena. Cenę pakietu podajemy po pilocie.\",\"serviceType\":\"Pilot automatyzacji\",\"url\":\"https://revagy.pl/produkcja-i-logistyka.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ile kosztuje pilot?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cena pilota po rozmowie. Jest stała i ustalamy ją przed startem.\"}},{\"@type\":\"Question\",\"name\":\"Ile kosztuje pakiet po pilocie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cenę pakietu podajemy po pilocie, gdy znamy wynik i zakres dalszej pracy.\"}},{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać system ERP albo system magazynowy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy systemy, na których pracujecie. Jeśli żadna droga łączenia nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi być zaangażowany?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba, która zna proces na linii albo zmianie, oraz osoba z IT, która nada dostęp. Wyjątki zatwierdza ktoś po Waszej stronie, według progów ustalonych z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Ile macie wdrożeń w produkcji?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Jeden pilotaż w zakładzie produkcyjnym. Opisujemy go wyżej.\"}},{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane dane zakładu?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem. Odpowiedzi dla działu IT są na stronie Dane i bezpieczeństwo.\"}},{\"@type\":\"Question\",\"name\":\"Co po zakończeniu pilota?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji w dalszej współpracy zapisujemy w umowie pakietu.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#film\",\"name\":\"Pilot na jednej linii produkcyjnej, od dnia 1 do dnia 14\",\"description\":\"Na początku pilota dostęp do systemów i kryterium sukcesu zapisane w umowie. Dane z hali trafiają do raportu zmianowego bez przepisywania, rozbieżność zatwierdza kierownik zmiany, a na końcu wynik jest porównany z kryterium i zapada decyzja. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/produkcja-i-logistyka.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/produkcja-i-logistyka.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/produkcja-i-logistyka.html#strona\"}}]}",
           "attrs": [
             "type"
           ]

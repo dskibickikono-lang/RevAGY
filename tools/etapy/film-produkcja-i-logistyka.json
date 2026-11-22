@@ -1,0 +1,7 @@
+{
+  "etap": "film-produkcja-i-logistyka",
+  "opis": "Etap filmowy F5 (D-022, D-032): film w miejscu na film strony /produkcja-i-logistyka.html. Względem kontraktu gałęzi bazowej zmienia się tylko ta strona: w kontrakcie DOM pola videos, keyedElements, localRefs i jsonLd, jej suma w htmlBaseline, a w publicFiles dochodzą trzy pliki filmu i znika kadr -kadr.jpg. Strona główna i pozostałe strony bez zmian. Sprawdza tools/compare-film.cjs.",
+  "film": "produkcja-i-logistyka",
+  "strona": "produkcja-i-logistyka.html",
+  "polaStrony": ["videos", "keyedElements", "localRefs", "jsonLd"]
+}
