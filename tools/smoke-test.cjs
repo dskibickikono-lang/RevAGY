@@ -471,10 +471,17 @@ if (require.main === module) (async () => {
       await page.click('[data-video-toggle]');
       await page.waitForTimeout(200);
       const pausedAfterToggle = await page.evaluate(() => document.querySelector('[data-main-video]').paused && document.querySelector('[data-video-toggle]').getAttribute('aria-pressed') === 'true');
+      const ariaPauza = await page.evaluate(() => { const b = document.querySelector('[data-video-toggle]'); return { label: b.getAttribute('aria-label'), pressed: b.getAttribute('aria-pressed') }; });
       await page.click('[data-video-toggle]');
       await page.waitForTimeout(200);
       const playingAfterToggle = await page.evaluate(() => !document.querySelector('[data-main-video]').paused);
+      const ariaWznowienie = await page.evaluate(() => { const b = document.querySelector('[data-video-toggle]'); return { label: b.getAttribute('aria-label'), pressed: b.getAttribute('aria-pressed') }; });
       check('przycisk pauzy/wznowienia filmu działa', pausedAfterToggle && playingAfterToggle);
+      // T-023: stała nazwa dostępna, stan niesie tylko aria-pressed.
+      check('przycisk filmu: nazwa „Wstrzymaj film” bez zmian, aria-pressed true po wstrzymaniu i false po wznowieniu',
+        ariaPauza.label === 'Wstrzymaj film' && ariaPauza.pressed === 'true'
+        && ariaWznowienie.label === 'Wstrzymaj film' && ariaWznowienie.pressed === 'false',
+        JSON.stringify({ ariaPauza, ariaWznowienie }));
 
       await scrollTo(page, '#pakiety');
       await page.click('button[data-mode="opieka"]');
@@ -890,10 +897,17 @@ if (require.main === module) (async () => {
               await page.click('[data-video-toggle]');
               await page.waitForTimeout(200);
               const pauza = await page.evaluate(() => document.querySelector('[data-main-video]').paused && document.querySelector('[data-video-toggle]').getAttribute('aria-pressed') === 'true');
+              const ariaPauza = await page.evaluate(() => { const b = document.querySelector('[data-video-toggle]'); return { label: b.getAttribute('aria-label'), pressed: b.getAttribute('aria-pressed') }; });
               await page.click('[data-video-toggle]');
               await page.waitForTimeout(200);
               const wznowienie = await page.evaluate(() => !document.querySelector('[data-main-video]').paused);
+              const ariaWznowienie = await page.evaluate(() => { const b = document.querySelector('[data-video-toggle]'); return { label: b.getAttribute('aria-label'), pressed: b.getAttribute('aria-pressed') }; });
               check(`${p}: stan „film” — przycisk pauzy/wznowienia działa`, pauza && wznowienie, JSON.stringify({ pauza, wznowienie }));
+              // T-023: stała nazwa dostępna, stan niesie tylko aria-pressed.
+              check(`${p}: stan „film” — nazwa przycisku „Wstrzymaj film” bez zmian, aria-pressed true po wstrzymaniu i false po wznowieniu`,
+                ariaPauza.label === 'Wstrzymaj film' && ariaPauza.pressed === 'true'
+                && ariaWznowienie.label === 'Wstrzymaj film' && ariaWznowienie.pressed === 'false',
+                JSON.stringify({ ariaPauza, ariaWznowienie }));
               // Odpowiedź 206 na zakres bajtów dla obu źródeł filmu (plan 5, test etapu filmowego).
               const zakresy = await page.evaluate(async () => {
                 const out = {};

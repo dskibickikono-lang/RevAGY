@@ -1,29 +1,15 @@
 {
-  "etap": "8",
-  "opis": "Etap 8 (T-021), decyzje właściciela z 22.11.2026: pozycja „Finanse” w menu i stopce prowadzi do finanse.html; cztery nagłówki kolumn stopki (h4) mają aria-level=\"2\" (bez przeskoku poziomu po ostatnim h2 w <main>); styles.css?v=5 z regułą nagłówka dla szerokości poniżej 390 px. Różnica między tools/baseline/index.baza.html (migawka z main a3ce70d, po T-022) a tools/baseline/index.html. Teksty, znaczniki i kolejność bez zmian; geometria od 390 px wzwyż bez zmian.",
+  "etap": "T-023",
+  "opis": "T-023, przycisk filmu (decyzja właściciela z 22.11.2026): zmiana zachowania dostępności bez zmiany wyglądu. app.js przy wstrzymaniu i wznowieniu filmu zmienia tylko aria-pressed; nazwa dostępna przycisku zostaje stała („Wstrzymaj film”). Jedyna zmiana strony głównej to wersja skryptu w znaczniku <script>: assets/js/app.js?v=4 na assets/js/app.js?v=5. Różnica między tools/baseline/index.baza.html (migawka z main 0e72e39, po etapie 8) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
       {
-        "znacznik": "link",
-        "atrybut": "href",
-        "bylo": "assets/css/styles.css?v=4",
-        "jest": "assets/css/styles.css?v=5",
+        "znacznik": "script",
+        "atrybut": "src",
+        "bylo": "assets/js/app.js?v=4",
+        "jest": "assets/js/app.js?v=5",
         "razy": 1
-      },
-      {
-        "znacznik": "a",
-        "atrybut": "href",
-        "bylo": "#zastosowania",
-        "jest": "finanse.html",
-        "razy": 2
-      },
-      {
-        "znacznik": "h4",
-        "atrybut": "aria-level",
-        "bylo": null,
-        "jest": "2",
-        "razy": 4
       }
     ],
     "dodane": [],

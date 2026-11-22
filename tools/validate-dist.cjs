@@ -843,7 +843,7 @@ function main() {
   errors.push(...podstrony.errors);
   const expectedScripts = {
     '404.html': ['/assets/js/analytics.js?v=4', '/assets/js/clarity.js?v=1'],
-    'index.html': ['assets/js/app.js?v=4', 'assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'],
+    'index.html': ['assets/js/app.js?v=5', 'assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'],
     'kontakt.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
     ...podstrony.map,
