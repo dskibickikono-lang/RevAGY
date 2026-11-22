@@ -1,0 +1,205 @@
+---
+// Etap 3 (T-011): „Dla firm 5–250 osób”, pakiety Start i Scale z ceną „od” (D-016, D-029).
+// Ceny i warunki, które poda właściciel, są w src/data/oferta.mjs (null: kafel pokazuje „Wycena po audycie”, a zdanie z warunkiem znika).
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import Autor from '../components/Autor.astro';
+import { OFERTA, maWartosc, zKropka, cenaPakietu } from '../data/oferta.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const jestStart = maWartosc(OFERTA.cenaStartOd);
+const jestScale = maWartosc(OFERTA.cenaScaleOd);
+const jestCena = jestStart || jestScale;
+
+const opis = jestCena
+  ? 'Pakiety Start i Scale z ceną „od”, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.'
+  : 'Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.';
+
+const cenyPakietow = jestStart && jestScale
+  ? `Pakiet Start kosztuje ${cenaPakietu(OFERTA.cenaStartOd)}, Scale ${cenaPakietu(OFERTA.cenaScaleOd)}. Dokładną cenę podajemy po audycie.`
+  : jestStart
+    ? `Pakiet Start kosztuje ${cenaPakietu(OFERTA.cenaStartOd)}. Dokładną cenę podajemy po audycie.`
+    : jestScale
+      ? `Pakiet Scale kosztuje ${cenaPakietu(OFERTA.cenaScaleOd)}. Dokładną cenę podajemy po audycie.`
+      : 'Cenę pakietu podajemy po audycie.';
+
+const pytania = [
+  {
+    pytanie: 'Od czego zacząć?',
+    odpowiedz: 'Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.',
+  },
+  {
+    pytanie: 'Ile to kosztuje?',
+    odpowiedz: `Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. ${cenyPakietow}`,
+  },
+  {
+    pytanie: 'Co jeśli się rozmyślimy?',
+    odpowiedz: 'Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.'
+      + (maWartosc(OFERTA.warunkiZakonczeniaUmowy) ? ` ${zKropka(`Warunki zakończenia wdrożenia i opieki: ${OFERTA.warunkiZakonczeniaUmowy}`)}` : ''),
+  },
+  {
+    pytanie: 'Czy trzeba wymieniać systemy?',
+    odpowiedz: 'Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.',
+  },
+  {
+    pytanie: 'Kto po naszej stronie musi mieć czas?',
+    odpowiedz: 'Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.',
+  },
+  {
+    pytanie: 'Ile trwa pierwsze wdrożenie?',
+    odpowiedz: 'Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.',
+  },
+  {
+    pytanie: 'Co z danymi osobowymi?',
+    odpowiedz: 'Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu.',
+  },
+];
+---
+<PodstronaLayout
+  plik="dla-firm.html"
+  tytul="Automatyzacja dla firm 5–250 osób: pakiety | REVAGY"
+  opis={opis}
+  okruszek="Dla firm"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób',
+    opis: 'Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.',
+    rodzaj: 'Automatyzacja procesów',
+  }}
+  pytania={pytania}
+  film="dla-firm"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Automatyzacja dla firmy od 5 do 250 osób. Zaczynasz od jednego procesu.</h1>
+      <p class="lead">Łączymy systemy, na których już pracujesz, i oddajemy automatom powtarzalną pracę w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pierwszy krok to bezpłatna, 25-minutowa konsultacja jednego procesu.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których te firmy już pracują.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#pakiety">{jestCena ? 'Zobacz pakiety i ceny' : 'Zobacz pakiety'}</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="zastosowania">
+    <header class="section-head reveal">
+      <h2 class="h2">Co może robić się samo w Twojej firmie</h2>
+      <p class="lead">Gotowe zastosowania, od których firmy B2B zaczynają najczęściej. Na start wybierasz jedno z nich.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Dział</th><th scope="col">Co przejmuje automatyzacja</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sprzedaż</td><td>Lead z formularza, maila czy LinkedIna trafia do CRM z danymi firmy, oceną i zadaniem dla handlowca. Oferty powstają z cennika, follow-upy wychodzą na czas.</td></tr>
+          <tr><td>Finanse</td><td>Faktury kosztowe są odczytywane, sprawdzane i księgowane w ERP. Płatności uzgadniają się z bankiem, przypomnienia o należnościach wychodzą same.</td></tr>
+          <tr><td>Obsługa klienta</td><td>Agenci AI odpowiadają na zapytania o statusy zamówień i dostaw. Reklamacja przychodzi z kompletem danych, a trudna sprawa trafia do człowieka z gotowym kontekstem.</td></tr>
+          <tr><td>Marketing</td><td>Leady z reklam trafiają prosto do CRM. Raport kosztu pozyskania jest gotowy co rano, segmenty odświeżają się automatycznie.</td></tr>
+          <tr><td>Logistyka</td><td>Zamówienia z PDF i e-maili trafiają do ERP. Awizacje i listy przewozowe przygotowują się same, a braki i opóźnienia dają znać alertem.</td></tr>
+          <tr><td>HR i operacje</td><td>Nowa osoba dostaje dostępy pierwszego dnia. Wnioski i akceptacje są w jednym miejscu, a baza wiedzy odpowiada na pytania z pomocą AI.</td></tr>
+          <tr><td>Raporty dla zarządu</td><td>Dane ze sprzedaży, finansów i magazynu spotykają się w jednym pulpicie, bez eksportów do arkuszy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal">Jak to wygląda w działających wdrożeniach, opisujemy na stronie <a class="link-btn" href="wdrozenia.html">wdrożeń</a>.</p>
+  </section>
+
+  <section class="section wrap" id="jak-zaczac">
+    <header class="section-head reveal">
+      <h2 class="h2">Cztery kroki od rozmowy do działającej automatyzacji</h2>
+      <p class="lead">Każdy krok kończy się czymś, co możesz zobaczyć i sprawdzić, zanim zdecydujesz o następnym.</p>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li><strong>Konsultacja.</strong> Bezpłatna konsultacja jednego procesu trwa 25 minut, a po niej dostajesz jednostronicową kartę procesu, która zostaje u Ciebie.</li>
+      <li><strong>Audyt.</strong> Audyt procesu: 3–5 dni roboczych, 1 990 zł w całości wliczone w cenę wdrożenia i 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li><strong>Wdrożenie.</strong> Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.</li>
+      <li><strong>Opieka.</strong> Monitorujemy przepływy po wdrożeniu, a zakres monitoringu i czas reakcji zapisujemy w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Co dostajesz na każdym kroku</h2>
+      <p class="lead">Po konsultacji masz kartę procesu. Audyt kończy się zakresem i ceną wdrożenia. Wdrożenie to działający przepływ między Twoimi systemami, a opieka to stały monitoring i raport z jego działania.</p>
+      <ul class="ticks">
+        <li>Konsultacja → karta procesu</li>
+        <li>Audyt → raport z zakresem wdrożenia</li>
+        <li>Wdrożenie → działający przepływ</li>
+        <li>Opieka → monitoring i raport</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="dla-firm" />
+  </section>
+
+  <section class="section wrap" id="pakiety">
+    <header class="section-head reveal">
+      <h2 class="h2">Pakiety Start i Scale</h2>
+      {jestCena ? (
+        <p class="lead">Cena „od” to najniższa kwota pakietu. Dokładną cenę podajemy po audycie, bo zależy od liczby procesów i systemów. Audyt wliczamy w nią w całości.</p>
+      ) : (
+        <p class="lead">Cenę podajemy po audycie, bo zależy od liczby procesów i systemów. Audyt wliczamy w nią w całości.</p>
+      )}
+    </header>
+
+    {/* Te same znaczniki i klasy co kafle na stronie głównej, bez przełącznika trybu (data-plans, role="tablist"):
+        obie listy, wdrożenie i stała opieka, są widoczne jedna pod drugą. Dwa kafle: siatka dwukolumnowa (plans-dwa). */}
+    <div class="plans plans-dwa">
+      <article class="plan reveal">
+        <h3 class="h3">Start</h3>
+        <p class="plan-for">Dla firm, które chcą sprawdzić automatyzację na jednym procesie.</p>
+        <p class="plan-price">{cenaPakietu(OFERTA.cenaStartOd)}</p>
+        <p><strong>Wdrożenie</strong></p>
+        <ul class="ticks m-projekt"><li>Audyt jednego obszaru</li><li>1 proces zautomatyzowany od początku do końca</li><li>Do 3 integracji</li><li>Szkolenie zespołu</li></ul>
+        <p><strong>Stała opieka</strong></p>
+        <ul class="ticks m-opieka"><li>Monitoring przepływów w dni robocze</li><li>Poprawki i drobne zmiany</li><li>Raport kwartalny</li><li>Czas reakcji zapisany w umowie</li></ul>
+        <a class="btn btn-outline" href="kontakt.html">Zapytaj o Start</a>
+      </article>
+      <article class="plan plan-featured reveal" style="--d:80ms">
+        <span class="plan-flag">Najczęściej wybierany</span>
+        <h3 class="h3">Scale</h3>
+        <p class="plan-for">Dla zespołów, które chcą zautomatyzować cały dział.</p>
+        <p class="plan-price">{cenaPakietu(OFERTA.cenaScaleOd)}</p>
+        <p><strong>Wdrożenie</strong></p>
+        <ul class="ticks m-projekt"><li>Audyt działu z mapą procesów</li><li>Do 5 procesów i agent AI</li><li>Integracje CRM, ERP i poczty</li><li>Pulpit zarządczy</li><li>Sprinty co 2 tygodnie</li></ul>
+        <p><strong>Stała opieka</strong></p>
+        <ul class="ticks m-opieka"><li>Monitoring przepływów z alertami</li><li>Rozwój: nowe przepływy co miesiąc</li><li>Raport miesięczny z liczbami</li><li>Krótszy czas reakcji, zapisany w umowie</li><li>Stały opiekun</li></ul>
+        <a class="btn btn-accent" href="kontakt.html">Zapytaj o Scale</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="enterprise">
+    <header class="section-head reveal">
+      <h2 class="h2">Produkcja, magazyn albo wiele spółek?</h2>
+      <p class="lead">Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor. Zaczyna się od płatnego pilota z kryterium sukcesu ustalonym przed startem, a cenę pakietu podajemy po pilocie.</p>
+    </header>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania, które zadaje mała firma</h2>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Który proces kosztuje Cię najwięcej godzin?</h2>
+        <p class="lead">Opowiedz o nim w 25 minut. Karta procesu zostaje u Ciebie, nawet jeśli na tym skończymy.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
