@@ -98,10 +98,15 @@ wytycznych dla strony „Sprzedaż”. Treść opiera się na repozytorium; z Dy
    „brakujące pole i pozycję spoza cennika”?
 2. Przypisanie handlowca: zostaje propozycją do akceptacji człowieka (film, kadr, kafel, „Co zostaje człowiekowi”),
    czy ma się dziać samo według reguł, a akceptacji wymaga tylko ocena? Strona główna pisze „Lead z formularza
-   zakwalifikowany, trafił do handlowca”.
+   zakwalifikowany, trafił do handlowca” i „Lead z formularza, maila czy LinkedIna trafia do CRM z uzupełnionymi
+   danymi firmy, oceną i zadaniem dla handlowca” (to samo `/dla-firm.html`), a strona sprzedaży wymienia tylko
+   formularz na stronie i pocztę, z oceną i przypisaniem do akceptacji.
 3. Odpowiedź „Czy wysyłacie wiadomości do klientów za nas?”: potwierdzić brzmienie. Czy dopisać przykład wiadomości
    bez akceptacji (np. potwierdzenie otrzymania zapytania)? Strona główna i `/dla-firm.html` piszą „Follow-upy
    wysyłane na czas” / „follow-upy wychodzą na czas”: czy to zgodne z zasadą szkicu?
+   Jeśli po odpowiedzi na pytania 2 i 3 strona sprzedaży zostaje przy akceptacji i szkicu, potrzebne jest osobne
+   zadanie na poprawę tekstów strony głównej i `/dla-firm.html` (etap 9 ich nie zmienia). Jeśli przypisanie ma się
+   dziać samo, trzeba poprawić `sprzedaz.astro` (film, kwalifikacja), kadr i wpis w `src/config/filmy.mjs`.
 4. Czy kryteria oceny zapytania „spisujemy z Wami w audycie”?
 5. Oferty: czy „Pozycje i ceny katalogowe są pobrane z Waszego cennika” i zapis w CRM „jej wersja, status i to, kto ją
    zaakceptował” mogą stać na stronie?
