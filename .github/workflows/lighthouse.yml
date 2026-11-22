@@ -1,0 +1,71 @@
+name: Lighthouse
+
+# Pomiar Lighthouse podstron z progami z tools/lighthouse.json (tools/lighthouse.cjs).
+# Mierzy build z tego joba podawany z lokalnego serwera z gzip na 127.0.0.1: telefon,
+# symulowane łącze, mediana z kilku przebiegów. To nie jest pomiar produkcji.
+# Próg niespełniony kończy job błędem i zatrzymuje zmianę. Osobny workflow, a nie krok w ci.yml,
+# żeby wahanie wyniku wydajności nie blokowało artefaktu wydania. VPS tego nie uruchamia.
+# Raporty HTML i JSON przebiegów oraz wynik.md trafiają do artefaktu lighthouse-<sha>.
+on:
+  pull_request:
+    paths-ignore: ['kono-state/**', 'README.md']
+  workflow_dispatch:
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+jobs:
+  lighthouse:
+    name: Lighthouse podstron
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        env:
+          # Publiczny klucz witryny Turnstile (zmienna repo, nie sekret); pusty = formularz ukryty.
+          PUBLIC_TURNSTILE_SITEKEY: ${{ vars.PUBLIC_TURNSTILE_SITEKEY }}
+        run: |
+          umask 022
+          npm run build
+
+      - name: Chromium dla Lighthouse
+        run: npx playwright install --with-deps chromium
+
+      - name: Pomiar Lighthouse
+        run: |
+          set -eu
+          CHROME_PATH="$(node -e "process.stdout.write(require('playwright').chromium.executablePath())")"
+          if [ ! -x "$CHROME_PATH" ]; then
+            echo "Brak Chromium Playwrighta pod ścieżką: $CHROME_PATH" >&2
+            exit 2
+          fi
+          export CHROME_PATH
+          echo "Chromium: $CHROME_PATH"
+          npm run test:lighthouse -- --wyniki="$RUNNER_TEMP/lighthouse"
+
+      - name: Raporty Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-${{ github.sha }}
+          path: ${{ runner.temp }}/lighthouse/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -70,6 +70,8 @@ npm run test:deploy                          # izolowane testy deploy/wydanie.sh
 
 `check:dist` woła `tools/check-all.cjs`, który uruchamia po kolei walidator, `compare-home.cjs`, `check-podstrony-css.cjs`, `check-tresc.cjs` i testy narzędzi; zbudowany `index.html` musi być bajtowo równy migawce `tools/baseline/index.html`, a zamierzoną zmianę strony zapisuje się w kontrakcie i migawce poleceniem `node tools/update-contract.cjs <dist> --snapshot`.
 
+`npm run test:lighthouse` (`tools/lighthouse.cjs`) mierzy Lighthouse'em podstrony z `tools/lighthouse.json` (wydajność, dostępność, SEO; telefon, symulowane łącze, mediana z kilku przebiegów) i kończy się błędem, gdy mediana którejś kategorii spadnie poniżej progu z tego pliku. Mierzy zbudowany `dist/` podawany z lokalnego serwera z gzip, więc nie jest to pomiar produkcji. Wymaga Chrome (`CHROME_PATH`) i pobiera Lighthouse przez `npx`, dlatego uruchamia się go w CI, a nie na VPS. Raporty HTML i JSON przebiegów oraz `wynik.md` zapisuje w katalogu `--wyniki=<katalog>`.
+
 Dodatkowe tryby `tools/smoke-test.cjs`:
 - `node tools/smoke-test.cjs http://localhost:8000` — test na zwykłym hoście nieprodukcyjnym (potwierdza blokadę trackera),
 - `node tools/smoke-test.cjs https://revagy.pl` — test przeciwko produkcji (żądania do `stats.revagy.pl` są przechwytywane atrapą).
@@ -77,6 +79,8 @@ Dodatkowe tryby `tools/smoke-test.cjs`:
 ## CI i artefakt wydania
 
 `.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
+
+Osobny workflow `.github/workflows/lighthouse.yml` przy każdym PR (z tym samym `paths-ignore`) i na żądanie buduje stronę, instaluje Chromium Playwrighta i uruchamia `npm run test:lighthouse` z progami z `tools/lighthouse.json`. Próg niespełniony kończy ten job błędem i zatrzymuje zmianę, ale nie blokuje artefaktu wydania z `ci.yml`. Raporty trafiają do artefaktu `lighthouse-<sha>` (14 dni). Na VPS tego pomiaru się nie uruchamia.
 
 ## Wdrożenie i rollback
 
