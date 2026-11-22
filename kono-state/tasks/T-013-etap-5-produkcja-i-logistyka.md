@@ -3,14 +3,14 @@ id: T-013
 title: Etap 5 — podstrona „Produkcja i logistyka” (/produkcja-i-logistyka.html)
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-5-produkcja-i-logistyka
 base: feat/etap-4-dane-i-bezpieczenstwo (1538754)
 depends_on: T-012
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/14 (baza feat/etap-4-dane-i-bezpieczenstwo)
+sha: 81dd1a9bf3cfec753e2b00b6452e4cec3fae9e92 (kod i testy; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-016, D-019, D-021, D-022, D-030, D-031, D-032, D-033, D-034, D-038]
 ---
 
@@ -62,6 +62,17 @@ odnośnik. Wygląd i motyw strony głównej zostają bez zmian (D-015, D-021).
   Pozostałe strony i pliki bez zmian.
 - Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 49 plików, 9/9 stron, testy narzędzi 70/70.
 - Przewidziany manifest wydania: `741f6956cac725f9facd4d5a93845cdd431d73f8de7560a66423f3a405e934f5`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `81dd1a9` (run 44967622033), zielony:
+
+- `check:dist`: 5 z 5 kroków, 49 plików, 9/9 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `741f6956cac725f9facd4d5a93845cdd431d73f8de7560a66423f3a405e934f5`, ten sam co przewidziany.
+- Strona główna względem etapu 4: jedna zmiana (odnośnik w opisie kafla Enterprise), geometria równa bazie
+  poza `#pakiety`.
+- Test dymny: 155 z 155, 0 pominiętych. Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 70 z 70.
+- Zrzuty 1280 i 390 px w artefakcie `podglad-<sha>`.
 
 ## Do uzupełnienia przez właściciela
 
