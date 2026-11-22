@@ -163,7 +163,7 @@
     banner.setAttribute('aria-labelledby', 'consent-title');
     banner.innerHTML = `
       <h2 id="consent-title">Statystyki odwiedzin</h2>
-      <p>Za Twoją zgodą zapisujemy, które sekcje oglądasz, w co klikasz i jak długo, razem z adresem IP i danymi przeglądarki. Dane zostają na naszym serwerze. Szczegóły: <a href="${policyUrl}">polityka prywatności</a>.</p>
+      <p>Za Twoją zgodą zapisujemy, które sekcje oglądasz, w co klikasz i jak długo, razem z adresem IP i danymi przeglądarki. Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity. Szczegóły: <a href="${policyUrl}">polityka prywatności</a>.</p>
       <div class="consent-actions">
         <button type="button" class="btn btn-quiet" data-consent="nie">Odrzucam</button>
         <button type="button" class="btn btn-accent" data-consent="tak">Zgadzam się</button>

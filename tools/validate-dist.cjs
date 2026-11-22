@@ -838,12 +838,12 @@ function main() {
   // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js i clarity.js (T-022) wszędzie
   // (podstrony ścieżką względną).
   // Nowe podstrony: lista skryptów z tools/podstrony.json (ma pierwszeństwo przed tablicą poniżej).
-  const defaultPageScripts = ['assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'];
+  const defaultPageScripts = ['assets/js/analytics.js?v=5', 'assets/js/clarity.js?v=1'];
   const podstrony = readPodstronyScripts();
   errors.push(...podstrony.errors);
   const expectedScripts = {
-    '404.html': ['/assets/js/analytics.js?v=4', '/assets/js/clarity.js?v=1'],
-    'index.html': ['assets/js/app.js?v=5', 'assets/js/analytics.js?v=4', 'assets/js/clarity.js?v=1'],
+    '404.html': ['/assets/js/analytics.js?v=5', '/assets/js/clarity.js?v=1'],
+    'index.html': ['assets/js/app.js?v=5', 'assets/js/analytics.js?v=5', 'assets/js/clarity.js?v=1'],
     'kontakt.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
     ...podstrony.map,
