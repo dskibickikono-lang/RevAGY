@@ -5,7 +5,9 @@
 // przetwarzają modele AI (BEZPIECZENSTWO.aiNaDanychKlienta), i nie obiecuje wdrożenia u klienta
 // (BEZPIECZENSTWO.wdrozenieUKlienta).
 // Sekcja #wdrozenie: trzy opisy wdrożeń sprzedażowych, anonimowe (D-034); to, co działa w pilotażu, jest tak oznaczone.
-// Rodzaj firmy, nazwa, etykieta powiązania, skala i cytat pochodzą wyłącznie z src/data/dowody.mjs.
+// Rodzaj firmy przy opisie, nazwa, etykieta powiązania, skala i cytat pochodzą wyłącznie z src/data/dowody.mjs.
+// Wyjątek: ogólny rodzaj firmy w leadzie sekcji #wdrozenie („firmy usługowej B2B”) to brzmienie z poprawki 1
+// (wiersz sp-wd-trzy-opisy w tools/rejestr-twierdzen.json); pola rodzajFirmy w dowody.mjs zostają null.
 // Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
@@ -69,7 +71,7 @@ const pytania = [
     {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
     <div class="section-head reveal">
       <h1 class="display-2">Kwalifikacja leadów, oferty i follow-upy bez ręcznego przepisywania</h1>
-      <p class="lead">Automatyzujemy trzy procesy działu sprzedaży: kwalifikację leadów, czyli zapytań od firm, przygotowanie ofert i follow-upy, czyli przypomnienia i wiadomości o dalszym kroku. Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja oferty zostają u Was.</p>
+      <p class="lead">Automatyzujemy trzy procesy działu sprzedaży: kwalifikację leadów (czyli zapytań od firm), przygotowanie ofert i follow-upy (czyli przypomnienia i wiadomości o dalszym kroku). Dane trafiają do CRM bez przepisywania, a rozmowa z klientem, cena i akceptacja oferty zostają u Was.</p>
       <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
       <p>Dla dyrektora sprzedaży, szefa zespołu handlowego i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
       <div class="hero-cta">
@@ -227,7 +229,7 @@ const pytania = [
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
         <li>o nowym leadzie z formularza przypisany handlowiec dostaje wiadomość w komunikatorze, a gdy wysyłka się nie uda, SMS</li>
-        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na kanały i regiony, a co miesiąc powstaje z niego raport</li>
+        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na kanały i regiony</li>
         <li>w pilotażu handlowiec pisze albo nagrywa w komunikatorze, co zrobić, a agent zakłada w CRM firmę, osobę, leada albo zadanie z terminem i odpowiada numerem rekordu</li>
         <li>agent uzupełnia tylko puste pola, a przed założeniem firmy sprawdza ją po numerze NIP</li>
       </ul>

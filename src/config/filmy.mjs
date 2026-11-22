@@ -88,7 +88,7 @@ export const FILMY = {
     etykieta: 'Animacja: zapytanie od odbioru do przypisania handlowca',
     // VideoObject.name i VideoObject.description.
     tytul: 'Zapytanie od odbioru do przypisania handlowca',
-    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a zapytanie trafia do CRM z oceną według kryteriów firmy, handlowcem przypisanym według jej reguł i zadaniem dla handlowca. Handlowiec dostaje powiadomienie. Dane na ekranach są poglądowe.',
+    opis: 'Zapytanie trafia do jednej kolejki, jego pola są odczytane i sprawdzone, a zapytanie trafia do CRM z oceną według kryteriów zespołu sprzedaży, handlowcem przypisanym według jego reguł i zadaniem dla handlowca. Handlowiec dostaje powiadomienie. Dane na ekranach są poglądowe.',
     // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
   },
 };

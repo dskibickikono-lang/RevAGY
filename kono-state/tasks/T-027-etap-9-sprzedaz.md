@@ -72,7 +72,11 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
   - Kalkulator ofertowy z mapą: produkcja. Agent ofert w komunikatorze: działająca usługa, ale brak dowodu regularnego
     użycia, więc na stronie „w pilotażu”.
   - Agent CRM w komunikatorze: działająca usługa, brak dowodu regularnego użycia, więc „w pilotażu”. Powiadomienie
-    o nowym leadzie: ostatni dowód działania to audyt z 04.09.2026.
+    o nowym leadzie: produkcja; ostatni odczyt działania 04.11.2026 (dokumentacja utrzymania), pomiar czasu
+    dostarczenia tylko w audycie z 04.09.2026.
+  - Pulpit czasu reakcji: produkcja. Po przeglądzie poprawki 1 ze zdania o pulpicie usunięto „a co miesiąc powstaje
+    z niego raport”: w materiałach jest jeden raport zgodności (12.10.2026), robi go osobne narzędzie wprost z CRM,
+    a rytm miesięczny to plan bez harmonogramu. Patrz „Decyzje do podjęcia przez właściciela”, punkt 10.
 - **Czego nie ma na stronie i dlaczego.** Patrz „Decyzje do podjęcia przez właściciela”, punkty 2, 3, 4 i 6: liczby
   z małej próby bez zgody na publikację, silnik leadów z ofert pracy, stawki z arkusza, czas przygotowania oferty
   i premie handlowców.
@@ -80,8 +84,9 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
   z uzupełnionymi danymi firmy, oceną i zadaniem dla handlowca”, „Kwalifikacja i wzbogacanie leadów”, „Oferty
   generowane z cennika”, „Follow-upy wysyłane na czas”. Pierwsza wersja strony sprzedaży mówiła, że ocena
   i przypisanie czekają na akceptację, a wiadomości są domyślnie szkicami (zbyt ostrożne wytyczne PM). Po poprawce
-  automat działa według kryteriów i reguł klienta, a do człowieka trafiają wyjątki i decyzje. Zmieniły się `#film`,
-  `#kwalifikacja`, `#follow-upy`, dwa pytania, `usluga.opis`, kadr i wpis w `src/config/filmy.mjs`.
+  automat działa według kryteriów i reguł klienta, a do człowieka trafiają wyjątki i decyzje. Zmieniły się lead `#wstep`,
+  `#film`, `#kwalifikacja`, `#follow-upy`, `#wdrozenie` (trzy opisy zamiast opisu z rekrutacji), dwa pytania,
+  `usluga.opis`, kadr i wpis w `src/config/filmy.mjs`.
 - **Usunięte reguły.** Znikają dwie reguły ze zlecenia etapu 9: „lead to zapytanie firmy, która sama się zgłosiła”
   i zdanie „Wiadomości dotyczą tylko osób, które same się zgłosiły…”. Strona nie składa takiej obietnicy i dalej nie
   obiecuje wysyłki do osób, które się nie zgłosiły: po prostu o tym nie mówi.
@@ -93,7 +98,8 @@ a to, co działa w pilotażu, jest tak oznaczone. Strona główna dostaje tylko 
   | 666 | `a` „Sprzedaż” w kolumnie „Dla działów” stopki | `href` | `#zastosowania` | `sprzedaz.html` |
 
   Teksty, znaczniki, kolejność i wygląd bez zmian. Kafel „Sprzedaż” w `#zastosowania` bez zmian.
-- **Nowe klasy CSS: brak.** Strona używa wyłącznie klas z `finanse.astro`. `podstrony.css` i `styles.css` bez zmian,
+- **Nowe klasy CSS: brak.** Strona używa wyłącznie istniejących klas z `finanse.astro`
+  i `wdrozenia.astro` (`section-tight` w sekcjach opisów wdrożeń, jak na `/wdrozenia.html`). `podstrony.css` i `styles.css` bez zmian,
   więc parametry `?v=` też.
 - **Nazwy systemów.** Zero nazw własnych, także w pytaniach, tekście kadru i `alt` (D-018, D-033). Tylko kategorie:
   „CRM”, „poczta”, „formularz na stronie”, „arkusz”.
@@ -138,6 +144,8 @@ wytycznych dla strony „Sprzedaż”. Treść opiera się na repozytorium; z Dy
 7. Wiadomości do klientów: brzmienie odpowiedzi „Tylko te, które ustalicie…” to propozycja.
 8. Treść kafli „Po wdrożeniu” w trzech procesach to propozycje, jak na Finansach.
 9. Kadr: firma „POLPAK” bez formy prawnej (test sceny odrzuca formy prawne) i etykiety poglądowe.
+10. Raport zgodności z celem czasu reakcji: czy powstaje regularnie co miesiąc? Jeśli tak, zdanie o raporcie może
+    wrócić do opisu „Nowy lead i CRM w komunikatorze zespołu”.
 
 ## Do uzupełnienia przez właściciela
 
