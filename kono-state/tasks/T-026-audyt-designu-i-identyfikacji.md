@@ -1,5 +1,5 @@
 ---
-id: T-024
+id: T-026
 title: Audyt designu i identyfikacji wizualnej REVAGY (tylko analiza)
 channel: pm-local
 requested_by: owner
@@ -14,7 +14,7 @@ sha: (uzupełniane po commicie)
 decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033]
 ---
 
-# T-024 — Audyt designu i identyfikacji wizualnej REVAGY
+# T-026 — Audyt designu i identyfikacji wizualnej REVAGY
 
 ## Cel
 
