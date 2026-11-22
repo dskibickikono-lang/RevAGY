@@ -30,7 +30,10 @@ i pozostałe strony nie zmieniają się ani o bajt.
 3. `.github/workflows/render-media.yml`: w PR renderuje film dla sceny z ustawionym czasem, dla pozostałych
    scen kadr. Plan renderu liczy `tools/media-plan.cjs`.
 4. Narzędzia:
-   - `tools/compare-film.cjs` z plikiem `tools/etapy/film-integracja-systemow.json` (porównanie B kontraktu);
+   - `tools/compare-film.cjs` z plikiem `tools/etapy/film-integracja-systemow.json` (porównanie B kontraktu).
+     Reguła działa tylko w zmianie, która wprowadza film, czyli dodaje do kontraktu trzy pliki filmu nieobecne
+     w bazie. Wtedy różnica musi w całości odpowiadać temu etapowi. Inne zmiany kontraktu tej reguły nie
+     dotyczą. Dwa filmy w jednym PR albo niekompletny zestaw plików to błąd;
    - walidator sprawdza pliki wskazane w VideoObject;
    - test dymny sprawdza 206 dla źródeł filmu podstrony;
    - testy scen.

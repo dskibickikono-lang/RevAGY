@@ -9,8 +9,13 @@
    Pliki etapów: tools/etapy/film-<nazwa>.json, np.
      { "etap": "film-integracja-systemow", "film": "integracja-systemow", "strona": "integracja-systemow.html",
        "polaStrony": ["videos", "keyedElements", "localRefs", "jsonLd"] }
-   Kontrakt bez zmian względem bazy: OK (np. pierwsza runda etapu filmowego).
-   Kontrakt zmieniony: różnica musi w całości odpowiadać jednemu plikowi etapu:
+   Reguła włącza się tylko wtedy, gdy zmiana wprowadza film. Etap filmowy jest czynny, gdy w bieżącym
+   kontrakcie publicFiles ma wszystkie trzy pliki assets/video/<film>.{webm,mp4,jpg}, a w kontrakcie bazowym
+   nie ma żadnego z nich.
+     - zero czynnych etapów: porównanie B nie dotyczy tej zmiany, kod 0 (inne zmiany kontraktu sprawdza walidator),
+     - więcej niż jeden czynny etap: błąd (jeden film na PR),
+     - film dodany częściowo (jeden albo dwa z trzech plików, których nie było w bazie): błąd,
+     - dokładnie jeden czynny etap: różnica kontraktu musi w całości odpowiadać temu etapowi:
      - publicFiles: dochodzą dokładnie assets/video/<film>.webm, .mp4, .jpg, znika assets/video/<film>-kadr.jpg,
        pozostałe wpisy bez zmian,
      - htmlBaseline: zmienia się tylko <strona>,
@@ -97,16 +102,31 @@ function porownajKontraktFilmu(baza, teraz, etap) {
   return p;
 }
 
-/** Zgodnie, gdy kontrakt bez zmian albo różnica w całości odpowiada jednemu z etapów. */
+const PLIKI_FILMU = (film) => ['webm', 'mp4', 'jpg'].map((e) => `assets/video/${film}.${e}`);
+
+/**
+ * Ocena zmiany kontraktu wobec plików etapów filmowych.
+ * @returns {{ ok: boolean, etap: object|null, problemy: string[], dotyczy: boolean }}
+ */
 function ocen(baza, teraz, etapy) {
-  if (rowne(baza, teraz)) return { ok: true, etap: null, problemy: [] };
-  let najlepszy = null;
+  const pfB = baza.publicFiles || {};
+  const pfT = teraz.publicFiles || {};
+  const czynne = [];
+  const czesciowe = [];
   for (const e of etapy) {
-    const problemy = porownajKontraktFilmu(baza, teraz, e);
-    if (!problemy.length) return { ok: true, etap: e, problemy: [] };
-    if (!najlepszy || problemy.length < najlepszy.problemy.length) najlepszy = { etap: e, problemy };
+    const pliki = PLIKI_FILMU(e.film);
+    const wBazie = pliki.filter((p) => p in pfB);
+    const nowe = pliki.filter((p) => p in pfT && !(p in pfB));
+    if (wBazie.length === 0 && nowe.length === pliki.length) czynne.push(e);
+    else if (nowe.length > 0 && nowe.length < pliki.length) czesciowe.push({ e, nowe });
   }
-  return { ok: false, etap: najlepszy ? najlepszy.etap : null, problemy: najlepszy ? najlepszy.problemy : ['kontrakt zmieniony, a nie ma żadnego pliku tools/etapy/film-*.json'] };
+  const problemy = czesciowe.map(({ e, nowe }) => `film ${e.film}: niekompletny zestaw plików w kontrakcie (nowe: ${nowe.join(', ')}; potrzebne wszystkie trzy: .webm, .mp4, .jpg)`);
+  if (czynne.length > 1) problemy.push(`jeden film na PR: zmiana wprowadza filmy ${czynne.map((e) => e.film).join(', ')}`);
+  if (problemy.length) return { ok: false, etap: null, problemy, dotyczy: true };
+  if (!czynne.length) return { ok: true, etap: null, problemy: [], dotyczy: false };
+  const etap = czynne[0];
+  const p = porownajKontraktFilmu(baza, teraz, etap);
+  return { ok: !p.length, etap, problemy: p, dotyczy: true };
 }
 
 function wczytajBazeKontraktu(repoRoot, env, log) {
@@ -149,9 +169,9 @@ function main(argv = process.argv.slice(2), env = process.env, repoRoot = ROOT) 
   const teraz = JSON.parse(fs.readFileSync(kontraktPlik, 'utf8'));
   const w = ocen(baza.kontrakt, teraz, etapy);
   if (w.ok) {
-    console.log(w.etap
+    console.log(w.dotyczy
       ? `OK: zmiany kontraktu względem bazy (${baza.zrodlo}) odpowiadają etapowi ${w.etap.etap || w.etap.film}: tylko ${w.etap.strona}, ramka filmu i dane strukturalne.`
-      : `OK: kontrakt bez zmian względem bazy (${baza.zrodlo}).`);
+      : `OK: ta zmiana nie wprowadza filmu (względem ${baza.zrodlo}), porównanie B nie dotyczy.`);
     return 0;
   }
   console.error(`BŁĄD: zmiany kontraktu względem bazy (${baza.zrodlo}) wychodzą poza etap filmowy${w.etap ? ` ${w.etap.etap || w.etap.film}` : ''}:`);

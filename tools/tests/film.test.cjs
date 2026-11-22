@@ -82,7 +82,7 @@ function wStanieFilm() {
 }
 
 test('compare-film: kontrakt bez zmian i poprawny stan „film” przechodzą', () => {
-  assert.deepEqual(ocen(kontrakt(), kontrakt(), [ETAP]), { ok: true, etap: null, problemy: [] });
+  assert.deepEqual(ocen(kontrakt(), kontrakt(), [ETAP]), { ok: true, etap: null, problemy: [], dotyczy: false });
   assert.deepEqual(porownajKontraktFilmu(kontrakt(), wStanieFilm(), ETAP), []);
   assert.equal(ocen(kontrakt(), wStanieFilm(), [{ ...ETAP, film: 'y', strona: 'y.html' }, ETAP]).ok, true);
 });
@@ -97,7 +97,47 @@ test('compare-film: zmiany poza ramką filmu i danymi strukturalnymi są błęde
   assert.ok(zmiana((k) => { k.publicFiles['assets/css/styles.css'].sha256 = 'b'; }).some((p) => /zmieniony assets\/css\/styles\.css/.test(p)));
   assert.ok(zmiana((k) => { k.mediaBudget['assets/video/*.jpg'] = 200000; }).some((p) => /„mediaBudget”/.test(p)));
   assert.ok(zmiana((k) => { k.pages['x.html'].videos = []; }).some((p) => /brak filmu/.test(p)));
-  assert.equal(ocen(kontrakt(), wStanieFilm(), []).ok, false);
+});
+
+test('compare-film: reguła włącza się tylko dla zmiany, która wprowadza film', () => {
+  const ETAP_Y = { ...ETAP, etap: 'film-y', film: 'y', strona: 'y.html' };
+  // baza po wcześniejszym filmie y (pliki y już są), zwykła zmiana innej strony bez filmu: przechodzi
+  const poFilmieY = () => {
+    const k = kontrakt();
+    for (const e of ['webm', 'mp4', 'jpg']) k.publicFiles[`assets/video/y.${e}`] = { sha256: `y${e}`, size: 7 };
+    return k;
+  };
+  const zmianaStrony = poFilmieY();
+  zmianaStrony.htmlBaseline['index.html'] = { sha256: 'nowa', size: 9 };
+  zmianaStrony.pages['index.html'].headings = ['A', 'B'];
+  zmianaStrony.pages['nowa.html'] = { headings: ['N'] };
+  const bezFilmu = ocen(poFilmieY(), zmianaStrony, [ETAP, ETAP_Y]);
+  assert.deepEqual(bezFilmu, { ok: true, etap: null, problemy: [], dotyczy: false });
+  // film dokładnie według etapu: przechodzi
+  const film = ocen(kontrakt(), wStanieFilm(), [ETAP, ETAP_Y]);
+  assert.equal(film.ok, true);
+  assert.equal(film.etap.film, 'x');
+  // film plus zmiana innej strony: błąd
+  const filmIInne = wStanieFilm();
+  filmIInne.htmlBaseline['index.html'] = { sha256: 'nowa', size: 9 };
+  const r1 = ocen(kontrakt(), filmIInne, [ETAP]);
+  assert.equal(r1.ok, false);
+  assert.ok(r1.problemy.some((p) => /zmieniona strona index\.html/.test(p)), r1.problemy.join('\n'));
+  // dwa filmy naraz: błąd
+  const dwa = wStanieFilm();
+  for (const e of ['webm', 'mp4', 'jpg']) dwa.publicFiles[`assets/video/y.${e}`] = { sha256: e, size: 7 };
+  const r2 = ocen(kontrakt(), dwa, [ETAP, ETAP_Y]);
+  assert.equal(r2.ok, false);
+  assert.ok(r2.problemy.some((p) => /jeden film na PR/.test(p)), r2.problemy.join('\n'));
+  // niekompletny zestaw plików: błąd
+  const czesc = kontrakt();
+  czesc.publicFiles['assets/video/x.webm'] = { sha256: 'w', size: 5 };
+  czesc.publicFiles['assets/video/x.mp4'] = { sha256: 'm', size: 5 };
+  const r3 = ocen(kontrakt(), czesc, [ETAP]);
+  assert.equal(r3.ok, false);
+  assert.ok(r3.problemy.some((p) => /niekompletny zestaw/.test(p)), r3.problemy.join('\n'));
+  // kontrakt bez zmian: przechodzi
+  assert.equal(ocen(poFilmieY(), poFilmieY(), [ETAP, ETAP_Y]).ok, true);
 });
 
 test('compare-film: plik etapu z repozytorium jest poprawny; CLI z bazą z pliku', () => {
