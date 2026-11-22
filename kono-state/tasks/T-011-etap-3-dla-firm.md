@@ -43,13 +43,23 @@ tylko jeden odnośnik. Wygląd i motyw strony głównej zostają bez zmian (D-01
    - plik etapu z jednym wpisem `dodane`.
 6. `tools/dom-contract.json` bez zmian w rundzie 1. Cały kontrakt liczy PM w rundzie 2 z builda CI.
 
-## Runda 2 (PM)
+## Runda 1 — wynik CI (2026-11-22)
 
-- Kadr `public/assets/video/dla-firm-kadr.jpg` z artefaktu `media-<sha>`.
-- Kontrakt z `dist-roboczy-<sha>`:
-  - strona główna, `sitemap.xml`, `podstrony.css`;
-  - strony `wdrozenia.html` i `dla-firm.html`;
-  - kadr.
+- Astro zbudowało 7 stron. Walidator zgłosił wyłącznie błędy zapowiedziane przy niezmienionym kontrakcie:
+  nadmiarowy plik `dla-firm.html`, inne sumy `podstrony.css` i `sitemap.xml`, niezgodność `index.html`
+  i `wdrozenia.html` z kontraktem. Pozostałe cztery kroki kontroli przeszły.
+- Zbudowany `index.html` jest bajtowo równy przewidzianej migawce.
+- Zdanie z odnośnikiem na `/wdrozenia.html` zapowiada pakiety, nie ceny (kwot jeszcze nie ma).
+
+## Runda 2 (2026-11-22)
+
+- Kadr `public/assets/video/dla-firm-kadr.jpg` z artefaktu `media-<sha>`: 114 441 B przy limicie 150 000 B,
+  sha256 `1fcd9de6…77d8`.
+- Kontrakt policzony z builda CI z dołożonym kadrem (`tools/update-contract.cjs`). Zmienione wpisy:
+  `index.html`, `wdrozenia.html`, `podstrony.css`, `sitemap.xml`; nowe: `dla-firm.html` i kadr.
+  Pozostałe strony i pliki bez zmian.
+- Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 45 plików, 7/7 stron, testy narzędzi 68/68.
+- Przewidziany manifest wydania: `044b68d22b8332415f6b51c3482a25866ae22fa4c595a2e4baf283ed6b860fbe`.
 
 ## Do uzupełnienia przez właściciela
 
