@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-1-integracja-systemow
-base: feat/etap-6-poradniki (f1b5e43)
+base: feat/etap-6-poradniki (fd7a45f)
 depends_on: T-009, T-014
 pr: —
 sha: —
