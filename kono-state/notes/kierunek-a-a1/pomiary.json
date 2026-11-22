@@ -1,0 +1,452 @@
+{
+ "przed": {
+  "360": {
+   "h1": {
+    "top": 129,
+    "bottom": 237,
+    "w": 328,
+    "h": 108
+   },
+   "lead": {
+    "top": 257,
+    "bottom": 385,
+    "w": 328,
+    "h": 128
+   },
+   "autor": {
+    "top": 557,
+    "bottom": 599,
+    "w": 328,
+    "h": 42
+   },
+   "scena": null,
+   "kadr": null,
+   "wstep": {
+    "top": 65,
+    "bottom": 699,
+    "w": 360,
+    "h": 634
+   },
+   "nastepna": {
+    "top": 699,
+    "bottom": 1291,
+    "w": 360,
+    "h": 592
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 413,
+     "bottom": 469,
+     "h": 56,
+     "cls": "btn btn-dark btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 481,
+     "bottom": 537,
+     "h": 56,
+     "cls": "btn btn-outline btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 8921,
+   "innerH": 740,
+   "bledyJS": []
+  },
+  "390": {
+   "h1": {
+    "top": 129,
+    "bottom": 237,
+    "w": 358,
+    "h": 108
+   },
+   "lead": {
+    "top": 257,
+    "bottom": 385,
+    "w": 358,
+    "h": 128
+   },
+   "autor": {
+    "top": 557,
+    "bottom": 599,
+    "w": 358,
+    "h": 42
+   },
+   "scena": null,
+   "kadr": null,
+   "wstep": {
+    "top": 65,
+    "bottom": 699,
+    "w": 390,
+    "h": 634
+   },
+   "nastepna": {
+    "top": 699,
+    "bottom": 1291,
+    "w": 390,
+    "h": 592
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 413,
+     "bottom": 469,
+     "h": 56,
+     "cls": "btn btn-dark btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 481,
+     "bottom": 537,
+     "h": 56,
+     "cls": "btn btn-outline btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 8684,
+   "innerH": 844,
+   "bledyJS": []
+  },
+  "1440": {
+   "h1": {
+    "top": 203,
+    "bottom": 419,
+    "w": 880,
+    "h": 216
+   },
+   "lead": {
+    "top": 439,
+    "bottom": 526,
+    "w": 803,
+    "h": 87
+   },
+   "autor": {
+    "top": 630,
+    "bottom": 651,
+    "w": 420,
+    "h": 21
+   },
+   "scena": null,
+   "kadr": null,
+   "wstep": {
+    "top": 73,
+    "bottom": 845,
+    "w": 1304,
+    "h": 772
+   },
+   "nastepna": {
+    "top": 845,
+    "bottom": 1521,
+    "w": 1304,
+    "h": 676
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 554,
+     "bottom": 610,
+     "h": 56,
+     "cls": "btn btn-dark btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 554,
+     "bottom": 610,
+     "h": 56,
+     "cls": "btn btn-outline btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 9640,
+   "innerH": 900,
+   "bledyJS": []
+  }
+ },
+ "po": {
+  "360": {
+   "h1": {
+    "top": 89,
+    "bottom": 233,
+    "w": 288,
+    "h": 144
+   },
+   "lead": {
+    "top": 257,
+    "bottom": 410,
+    "w": 288,
+    "h": 153
+   },
+   "autor": {
+    "top": 590,
+    "bottom": 632,
+    "w": 288,
+    "h": 42
+   },
+   "scena": {
+    "top": 65,
+    "bottom": 656,
+    "w": 336,
+    "h": 591
+   },
+   "kadr": {
+    "top": 0,
+    "bottom": 0,
+    "w": 0,
+    "h": 0
+   },
+   "wstep": {
+    "top": 65,
+    "bottom": 656,
+    "w": 360,
+    "h": 591
+   },
+   "nastepna": {
+    "top": 656,
+    "bottom": 1248,
+    "w": 360,
+    "h": 592
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 442,
+     "bottom": 498,
+     "h": 56,
+     "cls": "btn btn-light btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 510,
+     "bottom": 566,
+     "h": 56,
+     "cls": "btn btn-glass btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 8879,
+   "innerH": 740,
+   "bledyJS": []
+  },
+  "390": {
+   "h1": {
+    "top": 89,
+    "bottom": 197,
+    "w": 318,
+    "h": 108
+   },
+   "lead": {
+    "top": 221,
+    "bottom": 349,
+    "w": 318,
+    "h": 128
+   },
+   "autor": {
+    "top": 529,
+    "bottom": 571,
+    "w": 318,
+    "h": 42
+   },
+   "scena": {
+    "top": 65,
+    "bottom": 595,
+    "w": 366,
+    "h": 530
+   },
+   "kadr": {
+    "top": 0,
+    "bottom": 0,
+    "w": 0,
+    "h": 0
+   },
+   "wstep": {
+    "top": 65,
+    "bottom": 595,
+    "w": 390,
+    "h": 530
+   },
+   "nastepna": {
+    "top": 595,
+    "bottom": 1187,
+    "w": 390,
+    "h": 592
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 381,
+     "bottom": 437,
+     "h": 56,
+     "cls": "btn btn-light btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 449,
+     "bottom": 505,
+     "h": 56,
+     "cls": "btn btn-glass btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 8580,
+   "innerH": 844,
+   "bledyJS": []
+  },
+  "1440": {
+   "h1": {
+    "top": 136,
+    "bottom": 424,
+    "w": 630,
+    "h": 288
+   },
+   "lead": {
+    "top": 448,
+    "bottom": 536,
+    "w": 630,
+    "h": 87
+   },
+   "autor": {
+    "top": 716,
+    "bottom": 737,
+    "w": 420,
+    "h": 21
+   },
+   "scena": {
+    "top": 73,
+    "bottom": 800,
+    "w": 1416,
+    "h": 727
+   },
+   "kadr": {
+    "top": 275,
+    "bottom": 598,
+    "w": 573,
+    "h": 322
+   },
+   "wstep": {
+    "top": 73,
+    "bottom": 800,
+    "w": 1440,
+    "h": 727
+   },
+   "nastepna": {
+    "top": 800,
+    "bottom": 1477,
+    "w": 1304,
+    "h": 676
+   },
+   "przyciski": [
+    {
+     "text": "Sprawdźmy, jak połączyć Twoje ",
+     "top": 568,
+     "bottom": 624,
+     "h": 56,
+     "cls": "btn btn-light btn-lg"
+    },
+    {
+     "text": "Zobacz, co dostaniesz po rozmo",
+     "top": 636,
+     "bottom": 692,
+     "h": 56,
+     "cls": "btn btn-glass btn-lg"
+    }
+   ],
+   "overflowX": 0,
+   "pageH": 9595,
+   "innerH": 900,
+   "bledyJS": []
+  }
+ },
+ "kontrast_najgorszy_po": {
+  "390": {
+   "h1": 18.75,
+   "lead": 13.78,
+   "autor": 7.88,
+   "glass": 10.91
+  },
+  "1440": {
+   "h1": 18.55,
+   "lead": 13.54,
+   "autor": 8.29,
+   "glass": 10.7
+  }
+ },
+ "fokus_i_ruch_po": {
+  "fokus": [
+   {
+    "el": "a.btn.btn-light",
+    "t": "Sprawdźmy, jak połączyć Twoj",
+    "fv": true,
+    "outline": "solid 3px rgb(255, 91, 20)",
+    "inScene": true,
+    "visible": true
+   },
+   {
+    "el": "a.btn.btn-glass",
+    "t": "Zobacz, co dostaniesz po roz",
+    "fv": true,
+    "outline": "solid 3px rgb(255, 91, 20)",
+    "inScene": true,
+    "visible": true
+   }
+  ],
+  "kolejnosc": [
+   "Przejdź do treści",
+   "REVAGY",
+   "Rozwiązania",
+   "Dla działów",
+   "Jak wdrażamy",
+   "Pakiety",
+   "FAQ",
+   "Policz zwrot",
+   "Umów konsultację",
+   "Sprawdźmy, jak połączyć Twoj",
+   "Zobacz, co dostaniesz po roz",
+   ""
+  ],
+  "struktura": {
+   "h1": 1,
+   "h1text": "Dane wpisujesz raz. Pozostałe systemy dostają je same.",
+   "naglowki": [
+    "H1:Dane wpisujesz raz. Pozostałe ",
+    "H2:Jak połączyć system HR z progr",
+    "H2:Znasz to z własnej firmy?",
+    "H3:Ta sama umowa wpisana dwa razy"
+   ],
+   "img": [
+    {
+     "alt": "Poglądowy ekran: rekord pracownika przeniesiony z systemu HR do kadr i płac, każde pole po kontroli, wpis w dzienniku zapisów",
+     "w": 1600,
+     "h": 900,
+     "complete": true,
+     "loading": "lazy"
+    }
+   ],
+   "pierwszaFilm": "film",
+   "stylAttr": [
+    "--d:80ms",
+    "--d:160ms"
+   ]
+  },
+  "ograniczonyRuch": {
+   "animacjeBiegnace": 0,
+   "h1Opacity": "1",
+   "leadOpacity": "1",
+   "glowAnim": "none"
+  },
+  "ruchDomyslny": {
+   "animacjeBiegnace": 2,
+   "h1Opacity": "1"
+  }
+ },
+ "cls_kroj_zastepczy_dejavu_kroj_docelowy_opozniony_900ms": {
+  "scena_przed_poprawka_poswiaty": 0.2711,
+  "scena_po_poprawce": 0.0931,
+  "finanse_stary_uklad": 0.1022,
+  "kontakt": 0.1103,
+  "ci_lighthouse_7debfcc_przed_poprawka": {
+   "wydajnosc": 88,
+   "cls": 0.2399
+  }
+ }
+}

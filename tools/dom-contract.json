@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "3ade90cfd3687e790feddd6f5dc4dfe595ec9dbcc9e57760b399f4ba67daf780",
-      "size": 2192
+      "sha256": "a004b2f4d27011b9dfbd2e9864a0fc0fe2a533068fac553febaa8f90e340badd",
+      "size": 3734
     },
     "assets/css/styles.css": {
       "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
@@ -224,15 +224,15 @@
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "fcd102f3e7cfbc9ae40ea9f1c67678ee4d2266153bd360de17e8aa00f1a7c215",
+      "sha256": "1bfebd1d07c2469b52047a6a34360a51b55739c9670fd94c969410ebe028bfb6",
       "size": 24250
     },
     "dla-firm.html": {
-      "sha256": "1a070e73f086c6758691a86c1a8fe62ad89183880dd866b2c1bfd34ba8eec95e",
+      "sha256": "eb820c5dee005bb47a312fc2fcfe6d559e4891fa144a05a18b69746ce4fb436d",
       "size": 24829
     },
     "finanse.html": {
-      "sha256": "88af85ad3a409de3f1673aacf196912cbbb71f26414b291f1ca2a0a4fb0e24a5",
+      "sha256": "1ef77d6ed24a268645b447a58ad95cca8859d12ff9536b529db06bcd8119a6fb",
       "size": 25143
     },
     "index.html": {
@@ -240,11 +240,11 @@
       "size": 47131
     },
     "integracja-systemow.html": {
-      "sha256": "becdf2086416bf88a1fee82ca81a3ff44b4dbcc5a26a606a574dc2fb6d9a6443",
-      "size": 25793
+      "sha256": "f634ddceccfb2ddabfea66e5c24987a969a38400b39ecc592ac215909f272966",
+      "size": 26279
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "e104d8978c6983e1194c95eea5f555f94991344f8bcdb672bc1cf2f24c41ea2f",
+      "sha256": "016f75fe5e6db1afc984778ccbb6cd8b2ce7cef389b7255ff8e77dba8bcc0a51",
       "size": 24403
     },
     "kontakt.html": {
@@ -256,15 +256,15 @@
       "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "ccdb27a6e7f41de5ef5aadfe143132934f95cc00f10b380616994479d161d87f",
+      "sha256": "1fa92414bc40a090590e2b8c053ba44c1d9166f895ea4f1df31a4da79eb6daf1",
       "size": 23933
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "4e32e8ea65538d67d65171ff926611d2bf9a30213c83107add02df0bdfca625d",
+      "sha256": "8605e4238023d1547a7cdaf37290c49ffd364d025e1b02d412f41404d76cb3e7",
       "size": 24795
     },
     "wdrozenia.html": {
-      "sha256": "775ce6195428a008bbfc552370479e3f417d7a77f09ae6b5bc6fe2cb5101601f",
+      "sha256": "9ba2d35577ceb1f11032ce623abe0bc53556f549f40de8b45e45d35fb2773c3a",
       "size": 22557
     }
   },
@@ -623,7 +623,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1913,7 +1913,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -2324,7 +2324,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3553,7 +3553,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -3989,7 +3989,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5246,7 +5246,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -8539,7 +8539,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8608,7 +8608,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -8820,6 +8820,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -9679,14 +9689,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Sprawdźmy, jak połączyć Twoje systemy"
         },
         {
           "href": "#karta",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co dostaniesz po rozmowie"
@@ -9884,7 +9894,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -10005,6 +10015,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#karta"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/integracja-systemow.jpg?v=272176cc"
         },
         {
           "tag": "video",
@@ -10290,7 +10305,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11446,7 +11461,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -12561,7 +12576,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13640,7 +13655,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -14051,7 +14066,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15300,7 +15315,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
@@ -15716,7 +15731,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3ade90cf",
+          "href": "assets/css/podstrony.css?v=a004b2f4",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16907,7 +16922,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3ade90cf"
+          "val": "assets/css/podstrony.css?v=a004b2f4"
         },
         {
           "tag": "a",
