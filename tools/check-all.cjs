@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-/* Wszystkie kontrole katalogu wynikowego po kolei. Pierwszy błąd kończy całość kodem 1.
+/* Wszystkie kontrole katalogu wynikowego po kolei. Każdy krok uruchamia się zawsze (także po błędzie
+   wcześniejszego), na końcu jest podsumowanie wszystkich kroków, a kod 1 zwracany jest wtedy,
+   gdy zawiódł którykolwiek z nich. Dzięki temu jeden przebieg CI pokazuje komplet problemów.
    1. tools/validate-dist.cjs <dist> [argumenty]   (zawsze; argumenty przekazywane bez zmian, np. --manifest-out=…)
    2. tools/compare-home.cjs --dist=<dist>          (jeśli plik istnieje)
    3. tools/check-podstrony-css.cjs                 (jeśli plik istnieje)
@@ -17,12 +19,11 @@ const { spawnSync } = require('node:child_process');
 
 const ROOT = path.join(__dirname, '..');
 
-function main() {
-  const args = process.argv.slice(2);
+function main(args = process.argv.slice(2), root = ROOT) {
   const distArg = args.find((a) => !a.startsWith('--'));
   if (!distArg) {
     console.error('Użycie: node tools/check-all.cjs <dist> [argumenty walidatora]');
-    process.exit(1);
+    return 1;
   }
   const dist = path.resolve(distArg);
   const extra = args.filter((a) => a !== distArg);
@@ -35,22 +36,35 @@ function main() {
     { name: 'tests', file: 'tools/tests', argv: ['--test', 'tools/tests/'] },
   ];
 
-  let run = 0;
+  const wyniki = [];
   for (const step of steps) {
-    if (!fs.existsSync(path.join(ROOT, step.file))) {
+    if (!fs.existsSync(path.join(root, step.file))) {
       console.log(`[check-all] ${step.name}: pominięte (brak ${step.file})`);
+      wyniki.push({ name: step.name, stan: 'POMINIĘTE', why: `brak ${step.file}` });
       continue;
     }
     console.log(`[check-all] ${step.name}: node ${step.argv.join(' ')}`);
-    const res = spawnSync(process.execPath, step.argv, { cwd: ROOT, stdio: 'inherit' });
+    const res = spawnSync(process.execPath, step.argv, { cwd: root, stdio: 'inherit' });
     if (res.error || res.status !== 0) {
       const why = res.error ? res.error.message : (res.signal ? `sygnał ${res.signal}` : `kod ${res.status}`);
       console.error(`[check-all] BŁĄD w kroku ${step.name} (${why})`);
-      process.exit(1);
+      wyniki.push({ name: step.name, stan: 'BŁĄD', why });
+    } else {
+      wyniki.push({ name: step.name, stan: 'OK', why: '' });
     }
-    run++;
   }
-  console.log(`[check-all] OK: ${run} kroków zakończonych powodzeniem`);
+  console.log('[check-all] Podsumowanie:');
+  for (const w of wyniki) console.log(`[check-all]   ${w.stan.padEnd(9)} ${w.name}${w.why ? ` (${w.why})` : ''}`);
+  const bledy = wyniki.filter((w) => w.stan === 'BŁĄD');
+  const ok = wyniki.filter((w) => w.stan === 'OK').length;
+  if (bledy.length) {
+    console.error(`[check-all] BŁĄD: ${bledy.length} z ${wyniki.length} kroków zawiodło: ${bledy.map((w) => w.name).join(', ')}`);
+    return 1;
+  }
+  console.log(`[check-all] OK: ${ok} kroków zakończonych powodzeniem`);
+  return 0;
 }
 
-main();
+if (require.main === module) process.exit(main());
+
+module.exports = { main };

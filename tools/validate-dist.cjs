@@ -27,6 +27,7 @@
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const { sprawdzPodstrone } = require('./lib/podstrona.cjs');
 
 const VOID_TAGS = new Set([
   'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
@@ -724,19 +725,21 @@ function checkMediaBudget(contract, actualMap) {
 // tools/podstrony.json (opcjonalny): { "strony": [ { "plik": "…html", "film": "…" | null, "skrypty": ["…"] } ] }
 // Bez "skrypty" strona dostaje listę domyślną (analytics.js).
 function readPodstronyScripts() {
-  if (!fs.existsSync(PODSTRONY_PATH)) return { map: {}, errors: [] };
+  if (!fs.existsSync(PODSTRONY_PATH)) return { map: {}, pliki: [], errors: [] };
   try {
     const data = JSON.parse(fs.readFileSync(PODSTRONY_PATH, 'utf8'));
     const map = {};
+    const pliki = [];
     for (const s of data.strony || []) {
       if (!s || typeof s.plik !== 'string' || (s.skrypty !== undefined && !Array.isArray(s.skrypty))) {
-        return { map: {}, errors: ['tools/podstrony.json: każda strona musi mieć pole "plik", a "skrypty" (jeśli jest) musi być tablicą'] };
+        return { map: {}, pliki: [], errors: ['tools/podstrony.json: każda strona musi mieć pole "plik", a "skrypty" (jeśli jest) musi być tablicą'] };
       }
+      pliki.push(s.plik);
       if (s.skrypty) map[s.plik] = s.skrypty;
     }
-    return { map, errors: [] };
+    return { map, pliki, errors: [] };
   } catch (e) {
-    return { map: {}, errors: [`tools/podstrony.json: niepoprawny JSON (${e.message})`] };
+    return { map: {}, pliki: [], errors: [`tools/podstrony.json: niepoprawny JSON (${e.message})`] };
   }
 }
 
@@ -874,7 +877,8 @@ function main() {
 
     // Dane strukturalne JSON-LD: tylko na stronach z kontraktu, poprawny JSON, zgodne z marką
     const ldSpec = (contract.structuredData || {})[pageRel];
-    if (!ldSpec && parsed.jsonLd.length) errors.push(`${pageRel}: nieoczekiwany blok JSON-LD`);
+    // Podstrony z tools/podstrony.json mają własne reguły danych strukturalnych (niżej, tools/lib/podstrona.cjs).
+    if (!ldSpec && parsed.jsonLd.length && !podstrony.pliki.includes(pageRel)) errors.push(`${pageRel}: nieoczekiwany blok JSON-LD`);
     if (ldSpec) {
       if (parsed.jsonLd.length !== 1) errors.push(`${pageRel}: oczekiwano 1 bloku JSON-LD, jest ${parsed.jsonLd.length}`);
       else errors.push(...checkJsonLd(pageRel, parsed.jsonLd[0], ldSpec, actualMap));
@@ -885,6 +889,14 @@ function main() {
     const { localRefs: _b, jsonLd: _d, ...baselineDom } = expectedDom;
     const domDiffs = deepEqualJson(actualDom, baselineDom, pageRel);
     for (const d of domDiffs) errors.push(`DOM ${d}`);
+  }
+
+  // Nowe podstrony: jeden blok danych strukturalnych, jeden adres strony, FAQPage = widoczne pytania,
+  // VideoObject tylko przy <video>, style tylko --d:<liczba>ms. Działa także przed wpisaniem strony do kontraktu.
+  for (const plik of podstrony.pliki) {
+    const entry = actualMap.get(plik);
+    if (!entry) { errors.push(`${plik}: brak strony wymienionej w tools/podstrony.json`); continue; }
+    errors.push(...sprawdzPodstrone(plik, fs.readFileSync(entry.full, 'utf8')).map((b) => `${plik}: ${b}`));
   }
 
   errors.push(...checkGeneratedFiles(targetDir, generatedFiles, actualMap));

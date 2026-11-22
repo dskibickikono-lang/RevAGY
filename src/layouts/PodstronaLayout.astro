@@ -1,0 +1,236 @@
+---
+// Układ podstron (D-031). BaseLayout.astro zostaje bez zmian.
+// Nagłówek i stopka to kopia znaczników strony głównej z BaseLayout.astro (pełne menu,
+// menu mobilne, pełna stopka), z odnośnikami do sekcji w postaci ./#sekcja.
+// Adres kanoniczny, dane do udostępnień i dane strukturalne powstają z właściwości,
+// więc strona nie wpisuje ich ręcznie.
+import { MARKA, jsonDoSkryptu } from '../config/marka.mjs';
+import { AUTOR, adresStrony, sprawdzDate } from '../config/podstrony.mjs';
+import { stanFilmu, videoObject } from '../config/filmy.mjs';
+
+interface Pytanie {
+  pytanie: string;
+  odpowiedz: string;
+}
+
+interface Usluga {
+  nazwa: string;
+  opis: string;
+  rodzaj?: string;
+}
+
+interface Props {
+  // Nazwa pliku wynikowego, np. 'integracja-systemow.html'. Z niej powstaje adres strony.
+  plik: string;
+  // Tytuł karty (<title>, og:title), np. '… | REVAGY'.
+  tytul: string;
+  // Opis dla wyszukiwarek (meta description, og:description).
+  opis: string;
+  // Nazwa strony w ścieżce nawigacji (BreadcrumbList) i w WebPage.name.
+  okruszek: string;
+  // Data ostatniej zmiany treści, RRRR-MM-DD (WebPage.dateModified).
+  aktualizacja: string;
+  // Opis usługi do danych strukturalnych (Service). Pomiń na stronach bez usługi.
+  usluga?: Usluga;
+  // Ta sama lista, którą strona przekazuje do <Pytania>. Z niej powstaje FAQPage.
+  pytania?: Pytanie[];
+  // Nazwa miejsca na film z src/config/filmy.mjs. VideoObject pojawia się tylko w stanie „film”.
+  film?: string;
+  robots?: string;
+}
+
+const { plik, tytul, opis, okruszek, aktualizacja, usluga, pytania = [], film, robots } = Astro.props;
+
+for (const [pole, wartosc] of Object.entries({ tytul, opis, okruszek })) {
+  if (typeof wartosc !== 'string' || !wartosc.trim()) throw new Error(`PodstronaLayout (${plik}): puste pole „${pole}”.`);
+}
+sprawdzDate(aktualizacja, 'aktualizacja');
+
+const adres = adresStrony(plik);
+const organizacja = { '@id': `${MARKA.url}#organizacja` };
+const stanMiejscaNaFilm = film ? stanFilmu(film) : null;
+
+const graf: Record<string, unknown>[] = [
+  {
+    '@type': 'WebPage',
+    '@id': `${adres}#strona`,
+    url: adres,
+    name: okruszek,
+    headline: tytul,
+    description: opis,
+    inLanguage: 'pl-PL',
+    isPartOf: { '@id': `${MARKA.url}#strona` },
+    publisher: organizacja,
+    author: { '@type': 'Person', name: AUTOR.imie, jobTitle: AUTOR.stanowisko, worksFor: organizacja },
+    dateModified: aktualizacja,
+    breadcrumb: { '@id': `${adres}#okruszki` },
+    ...(usluga ? { about: { '@id': `${adres}#usluga` } } : {}),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${adres}#okruszki`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Strona główna', item: MARKA.url },
+      { '@type': 'ListItem', position: 2, name: okruszek, item: adres },
+    ],
+  },
+];
+if (usluga) {
+  graf.push({
+    '@type': 'Service',
+    '@id': `${adres}#usluga`,
+    name: usluga.nazwa,
+    description: usluga.opis,
+    ...(usluga.rodzaj ? { serviceType: usluga.rodzaj } : {}),
+    url: adres,
+    provider: organizacja,
+    areaServed: { '@type': 'Country', name: 'Polska' },
+  });
+}
+if (pytania.length) {
+  graf.push({
+    '@type': 'FAQPage',
+    '@id': `${adres}#pytania`,
+    isPartOf: { '@id': `${adres}#strona` },
+    inLanguage: 'pl-PL',
+    mainEntity: pytania.map((q) => ({
+      '@type': 'Question',
+      name: q.pytanie,
+      acceptedAnswer: { '@type': 'Answer', text: q.odpowiedz },
+    })),
+  });
+}
+const wideo = videoObject(stanMiejscaNaFilm, MARKA.url, adres);
+if (wideo) graf.push(wideo);
+
+const jsonLd = jsonDoSkryptu({ '@context': 'https://schema.org', '@graph': graf });
+---
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{tytul}</title>
+<meta name="description" content={opis}>
+<link rel="canonical" href={adres}>
+{robots && <meta name="robots" content={robots}>}
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content={MARKA.nazwa}>
+<meta property="og:locale" content="pl_PL">
+<meta property="og:url" content={adres}>
+<meta property="og:title" content={tytul}>
+<meta property="og:description" content={opis}>
+<meta property="og:image" content={MARKA.obraz}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/styles.css?v=4">
+<link rel="stylesheet" href="assets/css/podstrony.css?v=1">
+<script is:inline type="application/ld+json" set:html={jsonLd}></script>
+</head>
+<body>
+<a class="skip" href="#start">Przejdź do treści</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-row">
+    <a class="logo" href="./" aria-label="REVAGY, strona główna">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M10 23V9h7.2a4.6 4.6 0 0 1 1.9 8.8L22.5 23h-4l-2.9-4.6H13.5V23zm3.5-7.6h3.3a1.7 1.7 0 0 0 0-3.4h-3.3z" fill="var(--paper)"/></svg>
+      <span class="logo-word">REVAGY</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Główna nawigacja">
+      <div class="nav-item has-panel">
+        <button class="nav-link" type="button" aria-expanded="false" aria-controls="panel-rozwiazania">Rozwiązania
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-panel" id="panel-rozwiazania">
+          <a href="./#mozliwosci"><strong>Automatyzacja procesów</strong><span>Zamówienia, faktury, raporty i obieg dokumentów</span></a>
+          <a href="./#mozliwosci"><strong>Agenci AI</strong><span>Obsługa zapytań, ofert i zgłoszeń przez całą dobę</span></a>
+          <a href="./#integracje"><strong>Integracje systemów</strong><span>CRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu</span></a>
+          <a href="./#mozliwosci"><strong>Analityka i raporty</strong><span>Dane z wielu źródeł w jednym pulpicie</span></a>
+        </div>
+      </div>
+      <div class="nav-item has-panel">
+        <button class="nav-link" type="button" aria-expanded="false" aria-controls="panel-dzialy">Dla działów
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-panel" id="panel-dzialy">
+          <a href="./#zastosowania"><strong>Sprzedaż</strong><span>Kwalifikacja leadów, oferty, follow-upy</span></a>
+          <a href="./#zastosowania"><strong>Finanse</strong><span>Faktury kosztowe, windykacja, uzgodnienia</span></a>
+          <a href="./#zastosowania"><strong>Obsługa klienta</strong><span>Odpowiedzi, statusy zamówień, reklamacje</span></a>
+          <a href="./#zastosowania"><strong>Operacje i HR</strong><span>Onboarding, grafiki, zamówienia wewnętrzne</span></a>
+        </div>
+      </div>
+      <a class="nav-link" href="./#proces">Jak wdrażamy</a>
+      <a class="nav-link" href="./#pakiety">Pakiety</a>
+      <a class="nav-link" href="./#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="./#kalkulator">Policz zwrot</a>
+      <a class="btn btn-dark" href="./#kontakt">Umów konsultację</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="wrap" aria-label="Menu mobilne">
+      <a href="./#mozliwosci">Rozwiązania</a>
+      <a href="./#zastosowania">Dla działów</a>
+      <a href="./#proces">Jak wdrażamy</a>
+      <a href="./#kalkulator">Policz zwrot</a>
+      <a href="./#pakiety">Pakiety</a>
+      <a href="./#faq">FAQ</a>
+      <a class="btn btn-dark btn-lg" href="./#kontakt">Umów bezpłatną konsultację</a>
+    </nav>
+  </div>
+</header>
+
+<slot />
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="./" aria-label="REVAGY, strona główna">
+          <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M10 23V9h7.2a4.6 4.6 0 0 1 1.9 8.8L22.5 23h-4l-2.9-4.6H13.5V23zm3.5-7.6h3.3a1.7 1.7 0 0 0 0-3.4h-3.3z" fill="var(--paper)"/></svg>
+          <span class="logo-word">REVAGY</span>
+        </a>
+        <p>Automatyzacja procesów i wdrożenia AI dla firm B2B.</p>
+      </div>
+      <nav aria-label="Rozwiązania">
+        <h4>Rozwiązania</h4>
+        <a href="./#mozliwosci">Automatyzacja procesów</a><a href="./#mozliwosci">Agenci AI</a><a href="./#integracje">Integracje</a><a href="./#mozliwosci">Analityka</a>
+      </nav>
+      <nav aria-label="Dla działów">
+        <h4>Dla działów</h4>
+        <a href="./#zastosowania">Sprzedaż</a><a href="./#zastosowania">Finanse</a><a href="./#zastosowania">Obsługa klienta</a><a href="./#zastosowania">Logistyka</a>
+      </nav>
+      <nav aria-label="Firma">
+        <h4>Firma</h4>
+        <a href="./#proces">Jak wdrażamy</a><a href="./#pakiety">Pakiety</a><a href="./#bezpieczenstwo">Bezpieczeństwo</a><a href="./#faq">FAQ</a>
+      </nav>
+      <nav aria-label="Kontakt">
+        <h4>Kontakt</h4>
+        <a href="./#kontakt">Umów konsultację</a><a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a><a href="tel:+48504037538">+48 504 037 538</a><a href="./#kalkulator">Kalkulator zwrotu</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p>© 2026 REVAGY · Dawid Skibicki · ul. Gabriela Narutowicza 7/7, 14-200 Iława · NIP 7441749535 · REGON 389229155</p>
+      <p><a href="polityka-prywatnosci.html">Polityka prywatności</a> · <button type="button" class="link-btn" data-consent-open>Ustawienia prywatności</button> · <a href="mailto:kontakt@revagy.pl">kontakt@revagy.pl</a></p>
+      <p>Widoki ekranów i nazwy firm w przykładach są poglądowe. Nazwy systemów należą do ich właścicieli i wskazują przykładowe kierunki integracji.</p>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="assets/js/app.js?v=4" defer></script>
+<script is:inline src="assets/js/wejscie.js?v=1" defer></script>
+<script is:inline src="assets/js/analytics.js?v=4" defer></script>
+</body>
+</html>

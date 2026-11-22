@@ -64,6 +64,15 @@ test('check-tresc: liczba bez wpisu w rejestrze', () => {
   assert.match(b[0], /liczba „120” bez wpisu/);
 });
 
+test('check-tresc: data w <time> nie jest twierdzeniem, ta sama liczba poza <time> jest', () => {
+  const autor = '<p class="autor">Dawid Skibicki, założyciel REVAGY · Aktualizacja: <time datetime="2026-11-21">21 listopada 2026</time></p>';
+  assert.deepEqual(sprawdz(strona({ main: autor })), []);
+  const b = sprawdz(strona({ main: '<p>Aktualizacja: 21 listopada 2026</p>' }));
+  assert.equal(b.length, 2, b.join('\n'));
+  assert.match(b[0], /liczba „21” bez wpisu/);
+  assert.match(b[1], /liczba „2026” bez wpisu/);
+});
+
 test('check-tresc: liczba pokryta tylko wpisem do potwierdzenia', () => {
   const rejestr = { twierdzenia: [...REJESTR.twierdzenia, { id: 'x', fraza: 'ok. 40% mniej', strony: ['*'], rodzaj: 'wynik-wdrozenia', zrodlo: 'test', jakMierzone: 'test', status: 'do-potwierdzenia' }] };
   const b = sprawdz(strona({ main: '<p>Ok. 40% mniej pracy ręcznej.</p>' }), { rejestr });
@@ -126,7 +135,12 @@ test('check-tresc (CLI): wpis z "film": null w podstrony.json', () => {
 });
 
 test('check-tresc: rejestr — walidacja i ostrzeżenie o „jak mierzone”', () => {
-  assert.deepEqual(sprawdzRejestr(REJESTR), { bledy: [], ostrzezenia: [] });
+  // Rejestr repozytorium: bez błędów; ostrzeżenia tylko dla wyników wdrożeń bez „jak mierzone” (ZASADY 7.4: wychodzą anonimowo ze „ok.”).
+  const repo = sprawdzRejestr(REJESTR);
+  assert.deepEqual(repo.bledy, []);
+  const bezPomiaru = REJESTR.twierdzenia.filter((t) => t.rodzaj === 'wynik-wdrozenia' && !t.jakMierzone).length;
+  assert.equal(repo.ostrzezenia.length, bezPomiaru, repo.ostrzezenia.join('\n'));
+  for (const o of repo.ostrzezenia) assert.match(o, /wynik wdrożenia bez opisu „jak mierzone”/);
   const r = sprawdzRejestr({ twierdzenia: [{ id: 'a', fraza: '10', strony: ['*'], rodzaj: 'wynik-wdrozenia', zrodlo: 'x', jakMierzone: null, status: 'potwierdzone' }, { id: 'a', fraza: '', strony: [], rodzaj: 'inne', status: 'nie' }] });
   assert.equal(r.ostrzezenia.length, 1);
   assert.ok(r.bledy.length >= 4, r.bledy.join('\n'));
@@ -146,9 +160,15 @@ test('check-tresc CLI: pusta lista podstron — kod 0', () => {
   assert.match(r.out, /pusta/);
 });
 
-test('check-tresc CLI: domyślne pliki repozytorium (pusta lista) — kod 0', () => {
+test('check-tresc CLI: domyślne pliki repozytorium wczytują się bez błędów formatu', () => {
+  // Pusty katalog: jedyne błędy to brak plików stron z tools/podstrony.json (rejestr, listy i format są poprawne).
   const r = uruchom([SKRYPT, `--dist=${tmp()}`]);
-  assert.equal(r.kod, 0, r.err);
+  const strony = JSON.parse(fs.readFileSync(path.join(TOOLS, 'podstrony.json'), 'utf8')).strony;
+  if (!strony.length) { assert.equal(r.kod, 0, r.err); return; }
+  assert.equal(r.kod, 1, r.out);
+  const bledy = r.err.split('\n').filter((l) => l.startsWith('  - '));
+  assert.equal(bledy.length, strony.length, r.err);
+  for (const b of bledy) assert.match(b, /: brak pliku w /);
 });
 
 test('check-tresc CLI: strona z błędem i strona poprawna', () => {

@@ -730,6 +730,42 @@ if (require.main === module) (async () => {
             const menu = sprawdzMenuHref(hrefs, idsGlownej);
             check(`${p}: menu w nagłówku prowadzi do ./#sekcja na stronie głównej`, menu.length === 0, menu.join(' | '));
             check(`${p}: stopka zawiera NIP 7441749535`, await page.evaluate(() => { const f = document.querySelector('footer'); return Boolean(f && f.textContent.includes('7441749535')); }));
+
+            // FAQ: drugie pytanie rozwija się i zwija (app.js, [data-faq] .qa)
+            const liczbaQa = await page.locator('[data-faq] .qa').count();
+            if (liczbaQa >= 2) {
+              const stanQa = () => page.evaluate(() => {
+                const q = document.querySelectorAll('[data-faq] .qa')[1];
+                return { open: q.classList.contains('is-open'), aria: q.querySelector('button').getAttribute('aria-expanded') };
+              });
+              const przed = await stanQa();
+              await page.locator('[data-faq] .qa').nth(1).locator('button').click();
+              await page.waitForTimeout(300);
+              const po = await stanQa();
+              await page.locator('[data-faq] .qa').nth(1).locator('button').click();
+              await page.waitForTimeout(300);
+              const znow = await stanQa();
+              check(`${p}: FAQ — pytanie rozwija się i zwija`, !przed.open && przed.aria === 'false' && po.open && po.aria === 'true' && !znow.open && znow.aria === 'false',
+                JSON.stringify({ przed, po, znow }));
+            } else {
+              skip(`${p}: FAQ — rozwijanie`, `na stronie jest ${liczbaQa} pytań`);
+            }
+
+            // Pierwsze wejście (wejscie.js): zapis fg_first_touch, bez nadpisania przy kolejnym wejściu w tej samej sesji
+            {
+              const { context: ctxW, page: pw } = await newPage(browser, viewport, extra, { enforceIsolation });
+              const czytaj = () => pw.evaluate(() => { try { return JSON.parse(sessionStorage.getItem('fg_first_touch')); } catch (e) { return `błąd: ${e.message}`; } });
+              await pw.goto(`${base}${adres}?utm_source=test-wejscie`, { waitUntil: 'load' });
+              await pw.waitForTimeout(300);
+              const pierwszy = await czytaj();
+              await pw.goto(`${base}${adres}?utm_source=drugie-wejscie`, { waitUntil: 'load' });
+              await pw.waitForTimeout(300);
+              const drugi = await czytaj();
+              check(`${p}: wejście z utm_source zapisuje fg_first_touch ze ścieżką podstrony`,
+                Boolean(pierwszy && pierwszy.utm_source === 'test-wejscie' && pierwszy.landing_path === adres), JSON.stringify(pierwszy));
+              check(`${p}: drugie wejście nie nadpisuje fg_first_touch`, JSON.stringify(drugi) === JSON.stringify(pierwszy), JSON.stringify(drugi));
+              await ctxW.close();
+            }
           }
 
           const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -792,7 +828,16 @@ if (require.main === module) (async () => {
             const roz = roznicaStylow(wzorce[szer], await pg.evaluate(zbierzStyleWPrzegladarce));
             const nowe = [...roz.kolory.map((x) => `kolor ${x}`), ...roz.kroje.map((x) => `krój ${x}`), ...roz.rozmiary.map((x) => `rozmiar ${x}`)];
             check(`${p} (${szer}): kolory, kroje i rozmiary pisma są podzbiorem strony głównej, kontaktu i polityki`, nowe.length === 0, nowe.slice(0, 12).join(' | '));
-            if (zrzutyDir) await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+            if (zrzutyDir) {
+              // Kadr ma loading="lazy": bez przewinięcia do ramki pełny zrzut pokazałby ją pustą.
+              if (ramka && !ramka.film) {
+                await scrollTo(pg, '.film');
+                await pg.waitForFunction(() => { const i = document.querySelector('.film img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 8000 }).catch(() => {});
+                await pg.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+                await pg.waitForTimeout(300);
+              }
+              await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
+            }
             if (szer === 1280 && ramka && ramka.film) {
               await scrollTo(pg, '.film');
               await pg.waitForTimeout(1200);

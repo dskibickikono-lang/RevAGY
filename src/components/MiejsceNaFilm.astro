@@ -1,0 +1,33 @@
+---
+// Miejsce na film (D-022, plan rozdział 3.1). Stan wybiera build po obecności plików:
+// „kadr” — obraz <nazwa>-kadr.jpg 1600×900; „film” — znacznik jak w src/pages/index.astro:372-379.
+// Komponent daje samą ramkę (.film-outer). Sekcję <section class="section" id="film">
+// i tekst obok (nagłówek, zdanie, lista kroków) pisze strona.
+import { stanFilmu, WYMIARY_KADRU } from '../config/filmy.mjs';
+
+interface Props {
+  // Klucz z src/config/filmy.mjs, np. 'integracja-systemow'.
+  nazwa: string;
+}
+
+const { nazwa } = Astro.props;
+const film = stanFilmu(nazwa);
+---
+<div class="film-outer">
+  <div class="film" data-scale>
+    {film.stan === 'film' ? (
+      <>
+        <video data-autoplay data-main-video muted loop playsinline preload="none" poster={film.poster} aria-label={film.etykieta}>
+          <source src={film.webm} type="video/webm">
+          <source src={film.mp4} type="video/mp4">
+        </video>
+        <button class="film-toggle" type="button" data-video-toggle aria-label="Wstrzymaj film" aria-pressed="false">
+          <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>
+          <svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor"/></svg>
+        </button>
+      </>
+    ) : (
+      <img src={film.kadr} width={WYMIARY_KADRU.szerokosc} height={WYMIARY_KADRU.wysokosc} alt={film.alt} loading="lazy" decoding="async">
+    )}
+  </div>
+</div>

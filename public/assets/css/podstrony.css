@@ -1,0 +1,31 @@
+/* REVAGY — dodatki układu podstron (D-031, plan 2.3 i 2.4). Ładowany wyłącznie przez
+   src/layouts/PodstronaLayout.astro, po styles.css. Tylko układ, którego brakuje w styles.css:
+   bez kolorów wpisanych wprost, bez nowych krojów, bez własnych zmiennych i bez wartości
+   rozmiaru pisma, grubości, interlinii, odstępów i zaokrągleń spoza styles.css. */
+
+/* miejsce na film w stanie „kadr”: obraz zajmuje ramkę .film tak jak wideo (styles.css .film video) */
+.film img { width: 100%; height: 100%; object-fit: cover; }
+
+/* lista kroków obok miejsca na film, w wyśrodkowanym nagłówku sekcji */
+.section-head .ticks { justify-self: center; text-align: left; }
+
+/* autor, data aktualizacji, podpisy pod opisem wdrożenia */
+.autor { font-size: var(--fs-small); color: var(--ink-2); }
+
+/* akapit pod tabelą, np. „Kiedy się nie da” */
+.uwaga { margin-top: 24px; margin-inline: auto; text-align: center; }
+
+/* lista kroków od rozmowy do wdrożenia */
+.kroki { max-width: 62ch; margin-inline: auto; font-size: var(--fs-lead); }
+
+/* opis wdrożenia */
+.dowod { max-width: 880px; margin-inline: auto; }
+.dowod summary { cursor: pointer; font-family: var(--font-display); font-weight: 650; }
+.dowod blockquote { margin: 0; padding-left: 14px; border-left: 2px solid var(--accent); }
+.dowod-ujawnienie { max-width: 880px; margin-inline: auto; margin-top: 16px; }
+
+/* wezwanie na końcu podstrony: te same odstępy co #kontakt na stronie głównej (styles.css) */
+#wezwanie { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); padding-bottom: clamp(24px, 4vw, 48px); }
+
+/* długie napisy przycisków pod h1 podstrony: na telefonie łamią się zamiast wychodzić poza ekran */
+@media (max-width: 560px) { .section-head .hero-cta .btn { white-space: normal; text-align: center; } }

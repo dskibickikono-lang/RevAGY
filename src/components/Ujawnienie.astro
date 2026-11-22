@@ -1,0 +1,8 @@
+---
+// Zdanie ujawnienia pod opisami wdrożeń (D-034). Wstaw raz na stronę, po ostatnim <OpisWdrozenia>.
+// Tekst wpisuje właściciel w src/data/dowody.mjs (zdanieUjawnienia); bez wartości komponent nic nie wypisuje.
+import { DOWODY, maWartosc } from '../data/dowody.mjs';
+
+const ujawnienie = maWartosc(DOWODY.zdanieUjawnienia) ? DOWODY.zdanieUjawnienia : null;
+---
+{ujawnienie && <p class="autor dowod-ujawnienie">{ujawnienie}</p>}

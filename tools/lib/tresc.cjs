@@ -8,6 +8,8 @@ const RODZAJE = new Set(['warunek-oferty', 'wynik-wdrozenia', 'fakt']);
 const STATUSY = new Set(['potwierdzone', 'do-potwierdzenia']);
 const ATRYBUTY_TRESCI = ['alt', 'aria-label', 'title', 'placeholder'];
 const BLOK = '\u2029';
+// Domyślnie pomijane przez textOf (tools/lib/html.cjs).
+const POMIJANE = ['script', 'style', 'template', 'noscript'];
 
 /** Twarde i wąskie spacje traktujemy jak zwykłą spację przy wyszukiwaniu fraz i liczb. */
 const spacje = (s) => String(s).replace(/[      ]/g, ' ');
@@ -170,8 +172,11 @@ function sprawdzStrone({ plik, html, strona = {}, nazwy = [], frazy = [], rejest
   }
   for (const m of html.matchAll(/\{\{[\s\S]*?\}\}/g)) bledy.push(`niewypełnione miejsce ${m[0].slice(0, 60)}`);
 
-  // 3. liczby w <main>
-  if (main.length) bledy.push(...sprawdzLiczby(tresciMain, (rejestr && rejestr.twierdzenia) || [], plik));
+  // 3. liczby w <main>; zawartość <time> (np. data aktualizacji w linii autora) nie jest twierdzeniem i jest pomijana
+  if (main.length) {
+    const tresciLiczb = [textOf(main[0], { blok: BLOK, skip: [...POMIJANE, 'time'] }), ...atrybutyTresci(main[0])];
+    bledy.push(...sprawdzLiczby(tresciLiczb, (rejestr && rejestr.twierdzenia) || [], plik));
+  }
 
   // 4. miejsce na film
   bledy.push(...sprawdzFilm(doc, strona.film));

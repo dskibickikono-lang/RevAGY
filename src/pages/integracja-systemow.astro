@@ -1,0 +1,227 @@
+---
+// Etap 1 (T-009): „Systemy bez przepisywania danych” (D-017), bez nazw własnych systemów (D-033),
+// z anonimowym opisem wdrożenia (D-034).
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Autor from '../components/Autor.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
+import { wdrozenie, maWartosc } from '../data/dowody.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const stanZalogi = wdrozenie('stan-zalogi');
+const pilotaz = wdrozenie('pilotaz-produkcja');
+
+const pytania = [
+  {
+    pytanie: 'Czy musimy wymieniać któryś system?',
+    odpowiedz: 'Nie. Łączymy te, na których pracujecie.',
+  },
+  {
+    pytanie: 'Nasz system nie ma API. Co wtedy?',
+    odpowiedz: 'Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.',
+  },
+  {
+    pytanie: 'Co się stanie, gdy dostawca zaktualizuje system?',
+    odpowiedz: 'Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.',
+  },
+  {
+    pytanie: 'Jakie systemy już łączyliście?',
+    odpowiedz: 'Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.',
+  },
+  {
+    pytanie: 'Czy jesteście partnerem dostawców tych systemów?',
+    odpowiedz: 'Nie. Pracujemy na dokumentacji i dostępach klienta.',
+  },
+  {
+    pytanie: 'Czy integracja korzysta z modeli AI?',
+    odpowiedz: 'Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.',
+  },
+  {
+    pytanie: 'Co z danymi osobowymi?',
+    odpowiedz: 'Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.',
+  },
+  {
+    pytanie: 'Mamy ERP i system magazynowy. Czy to ta sama metoda?',
+    odpowiedz: maWartosc(pilotaz.etykietaPowiazania)
+      ? `Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż, ${pilotaz.etykietaPowiazania}.`
+      : 'Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.',
+  },
+  {
+    pytanie: 'Ile to kosztuje?',
+    odpowiedz: 'Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.',
+  },
+];
+---
+<PodstronaLayout
+  plik="integracja-systemow.html"
+  tytul="Integracja systemów firmy bez przepisywania danych | REVAGY"
+  opis="Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu."
+  okruszek="Integracja systemów bez przepisywania danych"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Integracja systemów bez przepisywania danych',
+    opis: 'Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.',
+    rodzaj: 'Integracja systemów',
+  }}
+  pytania={pytania}
+  film="integracja-systemow"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Dane wpisujesz raz. Pozostałe systemy dostają je same.</h1>
+      <p class="lead">Łączymy systemy, na których już pracujesz. Zespół zostaje przy swoich narzędziach, a dane potrzebne do umów, rozliczeń i raportów trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Sprawdźmy, jak połączyć Twoje systemy</a>
+        <a class="btn btn-outline btn-lg" href="#karta">Zobacz, co dostaniesz po rozmowie</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="odpowiedz">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak połączyć system HR z programem kadrowo-płacowym bez przepisywania?</h2>
+      <p class="lead">Są trzy drogi: interfejs API, wymiana plików albo dostęp do bazy danych za zgodą dostawcy. Którą da się zastosować, zależy od obu systemów i od ich licencji. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.</p>
+      <p>REVAGY to automatyzacja procesów i wdrożenia AI dla firm B2B. Łączymy systemy, na których firma już pracuje, zamiast je wymieniać.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="problemy">
+    <header class="section-head reveal">
+      <h2 class="h2">Znasz to z własnej firmy?</h2>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Ta sama umowa wpisana dwa razy</h3>
+        <p>Dane pracownika trafiają do systemu HR, a potem jeszcze raz do kadr i płac. Literówka w jednym polu wychodzi dopiero przy wypłacie.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Zmiana w jednym systemie nie dochodzi do drugiego</h3>
+        <p>Ktoś poprawia stawkę albo datę końca umowy w jednym miejscu. Drugi system dalej liczy po staremu.</p>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Raport sklejany z trzech eksportów</h3>
+        <p>Każdy system pokazuje inną liczbę. W jednym z wdrożeń dwa systemy różniły się stanem załogi o 29 osób (568 i 539), co wyszło dopiero po połączeniu źródeł{maWartosc(stanZalogi.etykietaPowiazania) && ` (${stanZalogi.etykietaPowiazania})`}.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="drogi">
+    <header class="section-head reveal">
+      <h2 class="h2">Trzy drogi łączenia systemów</h2>
+      <p class="lead">Wybór drogi zależy od tego, co udostępniają oba systemy i na co pozwala ich licencja.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Droga</th><th scope="col">Kiedy</th><th scope="col">Warunek</th><th scope="col">Ograniczenie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Interfejs API</td><td>System udostępnia interfejs dla innych programów</td><td>Dostęp nadany przez administratora albo dostawcę</td><td>Limity zapytań i zmiany wersji po stronie dostawcy</td></tr>
+          <tr><td>Wymiana plików</td><td>System eksportuje i importuje pliki</td><td>Stały format i harmonogram</td><td>Dane docierają przy kolejnym przebiegu, nie natychmiast</td></tr>
+          <tr><td>Dostęp do bazy danych</td><td>Nie ma interfejsu ani eksportu</td><td>Pisemna zgoda dostawcy i licencja, która na to pozwala</td><td>Tylko odczyt. Zapis wyłącznie drogą wspieraną przez dostawcę</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal"><strong>Kiedy się nie da.</strong> Program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem.</p>
+  </section>
+
+  <section class="section wrap" id="pola">
+    <header class="section-head reveal">
+      <h2 class="h2">Co dokładnie przechodzi między systemami</h2>
+      <p class="lead">Przykład: przepływ danych z systemu HR do kadr i płac.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Pole w systemie źródłowym</th><th scope="col">Pole w systemie docelowym</th><th scope="col">Kontrola przed zapisem</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Imię, nazwisko, PESEL</td><td>Kartoteka pracownika</td><td>Zgodność z dokumentem, suma kontrolna numeru</td></tr>
+          <tr><td>Numer rachunku</td><td>Dane do wypłaty</td><td>Suma kontrolna rachunku</td></tr>
+          <tr><td>Stawka godzinowa, wymiar etatu</td><td>Warunki umowy</td><td>Wartość w dopuszczalnym zakresie</td></tr>
+          <tr><td>Data rozpoczęcia i zakończenia</td><td>Ewidencja zatrudnienia</td><td>Brak kolizji z poprzednią umową</td></tr>
+          <tr><td>Godziny z ewidencji czasu</td><td>Lista płac</td><td>Dzienna suma kontrolna</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Jeden rekord w drodze z systemu HR do kadr i płac</h2>
+      <p class="lead">Rekord pracownika przechodzi pole po polu. Każde pole mija swoją kontrolę, zanim trafi do kadr i płac.</p>
+      <ul class="ticks">
+        <li>Pola przechodzą po kolei, każde przez swoją kontrolę.</li>
+        <li>Wartość poza zakresem czeka na decyzję osoby po Twojej stronie.</li>
+        <li>Dziennik zapisuje co, skąd, kiedy i jaka była poprzednia wartość.</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="integracja-systemow" />
+  </section>
+
+  <section class="section wrap" id="kontrola">
+    <header class="section-head reveal">
+      <h2 class="h2">Zapis z kontrolą</h2>
+      <p class="lead">Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i jaka była poprzednia wartość. Do zamknięcia okresu płacowego zapis można wycofać, później robimy korektę według procedury Twoich kadr. Wyjątki zatwierdza osoba po Twojej stronie.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="wdrozenie">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak to działa w praktyce</h2>
+    </header>
+    <OpisWdrozenia id="agencja-pracy-umowy" tytul="Agencja pracy">
+      <p>Kadry nie przepisują już umów. Dane z podpisanego dokumentu trafiają do systemu HR oraz do kadr i płac same: ok. 12 godzin pracy tygodniowo mniej i ok. 90% mniej korekt.</p>
+      <p>Umowa jest w systemie po ok. 10 minutach zamiast po ok. 3 dniach, dzięki podpisowi na tablecie.</p>
+    </OpisWdrozenia>
+    <Ujawnienie />
+  </section>
+
+  <section class="section wrap" id="karta">
+    <header class="section-head reveal">
+      <h2 class="h2">Co dostajesz po konsultacji</h2>
+      <p class="lead">Jedna strona: opis procesu, miejsce, w którym dane są przepisywane, metryka bazowa (ile razy w tygodniu, ile minut, ile poprawek), możliwa droga łączenia i zakres pierwszego kroku. Karta zostaje u Ciebie, także gdy nie zdecydujesz się na dalszą pracę.</p>
+    </header>
+  </section>
+
+  <section class="section wrap" id="kroki">
+    <header class="section-head reveal">
+      <h2 class="h2">Od rozmowy do działającej integracji</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut.</li>
+      <li>Audyt procesu, 3–5 dni roboczych, 1 990 zł, w całości wliczane we wdrożenie. 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Wdrożenie. Pierwsza integracja: 14 dni roboczych od dnia, w którym mamy dostęp do obu systemów.</li>
+      <li>Opieka: monitoring i czas reakcji zapisane w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania</h2>
+      <p class="lead">Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Sprawdźmy, jak połączyć Twoje systemy</h2>
+        <p class="lead">Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajesz jednostronicową kartę procesu, która zostaje u Ciebie.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
