@@ -134,8 +134,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "f2a6e04c840db8f212963d7ddabdc181caac69aaff7cddf78df8d5bcad6e61ba",
-      "size": 459
+      "sha256": "ee6d0eadd9106e44f3e46b51c1eb7526bbf4cfd33626b2b6e36caa7fbd71148e",
+      "size": 545
     }
   },
   "htmlBaseline": {
@@ -144,8 +144,8 @@
       "size": 1754
     },
     "index.html": {
-      "sha256": "89a8ea1858969bb76eb36da2829e57ca0d4786ba1da438343aa183f10fe71621",
-      "size": 46124
+      "sha256": "2b74a0534f26144e22bc85616d067f1f1cd369703c55319e9f6d0ff7668061ea",
+      "size": 46195
     },
     "integracja-systemow.html": {
       "sha256": "6703c8bb5a8a8724a44e2415a518b19981e845697d500b05502fe762ee046460",
@@ -2316,6 +2316,13 @@
           "text": "Sprawdź to na konsultacji"
         },
         {
+          "href": "wdrozenia.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz cztery wdrożenia"
+        },
+        {
           "href": "integracja-systemow.html",
           "class": "link-btn",
           "dataTrack": null,
@@ -2942,6 +2949,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "wdrozenia.html"
         },
         {
           "tag": "a",

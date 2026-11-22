@@ -1,6 +1,6 @@
 {
-  "etap": "1",
-  "opis": "Etap 1, systemy bez przepisywania danych: jeden odnośnik do nowej podstrony /integracja-systemow.html dopisany na końcu akapitu wprowadzającego sekcji #integracje. Różnica między tools/baseline/index.baza.html (migawka etapu 0) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
+  "etap": "2",
+  "opis": "Etap 2, wdrożenia: jeden odnośnik do nowej podstrony /wdrozenia.html dopisany na końcu akapitu wprowadzającego sekcji #zastosowania. Różnica między tools/baseline/index.baza.html (migawka etapu 1) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
@@ -8,8 +8,8 @@
       {
         "znacznik": "a",
         "klasa": "link-btn",
-        "href": "integracja-systemow.html",
-        "tekst": "Zobacz, jak łączymy systemy",
+        "href": "wdrozenia.html",
+        "tekst": "Zobacz cztery wdrożenia",
         "razy": 1
       }
     ],
@@ -18,8 +18,8 @@
   "geometria": {
     "sekcje": [
       {
-        "selektor": "#integracje",
-        "opis": "Odnośnik „Zobacz, jak łączymy systemy” na końcu akapitu wprowadzającego może przenieść akapit do kolejnej linii."
+        "selektor": "#zastosowania",
+        "opis": "Odnośnik „Zobacz cztery wdrożenia” na końcu akapitu wprowadzającego karuzeli może przenieść akapit do kolejnej linii."
       }
     ],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
