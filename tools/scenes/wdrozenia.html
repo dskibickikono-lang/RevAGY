@@ -4,11 +4,17 @@
 <meta charset="utf-8">
 <title>Scena: cztery procesy przed i po połączeniu systemów</title>
 <link rel="stylesheet" href="scene.css">
-<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
-     z chwili POSTER_AT = 13 s scenariusza (cztery kafle obok siebie: umowa w dwóch systemach,
-     raport z trzech źródeł, alert o kończącym się zezwoleniu, zgłoszenie kandydata w systemie).
-     Etap filmowy doda oś czasu w window.render(t). Dane są poglądowe, bez nazw własnych
-     i bez liczb wyniku z wdrożeń (wchodzą dopiero po zgodzie właściciela i opisie pomiaru). -->
+<!-- Film F2 (D-022, D-032, D-038): cztery procesy przed i po połączeniu systemów.
+     14 s w pętli, 30 kl./s, 1600×900. Cztery kafle stoją przez cały czas, w każdym ujęciu ożywa jeden:
+       0–3,2 s    Umowa: podpis na dokumencie, strzałka, zapis w systemie HR i w kadrach i płacach;
+       3,2–6,4 s  Raport: trzy źródła podświetlają się po kolei, raport zarządu wypełnia się danymi;
+       6,4–9,6 s  Zezwolenie: znacznik „dziś” dochodzi do chwili 30 dni przed końcem ważności, pojawia się alert;
+       9,6–12,8 s Kandydat: zgłoszenie wysłane, kandydat pojawia się w systemie rekrutacyjnym;
+       13,2–13,6 s wszystko, co pojawiło się w ujęciach, gaśnie do stanu z 0 s.
+     Kadr startowy (POSTER_AT = 13 s): wszystkie cztery kafle w stanie końcowym, jak wcześniejszy kadr -kadr.jpg.
+     Elementy pojawiające się później mają od początku zarezerwowane miejsce (tylko przezroczystość i przesunięcie).
+     Tło jest nieruchome (poświaty w położeniu z 13 s szkieletu). Dane poglądowe, bez nazw własnych systemów
+     i firm, bez liczb wyniku z wdrożeń. „30 dni” to parametr procesu. -->
 <style>
   #stage { width: 1600px; height: 900px; }
   .g1 { width: 760px; height: 760px; background: var(--accent); left: -260px; top: 420px; opacity: .45; }
@@ -65,15 +71,16 @@
   .chart { display: flex; align-items: flex-end; gap: 8px; height: 64px; }
   .chart i { flex: 1; border-radius: 8px 8px 3px 3px; background: var(--mist-2); }
   .chart i.hi { background: var(--accent); }
+  .chart i { transform-origin: 50% 100%; }
 
   .line { position: relative; height: 48px; margin: 4px 6px 0; }
   .line::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 3px; border-radius: 999px; background: var(--night-3); }
-  .line::after { content: ""; position: absolute; left: 0; width: 52%; top: 22px; height: 3px; border-radius: 999px; background: var(--dim); }
+  .line::after { content: ""; position: absolute; left: 0; width: var(--p, 52%); top: 22px; height: 3px; border-radius: 999px; background: var(--dim); }
   .mark { position: absolute; top: 14px; width: 18px; height: 18px; border-radius: 50%; transform: translateX(-50%); }
-  .mark.now { left: 52%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255, 91, 20, .25); }
+  .mark.now { left: var(--p, 52%); background: var(--accent); box-shadow: 0 0 0 6px rgba(255, 91, 20, .25); }
   .mark.end { left: calc(100% - 9px); background: #fff; }
   .line small { position: absolute; top: 34px; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--dim); white-space: nowrap; }
-  .line small.l1 { left: 52%; } .line small.l2 { left: auto; right: 0; transform: none; }
+  .line small.l1 { left: var(--p, 52%); } .line small.l2 { left: auto; right: 0; transform: none; }
 
   .form { display: grid; gap: 10px; }
   .form .card { gap: 2px; padding: 10px 16px; }
@@ -91,43 +98,43 @@
   <div class="app">
     <div class="tiles">
 
-      <section class="tile">
+      <section class="tile" id="tile-1">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Umowa</b><span class="tag">01</span></div>
         <div class="body">
           <div class="doc">
             <span>Umowa · podpisana</span>
             <b>Marta Przykładowa</b>
             <i></i><i class="short"></i>
-            <div class="sign">podpis na tablecie<svg viewBox="0 0 92 30" aria-hidden="true"><path d="M4 22c8-14 14-16 16-8s4 10 10-2 8-10 10 0 6 6 12-4 10-6 14 2 10 4 22-2" fill="none" stroke="#141114" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <div class="sign">podpis na tablecie<svg viewBox="0 0 92 30" aria-hidden="true"><path id="podpis" d="M4 22c8-14 14-16 16-8s4 10 10-2 8-10 10 0 6 6 12-4 10-6 14 2 10 4 22-2" fill="none" stroke="#141114" stroke-width="2.4" stroke-linecap="round"/></svg></div>
           </div>
-          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="flow" aria-hidden="true"><i class="t" data-at="1.2" data-out="13.2" data-dy="-10" data-sc=".6"><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
           <div class="pair">
-            <div class="card ok"><span>System HR</span><b>zapisane</b></div>
-            <div class="card ok"><span>Kadry i płace</span><b>zapisane</b></div>
+            <div class="card ok t" data-at="1.6" data-out="13.2" data-dy="14"><span>System HR</span><b>zapisane</b></div>
+            <div class="card ok t" data-at="2.0" data-out="13.2" data-dy="14"><span>Kadry i płace</span><b>zapisane</b></div>
           </div>
-          <p class="note"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6 20 17.5 8.5l2 2L8 22H6z" fill="none" stroke="#b9b2bb" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 4l18 18" stroke="#ff5b14" stroke-width="2.2" stroke-linecap="round"/></svg>bez ręcznego przepisywania</p>
+          <p class="note t" data-at="2.6" data-out="13.2" data-dy="8"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M6 20 17.5 8.5l2 2L8 22H6z" fill="none" stroke="#b9b2bb" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 4l18 18" stroke="#ff5b14" stroke-width="2.2" stroke-linecap="round"/></svg>bez ręcznego przepisywania</p>
         </div>
       </section>
 
-      <section class="tile">
+      <section class="tile" id="tile-2">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Raport</b><span class="tag">02</span></div>
         <div class="body">
           <div class="sources">
-            <div class="src"><span>Spółka A</span><i></i><i></i></div>
-            <div class="src"><span>Spółka B</span><i></i><i></i></div>
-            <div class="src"><span>Spółka C</span><i></i><i></i></div>
+            <div class="src" id="src-a"><span>Spółka A</span><i></i><i></i></div>
+            <div class="src" id="src-b"><span>Spółka B</span><i></i><i></i></div>
+            <div class="src" id="src-c"><span>Spółka C</span><i></i><i></i></div>
           </div>
-          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
-          <div class="board">
+          <div class="flow" aria-hidden="true"><i class="t" data-at="4.3" data-out="13.2" data-dy="-10" data-sc=".6"><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="board t" data-at="4.7" data-out="13.2" data-dy="16">
             <span>Raport zarządu</span>
-            <div class="metric">Stan załogi<em style="--w:78%"></em></div>
-            <div class="metric">Godziny pracy<em style="--w:56%"></em></div>
-            <div class="chart" aria-hidden="true"><i style="height:46%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:74%"></i><i class="hi" style="height:88%"></i></div>
+            <div class="metric">Stan załogi<em class="bar-w" style="--w:78%"></em></div>
+            <div class="metric">Godziny pracy<em class="bar-w" style="--w:56%"></em></div>
+            <div class="chart" id="chart" aria-hidden="true"><i style="height:46%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:74%"></i><i class="hi" style="height:88%"></i></div>
           </div>
         </div>
       </section>
 
-      <section class="tile">
+      <section class="tile" id="tile-3">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Zezwolenie</b><span class="tag">03</span></div>
         <div class="body">
           <div class="card">
@@ -135,28 +142,28 @@
             <b>Anna Przykładowa</b>
             <div class="row"><span>Zezwolenie ważne do</span><b>15.02.2027</b></div>
           </div>
-          <div class="line" aria-hidden="true"><i class="mark now"></i><i class="mark end"></i><small class="l1">dziś</small><small class="l2">koniec ważności</small></div>
-          <div class="card alert">
+          <div class="line" id="line" aria-hidden="true"><i class="mark now"></i><i class="mark end"></i><small class="l1">dziś</small><small class="l2">koniec ważności</small></div>
+          <div class="card alert t" data-at="8.2" data-out="13.2" data-dy="16">
             <div class="row"><b>Zezwolenie kończy się za 30 dni</b></div>
             <span>Powiadomienie do osoby odpowiedzialnej</span>
-            <div class="row"><span>16.01.2027</span><em class="pill accent">alert</em></div>
+            <div class="row"><span>16.01.2027</span><em class="pill accent" id="alert-pill">alert</em></div>
           </div>
         </div>
       </section>
 
-      <section class="tile">
+      <section class="tile" id="tile-4">
         <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><b>Kandydat</b><span class="tag">04</span></div>
         <div class="body">
           <div class="form">
             <div class="card"><span>Imię i nazwisko</span><b>Piotr Przykładowy</b></div>
             <div class="card"><span>Telefon</span><b>••• ••• 214</b></div>
-            <span class="send">zgłoszenie wysłane</span>
+            <span class="send t" data-at="9.8" data-out="13.2" data-dy="0" data-sc=".9">zgłoszenie wysłane</span>
           </div>
-          <div class="flow" aria-hidden="true"><i><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
-          <div class="card ok">
+          <div class="flow" aria-hidden="true"><i class="t" data-at="10.3" data-out="13.2" data-dy="-10" data-sc=".6"><svg viewBox="0 0 14 14"><path d="M7 3v8M3.5 8 7 11.5 10.5 8" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
+          <div class="card ok t" data-at="10.8" data-out="13.2" data-dy="16">
             <span>System rekrutacyjny</span>
             <b>Piotr Przykładowy</b>
-            <div class="row"><span>nowe zgłoszenie</span><em class="pill">w systemie</em></div>
+            <div class="row"><span>nowe zgłoszenie</span><em class="pill t" data-at="11.5" data-out="13.2" data-dy="0" data-sc=".8">w systemie</em></div>
           </div>
         </div>
       </section>
@@ -170,19 +177,73 @@
 <script>
 window.DURATION = 14;
 window.SIZE = [1600, 900];
-// Kadr startowy filmu: 13 s scenariusza (cztery kafle obok siebie). Ten sam moment daje kadr przed filmem.
+// Kadr startowy filmu: 13 s (D-038): wszystkie cztery kafle w stanie końcowym, kompozycja jak -kadr.jpg.
 window.POSTER_AT = 13;
+const { clamp, prog, lerp, apply } = TL;
 const TAU = Math.PI * 2;
-const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
+const WYGASZENIE = 13.2; // początek powrotu do stanu z 0 s (0,4 s, jak data-out w TL.apply)
 
-// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+// Poświaty nieruchome, w położeniu z chwili 13 s szkieletu kadru (ten sam wygląd tła co -kadr.jpg).
+['g1', 'g2', 'g3'].forEach((id, i) => {
+  const a = TAU * 13 / 14 + i * 2.1;
+  document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+});
+
+// Postęp elementu, który narasta od chwili `od` przez `dur` sekund i wraca do zera przy wygaszeniu.
+const stan = (t, od, dur) => prog(t, od, dur) * (1 - prog(t, WYGASZENIE, 0.4));
+// Krótkie podświetlenie (obramowanie w kolorze akcentu) od `od` do `doo`.
+const blysk = (t, od, doo, w = 0.3) => prog(t, od, w) * (1 - prog(t, doo, w));
+const LINIA = [255, 255, 255, 0.13]; // --line
+const AKCENT = [255, 91, 20, 0.55];
+const ramka = (k) => {
+  const c = LINIA.map((v, i) => lerp(v, AKCENT[i], k));
+  return `rgba(${c[0].toFixed(0)}, ${c[1].toFixed(0)}, ${c[2].toFixed(0)}, ${c[3].toFixed(3)})`;
+};
+
+// Ujęcia: [kafel, start, koniec] — kafel, który w danym ujęciu ożywa, ma podświetloną ramkę.
+const UJECIA = [[1, 0.2, 3.0], [2, 3.2, 6.2], [3, 6.4, 9.4], [4, 9.6, 12.4]];
+const kafle = [1, 2, 3, 4].map((i) => document.getElementById(`tile-${i}`));
+
+const podpis = document.getElementById('podpis');
+const dlugoscPodpisu = podpis.getTotalLength();
+podpis.style.strokeDasharray = `${dlugoscPodpisu.toFixed(1)}`;
+
+const zrodla = ['a', 'b', 'c'].map((x) => document.getElementById(`src-${x}`));
+const ZRODLA_OD = [3.3, 3.6, 3.9];
+const paski = [...document.querySelectorAll('.bar-w')].map((el) => ({ el, w: parseFloat(el.style.getPropertyValue('--w')) }));
+const slupki = [...document.getElementById('chart').children];
+
+const linia = document.getElementById('line');
+const DZIS_START = 8; // % długości osi na początku ujęcia
+const DZIS_ALERT = 52; // % długości osi: 30 dni przed końcem ważności (stan z kadru)
+const alertPill = document.getElementById('alert-pill');
+
 window.render = (t) => {
   const T = window.DURATION;
   t = ((t % T) + T) % T;
-  glows.forEach((g, i) => {
-    const a = TAU * t / T + i * 2.1;
-    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  apply(t);
+
+  UJECIA.forEach(([k, od, doo]) => {
+    const b = blysk(t, od, doo);
+    kafle[k - 1].style.borderColor = b > 0 ? ramka(b) : '';
   });
+
+  // 1. Umowa: podpis na dokumencie rysuje się, potem dane trafiają do dwóch systemów (data-at).
+  podpis.style.strokeDashoffset = (dlugoscPodpisu * (1 - stan(t, 0.3, 0.8))).toFixed(2);
+
+  // 2. Raport: źródła podświetlają się po kolei, paski i słupki raportu narastają do wartości z kadru.
+  zrodla.forEach((el, i) => {
+    const b = blysk(t, ZRODLA_OD[i], ZRODLA_OD[i] + 0.9, 0.25);
+    el.style.borderColor = b > 0 ? ramka(b) : '';
+  });
+  paski.forEach(({ el, w }, i) => el.style.setProperty('--w', `${(w * stan(t, 5.1 + i * 0.2, 0.8)).toFixed(2)}%`));
+  slupki.forEach((el, i) => { el.style.transform = `scaleY(${stan(t, 5.5 + i * 0.12, 0.6).toFixed(4)})`; });
+
+  // 3. Zezwolenie: znacznik „dziś” idzie po osi do chwili 30 dni przed końcem ważności, wtedy alert.
+  const p = lerp(DZIS_START, DZIS_ALERT, stan(t, 6.6, 1.4));
+  linia.style.setProperty('--p', `${p.toFixed(2)}%`);
+  const puls = prog(t, 8.9, 0.25) * (1 - prog(t, 9.15, 0.35));
+  alertPill.style.transform = `scale(${(1 + 0.1 * puls).toFixed(3)})`;
 };
 TL.live(window.render, window.DURATION);
 </script>

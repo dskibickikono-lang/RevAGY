@@ -141,9 +141,17 @@
       "sha256": "03f230a974b1061f544f7721d29aa81eb6c6aeff147026f9516906c02379a4ed",
       "size": 136992
     },
-    "assets/video/wdrozenia-kadr.jpg": {
-      "sha256": "1ac553a5ad7a1be8a61a42381d62fcbaf51901166e8338c686763b99a568c092",
-      "size": 100606
+    "assets/video/wdrozenia.jpg": {
+      "sha256": "3118c474c2eccbbe05e9a595c65eb4fdb9aec2bfb9b97ecc48e3396f7ec5ab19",
+      "size": 100217
+    },
+    "assets/video/wdrozenia.mp4": {
+      "sha256": "33b947aa75eb6c192b3cb3ef258049b19272d5bb5672595332d3e6e22f88d263",
+      "size": 258286
+    },
+    "assets/video/wdrozenia.webm": {
+      "sha256": "cbe35d19d0ad5e3b41a39e5bb98ff165b80de26d23697b415852bd06dfc70cbe",
+      "size": 287526
     },
     "favicon.ico": {
       "sha256": "178abad3d3efee6f6dbc87fb6264286323106f9dfac51ad45122ab8a8b1eafae",
@@ -204,8 +212,8 @@
       "size": 23361
     },
     "wdrozenia.html": {
-      "sha256": "7f7fb5d7de5cc6d9fca8c2dc696ba4b237e9967d9c0da0049648cdacc7930418",
-      "size": 21173
+      "sha256": "6613dbf25870d7373231fd216fbf4d048bedf57898b05669cd4c676cbf89cbe5",
+      "size": 22368
     }
   },
   "pages": {
@@ -13603,6 +13611,52 @@
           "aria": {}
         },
         {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: cztery procesy przed i po połączeniu systemów"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
           "tag": "section",
           "id": "dowody",
           "name": null,
@@ -14368,7 +14422,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/wdrozenia.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: cztery procesy przed i po połączeniu systemów",
+          "sources": [
+            {
+              "src": "assets/video/wdrozenia.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/wdrozenia.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -14517,9 +14590,19 @@
           "val": "#umowy"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/wdrozenia.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/wdrozenia-kadr.jpg"
+          "val": "assets/video/wdrozenia.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/wdrozenia.mp4"
         },
         {
           "tag": "a",
@@ -14654,7 +14737,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#strona\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"name\":\"Wdrożenia\",\"headline\":\"Wdrożenia automatyzacji: cztery procesy | REVAGY\",\"description\":\"Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Wdrożenia\",\"item\":\"https://revagy.pl/wdrozenia.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\",\"name\":\"Automatyzacja procesów i integracja systemów firmy\",\"description\":\"Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Dlaczego nie podajecie nazw firm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.\"}},{\"@type\":\"Question\",\"name\":\"Skąd są te liczby?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.\"}},{\"@type\":\"Question\",\"name\":\"Czy u nas wyjdzie tak samo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.\"}},{\"@type\":\"Question\",\"name\":\"Mamy inne systemy niż w tych opisach. Czy to przeszkoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama, ale wejście inne. Opisujemy je na stronie „Produkcja i logistyka”.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#strona\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"name\":\"Wdrożenia\",\"headline\":\"Wdrożenia automatyzacji: cztery procesy | REVAGY\",\"description\":\"Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Wdrożenia\",\"item\":\"https://revagy.pl/wdrozenia.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\",\"name\":\"Automatyzacja procesów i integracja systemów firmy\",\"description\":\"Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Dlaczego nie podajecie nazw firm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.\"}},{\"@type\":\"Question\",\"name\":\"Skąd są te liczby?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.\"}},{\"@type\":\"Question\",\"name\":\"Czy u nas wyjdzie tak samo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.\"}},{\"@type\":\"Question\",\"name\":\"Mamy inne systemy niż w tych opisach. Czy to przeszkoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama, ale wejście inne. Opisujemy je na stronie „Produkcja i logistyka”.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/wdrozenia.html#film\",\"name\":\"Cztery procesy przed i po połączeniu systemów\",\"description\":\"Umowa trafia z dokumentu do systemu HR oraz do kadr i płac, trzy źródła składają się w jeden raport zarządu, alert o kończącym się zezwoleniu przychodzi 30 dni przed końcem ważności, a zgłoszenie kandydata trafia do systemu rekrutacyjnego. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/wdrozenia.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/wdrozenia.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"}}]}",
           "attrs": [
             "type"
           ]
