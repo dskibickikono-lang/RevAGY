@@ -10,7 +10,7 @@ branch: skibiai/serene-bohr-2hdmui
 base: main (da8d1ae)
 depends_on: T-024
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/39 (baza main)
-sha: 3c6c43d8361a5c469cce203952430380157da625 (runda 1: strona, scena, rejestry); runda 2 (kadr i kontrakt) w kolejnym commicie tej gałęzi
+sha: 763ae644c4c7aa67f6ecee462aa07d9c2d47198a (runda 2: kadr i kontrakt; runda 1: 3c6c43d); kolejne commity zmieniają tylko kartę
 decisions: [D-015, D-017, D-019, D-021, D-022, D-025, D-028, D-031, D-032, D-033, D-034, D-041, D-043, D-044, D-045]
 ---
 
@@ -62,6 +62,13 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
   testy narzędzi 108/108).
 - Podgląd strony w przeglądarce w 1280 i 390 px: bez przewijania w poziomie, bez błędów konsoli, kadr ładuje się.
 - Nie uruchamiano lokalnie: test dymny i Lighthouse (wymagają przeglądarki w wersji z projektu). Uruchamia je CI.
+
+## Wynik CI rundy 2 (2026-11-22, commit 763ae644c4c7aa67f6ecee462aa07d9c2d47198a)
+
+- CI „Build, testy i artefakt wydania”: sukces (przebieg 45044813802).
+- Lighthouse podstron: sukces (przebieg 45044813860), progi dla `finanse.html` i `kadry-i-place.html`.
+- Render mediów: sukces (przebieg 45044813884).
+- Kolejne commity tej gałęzi zmieniają tylko kartę.
 
 ## Do decyzji właściciela
 
