@@ -126,3 +126,39 @@ test('validate-dist: reguły podstron są wołane dla stron z tools/podstrony.js
   assert.match(r.err, /integracja-systemow\.html: adres kanoniczny: oczekiwano/);
   assert.doesNotMatch(r.err, /integracja-systemow\.html: nieoczekiwany blok JSON-LD/);
 });
+
+// Odnośnik pod odpowiedzią (Pytania.astro, pole `odnosnik`): osobny akapit z samym a.link-btn.
+const zOdnosnikiem = (html, i, href = 'integracja-systemow.html', tekst = 'Integracja systemów') => {
+  let n = -1;
+  return html.replace(/<\/p><\/div><\/div>/g, (m) => (++n === i ? `</p><p><a class="link-btn" href="${href}">${tekst}</a></p></div></div>` : m));
+};
+
+test('podstrona: akapit z samym odnośnikiem pod odpowiedzią nie jest częścią odpowiedzi FAQPage', () => {
+  const html = zOdnosnikiem(strona(), 1);
+  assert.match(html, /<p><a class="link-btn" href="integracja-systemow\.html">Integracja systemów<\/a><\/p>/);
+  assert.deepEqual(sprawdz(html), []);
+  // Różnica w samym akapicie odpowiedzi nadal jest błędem, także gdy pod nią stoi odnośnik.
+  const inne = zOdnosnikiem(strona({ widoczne: [PYTANIA[0], { ...PYTANIA[1], odpowiedz: 'Audyt kosztuje 2 000 zł.' }] }), 1);
+  assert.ok(sprawdz(inne).some((b) => /FAQPage odpowiedź 2/.test(b)));
+  // Odnośnik w środku zdania (nie osobny akapit) jest częścią tekstu odpowiedzi.
+  const wTekscie = strona().replace('Audyt kosztuje 1 990 zł.</p>', 'Audyt kosztuje 1 990 zł. <a class="link-btn" href="x.html">Więcej</a></p>');
+  assert.ok(sprawdz(wTekscie).some((b) => /FAQPage odpowiedź 2/.test(b)));
+  // Akapit z odnośnikiem i dodatkowym tekstem też jest częścią odpowiedzi.
+  const zTekstem = strona().replace('Audyt kosztuje 1 990 zł.</p>', 'Audyt kosztuje 1 990 zł.</p><p>Zobacz <a class="link-btn" href="x.html">tu</a></p>');
+  assert.ok(sprawdz(zTekstem).some((b) => /FAQPage odpowiedź 2/.test(b)));
+});
+
+test('validate-dist: odnośnik pod odpowiedzią do nieistniejącego pliku na stronie spoza kontraktu jest błędem', () => {
+  const lista = JSON.parse(fs.readFileSync(path.join(TOOLS, 'podstrony.json'), 'utf8')).strony.map((s) => s.plik);
+  const kontrakt = JSON.parse(fs.readFileSync(path.join(TOOLS, 'dom-contract.json'), 'utf8'));
+  const plik = lista.find((p) => !kontrakt.pages[p]);
+  if (!plik) return; // wszystkie podstrony są już w kontrakcie: tę ścieżkę sprawdza pętla po contract.pages
+  const dir = tmp();
+  const adres = `https://revagy.pl/${plik}`;
+  let html = strona({ ld: graf({ url: adres }), canonical: adres, ogUrl: adres });
+  html = zOdnosnikiem(html, 0, 'nie-ma-takiej-strony.html', 'Brak');
+  zapisz(dir, plik, html);
+  const r = uruchom([path.join(TOOLS, 'validate-dist.cjs'), dir]);
+  assert.equal(r.kod, 1);
+  assert.match(r.err, new RegExp(`${plik.replace('.', '\\.')}: <a href="nie-ma-takiej-strony\\.html"> wskazuje na nieistniejący plik`));
+});

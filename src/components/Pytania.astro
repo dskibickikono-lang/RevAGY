@@ -7,6 +7,9 @@
 interface Pytanie {
   pytanie: string;
   odpowiedz: string;
+  // Opcjonalny odnośnik pod odpowiedzią: osobny akapit z jednym <a class="link-btn">.
+  // Nie trafia do FAQPage (tam zostaje sam tekst odpowiedzi). href: plik .html z katalogu głównego strony.
+  odnosnik?: { href: string; tekst: string };
 }
 
 interface Props {
@@ -21,13 +24,19 @@ pytania.forEach((q, i) => {
   if (!q || typeof q.pytanie !== 'string' || !q.pytanie.trim() || typeof q.odpowiedz !== 'string' || !q.odpowiedz.trim()) {
     throw new Error(`Pytania: pozycja ${i + 1} musi mieć niepuste pola „pytanie” i „odpowiedz”.`);
   }
+  if (q.odnosnik !== undefined) {
+    const o = q.odnosnik;
+    if (!o || typeof o.href !== 'string' || !/^(\.\/|[a-z0-9][a-z0-9-]*\.html)$/.test(o.href) || typeof o.tekst !== 'string' || !o.tekst.trim()) {
+      throw new Error(`Pytania: pozycja ${i + 1}: „odnosnik” musi mieć postać { href: 'plik.html', tekst: '…' }.`);
+    }
+  }
 });
 ---
 <div class="faq" data-faq>
   {pytania.map((q, i) => (
     <div class={i === otwarte ? 'qa is-open' : 'qa'}>
       <h3><button type="button" aria-expanded={i === otwarte ? 'true' : 'false'} aria-controls={`qa-${i + 1}`} id={`qb-${i + 1}`}>{q.pytanie}<span class="plus" aria-hidden="true"></span></button></h3>
-      <div class="qa-body" id={`qa-${i + 1}`} role="region" aria-labelledby={`qb-${i + 1}`}><div><p>{q.odpowiedz}</p></div></div>
+      <div class="qa-body" id={`qa-${i + 1}`} role="region" aria-labelledby={`qb-${i + 1}`}><div><p>{q.odpowiedz}</p>{q.odnosnik && <p><a class="link-btn" href={q.odnosnik.href}>{q.odnosnik.tekst}</a></p>}</div></div>
     </div>
   ))}
 </div>

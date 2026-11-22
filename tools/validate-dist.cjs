@@ -896,7 +896,16 @@ function main() {
   for (const plik of podstrony.pliki) {
     const entry = actualMap.get(plik);
     if (!entry) { errors.push(`${plik}: brak strony wymienionej w tools/podstrony.json`); continue; }
-    errors.push(...sprawdzPodstrone(plik, fs.readFileSync(entry.full, 'utf8')).map((b) => `${plik}: ${b}`));
+    const htmlPodstrony = fs.readFileSync(entry.full, 'utf8');
+    errors.push(...sprawdzPodstrone(plik, htmlPodstrony).map((b) => `${plik}: ${b}`));
+    // Strona spoza kontraktu (pierwszy build etapu): odwołania lokalne sprawdzamy tutaj,
+    // bo pętla po contract.pages jej jeszcze nie obejmuje (np. odnośnik w odpowiedzi FAQ, kadr filmu).
+    if (!contract.pages[plik]) {
+      for (const ref of extractHtmlContract(htmlPodstrony).localRefs) {
+        const res = resolveLocalRef(targetDir, plik, ref.val);
+        if (!res.external && !res.exists) errors.push(`${plik}: <${ref.tag} ${ref.attr}="${ref.val}"> wskazuje na nieistniejący plik (${res.relPath})`);
+      }
+    }
   }
 
   errors.push(...checkGeneratedFiles(targetDir, generatedFiles, actualMap));
