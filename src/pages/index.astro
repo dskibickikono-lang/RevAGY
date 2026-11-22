@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
+import { zasob } from '../config/zasoby.mjs';
 ---
 <BaseLayout
   title="REVAGY — automatyzacja i AI dla firm B2B"
@@ -15,9 +16,9 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
   <section class="hero-outer">
     <div class="hero" data-hero>
       <div class="hero-media" data-parallax>
-        <video class="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-flow.jpg">
-          <source src="assets/video/hero-flow.webm" type="video/webm">
-          <source src="assets/video/hero-flow.mp4" type="video/mp4">
+        <video class="hero-video" id="hero-video" data-autoplay muted loop playsinline preload="metadata" poster={zasob('assets/video/hero-flow.jpg')}>
+          <source src={zasob('assets/video/hero-flow.webm')} type="video/webm">
+          <source src={zasob('assets/video/hero-flow.mp4')} type="video/mp4">
         </video>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
@@ -44,6 +45,11 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
           <li><span class="feed-ico i-box"></span><span><b>Zamówienie 58 213</b> przekazane do magazynu</span><time>6 min</time></li>
         </ul>
       </aside>
+
+      <button class="film-toggle hero-toggle" type="button" data-video-pause="hero-video" aria-label="Wstrzymaj film w tle" aria-pressed="false">
+        <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>
+        <svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor"/></svg>
+      </button>
     </div>
   </section>
 
@@ -130,9 +136,9 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
       </article>
 
       <article class="card card-video span-7 reveal" style="--d:80ms">
-        <video data-autoplay muted loop playsinline preload="none" poster="assets/video/dashboard.jpg">
-          <source src="assets/video/dashboard.webm" type="video/webm">
-          <source src="assets/video/dashboard.mp4" type="video/mp4">
+        <video data-autoplay muted loop playsinline preload="none" poster={zasob('assets/video/dashboard.jpg')}>
+          <source src={zasob('assets/video/dashboard.webm')} type="video/webm">
+          <source src={zasob('assets/video/dashboard.mp4')} type="video/mp4">
         </video>
         <div class="card-copy on-video">
           <h3 class="h3">Raporty, które liczą się same</h3>
@@ -369,9 +375,9 @@ import { TURNSTILE_SITEKEY, KONTAKT_NOTICE } from '../config/kontakt';
     </header>
     <div class="film-outer">
       <div class="film" data-scale>
-        <video data-autoplay data-main-video muted loop playsinline preload="none" poster="assets/video/agent-demo.jpg" aria-label="Animacja: agent AI obsługuje zapytanie ofertowe">
-          <source src="assets/video/agent-demo.webm" type="video/webm">
-          <source src="assets/video/agent-demo.mp4" type="video/mp4">
+        <video data-autoplay data-main-video muted loop playsinline preload="none" poster={zasob('assets/video/agent-demo.jpg')} aria-label="Animacja: agent AI obsługuje zapytanie ofertowe">
+          <source src={zasob('assets/video/agent-demo.webm')} type="video/webm">
+          <source src={zasob('assets/video/agent-demo.mp4')} type="video/mp4">
         </video>
         <button class="film-toggle" type="button" data-video-toggle aria-label="Wstrzymaj film" aria-pressed="false">
           <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>

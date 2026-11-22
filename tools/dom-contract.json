@@ -14,8 +14,8 @@
       "size": 2192
     },
     "assets/css/styles.css": {
-      "sha256": "566c669fd9443a2eb62af2268de5bb1ae953845ecae0f518410f523078c44b7a",
-      "size": 59096
+      "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
+      "size": 59522
     },
     "assets/fonts/LICENSE-instrument-sans.txt": {
       "sha256": "c27a3c53c3beed7f5c26853afa15991478ff7145d3754a36b0382f84e10c0d03",
@@ -74,20 +74,20 @@
       "size": 75489
     },
     "assets/js/analytics.js": {
-      "sha256": "33890ae945454f8a4ee4d4ff937e374738f23d4ac09b74c7af2fb4eff0da692b",
-      "size": 8348
+      "sha256": "80d01b0455c09a829e7b88baf85d3fe6816c51ccda834ddcbdf3641d6e56438a",
+      "size": 9039
     },
     "assets/js/app.js": {
-      "sha256": "a7a04ed5fa8cbd15973e3737018ceef816707ec17b129a633e794a2ee3e50f27",
-      "size": 13449
+      "sha256": "1e079d036c5cba675e543775d8b654b68b4dba577e983caebb9c89afbe684945",
+      "size": 14019
     },
     "assets/js/clarity.js": {
       "sha256": "620817311ec2db2c2079bbe63ba80d0b7bf67b0a9086de242ac9ad9984bea85d",
       "size": 1911
     },
     "assets/js/kontakt.js": {
-      "sha256": "da991a74b18d6a00408810d305c34d8e2124456ea992a6e68f80e05bf8ed7a6d",
-      "size": 15657
+      "sha256": "cd88aeadc0fa1fee84299bf67992161dfc5b27744040f64d97fdb6f57b5ce805",
+      "size": 16221
     },
     "assets/js/wejscie.js": {
       "sha256": "bca815f5d1251bef12b0a15d01f6d07ae5d51d59e939016ead2fa81dca81a057",
@@ -220,52 +220,52 @@
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "f1f8787e162d1083f958362c20440f9ce7a8659dbc32df1b5c367115dafa9fea",
-      "size": 1810
+      "sha256": "5d2931d533dfb1a47d8caa0188c1ce08d0cd5e2ff9456871fce8bd9e0180853e",
+      "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "4575d387a915dc9a96f72c26b10a9361a9084148121c0dc753d9c6854879065f",
-      "size": 24175
+      "sha256": "fcd102f3e7cfbc9ae40ea9f1c67678ee4d2266153bd360de17e8aa00f1a7c215",
+      "size": 24250
     },
     "dla-firm.html": {
-      "sha256": "97911513bb887abaf4405b4c2eaa91afd8b54f474bf098f151235b02ae3a116f",
-      "size": 24754
+      "sha256": "1a070e73f086c6758691a86c1a8fe62ad89183880dd866b2c1bfd34ba8eec95e",
+      "size": 24829
     },
     "finanse.html": {
-      "sha256": "90bae3191df6e3bb91db59ef506ceee37dc76c1f1c134589aa926835b130bb37",
-      "size": 25068
+      "sha256": "88af85ad3a409de3f1673aacf196912cbbb71f26414b291f1ca2a0a4fb0e24a5",
+      "size": 25143
     },
     "index.html": {
-      "sha256": "eb16834e4dad14b99bd38edc4383394ec95990b937870611a40f7fbda64c2f82",
-      "size": 46551
+      "sha256": "c7ca153d4474b37b3e8464de8d55088ba20115f1781a1a9715677f21df1f54be",
+      "size": 47131
     },
     "integracja-systemow.html": {
-      "sha256": "1ed3e6d253bdea9eeb7c9b0b7b0818b3db33d97b1836d1a2bac7d6f3e7b492d2",
-      "size": 25718
+      "sha256": "becdf2086416bf88a1fee82ca81a3ff44b4dbcc5a26a606a574dc2fb6d9a6443",
+      "size": 25793
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "e2a3e9cf8724584690150e5c11ff379cb1ffd6a51fca5b921258f8d174994efa",
-      "size": 24361
+      "sha256": "e104d8978c6983e1194c95eea5f555f94991344f8bcdb672bc1cf2f24c41ea2f",
+      "size": 24403
     },
     "kontakt.html": {
-      "sha256": "3ca8435fbaedb3c31f3228075fc2ba9646dd72ebe83c8f6c73ac1c0518b64b27",
-      "size": 8287
+      "sha256": "cfc1f1176c0c8fbd14df54d667ce348075f868e4271d703d7cef4d2e36aa649b",
+      "size": 8315
     },
     "polityka-prywatnosci.html": {
-      "sha256": "a98f022e6b53f3de0fdfaee7a6e2357307d1c6856a6704d115bcdd9570a3b2f7",
-      "size": 9431
+      "sha256": "2f4bb206fd7e78bcd0ecbbd9ac078e19a52d40093e33b13dff1ae64edc527473",
+      "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "62253374c154c79cc89c0f214e0db0f415382fe0e7f51b1de1e3a8fd600088a1",
-      "size": 23891
+      "sha256": "ccdb27a6e7f41de5ef5aadfe143132934f95cc00f10b380616994479d161d87f",
+      "size": 23933
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "5fbacfb868aeaee259bbc09b60c2c5f0105db4d6f815f068e96bf6c8f99b5ea3",
-      "size": 24720
+      "sha256": "4e32e8ea65538d67d65171ff926611d2bf9a30213c83107add02df0bdfca625d",
+      "size": 24795
     },
     "wdrozenia.html": {
-      "sha256": "eb841c17a82fcb6baeb9f39546c06915b9cf65d1dc3d1e2785dc83e865b9b410",
-      "size": 22482
+      "sha256": "775ce6195428a008bbfc552370479e3f417d7a77f09ae6b5bc6fe2cb5101601f",
+      "size": 22557
     }
   },
   "pages": {
@@ -319,7 +319,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "/assets/css/styles.css?v=5",
+          "href": "/assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -328,14 +328,14 @@
       ],
       "scripts": [
         {
-          "src": "/assets/js/analytics.js?v=5",
+          "src": "/assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "/assets/js/clarity.js?v=1",
+          "src": "/assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -454,7 +454,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "/assets/css/styles.css?v=5"
+          "val": "/assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "a",
@@ -479,12 +479,12 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "/assets/js/analytics.js?v=5"
+          "val": "/assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "/assets/js/clarity.js?v=1"
+          "val": "/assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": []
@@ -615,7 +615,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -623,7 +623,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -632,28 +632,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -1871,18 +1871,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/dane-i-bezpieczenstwo.jpg",
+          "poster": "assets/video/dane-i-bezpieczenstwo.jpg?v=666e5eab",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: dane przechodzą przez integrację z minimalnym zakresem dostępu i dziennikiem",
           "sources": [
             {
-              "src": "assets/video/dane-i-bezpieczenstwo.webm",
+              "src": "assets/video/dane-i-bezpieczenstwo.webm?v=29e7e615",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/dane-i-bezpieczenstwo.mp4",
+              "src": "assets/video/dane-i-bezpieczenstwo.mp4?v=4258cd85",
               "type": "video/mp4"
             }
           ]
@@ -1908,12 +1908,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -2048,17 +2048,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/dane-i-bezpieczenstwo.jpg"
+          "val": "assets/video/dane-i-bezpieczenstwo.jpg?v=666e5eab"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dane-i-bezpieczenstwo.webm"
+          "val": "assets/video/dane-i-bezpieczenstwo.webm?v=29e7e615"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dane-i-bezpieczenstwo.mp4"
+          "val": "assets/video/dane-i-bezpieczenstwo.mp4?v=4258cd85"
         },
         {
           "tag": "a",
@@ -2163,22 +2163,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -2316,7 +2316,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -2324,7 +2324,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -2333,28 +2333,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -3511,18 +3511,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/dla-firm.jpg",
+          "poster": "assets/video/dla-firm.jpg?v=861129ff",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: od konsultacji do opieki, cztery kroki współpracy",
           "sources": [
             {
-              "src": "assets/video/dla-firm.webm",
+              "src": "assets/video/dla-firm.webm?v=86b9f19d",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/dla-firm.mp4",
+              "src": "assets/video/dla-firm.mp4?v=2c833545",
               "type": "video/mp4"
             }
           ]
@@ -3548,12 +3548,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -3683,17 +3683,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/dla-firm.jpg"
+          "val": "assets/video/dla-firm.jpg?v=861129ff"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dla-firm.webm"
+          "val": "assets/video/dla-firm.webm?v=86b9f19d"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dla-firm.mp4"
+          "val": "assets/video/dla-firm.mp4?v=2c833545"
         },
         {
           "tag": "a",
@@ -3828,22 +3828,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -3981,7 +3981,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3989,7 +3989,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3998,28 +3998,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -5204,18 +5204,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/finanse.jpg",
+          "poster": "assets/video/finanse.jpg?v=10ddb943",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: faktura kosztowa od odbioru do akceptacji człowieka",
           "sources": [
             {
-              "src": "assets/video/finanse.webm",
+              "src": "assets/video/finanse.webm?v=07b0a507",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/finanse.mp4",
+              "src": "assets/video/finanse.mp4?v=a47231d3",
               "type": "video/mp4"
             }
           ]
@@ -5241,12 +5241,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -5376,17 +5376,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/finanse.jpg"
+          "val": "assets/video/finanse.jpg?v=10ddb943"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/finanse.webm"
+          "val": "assets/video/finanse.webm?v=07b0a507"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/finanse.mp4"
+          "val": "assets/video/finanse.mp4?v=a47231d3"
         },
         {
           "tag": "a",
@@ -5511,22 +5511,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -5680,7 +5680,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5689,21 +5689,21 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -5969,7 +5969,7 @@
         },
         {
           "tag": "video",
-          "id": null,
+          "id": "hero-video",
           "name": null,
           "for": null,
           "data": {
@@ -6026,6 +6026,39 @@
             "data-feed": ""
           },
           "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-pause": "hero-video"
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film w tle",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -7738,54 +7771,54 @@
       "videos": [
         {
           "class": "hero-video",
-          "poster": "assets/video/hero-flow.jpg",
+          "poster": "assets/video/hero-flow.jpg?v=ba755d3b",
           "preload": "metadata",
           "dataAutoplay": true,
           "dataMainVideo": false,
           "ariaLabel": null,
           "sources": [
             {
-              "src": "assets/video/hero-flow.webm",
+              "src": "assets/video/hero-flow.webm?v=5499a456",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/hero-flow.mp4",
+              "src": "assets/video/hero-flow.mp4?v=ec82f239",
               "type": "video/mp4"
             }
           ]
         },
         {
           "class": null,
-          "poster": "assets/video/dashboard.jpg",
+          "poster": "assets/video/dashboard.jpg?v=a7bef08e",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": false,
           "ariaLabel": null,
           "sources": [
             {
-              "src": "assets/video/dashboard.webm",
+              "src": "assets/video/dashboard.webm?v=ebe239ce",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/dashboard.mp4",
+              "src": "assets/video/dashboard.mp4?v=cec91928",
               "type": "video/mp4"
             }
           ]
         },
         {
           "class": null,
-          "poster": "assets/video/agent-demo.jpg",
+          "poster": "assets/video/agent-demo.jpg?v=cfadd0d2",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: agent AI obsługuje zapytanie ofertowe",
           "sources": [
             {
-              "src": "assets/video/agent-demo.webm",
+              "src": "assets/video/agent-demo.webm?v=bcb5fb8f",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/agent-demo.mp4",
+              "src": "assets/video/agent-demo.mp4?v=bb7b4a16",
               "type": "video/mp4"
             }
           ]
@@ -8030,7 +8063,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "a",
@@ -8145,17 +8178,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/hero-flow.jpg"
+          "val": "assets/video/hero-flow.jpg?v=ba755d3b"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/hero-flow.webm"
+          "val": "assets/video/hero-flow.webm?v=5499a456"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/hero-flow.mp4"
+          "val": "assets/video/hero-flow.mp4?v=ec82f239"
         },
         {
           "tag": "a",
@@ -8170,17 +8203,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/dashboard.jpg"
+          "val": "assets/video/dashboard.jpg?v=a7bef08e"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dashboard.webm"
+          "val": "assets/video/dashboard.webm?v=ebe239ce"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/dashboard.mp4"
+          "val": "assets/video/dashboard.mp4?v=cec91928"
         },
         {
           "tag": "a",
@@ -8200,17 +8233,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/agent-demo.jpg"
+          "val": "assets/video/agent-demo.jpg?v=cfadd0d2"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/agent-demo.webm"
+          "val": "assets/video/agent-demo.webm?v=bcb5fb8f"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/agent-demo.mp4"
+          "val": "assets/video/agent-demo.mp4?v=bb7b4a16"
         },
         {
           "tag": "a",
@@ -8350,17 +8383,17 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -8498,7 +8531,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8506,7 +8539,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8515,28 +8548,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -9809,18 +9842,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/integracja-systemow.jpg",
+          "poster": "assets/video/integracja-systemow.jpg?v=272176cc",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: rekord pracownika przechodzi z systemu HR do kadr i płac",
           "sources": [
             {
-              "src": "assets/video/integracja-systemow.webm",
+              "src": "assets/video/integracja-systemow.webm?v=77f742ac",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/integracja-systemow.mp4",
+              "src": "assets/video/integracja-systemow.mp4?v=d8955c33",
               "type": "video/mp4"
             }
           ]
@@ -9846,12 +9879,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -9976,17 +10009,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/integracja-systemow.jpg"
+          "val": "assets/video/integracja-systemow.jpg?v=272176cc"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/integracja-systemow.webm"
+          "val": "assets/video/integracja-systemow.webm?v=77f742ac"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/integracja-systemow.mp4"
+          "val": "assets/video/integracja-systemow.mp4?v=d8955c33"
         },
         {
           "tag": "a",
@@ -10096,22 +10129,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -10249,7 +10282,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10257,7 +10290,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10266,28 +10299,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -11408,12 +11441,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -11668,22 +11701,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -11761,7 +11794,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11770,14 +11803,14 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -11992,7 +12025,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "a",
@@ -12037,12 +12070,12 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": []
@@ -12113,7 +12146,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12122,14 +12155,14 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -12339,7 +12372,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "a",
@@ -12384,12 +12417,12 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": []
@@ -12520,7 +12553,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12528,7 +12561,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12537,28 +12570,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -13602,12 +13635,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -13857,22 +13890,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -14010,7 +14043,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14018,7 +14051,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14027,28 +14060,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -15225,18 +15258,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/produkcja-i-logistyka.jpg",
+          "poster": "assets/video/produkcja-i-logistyka.jpg?v=29ae14d3",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: 14 dni pilota na jednej linii produkcyjnej",
           "sources": [
             {
-              "src": "assets/video/produkcja-i-logistyka.webm",
+              "src": "assets/video/produkcja-i-logistyka.webm?v=be533473",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/produkcja-i-logistyka.mp4",
+              "src": "assets/video/produkcja-i-logistyka.mp4?v=d2917dac",
               "type": "video/mp4"
             }
           ]
@@ -15262,12 +15295,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -15392,17 +15425,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/produkcja-i-logistyka.jpg"
+          "val": "assets/video/produkcja-i-logistyka.jpg?v=29ae14d3"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/produkcja-i-logistyka.webm"
+          "val": "assets/video/produkcja-i-logistyka.webm?v=be533473"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/produkcja-i-logistyka.mp4"
+          "val": "assets/video/produkcja-i-logistyka.mp4?v=d2917dac"
         },
         {
           "tag": "a",
@@ -15522,22 +15555,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -15675,7 +15708,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=5",
+          "href": "assets/css/styles.css?v=4e970d11",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15683,7 +15716,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=3",
+          "href": "assets/css/podstrony.css?v=3ade90cf",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15692,28 +15725,28 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=5",
+          "src": "assets/js/app.js?v=1e079d03",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/wejscie.js?v=1",
+          "src": "assets/js/wejscie.js?v=bca815f5",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/analytics.js?v=5",
+          "src": "assets/js/analytics.js?v=80d01b04",
           "defer": true,
           "async": false,
           "type": null,
           "hasInlineBody": false
         },
         {
-          "src": "assets/js/clarity.js?v=1",
+          "src": "assets/js/clarity.js?v=62081731",
           "defer": true,
           "async": false,
           "type": null,
@@ -16832,18 +16865,18 @@
       "videos": [
         {
           "class": null,
-          "poster": "assets/video/wdrozenia.jpg",
+          "poster": "assets/video/wdrozenia.jpg?v=3118c474",
           "preload": "none",
           "dataAutoplay": true,
           "dataMainVideo": true,
           "ariaLabel": "Animacja: cztery procesy przed i po połączeniu systemów",
           "sources": [
             {
-              "src": "assets/video/wdrozenia.webm",
+              "src": "assets/video/wdrozenia.webm?v=cbe35d19",
               "type": "video/webm"
             },
             {
-              "src": "assets/video/wdrozenia.mp4",
+              "src": "assets/video/wdrozenia.mp4?v=33b947aa",
               "type": "video/mp4"
             }
           ]
@@ -16869,12 +16902,12 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=5"
+          "val": "assets/css/styles.css?v=4e970d11"
         },
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=3"
+          "val": "assets/css/podstrony.css?v=3ade90cf"
         },
         {
           "tag": "a",
@@ -16999,17 +17032,17 @@
         {
           "tag": "video",
           "attr": "poster",
-          "val": "assets/video/wdrozenia.jpg"
+          "val": "assets/video/wdrozenia.jpg?v=3118c474"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/wdrozenia.webm"
+          "val": "assets/video/wdrozenia.webm?v=cbe35d19"
         },
         {
           "tag": "source",
           "attr": "src",
-          "val": "assets/video/wdrozenia.mp4"
+          "val": "assets/video/wdrozenia.mp4?v=33b947aa"
         },
         {
           "tag": "a",
@@ -17129,22 +17162,22 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=5"
+          "val": "assets/js/app.js?v=1e079d03"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/wejscie.js?v=1"
+          "val": "assets/js/wejscie.js?v=bca815f5"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/analytics.js?v=5"
+          "val": "assets/js/analytics.js?v=80d01b04"
         },
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/clarity.js?v=1"
+          "val": "assets/js/clarity.js?v=62081731"
         }
       ],
       "jsonLd": [
@@ -17159,7 +17192,7 @@
   },
   "contactForm": {
     "htmlSha256": "ba2aa79c4944fe5ea3951ab5112a76eba751bdda78d691432f601c9769df308e",
-    "script": "assets/js/kontakt.js?v=1"
+    "script": "assets/js/kontakt.js"
   },
   "structuredData": {
     "index.html": {

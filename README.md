@@ -8,7 +8,7 @@ Analityka (własne Matomo na `stats.revagy.pl` oraz Microsoft Clarity) włącza 
 ## Wymagania
 
 - Node.js 22 (`.nvmrc` / `.node-version`: `22`; Astro wymaga `>=22.23.4`)
-- Astro `^7.4.12` (dokładna wersja w `package-lock.json`, ta sama linia co `web-skoben` i `web-skibilabs`)
+- Astro `^7.4.12` (dokładna wersja w `package-lock.json`)
 - Playwright `1.65.1` (devDependency dla testu dymnego, testu formularza oraz skryptów renderujących media)
 
 ## Uruchomienie i build
@@ -112,7 +112,7 @@ node tools/indexnow-ping.cjs             # sprawdza https://revagy.pl/<klucz>.tx
 Skrypt nie ma zależności (Node 22, wbudowany `fetch`), czyta klucz z jedynego pliku `public/<32 znaki hex>.txt` i adresy z `public/sitemap.xml`. Odpowiedź 200 albo 202 oznacza przyjęcie. Nie jest wpięty w CI: zgłoszenie ma sens dopiero wtedy, gdy nowe strony są już na produkcji. Klucz jest publiczny z definicji.
 
 Szczegółowa procedura operacyjna dla obecnej architektury serwera (Caddy `:80/:443` → lokalny nginx `127.0.0.1:8092`) znajduje się w `deploy/PROMPT-AGENT-VPS.md`.
-Po zmianie stylów lub skryptów podbij parametr `?v=` w `src/layouts/BaseLayout.astro`, aby przeglądarki pobrały nową wersję.
+Parametr `?v=` w adresach stylów, skryptów i filmów to skrót treści pliku liczony przy buildzie (`src/config/zasoby.mjs`); nie zmienia się go ręcznie. Walidator sprawdza zgodność skrótu z plikiem.
 
 ## Analityka
 

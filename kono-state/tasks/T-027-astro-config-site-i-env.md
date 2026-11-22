@@ -1,15 +1,15 @@
 ---
 id: T-027
-title: "astro.config: adres bazowy z MARKA.url i schemat zmiennej PUBLIC_TURNSTILE_SITEKEY (K-01, K-02 z audytu T-025)"
+title: "astro.config: adres bazowy z MARKA.url i schemat zmiennej PUBLIC_TURNSTILE_SITEKEY (K-01, K-02 z audytu T-028)"
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
 base: main (5e29276, scalony do gałęzi bez rebase)
-depends_on: T-025 (audyt kodu)
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/37 (baza main)
+depends_on: T-028 (audyt kodu, wcześniej T-025)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/37 (scalony do main, da8d1ae)
 sha: b23ae9202ebf806cc2e4fc38e0b39eb525d5ff83 (kod; kolejny commit zmienia tylko kartę)
 decisions: [D-015, D-021]
 ---
