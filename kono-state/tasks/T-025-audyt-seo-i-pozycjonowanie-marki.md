@@ -1,5 +1,5 @@
 ---
-id: T-024
+id: T-025
 title: Audyt SEO i pozycjonowania marki REVAGY (tylko raport)
 channel: pm-local
 requested_by: owner
@@ -14,7 +14,7 @@ sha: 4d537b485682548c631a8f63b79eaa5fefd28366 (raport i rejestr źródeł; kolej
 decisions: [D-001, D-011, D-013, D-015, D-018, D-021, D-033, D-034, D-039]
 ---
 
-# T-024 — Audyt SEO i pozycjonowania marki REVAGY
+# T-025 — Audyt SEO i pozycjonowania marki REVAGY
 
 ## Cel
 
@@ -55,10 +55,22 @@ Raport gotowy, PR #29 do przeglądu. Zmiany wyłącznie w `kono-state/` (3 pliki
   poniżej progu 90 przyjętego dla podstron; ta strona nie jest objęta progiem w `tools/lighthouse.json`.
 - `check:dist`, `test:smoke`, `test:form`, `test:tools`: **nieuruchomione**, bo kod się nie zmienił.
 
-## Zablokowane
+## Dane z Search Console (eksport właściciela, 22.11.2026)
 
-Brak dostępu do Google Search Console i Bing Webmaster Tools: indeksacja, zapytania, pozycje, Core Web Vitals
-od użytkowników i linki przychodzące nie są ocenione (rozdział 7 raportu, lista potrzebnych eksportów).
+- Usługa domenowa `revagy.pl` zweryfikowana. Raport „Indeksowanie stron” ma dane do 15.11.2026:
+  1 strona w indeksie, 1 poza indeksem („Strona z przekierowaniem”), 11 wyświetleń 15.11.
+- Mapa witryny zgłoszona 22.11: Search Console pokazuje 10 adresów, plik na produkcji ma 11. Do wyjaśnienia.
+- Bing Webmaster Tools: brak danych.
+
+## Numer karty
+
+Karta powstała jako T-024. W tym samym czasie na `main` trafiła inna karta T-024 (baner zgody, PR #28),
+więc ta dostała numer T-025. Treść bez zmian.
+
+## Nadal zablokowane
+
+Zapytania, pozycje, Core Web Vitals od użytkowników i linki przychodzące: strona ma 9 dni, danych jest za mało.
+Przegląd po 8–12 tygodniach (punkt 20 planu). Bing Webmaster Tools: stan nieznany.
 
 ## Do decyzji właściciela
 
