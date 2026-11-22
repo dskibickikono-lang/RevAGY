@@ -33,13 +33,18 @@ bez zmian (D-015, D-021).
    i liczbami jak na `/wdrozenia.html` (D-034), z `<Ujawnienie />` pod opisem.
 4. Pliki wspólne:
    - `src/layouts/PodstronaLayout.astro`: dwa odnośniki „Finanse” (panel „Dla działów” w menu i kolumna
-     „Dla działów” w stopce) z `./#zastosowania` na `finanse.html`;
+     „Dla działów” w stopce) z `./#zastosowania` na `finanse.html`. Cztery nagłówki kolumn stopki (`h4`) dostają
+     `aria-level="2"`, więc po ostatnim `h2` w `<main>` nie ma przeskoku poziomu. Znacznik `h4` i wygląd zostają
+     (styl `.site-footer h4` w `styles.css`). Komentarz nagłówkowy układu opisuje wyjątek „Finanse”;
    - `tools/podstrony.json`, `public/sitemap.xml`, `tools/rejestr-twierdzen.json`.
 5. Narzędzia:
    - `tools/nazwy-systemow.json`: „KSeF” przeniesiony z listy `nazwy` do udokumentowanej listy `wyjatki`;
    - `tools/check-tresc.cjs` sprawdza format wyjątków i to, że wyjątek nie stoi jednocześnie na liście nazw;
-   - nowa reguła kontroli treści: w `<main>` pierwszy i jedyny `h1`, bez przeskoku poziomu nagłówka.
-     Przechodzą ją wszystkie strony obecnego wydania;
+   - nowa reguła kontroli treści dla stron z `tools/podstrony.json`: jeden `h1`, który jest pierwszym nagłówkiem
+     w `<main>`, a w całym dokumencie (razem ze stopką) bez przeskoku poziomu w dół o więcej niż jeden. Poziom to
+     `aria-level`, gdy jest liczbą całkowitą ≥ 1, inaczej numer znacznika. Strona główna, kontakt, polityka i 404
+     nie są objęte regułą. Na obecnym wydaniu reguła zgłasza przeskok w stopce na 7 podstronach (bez `aria-level`).
+     Po zmianie układu znika on na wszystkich podstronach;
    - `tools/smoke-test.cjs`: dwa wąskie widoki telefonu dla podstron (393×852 i 375×667). Sprawdzają brak
      przewijania w poziomie, a z `--zrzuty` robią też pełny zrzut.
 6. Strona główna bez zmian: `tools/etapy/zmiana-strony-glownej.json` z pustymi listami, `index.baza.html`
@@ -66,10 +71,10 @@ bez zmian (D-015, D-021).
   ikonami musi zachować stałą nazwę dostępną (na przykład „Wstrzymaj film”). Dotyczy to
   `src/components/MiejsceNaFilm.astro` i `public/assets/js/app.js:110-111`. `app.js` jest wspólny ze stroną główną,
   więc zmiana wymaga osobnej decyzji właściciela.
-- **Nagłówki.** W `<main>` ostatni nagłówek to `h2` w sekcji `#wezwanie`, a po nim w stopce układu stoją `h4`.
-  To przeskok `h2 → h4` w całym dokumencie, taki sam na wszystkich podstronach i na stronie głównej. Poprawka wymaga
-  zmiany stopki w `PodstronaLayout.astro` i `BaseLayout.astro`, więc w tym etapie zostaje bez zmian. Nowa reguła
-  sprawdza tylko `<main>`.
+- **Nagłówki.** W `<main>` ostatni nagłówek to `h2` w sekcji `#wezwanie`, a po nim stoją nagłówki kolumn stopki.
+  Na podstronach przeskok jest usunięty: stopka w `PodstronaLayout.astro` ma `h4` z `aria-level="2"`, a reguła
+  kontroli obejmuje cały dokument podstrony. Stopka w `BaseLayout.astro` (strona główna, kontakt, polityka, 404) ma
+  dalej zwykłe `h4`. Na stronie głównej zostaje przeskok `h2 → h4`.
 
 ## Decyzje do podjęcia przez właściciela
 
@@ -87,7 +92,16 @@ bez zmian (D-015, D-021).
    skrócony nagłówek bez tych pozycji (sprawdzone na obecnym wydaniu).
 2. **Przycisk filmu** (punkt w „Ustaleniach”): czy zmieniamy `MiejsceNaFilm.astro` i `app.js:110-111` tak, żeby
    przycisk zmieniał tylko `aria-pressed`, przy stałej nazwie dostępnej. Zmiana dotyczy także filmów strony głównej.
-3. **Kolejność nagłówków w stopce** (`h4` po `h2`): czy poprawiamy stopkę w obu układach. Zmiana dotyka strony głównej.
+3. **Kolejność nagłówków w stopce `BaseLayout.astro`** (strona główna, kontakt, polityka, 404): czy dodajemy tam
+   `aria-level="2"` tak samo jak na podstronach. To zmiana strony głównej (migawka, plik etapu, kontrakt).
+   Na podstronach jest już poprawione.
+4. **Treść „Po wdrożeniu” i odpowiedzi w pytaniach.** Część „Po wdrożeniu” w trzech procesach przygotował agent
+   na podstawie opisu procesów w zleceniu. Dotyczy to zakresu automatyzacji, na przykład kontroli duplikatu
+   i zmienionego rachunku dostawcy, harmonogramu przypomnień i raportu różnic. Tak samo powstały odpowiedzi
+   w pytaniach, w tym brzmienie odpowiedzi o KSeF. Właściciel potwierdza je w przeglądzie PR albo wskazuje,
+   co skreślić.
+5. **Sekcja „Ten sam mechanizm w innym dziale”.** Czy zostaje opis `stan-zalogi`, czy sekcja znika do czasu
+   opisu wdrożenia z działu finansów. Taki opis wprowadza właściciel (D-034).
 
 ## Do uzupełnienia przez właściciela
 
