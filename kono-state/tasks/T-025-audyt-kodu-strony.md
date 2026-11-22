@@ -8,8 +8,8 @@ created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
 base: main (7cd0f71; audyt zaczęty na 43efbf5, main scalony do gałęzi bez rebase)
-pr: (uzupełniane po otwarciu PR)
-sha: (uzupełniane po commicie)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/35 (baza main)
+sha: 7a91d2edf9c796771b907a0c9d12a5cbb6dec2bc (raport i karta; kolejny commit zmienia tylko kartę)
 decisions: [D-010, D-013, D-015, D-021, D-031, D-033, D-036, D-039]
 ---
 
