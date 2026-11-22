@@ -469,7 +469,7 @@ if (require.main === module) (async () => {
 
       await scrollTo(page, '#film');
       await page.waitForTimeout(1500);
-      const videos = await page.evaluate(() => [...document.querySelectorAll('video')].map((v) => ({ src: v.currentSrc.split('/').pop(), ready: v.readyState })));
+      const videos = await page.evaluate(() => [...document.querySelectorAll('video')].map((v) => ({ src: v.currentSrc.split('/').pop().split('?')[0], ready: v.readyState })));
       check('3 filmy mają wybrane źródło', videos.length === 3 && videos.every((v) => /\.(webm|mp4)$/.test(v.src)), JSON.stringify(videos));
       check('film z agentem odtwarza się w kadrze', await page.evaluate(() => { const v = document.querySelector('[data-main-video]'); return !v.paused && v.readyState >= 2; }));
       await page.click('[data-video-toggle]');
@@ -896,7 +896,7 @@ if (require.main === module) (async () => {
               check(`${p} (${szer}): stan „kadr” — obraz załadowany`, img && img.complete && img.nw > 0 && img.nh > 0, JSON.stringify(img));
             } else if (szer === 1280) {
               await page.waitForTimeout(1500);
-              const v = await page.evaluate(() => { const x = document.querySelector('[data-main-video]'); return { src: x.currentSrc.split('/').pop(), paused: x.paused, ready: x.readyState }; });
+              const v = await page.evaluate(() => { const x = document.querySelector('[data-main-video]'); return { src: x.currentSrc.split('/').pop().split('?')[0], paused: x.paused, ready: x.readyState }; });
               check(`${p}: stan „film” — wybrane źródło i odtwarzanie w kadrze`, /\.(webm|mp4)$/.test(v.src) && !v.paused && v.ready >= 2, JSON.stringify(v));
               await page.click('[data-video-toggle]');
               await page.waitForTimeout(200);
@@ -923,7 +923,7 @@ if (require.main === module) (async () => {
               });
               const zrodlaFilmu = Object.entries(zakresy);
               check(`${p}: stan „film” — źródła filmu odpowiadają 206 na zakres bajtów`,
-                zrodlaFilmu.length === 2 && zrodlaFilmu.every(([src, r]) => r.status === 206 && r.range.startsWith('bytes 0-1023/') && r.ct.includes(src.endsWith('.webm') ? 'video/webm' : 'video/mp4')),
+                zrodlaFilmu.length === 2 && zrodlaFilmu.every(([src, r]) => r.status === 206 && r.range.startsWith('bytes 0-1023/') && r.ct.includes(src.split('?')[0].endsWith('.webm') ? 'video/webm' : 'video/mp4')),
                 JSON.stringify(zakresy));
             }
           }
