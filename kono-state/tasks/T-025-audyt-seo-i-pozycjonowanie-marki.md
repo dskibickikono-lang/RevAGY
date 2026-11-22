@@ -3,7 +3,7 @@ id: T-025
 title: Audyt SEO i pozycjonowania marki REVAGY (tylko raport)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/dreamy-johnson-hfb3j4
@@ -11,7 +11,7 @@ base: main (43efbf5)
 depends_on: T-006, T-022
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/29 (scalony, 9856b6f); uzupełnienie: https://github.com/dskibickikono-lang/RevAGY/pull/31 (baza main)
 sha: 4d537b485682548c631a8f63b79eaa5fefd28366 (raport); e883a34 (dane z Search Console, numer T-025)
-decisions: [D-001, D-011, D-013, D-015, D-018, D-021, D-033, D-034, D-039]
+decisions: [D-001, D-011, D-013, D-015, D-018, D-021, D-033, D-034, D-039, D-051, D-052]
 ---
 
 # T-025 — Audyt SEO i pozycjonowania marki REVAGY
@@ -75,6 +75,10 @@ Przegląd po 8–12 tygodniach (punkt 20 planu). Bing Webmaster Tools: stan niez
 
 ## Do decyzji właściciela
 
-- Repozytorium publiczne czy prywatne (dziś to jedyne wystąpienie marki w wynikach wyszukiwania).
-- Profil firmy w Google: wytyczne wykluczają firmy działające wyłącznie zdalnie.
-- Plan 30/60/90 dni z raportu: każda pozycja w kodzie wymaga osobnej karty i zgody.
+- Repozytorium GitHub: **publiczne** (decyzja D-051 z 22.11.2026; transparentność technologiczna i widoczność marki w wyszukiwarkach).
+- Profil firmy w Google: **tak, zakładamy** (decyzja D-052 z 22.11.2026; wizyta robocza u klienta to obowiązkowy element wdrożenia, wdrożenia wyłącznie zdalne nie istnieją; założenie profilu zaplanowane na późniejszy etap).
+- Plan 30/60/90 dni z raportu: **przyjęty jako drogowskaz strategiczny** (decyzja właściciela z 22.11.2026; konkretne działania developerskie/contentowe wymagają osobnych kart zadań i zgód).
+
+## Stan
+
+Audyt SEO i plan działań zakończone i przyjęte. Decyzje D-051 (repozytorium publiczne) i D-052 (wizyty osobiste i profil Google w późniejszym etapie) wpisane do rejestru. Raport scalony do main w PR #29. Karta zamknięta.
