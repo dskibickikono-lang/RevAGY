@@ -815,6 +815,19 @@ if (require.main === module) (async () => {
               await page.waitForTimeout(200);
               const wznowienie = await page.evaluate(() => !document.querySelector('[data-main-video]').paused);
               check(`${p}: stan „film” — przycisk pauzy/wznowienia działa`, pauza && wznowienie, JSON.stringify({ pauza, wznowienie }));
+              // Odpowiedź 206 na zakres bajtów dla obu źródeł filmu (plan 5, test etapu filmowego).
+              const zakresy = await page.evaluate(async () => {
+                const out = {};
+                for (const src of [...document.querySelectorAll('[data-main-video] source')].map((x) => x.getAttribute('src'))) {
+                  const r = await fetch(src, { headers: { Range: 'bytes=0-1023' } });
+                  out[src] = { status: r.status, ct: r.headers.get('content-type') || '', range: r.headers.get('content-range') || '' };
+                }
+                return out;
+              });
+              const zrodlaFilmu = Object.entries(zakresy);
+              check(`${p}: stan „film” — źródła filmu odpowiadają 206 na zakres bajtów`,
+                zrodlaFilmu.length === 2 && zrodlaFilmu.every(([src, r]) => r.status === 206 && r.range.startsWith('bytes 0-1023/') && r.ct.includes(src.endsWith('.webm') ? 'video/webm' : 'video/mp4')),
+                JSON.stringify(zakresy));
             }
           }
 

@@ -1,8 +1,11 @@
 name: Render mediów
 
-# Kadry i filmy podstron (D-032, plan 3.3–3.5). Renderuje ze scen w tools/scenes/:
+# Kadry i filmy podstron (D-022, D-032). Renderuje ze scen w tools/scenes/:
 #   kadr — node tools/render-kadr.cjs <scena>   → public/assets/video/<scena>-kadr.jpg
 #   film — node tools/render-videos.cjs <scena> → public/assets/video/<scena>.webm, .mp4, .jpg
+# W PR tryb każdej sceny wybiera tools/media-plan.cjs: „film”, gdy wpis sceny w src/config/filmy.mjs
+# ma ustawiony czas, inaczej „kadr”. Scenę w trybie „film” pomija, gdy jej trzy pliki są już w repozytorium,
+# a scena i pliki renderu nie zmieniły się od poprzedniego wypchnięcia gałęzi.
 # Wypisuje wagę każdego pliku z limitem z planu 3.5 i publikuje artefakt media-<sha>
 # z plikami w układzie public/assets/video/…. Niczego nie wypycha: pliki z artefaktu dodaje
 # do gałęzi etapu agent (gh run download), a CI etapu sprawdza je walidatorem.
@@ -12,6 +15,8 @@ on:
       - 'tools/scenes/**'
       - 'tools/render-kadr.cjs'
       - 'tools/render-videos.cjs'
+      - 'tools/media-plan.cjs'
+      - 'src/config/filmy.mjs'
       - '.github/workflows/render-media.yml'
   workflow_dispatch:
     inputs:
@@ -54,49 +59,44 @@ jobs:
         id: plan
         env:
           EVENT: ${{ github.event_name }}
+          AKCJA: ${{ github.event.action }}
           IN_SCENA: ${{ inputs.scena }}
           IN_TRYB: ${{ inputs.tryb }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PRZED_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -eu
+          plik="$RUNNER_TEMP/plan.txt"
           if [ "$EVENT" = "workflow_dispatch" ]; then
-            sceny="$IN_SCENA"
-            tryb="$IN_TRYB"
+            node tools/media-plan.cjs --scena="$IN_SCENA" --tryb="$IN_TRYB" > "$plik"
           else
-            tryb=kadr
             # Płytki klon: pobieramy sam commit bazowy i porównujemy drzewa (historia nie jest potrzebna).
             git fetch --no-tags --depth=1 origin "$BASE_SHA"
-            zmienione=$(git diff --name-only "$BASE_SHA" HEAD)
+            git diff --name-only "$BASE_SHA" HEAD > "$RUNNER_TEMP/zmienione.txt"
             echo "Zmienione pliki objęte zadaniem:"
-            printf '%s\n' "$zmienione" | grep -E '^(tools/scenes/|tools/render-(kadr|videos)\.cjs$|\.github/workflows/render-media\.yml$)' || true
-            # Zmienione sceny podstron (bez grafiki do udostępnień)...
-            sceny=$(printf '%s\n' "$zmienione" | sed -n 's#^tools/scenes/\([a-z0-9-]*\)\.html$#\1#p' | grep -vx 'og-image' || true)
-            # ...a przy zmianie wspólnych plików renderu: kadry wszystkich filmów z tools/podstrony.json, które mają scenę.
-            if printf '%s\n' "$zmienione" | grep -Eq '^(tools/scenes/(engine\.js|scene\.css)|tools/render-(kadr|videos)\.cjs|\.github/workflows/render-media\.yml)$'; then
-              wspolne=$(node -e "const d=require('./tools/podstrony.json');for(const s of d.strony||[])if(typeof s.film==='string'&&require('fs').existsSync('tools/scenes/'+s.film+'.html'))console.log(s.film)")
-              sceny=$(printf '%s\n%s\n' "$sceny" "$wspolne" | grep -v '^$' | sort -u || true)
+            grep -E '^(tools/scenes/|tools/render-(kadr|videos)\.cjs$|tools/media-plan\.cjs$|src/config/filmy\.mjs$|\.github/workflows/render-media\.yml$)' "$RUNNER_TEMP/zmienione.txt" || true
+            # Zmiany od poprzedniego wypchnięcia gałęzi (tylko „synchronize”); bez nich film renderuje się zawsze.
+            odpop=""
+            if [ "$AKCJA" = "synchronize" ] && [ -n "$PRZED_SHA" ] \
+              && git fetch --no-tags --depth=1 origin "$PRZED_SHA" "$HEAD_SHA" 2>/dev/null \
+              && git diff --name-only "$PRZED_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/od-poprzedniego.txt" 2>/dev/null; then
+              odpop="--zmienione-od-poprzedniego=$RUNNER_TEMP/od-poprzedniego.txt"
+              echo "Zmienione od poprzedniego wypchnięcia:"; cat "$RUNNER_TEMP/od-poprzedniego.txt"
             fi
-            # Usunięte sceny pomijamy.
-            istniejace=""
-            for s in $sceny; do [ -f "tools/scenes/$s.html" ] && istniejace="$istniejace $s"; done
-            sceny="$istniejace"
+            node tools/media-plan.cjs --zmienione="$RUNNER_TEMP/zmienione.txt" $odpop > "$plik"
           fi
-          for s in $sceny; do
-            printf '%s\n' "$s" | grep -Eqx '[a-z0-9]+(-[a-z0-9]+)*' || { echo "Zła nazwa sceny: $s" >&2; exit 1; }
-            [ -f "tools/scenes/$s.html" ] || { echo "Brak sceny: tools/scenes/$s.html" >&2; exit 1; }
-          done
-          case "$tryb" in kadr|film) ;; *) echo "Zły tryb: $tryb" >&2; exit 1 ;; esac
-          sceny=$(echo $sceny)
-          echo "sceny=$sceny" >> "$GITHUB_OUTPUT"
-          echo "tryb=$tryb" >> "$GITHUB_OUTPUT"
-          echo "Sceny: ${sceny:-brak} · tryb: $tryb"
+          echo "Plan renderu (scena tryb):"
+          cat "$plik"
+          if [ -s "$plik" ]; then echo "jest=1" >> "$GITHUB_OUTPUT"; else echo "jest=" >> "$GITHUB_OUTPUT"; fi
+          echo "plik=$plik" >> "$GITHUB_OUTPUT"
 
       - name: Chromium
-        if: steps.plan.outputs.sceny != ''
+        if: steps.plan.outputs.jest != ''
         run: npx playwright install --with-deps chromium
 
       - name: ffmpeg (instalacja tylko przy braku)
-        if: steps.plan.outputs.sceny != ''
+        if: steps.plan.outputs.jest != ''
         run: |
           if command -v ffmpeg >/dev/null 2>&1; then
             echo "ffmpeg jest w obrazie"
@@ -108,25 +108,23 @@ jobs:
           ffmpeg -version | head -1
 
       - name: Render
-        if: steps.plan.outputs.sceny != ''
+        if: steps.plan.outputs.jest != ''
         env:
-          SCENY: ${{ steps.plan.outputs.sceny }}
-          TRYB: ${{ steps.plan.outputs.tryb }}
+          PLAN: ${{ steps.plan.outputs.plik }}
         run: |
           set -eu
-          for s in $SCENY; do
-            if [ "$TRYB" = "kadr" ]; then
-              node tools/render-kadr.cjs "$s"
-            else
+          while read -r s tryb; do
+            if [ "$tryb" = "film" ]; then
               node tools/render-videos.cjs "$s"
+            else
+              node tools/render-kadr.cjs "$s"
             fi
-          done
+          done < "$PLAN"
 
-      - name: Wagi, limity (plan 3.5) i pliki artefaktu
-        if: steps.plan.outputs.sceny != ''
+      - name: Wagi, limity i pliki artefaktu
+        if: steps.plan.outputs.jest != ''
         env:
-          SCENY: ${{ steps.plan.outputs.sceny }}
-          TRYB: ${{ steps.plan.outputs.tryb }}
+          PLAN: ${{ steps.plan.outputs.plik }}
         run: |
           set -eu
           cel="$RUNNER_TEMP/media/public/assets/video"
@@ -142,21 +140,21 @@ jobs:
             echo "| \`$1\` | $b | $2 | $stan |" >> "$GITHUB_STEP_SUMMARY"
             cp "$1" "$cel/"
           }
-          for s in $SCENY; do
-            if [ "$TRYB" = "kadr" ]; then
-              sprawdz "public/assets/video/$s-kadr.jpg" 150000
-            else
+          while read -r s tryb; do
+            if [ "$tryb" = "film" ]; then
               sprawdz "public/assets/video/$s.mp4" 1100000
               sprawdz "public/assets/video/$s.webm" 700000
               sprawdz "public/assets/video/$s.jpg" 150000
+            else
+              sprawdz "public/assets/video/$s-kadr.jpg" 150000
             fi
-          done
+          done < "$PLAN"
           (cd "$RUNNER_TEMP/media" && find public -type f | sort | xargs sha256sum | tee SHA256SUMS)
           exit "$blad"
 
       # Także przy przekroczonym limicie, żeby dało się obejrzeć wynik.
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() && steps.plan.outputs.sceny != '' }}
+        if: ${{ !cancelled() && steps.plan.outputs.jest != '' }}
         with:
           name: media-${{ github.event.pull_request.head.sha || github.sha }}
           path: ${{ runner.temp }}/media/

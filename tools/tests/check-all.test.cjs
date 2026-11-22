@@ -26,7 +26,8 @@ test('check-all: po błędzie uruchamia pozostałe kroki, podsumowuje i kończy 
   assert.match(r.out, /BŁĄD\s+validate-dist \(kod 1\)/);
   assert.match(r.out, /BŁĄD\s+check-tresc \(kod 1\)/);
   assert.match(r.out, /POMINIĘTE\s+tests \(brak tools\/tests\)/);
-  assert.match(r.err, /2 z 5 kroków zawiodło: validate-dist, check-tresc/);
+  assert.match(r.err, /2 z 6 kroków zawiodło: validate-dist, check-tresc/);
+  assert.match(r.out, /POMINIĘTE\s+compare-film \(brak tools\/compare-film\.cjs\)/);
 });
 
 test('check-all: wszystkie kroki przechodzą — kod 0', () => {
