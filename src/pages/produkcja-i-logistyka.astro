@@ -1,0 +1,246 @@
+---
+// Etap 5 (T-013): tor Enterprise, produkcja i logistyka. Wejście przez płatny pilot z kryterium sukcesu (D-016, D-030).
+// Bez nazw własnych systemów (D-033). Cena pilota i warunki, które poda właściciel, są w src/data/oferta.mjs; dane jedynego pilotażu w produkcji w src/data/dowody.mjs
+// (klucz „pilotaz-produkcja”). Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Autor from '../components/Autor.astro';
+import { OFERTA, maWartosc, zKropka, BEZ_CENY_PILOTA } from '../data/oferta.mjs';
+import { wdrozenie } from '../data/dowody.mjs';
+import { BEZPIECZENSTWO } from '../data/bezpieczenstwo.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const pilotaz = wdrozenie('pilotaz-produkcja');
+const jestCenaPilota = maWartosc(OFERTA.cenaPilota);
+// Liczba z pilotażu tylko po zgodzie na jej publikację (D-034): przy innej wartości niż true nie zostaje po niej ślad.
+const pokazWynikPilotazu = pilotaz.zgodaNaWynik === true;
+
+const pytania = [
+  {
+    pytanie: 'Ile kosztuje pilot?',
+    odpowiedz: jestCenaPilota
+      ? `Stałą kwotę: ${OFERTA.cenaPilota.trim()}. Ustalamy ją przed startem.`
+      : `${BEZ_CENY_PILOTA}. Jest stała i ustalamy ją przed startem.`,
+  },
+  {
+    pytanie: 'Ile kosztuje pakiet po pilocie?',
+    odpowiedz: 'Cenę pakietu podajemy po pilocie, gdy znamy wynik i zakres dalszej pracy.',
+  },
+  {
+    pytanie: 'Czy musimy wymieniać system ERP albo system magazynowy?',
+    odpowiedz: 'Nie. Łączymy systemy, na których pracujecie. Jeśli żadna droga łączenia nie jest możliwa, mówimy to na konsultacji.',
+  },
+  {
+    pytanie: 'Kto po naszej stronie musi być zaangażowany?',
+    odpowiedz: 'Osoba, która zna proces na linii albo zmianie, oraz osoba z IT, która nada dostęp. Wyjątki zatwierdza ktoś po Waszej stronie, według progów ustalonych z Wami.',
+  },
+  {
+    pytanie: 'Ile macie wdrożeń w produkcji?',
+    odpowiedz: 'Jeden pilotaż w zakładzie produkcyjnym. Opisujemy go wyżej.',
+  },
+  ...(maWartosc(OFERTA.zastepstwoWPilocie)
+    ? [{ pytanie: 'Co, jeśli osoba prowadząca pilot będzie niedostępna?', odpowiedz: OFERTA.zastepstwoWPilocie.trim() }]
+    : []),
+  {
+    pytanie: 'Gdzie będą przetwarzane dane zakładu?',
+    odpowiedz: 'Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem. Odpowiedzi dla działu IT są na stronie Dane i bezpieczeństwo.',
+    odnosnik: { href: 'dane-i-bezpieczenstwo.html', tekst: 'Dane i bezpieczeństwo' },
+  },
+  {
+    pytanie: 'Co po zakończeniu pilota?',
+    odpowiedz: 'Monitoring i czas reakcji w dalszej współpracy zapisujemy w umowie pakietu.',
+  },
+];
+---
+<PodstronaLayout
+  plik="produkcja-i-logistyka.html"
+  tytul="Automatyzacja w produkcji i logistyce: pilot | REVAGY"
+  opis="Płatny pilot na jednej linii albo zmianie: 14 dni, kryterium sukcesu ustalone przed startem, stała cena. Umów bezpłatną konsultację."
+  okruszek="Produkcja i logistyka"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Pilot automatyzacji raportowania i przepływu danych w produkcji i logistyce',
+    opis: 'Płatny pilot na jednej linii albo jednej zmianie: 14 dni, jeden proces, kryterium sukcesu zapisane w umowie przed startem i stała cena. Cenę pakietu podajemy po pilocie.',
+    rodzaj: 'Pilot automatyzacji',
+  }}
+  pytania={pytania}
+  film="produkcja-i-logistyka"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Najpierw 14 dni na jednej linii. Potem decyzja.</h1>
+      <p class="lead">W zakładzie produkcyjnym albo magazynie zaczynamy od płatnego pilota na jednej linii albo jednej zmianie. Kryterium sukcesu zapisujemy przed startem, a cena pilota jest stała.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#pilot">Zobacz zakres pilota</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section wrap" id="problem">
+    <header class="section-head reveal">
+      <h2 class="h2">Gdzie na hali i w magazynie uciekają godziny</h2>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Raport zmianowy sklejany ręcznie</h3>
+        <p>Kierownik zmiany zbiera dane z kilku miejsc i przepisuje je do jednego arkusza. Raport jest gotowy dużo później, niż kończy się zmiana.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Te same dane w kilku systemach</h3>
+        <p>Zlecenie, stan i przesunięcie magazynowe wpisuje się do systemu ERP, do systemu magazynowego i jeszcze do arkusza. Każde przepisanie to miejsce na błąd.</p>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Każdy system pokazuje inną liczbę</h3>
+        <p>Zarząd dostaje dwa różne stany tej samej rzeczy. Wyjaśnianie różnic zajmuje czas, który miał iść na decyzje.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="pilot">
+    <header class="section-head reveal">
+      <h2 class="h2">Co obejmuje pilot</h2>
+      <p class="lead">Pilot to osobna, płatna umowa z jasnym końcem. Nie kupujecie pakietu, zanim nie zobaczycie wyniku na własnej hali.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Parametr</th><th scope="col">Ustalenie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Czas</td><td>14 dni</td></tr>
+          <tr><td>Zakres</td><td>Jedna linia albo jedna zmiana. Jeden proces, na przykład raport zmianowy albo przepływ danych z hali do systemu ERP.</td></tr>
+          <tr><td>Kryterium sukcesu</td><td>Ustalone z Wami i zapisane w umowie przed startem.</td></tr>
+          <tr><td>Cena</td><td>{jestCenaPilota ? `Stała: ${zKropka(OFERTA.cenaPilota)}` : `${BEZ_CENY_PILOTA}.`}</td></tr>
+          <tr><td>Dane</td><td>Umowę powierzenia podpisujemy przed startem prac. Integracja dostaje minimalny zakres dostępu.</td></tr>
+          <tr><td>Po pilocie</td><td>Oceniamy wynik według kryterium. Jeśli chcecie iść dalej, podajemy cenę pakietu.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal"><strong>Pilot nie obejmuje:</strong> więcej niż jednej linii albo zmiany, wymiany systemów, pracy bez dostępu do systemów, których dotyczy proces.</p>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Jedna linia, jeden proces, jedno kryterium</h2>
+      <p class="lead">Pilot zaczyna się od dostępu do systemów i zapisanego kryterium sukcesu. Potem dane z hali trafiają do raportu bez przepisywania. Na końcu porównujemy wynik z kryterium i decydujecie, co dalej.</p>
+      <ul class="ticks">
+        <li>Dzień 1: dostęp do systemów i kryterium sukcesu zapisane w umowie</li>
+        <li>Dane z hali trafiają do raportu bez przepisywania</li>
+        <li>Raport zmianowy składa się sam, wyjątki trafiają do kierownika zmiany</li>
+        <li>Dzień 14: wynik porównany z kryterium i decyzja</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="produkcja-i-logistyka" />
+  </section>
+
+  <section class="section wrap" id="kryteria">
+    <header class="section-head reveal">
+      <h2 class="h2">Przykładowe kryteria sukcesu do umowy</h2>
+      <p class="lead">Wybieramy jedno albo dwa kryteria. Wartość bazową mierzymy przed startem, próg ustalamy razem z Wami. Oba trafiają do umowy pilota.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Kryterium</th><th scope="col">Jak mierzymy</th><th scope="col">Wartość bazowa</th><th scope="col">Próg sukcesu</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Czas przygotowania raportu zmianowego</td><td>Od końca zmiany do chwili, gdy raport jest gotowy do odczytu</td><td>Pomiar na kilku zmianach przed startem</td><td>Ustalony z Wami przed startem</td></tr>
+          <tr><td>Ręczne przepisywanie</td><td>Liczba pozycji wpisywanych ręcznie do drugiego systemu albo arkusza w trakcie jednej zmiany</td><td>Liczenie przed startem</td><td>Ustalony z Wami przed startem</td></tr>
+          <tr><td>Zgodność danych</td><td>Liczba rozbieżności między raportem a systemem źródłowym, z listą wyjątków do wyjaśnienia</td><td>Porównanie przed startem</td><td>Ustalony z Wami przed startem</td></tr>
+          <tr><td>Kontrola zapisów</td><td>Każdy zapis ma wpis w dzienniku. Integracja nie zapisuje niczego poza uzgodnionym zakresem dostępu</td><td>Nie dotyczy</td><td>Warunek konieczny</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {maWartosc(OFERTA.skutekNieosiagnieciaKryterium) && (
+      <p class="lead uwaga reveal">{zKropka(`Jeśli kryterium nie zostanie osiągnięte: ${OFERTA.skutekNieosiagnieciaKryterium}`)}</p>
+    )}
+  </section>
+
+  <section class="section wrap" id="dowod">
+    <header class="section-head reveal">
+      <h2 class="h2">Co już mamy z produkcji</h2>
+      <p class="lead">Mówimy to wprost: z produkcji mamy jeden pilotaż, w jednym zakładzie produkcyjnym. Dlatego wejściem jest pilot, a nie pakiet.</p>
+    </header>
+    <OpisWdrozenia id="pilotaz-produkcja" tytul="Zakład produkcyjny">
+      <p><strong>Sytuacja:</strong> przygotowanie raportu zmianowego.</p>
+      {maWartosc(OFERTA.kategorieSystemowPilotazu) && (
+        <p><strong>Co połączyliśmy:</strong> {zKropka(OFERTA.kategorieSystemowPilotazu)}</p>
+      )}
+      {pokazWynikPilotazu && (
+        <p><strong>Wynik:</strong> przygotowanie raportu zmianowego z ok. 6 godzin do ok. 10 minut.</p>
+      )}
+    </OpisWdrozenia>
+  </section>
+
+  <section class="section wrap" id="dzial-it">
+    <header class="section-head reveal">
+      <h2 class="h2">Co dostaje Wasz dział IT</h2>
+      <p class="lead">Zasady dostępu, dziennika zapisów, umowy powierzenia i ubezpieczenia opisujemy na stronie <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>. Tam są też pytania, które dział IT zwykle zadaje przed pilotem.</p>
+      <p>Systemy zakładu łączymy jedną z trzech dróg:</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Droga</th><th scope="col">Kiedy</th><th scope="col">Ograniczenie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Interfejs API</td><td>System udostępnia interfejs dla innych programów</td><td>Limity zapytań i zmiany wersji po stronie dostawcy</td></tr>
+          <tr><td>Wymiana plików</td><td>System eksportuje i importuje pliki</td><td>Dane docierają przy kolejnym przebiegu, nie natychmiast</td></tr>
+          <tr><td>Dostęp do bazy danych</td><td>Nie ma interfejsu ani eksportu</td><td>Tylko za pisemną zgodą dostawcy, tylko do odczytu</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal"><strong>Kiedy się nie da.</strong> Program bez eksportu, którego dostawca nie zgadza się na dostęp do danych, albo licencja, która zakazuje łączenia. Mówimy to na konsultacji, zanim podpiszecie umowę pilota. Szczegóły dróg łączenia: <a class="link-btn" href="integracja-systemow.html">Integracja systemów</a>.</p>
+    {maWartosc(BEZPIECZENSTWO.wdrozenieUKlienta) && <p class="lead uwaga reveal">{BEZPIECZENSTWO.wdrozenieUKlienta}</p>}
+  </section>
+
+  {maWartosc(OFERTA.zdanieRozdzialDanych) && (
+    <section class="section wrap" id="rozdzial-danych">
+      <header class="section-head reveal">
+        <h2 class="h2">Wasze dane zostają w REVAGY</h2>
+        <p class="lead">{OFERTA.zdanieRozdzialDanych.trim()}</p>
+      </header>
+    </section>
+  )}
+
+  <section class="section wrap" id="kroki">
+    <header class="section-head reveal">
+      <h2 class="h2">Od rozmowy do decyzji</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut: wybieramy linię albo zmianę i sprawdzamy, czy da się połączyć systemy.</li>
+      <li>Umowa pilota: zakres, kryterium sukcesu, wartość bazowa i stała cena, a do tego umowa powierzenia.</li>
+      <li>Pilot: 14 dni na jednej linii albo jednej zmianie.</li>
+      <li>Decyzja: porównujemy wynik z kryterium, a jeśli chcecie iść dalej, podajemy cenę pakietu.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania dyrektora operacyjnego</h2>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Wybierzmy jedną linię albo jedną zmianę</h2>
+        <p class="lead">Na bezpłatnej konsultacji, w 25 minut, sprawdzimy, czy Wasz proces nadaje się na pilot i jakie kryterium sukcesu da się zapisać w umowie.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
