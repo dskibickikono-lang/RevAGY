@@ -109,9 +109,17 @@
       "sha256": "ebe239ce5b64b3be1a14c7993364cb57ec13d2b3f31fba03e03eec2a0152879f",
       "size": 254493
     },
-    "assets/video/dla-firm-kadr.jpg": {
-      "sha256": "1fcd9de6701d2c67d739f21164c3d87f96d0a5ed9545fba8126f6cbabb3b77d8",
-      "size": 114441
+    "assets/video/dla-firm.jpg": {
+      "sha256": "861129ff0274ae58929cffc855d30f59f9a3bbda12f1a3c3ea7992f07585e714",
+      "size": 112424
+    },
+    "assets/video/dla-firm.mp4": {
+      "sha256": "2c833545260835d2c13cbe12b2c7683b08a56c49d5b5fc48a55ebd05eb60bb24",
+      "size": 306200
+    },
+    "assets/video/dla-firm.webm": {
+      "sha256": "86b9f19d6b63cb417b18eae4ff4f2266f96522abc514ca5373294994a9f18cff",
+      "size": 347638
     },
     "assets/video/hero-flow.jpg": {
       "sha256": "ba755d3bf5c922b159a3a994d7073775973b474cc371f7317152e8610965a84b",
@@ -180,8 +188,8 @@
       "size": 22790
     },
     "dla-firm.html": {
-      "sha256": "0e87bd3c608e49044465dd7ffff2c202923e935121c2999ec2b2c2401f69ea3b",
-      "size": 23490
+      "sha256": "d8e43a92bbb52ee88ce41419d4d618a796e78969a15e70c1079c9119fe27eed9",
+      "size": 24640
     },
     "index.html": {
       "sha256": "1a02dd017075e3957b0905561484086c2c48a56453454b18884aa120bf0efff8",
@@ -2419,6 +2427,52 @@
           "aria": {}
         },
         {
+          "tag": "video",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-autoplay": "",
+            "data-main-video": ""
+          },
+          "aria": {
+            "aria-label": "Animacja: od konsultacji do opieki, cztery kroki współpracy"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-video-toggle": ""
+          },
+          "aria": {
+            "aria-label": "Wstrzymaj film",
+            "aria-pressed": "false"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
           "tag": "section",
           "id": "pakiety",
           "name": null,
@@ -3224,7 +3278,26 @@
           "text": "kontakt@revagy.pl"
         }
       ],
-      "videos": [],
+      "videos": [
+        {
+          "class": null,
+          "poster": "assets/video/dla-firm.jpg",
+          "preload": "none",
+          "dataAutoplay": true,
+          "dataMainVideo": true,
+          "ariaLabel": "Animacja: od konsultacji do opieki, cztery kroki współpracy",
+          "sources": [
+            {
+              "src": "assets/video/dla-firm.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "assets/video/dla-firm.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        }
+      ],
       "calculator": null,
       "localRefs": [
         {
@@ -3378,9 +3451,19 @@
           "val": "wdrozenia.html"
         },
         {
-          "tag": "img",
+          "tag": "video",
+          "attr": "poster",
+          "val": "assets/video/dla-firm.jpg"
+        },
+        {
+          "tag": "source",
           "attr": "src",
-          "val": "assets/video/dla-firm-kadr.jpg"
+          "val": "assets/video/dla-firm.webm"
+        },
+        {
+          "tag": "source",
+          "attr": "src",
+          "val": "assets/video/dla-firm.mp4"
         },
         {
           "tag": "a",
@@ -3530,7 +3613,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dla-firm.html#strona\",\"url\":\"https://revagy.pl/dla-firm.html\",\"name\":\"Dla firm\",\"headline\":\"Automatyzacja dla firm 5–250 osób: pakiety | REVAGY\",\"description\":\"Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dla-firm.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dla firm\",\"item\":\"https://revagy.pl/dla-firm.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dla-firm.html#usluga\",\"name\":\"Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób\",\"description\":\"Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/dla-firm.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dla-firm.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Od czego zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. Cenę pakietu podajemy po audycie.\"}},{\"@type\":\"Question\",\"name\":\"Co jeśli się rozmyślimy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.\"}},{\"@type\":\"Question\",\"name\":\"Czy trzeba wymieniać systemy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi mieć czas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.\"}},{\"@type\":\"Question\",\"name\":\"Ile trwa pierwsze wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dla-firm.html#strona\",\"url\":\"https://revagy.pl/dla-firm.html\",\"name\":\"Dla firm\",\"headline\":\"Automatyzacja dla firm 5–250 osób: pakiety | REVAGY\",\"description\":\"Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dla-firm.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dla firm\",\"item\":\"https://revagy.pl/dla-firm.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dla-firm.html#usluga\",\"name\":\"Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób\",\"description\":\"Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/dla-firm.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dla-firm.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Od czego zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. Cenę pakietu podajemy po audycie.\"}},{\"@type\":\"Question\",\"name\":\"Co jeśli się rozmyślimy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.\"}},{\"@type\":\"Question\",\"name\":\"Czy trzeba wymieniać systemy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi mieć czas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.\"}},{\"@type\":\"Question\",\"name\":\"Ile trwa pierwsze wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/dla-firm.html#film\",\"name\":\"Cztery kroki współpracy: od konsultacji do opieki\",\"description\":\"Konsultacja kończy się kartą procesu, audyt raportem z zakresem wdrożenia, wdrożenie działającym przepływem między systemami, a opieka monitoringiem i raportem okresowym. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/dla-firm.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/dla-firm.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT12S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"}}]}",
           "attrs": [
             "type"
           ]

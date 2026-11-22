@@ -4,10 +4,19 @@
 <meta charset="utf-8">
 <title>Scena: od konsultacji do opieki, cztery kroki współpracy</title>
 <link rel="stylesheet" href="scene.css">
-<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
-     z chwili POSTER_AT = 11 s scenariusza (cztery szczeble obok siebie:
-     karta procesu, raport z audytu, działający przepływ, monitoring i raport okresowy).
-     Etap filmowy F1 doda oś czasu w window.render(t). Dane poglądowe, bez kwot i bez nazw własnych. -->
+<!-- Film F3 (D-022, D-032, D-038): co klient dostaje na każdym z czterech szczebli współpracy.
+     12 s w pętli, 30 kl./s, 1600×900. Cztery znaczniki kroków i cztery panele są widoczne cały czas,
+     treść paneli ma od początku zarezerwowane miejsce (pojawia się przez przezroczystość i przesunięcie).
+     Oś czasu, cztery ujęcia po 2,4 s:
+       0,3–2,7 s   zapala się „Konsultacja”, karta procesu wypełnia się wiersz po wierszu;
+       2,7–5,1 s   zapala się „Audyt”, raport: cztery kroki mapy procesu, wyróżniony krok, zakres wdrożenia;
+       5,1–7,5 s   zapala się „Wdrożenie”, źródło, kontrola, cel, znacznik przechodzi, odznaka „działa”;
+       7,5–9,9 s   zapala się „Opieka”, wykres przebiegów rysuje się, raport okresowy wypełnia się;
+       9,9–11,0 s  wszystkie cztery szczeble w stanie końcowym;
+       11,0–11,4 s treść paneli i znaczniki gasną, 11,4–12 s stan jak w 0 s.
+     Kadr startowy (POSTER_AT = 10,5 s) ma tę samą kompozycję co wcześniejszy kadr -kadr.jpg.
+     Tło jest nieruchome (poświaty w położeniu z 11 s szkieletu), żeby film był lekki i pętla nie skakała.
+     Dane poglądowe, bez kwot i bez nazw własnych. -->
 <style>
   #stage { width: 1600px; height: 900px; }
   .g1 { width: 760px; height: 760px; background: var(--accent); left: -280px; top: 440px; opacity: .42; }
@@ -66,6 +75,15 @@
   .report span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
   .report i { display: block; height: 10px; border-radius: 999px; background: var(--mist-2); }
   .report i.w1 { width: 92%; } .report i.w2 { width: 74%; } .report i.w3 { width: 58%; }
+
+  /* oś czasu: stany pośrednie (kolory znaczników, obwódka panelu i wyróżnienie liczy render(t)) */
+  .step { color: var(--dim); }
+  .step i { background: var(--night-3); }
+  .step i svg { opacity: 0; }
+  .card { outline: 2px solid transparent; outline-offset: 5px; }
+  .node.hot::before { background: var(--dot, var(--accent)); }
+  .report i { transform-origin: 0 50%; transform: scaleX(0); }
+  .pkt { position: absolute; left: 50%; top: 0; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 5px rgba(255, 91, 20, .35); opacity: 0; }
 </style>
 </head>
 <body>
@@ -75,57 +93,57 @@
 
   <div class="app">
     <div class="rail" aria-hidden="true">
-      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Konsultacja</div>
-      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Audyt</div>
-      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Wdrożenie</div>
-      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Opieka</div>
+      <div class="step" id="step-0"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Konsultacja</div>
+      <div class="step" id="step-1"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Audyt</div>
+      <div class="step" id="step-2"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Wdrożenie</div>
+      <div class="step" id="step-3"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Opieka</div>
     </div>
 
     <div class="cols">
-      <section class="card paper">
+      <section id="card-0" class="card paper">
         <div class="bar"><b>Karta procesu</b><span class="tag">zostaje u Ciebie</span></div>
         <div class="body">
-          <div class="row"><span>Proces</span><b>Wprowadzanie zamówień z e-maili</b></div>
-          <div class="row"><span>Gdzie się przepisuje</span><b>Z poczty do systemu ERP</b></div>
-          <div class="row"><span>Metryka bazowa</span><b>Ile razy w tygodniu, ile minut, ile poprawek</b></div>
-          <div class="row"><span>Pierwszy krok</span><b>Zamówienie z e-maila trafia do ERP samo</b></div>
+          <div class="row t" data-at="0.6" data-out="11"><span>Proces</span><b>Wprowadzanie zamówień z e-maili</b></div>
+          <div class="row t" data-at="1.0" data-out="11"><span>Gdzie się przepisuje</span><b>Z poczty do systemu ERP</b></div>
+          <div class="row t" data-at="1.4" data-out="11"><span>Metryka bazowa</span><b>Ile razy w tygodniu, ile minut, ile poprawek</b></div>
+          <div class="row t" data-at="1.8" data-out="11"><span>Pierwszy krok</span><b>Zamówienie z e-maila trafia do ERP samo</b></div>
         </div>
       </section>
 
-      <section class="card">
+      <section id="card-1" class="card">
         <div class="bar"><b>Raport z audytu</b><span class="tag">mapa procesu</span></div>
         <div class="body">
           <div class="map">
-            <div class="node">E-mail z zamówieniem</div>
-            <div class="node hot">Przepisanie do ERP</div>
-            <div class="node">Potwierdzenie dla klienta</div>
-            <div class="node">Raport sprzedaży</div>
+            <div class="node t" data-at="3.0" data-out="11" data-dy="12">E-mail z zamówieniem</div>
+            <div class="node hot t" id="hot" data-at="3.3" data-out="11" data-dy="12">Przepisanie do ERP</div>
+            <div class="node t" data-at="3.6" data-out="11" data-dy="12">Potwierdzenie dla klienta</div>
+            <div class="node t" data-at="3.9" data-out="11" data-dy="12">Raport sprzedaży</div>
           </div>
-          <div class="scope"><span>Zakres wdrożenia</span><b>Automatyczny zapis zamówień w ERP</b></div>
+          <div class="scope t" data-at="4.5" data-out="11"><span>Zakres wdrożenia</span><b>Automatyczny zapis zamówień w ERP</b></div>
         </div>
       </section>
 
-      <section class="card">
+      <section id="card-2" class="card">
         <div class="bar"><b>Działający przepływ</b><span class="tag">wdrożenie</span></div>
         <div class="body">
-          <div class="sys"><span>źródło</span><b>Poczta firmowa</b></div>
-          <div class="flow"><em>kontrola przed zapisem</em></div>
-          <div class="sys"><span>cel</span><b>System ERP</b></div>
-          <span class="ok">działa</span>
+          <div class="sys t" data-at="5.4" data-out="11"><span>źródło</span><b>Poczta firmowa</b></div>
+          <div class="flow t" data-at="5.8" data-out="11" data-dy="0"><span class="pkt" id="pkt"></span><em>kontrola przed zapisem</em></div>
+          <div class="sys t" data-at="6.2" data-out="11"><span>cel</span><b>System ERP</b></div>
+          <span class="ok t" data-at="7.1" data-out="11" data-dy="8" data-sc="0.9">działa</span>
         </div>
       </section>
 
-      <section class="card">
+      <section id="card-3" class="card">
         <div class="bar"><b>Opieka</b><span class="tag">monitoring</span></div>
         <div class="body">
-          <div class="chart">
+          <div class="chart t" data-at="7.8" data-out="11">
             <span>Przebiegi przepływu</span>
             <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 96 L30 84 L60 88 L90 70 L120 74 L150 58 L180 62 L210 46 L240 50 L270 36 L300 40" fill="none" stroke="#19b77a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path id="line" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" d="M0 96 L30 84 L60 88 L90 70 L120 74 L150 58 L180 62 L210 46 L240 50 L270 36 L300 40" fill="none" stroke="#19b77a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M0 112 H300" stroke="rgba(255,255,255,.13)" stroke-width="2"/>
             </svg>
           </div>
-          <div class="report"><span>Raport okresowy</span><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
+          <div class="report t" data-at="8.9" data-out="11"><span>Raport okresowy</span><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
         </div>
       </section>
     </div>
@@ -136,19 +154,69 @@
 <script>
 window.DURATION = 12;
 window.SIZE = [1600, 900];
-// Kadr startowy filmu: 11 s scenariusza (D-038). Ten sam moment daje kadr przed filmem.
-window.POSTER_AT = 11;
+// Kadr startowy filmu: 10,5 s (D-038): wszystkie cztery szczeble w stanie końcowym, jak na kadrze -kadr.jpg.
+window.POSTER_AT = 10.5;
+const { prog, lerp, apply } = TL;
 const TAU = Math.PI * 2;
-const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
 
-// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+// Poświaty nieruchome, w położeniu z chwili 11 s szkieletu kadru (ten sam wygląd tła co -kadr.jpg).
+['g1', 'g2', 'g3'].forEach((id, i) => {
+  const a = TAU * 11 / 12 + i * 2.1;
+  document.getElementById(id).style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+});
+
+// Początki czterech ujęć (s). Ujęcie k zapala znacznik kroku k i wypełnia panel k.
+const UJECIA = [0.3, 2.7, 5.1, 7.5];
+const WYGASZENIE = 11;
+const kroki = UJECIA.map((_, k) => document.getElementById(`step-${k}`));
+const panele = UJECIA.map((_, k) => document.getElementById(`card-${k}`));
+const hot = document.getElementById('hot');
+const pkt = document.getElementById('pkt');
+const linia = document.getElementById('line');
+const paski = [...document.querySelectorAll('.report i')];
+
+const mix = (a, b, p) => a.map((v, i) => lerp(v, b[i], p));
+const rgba = ([r, g, b, a]) => `rgba(${r.toFixed(0)}, ${g.toFixed(0)}, ${b.toFixed(0)}, ${a.toFixed(3)})`;
+const NOC = [46, 41, 48, 1], AKCENT = [255, 91, 20, 1];        // --night-3 → --accent
+const PRZYGASZONY = [185, 178, 187, 1], BIALY = [255, 255, 255, 1]; // --dim → #fff
+const LINIA = [255, 255, 255, 0.13], GORACA = [255, 91, 20, 0.7];  // --line → obramowanie .node.hot
+const SZARY = [185, 178, 187, 1];                                   // --dim → --accent (kropka)
+
 window.render = (t) => {
   const T = window.DURATION;
   t = ((t % T) + T) % T;
-  glows.forEach((g, i) => {
-    const a = TAU * t / T + i * 2.1;
-    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  apply(t);
+  const gasnie = 1 - prog(t, WYGASZENIE, 0.4);
+
+  // znaczniki kroków: zapalenie (kolor kółka, ptaszek, napis) i krótki pierścień w chwili zapalenia
+  UJECIA.forEach((od, k) => {
+    const p = prog(t, od, 0.5) * gasnie;
+    const krok = kroki[k];
+    krok.style.color = rgba(mix(PRZYGASZONY, BIALY, p));
+    const kolko = krok.querySelector('i');
+    kolko.style.background = rgba(mix(NOC, AKCENT, p));
+    kolko.querySelector('svg').style.opacity = p.toFixed(4);
+    const q = prog(t, od, 0.3) * (1 - prog(t, od + 0.3, 0.7));
+    kolko.style.boxShadow = `0 0 0 ${(8 * q).toFixed(2)}px rgba(255, 91, 20, ${(0.35 * q).toFixed(3)})`;
+
+    // obwódka panelu, który właśnie się wypełnia (gaśnie przed końcem ujęcia)
+    const o = prog(t, od, 0.4) * (1 - prog(t, od + 2.0, 0.4));
+    panele[k].style.outlineColor = `rgba(255, 91, 20, ${(0.6 * o).toFixed(3)})`;
   });
+
+  // audyt: krok z przepisywaniem zostaje wyróżniony po pojawieniu się całej mapy
+  const h = prog(t, 4.2, 0.4);
+  hot.style.borderColor = rgba(mix(LINIA, GORACA, h));
+  hot.style.setProperty('--dot', rgba(mix(SZARY, AKCENT, h)));
+
+  // wdrożenie: znacznik przechodzi ze źródła do celu przez kontrolę
+  const z = Math.min(1, Math.max(0, (t - 6.5) / 0.6));
+  pkt.style.opacity = (t >= 6.5 && t < 7.1 ? Math.sin(Math.PI * z) : 0).toFixed(3);
+  pkt.style.transform = `translateY(${lerp(0, 40, z).toFixed(1)}px)`;
+
+  // opieka: wykres przebiegów rysuje się, potem paski raportu okresowego
+  linia.style.strokeDashoffset = (1 - prog(t, 8.0, 1.2)).toFixed(4);
+  paski.forEach((el, i) => { el.style.transform = `scaleX(${prog(t, 9.2 + 0.2 * i, 0.6).toFixed(4)})`; });
 };
 TL.live(window.render, window.DURATION);
 </script>
