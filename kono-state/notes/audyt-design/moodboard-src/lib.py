@@ -3,7 +3,8 @@ import base64, io, json, os, html
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EV = os.path.join(ROOT, 'moodboard-evidence')
+EVDIR = os.environ.get('EVDIR', 'moodboard-evidence')
+EV = os.path.join(ROOT, EVDIR)
 MAN = json.load(open(os.path.join(EV, 'manifest.json'))) if os.path.exists(os.path.join(EV, 'manifest.json')) else {'screens': [], 'styles': {}, 'sites': {}}
 SCREENS = {s['id']: s for s in MAN.get('screens', [])}
 _used = []
@@ -34,7 +35,7 @@ def fig(screen_id, caption, alt, width=900, quality=58, crop=None, crop_label=No
     if crop_label:
         meta += f" · {esc(crop_label)}"
     return (f'<figure><button type="button" class="shot" data-id="{esc(fid)}" data-title="{esc(s.get("site",""))}" '
-            f'data-orig="moodboard-evidence/{esc(s["screenshot"])}" data-url="{esc(s["url"])}" aria-label="Powiększ zrzut: {esc(alt)}">'
+            f'data-orig="{EVDIR}/{esc(s["screenshot"])}" data-url="{esc(s["url"])}" aria-label="Powiększ zrzut: {esc(alt)}">'
             f'<img src="{src}" alt="{esc(alt)}" loading="lazy"></button>'
             f'<figcaption><b>{caption}</b><br>{meta}</figcaption></figure>')
 

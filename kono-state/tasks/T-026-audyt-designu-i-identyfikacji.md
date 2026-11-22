@@ -3,7 +3,7 @@ id: T-026
 title: Audyt designu i identyfikacji wizualnej REVAGY (tylko analiza)
 channel: pm-local
 requested_by: owner
-status: czeka-na-wybor-wlasciciela
+status: czeka-na-akceptacje-planu-A1
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/trusting-shannon-g9jhj1
@@ -11,7 +11,7 @@ base: main (43efbf5 — stan badany; gałąź odświeżana po każdym scaleniu)
 depends_on: —
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/38 (moodboard; wcześniejsze części scalone w #32 i #34)
 sha: fb1a746 (moodboard i rozdziały 7–8 raportu); wcześniej 2bd7b4c (#32), d554004 (#34)
-decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033, D-034, D-040]
+decisions: [D-002, D-003, D-005, D-015, D-018, D-021, D-022, D-027, D-031, D-033, D-034, D-040, D-044, D-045]
 ---
 
 # T-026 — Audyt designu i identyfikacji wizualnej REVAGY
@@ -46,6 +46,15 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
    cztery kierunki. **Zatrzymane na wyborze kierunku.**
 5. Raport `kono-state/notes/audyt-design.md`.
 
+## Wybór właściciela i pogłębienie (22.11.2026)
+
+- Właściciel wybrał kierunek **A — Scena wszędzie** (odpowiedź „A”).
+- Krok 6 skilla `visual-direction-research`: `kierunek-a-studium.html` — 10 dodatkowych stron Automation House i Mercury
+  (po pięć typów stron), sceny REVAGY z lokalnego buildu (`main` da8d1ae), 51 zrzutów, pomiar rytmu jasnych i ciemnych
+  ekranów, trzy wzory pierwszego ekranu, scena dowodu, brief, plan etapów A0–A3.
+- Kodu strony nie zmieniałem. Plan czeka na akceptację (reguła: plan, potem stop).
+- Wpisu do rejestru decyzji nie zrobiłem: zgoda z góry obejmowała kartę i pliki raportu. Wpis jest etapem A0 planu.
+
 ## Pliki wynikowe
 
 - `kono-state/notes/audyt-design.md` — raport główny (8 rozdziałów, 24 pozycje listy zmian).
@@ -55,7 +64,9 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
 - `kono-state/notes/audyt-design/zrzuty/` — zrzuty stron, klatki filmów (8 MB).
 - `kono-state/notes/audyt-design/design-evidence/` — migawki stylów, pomiary, manifest (4,5 MB).
 - `kono-state/notes/audyt-design/moodboard-evidence/` — zrzuty i pomiary stron referencyjnych (3,3 MB).
-- `kono-state/notes/audyt-design/moodboard-src/` — skrypty do odtworzenia moodboardu.
+- `kono-state/notes/audyt-design/kierunek-a-studium.html` — pogłębione studium kierunku A z planem zmian.
+- `kono-state/notes/audyt-design/kierunek-a-evidence/` — zrzuty i pomiary do studium (1,8 MB).
+- `kono-state/notes/audyt-design/moodboard-src/` — skrypty do odtworzenia moodboardu i studium.
 
 ## Wynik w skrócie
 
@@ -86,7 +97,7 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
 
 ## Otwarte, do właściciela
 
-1. Wybór kierunku: A, B, C, D albo połączenie.
+1. Akceptacja etapu A1 (pilot na `integracja-systemow`) i wpisu wyboru do rejestru (A0).
 2. Zgoda na pozycje P0, które dotykają strony głównej (baner zgody, menu, taśma nazw); film „agent-demo” to wykonanie D-027.
 3. Ocena `komponenty.md` v1; po niej pytanie o pakiet dla agenta.
 4. Kolizja numerów: dwie karty T-024 i dwie T-025 w `kono-state/tasks/` z innych sesji.

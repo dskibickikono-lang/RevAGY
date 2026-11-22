@@ -8,7 +8,8 @@ Materiały:
 
 - [DESIGN.md](audyt-design/DESIGN.md) — styl, tokeny, typografia, kolory, komponenty, każda wartość z dowodem.
 - [komponenty.md](audyt-design/komponenty.md) — 22 rodziny komponentów, warianty, niespójności, dostępność (v1, do oceny).
-- [moodboard.html](audyt-design/moodboard.html) — kierunki rozwoju na tle konkurencji. **Czeka na Twój wybór.**
+- [moodboard.html](audyt-design/moodboard.html) — kierunki rozwoju na tle konkurencji. Wybrany kierunek: **A — Scena wszędzie** (22.11.2026).
+- [kierunek-a-studium.html](audyt-design/kierunek-a-studium.html) — pogłębione studium kierunku A z planem zmian. **Czeka na Twoją akceptację etapu A1.**
 - [zrzuty/](audyt-design/zrzuty/) — wszystkie strony na obu szerokościach, klatki filmów.
 - [design-evidence/](audyt-design/design-evidence/) — migawki stylów i [pomiary-dodatkowe.json](audyt-design/design-evidence/pomiary-dodatkowe.json).
 
@@ -180,8 +181,7 @@ Moja rekomendacja, niezatwierdzona: **B + C**. Papier, liczby i tekst do lewej r
 a schemat z węzłów-kategorii daje podstronom własny obraz, który już istnieje w hero i zamienia D-033 w zasadę rysunku.
 A zostaje tam, gdzie scena już jest (film, pasek końcowy). D dochodzi, gdy będzie zdjęcie.
 
-**Pytanie do Ciebie:** który kierunek wybierasz — A, B, C, D czy połączenie (na przykład „B + C”)?
-Po wyborze przygotuję pogłębione studium jednego kierunku i dopiero potem plan zmian do Twojej akceptacji.
+**Rozstrzygnięte 22.11.2026:** wybrałeś kierunek **A — Scena wszędzie**. Studium i plan są w rozdziale 9.
 
 ## 8. Ograniczenia audytu
 
@@ -191,3 +191,42 @@ Po wyborze przygotuję pogłębione studium jednego kierunku i dopiero potem pla
 - Podstron na telefonie poza „Integracją systemów” nie oglądałem w całości; opieram się tam na pomiarach.
 - Profilu LinkedIn (D-011) nie porównałem ze stroną — brak dostępu.
 - Ocena „co działa” i „co nie działa” jest oceną projektową opartą na pomiarach, nie wynikiem badań z użytkownikami ani danych o konwersji.
+
+## 9. Wybrany kierunek A i plan zmian
+
+Pełne studium: [kierunek-a-studium.html](audyt-design/kierunek-a-studium.html); 51 zrzutów i pomiary w
+[kierunek-a-evidence/](audyt-design/kierunek-a-evidence/). Obejrzałem po pięć typów stron Automation House i Mercury
+oraz własne sceny REVAGY.
+
+Co wyszło:
+
+- Udział ciemnych ekranów (kadry 1440×900 co 900 px, „ciemny” = średnia jasność poniżej 0,30): Automation House 100% na
+  każdym z pięciu typów stron; Mercury 67% na stronie głównej i 12–25% na podstronach, przy czym treść stron produktu
+  jest tam w całości jasna, a ciemne są przypisy prawne i stopka; REVAGY 33% na stronie głównej i 0 pełnych ciemnych
+  ekranów na podstronach.
+- Scenę na każdej podstronie ma w tej próbie tylko Automation House. Mercury daje zasadę umiaru, nie dowód.
+- REVAGY ma już siedem scen o tej samej geometrii (tło `#141114`, zaokrąglenie 40 px, 12 px od krawędzi okna).
+  Dwie z nich są pierwszym ekranem strony: na kontakcie i na 404. Wzór „sceny tytułowej” istnieje więc w kodzie.
+- Zaokrąglony kontener sceny jest znakiem rozpoznawczym REVAGY: obie strony referencyjne prowadzą scenę od krawędzi do krawędzi.
+- Kierunek A nie poprawia czytelności tekstu i tabel na podstronach (pozycje 7–9) — to osobne poprawki.
+
+Propozycja kalibracji (niezatwierdzona): trzy sceny na podstronę — wejście, dowód, koniec — i ok. 25–35% ciemnych
+ekranów, tak jak na stronie głównej. Dla strony pilotażowej szacuję 29% wobec 13% dziś.
+
+Trzy wzory pierwszego ekranu: scena z kadrem filmu (6 podstron ofertowych), scena tytułowa (2 poradniki),
+scena z liczbami („Wdrożenia”). Kontakt, 404, polityka prywatności i strona główna bez zmian.
+
+### Plan zmian — do akceptacji, nic nie jest wykonane
+
+| Etap | Zakres | Pliki | Odbiór |
+| --- | --- | --- | --- |
+| A0 | Wpis Twojego wyboru do rejestru decyzji (kolejny wolny numer, dziś D-046): „Kierunek rozwoju wizualnego podstron: A — Scena wszędzie; strona główna bez zmian” | `kono-state/decisions/REJESTR_DECYZJI_BIZNESOWYCH.md` | wpis zgodny z Twoją odpowiedzią |
+| A1 | Pilot: pierwszy ekran `integracja-systemow` jako scena z plakatem filmu (przykład z kadr i płac, zgodny z D-045) | nowy `src/components/ScenaPodstrony.astro`; kilkanaście wierszy układu w `public/assets/css/podstrony.css`; pierwsza sekcja w `src/pages/integracja-systemow.astro`; wersja arkusza w `PodstronaLayout.astro`; kontrakt podstron w `tools/`, jeśli testy tego wymagają | `dist/index.html` identyczny bajtowo; zrzuty przed i po (1440, 390, 360 px); tytuł i oba przyciski nad zgięciem na telefonie; kontrast tytułu na poświacie ≥ 4,5:1; fokus; ograniczony ruch; Lighthouse nie gorszy; testy repo na Linuksie z wynikiem podanym wprost |
+| A2 | Scena dowodu na tej samej stronie: „Agencja pracy” z liczbami | `src/components/OpisWdrozenia.astro` albo nowy komponent; `podstrony.css` | jak A1; liczby potwierdzone przez Ciebie |
+| A3 | Pozostałe strony: 5 ofertowych, „Wdrożenia”, 2 poradniki | strony w `src/pages/` | jak A1, strona po stronie |
+
+Strona główna, `styles.css` i `BaseLayout.astro` nie są w żadnym etapie. Trzy pozycje P0 z rozdziału 6
+(film „agent-demo”, baner zgody, menu) czekają osobno na Twoją zgodę.
+
+Cztery drobne decyzje przy pilocie, z moją propozycją: w scenie cały plakat filmu (nie zbliżenie); przyciski jak w hero —
+jasny i szklany; poradniki dostają scenę tytułową; w scenie dowodu „ok. 12 h tygodniowo” i „ok. 90% mniej korekt”.
