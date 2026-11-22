@@ -3,14 +3,14 @@ id: T-020
 title: Etap filmowy F5 — film w miejscu na film strony /produkcja-i-logistyka.html
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-5-produkcja-i-logistyka
 base: feat/film-4-dane-i-bezpieczenstwo (09a0f9b)
 depends_on: T-013, T-015
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/21 (baza feat/film-4-dane-i-bezpieczenstwo)
+sha: c5521aa908eecc50792cc6ce9807f9953eb3c7c3 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-021, D-022, D-030, D-032, D-033, D-038]
 ---
 
@@ -39,3 +39,16 @@ zmian. Strona główna i pozostałe strony nie zmieniają się ani o bajt.
 ## Do akceptacji właściciela
 
 - Film na podglądzie: tempo osi dni, kolejność wierszy raportu, puls plakietki „bez przepisywania” w dniu 10.
+
+## Rundy 1 i 2 (2026-11-22)
+
+- `render-media.yml` wyrenderował film: mp4 293 068 B (limit 1 100 000), webm 350 175 B (limit 700 000),
+  kadr startowy 137 073 B (limit 150 000); 14 s, 1600×900, 30 kl./s.
+- Klatki z dwunastu chwil osi czasu obejrzane: przebieg zgodny z osią czasu sceny, kadr startowy ma kompozycję
+  dotychczasowego kadru, pętla wraca do stanu początkowego.
+- Trzy pliki filmu dodane, `produkcja-i-logistyka-kadr.jpg` usunięty. Kontrakt policzony z builda CI
+  (`tools/update-contract.cjs`): zmienił się tylko wpis `produkcja-i-logistyka.html` (ramka filmu i dane strukturalne)
+  oraz `publicFiles` (+3 pliki, −kadr).
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
+  `film-produkcja-i-logistyka`. Manifest wydania: `678ac82d4519d76c66cabae8b3ace6df5b0a3c1dc8ae1f99fbeb70a31b615488`.
+- Wynik przebiegu CI po tym commicie jest w opisie PR #21.
