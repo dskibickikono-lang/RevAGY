@@ -1,5 +1,5 @@
 ---
-id: T-024
+id: T-025
 title: Pełny audyt kodu strony RevAGY (fundamenty przed dalszą budową) — tylko raport
 channel: pm-local
 requested_by: owner
@@ -13,7 +13,7 @@ sha: —
 decisions: [D-010, D-015, D-021, D-031, D-036, D-039]
 ---
 
-# T-024 — Audyt kodu strony RevAGY
+# T-025 — Audyt kodu strony RevAGY
 
 ## Cel
 
