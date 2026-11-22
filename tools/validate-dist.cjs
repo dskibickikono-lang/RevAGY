@@ -898,7 +898,7 @@ function main() {
     if (!entry) { errors.push(`${plik}: brak strony wymienionej w tools/podstrony.json`); continue; }
     const htmlPodstrony = fs.readFileSync(entry.full, 'utf8');
     errors.push(...sprawdzPodstrone(plik, htmlPodstrony).map((b) => `${plik}: ${b}`));
-    // Stan „film”: kadr startowy i plik filmu wskazane w VideoObject muszą istnieć w dist/ (plan 3.8).
+    // Stan „film”: kadr startowy i plik filmu wskazane w VideoObject muszą istnieć w dist/ (D-022).
     for (const v of plikiVideoObject(htmlPodstrony)) {
       if (v.rel === null) errors.push(`${plik}: VideoObject.${v.pole} nie jest adresem URL (${v.adres})`);
       else if (!actualMap.has(v.rel)) errors.push(`${plik}: VideoObject.${v.pole} wskazuje na nieistniejący plik ${v.rel}`);

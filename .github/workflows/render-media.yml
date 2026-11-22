@@ -121,7 +121,7 @@ jobs:
             fi
           done < "$PLAN"
 
-      - name: Wagi, limity (plan 3.5) i pliki artefaktu
+      - name: Wagi, limity i pliki artefaktu
         if: steps.plan.outputs.jest != ''
         env:
           PLAN: ${{ steps.plan.outputs.plik }}
