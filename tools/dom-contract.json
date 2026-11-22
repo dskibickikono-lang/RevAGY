@@ -78,8 +78,8 @@
       "size": 8296
     },
     "assets/js/app.js": {
-      "sha256": "67411b94f815ac90d4043ae2977cca73363702b518f7a932f783787a7c9a4e1d",
-      "size": 13545
+      "sha256": "a7a04ed5fa8cbd15973e3737018ceef816707ec17b129a633e794a2ee3e50f27",
+      "size": 13449
     },
     "assets/js/clarity.js": {
       "sha256": "620817311ec2db2c2079bbe63ba80d0b7bf67b0a9086de242ac9ad9984bea85d",
@@ -224,27 +224,27 @@
       "size": 1810
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "d398fc45a6f4b1645cb20f70d02962203a2d55e171f9b372d0bef5e9fdc1cb01",
+      "sha256": "23ec7de5aebca34b08d52c6b2d9733b6fb1369923377971f327b8871c7db0b4d",
       "size": 24175
     },
     "dla-firm.html": {
-      "sha256": "c055fb60cc671639d7a61c86db062f52397c03678384fa0e20e972e602b7d3dc",
+      "sha256": "362953c12e7ad257df3b70607223da3e417e44d98e49b7cf541585486dd6749a",
       "size": 24754
     },
     "finanse.html": {
-      "sha256": "b885b9217a9b0dbe173179532a94b768ece49da9bb71cae5bd77505828180e2d",
+      "sha256": "342931150289659b82c7816a185b39edb7bc7a99886607bda05fdd5acca441e1",
       "size": 25068
     },
     "index.html": {
-      "sha256": "7dbd28e8589678d185274d32966344564a24b2668aff4497a8252d54f367e385",
+      "sha256": "ca6d4c351eee6590e1d3ca23d092819ca0bf381217477540e5bee9053d97a514",
       "size": 46551
     },
     "integracja-systemow.html": {
-      "sha256": "4fe9d42b2d67986e9f50740c31374c0c3ad9e0fe189b946eb24a188694da6fb5",
+      "sha256": "f1ca878ae0269c53965ec6c555c19432e41f039938fe1e9c57d02d4469e29c7e",
       "size": 25718
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "0ac6d607008f299ffa01c90824da9766d0809d197eaed613ec068dfee8d09a4f",
+      "sha256": "96e2b874d851c4ce2da2a14b365998b83c33cba4dd9d6807b7362f4b3bbcb8ac",
       "size": 24361
     },
     "kontakt.html": {
@@ -256,15 +256,15 @@
       "size": 9431
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "6432231e4e48727e9ac0e7a40b0f4325037be86f6f18a903781006453d3079a1",
+      "sha256": "3ee043fc3062e9ff9a1dc844b73be59ce98039c3b5d12d7f1cde5c274036a9f7",
       "size": 23891
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "8686d1101bf1bc4f3d43624a5d69e6802401d12b5c8f8234ae0abe25c47f6331",
+      "sha256": "eba6ec812128f6ee37485316e56ec2154c4d610ecf9d04bff308911d86ad3eab",
       "size": 24720
     },
     "wdrozenia.html": {
-      "sha256": "d935eeaa657805a4ef8019091fc0f38af6686094484a169d3ce91dcb4fd52a7c",
+      "sha256": "78a82049582f7db3f5e24c7315171263c134effdc07a2f5d1b7c28a00149067f",
       "size": 22482
     }
   },
@@ -632,7 +632,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -2163,7 +2163,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -2333,7 +2333,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -3828,7 +3828,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -3998,7 +3998,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -5511,7 +5511,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -5689,7 +5689,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -8350,7 +8350,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -8515,7 +8515,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -10096,7 +10096,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -10266,7 +10266,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -11668,7 +11668,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -12537,7 +12537,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -13857,7 +13857,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -14027,7 +14027,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -15522,7 +15522,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
@@ -15692,7 +15692,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=4",
+          "src": "assets/js/app.js?v=5",
           "defer": true,
           "async": false,
           "type": null,
@@ -17129,7 +17129,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=4"
+          "val": "assets/js/app.js?v=5"
         },
         {
           "tag": "script",
