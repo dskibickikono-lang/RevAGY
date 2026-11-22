@@ -337,13 +337,19 @@ Nie mam dostępu do Google Search Console ani Bing Webmaster Tools. Bez nich nie
 3. **Core Web Vitals od użytkowników**: w raporcie są tylko wyniki laboratoryjne.
 4. **Linków przychodzących**: raport „Linki” z Search Console.
 
-Potrzebuję konkretnie:
+Strona istnieje od 13.11.2026 (9 dni w dniu audytu), więc danych o zapytaniach i pozycjach jest dziś za mało
+na jakikolwiek wniosek, a raport Core Web Vitals od użytkowników będzie pusty. Na tym etapie liczy się
+wyłącznie indeksacja.
 
-- Search Console, usługa `revagy.pl`: eksport „Skuteczność” (zapytania i strony, ostatnie 28 dni), eksport
-  „Indeksowanie stron”, raport „Podstawowe wskaźniki internetowe”, raport „Linki”; albo dostęp do odczytu.
-- Bing Webmaster Tools: eksport „Search Performance” i „Site Explorer”; albo dostęp do odczytu.
-- Jeśli usługi nie są jeszcze zweryfikowane: informacja o tym. Wtedy punkt 1 planu jest pierwszym krokiem,
-  a dane pojawią się po kilku dniach.
+Potrzebuję teraz:
+
+- Informacji, czy usługa `revagy.pl` jest zweryfikowana w Search Console i w Bing Webmaster Tools oraz od kiedy.
+- Jeśli tak: eksportu „Indeksowanie stron” (ile z 11 adresów jest w indeksie, z jakim statusem) i stanu
+  zgłoszonej sitemapy; albo dostępu do odczytu.
+- Jeśli nie: punkt 1 planu jest pierwszym krokiem.
+
+Później, bez pośpiechu: „Skuteczność” (zapytania i strony) za cały okres od startu. Pierwszy sensowny odczyt
+to około 4 tygodnie po zaindeksowaniu, pełny przegląd po 8–12 tygodniach (punkt 20 planu).
 
 ## 8. Ograniczenia tego raportu
 
