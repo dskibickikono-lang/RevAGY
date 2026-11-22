@@ -34,6 +34,11 @@
       "plik": "jak-wybrac-pierwszy-proces.html",
       "film": null,
       "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
+    },
+    {
+      "plik": "finanse.html",
+      "film": "finanse",
+      "skrypty": ["assets/js/app.js?v=4", "assets/js/wejscie.js?v=1", "assets/js/analytics.js?v=4"]
     }
   ]
 }

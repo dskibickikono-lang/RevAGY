@@ -69,6 +69,16 @@ export const FILMY = {
     czasSekundy: 14,
     dataPublikacji: '2026-11-22',
   },
+  'finanse': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Poglądowy ekran: faktura kosztowa po odczycie i kontroli pól, z propozycją opisu i dekretacji, czeka na akceptację osoby z działu finansów. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: faktura kosztowa od odbioru do akceptacji człowieka',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Faktura kosztowa od odbioru do akceptacji',
+    opis: 'Faktura kosztowa trafia do jednej kolejki, jej pola są odczytane i sprawdzone, a propozycja opisu i dekretacji czeka na akceptację osoby po stronie klienta. Po akceptacji faktura trafia do programu księgowego. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

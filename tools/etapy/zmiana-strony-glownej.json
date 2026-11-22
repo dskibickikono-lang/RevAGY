@@ -1,6 +1,6 @@
 {
-  "etap": "6",
-  "opis": "Etap 6, poradniki (/porownanie-rozwiazan.html i /jak-wybrac-pierwszy-proces.html): strona główna bez zmian. tools/baseline/index.baza.html (migawka etapu 5) jest równa tools/baseline/index.html.",
+  "etap": "8",
+  "opis": "Etap 8, podstrona działowa /finanse.html: strona główna bez zmian. tools/baseline/index.baza.html (migawka strony głównej z main e10cab9, bez zmian od etapu 5) jest równa tools/baseline/index.html.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
