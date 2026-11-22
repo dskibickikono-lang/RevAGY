@@ -356,6 +356,8 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     await fail.page.goto(harness.tlsBase + '/#kontakt');
     await fail.page.waitForSelector('#kontakt-form [data-status] a');
     assert.equal(await fail.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    // Przed wysyłką nie ma komunikatu o nieudanej wysyłce (S-08): jest informacja o ochronie i adres e-mail.
+    assert.equal(await fail.page.locator('#kontakt-form [data-status]').textContent(), 'Ochrona przed spamem nie załadowała się, więc formularz może nie zadziałać. Możesz też napisać: kontakt@revagy.pl');
     const turnstileLoadsBeforeRetry = fail.state.turnstile;
     assert.equal(turnstileLoadsBeforeRetry, 1);
     fail.state.failChallenge = false;
@@ -430,6 +432,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     await challengeErr.page.goto(harness.tlsBase + '/#kontakt');
     await challengeErr.page.waitForFunction(() => !!window.__turnstileOptions);
     assert.equal(await challengeErr.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    assert.equal(await challengeErr.page.locator('#kontakt-form [data-status]').textContent(), 'Ochrona przed spamem nie załadowała się, więc formularz może nie zadziałać. Możesz też napisać: kontakt@revagy.pl');
     assert.equal(await challengeErr.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
     await challengeErr.page.locator('#kontakt-name').fill('Osoba Testowa');
     await challengeErr.page.locator('#kontakt-email').fill('test@example.com');
@@ -442,6 +445,8 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.equal(await challengeErr.page.evaluate(() => window.__resets), 1);
     assert.equal(challengeErr.requests.length, 0);
     assert.equal(await challengeErr.page.locator('#kontakt-form [data-status] a').getAttribute('href'), 'mailto:kontakt@revagy.pl');
+    // Po próbie wysłania komunikat mówi już o nieudanej wysyłce.
+    assert.equal(await challengeErr.page.locator('#kontakt-form [data-status]').textContent(), 'Nie udało się wysłać. Spróbuj ponownie albo napisz: kontakt@revagy.pl');
     assert.equal(await challengeErr.page.locator('#kontakt-challenge-error').textContent(), 'Nie udało się uruchomić ochrony przed spamem.');
     await challengeErr.page.evaluate(() => {
       window.__failTurnstileErrorCallback = false;

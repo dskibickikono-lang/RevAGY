@@ -28,6 +28,7 @@
   const fields = Object.fromEntries(names.map((name) => [name, form.elements.namedItem(name)]));
   const hasField = (name) => Object.prototype.hasOwnProperty.call(fields, name);
   const genericError = 'Nie udało się wysłać. Spróbuj ponownie albo napisz:';
+  const preloadError = 'Ochrona przed spamem nie załadowała się, więc formularz może nie zadziałać. Możesz też napisać:';
   const challengeError = document.getElementById('kontakt-challenge-error');
   const started = Date.now();
   let key = null;
@@ -85,7 +86,11 @@
   }
   function challengeUnavailable() {
     challengeError.textContent = 'Nie udało się uruchomić ochrony przed spamem.';
-    say(genericError, true);
+    // Komunikat o nieudanej wysyłce tylko wtedy, gdy użytkownik faktycznie wysyła formularz.
+    // Przy samym ładowaniu ochrony (przewinięcie, wejście w pole) informujemy, że formularz może nie zadziałać,
+    // i podajemy adres e-mail; tego samego tekstu nie wpisujemy drugi raz, żeby czytnik ekranu go nie powtarzał.
+    if (sending) say(genericError, true);
+    else if (status.textContent.indexOf(preloadError) !== 0) say(preloadError, true);
     statusFromChallenge = true;
   }
   function resetChallenge() {

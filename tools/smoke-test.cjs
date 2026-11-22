@@ -467,6 +467,39 @@ if (require.main === module) (async () => {
       check('karuzela obsługuje klawiaturę (ArrowLeft)', (await page.evaluate(() => document.querySelector('[data-carousel]').scrollLeft)) < afterArrow - 100);
       check('pasek integracji jest zapętlony', await page.evaluate(() => document.querySelector('[data-marquee]').children.length === 22));
 
+      // Film w hero ma własny przycisk wstrzymania (D-046): zmienia się tylko aria-pressed, nazwa zostaje.
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(600);
+      const heroPrzed = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { jest: Boolean(v && b), paused: v ? v.paused : null, pressed: b ? b.getAttribute('aria-pressed') : null }; });
+      await page.click('[data-video-pause="hero-video"]');
+      await page.waitForTimeout(200);
+      const heroPauza = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { paused: v.paused, pressed: b.getAttribute('aria-pressed'), label: b.getAttribute('aria-label') }; });
+      await page.click('[data-video-pause="hero-video"]');
+      await page.waitForTimeout(400);
+      const heroWznowienie = await page.evaluate(() => { const v = document.getElementById('hero-video'); const b = document.querySelector('[data-video-pause="hero-video"]'); return { paused: v.paused, pressed: b.getAttribute('aria-pressed') }; });
+      check('film w hero: przycisk wstrzymuje i wznawia, zmienia się tylko aria-pressed',
+        heroPrzed.jest && heroPrzed.paused === false && heroPrzed.pressed === 'false'
+        && heroPauza.paused === true && heroPauza.pressed === 'true' && heroPauza.label === 'Wstrzymaj film w tle'
+        && heroWznowienie.paused === false && heroWznowienie.pressed === 'false',
+        JSON.stringify({ heroPrzed, heroPauza, heroWznowienie }));
+      // Baner zgody a „Ustawienia prywatności” (S-11). Gdy baner już stoi (pierwsza wizyta), klik przenosi do niego fokus
+      // i niczego nie zamyka. Gdy banera nie ma, klik go otwiera z fokusem, a Escape zamyka i oddaje fokus przyciskowi.
+      const banerFokus = await page.evaluate(() => {
+        const przycisk = document.querySelector('[data-consent-open]');
+        if (!przycisk) return { jest: false };
+        const bylOtwarty = Boolean(document.querySelector('.consent'));
+        przycisk.focus();
+        przycisk.click();
+        const baner = document.querySelector('.consent');
+        const wBanerze = Boolean(baner) && document.activeElement === baner;
+        if (bylOtwarty) return { jest: true, bylOtwarty, wBanerze, ok: wBanerze && Boolean(document.querySelector('.consent')) };
+        baner.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        const zamkniety = !document.querySelector('.consent');
+        const fokusWrocil = document.activeElement === przycisk;
+        return { jest: true, bylOtwarty, wBanerze, zamkniety, fokusWrocil, ok: wBanerze && zamkniety && fokusWrocil };
+      });
+      check('baner zgody: „Ustawienia prywatności” przenoszą fokus do banera', banerFokus.jest && banerFokus.ok, JSON.stringify(banerFokus));
+
       await scrollTo(page, '#film');
       await page.waitForTimeout(1500);
       const videos = await page.evaluate(() => [...document.querySelectorAll('video')].map((v) => ({ src: v.currentSrc.split('/').pop().split('?')[0], ready: v.readyState })));

@@ -1,6 +1,6 @@
 {
-  "etap": "T-030",
-  "opis": "T-030 (K-03, S-05 i D-05 z audytu T-028; zgoda właściciela z 22.11.2026): parametr ?v= w adresach stylów, skryptów i filmów strony głównej jest skrótem treści pliku liczonym przy buildzie (src/config/zasoby.mjs) zamiast numeru wpisywanego ręcznie. Filmy i ich kadry startowe dostają ten parametr po raz pierwszy. Wygląd, treść i układ strony bez zmian.",
+  "etap": "T-030 i T-031",
+  "opis": "T-030 (zgoda właściciela z 22.11.2026, D-047): parametr ?v= w adresach stylów, skryptów i filmów strony głównej jest skrótem treści pliku liczonym przy buildzie zamiast numeru wpisywanego ręcznie; filmy i kadry dostają go po raz pierwszy. T-031 (D-046 i zgoda na etap 5 z 22.11.2026): film w hero dostaje przycisk wstrzymania w wyglądzie istniejącego przycisku filmu (.film-toggle) i identyfikator hero-video. Poza tym przyciskiem wygląd, treść i układ strony bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
@@ -8,7 +8,7 @@
         "znacznik": "link",
         "atrybut": "href",
         "bylo": "assets/css/styles.css?v=5",
-        "jest": "assets/css/styles.css?v=566c669f",
+        "jest": "assets/css/styles.css?v=4e970d11",
         "razy": 1
       },
       {
@@ -16,6 +16,13 @@
         "atrybut": "poster",
         "bylo": "assets/video/hero-flow.jpg",
         "jest": "assets/video/hero-flow.jpg?v=ba755d3b",
+        "razy": 1
+      },
+      {
+        "znacznik": "video",
+        "atrybut": "id",
+        "bylo": null,
+        "jest": "hero-video",
         "razy": 1
       },
       {
@@ -78,21 +85,21 @@
         "znacznik": "script",
         "atrybut": "src",
         "bylo": "assets/js/kontakt.js?v=1",
-        "jest": "assets/js/kontakt.js?v=da991a74",
+        "jest": "assets/js/kontakt.js?v=cd88aead",
         "razy": 1
       },
       {
         "znacznik": "script",
         "atrybut": "src",
         "bylo": "assets/js/app.js?v=5",
-        "jest": "assets/js/app.js?v=a7a04ed5",
+        "jest": "assets/js/app.js?v=1e079d03",
         "razy": 1
       },
       {
         "znacznik": "script",
         "atrybut": "src",
         "bylo": "assets/js/analytics.js?v=5",
-        "jest": "assets/js/analytics.js?v=33890ae9",
+        "jest": "assets/js/analytics.js?v=80d01b04",
         "razy": 1
       },
       {
@@ -103,7 +110,14 @@
         "razy": 1
       }
     ],
-    "dodane": [],
+    "dodane": [
+      {
+        "znacznik": "button",
+        "klasa": "film-toggle hero-toggle",
+        "tekst": "",
+        "razy": 1
+      }
+    ],
     "usuniete": []
   },
   "geometria": {
