@@ -1,7 +1,8 @@
 # Audyt designu i identyfikacji wizualnej REVAGY
 
-Karta: T-024 · Data: 22.11.2026 · Zakres: tylko analiza, bez zmian w kodzie strony.
+Karta: T-026 (założona jako T-024; numer zmieniony po kolizji z dwiema innymi kartami T-024) · Data: 22.11.2026 · Zakres: tylko analiza, bez zmian w kodzie strony.
 Stan badany: lokalny build `main` 43efbf5 (`npm run build` + `astro preview`), 12 stron, komputer 1440×900 i telefon 390×844.
+W trakcie audytu `main` doszedł do 5bac11d: jedyna zmiana strony to dłuższe zdanie w banerze zgody (D-040). Baner zmierzyłem ponownie na 5bac11d; reszta pomiarów jest z 43efbf5.
 
 Materiały:
 
@@ -69,7 +70,7 @@ REVAGY sprzedaje usługę wykonywaną przez konkretną osobę, a strona pokazuje
 | # | Co | Dowód | Dotyka strony głównej |
 | --- | --- | --- | --- |
 | B1 | Film „agent-demo” pokazuje firmę „Stalmet Sp. z o.o.”; D-027 ustala „POLPAK Sp. z o.o.” i tak jest w tekście strony. Źródło sceny: `tools/scenes/agent-demo.html` | [klatka filmu](audyt-design/zrzuty/film-agent-demo-stalmet.webp) | tak — film, nie układ |
-| B2 | Baner zgody przy pierwszej wizycie zasłania główny przycisk hero w 100% i 56% wstępu (komputer); na telefonie zasłania oba przyciski i zajmuje 27% ekranu. Przycisk z fokusem jest wtedy niewidoczny (WCAG 2.2, 2.4.11 AA) | [komputer](audyt-design/zrzuty/index-desktop-baner-zgody.webp), [telefon](audyt-design/zrzuty/index-mobile-baner-zgody.webp); pomiary → `baner_zgody_*` | tak — baner, nie układ |
+| B2 | Baner zgody przy pierwszej wizycie zasłania główny przycisk hero w 100% i 58% wstępu (komputer, baner 420×246 px); na telefonie zasłania oba przyciski w 100% i zajmuje 29% ekranu (358×267 px). Pomiar na `main` 5bac11d, po wydłużeniu zdania w D-040; przed nim baner był o 20 px niższy i zasłaniał to samo. Przycisk z fokusem jest wtedy niewidoczny (WCAG 2.2, 2.4.11 AA). Tekstu banera nie oceniam — ustala go D-040; chodzi o położenie | [komputer](audyt-design/zrzuty/index-desktop-baner-zgody-po-D-040.webp), [telefon](audyt-design/zrzuty/index-mobile-baner-zgody-po-D-040.webp); wcześniejszy pomiar: pomiary → `baner_zgody_*` | tak — baner, nie układ |
 | B3 | Menu i stopka na podstronach prowadzą do kotwic strony głównej. Z 9 podstron w menu jest tylko „Finanse”; osiem pozostałych jest dostępnych wyłącznie z odnośników w treści. Nie ma stanu „jesteś tutaj” | komponenty.md karta 1; odnośniki w `dist/integracja-systemow.html` | tak — treść menu |
 | B4 | Taśma na stronie głównej wymienia nazwy własne systemów; D-018 i D-033 mówią o kategoriach. D-015 mówi, że strona główna zostaje. Nie rozstrzygam | [index-desktop-cala-02](audyt-design/zrzuty/index-desktop-cala-02.webp) | tak |
 
