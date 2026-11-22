@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-2-wdrozenia
-base: 839b560
+base: feat/film-1-integracja-systemow (0cdb4b8)
 depends_on: T-010, T-015
 pr: —
 sha: —
