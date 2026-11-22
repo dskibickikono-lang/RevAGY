@@ -3,7 +3,7 @@ id: T-033
 title: Kierunek A, etap A1 — scena pierwszego ekranu na /integracja-systemow.html (pilot)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/trusting-shannon-g9jhj1
@@ -51,10 +51,12 @@ arkusza w ich `<link>`), scena dowodu (A2), pozostałe strony (A3), pozycje P0 z
    (`.cta-glow`) ma pomarańcz w lewym dolnym rogu, czyli pod przyciskami i linią autora: zmierzony kontrast linii
    autora spadał do 2,86:1, a napisu na szklanym przycisku do 4,38:1. Z poświatą hero (`.hero-shade`: śliwka pod
    tekstem, pomarańcz niżej pośrodku) najgorszy kontrast to 7,5:1. Scena jest przez to spokojniejsza niż pasek końcowy.
+   **Stan:** zaakceptowane przez właściciela 22.11.2026.
 2. **Na telefonie (do 560 px) plakat nie jest pokazywany.** Plan mówił „w scenie cały plakat”. Na telefonie plakat ma
    ok. 318 px szerokości, jest nieczytelny, a jako największy element pierwszego ekranu wydłużał LCP z ok. 1,2 s do
    2,7 s i obniżał wydajność w Lighthouse ze 100 do 95. Po ukryciu wynik wraca do 100. Od 561 px plakat jest widoczny
    (pod tekstem do 1100 px, obok tekstu powyżej). Cofnięcie to jeden wiersz w `podstrony.css`.
+   **Stan:** zaakceptowane przez właściciela 22.11.2026.
 
 ## Poprawka po czerwonym Lighthouse w CI (22.11.2026, po odświeżeniu do main)
 
@@ -123,4 +125,4 @@ Zastrzeżenia:
 
 ## Stan
 
-Do przeglądu właściciela. Bez merge, bez wdrożenia.
+Obie decyzje zaakceptowane przez właściciela 22.11.2026. PR #38 scalony do main (commit a653e8a). Gotowe do wdrożenia na produkcję.

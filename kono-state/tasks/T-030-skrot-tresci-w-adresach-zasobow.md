@@ -3,7 +3,7 @@ id: T-030
 title: "Etap 3 po audycie kodu: skrót treści w adresach stylów, skryptów i filmów zamiast ręcznego ?v="
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
