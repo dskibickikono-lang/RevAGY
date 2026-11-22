@@ -879,8 +879,21 @@ if (require.main === module) (async () => {
           const { context: ctx, page: pg } = await newPage(browser, viewport, { ...extra, reducedMotion: 'reduce' }, { enforceIsolation });
           await pg.goto(`${base}${adres}`, { waitUntil: 'load' });
           await poZaladowaniu(pg);
-          const overflow = await pg.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-          check(`${p} (${szer}): brak przewijania w poziomie`, overflow === 0, String(overflow));
+          // Przy przewijaniu: do trzech najgłębszych elementów, których prawy brzeg wychodzi poza okno (znacznik, klasy, px).
+          const poziomo = await pg.evaluate(() => {
+            const okno = document.documentElement.clientWidth;
+            const over = document.documentElement.scrollWidth - okno;
+            if (over <= 0) return { over, poza: [] };
+            const wystaje = [...document.body.querySelectorAll('*')].filter((e) => e.getBoundingClientRect().right > okno + 0.5);
+            const najglebsze = wystaje.filter((e) => !wystaje.some((x) => x !== e && e.contains(x)));
+            const poza = najglebsze.slice(0, 3).map((e) => {
+              const klasy = typeof e.className === 'string' && e.className.trim() ? `.${e.className.trim().split(/\s+/).join('.')}` : '';
+              return `${e.tagName.toLowerCase()}${klasy} prawy brzeg ${Math.round(e.getBoundingClientRect().right)} px`;
+            });
+            return { over, poza };
+          });
+          check(`${p} (${szer}): brak przewijania w poziomie`, poziomo.over === 0,
+            poziomo.poza.length ? `${poziomo.over} px; poza oknem ${szer} px: ${poziomo.poza.join(' | ')}` : String(poziomo.over));
           if (zrzutyDir) {
             // Kadr ma loading="lazy": bez przewinięcia do ramki pełny zrzut pokazałby ją pustą.
             const zKadrem = await pg.evaluate(() => Boolean(document.querySelector('.film img')));
