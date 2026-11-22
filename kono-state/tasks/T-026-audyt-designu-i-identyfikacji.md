@@ -3,7 +3,7 @@ id: T-026
 title: Audyt designu i identyfikacji wizualnej REVAGY (tylko analiza)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/trusting-shannon-g9jhj1
@@ -98,7 +98,13 @@ na tle konkurencji. Wybór kierunku należy do właściciela.
 
 ## Otwarte, do właściciela
 
-1. ~~Akceptacja etapu A1 i wpisu A0.~~ Zaakceptowane 22.11.2026 („tak”); wykonanie w karcie T-033 (D-048, pilot na `integracja-systemow`). Kolejne etapy A2 i A3 wymagają osobnej zgody.
-2. Zgoda na pozycje P0, które dotykają strony głównej (baner zgody, menu, taśma nazw); film „agent-demo” to wykonanie D-027.
+1. ~~Akceptacja etapu A1 i wpisu A0.~~ Zaakceptowane 22.11.2026 („tak”); wykonanie w karcie T-033 (D-048, pilot na `integracja-systemow`). Etap A3 (scena pierwszego ekranu na pozostałych podstronach ofertowych): **zaakceptowane przez właściciela 22.11.2026** — do realizacji w nowym zadaniu.
+2. Zgoda na pozycje P0:
+   - Taśma nazw/logo systemów: **decyzja D-050 (22.11.2026)** — zostaje jako świadomy wyjątek marketingowy dla strony głównej.
+   - Pozostałe P0 (film „agent-demo” ze Stalmetem wg D-027, przesunięcie banera zgody): **decyzja właściciela (22.11.2026)** — zaplanować w osobnym zadaniu z niskim priorytetem.
 3. Ocena `komponenty.md` v1; po niej pytanie o pakiet dla agenta.
 4. Kolizja numerów: dwie karty T-024 i dwie T-025 w `kono-state/tasks/` z innych sesji.
+
+## Stan
+
+Audyt designu i studium kierunku A ukończone. Wszystkie kluczowe decyzje podjęte przez właściciela 22.11.2026. PR #38 scalony do main. Karta zamknięta.

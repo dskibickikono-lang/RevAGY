@@ -79,7 +79,7 @@ kadrowo-płacowego”), Q033 („Nie jestem w stanie korygować ręcznie”). Na
 
 ## Otwarte, do decyzji właściciela
 
-1. Nazwa handlowa pakietu. Robocza: „Kadry i płace bez ręcznego wpisywania”.
-2. Czy pakiet ma mieć własną nazwę obok Start i Scale, czy jest ich zastosowaniem.
+1. Nazwa handlowa pakietu: **Auto Kadry i Płace** (ustalona przez właściciela 22.11.2026).
+2. Pakiet stanowi dedykowane wdrożenie procesowe w ofercie B2B.
 3. Zakres i minimalny okres opieki.
 4. Odnośnik do strony pakietu w menu „Dla działów” i w stopce (zmienia układy wspólne i stronę główną).

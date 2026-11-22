@@ -4,7 +4,7 @@ former_id: T-028
 title: Pakiet K02 — kadry i płace bez ręcznego wpisywania (opis pakietu i podstrona /kadry-i-place.html)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: zmergowane
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/serene-bohr-2hdmui
@@ -107,7 +107,11 @@ kadrowo-płacowego bez ręcznego wpisywania. Właściciel zaakceptował 22.11.20
 
 ## Do decyzji właściciela
 
-1. Brzmienie tekstów strony (propozycja agenta według przewodnika tonu z T-024).
-2. Odnośnik w menu i stopce: zrobione w rundzie 3 (D-049). Do sprawdzenia: kolejność pozycji i podpis w menu.
-3. Nazwa handlowa pakietu i jego miejsce obok Start i Scale (opis w `kono-state/notes/pakiet-kadry-i-place.md`).
+1. Brzmienie tekstów strony: **zaakceptowane przez właściciela 22.11.2026** („Akceptuję brzmienie tekstów dla /kadry-i-place.html”).
+2. Odnośnik w menu i stopce: **zaakceptowane przez właściciela 22.11.2026** (kolejność, nazwa „Kadry i płace” i podpis zatwierdzone).
+3. Nazwa handlowa pakietu: **„Auto Kadry i Płace”** — ustalona przez właściciela 22.11.2026.
 4. Karta T-024 nadal ma status `do-przegladu`; jej raport jest scalony (PR #33 i #36).
+
+## Stan
+
+Wszystkie kwestie dotyczące pakietu, tekstów i odnośników zaakceptowane przez właściciela 22.11.2026. PR #39 scalony do main (commit ca9b92b). Karta zamknięta.
