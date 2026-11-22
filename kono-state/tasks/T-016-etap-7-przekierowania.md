@@ -9,8 +9,8 @@ updated: 2026-11-22
 branch: feat/etap-7-przekierowania
 base: feat/etap-6-poradniki (fd7a45f)
 depends_on: T-014
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/16 (baza feat/etap-6-poradniki)
+sha: 31ac29e3498b7086c6c68940cb4c8da715100c46 (zmiana; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-037]
 ---
 
@@ -41,6 +41,13 @@ adresowi (D-037). Pozostałe zostają na stronie głównej.
    kontroli zamiast stron wycofanej odsłony.
 
 Strona, style, skrypty i kontrakt są bez zmian.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `31ac29e` (run 44968563202), zielony: `check:dist` 5 z 5 kroków, manifest
+`bedff5a20ba8fc0381cd34db0dc122c682c6620777e28b8dee4d07b6aecda776` (ten sam co w etapie 6, bo strona się nie
+zmienia), test dymny 187 z 188 bez błędów (1 pominięte jak w etapie 6), testy `wydanie.sh` 16 z 16.
+CI nie sprawdza samych przekierowań: działają dopiero po podmianie pliku nginx na serwerze.
 
 ## Zmiana na serwerze (nie jest częścią tego PR)
 
