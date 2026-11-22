@@ -1,5 +1,5 @@
 ---
-id: T-026
+id: T-027
 title: "astro.config: adres bazowy z MARKA.url i schemat zmiennej PUBLIC_TURNSTILE_SITEKEY (K-01, K-02 z audytu T-025)"
 channel: pm-local
 requested_by: owner
@@ -7,14 +7,14 @@ status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: skibiai/magical-mccarthy-unmqyo
-base: main (5bac11d, scalony do gałęzi bez rebase)
+base: main (5e29276, scalony do gałęzi bez rebase)
 depends_on: T-025 (audyt kodu)
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/35 (ten sam PR co raport audytu)
+pr: (uzupełniane po otwarciu PR)
 sha: b23ae9202ebf806cc2e4fc38e0b39eb525d5ff83 (kod; kolejny commit zmienia tylko kartę)
 decisions: [D-015, D-021]
 ---
 
-# T-026 — K-01 i K-02 z audytu kodu
+# T-027 — K-01 i K-02 z audytu kodu
 
 Zgoda właściciela z 22.11.2026: „zatwierdzam K-01 i K-02”. K-03 (skróty treści zasobów) bez zgody, zostaje
 jako osobne zadanie razem z S-05.
@@ -53,7 +53,9 @@ Uwaga: testy przeglądarkowe na Chromium build 1243 zamiast przypiętego 1255. P
 | build bez klucza | 0 | ostrzeżenie w logu, wariant mailto |
 | build z kluczem `abc` | błąd | „PUBLIC_TURNSTILE_SITEKEY ma nieprawidłowy format” |
 
-## Uwaga o numerach kart
+## Uwaga o numerach kart i o PR #35
 
-Na `main` są dziś trzy karty T-024 i druga karta T-025 (audyt SEO). Karta audytu kodu zostaje jako T-025,
-ta dostała kolejny wolny numer.
+- PR #35 został scalony o 15:59 UTC, zanim trafiły do niego commity z kodem, więc zawiera tylko raport audytu.
+  Opis PR #35 zmieniłem po scaleniu tak, jakby zawierał kod; poprawione z powrotem. Kod idzie osobnym PR.
+- Karta powstała jako T-026; w tym czasie numer T-026 zajęła na `main` karta audytu designu, stąd T-027.
+  Na `main` są nadal dwie karty T-025 (audyt kodu i audyt SEO).
