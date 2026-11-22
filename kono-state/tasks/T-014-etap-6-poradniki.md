@@ -39,6 +39,22 @@ Obie strony nie mają miejsca na film. Strona główna zostaje bez zmian (D-015,
    - plik etapu ma puste listy.
 6. `tools/dom-contract.json` bez zmian. Kontrakt policzy PM w rundzie 2.
 
+## Runda 1 — wynik CI (2026-11-22)
+
+- Astro zbudowało 11 stron. Walidator zgłosił wyłącznie błędy zapowiedziane przy niezmienionym kontrakcie:
+  dwa nadmiarowe pliki (obie nowe strony), inna suma `sitemap.xml`, niezgodność `dla-firm.html`
+  i `integracja-systemow.html` z kontraktem (po jednym odnośniku pod odpowiedzią). Pozostałe cztery kroki
+  kontroli przeszły; kontrola treści objęła siedem podstron.
+- Strona główna bez zmian: migawka identyczna z bazą.
+
+## Runda 2 (2026-11-22)
+
+- Kontrakt policzony z builda CI (`tools/update-contract.cjs`). Zmienione wpisy: `dla-firm.html`,
+  `integracja-systemow.html`, `sitemap.xml`; nowe: `porownanie-rozwiazan.html`
+  i `jak-wybrac-pierwszy-proces.html`. Pozostałe strony i pliki bez zmian. Kadrów nie ma, bo strony nie mają filmu.
+- Lokalnie `check-all` przechodzi we wszystkich 5 krokach: 51 plików, 11/11 stron, testy narzędzi 71/71.
+- Przewidziany manifest wydania: `bedff5a20ba8fc0381cd34db0dc122c682c6620777e28b8dee4d07b6aecda776`.
+
 ## Do uzupełnienia przez właściciela
 
 - `src/data/poradniki.mjs`: `odpowiedzAutomatEkranowy`.
