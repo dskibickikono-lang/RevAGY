@@ -93,6 +93,10 @@
       "sha256": "bcb5fb8faadccd1befa83a38bd1ce34a2634df78809da832eb321fdc853bac43",
       "size": 680012
     },
+    "assets/video/dane-i-bezpieczenstwo-kadr.jpg": {
+      "sha256": "3a9e11dae7b205013635115419481999701600f3c51f84658f215efa0248f4c3",
+      "size": 128897
+    },
     "assets/video/dashboard.jpg": {
       "sha256": "a7bef08e721e1c06804ef3a53441734c86a1096a3a1d5aad81ae82cdea683e60",
       "size": 60533
@@ -142,8 +146,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "307068173eb090f2c759e810914d6821b1e855952428fdc0016e991ea71fd360",
-      "size": 630
+      "sha256": "1ccb2fa4175c3724335c275fe45637aacf58f32f421b1b278888a9042634e9fe",
+      "size": 728
     }
   },
   "htmlBaseline": {
@@ -151,13 +155,17 @@
       "sha256": "66dbe91824654abfa82492cc0b3520d09b9d615115d48abbcd3023b96d744d77",
       "size": 1754
     },
+    "dane-i-bezpieczenstwo.html": {
+      "sha256": "ba7d865e9c5994606025d7708c4a2f45f26f467090b663ade67c410d07ac2427",
+      "size": 22790
+    },
     "dla-firm.html": {
-      "sha256": "6f79e1844bd7b224c82e4753fd802765d44bb1187c6e262e0df1cd6093590c9a",
-      "size": 23016
+      "sha256": "45dd98eccbf4808eab8f0839f421d96f13d64d471916401faa7f0eb94152275b",
+      "size": 23102
     },
     "index.html": {
-      "sha256": "e2f8d16d1750f442488a4b7dbab1246ecb7499976e27727569fe83255bbc2a35",
-      "size": 46264
+      "sha256": "ae3d5c2cc64e6f646947e7e2d0176c8a4bd2a770e522ad43d9ae0902bf6e5e0b",
+      "size": 46348
     },
     "integracja-systemow.html": {
       "sha256": "6703c8bb5a8a8724a44e2415a518b19981e845697d500b05502fe762ee046460",
@@ -384,6 +392,1580 @@
         }
       ],
       "jsonLd": []
+    },
+    "dane-i-bezpieczenstwo.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Dane i bezpieczeństwo we wdrożeniach | REVAGY",
+      "canonical": "https://revagy.pl/dane-i-bezpieczenstwo.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/dane-i-bezpieczenstwo.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Dane i bezpieczeństwo we wdrożeniach | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/dane-i-bezpieczenstwo.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=1",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=1",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "zakres",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "zasady",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "przeplyw",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "umowa",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "jeszcze-nie",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "zakres",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "zasady",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "przeplyw",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-scale": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "umowa",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "jeszcze-nie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-6"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-6",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-6"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-7",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-7"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-7",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-7"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-8",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-8"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-8",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-8"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-9",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-9"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-9",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-9"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Dane i bezpieczeństwo: stan na dziś"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Czego dotyczy ta strona"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Trzy zasady każdej integracji"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Minimalny zakres dostępu"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Wpis w dzienniku przy każdym zapisie"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Wyjątki zatwierdza człowiek"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Którędy idą dane"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Dostęp tylko do potrzebnych pól, wyjątek u człowieka"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co obowiązuje dziś"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Czego jeszcze nie publikujemy"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania, które zwykle zadaje dział IT"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Gdzie będą przetwarzane nasze dane?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Jakich uprawnień potrzebujecie?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy zobaczymy, co integracja zmieniła?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Kto decyduje w nietypowych przypadkach?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy zapis da się cofnąć?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Z jakich dostawców korzystacie?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Jak szybko reagujecie na awarię?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy macie ubezpieczenie?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Co się dzieje z danymi, które wpisuję w formularz na revagy.pl?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Sprawdźcie nas na konkretnym procesie"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#pytania",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pytania działu IT"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "polityka prywatności"
+        },
+        {
+          "href": "integracja-systemow.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracja systemów"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=1"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#pytania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "integracja-systemow.html"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/dane-i-bezpieczenstwo-kadr.jpg"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=1"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=4"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"name\":\"Dane i bezpieczeństwo\",\"headline\":\"Dane i bezpieczeństwo we wdrożeniach | REVAGY\",\"description\":\"Zakres dostępu, dziennik zapisów, umowa powierzenia i ubezpieczenie. Co dziś obowiązuje i czego nie publikujemy. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dane i bezpieczeństwo\",\"item\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#usluga\",\"name\":\"Bezpieczeństwo danych we wdrożeniach automatyzacji i integracji systemów\",\"description\":\"Każda integracja dostaje minimalny zakres dostępu, każdy zapis ma wpis w dzienniku, a wyjątki zatwierdza osoba po stronie klienta. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej miejsce przetwarzania danych.\",\"url\":\"https://revagy.pl/dane-i-bezpieczenstwo.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dane-i-bezpieczenstwo.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Gdzie będą przetwarzane nasze dane?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wskazujemy to w umowie powierzenia, którą podpisujemy przed startem prac.\"}},{\"@type\":\"Question\",\"name\":\"Jakich uprawnień potrzebujecie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tylko tych, których wymaga dana integracja. Dostęp do bazy danych jest tylko do odczytu.\"}},{\"@type\":\"Question\",\"name\":\"Czy zobaczymy, co integracja zmieniła?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak. Każdy zapis ma wpis w dzienniku: co, skąd, kiedy i jaka była poprzednia wartość.\"}},{\"@type\":\"Question\",\"name\":\"Kto decyduje w nietypowych przypadkach?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Osoba po Waszej stronie. Progi, powyżej których integracja czeka na decyzję, ustalamy z Wami.\"}},{\"@type\":\"Question\",\"name\":\"Czy zapis da się cofnąć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Dziennik przechowuje poprzednią wartość, więc wiadomo, co przywrócić. W kadrach i płacach zapis można wycofać do zamknięcia okresu płacowego, później robi się korektę według procedury Waszych kadr.\"}},{\"@type\":\"Question\",\"name\":\"Z jakich dostawców korzystacie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Listy nie publikujemy na stronie. Miejsce przetwarzania Waszych danych wskazujemy w umowie powierzenia.\"}},{\"@type\":\"Question\",\"name\":\"Jak szybko reagujecie na awarię?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring i czas reakcji zapisujemy w umowie.\"}},{\"@type\":\"Question\",\"name\":\"Czy macie ubezpieczenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tak, ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.\"}},{\"@type\":\"Question\",\"name\":\"Co się dzieje z danymi, które wpisuję w formularz na revagy.pl?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"To dane strony, nie wdrożenia. Opisują je polityka prywatności i informacja pod formularzem, razem z listą odbiorców.\"}}]}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
     },
     "dla-firm.html": {
       "doctype": "html",
@@ -1868,7 +3450,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dla-firm.html#strona\",\"url\":\"https://revagy.pl/dla-firm.html\",\"name\":\"Dla firm\",\"headline\":\"Automatyzacja dla firm 5–250 osób: pakiety | REVAGY\",\"description\":\"Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dla-firm.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dla firm\",\"item\":\"https://revagy.pl/dla-firm.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dla-firm.html#usluga\",\"name\":\"Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób\",\"description\":\"Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/dla-firm.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dla-firm.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Od czego zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. Cenę pakietu podajemy po audycie.\"}},{\"@type\":\"Question\",\"name\":\"Co jeśli się rozmyślimy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.\"}},{\"@type\":\"Question\",\"name\":\"Czy trzeba wymieniać systemy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi mieć czas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.\"}},{\"@type\":\"Question\",\"name\":\"Ile trwa pierwsze wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu.\"}}]}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/dla-firm.html#strona\",\"url\":\"https://revagy.pl/dla-firm.html\",\"name\":\"Dla firm\",\"headline\":\"Automatyzacja dla firm 5–250 osób: pakiety | REVAGY\",\"description\":\"Pakiety Start i Scale, audyt wliczony we wdrożenie, pierwsza automatyzacja w 14 dni roboczych od dostępu do systemów. Umów bezpłatną konsultację.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/dla-firm.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/dla-firm.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Dla firm\",\"item\":\"https://revagy.pl/dla-firm.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/dla-firm.html#usluga\",\"name\":\"Automatyzacja procesów i wdrożenia AI dla firm od 5 do 250 osób\",\"description\":\"Łączenie systemów, na których firma już pracuje, i automatyzacja powtarzalnej pracy w sprzedaży, finansach, obsłudze klienta, marketingu, logistyce i HR. Pakiety Start i Scale, a na początek bezpłatna konsultacja jednego procesu.\",\"serviceType\":\"Automatyzacja procesów\",\"url\":\"https://revagy.pl/dla-firm.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/dla-firm.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/dla-firm.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Od czego zacząć?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Od jednego procesu, który jest powtarzalny, częsty i dobrze opisany, na przykład wprowadzania zamówień albo faktur kosztowych. Na bezpłatnej konsultacji sprawdzamy, czy da się go zautomatyzować i od czego zacząć.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i w całości wliczamy go we wdrożenie. Cenę pakietu podajemy po audycie.\"}},{\"@type\":\"Question\",\"name\":\"Co jeśli się rozmyślimy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Po konsultacji nic nie płacisz, a karta procesu zostaje u Ciebie. Z audytu możesz zrezygnować w ciągu 14 dni z pełnym zwrotem.\"}},{\"@type\":\"Question\",\"name\":\"Czy trzeba wymieniać systemy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujesz, na jeden z trzech sposobów: przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Kiedy się nie da: program bez eksportu, którego dostawca nie zgadza się na dostęp do danych. Mówimy to na konsultacji, przed audytem. Więcej na stronie integracji systemów.\"}},{\"@type\":\"Question\",\"name\":\"Kto po naszej stronie musi mieć czas?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Na konsultację wystarczy osoba, która zna proces. W audycie przechodzimy przez codzienną pracę z ludźmi, którzy ten proces wykonują. Do wdrożenia potrzebny jest ktoś, kto nada nam dostęp do systemów, oraz osoba, która zatwierdza wyjątki.\"}},{\"@type\":\"Question\",\"name\":\"Ile trwa pierwsze wdrożenie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Pierwsza integracja albo automatyzacja działa w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.\"}}]}]}",
           "attrs": [
             "type"
           ]
@@ -3864,6 +5446,13 @@
           "text": "Porozmawiajmy"
         },
         {
+          "href": "dane-i-bezpieczenstwo.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz, jak chronimy dane"
+        },
+        {
           "href": "mailto:kontakt@revagy.pl?subject=Bezp%C5%82atna%20konsultacja",
           "class": "cta-mail",
           "dataTrack": "E-mail: adres",
@@ -4507,6 +6096,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "dane-i-bezpieczenstwo.html"
         },
         {
           "tag": "a",
