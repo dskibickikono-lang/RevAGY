@@ -360,15 +360,15 @@
  "kontrast_najgorszy_po": {
   "390": {
    "h1": 18.75,
-   "lead": 13.69,
-   "autor": 7.52,
-   "glass": 10.35
+   "lead": 13.78,
+   "autor": 7.88,
+   "glass": 10.91
   },
   "1440": {
-   "h1": 18.28,
-   "lead": 13.26,
+   "h1": 18.55,
+   "lead": 13.54,
    "autor": 8.29,
-   "glass": 10.6
+   "glass": 10.7
   }
  },
  "fokus_i_ruch_po": {
@@ -437,6 +437,16 @@
   "ruchDomyslny": {
    "animacjeBiegnace": 2,
    "h1Opacity": "1"
+  }
+ },
+ "cls_kroj_zastepczy_dejavu_kroj_docelowy_opozniony_900ms": {
+  "scena_przed_poprawka_poswiaty": 0.2711,
+  "scena_po_poprawce": 0.0931,
+  "finanse_stary_uklad": 0.1022,
+  "kontakt": 0.1103,
+  "ci_lighthouse_7debfcc_przed_poprawka": {
+   "wydajnosc": 88,
+   "cls": 0.2399
   }
  }
 }

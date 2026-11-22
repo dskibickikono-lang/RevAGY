@@ -56,6 +56,28 @@ arkusza w ich `<link>`), scena dowodu (A2), pozostałe strony (A3), pozycje P0 z
    2,7 s i obniżał wydajność w Lighthouse ze 100 do 95. Po ukryciu wynik wraca do 100. Od 561 px plakat jest widoczny
    (pod tekstem do 1100 px, obok tekstu powyżej). Cofnięcie to jeden wiersz w `podstrony.css`.
 
+## Poprawka po czerwonym Lighthouse w CI (22.11.2026, po odświeżeniu do main)
+
+- Po scaleniu PR #40 pomiar Lighthouse w CI objął stronę pilotażową. Wynik na 7debfcc: wydajność 88 przy progu 90
+  (trzy przebiegi po 88), przyczyna: CLS 0,24 przypisany warstwie poświaty sceny (`.hero-shade`).
+- Mechanizm: na maszynie CI krój zastępczy jest znacznie szerszy niż Onest. Do czasu doczytania kroju scena jest
+  o ok. 60 px wyższa, potem się kurczy. Poświata miała górę liczoną w procentach wysokości sceny (`inset: -25%`
+  ze `styles.css`), więc przesuwała się razem z nią, a że zakrywa całą scenę, przeglądarka liczyła to jako przesunięcie
+  prawie całego ekranu.
+- W piaskownicy sesji tego nie było widać, bo krój zastępczy to tam Inter o podobnych wymiarach (CLS 0,027).
+  Odtworzyłem warunki CI lokalnie: krój zastępczy DejaVu Sans i krój docelowy opóźniony o 0,9 s.
+- Poprawka: jeden wiersz w `podstrony.css` — `.scena .hero-shade { inset: 0 -25% -25%; }` (góra poświaty stała).
+
+| Pomiar (krój zastępczy DejaVu Sans, krój docelowy opóźniony) | CLS |
+| --- | --- |
+| Scena przed poprawką | 0,271 |
+| Scena po poprawce | 0,093 |
+| „Finanse”, stary układ, dla porównania | 0,102 |
+| „Kontakt”, dla porównania | 0,110 |
+
+Dwie obserwacje poza zakresem tej karty: ta sama zależność dotyczy poświaty na stronie kontaktu (`.cta-glow`),
+a podstrony nie wczytują kroju tytułów z wyprzedzeniem (strona główna to robi), stąd przesunięcie tekstu na każdej z nich.
+
 ## Wynik kryteriów odbioru
 
 | # | Kryterium | Wynik |
@@ -67,7 +89,7 @@ arkusza w ich `<link>`), scena dowodu (A2), pozostałe strony (A3), pozycje P0 z
 | 5 | Fokus i ograniczony ruch | obrys `3px` `#ff5b14` na obu przyciskach sceny; przy `prefers-reduced-motion` 0 biegnących animacji, treść w pełni widoczna |
 | 6 | `check-podstrony-css` | OK |
 | 7 | Testy repo na Linuksie | patrz niżej |
-| 8 | Lighthouse nie gorszy | wydajność 100 → 100, dostępność 96 → 96, SEO 100 → 100 (mediana z 3 przebiegów); LCP ok. 1,2 s przed i po; CLS 0–0,014 → 0,023–0,027 |
+| 8 | Lighthouse nie gorszy | lokalnie: wydajność 100 → 100, dostępność 96 → 96, SEO 100 → 100 (mediana z 3 przebiegów); LCP ok. 1,2 s przed i po; CLS 0–0,014 → 0,023–0,027. W CI przed poprawką poświaty: 88 (poniżej progu 90); wynik po poprawce — patrz „Stan” |
 
 ## Testy (Linux, piaskownica sesji, Node 22.23.5)
 
