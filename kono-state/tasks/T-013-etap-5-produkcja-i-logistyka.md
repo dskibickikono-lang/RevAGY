@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-5-produkcja-i-logistyka
-base: feat/etap-4-dane-i-bezpieczenstwo (b0b61c6)
+base: feat/etap-4-dane-i-bezpieczenstwo (1538754)
 depends_on: T-012
 pr: —
 sha: —

@@ -47,9 +47,8 @@ export const OFERTA = {
   // Bez wartości linia nie pokazuje się w opisie pilotażu.
   kategorieSystemowPilotazu: null,
 
-  // Zdanie o rozdziale danych REVAGY od innych działalności założyciela: czy dane klienta z pilota i wdrożenia
-  // są dostępne tylko dla REVAGY, czy nie są używane w innych działalnościach i jak to jest zapisane
-  // (umowa powierzenia, osobne konta i dostępy). Pełne zdania z kropką. Bez wartości cała sekcja
+  // Zdanie o tym, kto ma dostęp do danych klienta z pilota i wdrożenia: czy tylko REVAGY i jak to jest
+  // zapisane (umowa powierzenia, osobne konta i dostępy). Pełne zdania z kropką. Bez wartości cała sekcja
   // „Wasze dane zostają w REVAGY” nie pokazuje się, razem z nagłówkiem.
   zdanieRozdzialDanych: null,
 };
