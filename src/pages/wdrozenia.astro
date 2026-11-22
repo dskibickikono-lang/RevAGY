@@ -1,0 +1,219 @@
+---
+// Etap 2 (T-010): „Wdrożenia” (D-020), bez nazw własnych systemów (D-033), opisy wdrożeń anonimowe (D-034).
+// Nazwy spółek, etykiety powiązań, skala, „jak mierzone”, cytaty, rodzaj firmy (dwa opisy),
+// zdanie ujawnienia oraz nagłówek sekcji dowodów pochodzą wyłącznie z src/data/dowody.mjs.
+// Dwa opisy dzielą klucze ze stroną /integracja-systemow.html (to te same wdrożenia), więc właściciel
+// wpisuje ich dane raz: 'agencja-pracy-umowy' i 'stan-zalogi'.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Autor from '../components/Autor.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
+import { DOWODY, wdrozenie, maWartosc } from '../data/dowody.mjs';
+
+const aktualizacja = '2026-11-21';
+
+const umowy = wdrozenie('agencja-pracy-umowy');
+const raport = wdrozenie('stan-zalogi');
+const zezwolenia = wdrozenie('alert-zezwolenia');
+const kandydaci = wdrozenie('kandydaci-zgloszenia');
+const opisy = [umowy, raport, zezwolenia, kandydaci];
+
+// Nagłówek sekcji dowodów mówi, gdzie wdrożenia były sprawdzone, czyli o powiązaniu firm.
+// Jego tekst wpisuje właściciel (D-034). Bez wartości strona pokazuje nagłówek neutralny.
+const naglowekDowodow = maWartosc(DOWODY.naglowekDowodow) ? DOWODY.naglowekDowodow.trim() : null;
+// „Wdrażamy także poza nią.” tylko z nagłówkiem właściciela i tylko, gdy ustawi takzePozaGrupa na true.
+const takzePozaGrupa = naglowekDowodow !== null && DOWODY.takzePozaGrupa === true;
+// Zdania o anonimowości mają sens tylko, dopóki przy opisach nie ma nazw spółek.
+const wszystkieAnonimowe = opisy.every((w) => !maWartosc(w.nazwaSpolki));
+const ktorysAnonimowy = opisy.some((w) => !maWartosc(w.nazwaSpolki));
+
+const pytania = [
+  ...(ktorysAnonimowy
+    ? [{
+        pytanie: 'Dlaczego nie podajecie nazw firm?',
+        odpowiedz: 'Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.',
+      }]
+    : []),
+  {
+    pytanie: 'Skąd są te liczby?',
+    odpowiedz: 'Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.',
+  },
+  {
+    pytanie: 'Czy u nas wyjdzie tak samo?',
+    odpowiedz: 'Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.',
+  },
+  {
+    pytanie: 'Mamy inne systemy niż w tych opisach. Czy to przeszkoda?',
+    odpowiedz: 'Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.',
+  },
+  {
+    pytanie: 'Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?',
+    odpowiedz: 'Metoda jest ta sama, ale wejście inne.',
+  },
+];
+---
+<PodstronaLayout
+  plik="wdrozenia.html"
+  tytul="Wdrożenia automatyzacji: cztery procesy | REVAGY"
+  opis="Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+  okruszek="Wdrożenia"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Automatyzacja procesów i integracja systemów firmy',
+    opis: 'Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.',
+  }}
+  pytania={pytania}
+  film="wdrozenia"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Cztery wdrożenia. Co było, co połączyliśmy, co się zmieniło.</h1>
+      <p class="lead">Każdy opis podaje rodzaj firmy, kategorie połączonych systemów i wynik. Liczby są przybliżone, dlatego stoi przy nich „ok.”.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których te firmy już pracują.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#umowy">Zobacz cztery opisy</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Cztery procesy przed i po połączeniu systemów</h2>
+      <p class="lead">Umowa trafia z dokumentu do dwóch systemów. Trzy źródła składają się w jeden raport. Kończące się zezwolenie daje znać z wyprzedzeniem, a zgłoszenie kandydata od razu jest w systemie.</p>
+      <ul class="ticks">
+        <li>Umowa: dokument → system HR i kadry i płace</li>
+        <li>Raport: trzy źródła → jeden pulpit</li>
+        <li>Zezwolenie: alert 30 dni przed końcem ważności</li>
+        <li>Kandydat: zgłoszenie → system rekrutacyjny</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="wdrozenia" />
+  </section>
+
+  <section class="section wrap" id="dowody">
+    <header class="section-head reveal">
+      <h2 class="h2">{naglowekDowodow ? `${naglowekDowodow}${takzePozaGrupa ? ' Wdrażamy także poza nią.' : ''}` : 'Jak czytać te opisy'}</h2>
+      <p class="lead">{wszystkieAnonimowe && 'Opisy są anonimowe: zamiast nazwy firmy podajemy jej rodzaj. '}Systemy nazywamy kategorią, na przykład „system HR” albo „kadry i płace”.</p>
+      <p>Jak czytać liczby:</p>
+      <ul class="ticks">
+        <li>„ok.” oznacza wartość przybliżoną, nie wynik co do minuty.</li>
+        <li>Linia „Jak mierzone” podaje okres i sposób pomiaru. Opis bez tej linii nie ma jeszcze opisanego pomiaru, więc traktuj jego liczby jako przybliżenie.</li>
+        <li>Te liczby nie są obietnicą dla Twojej firmy. Punkt wyjścia Twojego procesu mierzymy na konsultacji i w audycie.</li>
+      </ul>
+    </header>
+  </section>
+
+  <section class="section section-tight wrap" id="umowy">
+    <OpisWdrozenia id="agencja-pracy-umowy" tytul="Umowy bez przepisywania">
+      <p class="autor">Agencja pracy</p>
+      <p>Kadry wpisywały każdą podpisaną umowę ręcznie, najpierw do systemu HR, potem do kadr i płac. Literówki wychodziły dopiero przy korektach, a umowa czekała na wpis kilka dni.</p>
+      <p><strong>Co połączyliśmy:</strong> dokument umowy podpisywany na tablecie, system HR, program kadrowo-płacowy. Dane z podpisanego dokumentu trafiają do obu systemów same.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>ok. 12 godzin pracy kadr tygodniowo mniej</li>
+        <li>ok. 90% mniej korekt</li>
+        <li>umowa w systemie po ok. 10 minutach zamiast po ok. 3 dniach. Skrócenie czasu to w dużej mierze zasługa podpisu na tablecie.</li>
+      </ul>
+    </OpisWdrozenia>
+  </section>
+
+  <section class="section section-tight wrap" id="raport">
+    <OpisWdrozenia id="stan-zalogi" tytul="Jeden raport zarządu z kilku źródeł">
+      <p class="autor">Grupa spółek</p>
+      <p>Raport dla zarządu powstawał ręcznie z kilku eksportów, a każdy system pokazywał inną liczbę. Dwa systemy różniły się stanem załogi o 29 osób (568 i 539). Wyszło to dopiero po połączeniu źródeł.</p>
+      <p><strong>Co połączyliśmy:</strong> systemy z danymi kadrowymi i operacyjnymi spółek oraz pulpit zarządczy.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>przygotowanie raportu zarządu: z ok. 6 godzin tygodniowo do zera</li>
+      </ul>
+    </OpisWdrozenia>
+  </section>
+
+  <section class="section section-tight wrap" id="zezwolenia">
+    <OpisWdrozenia id="alert-zezwolenia" tytul="Alert o kończącym się zezwoleniu 30 dni wcześniej">
+      {maWartosc(zezwolenia.rodzajFirmy) && <p class="autor">{zezwolenia.rodzajFirmy}</p>}
+      <p>Daty ważności zezwoleń pracowników ktoś musiał regularnie sprawdzać ręcznie.</p>
+      <p><strong>Co połączyliśmy:</strong> kartotekę pracowników z datami ważności zezwoleń i powiadomienia do osoby odpowiedzialnej.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>alert przychodzi 30 dni przed końcem ważności zezwolenia</li>
+        <li>ok. 5 godzin pracy tygodniowo mniej</li>
+      </ul>
+    </OpisWdrozenia>
+  </section>
+
+  <section class="section section-tight wrap" id="kandydaci">
+    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w 5 minut">
+      {maWartosc(kandydaci.rodzajFirmy) && <p class="autor">{kandydaci.rodzajFirmy}</p>}
+      <p>Zgłoszenia kandydatów czekały na ręczne przeniesienie do systemu rekrutacyjnego. Zanim rekruter je zobaczył, mijało ok. 48 godzin.</p>
+      <p><strong>Co połączyliśmy:</strong> formularze zgłoszeniowe i system rekrutacyjny.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>kandydat w systemie w 5 minut zamiast po ok. 48 godzinach</li>
+        <li>ok. 30% więcej kontaktów z kandydatami tego samego dnia</li>
+      </ul>
+    </OpisWdrozenia>
+    <Ujawnienie />
+  </section>
+
+  <section class="section wrap" id="metoda">
+    <header class="section-head reveal">
+      <h2 class="h2">Co łączy te cztery wdrożenia</h2>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Systemy zostały</h3>
+        <p>Połączyliśmy te, na których firmy już pracowały. Jak to robimy, opisujemy na stronie <a class="link-btn" href="integracja-systemow.html">integracji systemów</a>.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Człowiek zatwierdza wyjątki</h3>
+        <p>Automat przenosi dane i pilnuje terminów. Sprawy nietypowe trafiają do osoby po stronie firmy.</p>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Każdy zapis ma ślad</h3>
+        <p>Wpis w dzienniku mówi, co się zmieniło, skąd przyszło i kiedy. Błąd da się odnaleźć i poprawić.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="pierwszy-krok">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak zacząć u siebie</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajesz jednostronicową kartę procesu, która zostaje u Ciebie.</li>
+      <li>Audyt procesu: 3–5 dni roboczych, 1 990 zł, w całości wliczone we wdrożenie, 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Wdrożenie: pierwsza integracja albo automatyzacja w 14 dni roboczych od dnia, w którym mamy dostęp do Twoich systemów.</li>
+      <li>Opieka: monitoring i czas reakcji zapisane w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania o wdrożenia</h2>
+      <p class="lead">Nie ma tu Twojego? Zadaj je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Który proces u Ciebie przepisuje się ręcznie?</h2>
+        <p class="lead">Opowiedz o nim w 25 minut. Dostaniesz kartę procesu, także jeśli nie zdecydujesz się na dalszą pracę.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>

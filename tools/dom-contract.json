@@ -121,6 +121,10 @@
       "sha256": "ca13e40a597c9140b90069f33f059e3339852db47f034ed4a0d3b297ee3a3045",
       "size": 115088
     },
+    "assets/video/wdrozenia-kadr.jpg": {
+      "sha256": "1ac553a5ad7a1be8a61a42381d62fcbaf51901166e8338c686763b99a568c092",
+      "size": 100606
+    },
     "favicon.ico": {
       "sha256": "178abad3d3efee6f6dbc87fb6264286323106f9dfac51ad45122ab8a8b1eafae",
       "size": 4314
@@ -134,8 +138,8 @@
       "size": 428
     },
     "sitemap.xml": {
-      "sha256": "f2a6e04c840db8f212963d7ddabdc181caac69aaff7cddf78df8d5bcad6e61ba",
-      "size": 459
+      "sha256": "ee6d0eadd9106e44f3e46b51c1eb7526bbf4cfd33626b2b6e36caa7fbd71148e",
+      "size": 545
     }
   },
   "htmlBaseline": {
@@ -144,8 +148,8 @@
       "size": 1754
     },
     "index.html": {
-      "sha256": "89a8ea1858969bb76eb36da2829e57ca0d4786ba1da438343aa183f10fe71621",
-      "size": 46124
+      "sha256": "2b74a0534f26144e22bc85616d067f1f1cd369703c55319e9f6d0ff7668061ea",
+      "size": 46195
     },
     "integracja-systemow.html": {
       "sha256": "6703c8bb5a8a8724a44e2415a518b19981e845697d500b05502fe762ee046460",
@@ -158,6 +162,10 @@
     "polityka-prywatnosci.html": {
       "sha256": "b946cc54885cfc7e2d3070a10a551a28f2e8b048f93c33054a036439a6e91424",
       "size": 7866
+    },
+    "wdrozenia.html": {
+      "sha256": "1938edd80af8ad8210aa68da2046c90d44d20d8488a25215ae3e98d50b2dc4fa",
+      "size": 20832
     }
   },
   "pages": {
@@ -2316,6 +2324,13 @@
           "text": "Sprawdź to na konsultacji"
         },
         {
+          "href": "wdrozenia.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz cztery wdrożenia"
+        },
+        {
           "href": "integracja-systemow.html",
           "class": "link-btn",
           "dataTrack": null,
@@ -2942,6 +2957,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "wdrozenia.html"
         },
         {
           "tag": "a",
@@ -5389,6 +5409,1462 @@
         }
       ],
       "jsonLd": []
+    },
+    "wdrozenia.html": {
+      "doctype": "html",
+      "htmlLang": "pl",
+      "title": "Wdrożenia automatyzacji: cztery procesy | REVAGY",
+      "canonical": "https://revagy.pl/wdrozenia.html",
+      "meta": [
+        {
+          "charset": "utf-8",
+          "name": null,
+          "property": null,
+          "content": null
+        },
+        {
+          "charset": null,
+          "name": "viewport",
+          "property": null,
+          "content": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        {
+          "charset": null,
+          "name": "description",
+          "property": null,
+          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+        },
+        {
+          "charset": null,
+          "name": "theme-color",
+          "property": null,
+          "content": "#ffffff"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:type",
+          "content": "website"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:site_name",
+          "content": "REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:locale",
+          "content": "pl_PL"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:url",
+          "content": "https://revagy.pl/wdrozenia.html"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:title",
+          "content": "Wdrożenia automatyzacji: cztery procesy | REVAGY"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:description",
+          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image",
+          "content": "https://revagy.pl/assets/img/og.jpg"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        {
+          "charset": null,
+          "name": null,
+          "property": "og:image:height",
+          "content": "630"
+        },
+        {
+          "charset": null,
+          "name": "twitter:card",
+          "property": null,
+          "content": "summary_large_image"
+        }
+      ],
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "https://revagy.pl/wdrozenia.html",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "favicon.ico",
+          "type": null,
+          "sizes": "32x32",
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "icon",
+          "href": "assets/img/favicon.svg",
+          "type": "image/svg+xml",
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "assets/img/apple-touch-icon.png",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/styles.css?v=4",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        },
+        {
+          "rel": "stylesheet",
+          "href": "assets/css/podstrony.css?v=1",
+          "type": null,
+          "sizes": null,
+          "as": null,
+          "crossorigin": false
+        }
+      ],
+      "scripts": [
+        {
+          "src": "assets/js/app.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/wejscie.js?v=1",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        },
+        {
+          "src": "assets/js/analytics.js?v=4",
+          "defer": true,
+          "async": false,
+          "type": null,
+          "hasInlineBody": false
+        }
+      ],
+      "stylesCount": 0,
+      "astroAttrs": [],
+      "bodyDirectTags": [
+        {
+          "tag": "a",
+          "id": null,
+          "class": "skip"
+        },
+        {
+          "tag": "header",
+          "id": "top",
+          "class": "site-header"
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "class": null
+        },
+        {
+          "tag": "footer",
+          "id": null,
+          "class": "site-footer"
+        }
+      ],
+      "mainAttrs": {
+        "id": "start",
+        "class": null
+      },
+      "mainSections": [
+        {
+          "tag": "section",
+          "id": "wstep",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "class": "section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "dowody",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "umowy",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "raport",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "zezwolenia",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "kandydaci",
+          "class": "section section-tight wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "metoda",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pierwszy-krok",
+          "class": "section wrap",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "class": "section wrap faq-section",
+          "ariaLabel": null
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "class": "section",
+          "ariaLabel": null
+        }
+      ],
+      "keyedElements": [
+        {
+          "tag": "header",
+          "id": "top",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Główna nawigacja"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-rozwiazania"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-rozwiazania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "panel-dzialy"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "panel-dzialy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "mobile-menu",
+            "aria-label": "Otwórz menu"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "mobile-menu",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Menu mobilne"
+          }
+        },
+        {
+          "tag": "main",
+          "id": "start",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "wstep",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "film",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-scale": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "dowody",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "umowy",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "raport",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "zezwolenia",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "kandydaci",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "metoda",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pierwszy-krok",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "section",
+          "id": "pytania",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-faq": ""
+          },
+          "aria": {}
+        },
+        {
+          "tag": "button",
+          "id": "qb-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "true",
+            "aria-controls": "qa-1"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-1",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-1"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-2"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-2",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-2"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-3"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-3",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-3"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-4"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-4",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-4"
+          }
+        },
+        {
+          "tag": "button",
+          "id": "qb-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-expanded": "false",
+            "aria-controls": "qa-5"
+          }
+        },
+        {
+          "tag": "span",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "div",
+          "id": "qa-5",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-labelledby": "qb-5"
+          }
+        },
+        {
+          "tag": "section",
+          "id": "wezwanie",
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "REVAGY, strona główna"
+          }
+        },
+        {
+          "tag": "svg",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Rozwiązania"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Dla działów"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Firma"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-label": "Kontakt"
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {
+            "data-consent-open": ""
+          },
+          "aria": {}
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "id": null,
+          "text": "Cztery wdrożenia. Co było, co połączyliśmy, co się zmieniło."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Cztery procesy przed i po połączeniu systemów"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak czytać te opisy"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Umowy bez przepisywania"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Jeden raport zarządu z kilku źródeł"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Alert o kończącym się zezwoleniu 30 dni wcześniej"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Kandydat w systemie w 5 minut"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Co łączy te cztery wdrożenia"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Systemy zostały"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Człowiek zatwierdza wyjątki"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Każdy zapis ma ślad"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Jak zacząć u siebie"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Pytania o wdrożenia"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Dlaczego nie podajecie nazw firm?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Skąd są te liczby?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Czy u nas wyjdzie tak samo?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Mamy inne systemy niż w tych opisach. Czy to przeszkoda?"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Który proces u Ciebie przepisuje się ręcznie?"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Dla działów"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Firma"
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Kontakt"
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#start",
+          "class": "skip",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Przejdź do treści"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesówZamówienia, faktury, raporty i obieg dokumentów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AIObsługa zapytań, ofert i zgłoszeń przez całą dobę"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje systemówCRM, ERP, e-commerce i narzędzia zespołu w jednym obiegu"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka i raportyDane z wielu źródeł w jednym pulpicie"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "SprzedażKwalifikacja leadów, oferty, follow-upy"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FinanseFaktury kosztowe, windykacja, uzgodnienia"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klientaOdpowiedzi, statusy zamówień, reklamacje"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Operacje i HROnboarding, grafiki, zamówienia wewnętrzne"
+        },
+        {
+          "href": "./#proces",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": "nav-link",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": "btn btn-ghost",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Rozwiązania"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Dla działów"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Policz zwrot"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-dark btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "#umowy",
+          "class": "btn btn-outline btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Zobacz cztery opisy"
+        },
+        {
+          "href": "integracja-systemow.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "integracji systemów"
+        },
+        {
+          "href": "kontakt.html",
+          "class": "btn btn-light btn-lg",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów bezpłatną konsultację"
+        },
+        {
+          "href": "./",
+          "class": "logo",
+          "dataTrack": null,
+          "ariaLabel": "REVAGY, strona główna",
+          "text": "REVAGY"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Automatyzacja procesów"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Agenci AI"
+        },
+        {
+          "href": "./#integracje",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Integracje"
+        },
+        {
+          "href": "./#mozliwosci",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Analityka"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Sprzedaż"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Finanse"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Obsługa klienta"
+        },
+        {
+          "href": "./#zastosowania",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Logistyka"
+        },
+        {
+          "href": "./#proces",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Jak wdrażamy"
+        },
+        {
+          "href": "./#pakiety",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Pakiety"
+        },
+        {
+          "href": "./#bezpieczenstwo",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Bezpieczeństwo"
+        },
+        {
+          "href": "./#faq",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "FAQ"
+        },
+        {
+          "href": "./#kontakt",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Umów konsultację"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        },
+        {
+          "href": "tel:+48504037538",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "+48 504 037 538"
+        },
+        {
+          "href": "./#kalkulator",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Kalkulator zwrotu"
+        },
+        {
+          "href": "polityka-prywatnosci.html",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "Polityka prywatności"
+        },
+        {
+          "href": "mailto:kontakt@revagy.pl",
+          "class": null,
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "kontakt@revagy.pl"
+        }
+      ],
+      "videos": [],
+      "calculator": null,
+      "localRefs": [
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "favicon.ico"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/favicon.svg"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/img/apple-touch-icon.png"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/styles.css?v=4"
+        },
+        {
+          "tag": "link",
+          "attr": "href",
+          "val": "assets/css/podstrony.css?v=1"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#start"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "#umowy"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/wdrozenia-kadr.jpg"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "integracja-systemow.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "kontakt.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#integracje"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#mozliwosci"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#zastosowania"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#proces"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#pakiety"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#bezpieczenstwo"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#faq"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kontakt"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "tel:+48504037538"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "./#kalkulator"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "polityka-prywatnosci.html"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "mailto:kontakt@revagy.pl"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/app.js?v=4"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/wejscie.js?v=1"
+        },
+        {
+          "tag": "script",
+          "attr": "src",
+          "val": "assets/js/analytics.js?v=4"
+        }
+      ],
+      "jsonLd": [
+        {
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#strona\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"name\":\"Wdrożenia\",\"headline\":\"Wdrożenia automatyzacji: cztery procesy | REVAGY\",\"description\":\"Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Wdrożenia\",\"item\":\"https://revagy.pl/wdrozenia.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\",\"name\":\"Automatyzacja procesów i integracja systemów firmy\",\"description\":\"Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Dlaczego nie podajecie nazw firm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.\"}},{\"@type\":\"Question\",\"name\":\"Skąd są te liczby?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.\"}},{\"@type\":\"Question\",\"name\":\"Czy u nas wyjdzie tak samo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.\"}},{\"@type\":\"Question\",\"name\":\"Mamy inne systemy niż w tych opisach. Czy to przeszkoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama, ale wejście inne.\"}}]}]}",
+          "attrs": [
+            "type"
+          ]
+        }
+      ]
     }
   },
   "contactForm": {

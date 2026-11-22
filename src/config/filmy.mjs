@@ -21,6 +21,18 @@ export const FILMY = {
     czasSekundy: null,
     dataPublikacji: null,
   },
+  'wdrozenia': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Cztery kafle obok siebie: umowa w dwóch systemach, raport z trzech źródeł, alert o kończącym się zezwoleniu i zgłoszenie kandydata w systemie. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: cztery procesy przed i po połączeniu systemów',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Cztery procesy przed i po połączeniu systemów',
+    opis: 'Umowa trafia z dokumentu do systemu HR oraz do kadr i płac, trzy źródła składają się w jeden raport zarządu, alert o kończącym się zezwoleniu przychodzi 30 dni przed końcem ważności, a zgłoszenie kandydata trafia do systemu rekrutacyjnego. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: null,
+    dataPublikacji: null,
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
