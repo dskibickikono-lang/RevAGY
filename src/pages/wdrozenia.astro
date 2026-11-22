@@ -1,7 +1,7 @@
 ---
 // Etap 2 (T-010): „Wdrożenia” (D-020), bez nazw własnych systemów (D-033), opisy wdrożeń anonimowe (D-034).
 // Nazwy spółek, etykiety powiązań, skala, „jak mierzone”, cytaty, rodzaj firmy (dwa opisy),
-// zdanie ujawnienia i „Wdrażamy także poza nią” pochodzą wyłącznie z src/data/dowody.mjs.
+// zdanie ujawnienia oraz nagłówek sekcji dowodów pochodzą wyłącznie z src/data/dowody.mjs.
 // Dwa opisy dzielą klucze ze stroną /integracja-systemow.html (to te same wdrożenia), więc właściciel
 // wpisuje ich dane raz: 'agencja-pracy-umowy' i 'stan-zalogi'.
 // Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
@@ -21,8 +21,11 @@ const zezwolenia = wdrozenie('alert-zezwolenia');
 const kandydaci = wdrozenie('kandydaci-zgloszenia');
 const opisy = [umowy, raport, zezwolenia, kandydaci];
 
-// „Wdrażamy także poza nią.” tylko wtedy, gdy właściciel ustawi takzePozaGrupa na true.
-const takzePozaGrupa = DOWODY.takzePozaGrupa === true;
+// Nagłówek sekcji dowodów mówi, gdzie wdrożenia były sprawdzone, czyli o powiązaniu firm.
+// Jego tekst wpisuje właściciel (D-034). Bez wartości strona pokazuje nagłówek neutralny.
+const naglowekDowodow = maWartosc(DOWODY.naglowekDowodow) ? DOWODY.naglowekDowodow.trim() : null;
+// „Wdrażamy także poza nią.” tylko z nagłówkiem właściciela i tylko, gdy ustawi takzePozaGrupa na true.
+const takzePozaGrupa = naglowekDowodow !== null && DOWODY.takzePozaGrupa === true;
 // Zdania o anonimowości mają sens tylko, dopóki przy opisach nie ma nazw spółek.
 const wszystkieAnonimowe = opisy.every((w) => !maWartosc(w.nazwaSpolki));
 const ktorysAnonimowy = opisy.some((w) => !maWartosc(w.nazwaSpolki));
@@ -97,7 +100,7 @@ const pytania = [
 
   <section class="section wrap" id="dowody">
     <header class="section-head reveal">
-      <h2 class="h2">Sprawdzone w grupie 16 spółek.{takzePozaGrupa && ' Wdrażamy także poza nią.'}</h2>
+      <h2 class="h2">{naglowekDowodow ? `${naglowekDowodow}${takzePozaGrupa ? ' Wdrażamy także poza nią.' : ''}` : 'Jak czytać te opisy'}</h2>
       <p class="lead">{wszystkieAnonimowe && 'Opisy są anonimowe: zamiast nazwy firmy podajemy jej rodzaj. '}Systemy nazywamy kategorią, na przykład „system HR” albo „kadry i płace”.</p>
       <p>Jak czytać liczby:</p>
       <ul class="ticks">

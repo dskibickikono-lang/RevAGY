@@ -85,7 +85,14 @@ export const DOWODY = {
   // Zdanie ujawnienia pod opisami wdrożeń (raz na stronę, komponent Ujawnienie). Tekst wpisuje właściciel.
   zdanieUjawnienia: null,
 
-  // Czy wolno pisać „Wdrażamy także poza nią” w nagłówku sekcji dowodów. Ustawia właściciel.
+  // Nagłówek sekcji dowodów na stronie /wdrozenia.html: zdanie o tym, gdzie te wdrożenia były sprawdzone.
+  // Mówi o powiązaniu firm, więc tekst wpisuje właściciel, razem ze zdaniem ujawnienia (zdanieUjawnienia).
+  // Każda liczba w nagłówku wymaga wiersza w tools/rejestr-twierdzen.json.
+  // Bez wartości strona pokazuje nagłówek „Jak czytać te opisy”.
+  naglowekDowodow: null,
+
+  // Czy do nagłówka sekcji dowodów wolno dopisać „Wdrażamy także poza nią.”. Ustawia właściciel.
+  // Działa tylko razem z naglowekDowodow.
   takzePozaGrupa: false,
 };
 

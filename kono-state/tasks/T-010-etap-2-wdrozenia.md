@@ -48,5 +48,5 @@ bez zmian (D-015, D-021).
 - Pola w `src/data/dowody.mjs` dla czterech wdrożeń:
   - nazwa, etykieta, skala, „jak mierzone”, cytat;
   - rodzaj firmy w dwóch opisach;
-  - zdanie ujawnienia i `takzePozaGrupa`.
+  - zdanie ujawnienia, nagłówek sekcji dowodów (`naglowekDowodow`) i `takzePozaGrupa`.
 - Miejsce odnośnika na stronie głównej potwierdza właściciel na podglądzie.
