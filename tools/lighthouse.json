@@ -4,7 +4,45 @@
   "host": "revagy.pl",
   "przebiegi": 3,
   "strony": [
-    { "plik": "finanse.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } },
-    { "plik": "kadry-i-place.html", "progi": { "performance": 90, "accessibility": 95, "seo": 100 } }
+    {
+      "plik": "index.html",
+      "progi": {
+        "performance": 65,
+        "accessibility": 95,
+        "seo": 100
+      }
+    },
+    {
+      "plik": "kontakt.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
+    },
+    {
+      "plik": "integracja-systemow.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
+    },
+    {
+      "plik": "finanse.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
+    },
+    {
+      "plik": "kadry-i-place.html",
+      "progi": {
+        "performance": 90,
+        "accessibility": 95,
+        "seo": 100
+      }
+    }
   ]
 }

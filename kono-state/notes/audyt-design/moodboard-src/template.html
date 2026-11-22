@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REVAGY — moodboard kierunków rozwoju</title>
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--ink:#16151a;--ink2:#5c5a63;--line:#dcd9d2;--mark:#1d4ed8;--tag:#ecebe6;--ok:#0f7a52;--warn:#9a3d00;--max:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--mark)} a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--mark);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header.top{padding:40px 0 24px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:clamp(22px,3vw,30px);line-height:1.15;margin:56px 0 12px;letter-spacing:-.015em}
+h3{font-size:19px;line-height:1.25;margin:28px 0 8px}
+h4{font-size:15px;margin:18px 0 6px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+p{margin:0 0 12px;max-width:78ch} ul{margin:0 0 12px;padding-left:20px;max-width:78ch} li{margin:4px 0}
+.lede{font-size:18px;color:var(--ink2);max-width:72ch}
+.meta{font-size:14px;color:var(--ink2)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(247,246,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc ul{list-style:none;display:flex;gap:4px 18px;flex-wrap:wrap;margin:0 auto;padding:10px 20px;max-width:var(--max);font-size:14px}
+nav.toc a{text-decoration:none;color:var(--ink);padding:6px 0;display:inline-block} nav.toc a:hover{text-decoration:underline}
+.status{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--tag);color:var(--ink);white-space:nowrap}
+.status.m{background:#dbe7ff}.status.o{background:#e4f2e9}.status.e{background:#fff0c9}.status.p{background:#fde3d6}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;color:var(--ink2);margin:12px 0}
+.grid{display:grid;gap:16px} .grid>*,.cols>*{min-width:0} .g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure .shot{display:block;width:100%;padding:0;border:0;background:#eee;cursor:zoom-in}
+figure img{display:block;width:100%;height:auto}
+figcaption{padding:10px 12px;font-size:13px;line-height:1.4;color:var(--ink2)}
+figcaption b{color:var(--ink);font-weight:600} figcaption code{font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.dir{margin-top:28px;padding:24px 0 8px;border-top:3px solid var(--ink)}
+.dir > h2{margin-top:0}
+.dir .letter{display:inline-block;min-width:38px;height:38px;line-height:38px;text-align:center;border-radius:8px;background:var(--ink);color:#fff;font-weight:700;margin-right:10px}
+.chain{display:grid;gap:10px;margin:12px 0 18px;counter-reset:c}
+.chain > div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 46px;position:relative}
+.chain > div::before{counter-increment:c;content:counter(c);position:absolute;left:14px;top:12px;width:22px;height:22px;border-radius:50%;background:var(--tag);font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.chain>div>b:first-child{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);margin-bottom:2px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:#efeee9;font-weight:600} tr:last-child td{border-bottom:0}
+td code,p code,li code{font:13px ui-monospace,Menlo,Consolas,monospace;background:var(--tag);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+table.wide{min-width:1040px} table.wide td:first-child code{overflow-wrap:normal;white-space:nowrap}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);vertical-align:-2px;margin-right:6px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.filters button{font:inherit;font-size:14px;padding:8px 14px;min-height:40px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ref[hidden]{display:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags span{font-size:12px;background:var(--tag);border-radius:999px;padding:2px 8px;color:var(--ink)}
+.plus{color:var(--ok)} .minus{color:var(--warn)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} @media (max-width:760px){.cols{grid-template-columns:1fr}}
+.choice{background:#16151a;color:#fff;border-radius:14px;padding:26px 24px;margin:28px 0}
+.choice h2{margin-top:0;color:#fff} .choice p,.choice li{color:#e9e7ee;max-width:80ch} .choice code{background:#34323b;color:#fff}
+dialog{border:0;border-radius:12px;padding:0;max-width:min(96vw,1500px);width:96vw;max-height:94vh;background:#111;color:#fff}
+dialog::backdrop{background:rgba(10,10,14,.8)}
+dialog .bar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 14px;font-size:13px;position:sticky;top:0;background:#111}
+dialog .bar a{color:#9cc0ff} dialog button{font:inherit;min-height:40px;padding:6px 14px;border-radius:8px;border:1px solid #555;background:#222;color:#fff;cursor:pointer}
+dialog .scroll{overflow:auto;max-height:calc(94vh - 60px)} dialog img{display:block;width:100%;height:auto}
+/* szkice — propozycje, tokeny REVAGY */
+.sk{--paper:#fff;--mist:#f4f1ee;--ink:#141114;--ink2:#625c63;--accent:#ff5b14;--rose:#ff2e7e;--plum:#3b1437;--line:#e1dbd4;--ok:#19b77a;background:var(--paper);color:var(--ink);border-radius:8px;overflow:hidden;aspect-ratio:16/10;position:relative;font-family:system-ui,sans-serif;container-type:inline-size}
+.sk *{position:absolute}
+.sk .hd{left:4%;right:4%;top:3%;height:6%;display:flex;align-items:center;justify-content:space-between;position:absolute}
+.sk .hd *{position:static}
+.sk .lg{width:9cqw;height:2.6cqw;background:var(--ink);border-radius:.8cqw}
+.sk .nv{display:flex;gap:1.4cqw} .sk .nv i{width:5cqw;height:1cqw;background:var(--line);border-radius:1cqw;display:block}
+.sk .bt{height:3cqw;border-radius:3cqw;background:var(--ink);display:block}
+.sk .t{background:var(--ink);border-radius:.6cqw;height:3.2cqw} .sk .t.w{background:#fff} .sk .s{background:var(--ink2);opacity:.45;border-radius:.4cqw;height:1.1cqw} .sk .s.w{background:#fff;opacity:.6}
+.sk .scene{background:var(--ink);border-radius:2.6cqw;overflow:hidden}
+.sk .glow{inset:-30%;background:radial-gradient(30% 36% at 22% 78%,var(--plum),transparent 70%),radial-gradient(24% 30% at 70% 80%,rgba(255,91,20,.55),transparent 70%),radial-gradient(22% 28% at 86% 16%,rgba(255,46,126,.5),transparent 70%);filter:blur(1.4cqw)}
+.sk .pill{border-radius:3cqw;height:3cqw}
+.sk .num{font-weight:800;font-size:5.4cqw;line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.sk .lab{font-size:1.25cqw;color:var(--ink2);white-space:nowrap}
+.sk .mono{font:600 1.1cqw ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.sk .node{border:.25cqw solid var(--ink);border-radius:1.2cqw;background:#fff;font:600 1.2cqw system-ui;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.sk .wire{height:.25cqw;background:var(--ink)}
+.sklabel{font-size:12px;font-weight:600;color:var(--warn);text-transform:uppercase;letter-spacing:.06em}
+footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<p class="meta">REVAGY · T-026 · etap porównania · <!--DATE--></p>
+<h1>Moodboard: kierunki rozwoju identyfikacji REVAGY na tle branży</h1>
+<p class="lede"><!--LEDE--></p>
+<div class="legend"><span><span class="status m">Zmierzone</span> wartość ze stylów strony, z elementem i właściwością</span><span><span class="status o">Zaobserwowane</span> widać na zrzucie</span><span><span class="status e">Szacunek</span> ocena z obrazu</span><span><span class="status p">Propozycja</span> moja adaptacja dla REVAGY, niezatwierdzona</span></div>
+</div></header>
+<nav class="toc" aria-label="Spis treści"><ul><!--TOC--></ul></nav>
+<main class="wrap">
+<!--MAIN-->
+</main>
+<div class="wrap"><footer><!--FOOTER--></footer></div>
+<dialog id="lb" aria-labelledby="lb-t"><div class="bar"><span id="lb-t"></span><span><a id="lb-o" href="#" target="_blank" rel="noopener">Otwórz oryginał zrzutu</a> · <a id="lb-u" href="#" target="_blank" rel="noopener">Strona źródłowa</a></span><form method="dialog"><button>Zamknij</button></form></div><div class="scroll"><img id="lb-i" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div></dialog>
+<script>
+(function(){
+  var d=document.getElementById('lb'),i=document.getElementById('lb-i'),t=document.getElementById('lb-t'),o=document.getElementById('lb-o'),u=document.getElementById('lb-u');
+  document.querySelectorAll('button.shot').forEach(function(b){b.addEventListener('click',function(){var im=b.querySelector('img');i.onerror=function(){i.onerror=null;i.src=im.src;};i.src=b.dataset.orig;i.alt=im.alt;t.textContent=b.dataset.id+' — '+b.dataset.title;o.href=b.dataset.orig;u.href=b.dataset.url;d.showModal();});});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  var fs=document.querySelectorAll('.filters button');
+  fs.forEach(function(b){b.addEventListener('click',function(){fs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});var g=b.dataset.group;document.querySelectorAll('.ref').forEach(function(r){r.hidden=!(g==='all'||r.dataset.groups.split(' ').indexOf(g)>-1);});});});
+})();
+</script>
+</body>
+</html>

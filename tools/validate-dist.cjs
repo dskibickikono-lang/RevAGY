@@ -629,7 +629,7 @@ function pageComparison(pageRel, html) {
     result.formCount = forms.length;
     result.sitekeyOk = Boolean(sitekey && sitekey[1].trim());
     result.formHash = crypto.createHash('sha256').update(normalizedForm).digest('hex');
-    result.comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/?assets\/js\/kontakt\.js\?v=1"[^>]*>[\s\S]*?<\/script>/, '');
+    result.comparisonHtml = html.replace(formHtml, '').replace(/<script\b[^>]*src="\/?assets\/js\/kontakt\.js\?v=[0-9a-f]{8}"[^>]*>[\s\S]*?<\/script>/, '');
   }
   return result;
 }
@@ -838,12 +838,17 @@ function main() {
   // Układ strony z 9f8c86f: app.js tylko na stronie głównej, analytics.js i clarity.js (T-022) wszędzie
   // (podstrony ścieżką względną).
   // Nowe podstrony: lista skryptów z tools/podstrony.json (ma pierwszeństwo przed tablicą poniżej).
-  const defaultPageScripts = ['assets/js/analytics.js?v=5', 'assets/js/clarity.js?v=1'];
+  // Listy skryptów bez parametru wersji; oczekiwany ?v= to pierwsze 8 znaków SHA-256 pliku (src/config/zasoby.mjs).
+  const defaultPageScripts = ['assets/js/analytics.js', 'assets/js/clarity.js'];
+  const zWersja = (src) => {
+    const entry = actualMap.get(src.replace(/^\//, ''));
+    return entry ? `${src}?v=${entry.sha256.slice(0, 8)}` : src;
+  };
   const podstrony = readPodstronyScripts();
   errors.push(...podstrony.errors);
   const expectedScripts = {
-    '404.html': ['/assets/js/analytics.js?v=5', '/assets/js/clarity.js?v=1'],
-    'index.html': ['assets/js/app.js?v=5', 'assets/js/analytics.js?v=5', 'assets/js/clarity.js?v=1'],
+    '404.html': ['/assets/js/analytics.js', '/assets/js/clarity.js'],
+    'index.html': ['assets/js/app.js', 'assets/js/analytics.js', 'assets/js/clarity.js'],
     'kontakt.html': defaultPageScripts,
     'polityka-prywatnosci.html': defaultPageScripts,
     ...podstrony.map,
@@ -869,6 +874,7 @@ function main() {
     if (parsed.astroAttrs.length > 0) errors.push(`${pageRel}: zawiera atrybuty Astro (${parsed.astroAttrs.slice(0, 5).join(', ')})`);
 
     // Weryfikacja skryptów
+    pageScripts = pageScripts.map(zWersja);
     const gotScriptSrcs = parsed.scripts.map((s) => s.src);
     if (JSON.stringify(gotScriptSrcs) !== JSON.stringify(pageScripts)) {
       errors.push(`${pageRel}: nieprawidłowe skrypty: oczekiwano ${JSON.stringify(pageScripts)}, jest ${JSON.stringify(gotScriptSrcs)}`);
@@ -886,6 +892,12 @@ function main() {
       const res = resolveLocalRef(targetDir, pageRel, ref.val);
       if (!res.external && !res.exists) {
         errors.push(`${pageRel}: <${ref.tag} ${ref.attr}="${ref.val}"> wskazuje na nieistniejący plik (${res.relPath})`);
+      }
+      // Style, skrypty i filmy: parametr ?v= musi być skrótem treści wskazanego pliku (S-05, D-05).
+      if (!res.external && res.exists && /^assets\/(css|js|video)\//.test(res.relPath) && !/-kadr\.jpg$/.test(res.relPath)) {
+        const chce = actualMap.get(res.relPath).sha256.slice(0, 8);
+        const ma = (/\?v=([^#]*)/.exec(ref.val) || [])[1];
+        if (ma !== chce) errors.push(`${pageRel}: <${ref.tag} ${ref.attr}="${ref.val}"> ma wersję ${ma === undefined ? 'brak' : ma}, oczekiwano ?v=${chce} (skrót treści pliku)`);
       }
       if (pageRel === '404.html' && !res.external && !ref.val.startsWith('/')) {
         errors.push(`404.html: <${ref.tag} ${ref.attr}="${ref.val}"> musi zaczynać się od /`);

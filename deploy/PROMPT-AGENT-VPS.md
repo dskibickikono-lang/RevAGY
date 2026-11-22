@@ -1,18 +1,20 @@
 # Runbook wdrożenia i aktualizacji `revagy.pl` (Wariant A: Caddy → lokalny nginx)
 
 Ten dokument zastępuje archiwalny prompt pierwszej instalacji serwera (nginx/certbot).
-Obecna produkcja na hoście `skibiai` (`65.108.208.163`) działa w **Wariancie A**:
+Obecna produkcja działa w **Wariancie A**. Nazwa i adres hosta, lista innych usług na tym serwerze oraz ich porty
+są w prywatnej dokumentacji właściciela, nie w tym repozytorium (audyt T-028, D-04). Symbole `<…>` poniżej
+operator podstawia z tej dokumentacji:
 
 - Publiczne porty `:80` / `:443` obsługuje **Caddy** (`/etc/caddy/Caddyfile`), który realizuje TLS (Let's Encrypt) i przekierowania `http://` → `https://`.
 - Ruch dla `revagy.pl`, `www.revagy.pl` i `stats.revagy.pl` trafia z Caddy przez `reverse_proxy` do lokalnego **nginx** na `127.0.0.1:8092` (`/etc/nginx/sites-available/revagy.pl.conf` + `/etc/nginx/snippets/revagy-naglowki.conf`).
 - Matomo działa w kontenerze Docker `revagy-matomo-app-1` na `127.0.0.1:8090` (MariaDB 11.4).
-- Na tym samym hoście działają niezależne domeny: `skoben.pl` (nginx `127.0.0.1:8093`), `skibilabs.pl` (nginx `127.0.0.1:8094`) oraz `sms-dlr.skibilabs.pl` (`127.0.0.1:8091`, `sms-dlr.service`). Domena `skobel.pl` wskazuje inny serwer (`185.253.212.22`) i jest poza zakresem operacji.
+- Na tym samym hoście działają inne, niezależne domeny i usługi (`<DOMENA_WSPOLDZIELONA_1>`, `<DOMENA_WSPOLDZIELONA_2>`, `<USLUGA_WSPOLDZIELONA>`). Są poza zakresem operacji.
 
 ## Zasady nadrzędne
 
 1. **Osobna zgoda właściciela:** przełączenie `/var/www/revagy.pl/current` wymaga jawnej zgody właściciela dla konkretnego SHA commita i manifestu.
-2. **Brak zmian w usługach współdzielonych:** nie zmieniaj DNS, `/etc/caddy/Caddyfile`, vhostów `/etc/nginx/`, Dockera, Matomo ani `skoben.pl`/`skibilabs.pl`/`sms-dlr.skibilabs.pl` przy aktualizacji plików statycznych. Samo przełączenie symlinka `current` nie wymaga reloadu ani restartu Caddy/nginx.
-3. **Na VPS nie ma builda ani Node:** artefakt `dist/` buduje wyłącznie GitHub Actions (`.github/workflows/ci.yml`, Node 22 z `.nvmrc`) — tak samo jak `web-skoben` i `web-skibilabs`. Na hoście nie uruchamiaj `npm`/`astro`, nie instaluj ani nie aktualizuj Node; wersja `/usr/bin/node` na VPS nie ma znaczenia dla tej strony. Nie buduj w `/var/www/revagy.pl/current` i nie przebudowuj artefaktu po wygenerowaniu manifestu.
+2. **Brak zmian w usługach współdzielonych:** nie zmieniaj DNS, `/etc/caddy/Caddyfile`, vhostów `/etc/nginx/`, Dockera, Matomo ani domen i usług współdzielonych przy aktualizacji plików statycznych. Samo przełączenie symlinka `current` nie wymaga reloadu ani restartu Caddy/nginx.
+3. **Na VPS nie ma builda ani Node:** artefakt `dist/` buduje wyłącznie GitHub Actions (`.github/workflows/ci.yml`, Node 22 z `.nvmrc`). Na hoście nie uruchamiaj `npm`/`astro`, nie instaluj ani nie aktualizuj Node; wersja `/usr/bin/node` na VPS nie ma znaczenia dla tej strony. Nie buduj w `/var/www/revagy.pl/current` i nie przebudowuj artefaktu po wygenerowaniu manifestu.
 4. **Bezpieczeństwo ścieżek:** katalogi wejściowe przekazane procesowi `root` (`dist`, plik manifestu) umieszczaj w obszarze operatora z prawami bez zapisu dla grupy i innych (`chmod -R go-w`, katalogi `755`, pliki `644`).
 
 ---
@@ -26,9 +28,9 @@ readlink -f /var/www/revagy.pl/current
 find /var/www/revagy.pl/releases -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort
 sudo nginx -t
 caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
-systemctl is-active caddy nginx docker sms-dlr.service
+systemctl is-active caddy nginx docker <USLUGA_WSPOLDZIELONA>
 sudo docker ps --format '{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}'
-sha256sum /etc/caddy/Caddyfile /etc/nginx/sites-available/revagy.pl.conf /etc/nginx/snippets/revagy-naglowki.conf /etc/nginx/sites-available/skoben /etc/nginx/sites-available/skibilabs.pl
+sha256sum /etc/caddy/Caddyfile /etc/nginx/sites-available/revagy.pl.conf /etc/nginx/snippets/revagy-naglowki.conf <VHOSTY_DOMEN_WSPOLDZIELONYCH>
 ```
 
 Zarejestruj baseline HTTP przed przełączeniem:
@@ -41,11 +43,9 @@ curl -s -o /dev/null -w 'polityka=%{http_code}\n' https://revagy.pl/polityka-pry
 curl -s -o /dev/null -w '404=%{http_code}\n' https://revagy.pl/nie-istnieje
 curl -s -o /dev/null -w 'git=%{http_code}\n' https://revagy.pl/.git/config
 curl -s -o /dev/null -w 'stats=%{http_code}\n' https://stats.revagy.pl/
-curl -s -o /dev/null -w 'skoben=%{http_code}\n' https://skoben.pl/
-curl -s --compressed https://skoben.pl/ | sha256sum
-curl -s -o /dev/null -w 'skibilabs=%{http_code}\n' https://skibilabs.pl/
-curl -s --compressed https://skibilabs.pl/ | sha256sum
-curl -s -o /dev/null -w 'sms-dlr=%{http_code}\n' https://sms-dlr.skibilabs.pl/
+# dla każdej domeny współdzielonej z prywatnej dokumentacji:
+curl -s -o /dev/null -w 'wspoldzielona=%{http_code}\n' https://<DOMENA_WSPOLDZIELONA>/
+curl -s --compressed https://<DOMENA_WSPOLDZIELONA>/ | sha256sum
 ```
 
 Odczytaj różnicę manifestów bieżącego i nowego wydania (tylko odczyt, bez `sudo`). Manifest nowego wydania to plik `revagy-dist-$NEW_SHA.manifest.sha256` z artefaktu CI (Faza 1), więc ten krok wykonaj po jego pobraniu i sprawdzeniu `SHA256SUMS`, przed Fazą 3:
@@ -138,17 +138,15 @@ diff -qr "<sciezka-do-dist>" /var/www/revagy.pl/current
 ## Faza 4. Kontrola po publikacji i hosty współdzielone
 
 1. Powtórz wszystkie kontrole HTTP z Fazy 0 dla `revagy.pl`, `www.revagy.pl`, `stats.revagy.pl`.
-2. Uruchom test dymny (z atrapą Matomo) przeciwko produkcji:
-
-```bash
-node tools/smoke-test.cjs https://revagy.pl
-```
+2. Uruchom kontrolę produkcji z GitHub Actions (na serwerze nie ma Node): workflow „Kontrola produkcji”
+   (`.github/workflows/kontrola-produkcji.yml`, uruchamiany ręcznie). Porównuje nagłówki bezpieczeństwa z produkcji
+   z plikiem `deploy/nginx/revagy-naglowki.conf` i opcjonalnie wykonuje test dymny z atrapą Matomo.
+   To samo lokalnie, z komputera z Node: `npm run check:prod` oraz `node tools/smoke-test.cjs https://revagy.pl`.
 
 3. Potwierdź brak wpływu na domeny współdzielone:
-   - `skoben.pl`: `200` i identyczny hash zdekompresowanej treści jak w baseline,
-   - `skibilabs.pl`: `200` i identyczny hash zdekompresowanej treści jak w baseline,
-   - `sms-dlr.skibilabs.pl`: `GET /` nadal `404`, `systemctl is-active sms-dlr.service` = `active`,
-   - `stats.revagy.pl`: `200` dla `/` i `/matomo.js`, `401` dla `/logi/`.
+   - każda domena współdzielona: ten sam kod HTTP i identyczny hash zdekompresowanej treści jak w baseline,
+   - `<USLUGA_WSPOLDZIELONA>`: `systemctl is-active` = `active`,
+   - `stats.revagy.pl`: `200` dla `/matomo.js`, `401` dla `/` i `/logi/` (panel Matomo za dodatkowym hasłem po instalacji vhosta z T-029).
 
 ---
 
@@ -164,5 +162,5 @@ sudo sh deploy/wydanie.sh --rollback \
   "<sha256-manifestu-rollbacku>"
 ```
 
-Po rollbacku sprawdź `readlink -f /var/www/revagy.pl/current` oraz powtórz kontrole HTTP i `node tools/smoke-test.cjs https://revagy.pl`.
+Po rollbacku sprawdź `readlink -f /var/www/revagy.pl/current` oraz powtórz kontrole HTTP i workflow „Kontrola produkcji”.
 Rollback HTML cofa wyłącznie wskazanie `/var/www/revagy.pl/current` i nie cofa ewentualnych zmian w Caddy/nginx ani trwających sesji otwartych w przeglądarkach.

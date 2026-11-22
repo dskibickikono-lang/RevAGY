@@ -1,0 +1,2993 @@
+{
+ "captured_by": "playwright-chromium headless",
+ "capture_date": "2026-11-22",
+ "method": {
+  "rhythm": "kadry okna 1440×900 co 900 px od góry strony (do 16 kadrów); średnia jasność kadru po zmniejszeniu do 144×90 px, skala 0–1; kadr „ciemny” poniżej 0,30",
+  "measurements": "getComputedStyle, tylko odczyt; h1 = pierwszy widoczny znacznik h1; largestTextFirstScreen = największy tekst w pierwszym oknie"
+ },
+ "screens": [
+  {
+   "id": "automation-house-home-top",
+   "site": "Automation House",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:29:38.148Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent dismissed (#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-top.webp",
+   "limitations": [
+    "ikona Cookiebot i dymek czatu zostają w kadrze"
+   ]
+  },
+  {
+   "id": "automation-house-home-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:29:39.955Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent dismissed (#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-f2.webp",
+   "limitations": [
+    "ikona Cookiebot i dymek czatu zostają w kadrze"
+   ]
+  },
+  {
+   "id": "automation-house-home-f4",
+   "site": "Automation House",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:29:41.674Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default, consent dismissed (#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-f4.webp",
+   "limitations": [
+    "ikona Cookiebot i dymek czatu zostają w kadrze"
+   ]
+  },
+  {
+   "id": "automation-house-home-m-top",
+   "site": "Automation House",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:29:56.210Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent dismissed (#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-m-top.webp",
+   "limitations": [
+    "ikona Cookiebot i dymek czatu zostają w kadrze"
+   ]
+  },
+  {
+   "id": "automation-house-home-m-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:29:57.384Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~844px",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default, consent dismissed (#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll)",
+   "screenshot": "automation-house-home-m-f2.webp",
+   "limitations": [
+    "ikona Cookiebot i dymek czatu zostają w kadrze"
+   ]
+  },
+  {
+   "id": "automation-house-case-list-top",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:03.527Z",
+   "page_type": "lista opisów wdrożeń",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-list-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-list-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:05.135Z",
+   "page_type": "lista opisów wdrożeń",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-list-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-list-f4",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:06.779Z",
+   "page_type": "lista opisów wdrożeń",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-list-f4.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-detail-top",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies/mta",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:14.600Z",
+   "page_type": "opis wdrożenia",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-detail-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-detail-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies/mta",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:16.282Z",
+   "page_type": "opis wdrożenia",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-detail-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-detail-f4",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies/mta",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:17.931Z",
+   "page_type": "opis wdrożenia",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-detail-f4.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-detail-m-top",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies/mta",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:27.432Z",
+   "page_type": "opis wdrożenia",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-detail-m-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-case-detail-m-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/case-studies/mta",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:28.553Z",
+   "page_type": "opis wdrożenia",
+   "frame": "viewport, scrolled ~844px",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "automation-house-case-detail-m-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-service-top",
+   "site": "Automation House",
+   "url": "https://automation.house/clickup",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:34.106Z",
+   "page_type": "strona usługi",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-service-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-service-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/clickup",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:35.793Z",
+   "page_type": "strona usługi",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-service-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-service-f4",
+   "site": "Automation House",
+   "url": "https://automation.house/clickup",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:37.440Z",
+   "page_type": "strona usługi",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-service-f4.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-about-top",
+   "site": "Automation House",
+   "url": "https://automation.house/o-nas",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:49.590Z",
+   "page_type": "o firmie",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-about-top.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-about-f2",
+   "site": "Automation House",
+   "url": "https://automation.house/o-nas",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:51.269Z",
+   "page_type": "o firmie",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-about-f2.webp",
+   "limitations": []
+  },
+  {
+   "id": "automation-house-about-f4",
+   "site": "Automation House",
+   "url": "https://automation.house/o-nas",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:30:52.916Z",
+   "page_type": "o firmie",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "automation-house-about-f4.webp",
+   "limitations": []
+  },
+  {
+   "id": "mercury-home-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:00.490Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-home-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-home-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:02.315Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-home-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-home-f4",
+   "site": "Mercury",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:03.960Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-home-f4.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-home-m-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:19.237Z",
+   "page_type": "home",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "mercury-home-m-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-home-m-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:20.240Z",
+   "page_type": "home",
+   "frame": "viewport, scrolled ~844px",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "mercury-home-m-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-product-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/business-banking",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:26.181Z",
+   "page_type": "strona produktu",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-product-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-product-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/business-banking",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:27.776Z",
+   "page_type": "strona produktu",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-product-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-product-f4",
+   "site": "Mercury",
+   "url": "https://mercury.com/business-banking",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:29.396Z",
+   "page_type": "strona produktu",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-product-f4.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-product-m-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/business-banking",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:43.506Z",
+   "page_type": "strona produktu",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "mercury-product-m-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-product-m-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/business-banking",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:44.483Z",
+   "page_type": "strona produktu",
+   "frame": "viewport, scrolled ~844px",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "default",
+   "screenshot": "mercury-product-m-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-feature-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/invoicing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:50.238Z",
+   "page_type": "strona funkcji",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-feature-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-feature-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/invoicing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:51.843Z",
+   "page_type": "strona funkcji",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-feature-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-feature-f4",
+   "site": "Mercury",
+   "url": "https://mercury.com/invoicing",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:31:53.415Z",
+   "page_type": "strona funkcji",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-feature-f4.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-security-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/security",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:08.450Z",
+   "page_type": "strona zaufania",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-security-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-security-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/security",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:10.052Z",
+   "page_type": "strona zaufania",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-security-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-security-f4",
+   "site": "Mercury",
+   "url": "https://mercury.com/security",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:11.663Z",
+   "page_type": "strona zaufania",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-security-f4.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-about-top",
+   "site": "Mercury",
+   "url": "https://mercury.com/about",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:23.296Z",
+   "page_type": "o firmie",
+   "frame": "viewport, top",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-about-top.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-about-f2",
+   "site": "Mercury",
+   "url": "https://mercury.com/about",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:24.929Z",
+   "page_type": "o firmie",
+   "frame": "viewport, scrolled ~900px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-about-f2.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "mercury-about-f4",
+   "site": "Mercury",
+   "url": "https://mercury.com/about",
+   "http_status": 200,
+   "captured_at": "2026-11-22T16:32:26.481Z",
+   "page_type": "o firmie",
+   "frame": "viewport, scrolled ~2700px",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "default",
+   "screenshot": "mercury-about-f4.webp",
+   "limitations": [
+    "pasek informacji prawnej strony (FDIC) nakłada się na dół okna"
+   ]
+  },
+  {
+   "id": "revagy-scena-hero",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "element .hero",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-scena-hero.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-scena-kalkulator",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "element .calc",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-scena-kalkulator.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-scena-film",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "element #film .film",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-scena-film.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-scena-pasek-koncowy",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "element #kontakt .cta",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-scena-pasek-koncowy.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-scena-pasmo-procesu",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "okno, początek .band-night",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-scena-pasmo-procesu.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-podstrona-film",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/integracja-systemow.html",
+   "captured_at": "2026-11-22",
+   "page_type": "podstrona ofertowa",
+   "frame": "element #film .film",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-podstrona-film.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-podstrona-pasek-koncowy",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/integracja-systemow.html",
+   "captured_at": "2026-11-22",
+   "page_type": "podstrona ofertowa",
+   "frame": "element #wezwanie .cta",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-podstrona-pasek-koncowy.webp",
+   "limitations": [
+    "zrzut elementu, nie całego okna"
+   ]
+  },
+  {
+   "id": "revagy-podstrona-pierwszy-ekran",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/integracja-systemow.html",
+   "captured_at": "2026-11-22",
+   "page_type": "podstrona ofertowa",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-podstrona-pierwszy-ekran.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-kontakt-scena",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/kontakt.html",
+   "captured_at": "2026-11-22",
+   "page_type": "kontakt",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-kontakt-scena.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-404-scena",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/404.html",
+   "captured_at": "2026-11-22",
+   "page_type": "strona błędu",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 1440,
+    "height": 900
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-404-scena.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-m-home",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/",
+   "captured_at": "2026-11-22",
+   "page_type": "strona główna",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-m-home.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-m-podstrona",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/integracja-systemow.html",
+   "captured_at": "2026-11-22",
+   "page_type": "podstrona ofertowa",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-m-podstrona.webp",
+   "limitations": []
+  },
+  {
+   "id": "revagy-m-kontakt",
+   "site": "REVAGY (build lokalny, main da8d1ae)",
+   "url": "http://127.0.0.1:4321/kontakt.html",
+   "captured_at": "2026-11-22",
+   "page_type": "kontakt",
+   "frame": "okno, góra",
+   "viewport_css_px": {
+    "width": 390,
+    "height": 844
+   },
+   "state": "baner zgody zamknięty przyciskiem „Odrzucam”",
+   "screenshot": "revagy-m-kontakt.webp",
+   "limitations": []
+  }
+ ],
+ "measurements": {
+  "automation-house-home": {
+   "url": "https://automation.house/",
+   "bodyBackground": "rgb(8, 7, 14)",
+   "pageHeight": 10416,
+   "h1": {
+    "text": "Wdrożenia AI, automatyzacje i ClickUp dla firm, które rosną. Zaczynamy od tego, co dziś na",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "400",
+    "lineHeight": "28px",
+    "letterSpacing": "normal",
+    "color": "rgb(176, 176, 176)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 440,
+     "w": 672,
+     "h": 56
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Wdrażamy",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "60px",
+    "fontWeight": "700",
+    "lineHeight": "60px",
+    "letterSpacing": "-1.2px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 365,
+     "y": 176,
+     "w": 310,
+     "h": 60
+    }
+   },
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "main",
+     "cls": "relative.z-10.overflow-clip",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 9370,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 2259,
+     "w": 1440,
+     "h": 1908,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 7354,
+     "w": 1440,
+     "h": 1278,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "footer",
+     "cls": "relative.z-0.overflow-hidden",
+     "x": 0,
+     "y": 9370,
+     "w": 1440,
+     "h": 1046,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.inset-x-0.top-0",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 960,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "radial-gradient(oklab(0.827836 -0.0847605 -0.0815564 / 0.35) 1px, rgba(0, 0, 0, 0) 1px)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "relative.isolate.overflow-hidden",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 942,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 5263,
+     "w": 1440,
+     "h": 889,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32.bg-bg",
+     "x": 0,
+     "y": 8632,
+     "w": 1440,
+     "h": 738,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    }
+   ]
+  },
+  "automation-house-case-list": {
+   "url": "https://automation.house/case-studies",
+   "bodyBackground": "rgb(8, 7, 14)",
+   "pageHeight": 5792,
+   "h1": {
+    "text": "Wyznaczamy standardy w doskonałości operacyjnej",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "60px",
+    "fontWeight": "700",
+    "lineHeight": "60px",
+    "letterSpacing": "-1.2px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 336,
+     "y": 202,
+     "w": 768,
+     "h": 180
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Wyznaczamy",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "60px",
+    "fontWeight": "700",
+    "lineHeight": "60px",
+    "letterSpacing": "-1.2px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 375,
+     "y": 202,
+     "w": 387,
+     "h": 60
+    }
+   },
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "main",
+     "cls": "relative.z-10.overflow-clip",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 4746,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "pt-10.pb-16.sm:pb-24",
+     "x": 0,
+     "y": 594,
+     "w": 1440,
+     "h": 3390,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "40px 0px"
+    },
+    {
+     "tag": "footer",
+     "cls": "relative.z-0.overflow-hidden",
+     "x": 0,
+     "y": 4746,
+     "w": 1440,
+     "h": 1046,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32.bg-bg",
+     "x": 0,
+     "y": 3984,
+     "w": 1440,
+     "h": 762,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.-top-72.left-1/2",
+     "x": 200,
+     "y": -288,
+     "w": 1040,
+     "h": 640,
+     "radius": "3.35544e+07px",
+     "bg": "oklab(0.827836 -0.0847605 -0.0815564 / 0.25)",
+     "lum": 0,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "relative.rounded-[25px].border",
+     "x": 142,
+     "y": 4142,
+     "w": 1156,
+     "h": 446,
+     "radius": "25px",
+     "bg": "oklab(0.827836 -0.0847605 -0.0815564 / 0.05)",
+     "lum": 0,
+     "bgImage": null,
+     "border": "1px oklab(0.827836 -0.0847605 -0.0815564 / 0.2)",
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "grid.gap-8.rounded-3xl",
+     "x": 112,
+     "y": 4810,
+     "w": 1216,
+     "h": 329,
+     "radius": "24px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": "1px rgba(95, 95, 113, 0.22)",
+     "shadow": null,
+     "padding": "32px 32px"
+    },
+    {
+     "tag": "img",
+     "cls": "object-cover.object-top.[mask-image:linear-gradient(to_botto",
+     "x": 802,
+     "y": 4023,
+     "w": 471,
+     "h": 540,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3C",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "automation-house-case-detail": {
+   "url": "https://automation.house/case-studies/mta",
+   "bodyBackground": "rgb(8, 7, 14)",
+   "pageHeight": 6899,
+   "h1": {
+    "text": "Jak MTA przeniosło pracę 80 osób z 6 systemów do ClickUp?",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "letterSpacing": "-0.96px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "start",
+    "rect": {
+     "x": 665,
+     "y": 225,
+     "w": 663,
+     "h": 144
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "przeniosło",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "letterSpacing": "-0.96px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "start",
+    "rect": {
+     "x": 870,
+     "y": 225,
+     "w": 248,
+     "h": 48
+    }
+   },
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "main",
+     "cls": "relative.z-10.overflow-clip",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 5853,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "footer",
+     "cls": "relative.z-0.overflow-hidden",
+     "x": 0,
+     "y": 5853,
+     "w": 1440,
+     "h": 1046,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.inset-0.-z-20",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 786,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": "radial-gradient(120% 90% at 5% 110%, oklab(0.827836 -0.0847605 -0.0815564 / 0.22) 0%, rgba(0, 0, 0, 0) 55%), radial-gradient(80% 80% at 95% ",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.inset-0.-z-10",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 786,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "radial-gradient(70% 55% at 50% -10%, oklab(0.827836 -0.0847605 -0.0815564 / 0.22), rgba(0, 0, 0, 0) 60%)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32.bg-bg",
+     "x": 0,
+     "y": 5091,
+     "w": 1440,
+     "h": 762,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "pointer-events-none.absolute.-left-96",
+     "x": -375,
+     "y": 1125,
+     "w": 978,
+     "h": 978,
+     "radius": "3.35544e+07px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "radial-gradient(oklab(0.827836 -0.0847605 -0.0815564 / 0.2) 0%, rgba(0, 0, 0, 0) 65%)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "hidden.md:block.pointer-events-none",
+     "x": 0,
+     "y": 786,
+     "w": 1440,
+     "h": 600,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "radial-gradient(80% 100% at 50% 0px, rgba(100, 215, 255, 0.35), rgba(0, 0, 0, 0) 70%)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "pointer-events-none.absolute.-right-96",
+     "x": 1015,
+     "y": 3023,
+     "w": 807,
+     "h": 807,
+     "radius": "3.35544e+07px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "radial-gradient(oklab(0.781109 -0.0163364 -0.109706 / 0.16) 0%, rgba(0, 0, 0, 0) 65%)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "automation-house-service": {
+   "url": "https://automation.house/clickup",
+   "bodyBackground": "rgb(8, 7, 14)",
+   "pageHeight": 10251,
+   "h1": {
+    "text": "Twoja firma potrzebuje systemu, nie kolejnego narzędzia.",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "72px",
+    "fontWeight": "700",
+    "lineHeight": "72px",
+    "letterSpacing": "-1.44px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 272,
+     "y": 202,
+     "w": 896,
+     "h": 216
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Twoja",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "72px",
+    "fontWeight": "700",
+    "lineHeight": "72px",
+    "letterSpacing": "-1.44px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 323,
+     "y": 202,
+     "w": 207,
+     "h": 72
+    }
+   },
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "main",
+     "cls": "relative.z-10.overflow-clip",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 9205,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 2852,
+     "w": 1440,
+     "h": 1316,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 5076,
+     "w": 1440,
+     "h": 1143,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32",
+     "x": 0,
+     "y": 7321,
+     "w": 1440,
+     "h": 1074,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "footer",
+     "cls": "relative.z-0.overflow-hidden",
+     "x": 0,
+     "y": 9205,
+     "w": 1440,
+     "h": 1046,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-24.sm:py-32.bg-bg",
+     "x": 0,
+     "y": 8395,
+     "w": 1440,
+     "h": 810,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "128px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.-top-72.left-1/2",
+     "x": 200,
+     "y": -288,
+     "w": 1040,
+     "h": 640,
+     "radius": "3.35544e+07px",
+     "bg": "oklab(0.827836 -0.0847605 -0.0815564 / 0.25)",
+     "lum": 0,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "relative.rounded-[25px].border",
+     "x": 142,
+     "y": 8553,
+     "w": 1156,
+     "h": 494,
+     "radius": "25px",
+     "bg": "oklab(0.827836 -0.0847605 -0.0815564 / 0.05)",
+     "lum": 0,
+     "bgImage": null,
+     "border": "1px oklab(0.827836 -0.0847605 -0.0815564 / 0.2)",
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "automation-house-about": {
+   "url": "https://automation.house/o-nas",
+   "bodyBackground": "rgb(8, 7, 14)",
+   "pageHeight": 5313,
+   "h1": null,
+   "largestTextFirstScreen": {
+    "text": "Budujemy przyszłość AI-first.",
+    "fontFamily": "objectSans, \"objectSans Fallback\", ui-sans-serif, system-ui, sans-serif, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "48px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "letterSpacing": "-0.96px",
+    "color": "rgb(250, 250, 251)",
+    "textAlign": "center",
+    "rect": {
+     "x": 336,
+     "y": 194,
+     "w": 768,
+     "h": 48
+    }
+   },
+   "fontsLoaded": [
+    "objectSans"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "main",
+     "cls": "relative.z-10.overflow-clip",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 4267,
+     "radius": "0px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "footer",
+     "cls": "relative.z-0.overflow-hidden",
+     "x": 0,
+     "y": 4267,
+     "w": 1440,
+     "h": 1046,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.-top-72.left-1/2",
+     "x": 200,
+     "y": -288,
+     "w": 1040,
+     "h": 640,
+     "radius": "3.35544e+07px",
+     "bg": "oklab(0.827836 -0.0847605 -0.0815564 / 0.25)",
+     "lum": 0,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "py-20.sm:py-28",
+     "x": 0,
+     "y": 3863,
+     "w": 1440,
+     "h": 404,
+     "radius": "0px",
+     "bg": "rgb(18, 17, 25)",
+     "lum": 0.006,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "112px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "grid.gap-8.rounded-3xl",
+     "x": 112,
+     "y": 4331,
+     "w": 1216,
+     "h": 329,
+     "radius": "24px",
+     "bg": "rgb(8, 7, 14)",
+     "lum": 0.002,
+     "bgImage": null,
+     "border": "1px rgba(95, 95, 113, 0.22)",
+     "shadow": null,
+     "padding": "32px 32px"
+    },
+    {
+     "tag": "div",
+     "cls": "absolute.-left-48.top-24",
+     "x": -192,
+     "y": 96,
+     "w": 560,
+     "h": 420,
+     "radius": "3.35544e+07px",
+     "bg": "oklab(0.654081 -0.0410565 -0.181448 / 0.2)",
+     "lum": 0,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "a",
+     "cls": "rounded-3xl.border.border-border-subtle",
+     "x": 112,
+     "y": 3119,
+     "w": 395,
+     "h": 537,
+     "radius": "24px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgba(95, 95, 113, 0.22)",
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "a",
+     "cls": "rounded-3xl.border.border-border-subtle",
+     "x": 523,
+     "y": 3119,
+     "w": 395,
+     "h": 537,
+     "radius": "24px",
+     "bg": "rgb(23, 23, 29)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgba(95, 95, 113, 0.22)",
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "mercury-home": {
+   "url": "https://mercury.com/",
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "pageHeight": 12885,
+   "h1": {
+    "text": "Radically different banking",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "49.3472px",
+    "fontWeight": "480",
+    "lineHeight": "54.2819px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 54
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Radically different banking",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "49.3472px",
+    "fontWeight": "480",
+    "lineHeight": "54.2819px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 54
+    }
+   },
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "div",
+     "cls": "bg-background-default.transition-theme.dark-neutral-theme",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 12885,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-neutral-theme.pointer-events-none.relative",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 2250,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "dark-neutral-theme.dark-neutral-theme.bg-background-default",
+     "x": 0,
+     "y": 11710,
+     "w": 1440,
+     "h": 1174,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "relative.bg-background-default.pb-layout-padding-md",
+     "x": 0,
+     "y": -3222,
+     "w": 1440,
+     "h": 972,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-neutral-theme.bg-background-default",
+     "x": 0,
+     "y": 10793,
+     "w": 1440,
+     "h": 917,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "relative.left-1/2.h-full",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAIAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYp",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 11838,
+     "w": 1024,
+     "h": 918,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgb(195, 195, 204)",
+     "shadow": null,
+     "padding": "32px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "pointer-events-none.absolute.top-0",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 450,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0) 100%)",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "mercury-product": {
+   "url": "https://mercury.com/business-banking",
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "pageHeight": 12407,
+   "h1": {
+    "text": "Business banking for building great things",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(40, 37, 59)",
+    "textAlign": "center",
+    "rect": {
+     "x": 296,
+     "y": 144,
+     "w": 848,
+     "h": 125
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Business banking for building great things",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(40, 37, 59)",
+    "textAlign": "center",
+    "rect": {
+     "x": 296,
+     "y": 144,
+     "w": 848,
+     "h": 125
+    }
+   },
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "div",
+     "cls": "bg-background-default.transition-theme.neutral-theme",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 12407,
+     "radius": "0px",
+     "bg": "rgb(251, 252, 253)",
+     "lum": 0.972,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "dark-purple-theme.dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 11062,
+     "w": 1440,
+     "h": 1346,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "group.relative.grid",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 1083,
+     "radius": "0px",
+     "bg": "rgb(245, 244, 253)",
+     "lum": 0.912,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 10145,
+     "w": 1440,
+     "h": 917,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 11190,
+     "w": 1024,
+     "h": 1090,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgb(195, 192, 223)",
+     "shadow": null,
+     "padding": "32px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "bg-background-secondary.pb-layout-padding-xl.transition-them",
+     "x": 0,
+     "y": 9670,
+     "w": 1440,
+     "h": 525,
+     "radius": "0px",
+     "bg": "rgb(244, 245, 249)",
+     "lum": 0.914,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 2837,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgFCgoFBQwFBQUFBREJCgUMFxMZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 4221,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgFCgoFBQwFBQUFBREJCgUMFxMZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "mercury-feature": {
+   "url": "https://mercury.com/invoicing",
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "pageHeight": 14534,
+   "h1": {
+    "text": "Effortless invoicing built into your business accounts",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(39, 39, 53)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 188
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Effortless invoicing built into your business accounts",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(39, 39, 53)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 188
+    }
+   },
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "div",
+     "cls": "bg-background-default.transition-theme.neutral-theme",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 14534,
+     "radius": "0px",
+     "bg": "rgb(251, 252, 253)",
+     "lum": 0.972,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "dark-purple-theme.dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 13245,
+     "w": 1440,
+     "h": 1289,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 12328,
+     "w": 1440,
+     "h": 917,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 13373,
+     "w": 1024,
+     "h": 1033,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgb(195, 192, 223)",
+     "shadow": null,
+     "padding": "32px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 9566,
+     "w": 1024,
+     "h": 951,
+     "radius": "12px",
+     "bg": "rgb(255, 255, 255)",
+     "lum": 1,
+     "bgImage": null,
+     "border": null,
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0",
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "bg-background-secondary.pb-layout-padding-xl.transition-them",
+     "x": 0,
+     "y": 11853,
+     "w": 1440,
+     "h": 525,
+     "radius": "0px",
+     "bg": "rgb(244, 245, 249)",
+     "lum": 0.914,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 2401,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBw0ICxEJCA0OCBANBw0HDgYHBxEJFgkNFx8ZGBYWFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 736,
+     "y": 3093,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgFCgoFBQwFBQUFBREJCgUMFxMZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "mercury-security": {
+   "url": "https://mercury.com/security",
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "pageHeight": 10566,
+   "h1": {
+    "text": "Banking with built-in peace of mind",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "textAlign": "center",
+    "rect": {
+     "x": 296,
+     "y": 144,
+     "w": 848,
+     "h": 125
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Banking with built-in peace of mind",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(237, 237, 243)",
+    "textAlign": "center",
+    "rect": {
+     "x": 296,
+     "y": 144,
+     "w": 848,
+     "h": 125
+    }
+   },
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "div",
+     "cls": "bg-background-default.transition-theme.neutral-theme",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 10566,
+     "radius": "0px",
+     "bg": "rgb(251, 252, 253)",
+     "lum": 0.972,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "group.relative.grid",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 960,
+     "radius": "0px",
+     "bg": "rgb(23, 23, 33)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 9082,
+     "w": 1440,
+     "h": 917,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "dark-purple-theme.dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 9999,
+     "w": 1440,
+     "h": 567,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "bg-background-secondary.pb-layout-padding-xl.transition-them",
+     "x": 0,
+     "y": 8635,
+     "w": 1440,
+     "h": 497,
+     "radius": "0px",
+     "bg": "rgb(244, 245, 249)",
+     "lum": 0.914,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 5866,
+     "w": 1024,
+     "h": 320,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgFCgoFBQwFBQUFBREJCgUMFxMZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 10127,
+     "w": 1024,
+     "h": 311,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgb(195, 192, 223)",
+     "shadow": null,
+     "padding": "32px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 1732,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoRCBATDxQNFgwKCQcNDBEOFggMFx8ZGCIVIiEaHysjGh0oHRUiJTUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    }
+   ]
+  },
+  "mercury-about": {
+   "url": "https://mercury.com/about",
+   "bodyBackground": "rgba(0, 0, 0, 0)",
+   "pageHeight": 7588,
+   "h1": {
+    "text": "Transformative banking for ambitious entrepreneurs",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(39, 39, 53)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 125
+    }
+   },
+   "largestTextFirstScreen": {
+    "text": "Transformative banking for ambitious entrepreneurs",
+    "fontFamily": "arcadiaDisplay, \"arcadiaDisplay Fallback\"",
+    "fontSize": "57.0144px",
+    "fontWeight": "480",
+    "lineHeight": "62.7158px",
+    "letterSpacing": "normal",
+    "color": "rgb(39, 39, 53)",
+    "textAlign": "center",
+    "rect": {
+     "x": 384,
+     "y": 144,
+     "w": 672,
+     "h": 125
+    }
+   },
+   "fontsLoaded": [
+    "arcadia",
+    "arcadiaDisplay"
+   ],
+   "largestBoxes": [
+    {
+     "tag": "div",
+     "cls": "bg-background-default.transition-theme.neutral-theme",
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 7588,
+     "radius": "0px",
+     "bg": "rgb(251, 252, 253)",
+     "lum": 0.972,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 6241,
+     "w": 1440,
+     "h": 917,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "section",
+     "cls": "dark-purple-theme.dark-purple-theme.bg-background-default",
+     "x": 0,
+     "y": 7158,
+     "w": 1440,
+     "h": 430,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 208,
+     "y": 1373,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLExITGh0QFRUQFygVDg0QFx8ZGBYVFiEdHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 736,
+     "y": 2065,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgNBg8QDggKBwgIDQwKBwcIChEJDRENFxUZGBYVFhUaHysjJh0oHRUWJDUlKC0vMjIyGSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "img",
+     "cls": "",
+     "x": 736,
+     "y": 5021,
+     "w": 496,
+     "h": 620,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "lum": null,
+     "bgImage": "url(\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFhYLDh8QDQ0NFh0NFg0YIRkZKhYTFhYmHysjGh0oHRUWJDUlKC0vMjIyHSI4PTcw",
+     "border": null,
+     "shadow": null,
+     "padding": "0px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "col-span-full.lg:col-span-12.lg:col-start-3",
+     "x": 208,
+     "y": 7286,
+     "w": 1024,
+     "h": 174,
+     "radius": "0px",
+     "bg": "rgb(24, 22, 35)",
+     "lum": 0.009,
+     "bgImage": null,
+     "border": "1px rgb(195, 192, 223)",
+     "shadow": null,
+     "padding": "32px 0px"
+    },
+    {
+     "tag": "div",
+     "cls": "w-full.gap-gap-md.rounded-xl",
+     "x": 208,
+     "y": 5954,
+     "w": 496,
+     "h": 210,
+     "radius": "12px",
+     "bg": "rgb(237, 237, 243)",
+     "lum": 0.85,
+     "bgImage": null,
+     "border": null,
+     "shadow": null,
+     "padding": "32px 32px"
+    }
+   ]
+  }
+ },
+ "rhythm": {
+  "automation-house-home": {
+   "pageHeight": 10416,
+   "frames": 12,
+   "meanLuma": [
+    0.179,
+    0.085,
+    0.099,
+    0.118,
+    0.095,
+    0.094,
+    0.129,
+    0.104,
+    0.102,
+    0.098,
+    0.087,
+    0.104
+   ],
+   "darkFrames": 12,
+   "darkShare": 1.0
+  },
+  "automation-house-case-list": {
+   "pageHeight": 5792,
+   "frames": 7,
+   "meanLuma": [
+    0.187,
+    0.238,
+    0.206,
+    0.241,
+    0.1,
+    0.086,
+    0.104
+   ],
+   "darkFrames": 7,
+   "darkShare": 1.0
+  },
+  "automation-house-case-detail": {
+   "pageHeight": 6899,
+   "frames": 8,
+   "meanLuma": [
+    0.163,
+    0.072,
+    0.06,
+    0.078,
+    0.094,
+    0.183,
+    0.079,
+    0.104
+   ],
+   "darkFrames": 8,
+   "darkShare": 1.0
+  },
+  "automation-house-service": {
+   "pageHeight": 10251,
+   "frames": 12,
+   "meanLuma": [
+    0.131,
+    0.111,
+    0.097,
+    0.097,
+    0.086,
+    0.101,
+    0.109,
+    0.209,
+    0.089,
+    0.113,
+    0.088,
+    0.104
+   ],
+   "darkFrames": 12,
+   "darkShare": 1.0
+  },
+  "automation-house-about": {
+   "pageHeight": 5313,
+   "frames": 6,
+   "meanLuma": [
+    0.141,
+    0.123,
+    0.098,
+    0.177,
+    0.085,
+    0.104
+   ],
+   "darkFrames": 6,
+   "darkShare": 1.0
+  },
+  "mercury-home": {
+   "pageHeight": 12885,
+   "frames": 15,
+   "meanLuma": [
+    0.355,
+    0.29,
+    0.118,
+    0.113,
+    0.97,
+    0.864,
+    0.906,
+    0.882,
+    0.163,
+    0.118,
+    0.113,
+    0.113,
+    0.124,
+    0.124,
+    0.124
+   ],
+   "darkFrames": 10,
+   "darkShare": 0.67
+  },
+  "mercury-product": {
+   "pageHeight": 12407,
+   "frames": 14,
+   "meanLuma": [
+    0.917,
+    0.945,
+    0.962,
+    0.971,
+    0.963,
+    0.962,
+    0.936,
+    0.933,
+    0.947,
+    0.945,
+    0.939,
+    0.331,
+    0.118,
+    0.133
+   ],
+   "darkFrames": 2,
+   "darkShare": 0.14
+  },
+  "mercury-feature": {
+   "pageHeight": 14534,
+   "frames": 16,
+   "meanLuma": [
+    0.928,
+    0.943,
+    0.967,
+    0.969,
+    0.964,
+    0.968,
+    0.967,
+    0.961,
+    0.973,
+    0.944,
+    0.94,
+    0.953,
+    0.947,
+    0.676,
+    0.108,
+    0.139
+   ],
+   "darkFrames": 2,
+   "darkShare": 0.12
+  },
+  "mercury-security": {
+   "pageHeight": 10566,
+   "frames": 12,
+   "meanLuma": [
+    0.191,
+    0.906,
+    0.922,
+    0.965,
+    0.967,
+    0.968,
+    0.965,
+    0.941,
+    0.968,
+    0.959,
+    0.185,
+    0.111
+   ],
+   "darkFrames": 3,
+   "darkShare": 0.25
+  },
+  "mercury-about": {
+   "pageHeight": 7588,
+   "frames": 9,
+   "meanLuma": [
+    0.865,
+    0.902,
+    0.941,
+    0.952,
+    0.911,
+    0.873,
+    0.869,
+    0.11,
+    0.107
+   ],
+   "darkFrames": 2,
+   "darkShare": 0.22
+  },
+  "revagy-home": {
+   "pageHeight": 13086,
+   "frames": 15,
+   "meanLuma": [
+    0.24,
+    0.854,
+    0.617,
+    0.681,
+    0.188,
+    0.163,
+    0.196,
+    0.715,
+    0.915,
+    0.255,
+    0.85,
+    0.944,
+    0.97,
+    0.431,
+    0.692
+   ],
+   "darkFrames": 5,
+   "darkShare": 0.33
+  },
+  "revagy-integracja": {
+   "pageHeight": 9640,
+   "frames": 11,
+   "meanLuma": [
+    0.942,
+    0.952,
+    0.968,
+    0.968,
+    0.679,
+    0.664,
+    0.98,
+    0.967,
+    0.973,
+    0.587,
+    0.699
+   ],
+   "darkFrames": 0,
+   "darkShare": 0.0
+  },
+  "revagy-dla-firm": {
+   "pageHeight": 8230,
+   "frames": 10,
+   "meanLuma": [
+    0.933,
+    0.964,
+    0.96,
+    0.733,
+    0.625,
+    0.745,
+    0.962,
+    0.936,
+    0.594,
+    0.705
+   ],
+   "darkFrames": 0,
+   "darkShare": 0.0
+  },
+  "revagy-poradnik": {
+   "pageHeight": 9225,
+   "frames": 11,
+   "meanLuma": [
+    0.952,
+    0.968,
+    0.966,
+    0.962,
+    0.969,
+    0.967,
+    0.969,
+    0.974,
+    0.976,
+    0.506,
+    0.698
+   ],
+   "darkFrames": 0,
+   "darkShare": 0.0
+  }
+ },
+ "revagy_scenes": {
+  "revagy-scena-hero": {
+   "selector": ".hero",
+   "w": 1416,
+   "h": 820,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "63.36px 63.36px 63.36px 63.36px",
+   "marginInline": "0px 0px",
+   "minHeight": "820px",
+   "aspectRatio": "auto",
+   "glow": {
+    "cls": "hero-shade",
+    "filter": "blur(60px)",
+    "opacity": "0.7",
+    "animation": "drift 18s"
+   },
+   "heading": {
+    "tag": "h1",
+    "cls": "display load-in",
+    "fontSize": "92px",
+    "fontWeight": "750",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "start"
+   },
+   "buttons": [
+    "btn-light btn-lg",
+    "btn-glass btn-lg"
+   ]
+  },
+  "revagy-scena-kalkulator": {
+   "selector": ".calc",
+   "w": 1240,
+   "h": 715,
+   "radius": "40px",
+   "bg": "rgb(244, 241, 238)",
+   "padding": "0px 0px 0px 0px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": null,
+   "heading": {
+    "tag": "h2",
+    "cls": "h2",
+    "fontSize": "56px",
+    "fontWeight": "720",
+    "color": "rgb(20, 17, 20)",
+    "textAlign": "start"
+   },
+   "buttons": [
+    "btn-light btn-lg"
+   ]
+  },
+  "revagy-scena-film": {
+   "selector": "#film .film",
+   "w": 1218,
+   "h": 685,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "0px 0px 0px 0px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "16 / 9",
+   "glow": null,
+   "heading": null,
+   "buttons": []
+  },
+  "revagy-scena-pasek-koncowy": {
+   "selector": "#kontakt .cta",
+   "w": 1416,
+   "h": 624,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "140px 57.6px 140px 57.6px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": {
+    "cls": "cta-glow",
+    "filter": "blur(50px)",
+    "opacity": "0.78",
+    "animation": "drift 16s"
+   },
+   "heading": {
+    "tag": "h2",
+    "cls": "display-2",
+    "fontSize": "72px",
+    "fontWeight": "750",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "center"
+   },
+   "buttons": [
+    "btn-accent btn-lg"
+   ]
+  },
+  "revagy-scena-pasmo-procesu": {
+   "selector": ".band-night",
+   "w": 1416,
+   "h": 2649,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "129.6px 0px 129.6px 0px",
+   "marginInline": "12px 12px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": null,
+   "heading": {
+    "tag": "h2",
+    "cls": "h2",
+    "fontSize": "56px",
+    "fontWeight": "720",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "center"
+   },
+   "buttons": []
+  },
+  "revagy-podstrona-film": {
+   "selector": "#film .film",
+   "w": 1218,
+   "h": 685,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "0px 0px 0px 0px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "16 / 9",
+   "glow": null,
+   "heading": null,
+   "buttons": []
+  },
+  "revagy-podstrona-pasek-koncowy": {
+   "selector": "#wezwanie .cta",
+   "w": 1416,
+   "h": 582,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "140px 57.6px 140px 57.6px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": {
+    "cls": "cta-glow",
+    "filter": "blur(50px)",
+    "opacity": "0.78",
+    "animation": "drift 16s"
+   },
+   "heading": {
+    "tag": "h2",
+    "cls": "display-2",
+    "fontSize": "72px",
+    "fontWeight": "750",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "center"
+   },
+   "buttons": [
+    "btn-light btn-lg"
+   ]
+  },
+  "revagy-podstrona-pierwszy-ekran": {
+   "selector": "#wstep",
+   "w": 1304,
+   "h": 772,
+   "bg": "rgb(255, 255, 255)",
+   "heading": {
+    "tag": "h1",
+    "cls": "display-2",
+    "fontSize": "72px",
+    "fontWeight": "750",
+    "color": "rgb(20, 17, 20)",
+    "textAlign": "center",
+    "top": 203
+   },
+   "buttons": [
+    "btn-dark btn-lg",
+    "btn-outline btn-lg"
+   ]
+  },
+  "revagy-kontakt-scena": {
+   "selector": ".cta",
+   "w": 1416,
+   "h": 579,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "140px 57.6px 140px 57.6px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": {
+    "cls": "cta-glow",
+    "filter": "blur(50px)",
+    "opacity": "0.78",
+    "animation": "drift 16s"
+   },
+   "heading": {
+    "tag": "h1",
+    "cls": "display-2",
+    "fontSize": "72px",
+    "fontWeight": "750",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "center"
+   },
+   "buttons": [
+    "btn-accent btn-lg"
+   ]
+  },
+  "revagy-404-scena": {
+   "selector": ".lost",
+   "w": 1416,
+   "h": 595,
+   "radius": "40px",
+   "bg": "rgb(20, 17, 20)",
+   "padding": "160px 57.6px 160px 57.6px",
+   "marginInline": "0px 0px",
+   "minHeight": "0px",
+   "aspectRatio": "auto",
+   "glow": {
+    "cls": "cta-glow",
+    "filter": "blur(50px)",
+    "opacity": "0.78",
+    "animation": "drift 16s"
+   },
+   "heading": {
+    "tag": "h1",
+    "cls": "display-2",
+    "fontSize": "72px",
+    "fontWeight": "750",
+    "color": "rgb(255, 255, 255)",
+    "textAlign": "center"
+   },
+   "buttons": [
+    "btn-light btn-lg",
+    "btn-glass btn-lg"
+   ]
+  }
+ },
+ "failed": []
+}

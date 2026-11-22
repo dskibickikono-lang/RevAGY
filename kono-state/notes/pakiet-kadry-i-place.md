@@ -1,6 +1,6 @@
 # Pakiet K02 — kadry i płace bez ręcznego wpisywania
 
-Karta: T-028 · Data: 22.11.2026 · Podstawa: D-045 (wybór pakietu), D-044 (firmy 50–250 osób), D-041 (stała cena),
+Karta: T-034 · Data: 22.11.2026 · Podstawa: D-045 (wybór pakietu), D-044 (firmy 50–250 osób), D-041 (stała cena),
 raport `komunikacja-i-oferta.md` (kandydat K02, persona P1).
 
 Status: opis roboczy do akceptacji właściciela. Kwot nie ma, bo właściciel wybrał „cena po audycie, stała”.

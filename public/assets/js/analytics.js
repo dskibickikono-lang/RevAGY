@@ -154,13 +154,24 @@
 
   /* ---------- baner zgody ---------- */
   let banner;
-  function closeBanner() { if (banner) { banner.remove(); banner = null; } }
-  function openBanner() {
-    if (banner) return;
+  let opener = null; // przycisk „Ustawienia prywatności”, który otworzył baner (fokus wraca do niego)
+  function closeBanner() {
+    if (!banner) return;
+    banner.remove();
+    banner = null;
+    if (opener && opener.isConnected) opener.focus();
+    opener = null;
+  }
+  function openBanner(event) {
+    // Otwarcie przez użytkownika: fokus do banera, a Escape zamyka go bez zmiany decyzji.
+    // Przy pierwszej wizycie baner nie zabiera fokusu z czytanej strony.
+    const byUser = Boolean(event && event.currentTarget);
+    if (banner) { if (byUser) banner.focus(); return; }
     banner = document.createElement('section');
     banner.className = 'consent';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-labelledby', 'consent-title');
+    banner.tabIndex = -1;
     banner.innerHTML = `
       <h2 id="consent-title">Statystyki odwiedzin</h2>
       <p>Za Twoją zgodą zapisujemy, które sekcje oglądasz, w co klikasz i jak długo, razem z adresem IP i danymi przeglądarki. Statystyki prowadzimy na własnym serwerze (Matomo) i w narzędziu Microsoft Clarity. Szczegóły: <a href="${policyUrl}">polityka prywatności</a>.</p>
@@ -177,7 +188,11 @@
       if (btn.dataset.consent === 'tak') start();
       else if (before === 'tak' && started) { paq.push(['deleteCookies']); setTimeout(() => location.reload(), 150); }
     });
+    banner.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && opener) { e.stopPropagation(); closeBanner(); }
+    });
     document.body.appendChild(banner);
+    if (byUser) { opener = event.currentTarget; banner.focus(); }
   }
 
   $$('[data-consent-open]').forEach((btn) => btn.addEventListener('click', openBanner));
