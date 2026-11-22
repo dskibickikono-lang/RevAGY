@@ -3,14 +3,14 @@ id: T-017
 title: Etap filmowy F2 — film w miejscu na film strony /wdrozenia.html
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-2-wdrozenia
 base: feat/film-1-integracja-systemow (0cdb4b8)
 depends_on: T-010, T-015
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/18 (baza feat/film-1-integracja-systemow)
+sha: 6d516700d8a665d7f6e89e48b329bc1402874fa3 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -38,3 +38,16 @@ zmieniają się ani o bajt.
 ## Do akceptacji właściciela
 
 - Film na podglądzie: oś czasu, tempo, podświetlenie aktywnego kafla.
+
+## Rundy 1 i 2 (2026-11-22)
+
+- `render-media.yml` wyrenderował film: mp4 258 286 B (limit 1 100 000), webm 287 526 B (limit 700 000),
+  kadr startowy 100 217 B (limit 150 000); 14 s, 1600×900, 30 kl./s.
+- Klatki z dwunastu chwil osi czasu obejrzane: przebieg zgodny z osią czasu sceny, kadr startowy ma kompozycję
+  dotychczasowego kadru, pętla wraca do stanu początkowego.
+- Trzy pliki filmu dodane, `wdrozenia-kadr.jpg` usunięty. Kontrakt policzony z builda CI
+  (`tools/update-contract.cjs`): zmienił się tylko wpis `wdrozenia.html` (ramka filmu i dane strukturalne)
+  oraz `publicFiles` (+3 pliki, −kadr).
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
+  `film-wdrozenia`. Manifest wydania: `168aeea8398eaec98407d44760bbbfea40f8e407353a68767922f8acc00826c9`.
+- Wynik przebiegu CI po tym commicie jest w opisie PR #18.
