@@ -3,7 +3,7 @@ id: T-021
 title: Etap 8 — podstrona działowa „Finanse” (/finanse.html)
 channel: pm-local
 requested_by: owner
-status: zmergowane
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/etap-8-finanse
@@ -239,3 +239,10 @@ Ten etap nie dodaje nowych pól w danych strony. Strona korzysta z istniejących
   `84317a14dcadbec3151d2e8c1813f024d8b0ec105d621cc3e1df135a619eb2e5`, ten sam co przewidziany. Test dymny 261 z 261.
 - Niewdrożone. Wydanie na serwer wymaga osobnej zgody właściciela dla konkretnej wersji.
 - Gałąź pomocniczą `podglad/etap-8-finanse` (zrzuty do opisu PR) usuwa właściciel.
+
+## Wdrożenie (2026-11-22)
+
+- Wdrożone na produkcję w wydaniu `43efbf5f8a246d33a9c4f68f3552616c2665fc7a` (czubek `main` po scaleniu PR #23–#26),
+  manifest `f1754f7d53b323fccf58058de6541a0aeb1e89955602658c23b407c4d6dcf097`. Poprzednie wydanie: `5fe5c29571e12cd4221d2a146b7d53fba3037816`.
+- Po wydaniu: `/finanse.html` odpowiada 200 i jest bajtowo równa plikowi z CI, „Finanse” na stronie głównej prowadzi
+  do `finanse.html`, strony współdzielone i konfiguracja serwera bez zmian.

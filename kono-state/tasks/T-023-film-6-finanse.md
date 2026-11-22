@@ -3,14 +3,14 @@ id: T-023
 title: Etap filmowy F6 — film w miejscu na film strony /finanse.html
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-6-finanse
 base: main (0e72e39)
 depends_on: T-021, T-015
-pr: https://github.com/dskibickikono-lang/RevAGY/pull/25 (baza main)
-sha: 36e76482c00bef9d017ab94fefc43a828e6e0247 (kod, pliki filmu i kontrakt; kolejne commity zmieniają tylko karty)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/25 (film) i https://github.com/dskibickikono-lang/RevAGY/pull/26 (przycisk filmu), oba scalone do main
+sha: 36e76482c00bef9d017ab94fefc43a828e6e0247 (film); d039208f77b65119974ab7d8c0dad5a5a077def6 (przycisk filmu); main po scaleniu PR #25: 10024639163841f2411cb0a5f0c743d679c6bbce, po scaleniu PR #26: 43efbf5f8a246d33a9c4f68f3552616c2665fc7a
 decisions: [D-015, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -105,3 +105,14 @@ Przebieg dla `36e7648` (run 45031575044), zielony:
 
 Przebieg dla `36e7648` (run 45031575075), strona już z filmem, Lighthouse 13.6.0, telefon, mediana z 3 przebiegów:
 wydajność 96 (próg 90), dostępność 96 (próg 95), SEO 100 (próg 100). To pomiar builda z CI, nie produkcji.
+
+## Scalenie i wdrożenie (2026-11-22)
+
+- PR #25 (film) scalony do `main` commitem `10024639163841f2411cb0a5f0c743d679c6bbce`. CI na `main`: zielone,
+  test dymny 263 z 263, manifest `4f526a78a53b253987b59cf38ddbef85a98a42b4cb51237eeada94baf600ab00`.
+- PR #26 (przycisk filmu) po zmianie bazy na `main` scalony commitem `43efbf5f8a246d33a9c4f68f3552616c2665fc7a`.
+  CI na `main` (run 45036265009): `check:dist` 6 z 6, test dymny 270 z 270, testy `wydanie.sh` 16 z 16,
+  manifest `f1754f7d53b323fccf58058de6541a0aeb1e89955602658c23b407c4d6dcf097`, ten sam co przewidziany.
+- Wdrożone na produkcję w wydaniu `43efbf5f8a246d33a9c4f68f3552616c2665fc7a`, manifest jak wyżej. Po wydaniu wszystkie
+  18 plików filmów (w tym `finanse.mp4` i `finanse.webm`) odpowiada 206 na zakres bajtów, a `app.js` na produkcji
+  jest bajtowo równy plikowi z CI.
