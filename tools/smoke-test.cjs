@@ -407,7 +407,7 @@ if (require.main === module) (async () => {
       const tekstBanera = (await page.locator('.consent').innerText()).replace(/\s+/g, ' ');
       check('baner zgody wymienia Microsoft Clarity i nie mówi, że dane zostają na naszym serwerze',
         tekstBanera.includes('Microsoft Clarity') && !tekstBanera.includes('zostają na naszym serwerze'), tekstBanera);
-      const ld =await page.evaluate(() => {
+      const ld = await page.evaluate(() => {
         const el = document.querySelectorAll('script[type="application/ld+json"]');
         if (el.length !== 1) return { n: el.length };
         try { return { n: el.length, data: JSON.parse(el[0].textContent) }; } catch (e) { return { n: el.length, err: String(e) }; }

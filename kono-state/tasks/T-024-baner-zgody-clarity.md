@@ -7,7 +7,7 @@ status: w-toku
 created: 2026-11-22
 updated: 2026-11-22
 branch: fix/baner-zgody-clarity
-base: main (43efbf5)
+base: main (c1f4d5c)
 depends_on: T-022
 pr: (uzupełniane po otwarciu PR)
 sha: (uzupełniane po commicie)
