@@ -3,12 +3,14 @@ id: T-023
 title: Etap filmowy F6 — film w miejscu na film strony /finanse.html
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-6-finanse
 base: main (0e72e39)
 depends_on: T-021, T-015
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/25 (baza main)
+sha: 36e76482c00bef9d017ab94fefc43a828e6e0247 (kod, pliki filmu i kontrakt; kolejne commity zmieniają tylko karty)
 decisions: [D-015, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -50,3 +52,33 @@ Decyzją właściciela z 22.11.2026 w tym samym etapie przycisk filmu zmienia ty
 dostępna jest stała. Zmiana dotyczy `public/assets/js/app.js`, wspólnego ze stroną główną, i idzie osobnym PR
 ustawionym na tym PR, bo kontrola etapu filmowego (`tools/compare-film.cjs`) pozwala w PR z filmem zmienić
 tylko stronę z filmem. Szczegóły dopisze PM.
+
+## Rundy 1 i 2 (2026-11-22)
+
+- `render-media.yml` wyrenderował film: mp4 278 176 B (limit 1 100 000), webm 350 513 B (limit 700 000),
+  kadr startowy 120 938 B (limit 150 000); 14 s, 1600×900, 30 kl./s.
+- Klatki z dwunastu chwil osi czasu obejrzane: przebieg zgodny z osią czasu sceny, kadr startowy ma kompozycję
+  dotychczasowego kadru, pętla wraca do stanu początkowego, napisy nie wychodzą poza kafle.
+- Trzy pliki filmu dodane, `finanse-kadr.jpg` usunięty. Kontrakt policzony z builda CI
+  (`tools/update-contract.cjs`): zmienił się tylko wpis `finanse.html` (ramka filmu i dane strukturalne)
+  oraz `publicFiles` (+3 pliki, −kadr).
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
+  `film-finanse`. Przewidziany manifest wydania: `4f526a78a53b253987b59cf38ddbef85a98a42b4cb51237eeada94baf600ab00`.
+
+## Wynik CI (2026-11-22)
+
+Przebieg dla `36e7648` (run 45031575044), zielony:
+
+- `check:dist`: 6 z 6 kroków, 68 plików, 12/12 stron zgodnych z kontraktem i z zapisanym HTML.
+  Manifest `4f526a78a53b253987b59cf38ddbef85a98a42b4cb51237eeada94baf600ab00`, ten sam co przewidziany.
+- Porównanie kontraktu z `main`: zmienia się tylko `finanse.html`, a w niej ramka filmu i dane strukturalne.
+  Strona główna i pozostałe strony bez zmian.
+- Test dymny: 261 z 262, 0 błędów, 1 pominięte (geometria strony głównej względem bazy, bo strona główna jest
+  identyczna z bazą). `finanse.html` w stanie „film”: wybrane źródło i odtwarzanie w kadrze, przycisk pauzy
+  i wznowienia, odpowiedź 206 na zakres bajtów.
+- Testy `wydanie.sh`: 16 z 16. Testy narzędzi: 108 z 108.
+
+## Lighthouse (2026-11-22)
+
+Przebieg dla `36e7648` (run 45031575075), strona już z filmem, Lighthouse 13.6.0, telefon, mediana z 3 przebiegów:
+wydajność 96 (próg 90), dostępność 96 (próg 95), SEO 100 (próg 100). To pomiar builda z CI, nie produkcji.
