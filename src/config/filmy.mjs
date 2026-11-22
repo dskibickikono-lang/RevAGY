@@ -81,6 +81,16 @@ export const FILMY = {
     czasSekundy: 14,
     dataPublikacji: '2026-11-22',
   },
+  'kadry-i-place': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Poglądowy ekran: arkusz godzin po odczycie i kontroli pól, jedna pozycja poza zakresem nie została zapisana i czeka na decyzję osoby z kadr i płac. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: godziny z arkusza trafiają do kadr i płac, wyjątek czeka na decyzję człowieka',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Godziny z arkusza w kadrach i płacach, wpisane raz',
+    opis: 'Arkusz godzin trafia do jednej kolejki, jego pola są odczytane i sprawdzone przed zapisem. Pozycja poza zakresem nie jest zapisywana i czeka na decyzję osoby po stronie klienta, a pozostałe trafiają do programu kadrowo-płacowego. Dane na ekranach są poglądowe.',
+    // Uzupełni etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

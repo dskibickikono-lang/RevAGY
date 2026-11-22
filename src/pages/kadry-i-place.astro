@@ -1,0 +1,232 @@
+---
+// T-028: podstrona pakietu „Kadry i płace bez ręcznego wpisywania” (D-045), dla firm 50–250 osób (D-044).
+// Dwa przepływy: godziny i premie z arkuszy oraz umowy i dane pracownika z systemu HR do programu kadrowo-płacowego.
+// Bez nazw własnych systemów (D-018, D-033). Cena wdrożenia: stała, podawana po audycie (D-041); kwot pakietu nie ma.
+// Opis wdrożenia to agencja-pracy-umowy (D-034), z treścią i liczbami jak na /wdrozenia.html.
+// Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
+import PodstronaLayout from '../layouts/PodstronaLayout.astro';
+import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
+import Pytania from '../components/Pytania.astro';
+import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
+import Autor from '../components/Autor.astro';
+
+const aktualizacja = '2026-11-22';
+
+const pytania = [
+  {
+    pytanie: 'Czy musimy zmieniać program kadrowo-płacowy?',
+    odpowiedz: 'Nie. Łączymy systemy, na których pracujecie.',
+  },
+  {
+    pytanie: 'Nasz program nie przyjmuje danych z arkusza. Co wtedy?',
+    odpowiedz: 'Sprawdzamy interfejs API, potem wymianę plików, potem dostęp do bazy danych za zgodą dostawcy. Jeśli program nie ma eksportu ani importu, a dostawca nie zgadza się na dostęp do danych, połączenia nie da się zrobić. Mówimy to na konsultacji, przed audytem.',
+    odnosnik: { href: 'porownanie-rozwiazan.html', tekst: 'Porównanie rozwiązań' },
+  },
+  {
+    pytanie: 'Czy to zastąpi osobę z kadr i płac?',
+    odpowiedz: 'Nie. Automat przenosi dane i sprawdza je przed zapisem. Naliczenie i zatwierdzenie listy płac, decyzje o wyjątkach i rozmowy z pracownikami zostają u Was.',
+  },
+  {
+    pytanie: 'Co, jeśli automat trafi na błędną wartość?',
+    odpowiedz: 'Wartość poza dopuszczalnym zakresem nie jest zapisywana, tylko czeka na decyzję osoby po Waszej stronie. Każdy zapis ma wpis w dzienniku z poprzednią wartością. Do zamknięcia okresu płacowego zapis można wycofać, później robimy korektę według procedury Waszych kadr.',
+  },
+  {
+    pytanie: 'Czy przenoszenie danych korzysta z modeli AI?',
+    odpowiedz: 'Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.',
+  },
+  {
+    pytanie: 'Ile to kosztuje?',
+    odpowiedz: 'Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cena wdrożenia jest stała: podajemy ją po audycie, przed podpisaniem umowy, i nie rośnie w trakcie prac.',
+  },
+  {
+    pytanie: 'Co z danymi osobowymi pracowników?',
+    odpowiedz: 'Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu. Więcej na stronie dane i bezpieczeństwo.',
+    odnosnik: { href: 'dane-i-bezpieczenstwo.html', tekst: 'Dane i bezpieczeństwo' },
+  },
+  {
+    pytanie: 'Mamy mniej niż 50 osób. Czy to dla nas?',
+    odpowiedz: 'Zasada jest ta sama: zaczynamy od jednego procesu. Pakiety dla mniejszych firm opisujemy na stronie „Dla firm”.',
+    odnosnik: { href: 'dla-firm.html', tekst: 'Dla firm' },
+  },
+];
+---
+<PodstronaLayout
+  plik="kadry-i-place.html"
+  tytul="Kadry i płace bez ręcznego wpisywania | REVAGY"
+  opis="Godziny, premie i dane z umów trafiają do programu kadrowo-płacowego bez ręcznego wpisywania. Program zostaje, wyjątki zatwierdza osoba z Waszych kadr. Umów bezpłatną konsultację."
+  okruszek="Kadry i płace"
+  aktualizacja={aktualizacja}
+  usluga={{
+    nazwa: 'Automatyzacja przepływu danych do kadr i płac',
+    opis: 'Godziny, premie i dane z umów trafiają z arkuszy albo z systemu HR do programu kadrowo-płacowego bez ręcznego wpisywania. Dane przechodzą kontrolę przed zapisem, a wyjątki zatwierdza osoba po stronie klienta.',
+    rodzaj: 'Automatyzacja procesów',
+  }}
+  pytania={pytania}
+  film="kadry-i-place"
+>
+<main id="start">
+
+  <section class="section wrap" id="wstep">
+    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
+    <div class="section-head reveal">
+      <h1 class="display-2">Kadry i płace bez ręcznego wpisywania</h1>
+      <p class="lead">Godziny, premie i dane z umów trafiają do programu kadrowo-płacowego z arkusza albo z systemu HR, bez wklepywania pozycja po pozycji. Program zostaje ten sam, a wyjątki zatwierdza osoba z Waszych kadr.</p>
+      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <p>Dla kierownika kadr i płac, dyrektora personalnego i właściciela firmy, która zatrudnia 50–250 osób.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-outline btn-lg" href="#pakiet">Zobacz, co obejmuje pakiet</a>
+      </div>
+      <Autor aktualizacja={aktualizacja} />
+    </div>
+  </section>
+
+  <section class="section" id="film">
+    <header class="section-head wrap reveal">
+      <h2 class="h2">Godziny z arkusza w kadrach i płacach, wpisane raz</h2>
+      <p class="lead">Arkusz trafia do jednej kolejki. Jego pola są odczytane i sprawdzone, zanim cokolwiek trafi do programu kadrowo-płacowego. Pozycja poza zakresem czeka na decyzję osoby po Waszej stronie.</p>
+      <ul class="ticks">
+        <li>Arkusz godzin i podpisana umowa trafiają do jednej kolejki.</li>
+        <li>Każde pole przechodzi kontrolę przed zapisem.</li>
+        <li>Pozycja poza zakresem nie jest zapisywana i czeka na decyzję człowieka.</li>
+        <li>Pozostałe pozycje trafiają do programu kadrowo-płacowego.</li>
+      </ul>
+    </header>
+    <MiejsceNaFilm nazwa="kadry-i-place" />
+  </section>
+
+  <section class="section wrap" id="godziny">
+    <header class="section-head reveal">
+      <h2 class="h2">Godziny i premie</h2>
+      <p class="lead">Z arkuszy kierowników do listy płac, bez przepisywania.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Ewidencja godzin i premie przychodzą w arkuszach. Ktoś wpisuje je do programu kadrowo-płacowego pozycja po pozycji, a pomyłka wychodzi przy wypłacie albo w korekcie listy płac.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Arkusze o stałym układzie trafiają do jednej kolejki.</li>
+          <li>Kontrola przed zapisem sprawdza, czy pracownik jest w kartotece, czy okres jest otwarty i czy godziny, stawka i premia mieszczą się w zakresie ustalonym z Wami.</li>
+          <li>Pozycje po kontroli trafiają do programu kadrowo-płacowego drogą, którą wspiera jego dostawca.</li>
+          <li>Dziennik zapisuje, co trafiło do programu, skąd, kiedy i jaka była poprzednia wartość.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Naliczenie i zatwierdzenie listy płac. Pozycja, która nie przeszła kontroli, wraca do osoby z kadr z opisem, co się nie zgadza.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="umowy">
+    <header class="section-head reveal">
+      <h2 class="h2">Umowy i dane pracownika</h2>
+      <p class="lead">Z systemu HR albo z podpisanego dokumentu do kadr i płac.</p>
+    </header>
+    <div class="trio">
+      <article class="trust reveal">
+        <h3 class="h4">Dziś</h3>
+        <p>Dane pracownika trafiają do systemu HR, a potem jeszcze raz do kadr i płac. Literówka w numerze rachunku albo w stawce wychodzi dopiero przy wypłacie. Zmiana w jednym systemie nie dochodzi do drugiego.</p>
+      </article>
+      <article class="trust reveal" style="--d:80ms">
+        <h3 class="h4">Po wdrożeniu</h3>
+        <ul class="ticks">
+          <li>Dane z podpisanej umowy trafiają do kartoteki w programie kadrowo-płacowym bez przepisywania.</li>
+          <li>Numer PESEL i numer rachunku przechodzą kontrolę sumy kontrolnej.</li>
+          <li>Daty umowy są sprawdzane pod kątem kolizji z poprzednią umową.</li>
+          <li>Zmiana stawki albo daty końca umowy w systemie źródłowym dochodzi do kadr i płac.</li>
+        </ul>
+      </article>
+      <article class="trust reveal" style="--d:160ms">
+        <h3 class="h4">Co zostaje człowiekowi</h3>
+        <p>Decyzja w przypadkach spoza reguł. Do zamknięcia okresu płacowego zapis można wycofać, później robimy korektę według procedury Waszych kadr.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="pakiet">
+    <header class="section-head reveal">
+      <h2 class="h2">Co obejmuje pakiet</h2>
+      <p class="lead">Zaczynamy od jednego przepływu. Zakres i cenę znacie przed podpisaniem umowy.</p>
+    </header>
+    <div class="doc-table reveal">
+      <table>
+        <thead>
+          <tr><th scope="col">Parametr</th><th scope="col">Ustalenie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zakres</td><td>Jeden przepływ na start: godziny i premie z arkuszy albo dane umów z systemu HR do programu kadrowo-płacowego.</td></tr>
+          <tr><td>Stan wyjściowy</td><td>Mierzymy go przed startem: ile pozycji wpisujecie w okresie płacowym, ile to zajmuje i ile jest korekt. Po wdrożeniu mierzymy to samo, tak samo.</td></tr>
+          <tr><td>Cena</td><td>Stała. Podajemy ją po audycie, przed podpisaniem umowy, i nie rośnie w trakcie prac.</td></tr>
+          <tr><td>Termin</td><td>Pierwsza integracja: 14 dni roboczych od dnia, w którym mamy dostęp do obu systemów.</td></tr>
+          <tr><td>Dane</td><td>Umowę powierzenia podpisujemy przed startem prac. Integracja dostaje minimalny zakres dostępu.</td></tr>
+          <tr><td>Opieka</td><td>Monitoring przepływu po wdrożeniu. Zakres monitoringu i czas reakcji zapisujemy w umowie.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead uwaga reveal"><strong>Pakiet nie obejmuje:</strong> wymiany programu kadrowo-płacowego, naliczania wynagrodzeń za Was, pracy bez dostępu do systemów, których dotyczy przepływ.</p>
+  </section>
+
+  <section class="section wrap" id="kroki">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak zaczynamy</h2>
+    </header>
+    <ol class="ticks kroki reveal">
+      <li>Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</li>
+      <li>Audyt procesu, 3–5 dni roboczych, 1 990 zł, w całości wliczane we wdrożenie. 14 dni na rezygnację z pełnym zwrotem.</li>
+      <li>Wdrożenie w stałej cenie, podanej po audycie.</li>
+      <li>Opieka: monitoring i czas reakcji zapisane w umowie.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap" id="wdrozenie">
+    <header class="section-head reveal">
+      <h2 class="h2">Jak to działa w praktyce</h2>
+      <p class="lead">Opis poniżej pochodzi z działu kadr. Liczby są przybliżone i nie są obietnicą dla Waszej firmy: punkt wyjścia Waszego procesu mierzymy na konsultacji i w audycie. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
+    </header>
+    <OpisWdrozenia id="agencja-pracy-umowy" tytul="Umowy bez przepisywania">
+      <p class="autor">Agencja pracy</p>
+      <p>Kadry wpisywały każdą podpisaną umowę ręcznie, najpierw do systemu HR, potem do kadr i płac. Literówki wychodziły dopiero przy korektach, a umowa czekała na wpis kilka dni.</p>
+      <p><strong>Co połączyliśmy:</strong> dokument umowy podpisywany na tablecie, system HR, program kadrowo-płacowy. Dane z podpisanego dokumentu trafiają do obu systemów same.</p>
+      <p><strong>Wynik:</strong></p>
+      <ul class="ticks">
+        <li>ok. 12 godzin pracy kadr tygodniowo mniej</li>
+        <li>ok. 90% mniej korekt</li>
+        <li>umowa w systemie po ok. 10 minutach zamiast po ok. 3 dniach. Skrócenie czasu to w dużej mierze zasługa podpisu na tablecie.</li>
+      </ul>
+    </OpisWdrozenia>
+    <Ujawnienie />
+  </section>
+
+  <section class="section wrap" id="dane">
+    <header class="section-head reveal">
+      <h2 class="h2">Dane pracowników i umowa powierzenia</h2>
+      <p class="lead">Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane. Każda integracja dostaje minimalny zakres dostępu, a każdy zapis ma wpis w dzienniku. Mamy ubezpieczenie odpowiedzialności zawodowej na 1 mln zł. Odpowiedzi dla działu IT są na stronie <a class="link-btn" href="dane-i-bezpieczenstwo.html">Dane i bezpieczeństwo</a>.</p>
+    </header>
+  </section>
+
+  <section class="section wrap faq-section" id="pytania">
+    <header class="section-head left reveal">
+      <h2 class="h2">Pytania działu kadr i płac</h2>
+      <p class="lead">Nie ma tu Waszego? Zadajcie je na konsultacji, jest bezpłatna.</p>
+    </header>
+    <Pytania pytania={pytania} />
+  </section>
+
+  <section class="section" id="wezwanie">
+    <div class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <h2 class="display-2">Który arkusz wpisujecie do płac co miesiąc?</h2>
+        <p class="lead">Bezpłatna konsultacja jednego procesu, 25 minut. Po niej dostajecie jednostronicową kartę procesu, która zostaje u Was.</p>
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</PodstronaLayout>
