@@ -42,7 +42,7 @@ npm run preview   # podgląd wygenerowanego katalogu dist/
 | `public/assets/js/app.js` | animacje i interakcje (menu, liczniki, kalkulator, sticky scroll, karuzela, marquee, taby, filtry, FAQ, Journey Rail) |
 | `public/assets/js/analytics.js` | baner zgody i zdarzenia dla Matomo (`stats.revagy.pl`, `siteId = 1`, w tym `lead:accepted`) |
 | `public/assets/js/kontakt.js` | obsługa formularza kontaktowego, Cloudflare Turnstile i wysyłki do `POST /api/kontakt` (`forms-gateway`) |
-| `public/assets/video/` | 3 filmy strony głównej (`.webm` + `.mp4`) z plakatami `.jpg` oraz kadry miejsc na film podstron (`<nazwa>-kadr.jpg`) |
+| `public/assets/video/` | 3 filmy strony głównej (`.webm` + `.mp4`) z plakatami `.jpg` oraz media miejsc na film podstron: kadr `<nazwa>-kadr.jpg` albo film `<nazwa>.webm`, `.mp4` i kadr startowy `.jpg` |
 | `public/assets/fonts/` | Onest, Instrument Sans, JetBrains Mono (SIL OFL 1.1, licencje obok) |
 | `public/favicon.ico`, `public/robots.txt`, `public/sitemap.xml`, `public/site.webmanifest` | pliki główne kopiowane bezpośrednio do `dist/` |
 | `tools/dom-contract.json`, `tools/validate-dist.cjs` | kontrakt DOM/SEO oraz walidator kompletności, sum SHA-256, braku inline JS/`/_astro/`, danych strukturalnych JSON-LD i plików `llms*.txt` |
