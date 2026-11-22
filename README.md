@@ -83,7 +83,7 @@ Dodatkowe tryby `tools/smoke-test.cjs`:
 
 `.github/workflows/ci.yml` przy każdym PR i pushu na `main` uruchamia build, `check:dist`, test dymny i testy `wydanie.sh`, a potem publikuje artefakt `revagy-dist-<sha>` (`.tar.gz` z `dist/`, manifest SHA-256, `SHA256SUMS`). To jedyne źródło plików do wdrożenia: VPS nie buduje strony i nie potrzebuje Node.
 
-Osobny workflow `.github/workflows/lighthouse.yml` przy każdym PR (z tym samym `paths-ignore`) i na żądanie buduje stronę, instaluje Chromium Playwrighta i uruchamia `npm run test:lighthouse` z progami z `tools/lighthouse.json`. Próg niespełniony kończy ten job błędem i zatrzymuje zmianę, ale nie blokuje artefaktu wydania z `ci.yml`. Raporty trafiają do artefaktu `lighthouse-<sha>` (14 dni). Na VPS tego pomiaru się nie uruchamia.
+Osobny workflow `.github/workflows/lighthouse.yml` (status `Lighthouse podstron`, do ustawienia jako wymagany w ochronie `main`) uruchamia się w każdym PR i na żądanie. Gdy PR zmienia tylko `kono-state/` albo `README.md`, kończy się sukcesem bez pomiaru; w pozostałych przypadkach buduje stronę, instaluje Chromium Playwrighta i uruchamia `npm run test:lighthouse` z progami z `tools/lighthouse.json`. Próg niespełniony kończy ten job błędem i zatrzymuje zmianę, ale nie blokuje artefaktu wydania z `ci.yml`. Raporty trafiają do artefaktu `lighthouse-<sha>` (14 dni). Na VPS tego pomiaru się nie uruchamia.
 
 ## Wdrożenie i rollback
 

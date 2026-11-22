@@ -7,9 +7,11 @@ name: Lighthouse
 # Próg niespełniony kończy job błędem i zatrzymuje zmianę. Osobny workflow, a nie krok w ci.yml,
 # żeby wahanie wyniku wydajności nie blokowało artefaktu wydania. VPS tego nie uruchamia.
 # Raporty HTML i JSON przebiegów oraz wynik.md trafiają do artefaktu lighthouse-<sha>.
+# Nazwa statusu do ochrony gałęzi main: „Lighthouse podstron”. Status pojawia się w każdym PR
+# (bez filtra ścieżek). Gdy PR zmienia tylko kono-state/ albo README.md, krok „Zakres zmian”
+# pomija pomiar i job kończy się sukcesem bez pomiaru. workflow_dispatch mierzy zawsze.
 on:
   pull_request:
-    paths-ignore: ['kono-state/**', 'README.md']
   workflow_dispatch:
 
 concurrency:
@@ -32,14 +34,43 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Zakres zmian
+        id: zakres
+        env:
+          ZDARZENIE: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -eu
+          if [ "$ZDARZENIE" != "pull_request" ]; then
+            echo "Uruchomienie ręczne ($ZDARZENIE): pomiar zawsze."
+            echo "pomiar=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Płytki klon: pobieramy sam commit bazowy i porównujemy drzewa (historia nie jest potrzebna).
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          git diff --name-only "$BASE_SHA" HEAD > "$RUNNER_TEMP/zmienione.txt"
+          echo "Zmienione pliki:"
+          cat "$RUNNER_TEMP/zmienione.txt"
+          if grep -v -E '^(kono-state/|README\.md$)' "$RUNNER_TEMP/zmienione.txt" > "$RUNNER_TEMP/do-pomiaru.txt"; then
+            echo "Pliki spoza kono-state/ i README.md: $(wc -l < "$RUNNER_TEMP/do-pomiaru.txt"), pomiar się odbędzie."
+            echo "pomiar=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "Zmiana tylko w kartach albo README: pomiar pominięty."
+            echo "### Lighthouse: zmiana tylko w kartach albo README: pomiar pominięty" >> "$GITHUB_STEP_SUMMARY"
+            echo "pomiar=" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.zakres.outputs.pomiar == '1'
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - run: npm ci
+        if: steps.zakres.outputs.pomiar == '1'
 
       - name: Build
+        if: steps.zakres.outputs.pomiar == '1'
         env:
           # Publiczny klucz witryny Turnstile (zmienna repo, nie sekret); pusty = formularz ukryty.
           PUBLIC_TURNSTILE_SITEKEY: ${{ vars.PUBLIC_TURNSTILE_SITEKEY }}
@@ -48,9 +79,11 @@ jobs:
           npm run build
 
       - name: Chromium dla Lighthouse
+        if: steps.zakres.outputs.pomiar == '1'
         run: npx playwright install --with-deps chromium
 
       - name: Pomiar Lighthouse
+        if: steps.zakres.outputs.pomiar == '1'
         run: |
           set -eu
           CHROME_PATH="$(node -e "process.stdout.write(require('playwright').chromium.executablePath())")"
@@ -63,7 +96,8 @@ jobs:
           npm run test:lighthouse -- --wyniki="$RUNNER_TEMP/lighthouse"
 
       - name: Raporty Lighthouse
-        if: always()
+        # Także po niespełnionym progu albo błędzie, ale nie po anulowaniu i nie przy pominiętym pomiarze.
+        if: ${{ !cancelled() && steps.zakres.outputs.pomiar == '1' }}
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-${{ github.sha }}
