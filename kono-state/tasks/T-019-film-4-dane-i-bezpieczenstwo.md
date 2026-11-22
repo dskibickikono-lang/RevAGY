@@ -3,14 +3,14 @@ id: T-019
 title: Etap filmowy F4 — film w miejscu na film strony /dane-i-bezpieczenstwo.html
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-22
 updated: 2026-11-22
 branch: feat/film-4-dane-i-bezpieczenstwo
 base: feat/film-3-dla-firm (a75fe9e)
 depends_on: T-012, T-015
-pr: —
-sha: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/20 (baza feat/film-3-dla-firm)
+sha: cee4d9bc34b3584147ae7a6a49e9061cee433e61 (kod, pliki filmu i kontrakt; commit z tym wpisem zmienia tylko kartę)
 decisions: [D-015, D-021, D-022, D-032, D-033, D-038]
 ---
 
@@ -40,3 +40,16 @@ zmian. Strona główna i pozostałe strony nie zmieniają się ani o bajt.
 ## Do akceptacji właściciela
 
 - Film na podglądzie: oś czasu, tempo, napis „czeka na decyzję” przy kwocie i w kaflu decyzji.
+
+## Rundy 1 i 2 (2026-11-22)
+
+- `render-media.yml` wyrenderował film: mp4 269 654 B (limit 1 100 000), webm 279 632 B (limit 700 000),
+  kadr startowy 123 745 B (limit 150 000); 12 s, 1600×900, 30 kl./s.
+- Klatki z dwunastu chwil osi czasu obejrzane: przebieg zgodny z osią czasu sceny, kadr startowy ma kompozycję
+  dotychczasowego kadru, pętla wraca do stanu początkowego.
+- Trzy pliki filmu dodane, `dane-i-bezpieczenstwo-kadr.jpg` usunięty. Kontrakt policzony z builda CI
+  (`tools/update-contract.cjs`): zmienił się tylko wpis `dane-i-bezpieczenstwo.html` (ramka filmu i dane strukturalne)
+  oraz `publicFiles` (+3 pliki, −kadr).
+- Lokalnie `check-all` przechodzi we wszystkich 6 krokach; `compare-film` potwierdza zgodność z etapem
+  `film-dane-i-bezpieczenstwo`. Manifest wydania: `6f523c3bc2ff14257e689551d8520fac39436ec8cefbcb5ba583eca10ab5ca69`.
+- Wynik przebiegu CI po tym commicie jest w opisie PR #20.
