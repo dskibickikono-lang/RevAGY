@@ -3,7 +3,8 @@
    - dokładnie jeden blok danych strukturalnych <script type="application/ld+json"> z samym atrybutem type,
      poprawny JSON z @context https://schema.org i węzłami WebPage oraz BreadcrumbList,
    - WebPage.url, <link rel="canonical"> i og:url równe https://revagy.pl/<plik>,
-   - pytania i odpowiedzi FAQPage równe widocznym (.qa: przycisk i .qa-body) po normalizacji białych znaków,
+   - pytania i odpowiedzi FAQPage równe widocznym (.qa: przycisk i akapity .qa-body bez akapitu z samym
+     odnośnikiem a.link-btn, który komponent Pytania dodaje pod odpowiedzią) po normalizacji białych znaków,
    - VideoObject wtedy i tylko wtedy, gdy strona ma <video>,
    - atrybut style wyłącznie w postaci --d:<liczba>ms (opóźnienie animacji, jak na stronie głównej). */
 
@@ -15,11 +16,23 @@ const norm = (s) => String(s ?? '').replace(/\s+/gu, ' ').trim();
 const typy = (n) => (n && n['@type'] !== undefined ? [].concat(n['@type']) : []);
 const skr = (s, max = 90) => (s.length > max ? `${s.slice(0, max - 1)}…` : s);
 
+function jestAkapitemOdnosnika(p) {
+  const dzieci = (p.children || []).filter((c) => c.type === 'element' || (c.type === 'text' && c.text.trim()));
+  return dzieci.length === 1 && dzieci[0].type === 'element' && dzieci[0].name === 'a' && hasClass(dzieci[0], 'link-btn');
+}
+
 function widocznePytania(doc) {
   return findAll(doc, (e) => hasClass(e, 'qa')).map((qa) => {
     const przycisk = find(qa, (e) => e.name === 'button');
     const cialo = find(qa, (e) => hasClass(e, 'qa-body'));
-    return { pytanie: norm(przycisk ? textOf(przycisk) : ''), odpowiedz: norm(cialo ? textOf(cialo) : '') };
+    let odpowiedz = '';
+    if (cialo) {
+      const akapity = findAll(cialo, (e) => e.name === 'p');
+      // Akapit z samym odnośnikiem (jeden element a.link-btn i nic poza nim) nie jest częścią odpowiedzi.
+      const tresc = akapity.filter((p) => !jestAkapitemOdnosnika(p));
+      odpowiedz = akapity.length ? tresc.map((p) => textOf(p)).join(' ') : textOf(cialo);
+    }
+    return { pytanie: norm(przycisk ? textOf(przycisk) : ''), odpowiedz: norm(odpowiedz) };
   });
 }
 

@@ -57,6 +57,18 @@ export const FILMY = {
     czasSekundy: null,
     dataPublikacji: null,
   },
+  'produkcja-i-logistyka': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Oś czasu pilota od dnia 1 do dnia 14. Na końcu osi karta „Kryterium sukcesu” z zaznaczonym wynikiem i dwoma przyciskami decyzji: „Pakiet” i „Koniec pilota”. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: 14 dni pilota na jednej linii produkcyjnej',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Pilot na jednej linii produkcyjnej, od dnia 1 do dnia 14',
+    opis: 'Na początku pilota dostęp do systemów i kryterium sukcesu zapisane w umowie. Dane z hali trafiają do raportu zmianowego bez przepisywania, rozbieżność zatwierdza kierownik zmiany, a na końcu wynik jest porównany z kryterium i zapada decyzja. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: null,
+    dataPublikacji: null,
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

@@ -48,9 +48,26 @@ export const DOWODY = {
       szczegolyTechniczne: null,
     },
     // Odpowiedź FAQ o ERP i systemie magazynowym (jeden pilotaż w produkcji).
+    // Jedyny pilotaż w produkcji (zakład produkcyjny). Jedno wdrożenie, dwie strony:
+    // /integracja-systemow.html (odpowiedź FAQ o ERP i systemie magazynowym, tylko etykieta)
+    // i /produkcja-i-logistyka.html (sekcja #dowod, opis przez OpisWdrozenia).
     'pilotaz-produkcja': {
       // Etykieta powiązania spółki, w której był pilotaż, np. 'w spółce powiązanej z grupą'.
       etykietaPowiazania: null,
+      // Nazwa zakładu. Tylko po pisemnej zgodzie spółki na nazwę i liczby.
+      nazwaSpolki: null,
+      // Skala zakładu, np. 'ok. N pracowników'. Każda liczba wymaga wiersza w tools/rejestr-twierdzen.json.
+      skala: null,
+      // Jak mierzone: okres, liczba zmian w próbie i kto mierzył. Dotyczy wyniku „z ok. 6 godzin do ok. 10 minut”.
+      jakMierzone: null,
+      // true dopiero po pisemnej zgodzie na publikację liczby z pilotażu (D-034). Do tego czasu linia „Wynik”
+      // nie pokazuje się. Razem z true zmień status wiersza 'pl-pilotaz-wynik' w tools/rejestr-twierdzen.json
+      // na "potwierdzone".
+      zgodaNaWynik: null,
+      // Cytat: { tresc, osoba, rola } albo null. Tylko prawdziwa wypowiedź z pisemną zgodą.
+      cytat: null,
+      // Bez tabeli szczegółów technicznych (kategorie systemów pilotażu: OFERTA.kategorieSystemowPilotazu).
+      szczegolyTechniczne: null,
     },
     // Podstrona /wdrozenia.html, sekcja #zezwolenia („Alert o kończącym się zezwoleniu 30 dni wcześniej”).
     'alert-zezwolenia': {

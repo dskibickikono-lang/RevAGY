@@ -1,6 +1,6 @@
 {
-  "etap": "4",
-  "opis": "Etap 4, dane i bezpieczeństwo: jeden odnośnik do nowej podstrony /dane-i-bezpieczenstwo.html dopisany na końcu akapitu wprowadzającego sekcji #bezpieczenstwo. Różnica między tools/baseline/index.baza.html (migawka etapu 3) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
+  "etap": "5",
+  "opis": "Etap 5, produkcja i logistyka: jeden odnośnik do nowej podstrony /produkcja-i-logistyka.html dopisany na końcu opisu kafla Enterprise w sekcji #pakiety. Różnica między tools/baseline/index.baza.html (migawka etapu 4) a tools/baseline/index.html. Teksty, atrybuty i pozostałe znaczniki bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [],
@@ -8,8 +8,8 @@
       {
         "znacznik": "a",
         "klasa": "link-btn",
-        "href": "dane-i-bezpieczenstwo.html",
-        "tekst": "Zobacz, jak chronimy dane",
+        "href": "produkcja-i-logistyka.html",
+        "tekst": "Pilot dla produkcji i logistyki",
         "razy": 1
       }
     ],
@@ -18,8 +18,8 @@
   "geometria": {
     "sekcje": [
       {
-        "selektor": "#bezpieczenstwo",
-        "opis": "Odnośnik „Zobacz, jak chronimy dane” na końcu akapitu wprowadzającego może przenieść akapit do kolejnej linii."
+        "selektor": "#pakiety",
+        "opis": "Odnośnik „Pilot dla produkcji i logistyki” wydłuża opis kafla Enterprise (.plan-for, min-height 3em); kafle w rzędzie mają wspólną wysokość, więc cały rząd pakietów może urosnąć."
       }
     ],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
