@@ -33,6 +33,18 @@ export const FILMY = {
     czasSekundy: null,
     dataPublikacji: null,
   },
+  'dla-firm': {
+    // Tekst zastępczy obrazu w stanie „kadr”.
+    alt: 'Cztery szczeble obok siebie: karta procesu, raport z audytu, działający przepływ między systemami i raport z opieki. Dane poglądowe.',
+    // aria-label znacznika wideo w stanie „film”.
+    etykieta: 'Animacja: od konsultacji do opieki, cztery kroki współpracy',
+    // VideoObject.name i VideoObject.description.
+    tytul: 'Cztery kroki współpracy: od konsultacji do opieki',
+    opis: 'Konsultacja kończy się kartą procesu, audyt raportem z zakresem wdrożenia, wdrożenie działającym przepływem między systemami, a opieka monitoringiem i raportem okresowym. Dane na ekranach są poglądowe.',
+    // Uzupełnia etap filmowy: czas w sekundach i data publikacji RRRR-MM-DD.
+    czasSekundy: null,
+    dataPublikacji: null,
+  },
 };
 
 const NAZWA = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

@@ -29,3 +29,7 @@
 
 /* długie napisy przycisków pod h1 podstrony: na telefonie łamią się zamiast wychodzić poza ekran */
 @media (max-width: 560px) { .section-head .hero-cta .btn { white-space: normal; text-align: center; } }
+
+/* dwa kafle pakietów w siatce .plans (trzy kolumny na stronie głównej): dwie kolumny, wyśrodkowane; na wąskim ekranie jedna */
+.plans.plans-dwa { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; }
+@media (max-width: 900px) { .plans.plans-dwa { grid-template-columns: 1fr; } }

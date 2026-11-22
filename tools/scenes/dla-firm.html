@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Scena: od konsultacji do opieki, cztery kroki współpracy</title>
+<link rel="stylesheet" href="scene.css">
+<!-- Scena-szkielet (D-022, D-032). Na razie jedna statyczna kompozycja: kadr startowy filmu
+     z chwili POSTER_AT = 11 s scenariusza (cztery szczeble obok siebie:
+     karta procesu, raport z audytu, działający przepływ, monitoring i raport okresowy).
+     Etap filmowy F1 doda oś czasu w window.render(t). Dane poglądowe, bez kwot i bez nazw własnych. -->
+<style>
+  #stage { width: 1600px; height: 900px; }
+  .g1 { width: 760px; height: 760px; background: var(--accent); left: -280px; top: 440px; opacity: .42; }
+  .g2 { width: 700px; height: 700px; background: var(--rose); right: -260px; top: -320px; opacity: .36; }
+  .g3 { width: 620px; height: 620px; background: var(--plum); left: 520px; top: -320px; opacity: .8; }
+  .veil { position: absolute; inset: 0; background: rgba(20, 17, 20, .38); }
+
+  .app { position: absolute; inset: 64px 56px; display: grid; grid-template-rows: auto 1fr; gap: 28px; }
+  .rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; }
+  .rail::before { content: ""; position: absolute; left: 12%; right: 12%; top: 50%; height: 3px; background: linear-gradient(90deg, var(--dim) 50%, transparent 50%) 0 0 / 12px 3px; }
+  .step { position: relative; justify-self: center; display: flex; align-items: center; gap: 12px; background: var(--night-2); border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 22px 10px 10px; font-family: var(--display); font-size: 22px; font-weight: 650; letter-spacing: -.015em; }
+  .step i { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; }
+  .step i svg { width: 20px; height: 20px; }
+
+  .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; min-height: 0; }
+  .card { border-radius: 30px; overflow: hidden; background: rgba(26, 22, 27, .86); border: 1.5px solid var(--line); box-shadow: 0 60px 120px -40px rgba(0, 0, 0, .9); display: grid; grid-template-rows: 60px 1fr; }
+  .card.paper { background: var(--paper); color: var(--ink); border-color: transparent; }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1.5px solid var(--line); font-family: var(--mono); font-size: 15px; color: var(--dim); }
+  .paper .bar { border-color: var(--mist-2); color: var(--ink-2); }
+  .bar b { color: #fff; font-weight: 500; }
+  .paper .bar b { color: var(--ink); }
+  .bar .tag { margin-left: auto; font-size: 13px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .paper .bar .tag { border-color: var(--mist-2); }
+  .body { padding: 22px; display: grid; gap: 12px; align-content: start; }
+
+  /* karta procesu */
+  .row { display: grid; gap: 4px; padding: 12px 0; border-top: 1.5px solid var(--mist-2); }
+  .row:first-child { border-top: 0; padding-top: 0; }
+  .row span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .row b { font-family: var(--display); font-size: 19px; font-weight: 650; letter-spacing: -.01em; line-height: 1.25; }
+
+  /* raport z audytu: mapa procesu */
+  .map { display: grid; gap: 10px; }
+  .node { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); border-radius: 18px; padding: 12px 16px; font-size: 17px; }
+  .node::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--dim); flex: none; }
+  .node.hot { border-color: rgba(255, 91, 20, .7); }
+  .node.hot::before { background: var(--accent); }
+  .scope { margin-top: 6px; border-radius: 18px; background: var(--paper); color: var(--ink); padding: 14px 16px; display: grid; gap: 4px; }
+  .scope span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .scope b { font-family: var(--display); font-size: 18px; font-weight: 650; }
+
+  /* wdrożenie: dwa systemy i rekord */
+  .sys { border-radius: 18px; border: 1.5px solid var(--line); padding: 14px 16px; display: grid; gap: 6px; }
+  .sys span { font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .sys b { font-family: var(--display); font-size: 19px; font-weight: 650; }
+  .flow { display: grid; place-items: center; height: 54px; position: relative; }
+  .flow::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 3px; background: linear-gradient(180deg, var(--dim) 50%, transparent 50%) 0 0 / 3px 12px; }
+  .flow em { position: relative; font-style: normal; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--paper); border-radius: 999px; padding: 6px 12px; }
+  .ok { justify-self: start; font-family: var(--mono); font-size: 14px; color: var(--ink); background: var(--ok); border-radius: 999px; padding: 6px 14px; }
+
+  /* opieka: monitoring i raport okresowy */
+  .chart { border-radius: 18px; background: rgba(255, 255, 255, .06); border: 1.5px solid var(--line); padding: 14px 16px 10px; display: grid; gap: 8px; }
+  .chart span { font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .chart svg { width: 100%; height: 120px; }
+  .report { border-radius: 18px; background: var(--paper); color: var(--ink); padding: 14px 16px; display: grid; gap: 8px; }
+  .report span { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .report i { display: block; height: 10px; border-radius: 999px; background: var(--mist-2); }
+  .report i.w1 { width: 92%; } .report i.w2 { width: 74%; } .report i.w3 { width: 58%; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow g1" id="g1"></div><div class="glow g2" id="g2"></div><div class="glow g3" id="g3"></div>
+  <div class="veil"></div>
+
+  <div class="app">
+    <div class="rail" aria-hidden="true">
+      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Konsultacja</div>
+      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Audyt</div>
+      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Wdrożenie</div>
+      <div class="step"><i><svg viewBox="0 0 14 14"><path d="m3 7.4 2.6 2.6L11 4.6" fill="none" stroke="#141114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Opieka</div>
+    </div>
+
+    <div class="cols">
+      <section class="card paper">
+        <div class="bar"><b>Karta procesu</b><span class="tag">zostaje u Ciebie</span></div>
+        <div class="body">
+          <div class="row"><span>Proces</span><b>Wprowadzanie zamówień z e-maili</b></div>
+          <div class="row"><span>Gdzie się przepisuje</span><b>Z poczty do systemu ERP</b></div>
+          <div class="row"><span>Metryka bazowa</span><b>Ile razy w tygodniu, ile minut, ile poprawek</b></div>
+          <div class="row"><span>Pierwszy krok</span><b>Zamówienie z e-maila trafia do ERP samo</b></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="bar"><b>Raport z audytu</b><span class="tag">mapa procesu</span></div>
+        <div class="body">
+          <div class="map">
+            <div class="node">E-mail z zamówieniem</div>
+            <div class="node hot">Przepisanie do ERP</div>
+            <div class="node">Potwierdzenie dla klienta</div>
+            <div class="node">Raport sprzedaży</div>
+          </div>
+          <div class="scope"><span>Zakres wdrożenia</span><b>Automatyczny zapis zamówień w ERP</b></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="bar"><b>Działający przepływ</b><span class="tag">wdrożenie</span></div>
+        <div class="body">
+          <div class="sys"><span>źródło</span><b>Poczta firmowa</b></div>
+          <div class="flow"><em>kontrola przed zapisem</em></div>
+          <div class="sys"><span>cel</span><b>System ERP</b></div>
+          <span class="ok">działa</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="bar"><b>Opieka</b><span class="tag">monitoring</span></div>
+        <div class="body">
+          <div class="chart">
+            <span>Przebiegi przepływu</span>
+            <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 96 L30 84 L60 88 L90 70 L120 74 L150 58 L180 62 L210 46 L240 50 L270 36 L300 40" fill="none" stroke="#19b77a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M0 112 H300" stroke="rgba(255,255,255,.13)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="report"><span>Raport okresowy</span><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script>
+window.DURATION = 12;
+window.SIZE = [1600, 900];
+// Kadr startowy filmu: 11 s scenariusza (D-038). Ten sam moment daje kadr przed filmem.
+window.POSTER_AT = 11;
+const TAU = Math.PI * 2;
+const glows = ['g1', 'g2', 'g3'].map((id) => document.getElementById(id));
+
+// Szkielet: każda chwila t pokazuje tę samą kompozycję, porusza się tylko poświata tła.
+window.render = (t) => {
+  const T = window.DURATION;
+  t = ((t % T) + T) % T;
+  glows.forEach((g, i) => {
+    const a = TAU * t / T + i * 2.1;
+    g.style.transform = `translate(${(Math.sin(a) * 70).toFixed(1)}px, ${(Math.cos(a) * 50).toFixed(1)}px)`;
+  });
+};
+TL.live(window.render, window.DURATION);
+</script>
+</body>
+</html>
