@@ -336,4 +336,5 @@ zmienia HTML wszystkich stron i wymaga aktualizacji kontraktu.
 - S-05, D-05, K-03: skrót treści w adresach zasobów, karta T-030.
 - D-02, D-03, D-04, D-06, D-12, D-13, D-17: wzorce i testy w repo, karta T-029; instalacja na serwerze po stronie właściciela.
 - D-01: zamknięte. Odczyt produkcji 22.11.2026 po wydaniu 7cd0f71: CSP zawiera hosty `clarity.ms`, nagłówki zgodne z repo (`npm run check:prod`, 33 sprawdzenia).
-- S-03: decyzja właściciela D-046 (filmy w hero dostają przycisk wstrzymania); wdrożenie czeka na zgodę na etap 5.
+- S-03 (film w hero), S-08, S-11, T-02, T-04: karta T-031. Film pulpitu zostaje bez przycisku (D-046 dotyczy hero).
+- Nowe ustalenie z T-031: Lighthouse strony głównej, wydajność 73–75 (LCP 4,1 s, czas blokowania 560 ms).
