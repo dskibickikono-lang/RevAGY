@@ -34,7 +34,7 @@ const pytania = [
   },
   {
     pytanie: 'Czy wysyłacie wiadomości do klientów za nas?',
-    odpowiedz: 'Tylko te, które ustalicie. W audycie spisujemy z Wami, które wiadomości wychodzą same, z jaką treścią i w jakich terminach. Pozostałe powstają jako szkic, a wysyła je handlowiec.',
+    odpowiedz: 'Tylko te, które chcecie. W audycie mapujemy z Wami, które wiadomości wychodzą same, z jaką treścią i w jakich terminach. Pozostałe powstają jako draft/szkic na skrzynce handlowca, który dostaje gotowy insight dla działań sprzedażowych.',
   },
   {
     pytanie: 'Czy musimy zmieniać CRM albo pocztę?',
@@ -216,7 +216,7 @@ const pytania = [
       <ul class="ticks">
         <li>kalkulator osobno przygotowuje ofertę dla klienta i kalkulację wewnętrzną</li>
         <li>mapa w kalkulatorze pokazuje podział terenu między handlowców i bieżące zapotrzebowanie klientów ładowane z arkusza</li>
-        <li>w pilotażu handlowiec wpisuje w komunikatorze numer NIP, a agent, czyli program w komunikatorze zespołu, pobiera dane firmy z CRM, pyta o brakujące dane i zapisuje w CRM notatkę z parametrami oferty; stawki i warunki podaje handlowiec</li>
+        <li>handlowiec wpisuje w komunikatorze numer NIP, a agent, czyli program w komunikatorze zespołu, pobiera dane firmy z CRM, pyta o brakujące dane i zapisuje w CRM notatkę z parametrami oferty; stawki i warunki podaje handlowiec</li>
         <li>agent nie wysyła niczego klientowi: gotowy PDF wraca do wątku zespołu w komunikatorze, a ofertę klientowi wysyła handlowiec</li>
       </ul>
     </OpisWdrozenia>
@@ -229,8 +229,8 @@ const pytania = [
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
         <li>o nowym leadzie z formularza przypisany handlowiec dostaje wiadomość w komunikatorze, a gdy wysyłka się nie uda, SMS</li>
-        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na źródła leadów i regiony</li>
-        <li>w pilotażu handlowiec pisze albo nagrywa wiadomość głosową w komunikatorze, a agent zakłada w CRM firmę, osobę, leada albo zadanie z terminem i odpowiada numerem wpisu w CRM</li>
+        <li>pulpit pokazuje czas reakcji handlowców na nowe leady w podziale na źródła leadów i regiony, a co miesiąc powstaje z niego raport</li>
+        <li>handlowiec pisze albo nagrywa wiadomość głosową w komunikatorze, a agent zakłada w CRM firmę, osobę, leada albo zadanie z terminem i odpowiada numerem wpisu w CRM</li>
         <li>agent uzupełnia tylko puste pola, a przed założeniem firmy sprawdza ją po numerze NIP</li>
       </ul>
     </OpisWdrozenia>

@@ -98,7 +98,7 @@ PR #33 scalony przez właściciela do `main` (5bac11d). Właściciel odpowiedzia
 
 ## Stan
 
-Raport i kwerenda zakończone, liczba wdrożeń potwierdzona (45), pakiet K02 wybrany i wdrożony (T-034). Raport scalony do main w PR #33 (5bac11d) i #36 (5e29276). Karta zamknięta.
+Raport i kwerenda zakończone, liczba wdrożeń potwierdzona (45), pakiet K02 wybrany i wdrożony w repozytorium na main (T-034; czeka na deploy na VPS). Raport scalony do main w PR #33 (5bac11d) i #36 (5e29276). Karta zamknięta.
 Punkty z sekcji „Otwarte” (konsultacje poza grupą jako test superzdania, dane z CRM o konsultacjach) pozostają
 otwarte; każdy wymaga osobnej zgody właściciela.
 

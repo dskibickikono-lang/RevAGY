@@ -60,6 +60,7 @@ decyzje właściciela z rozmowy startowej; nic tu nie zostało dopisane ponad to
 | D-050 | 2026-11-22 | Taśma logotypów systemów (sekcja integracji) na stronie głównej zostaje jako świadomy wyjątek marketingowy dla strony głównej. D-018 i D-033 nie dotyczą tej taśmy i obowiązują na podstronach oraz w nagłówkach i opisach wdrożeń. | właściciel, decyzja z 22.11.2026 (T-026) | obowiązuje |
 | D-051 | 2026-11-22 | Repozytorium kodu RevAGY na GitHubie (`dskibickikono-lang/RevAGY`) pozostaje publiczne (buduje widoczność marki w wyszukiwarkach i transparentność technologiczną). | właściciel, decyzja z 22.11.2026 (T-025) | obowiązuje |
 | D-052 | 2026-11-22 | Wdrożenia REVAGY nie odbywają się wyłącznie zdalnie: wizyta robocza u klienta to obowiązkowy element każdego przypadku. Profil firmy w Google (Google Business Profile z ukrytym adresem) zostanie założony w późniejszym etapie. | właściciel, decyzja z 22.11.2026 (T-025) | obowiązuje |
+| D-053 | 2026-11-23 | Silnik pozyskiwania leadów (Lead Engine) wchodzi do oferty i na stronę sprzedaży jako jeden z kluczowych produktów B2B. Opis opiera się na prawdzie produkcyjnej: system pracuje codziennie na produkcji i automatyzuje proces od świeżego ogłoszenia rekrutacyjnego w portalach, przez identyfikację firmy i wzbogacenie danych rejestrowych, po routing terytorialny i przekazanie leada do CRM/komunikatora handlowca. | właściciel, decyzja z 23.11.2026 (T-032) | obowiązuje |
 
 ## Zasady stałe (z reguły pracy KONO, nie są decyzjami z tego repo)
 

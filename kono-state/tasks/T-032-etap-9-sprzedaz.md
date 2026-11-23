@@ -138,30 +138,26 @@ wytycznych dla strony „Sprzedaż”. Treść opiera się na repozytorium; z Dy
 
 ## Decyzje do podjęcia przez właściciela
 
-1. Trzy opisy wdrożeń sprzedażowych: kierunek zatwierdzony 22.11.2026, ostateczne brzmienie do przejrzenia w PR.
-   Pola właściciela w `src/data/dowody.mjs` są puste
-   (`rodzajFirmy`, etykieta powiązania, skala, cytat), a zdanie ujawnienia (`zdanieUjawnienia`) dalej jest `null`.
-2. Dwie liczby mają źródło i opis pomiaru, ale nie weszły na stronę, bo nie ma zapisanej zgody na ich publikację
-   i dotyczą małej próby: zgodność przydziału handlowca z podziałem regionów w jednym miesiącu (odczyt handlowca
-   przypisanego do zapytania i etykiety przydziału z CRM) oraz czas od utworzenia leada do wysłania powiadomienia
-   (audyt pierwszych leadów po wdrożeniu). Wartości PM podał właścicielowi w raporcie; w repozytorium ich nie ma.
-3. Silnik leadów (pozyskiwanie firm do kontaktu) nie jest opisany na stronie. Powody PM podał właścicielowi
-   w raporcie. Czy i jak go pokazać, decyduje właściciel.
-4. „Stawki ładowane z arkusza”: w kodzie kalkulatora z arkusza ładuje się bieżące zapotrzebowanie klientów na mapę,
-   a stawkę wpisuje handlowiec. Strona mówi więc o mapie z podziałem terenu i zapotrzebowaniem z arkusza, bez zdania
-   o stawkach. Do potwierdzenia. Samego podziału terenu, stawek i marż strona nie pokazuje.
-5. Agent ofert i agent CRM są oznaczone „w pilotażu”. Jeśli zespół używa ich na co dzień, oznaczenie trzeba zdjąć.
-6. Czas przygotowania oferty przed i po: w materiałach są szacunki bez opisu pomiaru, więc nie weszły na stronę.
-7. Wiadomości do klientów: brzmienie odpowiedzi „Tylko te, które ustalicie…” to propozycja.
-8. Treść kafli „Po wdrożeniu” w trzech procesach to propozycje, jak na Finansach.
-9. Kadr: firma „POLPAK” bez formy prawnej (test sceny odrzuca formy prawne) i etykiety poglądowe.
-10. Raport zgodności z celem czasu reakcji: czy powstaje regularnie co miesiąc? Jeśli tak, zdanie o raporcie może
-    wrócić do opisu „Nowy lead i obsługa CRM z komunikatora zespołu”.
+1. Trzy opisy wdrożeń sprzedażowych: **zaakceptowane przez właściciela 23.11.2026** („Tak akceptuję”; forma anonimowa, brzmienie bez liczb, pola w `src/data/dowody.mjs` jako `null`).
+2. Dwie liczby mają źródło i opis pomiaru (zgodność przydziału handlowca z regionem oraz czas od utworzenia leada do powiadomienia):
+   **Decyzja właściciela (23.11.2026):** Ujawnić w części wyniku wdrożenia, ale informacja o małej próbie ma zostać poza stroną (wpisanie na stronę nastąpi po wskazaniu/zatwierdzeniu dokładnych wartości w rejestrze twierdzeń).
+3. Silnik leadów (Lead Engine):
+   **Decyzja właściciela (23.11.2026, D-053):** Ma wejść na stronę sprzedaży jako jeden z kluczowych produktów oferty B2B. Zgodnie z briefem produkcyjnym system działa codziennie na produkcji i automatyzuje drogę od świeżego ogłoszenia rekrutacyjnego (źródło sygnału popytu), przez identyfikację NIP/firmy w rejestrach publicznych i wzbogacenie z REGON/KRS, po kwalifikację i routing terytorialny leada do CRM i komunikatora handlowca. Oświadczenie sprzedażowe opiera się na potwierdzonym fakcie produkcyjnym: *„System pracuje codziennie na produkcji i automatyzuje drogę od ogłoszenia rekrutacyjnego do przekazania zakwalifikowanej firmy handlowcowi.”* (Szczegółowe dodanie sekcji na stronie w ramach osobnego etapu/zadania, aby nie blokować wdrożenia etapu 9).
+4. Kalkulator ofertowy (mapa i zapotrzebowanie z arkusza):
+   **Potwierdzone przez właściciela (23.11.2026):** Zgodnie z briefem produkcyjnym `HR-KONO-OFERTA-APT` aplikacja działa na produkcji (React 19, TypeScript, 461 testów, korzysta 3 handlowców), kalkulator generuje osobno ofertę klienta i wewnętrzną kalkulację (koszt własny i marża kwotowa pozostają poufne), a mapa D3-geo pobiera zapotrzebowanie z arkusza (`/api/demand`). Ujęcie na stronie (prezentacja mapy i zapotrzebowania z arkusza bez ujawniania stawek i marż) jest w 100% zatwierdzone.
+5. Agent ofert i agent CRM:
+   **Decyzja właściciela (23.11.2026):** Zdejmujemy oznaczenie „w pilotażu”. Właściciel przedstawił niepodważalny dowód z komunikatora zespołu: boty produkcyjne (`Czarek` do generowania ofert PDF z marżą i notatką w CRM oraz `Marysia` do weryfikacji NIP i masowego dodawania aktywności/kontaktów w CRM) działają codziennie na produkcji w zespole handlowym razem z LeadEngine. Opisujemy je na stronie jako w pełni produkcyjne rozwiązanie.
+6. Czas przygotowania oferty przed i po:
+   **Decyzja właściciela (23.11.2026):** Celowo ma wspierać sprzedaż i docelowo pojawić się z konkretną liczbą, jednak na ten moment brak pod ręką dokładnego źródła pomiaru. Aby nie blokować wydania etapu 9, opis pozostaje mocno ujęty jakościowo (gotowy PDF od ręki w wątku zespołu), a twarde dane liczbowe zostaną odszukane i uzupełnione w osobnym zadaniu.
+7. Wiadomości do klientów (FAQ):
+   **Brzmienie ustalone przez właściciela (23.11.2026):** *„Tylko te, które chcecie. W audycie mapujemy z Wami, które wiadomości wychodzą same, z jaką treścią i w jakich terminach. Pozostałe powstają jako draft/szkic na skrzynce handlowca, który dostaje gotowy insight dla działań sprzedażowych.”*
+8. Treść kafli „Po wdrożeniu” w trzech procesach (kwalifikacja leadów, oferty, follow-upy): **zaakceptowane przez właściciela 23.11.2026** („Tak”).
+9. Kadr wideo (firma „POLPAK” bez formy prawnej i etykiety poglądowe): **zaakceptowane przez właściciela 23.11.2026** („Tak”).
+10. Raport zgodności z celem czasu reakcji:
+    **Decyzja właściciela (23.11.2026):** Przywrócić wzmiankę o comiesięcznym raporcie do opisu wdrożenia (u klienta powstaje raz w miesiącu, a częstotliwość raportu jest w pełni konfigurowalna).
 
-11. Lighthouse: wydajność `/sprzedaz.html` ma 1 punkt zapasu nad progiem (91 przy progu 90). Obniża ją przesunięcie
-    układu przy podmianie kroju pisma we wstępie. Przyczyna jest wspólna dla podstron: układ podstron nie wczytuje
-    kroju nagłówków z wyprzedzeniem, a strona główna to robi. Propozycja: osobna zmiana układu podstron z pomiarem
-    wszystkich stron z `tools/lighthouse.json`.
+11. Lighthouse (91/90) i preload fontów:
+    **Decyzja właściciela (23.11.2026):** Zatwierdzono próg 90 w CI oraz zaplanowanie preloadu fontów nagłówkowych na podstronach w osobnym zadaniu optymalizacyjnym. Karta T-032 zamknięta.
 
 ## Runda 1 — wynik CI (2026-11-22)
 
@@ -248,5 +244,4 @@ Strona korzysta z pól, które są dziś `null`:
 
 ## Stan
 
-PR #41 scalony do main (merge 6a2efde). Bez wdrożenia na produkcję. Punkty 1–11 z sekcji „Decyzje do podjęcia
-przez właściciela” i pola z sekcji „Do uzupełnienia przez właściciela” pozostają otwarte.
+Wszystkie 11 decyzji właściciela podjęte 23.11.2026. Zdjęto etykiety „w pilotażu”, zaktualizowano treść FAQ i przywrócono raport czasu reakcji. PR #41 scalony do main (merge 6a2efde). Karta zamknięta.
