@@ -35,14 +35,14 @@ Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania
 | T-022 | Bing Webmaster Tools, IndexNow, Clarity za zgodą | wdrozone | #23 (a3ce70d) |  |
 | T-023 | Film F6: finanse | wdrozone | #25 (1002463), #26 (43efbf5) |  |
 | T-024 | Baner zgody: zdanie o Microsoft Clarity | wdrozone | #28 (7cd0f71) | Jedyna karta T-024 od 22.11.2026 (raport komunikacji to T-035) |
-| T-025 | Audyt SEO i pozycjonowania marki | zmergowane | #29 (9856b6f), #31 (28a02ab) | Audyt kodu, który też miał T-025, ma teraz T-028. Punkty „Nadal zablokowane” otwarte |
-| T-026 | Audyt designu i identyfikacji | zmergowane | #32 (2cd36d0), #34 (ccc9b71), #38 (a653e8a) | Założona jako T-024 |
+| T-025 | Audyt SEO i pozycjonowania marki | zmergowane | #29 (9856b6f), #31 (28a02ab), #44 (fd74f92) | D-051 i D-052 wpisane. Karta zamknięta. Punkty „Nadal zablokowane” otwarte |
+| T-026 | Audyt designu i identyfikacji | zmergowane | #32 (2cd36d0), #34 (ccc9b71), #38 (a653e8a), #43 (db6ce54) | Założona jako T-024. D-050 wpisane. Karta zamknięta |
 | T-027 | astro.config: adres bazowy i schemat zmiennej | zmergowane | #37 (da8d1ae) |  |
 | T-028 | Audyt kodu strony | zmergowane | #35 (3e87a2e) | W PR #35 i #37 oraz w commitach występuje jako T-025 |
-| T-029 | Etap 2 po audycie kodu: Matomo, nginx, kontrola produkcji | zmergowane | #40 (7b6fc4c) | Kroki serwerowe czekają na wdrożenie |
-| T-030 | Etap 3 po audycie kodu: skrót treści w adresach zasobów | zmergowane | #40 (7b6fc4c) |  |
-| T-031 | Etap 5 po audycie kodu: formularz, dostępność, testy | zmergowane | #40 (7b6fc4c) |  |
-| T-032 | Etap 9: sprzedaż | zmergowane | #41 (6a2efde) | W pierwszych commitach PR #41 jako T-027. Decyzje właściciela 1–11 otwarte |
-| T-033 | Kierunek A, pilot sceny na /integracja-systemow.html | zmergowane | #38 (a653e8a) | W PR #38 i w commitach sprzed odświeżenia jako T-031 |
-| T-034 | Pakiet K02: kadry i płace | zmergowane | #39 (ca9b92b) | W PR #39 i w commitach sprzed odświeżenia jako T-028; menu: D-049 (wcześniej D-046) |
-| T-035 | Raport: komunikacja i oferta | zmergowane | #33 (5bac11d), #36 (5e29276) | Wcześniej T-024, przenumerowana 22.11.2026 (kolizja z banerem zgody, PR #28); w D-041…D-045 dopisek „wcześniej T-024”. Punkty „Otwarte” otwarte |
+| T-029 | Etap 2 po audycie kodu: Matomo, nginx, kontrola produkcji | zmergowane | #40 (7b6fc4c), #43 (db6ce54) | Kroki serwerowe czekają na wdrożenie na VPS. Karta zamknięta |
+| T-030 | Etap 3 po audycie kodu: skrót treści w adresach zasobów | zmergowane | #40 (7b6fc4c), #43 (db6ce54) | Karta zamknięta |
+| T-031 | Etap 5 po audycie kodu: formularz, dostępność, testy | zmergowane | #40 (7b6fc4c), #43 (db6ce54) | Karta zamknięta |
+| T-032 | Etap 9: sprzedaż | zmergowane | #41 (6a2efde), #45 (9173c09) | W pierwszych commitach jako T-027. Wszystkie 11 decyzji zamknięte 23.11.2026 w PR #45. D-053 wpisane. Karta zamknięta |
+| T-033 | Kierunek A, pilot sceny na /integracja-systemow.html | zmergowane | #38 (a653e8a), #43 (db6ce54) | W PR #38 jako T-031. Karta zamknięta |
+| T-034 | Pakiet K02: kadry i płace | zmergowane | #39 (ca9b92b), #43 (db6ce54) | W PR #39 jako T-028; menu: D-049. Karta zamknięta |
+| T-035 | Raport: komunikacja i oferta | zmergowane | #33 (5bac11d), #36 (5e29276), #45 (9173c09) | Wcześniej T-024. K02 wdrożone na main (T-034; czeka na deploy na VPS). Karta zamknięta |
