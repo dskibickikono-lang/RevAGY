@@ -48,9 +48,12 @@ const pytania = [
   },
   {
     pytanie: 'Mamy ERP i system magazynowy. Czy to ta sama metoda?',
-    odpowiedz: maWartosc(pilotaz.etykietaPowiazania)
-      ? `Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż, ${pilotaz.etykietaPowiazania}.`
-      : 'Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.',
+    // Z nazwą spółki: „…jeden pilotaż, w spółce HR KONO (Grupa KONO).” (T-036).
+    odpowiedz: `Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż${
+      maWartosc(pilotaz.nazwaSpolki)
+        ? `, w spółce ${pilotaz.nazwaSpolki}${maWartosc(pilotaz.etykietaPowiazania) ? ` (${pilotaz.etykietaPowiazania})` : ''}`
+        : maWartosc(pilotaz.etykietaPowiazania) ? `, ${pilotaz.etykietaPowiazania}` : ''
+    }.`,
   },
   {
     pytanie: 'Ile to kosztuje?',
@@ -112,7 +115,7 @@ const pytania = [
       </article>
       <article class="trust reveal" style="--d:160ms">
         <h3 class="h4">Raport sklejany z trzech eksportów</h3>
-        <p>Każdy system pokazuje inną liczbę. W jednym z wdrożeń dwa systemy różniły się stanem załogi o 29 osób (568 i 539), co wyszło dopiero po połączeniu źródeł{maWartosc(stanZalogi.etykietaPowiazania) && ` (${stanZalogi.etykietaPowiazania})`}.</p>
+        <p>Każdy system pokazuje inną liczbę. W jednym z wdrożeń raport dzienny pokazywał 1 370 pracowników, a arkusz operacyjny 1 300 osób. Wyszło to dopiero po połączeniu źródeł{maWartosc(stanZalogi.etykietaPowiazania) && ` (${stanZalogi.etykietaPowiazania})`}.</p>
       </article>
     </div>
   </section>
