@@ -53,3 +53,13 @@
 
 /* wyraz z łącznikiem w nagłówku (np. „follow-upy”): nie łamie się na łączniku; text-wrap: balance dopuszcza tam podział */
 .bez-lamania { white-space: nowrap; }
+
+/* scena dowodu (kierunek A, etap A2, D-054, T-036): ten sam kontener i poświata co scena pierwszego ekranu (.cta.scena);
+   „Jak mierzone” i szczegóły techniczne pod sceną, na jasnym tle. Scena jest szersza niż zwykły opis, bo mieści 3 liczby. */
+.dowod-scena { max-width: none; display: grid; gap: 16px; }
+.scena-liczby { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; width: 100%; }
+.scena-liczby li { display: grid; gap: 8px; align-content: start; }
+.scena-liczby .stat-label { color: var(--on-night-2); }
+.dowod-scena blockquote p { color: var(--on-night); }
+.dowod-scena .scena-tekst > p, .dowod-scena blockquote { max-width: 70ch; }
+@media (max-width: 900px) { .scena-liczby { grid-template-columns: 1fr; } }

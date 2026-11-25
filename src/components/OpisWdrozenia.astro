@@ -5,6 +5,10 @@
 // i pojawiają się tylko wtedy, gdy pole ma wartość (D-034).
 // Zdanie ujawnienia jest wspólne dla wszystkich opisów na stronie: wstaw je raz, komponentem
 // <Ujawnienie /> po ostatnim opisie.
+// Wariant „scena dowodu” (kierunek A, etap A2, D-048, D-054, T-036): z propem `liczby` opis dostaje ciemną scenę
+// (.cta.scena, poświata .hero-shade jak na pierwszym ekranie) z etykietą i dużymi liczbami. W scenie są tytuł,
+// podpis, liczby, treść ze slotu i cytat; „Jak mierzone” i szczegóły techniczne zostają pod sceną, na jasnym tle.
+// Bez propu `liczby` opis wygląda jak dotąd. Każda liczba wymaga wiersza w tools/rejestr-twierdzen.json.
 import { wdrozenie, maWartosc } from '../data/dowody.mjs';
 
 interface Props {
@@ -12,9 +16,13 @@ interface Props {
   id: string;
   // Anonimowy opis firmy, np. 'Agencja pracy'.
   tytul: string;
+  // Wariant sceny: etykieta nad tytułem (np. 'Wynik · agencja pracy') i liczby { wartosc, opis }.
+  etykieta?: string;
+  liczby?: { wartosc: string; opis: string }[];
 }
 
-const { id, tytul } = Astro.props;
+const { id, tytul, etykieta, liczby } = Astro.props;
+const scena = Array.isArray(liczby) && liczby.length > 0;
 const w = wdrozenie(id);
 const podpis = [w.nazwaSpolki, w.etykietaPowiazania, w.skala].filter(maWartosc).join(' · ');
 const cytat = maWartosc(w.cytat) && maWartosc(w.cytat.tresc) && maWartosc(w.cytat.osoba) ? w.cytat : null;
@@ -23,6 +31,42 @@ const szczegoly = Array.isArray(w.szczegolyTechniczne) && w.szczegolyTechniczne.
   ? w.szczegolyTechniczne
   : null;
 ---
+{scena ? (
+<article class="dowod dowod-scena reveal">
+  <div class="cta scena">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="scena-tekst">
+      {etykieta && <p class="step-no">{etykieta}</p>}
+      <h3 class="h3">{tytul}</h3>
+      {podpis && <p class="autor">{podpis}</p>}
+      <ul class="scena-liczby">
+        {liczby.map((l) => (<li><span class="stat-num">{l.wartosc}</span> <span class="stat-label">{l.opis}</span></li>))}
+      </ul>
+      <slot />
+      {cytat && (
+        <blockquote>
+          <p>„{cytat.tresc}”</p>
+          <p class="autor">{maWartosc(cytat.rola) ? `${cytat.osoba}, ${cytat.rola}` : cytat.osoba}</p>
+        </blockquote>
+      )}
+    </div>
+  </div>
+  {maWartosc(w.jakMierzone) && <p class="autor">Jak mierzone: {w.jakMierzone}</p>}
+  {szczegoly && (
+    <details>
+      <summary>Szczegóły techniczne</summary>
+      <div class="doc-table">
+        <table>
+          <thead><tr><th scope="col">Kategoria systemu</th><th scope="col">Droga łączenia</th><th scope="col">Kierunek danych</th></tr></thead>
+          <tbody>
+            {szczegoly.map((r) => (<tr><td>{r.kategoria}</td><td>{r.droga}</td><td>{r.kierunek}</td></tr>))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  )}
+</article>
+) : (
 <article class="trust dowod reveal">
   <h3 class="h3">{tytul}</h3>
   {podpis && <p class="autor">{podpis}</p>}
@@ -48,3 +92,4 @@ const szczegoly = Array.isArray(w.szczegolyTechniczne) && w.szczegolyTechniczne.
     </details>
   )}
 </article>
+)}

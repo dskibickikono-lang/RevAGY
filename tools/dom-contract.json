@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "54fcaa9c998b8a6292bb7a94e54f22a13047255352dfd60abd3cf8423c184cc0",
-      "size": 3910
+      "sha256": "09e5c8a0274a94122d4880628f95324bc68d83468b166304834f206ed715b87b",
+      "size": 4690
     },
     "assets/css/styles.css": {
       "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
@@ -232,15 +232,15 @@
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "f0210c88362f7f59755aae7f94c1cb9dc666ba49e0cdc833e4d0d7ca66898089",
+      "sha256": "2967de12004232299f19f8d514a1c61aef5cf38552b57d86b6c70e98dbe5ac84",
       "size": 24419
     },
     "dla-firm.html": {
-      "sha256": "b5f7999ff6ea23fa93cbac130ffed8cc46fe1002a5120b353b62c8625d53d062",
+      "sha256": "57d01768dbe2883b11e80dfa8f7db45135d598fd57222e6fca3b948106229c53",
       "size": 24998
     },
     "finanse.html": {
-      "sha256": "639585317b3f1444ac3c06c3b3e93bc000ddd2b462330e18e13a3185b1302db7",
+      "sha256": "55feb78f97ed1305dc6136eea4f6313061a0c62769a6aba7d397be76b0ff3bcd",
       "size": 26194
     },
     "index.html": {
@@ -248,15 +248,15 @@
       "size": 47304
     },
     "integracja-systemow.html": {
-      "sha256": "d8a1f6764314ab1a8ba81c58a486a8753cb828af9fbc73a0cfba78a779cecf8a",
-      "size": 27903
+      "sha256": "084618cd90251650abac1124059ebc73030dc50b24008709514e661b7bb71671",
+      "size": 28511
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "900d244fe5878021190bb6f3f41c460f59e15347614aa9a9ff6c11cf6efd5919",
+      "sha256": "ab7c1930b7a47ba3af19a422e6e8de125df4046488c5caec4e333c11ab05e14f",
       "size": 24572
     },
     "kadry-i-place.html": {
-      "sha256": "30f5c6c668ab2d292dad704b70b3537924e203c77ee747ec980ac52f86798da1",
+      "sha256": "1d6422d2e2a95082c2a34b532ac05c6d8c39c8d0d76782fb3cecb28cc0c35604",
       "size": 27555
     },
     "kontakt.html": {
@@ -268,19 +268,19 @@
       "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "49b0d72da95bb8c3041284026a59e0476897374b93d5c73b20c6f57b2f6c6235",
+      "sha256": "54ee31519670a4106515085f77780b9e4928fc02599b912d78e91f9a5c0b3255",
       "size": 24102
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "e189bd4c90a77969d7d9d9af1b370b02df13c5f75d87e6c8f7c56decdbc2b293",
+      "sha256": "e90224e91c3a2d4185c69289a9b96324ba751ca14dd2a0e54f4d3a6b22b2b739",
       "size": 25863
     },
     "sprzedaz.html": {
-      "sha256": "efc86ec5aa54bdfb11d548a8488849ea77419e8ae166a263e6cab24ec72b9774",
+      "sha256": "87f084c4f72a1511cdfb8022f0ad925296cd1bc7b50fda0370b135848b6afc44",
       "size": 27854
     },
     "wdrozenia.html": {
-      "sha256": "dbdbbe1fae383ed5c2f3ba3bd299172ad2494586a0d72d7cb2b1f1d1f43e768d",
+      "sha256": "b9b4cb1d6f1c7a7cbcf1ee69e682c6715477cef75724c02679948bd28c88d593",
       "size": 24910
     }
   },
@@ -639,7 +639,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1943,7 +1943,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -2364,7 +2364,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3607,7 +3607,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -4053,7 +4053,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5324,7 +5324,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -8651,7 +8651,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -9054,6 +9054,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -10020,7 +10030,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -10441,7 +10451,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11611,7 +11621,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -12037,7 +12047,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13300,7 +13310,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -14425,7 +14435,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15518,7 +15528,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -15939,7 +15949,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -17202,7 +17212,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -17628,7 +17638,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -18886,7 +18896,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -19312,7 +19322,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -20517,7 +20527,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",

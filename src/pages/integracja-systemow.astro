@@ -185,7 +185,17 @@ const pytania = [
     <header class="section-head reveal">
       <h2 class="h2">Jak to działa w praktyce</h2>
     </header>
-    <OpisWdrozenia id="agencja-pracy-umowy" tytul="Agencja pracy">
+    {/* Scena dowodu (kierunek A, etap A2, D-054, T-036): 3 liczby w krótkiej formie, każda z wierszem w rejestrze twierdzeń. */}
+    <OpisWdrozenia
+      id="agencja-pracy-umowy"
+      tytul="Agencja pracy"
+      etykieta="Wynik · agencja pracy"
+      liczby={[
+        { wartosc: 'ok. 12 h', opis: 'mniej pracy kadr tygodniowo' },
+        { wartosc: 'ok. 90%', opis: 'mniej korekt w umowach' },
+        { wartosc: 'ok. 10 min', opis: 'do wpisu umowy w systemie, zamiast ok. 3 dni' },
+      ]}
+    >
       <p>Kadry nie przepisują już umów. Dane z podpisanego dokumentu trafiają do systemu HR oraz do kadr i płac same: ok. 12 godzin pracy tygodniowo mniej i ok. 90% mniej korekt.</p>
       <p>Umowa jest w systemie po ok. 10 minutach zamiast po ok. 3 dniach, dzięki podpisowi na tablecie.</p>
     </OpisWdrozenia>
