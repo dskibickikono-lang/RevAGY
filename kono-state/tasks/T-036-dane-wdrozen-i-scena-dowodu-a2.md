@@ -9,7 +9,7 @@ updated: 2026-11-25
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (a74ab8c)
 depends_on: T-033 (pilot A1, scalony w #38)
-pr: —
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/48
 sha: 2b4678f (dane), c81a501 (scena A2)
 decisions: [D-015, D-020, D-021, D-033, D-034, D-048, D-054]
 ---
