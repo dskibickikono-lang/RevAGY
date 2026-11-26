@@ -3,14 +3,14 @@ id: T-038
 title: Sceny dowodu na kadry-i-place i produkcja-i-logistyka, zdanie ujawnienia (PR 1 z 2)
 channel: pm-local
 requested_by: owner
-status: w-toku
+status: do-przegladu
 created: 2026-11-26
 updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (b4bef98)
 depends_on: T-036, T-037
 pr: —
-sha: —
+sha: dfce223
 decisions: [D-015, D-021, D-034, D-048, D-054, D-055]
 ---
 
@@ -42,6 +42,20 @@ Preload zmniejsza przesunięcie sceny, ale krój dochodzi wtedy, gdy baner zgody
 wysokość. PR 2 zmienia moment pokazania banera na telefonie, więc preload wchodzi razem z nim. Bez preload kadry-i-place
 0,024 i produkcja-i-logistyka 0,035 — tyle co na main.
 
+## Testy (Linux, sandbox, build z publicznym kluczem Turnstile jak w CI)
+
+- `npm run check:dist`: 6/6; `dist/index.html` identyczny z wzorcem.
+- `tools/smoke-test.cjs --serve=dist`: 331/331.
+- Lighthouse, 12 stron lokalnie: progi spełnione; wydajność podstron 98–100 (kadry-i-place 100, produkcja-i-logistyka 100),
+  strona główna 83 (próg 65).
+- Kontrast w nowych scenach dowodu, najgorszy piksel tła, 4 fazy poświaty, 1440/390/360: minimum 6,03:1 (etykieta w kolorze
+  akcentu, jak w A2).
+- Wysokość sekcji: kadry-i-place 1 536 → 1 782 px (360), produkcja-i-logistyka 1 032 → 1 152 px (360).
+
+## Dowody
+
+`kono-state/notes/kierunek-a-dowody/`: sekcje przed (main b4bef98) i po, 2 strony × 1440/390/360, `pomiary.json`.
+
 ## Stan
 
-W toku.
+Do przeglądu. Merge robi właściciel. Następny krok: PR 2 (T-039) — baner zgody, poświata kontaktu, preload kroju.
