@@ -9,8 +9,8 @@ updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (682e99d)
 depends_on: T-033 (A1), T-036 (A2)
-pr: —
-sha: 1e23375 (sceny), następny commit: dowody i karta
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/49
+sha: 1e23375 (sceny), ab260d4 (dowody i karta)
 decisions: [D-015, D-021, D-031, D-048]
 ---
 
