@@ -3,14 +3,14 @@ id: T-038
 title: Sceny dowodu na kadry-i-place i produkcja-i-logistyka, zdanie ujawnienia (PR 1 z 2)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: scalone
 created: 2026-11-26
 updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (b4bef98)
 depends_on: T-036, T-037
-pr: —
-sha: dfce223, cd7b91e (poprawki po przeglądzie)
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/50
+sha: dfce223, cd7b91e (poprawki po przeglądzie); scalenie 2db89d4 (PR #50, merge właściciela)
 decisions: [D-015, D-021, D-034, D-048, D-054, D-055]
 ---
 
@@ -73,4 +73,4 @@ Lighthouse 12 stron: progi spełnione, podstrony 98–100, kontakt 100, strona g
 
 ## Stan
 
-Do przeglądu. Merge robi właściciel. Następny krok: PR 2 (T-039) — baner zgody, poświata kontaktu, preload kroju.
+Scalone 26.11.2026 (PR #50, commit scalenia `2db89d4`). Bez wdrożenia na serwer. Następny krok: PR 2 (T-039) — baner zgody, poświata kontaktu, preload kroju.
