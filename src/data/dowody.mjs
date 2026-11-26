@@ -85,7 +85,7 @@ export const DOWODY = {
       // Bez tabeli szczegółów technicznych (drogi łączenia do uzupełnienia przez właściciela).
       szczegolyTechniczne: null,
     },
-    // Podstrona /wdrozenia.html, sekcja #kandydaci („Kandydat w systemie w 5 minut”).
+    // Podstrona /wdrozenia.html, sekcja #kandydaci („Kandydat w systemie w ok. 5 minut”).
     'kandydaci-zgloszenia': {
       // Rodzaj firmy, np. 'Agencja pracy'. Do potwierdzenia przez właściciela; bez wartości linia się nie pokazuje.
       rodzajFirmy: null,

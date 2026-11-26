@@ -240,7 +240,7 @@
       "size": 25515
     },
     "finanse.html": {
-      "sha256": "232439b39036cea3d85950d2eb7b2cbdb65956be89e1b882b65d2966c95deb2f",
+      "sha256": "140b918094df867d799ec285b54baeca50a5bf65b274bfcb3b75de017a3a4b8d",
       "size": 26466
     },
     "index.html": {
@@ -276,12 +276,12 @@
       "size": 26443
     },
     "sprzedaz.html": {
-      "sha256": "a7b9f02b75e256fa412aea0ff7d4d762dab7263fe6fb7bdf095d2cb351172bcb",
+      "sha256": "6c7f99b8c4ca9384855b05a86d48b85eee16c4489a6a1faa34606fc702a9edb6",
       "size": 28127
     },
     "wdrozenia.html": {
-      "sha256": "84aa477462ad20d04c3530b1023c2b5924f1db17194c5b635faf0b6add6ef3cc",
-      "size": 25728
+      "sha256": "080107873f632d589688c44ee39cec7a710f2b0cecfd93b853832fa35a920234",
+      "size": 25762
     }
   },
   "pages": {
@@ -5123,13 +5123,6 @@
           "text": "Umów bezpłatną konsultację"
         },
         {
-          "href": "produkcja-i-logistyka.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "pilot dla produkcji i logistyki"
-        },
-        {
           "href": "kontakt.html",
           "class": "btn btn-light btn-lg",
           "dataTrack": null,
@@ -5142,6 +5135,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co się zmienia w procesach"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "pilot dla produkcji i logistyki"
         },
         {
           "href": "wdrozenia.html",
@@ -5484,17 +5484,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "produkcja-i-logistyka.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
           "val": "kontakt.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "#faktury"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
         },
         {
           "tag": "video",
@@ -18769,13 +18769,6 @@
           "text": "Umów bezpłatną konsultację"
         },
         {
-          "href": "produkcja-i-logistyka.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "pilot dla produkcji i logistyki"
-        },
-        {
           "href": "kontakt.html",
           "class": "btn btn-light btn-lg",
           "dataTrack": null,
@@ -18788,6 +18781,13 @@
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co się zmienia w procesach"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "pilot dla produkcji i logistyki"
         },
         {
           "href": "wdrozenia.html",
@@ -19111,17 +19111,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "produkcja-i-logistyka.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
           "val": "kontakt.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "#kwalifikacja"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
         },
         {
           "tag": "img",
@@ -20159,7 +20159,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "Kandydat w systemie w 5 minut"
+          "text": "Kandydat w systemie w ok. 5 minut"
         },
         {
           "tag": "h2",

@@ -86,9 +86,9 @@ const pytania = [
       </div>
       <ul class="scena-liczby scena-liczby-4 load-in" style="--d:320ms">
         <li><span class="stat-num">ok. 12 h</span> <span class="stat-label">mniej pracy kadr tygodniowo</span></li>
-        <li><span class="stat-num">0 h</span> <span class="stat-label">na raport zarządu; wcześniej ok. 6 h tygodniowo</span></li>
+        <li><span class="stat-num">0 h</span> <span class="stat-label">ręcznego przygotowania raportu zarządu; wcześniej ok. 6 h tygodniowo</span></li>
         <li><span class="stat-num">30 dni</span> <span class="stat-label">przed końcem ważności zezwolenia przychodzi alert</span></li>
-        <li><span class="stat-num">5 min</span> <span class="stat-label">do wpisu kandydata w systemie; wcześniej ok. 48 h</span></li>
+        <li><span class="stat-num">ok. 5 min</span> <span class="stat-label">do wpisu kandydata w systemie; wcześniej ok. 48 h</span></li>
       </ul>
       <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
@@ -161,13 +161,13 @@ const pytania = [
   </section>
 
   <section class="section section-tight wrap" id="kandydaci">
-    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w 5 minut">
+    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w ok. 5 minut">
       {maWartosc(kandydaci.rodzajFirmy) && <p class="autor">{kandydaci.rodzajFirmy}</p>}
       <p>Zgłoszenia kandydatów czekały na ręczne przeniesienie do systemu rekrutacyjnego. Zanim rekruter je zobaczył, mijało ok. 48 godzin.</p>
       <p><strong>Co połączyliśmy:</strong> formularze zgłoszeniowe i system rekrutacyjny.</p>
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
-        <li>kandydat w systemie w 5 minut zamiast po ok. 48 godzinach</li>
+        <li>kandydat w systemie w ok. 5 minut zamiast po ok. 48 godzinach</li>
         <li>ok. 30% więcej kontaktów z kandydatami tego samego dnia</li>
       </ul>
     </OpisWdrozenia>
