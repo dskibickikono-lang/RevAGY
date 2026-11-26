@@ -9,8 +9,8 @@ updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (2db89d4)
 depends_on: T-038 (PR #50, scalony)
-pr: —
-sha: b748615
+pr: https://github.com/dskibickikono-lang/RevAGY/pull/51
+sha: b748615, f1ebf31 (karta, D-056)
 decisions: [D-015, D-021, D-040, D-047, D-056]
 ---
 
@@ -49,7 +49,7 @@ decisions: [D-015, D-021, D-040, D-047, D-056]
 | Sprawdzenie | Wynik |
 |---|---|
 | `npm run check:dist` | 6/6 OK (compare-home z listą etapu T-039) |
-| `tools/smoke-test.cjs --serve=dist` | 340/340 przed połączeniem z T-038; po połączeniu — patrz niżej |
+| `tools/smoke-test.cjs --serve=dist` | 340/340 (także po połączeniu z T-038 na main 2db89d4) |
 | Lighthouse, 13 stron (repo + 6 stron A3 lokalnie) | progi spełnione; podstrony i kontakt 100, strona główna 82 (próg 65); dostępność 96–100 |
 | Fokus zasłonięty przez baner, 60 Tabów | main: 8–31 na stronę; PR: 0 (strona główna, finanse, integracja × 1280/390) |
 | CLS kontakt w Lighthouse | main 0,028 → PR 0 |
