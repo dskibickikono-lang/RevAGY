@@ -3,9 +3,9 @@ id: T-036
 title: Dane rzeczywiste opisów wdrożeń i scena dowodu „Agencja pracy” (kierunek A, etap A2)
 channel: pm-local
 requested_by: owner
-status: scalone
+status: wdrozone
 created: 2026-11-25
-updated: 2026-11-26
+updated: 2026-11-27
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (a74ab8c)
 depends_on: T-033 (pilot A1, scalony w #38)
