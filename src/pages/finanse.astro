@@ -10,6 +10,7 @@ import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
 import Ujawnienie from '../components/Ujawnienie.astro';
 import Autor from '../components/Autor.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 
 const aktualizacja = '2026-11-22';
 
@@ -58,19 +59,22 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Faktury kosztowe, windykacja i uzgodnienia bez ręcznego przepisywania</h1>
-      <p class="lead">Automatyzujemy trzy procesy działu finansów: obieg faktur kosztowych, przypomnienia o należnościach i uzgodnienia z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają u Was.</p>
-      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
-      <p>Dla dyrektora finansowego, głównej księgowej i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
-        <a class="btn btn-outline btn-lg" href="#faktury">Zobacz, co się zmienia w procesach</a>
+  {/* Kierunek A, etap A3 (D-048, T-037): pierwszy ekran jako scena tytułowa, bez plakatu (film jest zaraz pod pierwszym ekranem).
+      Akapity pomocnicze pod przyciskami, żeby oba przyciski mieściły się na pierwszym ekranie telefonu (przegląd PR #49). Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony>
+      <h1 class="display-2 load-in">Faktury kosztowe, windykacja i uzgodnienia bez ręcznego przepisywania</h1>
+      <p class="lead load-in" style="--d:80ms">Automatyzujemy trzy procesy działu finansów: obieg faktur kosztowych, przypomnienia o należnościach i uzgodnienia z bankiem. Dane trafiają do programu księgowego bez przepisywania, a akceptacja i wyjątki zostają u Was.</p>
+      <div class="hero-cta load-in" style="--d:160ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-glass btn-lg" href="#faktury">Zobacz, co się zmienia w procesach</a>
       </div>
+      <p class="load-in" style="--d:240ms">REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <p class="load-in" style="--d:320ms">Dla dyrektora finansowego, głównej księgowej i właściciela firmy 5–250 osób. Dla zakładów produkcyjnych i firm logistycznych mamy osobny tor z płatnym pilotem: <a class="link-btn" href="produkcja-i-logistyka.html">pilot dla produkcji i logistyki</a>.</p>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section" id="film">

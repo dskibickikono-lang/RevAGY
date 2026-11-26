@@ -15,6 +15,7 @@
 
    W trybie --serve test porównuje też wysokości sekcji strony głównej z bazą (tools/lib/baza.cjs),
    podawaną przez lokalny serwer pod /__baza.html. Podstrony z tools/podstrony.json są sprawdzane w każdym trybie.
+   Finanse i sprzedaż: oba przyciski pierwszego ekranu w całości w oknie 360×844 i 390×844 (T-037).
    Strona główna i podstrony są też sprawdzane w dwóch wąskich widokach telefonu (393×852 i 375×667): brak przewijania
    w poziomie (ze szczegółem o elementach poza oknem) i, z --zrzuty, pełny zrzut.
 
@@ -1032,6 +1033,38 @@ if (require.main === module) (async () => {
           }
           await pg.screenshot({ path: path.join(zrzutyDir, nazwaZrzutu(p, szer)), fullPage: true });
         }
+        await ctx.close();
+      }
+    }
+
+    /* ---------- 8c. Przyciski pierwszego ekranu na telefonie (T-037, przegląd PR #49) ---------- */
+    // Finanse i sprzedaż mają najdłuższy tekst nad przyciskami. Kryterium etapu A3: oba przyciski pierwszego ekranu
+    // (.hero-cta w #wstep) w całości w oknie 360×844 i 390×844, po wczytaniu krojów, przy ograniczonym ruchu.
+    // Baner zgody (.consent) jest ukryty na czas pomiaru; to, że go zasłania, jest raportowane osobno i nie jest błędem.
+    const PRZYCISKI = [
+      { szer: 360, viewport: { width: 360, height: 844 } },
+      { szer: 390, viewport: { width: 390, height: 844 } },
+    ];
+    for (const p of ['finanse.html', 'sprzedaz.html'].filter((x) => podstrony.some((s) => s.plik === x))) {
+      for (const { szer, viewport } of PRZYCISKI) {
+        const { context: ctx, page: pg } = await newPage(browser, viewport, { hasTouch: true, isMobile: true, reducedMotion: 'reduce' }, { enforceIsolation });
+        await pg.goto(`${base}/${p}`, { waitUntil: 'load' });
+        await poZaladowaniu(pg);
+        const zbanerem = await pg.evaluate(() => {
+          const b = document.querySelector('.consent');
+          if (!b || !b.getBoundingClientRect().height) return [];
+          const r = b.getBoundingClientRect();
+          return [...document.querySelectorAll('#wstep .hero-cta .btn')].map((x) => x.getBoundingClientRect()).map((x, i) => (x.bottom > r.top && x.top < r.bottom ? i + 1 : 0)).filter(Boolean);
+        });
+        await pg.addStyleTag({ content: '.consent { display: none !important; }' });
+        const btn = await pg.evaluate(() => [...document.querySelectorAll('#wstep .hero-cta .btn')].map((x) => {
+          const r = x.getBoundingClientRect();
+          return { gora: Math.round(r.top), dol: Math.round(r.bottom) };
+        }));
+        const h = viewport.height;
+        check(`${p} (${szer}×${h}): dwa przyciski pierwszego ekranu`, btn.length === 2, String(btn.length));
+        btn.forEach((b, i) => check(`${p} (${szer}×${h}): przycisk ${i + 1} w całości na pierwszym ekranie`, b.gora >= 0 && b.dol <= h, `góra ${b.gora} px, dół ${b.dol} px, okno ${h} px`));
+        if (zbanerem.length) console.log(`UWAGA     ${p} (${szer}×${h}): baner zgody zasłania przycisk ${zbanerem.join(' i ')} (znana pozycja P0, T-026; nie jest błędem tego testu)`);
         await ctx.close();
       }
     }

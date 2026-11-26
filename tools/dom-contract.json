@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "09e5c8a0274a94122d4880628f95324bc68d83468b166304834f206ed715b87b",
-      "size": 4690
+      "sha256": "840147667f0f284829a6c978254b073a190f0975b4c0cb44eeb8ab08c039b732",
+      "size": 5428
     },
     "assets/css/styles.css": {
       "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
@@ -232,32 +232,32 @@
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "2967de12004232299f19f8d514a1c61aef5cf38552b57d86b6c70e98dbe5ac84",
-      "size": 24419
+      "sha256": "61c1faf9a9ddb1c940c739c0906805c1b63844d0a4ff8e97edcfbaa2271ae6ae",
+      "size": 25010
     },
     "dla-firm.html": {
-      "sha256": "57d01768dbe2883b11e80dfa8f7db45135d598fd57222e6fca3b948106229c53",
-      "size": 24998
+      "sha256": "a277a624ad60bf296eb77e9cfed38545bc9eb166fff32029451b716c8e06781d",
+      "size": 25515
     },
     "finanse.html": {
-      "sha256": "abb47b5bd115e7dd48a0e198f0dcfcc2d28fcbeb1dd003965043160e6d7325fc",
-      "size": 26193
+      "sha256": "140b918094df867d799ec285b54baeca50a5bf65b274bfcb3b75de017a3a4b8d",
+      "size": 26466
     },
     "index.html": {
       "sha256": "d558e2fcaf976ebaa915134ccd44de2f57e2e9381607aecb3263948fe2963c7a",
       "size": 47304
     },
     "integracja-systemow.html": {
-      "sha256": "5f8793dfcded5884d3a9e0a43543a068f05a27724286b9bebb8a0305f1a82552",
+      "sha256": "6915316bccdd06205586ddd6d8148c1c4ad1bf883136ecfd53230da5209c4037",
       "size": 28458
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "ab7c1930b7a47ba3af19a422e6e8de125df4046488c5caec4e333c11ab05e14f",
-      "size": 24572
+      "sha256": "58460950bb6b5e0ab8156007d8209192f34807889992f10a4f84ba8097cd430f",
+      "size": 24777
     },
     "kadry-i-place.html": {
-      "sha256": "1d6422d2e2a95082c2a34b532ac05c6d8c39c8d0d76782fb3cecb28cc0c35604",
-      "size": 27555
+      "sha256": "4d94445abf167c9980d7b2d835873fc7f3a8bcef14c37d068200325586547df1",
+      "size": 27828
     },
     "kontakt.html": {
       "sha256": "cfc1f1176c0c8fbd14df54d667ce348075f868e4271d703d7cef4d2e36aa649b",
@@ -268,20 +268,20 @@
       "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "54ee31519670a4106515085f77780b9e4928fc02599b912d78e91f9a5c0b3255",
-      "size": 24102
+      "sha256": "11692c50b8717b8400395d6234b10433054982b7eee7dd47a425b3504be3b24d",
+      "size": 24307
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "e90224e91c3a2d4185c69289a9b96324ba751ca14dd2a0e54f4d3a6b22b2b739",
-      "size": 25863
+      "sha256": "1632cd109114fb814ca76fffcf224e87d20ed03922b92af5ab48bf76f59bb7dc",
+      "size": 26443
     },
     "sprzedaz.html": {
-      "sha256": "87f084c4f72a1511cdfb8022f0ad925296cd1bc7b50fda0370b135848b6afc44",
-      "size": 27854
+      "sha256": "6c7f99b8c4ca9384855b05a86d48b85eee16c4489a6a1faa34606fc702a9edb6",
+      "size": 28127
     },
     "wdrozenia.html": {
-      "sha256": "0cbe450999779faa7acccc0f81c1d9f35592cd791fb98a35a2eb8df9ee6053cf",
-      "size": 24876
+      "sha256": "080107873f632d589688c44ee39cec7a710f2b0cecfd93b853832fa35a920234",
+      "size": 25762
     }
   },
   "pages": {
@@ -639,7 +639,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -708,7 +708,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -902,6 +902,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -1724,14 +1734,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#pytania",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Pytania działu IT"
@@ -1943,7 +1953,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -2069,6 +2079,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#pytania"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/dane-i-bezpieczenstwo.jpg?v=666e5eab"
         },
         {
           "tag": "a",
@@ -2364,7 +2379,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -2433,7 +2448,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -2621,6 +2636,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -3353,14 +3378,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#pakiety",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz pakiety"
@@ -3607,7 +3632,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -3733,6 +3758,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#pakiety"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/dla-firm.jpg?v=861129ff"
         },
         {
           "tag": "a",
@@ -4053,7 +4083,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -4122,7 +4152,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -4322,6 +4352,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -5083,25 +5123,25 @@
           "text": "Umów bezpłatną konsultację"
         },
         {
-          "href": "produkcja-i-logistyka.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "pilot dla produkcji i logistyki"
-        },
-        {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#faktury",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co się zmienia w procesach"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "pilot dla produkcji i logistyki"
         },
         {
           "href": "wdrozenia.html",
@@ -5324,7 +5364,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -5444,17 +5484,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "produkcja-i-logistyka.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
           "val": "kontakt.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "#faktury"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
         },
         {
           "tag": "video",
@@ -8651,7 +8691,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10030,7 +10070,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -10451,7 +10491,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10520,7 +10560,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -10732,6 +10772,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -11393,14 +11443,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#kryteria",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Sprawdź kryteria"
@@ -11621,7 +11671,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -12047,7 +12097,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12116,7 +12166,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -12316,6 +12366,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -13089,14 +13149,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#pakiet",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co obejmuje pakiet"
@@ -13310,7 +13370,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -14435,7 +14495,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14504,7 +14564,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -14710,6 +14770,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -15307,14 +15377,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#tabela",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz tabelę porównawczą"
@@ -15528,7 +15598,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -15949,7 +16019,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16018,7 +16088,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -16218,6 +16288,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -16986,14 +17066,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#pilot",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz zakres pilota"
@@ -17212,7 +17292,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -17338,6 +17418,11 @@
           "tag": "a",
           "attr": "href",
           "val": "#pilot"
+        },
+        {
+          "tag": "img",
+          "attr": "src",
+          "val": "assets/video/produkcja-i-logistyka.jpg?v=29ae14d3"
         },
         {
           "tag": "video",
@@ -17638,7 +17723,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -17707,7 +17792,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -17925,6 +18010,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -18674,25 +18769,25 @@
           "text": "Umów bezpłatną konsultację"
         },
         {
-          "href": "produkcja-i-logistyka.html",
-          "class": "link-btn",
-          "dataTrack": null,
-          "ariaLabel": null,
-          "text": "pilot dla produkcji i logistyki"
-        },
-        {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#kwalifikacja",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz, co się zmienia w procesach"
+        },
+        {
+          "href": "produkcja-i-logistyka.html",
+          "class": "link-btn",
+          "dataTrack": null,
+          "ariaLabel": null,
+          "text": "pilot dla produkcji i logistyki"
         },
         {
           "href": "wdrozenia.html",
@@ -18896,7 +18991,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",
@@ -19016,17 +19111,17 @@
         {
           "tag": "a",
           "attr": "href",
-          "val": "produkcja-i-logistyka.html"
-        },
-        {
-          "tag": "a",
-          "attr": "href",
           "val": "kontakt.html"
         },
         {
           "tag": "a",
           "attr": "href",
           "val": "#kwalifikacja"
+        },
+        {
+          "tag": "a",
+          "attr": "href",
+          "val": "produkcja-i-logistyka.html"
         },
         {
           "tag": "img",
@@ -19322,7 +19417,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=09e5c8a0",
+          "href": "assets/css/podstrony.css?v=84014766",
           "type": null,
           "sizes": null,
           "as": null,
@@ -19391,7 +19486,7 @@
         {
           "tag": "section",
           "id": "wstep",
-          "class": "section wrap",
+          "class": "hero-outer",
           "ariaLabel": null
         },
         {
@@ -19597,6 +19692,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -20054,7 +20159,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "Kandydat w systemie w 5 minut"
+          "text": "Kandydat w systemie w ok. 5 minut"
         },
         {
           "tag": "h2",
@@ -20301,14 +20406,14 @@
         },
         {
           "href": "kontakt.html",
-          "class": "btn btn-dark btn-lg",
+          "class": "btn btn-light btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Umów bezpłatną konsultację"
         },
         {
           "href": "#umowy",
-          "class": "btn btn-outline btn-lg",
+          "class": "btn btn-glass btn-lg",
           "dataTrack": null,
           "ariaLabel": null,
           "text": "Zobacz cztery opisy"
@@ -20527,7 +20632,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=09e5c8a0"
+          "val": "assets/css/podstrony.css?v=84014766"
         },
         {
           "tag": "a",

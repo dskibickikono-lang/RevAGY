@@ -8,6 +8,7 @@
 // Treść (h1, wstęp, przyciski, linia autora) pisze strona w slocie.
 // Plakat to kadr startowy filmu z src/config/filmy.mjs (stan „film”); w stanie „kadr” obraz <nazwa>-kadr.jpg.
 // Na telefonie (do 560 px) plakat jest ukryty w podstrony.css; loading="lazy" sprawia, że ukryty obraz nie jest pobierany.
+// Bez propu film (scena tytułowa, etap A3, T-037) układ ma jedną kolumnę: klasa scena-uklad-tekst.
 // Ramka plakatu celowo NIE ma klasy .film: testy i app.js biorą pierwszą .film na stronie jako miejsce na film.
 import { stanFilmu, WYMIARY_KADRU } from '../config/filmy.mjs';
 import { zasob } from '../config/zasoby.mjs';
@@ -23,7 +24,7 @@ const obraz = film ? (film.stan === 'film' ? film.poster : film.kadr) : null;
 ---
 <div class="cta scena">
   <div class="hero-shade" aria-hidden="true"></div>
-  <div class="scena-uklad">
+  <div class={film ? 'scena-uklad' : 'scena-uklad scena-uklad-tekst'}>
     <div class="scena-tekst">
       <slot />
     </div>

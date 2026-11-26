@@ -10,6 +10,7 @@ import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
 import Autor from '../components/Autor.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import Ujawnienie from '../components/Ujawnienie.astro';
 import { DOWODY, wdrozenie, maWartosc } from '../data/dowody.mjs';
 
@@ -71,18 +72,26 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Cztery wdrożenia. Co było, co połączyliśmy, co się zmieniło.</h1>
-      <p class="lead">Każdy opis podaje rodzaj firmy, kategorie połączonych systemów i wynik. Liczby są przybliżone, dlatego stoi przy nich „ok.”.</p>
-      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których te firmy już pracują.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
-        <a class="btn btn-outline btn-lg" href="#umowy">Zobacz cztery opisy</a>
+  {/* Kierunek A, etap A3 (D-048, T-037): pierwszy ekran jako scena z liczbami (4 wyniki z opisów poniżej, każdy z wierszem w rejestrze twierdzeń). Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony>
+      <h1 class="display-2 load-in">Cztery wdrożenia. Co było, co połączyliśmy, co się zmieniło.</h1>
+      <p class="lead load-in" style="--d:80ms">Każdy opis podaje rodzaj firmy, kategorie połączonych systemów i wynik. Liczby są przybliżone, dlatego stoi przy nich „ok.”.</p>
+      <p class="load-in" style="--d:160ms">REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których te firmy już pracują.</p>
+      <div class="hero-cta load-in" style="--d:240ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-glass btn-lg" href="#umowy">Zobacz cztery opisy</a>
       </div>
+      <ul class="scena-liczby scena-liczby-4 load-in" style="--d:320ms">
+        <li><span class="stat-num">ok. 12 h</span> <span class="stat-label">mniej pracy kadr tygodniowo</span></li>
+        <li><span class="stat-num">0 h</span> <span class="stat-label">ręcznego przygotowania raportu zarządu; wcześniej ok. 6 h tygodniowo</span></li>
+        <li><span class="stat-num">30 dni</span> <span class="stat-label">przed końcem ważności zezwolenia przychodzi alert</span></li>
+        <li><span class="stat-num">ok. 5 min</span> <span class="stat-label">do wpisu kandydata w systemie; wcześniej ok. 48 h</span></li>
+      </ul>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section" id="film">
@@ -152,13 +161,13 @@ const pytania = [
   </section>
 
   <section class="section section-tight wrap" id="kandydaci">
-    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w 5 minut">
+    <OpisWdrozenia id="kandydaci-zgloszenia" tytul="Kandydat w systemie w ok. 5 minut">
       {maWartosc(kandydaci.rodzajFirmy) && <p class="autor">{kandydaci.rodzajFirmy}</p>}
       <p>Zgłoszenia kandydatów czekały na ręczne przeniesienie do systemu rekrutacyjnego. Zanim rekruter je zobaczył, mijało ok. 48 godzin.</p>
       <p><strong>Co połączyliśmy:</strong> formularze zgłoszeniowe i system rekrutacyjny.</p>
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
-        <li>kandydat w systemie w 5 minut zamiast po ok. 48 godzinach</li>
+        <li>kandydat w systemie w ok. 5 minut zamiast po ok. 48 godzinach</li>
         <li>ok. 30% więcej kontaktów z kandydatami tego samego dnia</li>
       </ul>
     </OpisWdrozenia>

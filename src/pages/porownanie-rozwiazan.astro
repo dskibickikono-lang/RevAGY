@@ -6,6 +6,7 @@
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import Pytania from '../components/Pytania.astro';
 import Autor from '../components/Autor.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { maWartosc } from '../data/dowody.mjs';
 import { poradnik } from '../data/poradniki.mjs';
 
@@ -51,17 +52,19 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Jak skończyć z przepisywaniem danych? Cztery drogi i ich granice</h1>
-      <p class="lead">Dane, które ktoś przepisuje z jednego systemu do drugiego, można połączyć, oddać automatowi klikającemu po ekranie, przenieść do nowego systemu albo zostawić ludziom. Porównujemy te drogi bez nazw dostawców: kiedy każda ma sens, czego wymaga i gdzie przestaje działać.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
-        <a class="btn btn-outline btn-lg" href="#tabela">Zobacz tabelę porównawczą</a>
+  {/* Kierunek A, etap A3 (D-048, T-037): pierwszy ekran jako scena tytułowa, bez plakatu (poradnik bez filmu). Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony>
+      <h1 class="display-2 load-in">Jak skończyć z przepisywaniem danych? Cztery drogi i ich granice</h1>
+      <p class="lead load-in" style="--d:80ms">Dane, które ktoś przepisuje z jednego systemu do drugiego, można połączyć, oddać automatowi klikającemu po ekranie, przenieść do nowego systemu albo zostawić ludziom. Porównujemy te drogi bez nazw dostawców: kiedy każda ma sens, czego wymaga i gdzie przestaje działać.</p>
+      <div class="hero-cta load-in" style="--d:160ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-glass btn-lg" href="#tabela">Zobacz tabelę porównawczą</a>
       </div>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section wrap" id="odpowiedz">

@@ -9,6 +9,7 @@ import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import Autor from '../components/Autor.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { dataSlownie } from '../config/podstrony.mjs';
 import { maWartosc } from '../data/dowody.mjs';
 import { BEZPIECZENSTWO } from '../data/bezpieczenstwo.mjs';
@@ -73,17 +74,19 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Dane i bezpieczeństwo: stan na dziś</h1>
-      <p class="lead">Opisujemy, jak integracja dostaje dostęp do Waszych systemów, co zapisuje i kto ją kontroluje. Piszemy też wprost, czego jeszcze nie publikujemy.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
-        <a class="btn btn-outline btn-lg" href="#pytania">Pytania działu IT</a>
+  {/* Kierunek A, etap A3 (D-048, T-037): pierwszy ekran jako scena z plakatem filmu. Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony film="dane-i-bezpieczenstwo">
+      <h1 class="display-2 load-in">Dane i bezpieczeństwo: stan na dziś</h1>
+      <p class="lead load-in" style="--d:80ms">Opisujemy, jak integracja dostaje dostęp do Waszych systemów, co zapisuje i kto ją kontroluje. Piszemy też wprost, czego jeszcze nie publikujemy.</p>
+      <div class="hero-cta load-in" style="--d:160ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-glass btn-lg" href="#pytania">Pytania działu IT</a>
       </div>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section wrap" id="zakres">
