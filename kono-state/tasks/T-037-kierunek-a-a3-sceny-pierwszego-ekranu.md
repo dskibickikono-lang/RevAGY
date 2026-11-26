@@ -3,14 +3,14 @@ id: T-037
 title: Kierunek A, etap A3 — scena pierwszego ekranu na 9 podstronach
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: scalone
 created: 2026-11-26
 updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (682e99d)
 depends_on: T-033 (A1), T-036 (A2)
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/49
-sha: 1e23375 (sceny), ab260d4 (dowody i karta), fd30500 (poprawki po przeglądzie)
+sha: 1e23375 (sceny), ab260d4 (dowody i karta), fd30500 (poprawki po przeglądzie); scalenie b4bef98 (PR #49, merge właściciela)
 decisions: [D-015, D-021, D-031, D-048]
 ---
 
@@ -106,3 +106,7 @@ na finanse i sprzedaz w każdej z trzech wersji (P0 z T-026, poza zakresem).
 - Baner zgody zasłania przyciski pierwszego ekranu (P0 z audytu T-026), bez zmian w tym etapie.
 - Lighthouse w CI mierzy 3 z 9 stron A3 (finanse, kadry-i-place, sprzedaz); w A1 CI pokazało przesunięcie układu, którego lokalny pomiar nie widział.
 - Poza A3: sceny dowodu na kadry-i-place i produkcja-i-logistyka; poświata strony kontaktu; wczytywanie kroju tytułów z wyprzedzeniem.
+
+## Scalenie
+
+PR #49 scalony przez właściciela 26.11.2026, commit scalenia `b4bef98` w `main`. Bez wdrożenia na serwer.

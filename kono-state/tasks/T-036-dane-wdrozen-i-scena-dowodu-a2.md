@@ -3,14 +3,14 @@ id: T-036
 title: Dane rzeczywiste opisów wdrożeń i scena dowodu „Agencja pracy” (kierunek A, etap A2)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: scalone
 created: 2026-11-25
 updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (a74ab8c)
 depends_on: T-033 (pilot A1, scalony w #38)
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/48
-sha: 2b4678f (dane), c81a501 (scena A2), e2f150a + 916bc74 (poprawki po przeglądzie)
+sha: 2b4678f (dane), c81a501 (scena A2), e2f150a + 916bc74 (poprawki po przeglądzie); scalenie 682e99d (PR #48, merge właściciela)
 decisions: [D-015, D-020, D-021, D-033, D-034, D-048, D-054]
 ---
 
@@ -82,3 +82,7 @@ Wysokość sekcji: 587 → 1084 px (1440), 500 → 1296 px (390), 559 → 1401 p
 - `zdanieUjawnienia` puste: tekst ujawnienia przy opisach HR KONO (Grupa KONO) wpisuje właściciel.
 - Opisy „alert-zezwolenia” i „kandydaci-zgloszenia” nadal anonimowe, więc na „Wdrożeniach” zostaje pytanie
   „Dlaczego nie podajecie nazw firm?”.
+
+## Scalenie
+
+PR #48 scalony przez właściciela 26.11.2026, commit scalenia `682e99d` w `main`. Bez wdrożenia na serwer.

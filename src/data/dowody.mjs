@@ -138,7 +138,8 @@ export const DOWODY = {
   },
 
   // Zdanie ujawnienia pod opisami wdrożeń (raz na stronę, komponent Ujawnienie). Tekst wpisuje właściciel.
-  zdanieUjawnienia: null,
+  // Fakt właściciela z 26.11.2026: Grupa KONO jest klientem REVAGY (D-055, T-038).
+  zdanieUjawnienia: 'Opisy oznaczone „Grupa KONO” pochodzą ze spółek Grupy KONO, która jest klientem REVAGY.',
 
   // Nagłówek sekcji dowodów na stronie /wdrozenia.html: zdanie o tym, gdzie te wdrożenia były sprawdzone.
   // Mówi o powiązaniu firm, więc tekst wpisuje właściciel, razem ze zdaniem ujawnienia (zdanieUjawnienia).
@@ -156,6 +157,19 @@ export function wdrozenie(id) {
   const w = DOWODY.wdrozenia[id];
   if (!w) throw new Error(`Opis wdrożenia: brak wpisu „${id}” w src/data/dowody.mjs.`);
   return w;
+}
+
+// Pomocnik: czy pod opisami na stronie pokazać zdanie ujawnienia (D-055, T-038). Tylko gdy strona pokazuje
+// co najmniej jedną etykietę „Grupa KONO”, czyli gdy któreś z podanych wdrożeń ma taką etykietę powiązania.
+// Etykieta nie zależy od zgodaNaWynik: wyłączenie liczby pilotażu nie ukrywa podpisu, więc zdanie zostaje.
+// Drugi argument tylko dla testów (tools/tests/ujawnienie.test.cjs).
+export function pokazUjawnienie(ids, dane = DOWODY) {
+  if (!maWartosc(dane.zdanieUjawnienia)) return false;
+  return ids.some((id) => {
+    const w = dane.wdrozenia[id];
+    if (!w) throw new Error(`Ujawnienie: brak wpisu „${id}” w src/data/dowody.mjs.`);
+    return maWartosc(w.etykietaPowiazania) && String(w.etykietaPowiazania).includes('Grupa KONO');
+  });
 }
 
 // Pomocnik: czy pole ma wartość, którą wolno pokazać.

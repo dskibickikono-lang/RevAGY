@@ -191,18 +191,21 @@ const pytania = [
       <h2 class="h2">Jak to działa w praktyce</h2>
       <p class="lead">Opis poniżej pochodzi z działu kadr. Liczby są przybliżone i nie są obietnicą dla Waszej firmy: punkt wyjścia Waszego procesu mierzymy na konsultacji i w audycie. Pozostałe opisy są na stronie <a class="link-btn" href="wdrozenia.html">Wdrożenia</a>.</p>
     </header>
-    <OpisWdrozenia id="agencja-pracy-umowy" tytul="Umowy bez przepisywania">
-      <p class="autor">Agencja pracy</p>
+    {/* Scena dowodu (kierunek A, D-048, T-038): te same 3 liczby co na /integracja-systemow.html; lista „Wynik:” je powtarzała. */}
+    <OpisWdrozenia
+      id="agencja-pracy-umowy"
+      tytul="Umowy bez przepisywania"
+      etykieta="Wynik · agencja pracy"
+      liczby={[
+        { wartosc: 'ok. 12 h', opis: 'mniej pracy kadr tygodniowo' },
+        { wartosc: 'ok. 90%', opis: 'mniej umów z korektą (z\u00a020% do ok.\u00a02%)' },
+        { wartosc: 'ok. 10 min', opis: 'mediana od podpisu do wpisu w systemie; wcześniej ok.\u00a03\u00a0dni' },
+      ]}
+    >
       <p>Kadry wpisywały każdą podpisaną umowę ręcznie, najpierw do systemu HR, potem do kadr i płac. Literówki wychodziły dopiero przy korektach, a umowa czekała na wpis kilka dni.</p>
-      <p><strong>Co połączyliśmy:</strong> dokument umowy podpisywany na tablecie, system HR, program kadrowo-płacowy. Dane z podpisanego dokumentu trafiają do obu systemów same.</p>
-      <p><strong>Wynik:</strong></p>
-      <ul class="ticks">
-        <li>ok. 12 godzin pracy kadr tygodniowo mniej</li>
-        <li>ok. 90% mniej korekt</li>
-        <li>umowa w systemie po ok. 10 minutach zamiast po ok. 3 dniach. Skrócenie czasu to w dużej mierze zasługa podpisu na tablecie.</li>
-      </ul>
+      <p><strong>Co połączyliśmy:</strong> dokument umowy podpisywany na tablecie, system HR, program kadrowo-płacowy. Dane z podpisanego dokumentu trafiają do obu systemów same. Skrócenie czasu do wpisu to w dużej mierze zasługa podpisu na tablecie.</p>
     </OpisWdrozenia>
-    <Ujawnienie />
+    <Ujawnienie wdrozenia={['agencja-pracy-umowy']} />
   </section>
 
   <section class="section wrap" id="dane">
