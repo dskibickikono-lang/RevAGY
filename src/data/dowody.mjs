@@ -30,7 +30,7 @@ export const DOWODY = {
         { kategoria: 'Program kadrowo-płacowy', droga: 'Wymiana plików', kierunek: 'Przyjmuje dane z podpisanej umowy' },
       ],
     },
-    // Grupa spółek: jeden raport zarządu z kilku źródeł (raport dzienny 1 370, arkusz operacyjny 1 300). Jedno wdrożenie, trzy strony:
+    // Grupa spółek: jeden raport zarządu z kilku źródeł (raport dzienny 1 370 z 8.07.2026, arkusz operacyjny 1 300 z 10.07.2026: odczyty z różnych dni). Jedno wdrożenie, trzy strony:
     // /integracja-systemow.html (kafel „Raport sklejany z trzech eksportów”, tylko etykieta w nawiasie),
     // /wdrozenia.html (sekcja #raport) i /finanse.html (sekcja #wdrozenie).
     // Dane właściciela z 25.11.2026, pisemne zgody (D-034, T-036).
@@ -39,7 +39,7 @@ export const DOWODY = {
       // Pokazywana w podpisie opisu i w nawiasie po zdaniu z liczbami.
       etykietaPowiazania: 'Grupa KONO',
       skala: '3 spółki, łącznie 1 370 pracowników według raportu dziennego',
-      jakMierzone: 'Na starcie projektu zestawiono raport dzienny z 8 lipca 2026 (1 370 pracowników) z arkuszem operacyjnym według stanu na 10 lipca 2026 (1 300 osób). Po wdrożeniu dane w systemach się wyrównały. Aktywny czas przygotowania raportu mierzono w 10 cyklach przed automatyzacją (13–24 lipca 2026) i 10 po (3–14 sierpnia 2026); analityk operacyjny rejestrował czas od rozpoczęcia pobierania danych do zapisania gotowego raportu, bez przerw i oczekiwania.',
+      jakMierzone: 'Na starcie projektu zestawiono raport dzienny z 8 lipca 2026 (1 370 pracowników) z arkuszem operacyjnym według stanu na 10 lipca 2026 (1 300 osób). Aktywny czas przygotowania raportu mierzono w 10 cyklach przed automatyzacją (13–24 lipca 2026) i 10 po (3–14 sierpnia 2026); analityk operacyjny rejestrował czas od rozpoczęcia pobierania danych do zapisania gotowego raportu, bez przerw i oczekiwania.',
       cytat: {
         tresc: 'Kiedy dwa źródła pokazują różne liczby, od razu widzimy datę i zakres każdego odczytu. Nie musimy już zgadywać, czy porównujemy ten sam stan załogi.',
         osoba: 'Pavlo Tsyhanyk',

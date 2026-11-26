@@ -33,8 +33,8 @@ const ktorysAnonimowy = opisy.some((w) => !maWartosc(w.nazwaSpolki));
 const pytania = [
   ...(ktorysAnonimowy
     ? [{
-        pytanie: 'Dlaczego nie podajecie nazw firm?',
-        odpowiedz: 'Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.',
+        pytanie: 'Dlaczego nie podajecie nazw wszystkich firm?',
+        odpowiedz: 'Nazwę firmy podajemy tylko za jej pisemną zgodą. Bez niej opis jest anonimowy.',
       }]
     : []),
   {
@@ -59,7 +59,7 @@ const pytania = [
 <PodstronaLayout
   plik="wdrozenia.html"
   tytul="Wdrożenia automatyzacji: cztery procesy | REVAGY"
-  opis="Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+  opis="Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Zacznij od bezpłatnej konsultacji jednego procesu."
   okruszek="Wdrożenia"
   aktualizacja={aktualizacja}
   usluga={{
@@ -129,7 +129,7 @@ const pytania = [
   <section class="section section-tight wrap" id="raport">
     <OpisWdrozenia id="stan-zalogi" tytul="Jeden raport zarządu z kilku źródeł">
       <p class="autor">Grupa spółek</p>
-      <p>Raport dla zarządu powstawał ręcznie z kilku eksportów, a każde źródło pokazywało inną liczbę: raport dzienny 1 370 pracowników, arkusz operacyjny 1 300 osób. Wyszło to dopiero po połączeniu źródeł.</p>
+      <p>Raport dla zarządu powstawał ręcznie z kilku eksportów, a źródła pokazywały liczby z różnych dni: raport dzienny z 8 lipca 2026 — 1 370 pracowników, arkusz operacyjny z 10 lipca 2026 — 1 300 osób. Teraz raport podaje datę i zakres każdego odczytu.</p>
       <p><strong>Co połączyliśmy:</strong> systemy z danymi kadrowymi i operacyjnymi spółek oraz pulpit zarządczy.</p>
       <p><strong>Wynik:</strong></p>
       <ul class="ticks">
