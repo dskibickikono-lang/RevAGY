@@ -63,3 +63,12 @@
 .dowod-scena blockquote p { color: var(--on-night); }
 .dowod-scena .scena-tekst > p, .dowod-scena blockquote { max-width: 70ch; }
 @media (max-width: 900px) { .scena-liczby { grid-template-columns: 1fr; } }
+
+/* etap A3 (D-048, T-037): scena tytułowa bez plakatu — jedna kolumna; tytuł ograniczony do 880 px, liczby na całą szerokość.
+   Cztery liczby na „Wdrożeniach”: 4 kolumny, 2 do 1100 px, 1 na telefonie. */
+.scena-uklad-tekst { grid-template-columns: minmax(0, 1fr); }
+.scena-uklad-tekst .scena-tekst > h1 { max-width: 880px; }
+.hero-outer .scena-tekst > p:not(.lead):not(.autor) { color: var(--on-night-2); max-width: 62ch; }
+.scena-liczby.scena-liczby-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .scena-liczby.scena-liczby-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .scena-liczby.scena-liczby-4 { grid-template-columns: minmax(0, 1fr); } }

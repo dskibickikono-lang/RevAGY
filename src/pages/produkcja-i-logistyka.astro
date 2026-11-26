@@ -7,6 +7,7 @@ import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
 import Autor from '../components/Autor.astro';
+import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { OFERTA, maWartosc, zKropka, BEZ_CENY_PILOTA } from '../data/oferta.mjs';
 import { wdrozenie } from '../data/dowody.mjs';
 import { BEZPIECZENSTWO } from '../data/bezpieczenstwo.mjs';
@@ -71,18 +72,20 @@ const pytania = [
 >
 <main id="start">
 
-  <section class="section wrap" id="wstep">
-    {/* div, nie header: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”. */}
-    <div class="section-head reveal">
-      <h1 class="display-2">Najpierw 14 dni na jednej linii. Potem decyzja.</h1>
-      <p class="lead">W zakładzie produkcyjnym albo magazynie zaczynamy od płatnego pilota na jednej linii albo jednej zmianie. Kryterium sukcesu zapisujemy przed startem, a cena pilota jest stała.</p>
-      <p>REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
-      <div class="hero-cta">
-        <a class="btn btn-dark btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
-        <a class="btn btn-outline btn-lg" href="#pilot">Zobacz zakres pilota</a>
+  {/* Kierunek A, etap A3 (D-048, T-037): pierwszy ekran jako scena z plakatem filmu. Teksty i adresy przycisków bez zmian.
+      Sekcja bez <header>: analityka przypisuje kliknięcie do najbliższego <header>, a przyciski mają należeć do sekcji „wstep”.
+      Przyciski jak w hero strony głównej: jasny i szklany. */}
+  <section class="hero-outer" id="wstep">
+    <ScenaPodstrony film="produkcja-i-logistyka">
+      <h1 class="display-2 load-in">Najpierw 14 dni na jednej linii. Potem decyzja.</h1>
+      <p class="lead load-in" style="--d:80ms">W zakładzie produkcyjnym albo magazynie zaczynamy od płatnego pilota na jednej linii albo jednej zmianie. Kryterium sukcesu zapisujemy przed startem, a cena pilota jest stała.</p>
+      <p class="load-in" style="--d:160ms">REVAGY to firma, która automatyzuje procesy i wdraża AI w firmach B2B, łącząc systemy, na których już pracują.</p>
+      <div class="hero-cta load-in" style="--d:240ms">
+        <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
+        <a class="btn btn-glass btn-lg" href="#pilot">Zobacz zakres pilota</a>
       </div>
       <Autor aktualizacja={aktualizacja} />
-    </div>
+    </ScenaPodstrony>
   </section>
 
   <section class="section wrap" id="problem">
