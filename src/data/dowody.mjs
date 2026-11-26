@@ -138,7 +138,8 @@ export const DOWODY = {
   },
 
   // Zdanie ujawnienia pod opisami wdrożeń (raz na stronę, komponent Ujawnienie). Tekst wpisuje właściciel.
-  zdanieUjawnienia: null,
+  // Fakt właściciela z 26.11.2026: Grupa KONO jest klientem REVAGY (D-055, T-038).
+  zdanieUjawnienia: 'Opisy oznaczone „Grupa KONO” pochodzą ze spółek Grupy KONO, która jest klientem REVAGY.',
 
   // Nagłówek sekcji dowodów na stronie /wdrozenia.html: zdanie o tym, gdzie te wdrożenia były sprawdzone.
   // Mówi o powiązaniu firm, więc tekst wpisuje właściciel, razem ze zdaniem ujawnienia (zdanieUjawnienia).

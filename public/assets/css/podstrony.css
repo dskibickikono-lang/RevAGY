@@ -63,6 +63,8 @@
 .dowod-scena blockquote p { color: var(--on-night); }
 .dowod-scena .scena-tekst > p, .dowod-scena blockquote { max-width: 70ch; }
 @media (max-width: 900px) { .scena-liczby { grid-template-columns: 1fr; } }
+/* zdanie ujawnienia pod sceną dowodu: ta sama szerokość co scena, wyrównane do lewej krawędzi (T-038) */
+.dowod-scena + .dowod-ujawnienie { max-width: none; }
 
 /* etap A3 (D-048, T-037): scena tytułowa bez plakatu — jedna kolumna; tytuł ograniczony do 880 px, liczby na całą szerokość.
    Cztery liczby na „Wdrożeniach”: 4 kolumny, 2 do 1100 px, 1 na telefonie. */

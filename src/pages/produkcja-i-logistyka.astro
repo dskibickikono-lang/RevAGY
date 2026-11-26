@@ -6,6 +6,7 @@ import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
+import Ujawnienie from '../components/Ujawnienie.astro';
 import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { OFERTA, maWartosc, zKropka, BEZ_CENY_PILOTA } from '../data/oferta.mjs';
@@ -173,15 +174,20 @@ const pytania = [
       <h2 class="h2">Co już mamy z produkcji</h2>
       <p class="lead">Mówimy to wprost: z produkcji mamy jeden pilotaż, w jednym zakładzie produkcyjnym. Dlatego wejściem jest pilot, a nie pakiet.</p>
     </header>
-    <OpisWdrozenia id="pilotaz-produkcja" tytul="Zakład produkcyjny">
+    {/* Scena dowodu (kierunek A, D-048, T-038): liczba z pilotażu tylko po zgodzie na wynik (pokazWynikPilotazu, D-034);
+        bez zgody opis zostaje w zwykłym wariancie. */}
+    <OpisWdrozenia
+      id="pilotaz-produkcja"
+      tytul="Zakład produkcyjny"
+      etykieta={pokazWynikPilotazu ? 'Wynik · pilotaż w produkcji' : undefined}
+      liczby={pokazWynikPilotazu ? [{ wartosc: 'ok. 20 min', opis: 'przygotowanie raportu zmianowego; wcześniej ok.\u00a06\u00a0h' }] : undefined}
+    >
       <p><strong>Sytuacja:</strong> przygotowanie raportu zmianowego.</p>
       {maWartosc(OFERTA.kategorieSystemowPilotazu) && (
         <p><strong>Co połączyliśmy:</strong> {zKropka(OFERTA.kategorieSystemowPilotazu)}</p>
       )}
-      {pokazWynikPilotazu && (
-        <p><strong>Wynik:</strong> przygotowanie raportu zmianowego z ok. 6 godzin do ok. 20 minut.</p>
-      )}
     </OpisWdrozenia>
+    <Ujawnienie />
   </section>
 
   <section class="section wrap" id="dzial-it">
