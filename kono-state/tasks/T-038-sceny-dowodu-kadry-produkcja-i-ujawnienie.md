@@ -10,7 +10,7 @@ branch: skibiai/trusting-shannon-g9jhj1
 base: main (b4bef98)
 depends_on: T-036, T-037
 pr: —
-sha: dfce223
+sha: dfce223, cd7b91e (poprawki po przeglądzie)
 decisions: [D-015, D-021, D-034, D-048, D-054, D-055]
 ---
 
@@ -62,6 +62,10 @@ wysokość. PR 2 zmienia moment pokazania banera na telefonie, więc preload wch
    wcześniej ok. 6 h”. Wartość i tabela kryteriów bez zmian.
 3. `tools/tests/ujawnienie.test.cjs`: 3 testy pomocnika na danych testowych + liczba zdań na zbudowanych stronach.
    Na buildzie sprzed poprawki test liczby zdań nie przechodzi, po poprawce 4/4.
+
+Testy po poprawkach (Linux, sandbox): `check:dist` 6/6, strona główna identyczna z wzorcem; test dymny 331/331;
+Lighthouse 12 stron: progi spełnione, podstrony 98–100, kontakt 100, strona główna 77 (próg 65); kontrast w scenach
+≥6,03:1. CI na cd7b91e: „Build, testy i artefakt wydania” i „Lighthouse podstron” — sukces.
 
 ## Dowody
 
