@@ -5,12 +5,12 @@ channel: pm-local
 requested_by: owner
 status: do-przegladu
 created: 2026-11-25
-updated: 2026-11-25
+updated: 2026-11-26
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (a74ab8c)
 depends_on: T-033 (pilot A1, scalony w #38)
 pr: https://github.com/dskibickikono-lang/RevAGY/pull/48
-sha: 2b4678f (dane), c81a501 (scena A2)
+sha: 2b4678f (dane), c81a501 (scena A2), e2f150a + 916bc74 (poprawki po przeglądzie)
 decisions: [D-015, D-020, D-021, D-033, D-034, D-048, D-054]
 ---
 
@@ -32,7 +32,29 @@ decisions: [D-015, D-020, D-021, D-033, D-034, D-048, D-054]
 
 Do przeglądu. Merge robi właściciel. Bez wdrożenia, SSH i zmian na hostach.
 
-## Testy (Linux, sandbox, build z publicznym kluczem Turnstile jak w CI)
+## Poprawki po przeglądzie PR #48 (zaakceptowane przez właściciela 26.11.2026)
+
+1. Stan załogi jako odczyty z różnych dni (raport dzienny z 8 lipca 2026, arkusz operacyjny z 10 lipca 2026)
+   na integracja-systemow, wdrozenia i finanse; zamiast „wyszło to dopiero po połączeniu źródeł” — „raport podaje
+   datę i zakres każdego odczytu”. Z „Jak mierzone” usunięte „Po wdrożeniu dane w systemach się wyrównały.”
+   (brak odczytu po wdrożeniu z tej samej daty i zakresu). Wiersze rejestru zaktualizowane.
+2. „Wdrożenia”: opis strony bez „Bez nazw firm.”; FAQ „Dlaczego nie podajecie nazw wszystkich firm?”
+   (treść i dane strukturalne FAQ zgodne).
+3. Scena A2: „ok. 90%” — „mniej umów z korektą (z 20% do ok. 2%)”; „ok. 10 min” — „mediana od podpisu do wpisu
+   w systemie; wcześniej ok. 3 dni”; dwa zdania z powtórzonymi liczbami zastąpione jednym. Wysokość sekcji przy 360 px:
+   1 401 → 1 272 px (przed A2: 559 px).
+4. Właściciel potwierdził, że zgody obejmują publiczne repozytorium i historię PR.
+
+## Testy po poprawkach (Linux, sandbox, 916bc74)
+
+- `npm run check:dist`: 6/6 OK; `dist/index.html` identyczny z wzorcem.
+- `npm run test:smoke -- --serve=dist`: 319/319.
+- Lighthouse: integracja-systemow 94/96/100, kontakt 100/100/100, finanse 100/96/100, kadry-i-place 100/97/100,
+  sprzedaz 100/96/100, strona główna 74/97/100 (próg 65); progi spełnione. Niezaliczony audyt color-contrast
+  na tych stronach istniał przed zmianą (`.reveal` z przezroczystością 0,16 w trakcie wejścia, T-033).
+- Kontrast w scenie (4 fazy poświaty, 1440/390/360): minimum 6,03:1 (etykieta), opisy liczb ≥8,8:1.
+
+## Testy pierwszej wersji (Linux, sandbox, build z publicznym kluczem Turnstile jak w CI)
 
 | Sprawdzenie | Wynik |
 |---|---|
