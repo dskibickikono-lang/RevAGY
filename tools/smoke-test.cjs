@@ -16,6 +16,7 @@
    W trybie --serve test porównuje też wysokości sekcji strony głównej z bazą (tools/lib/baza.cjs),
    podawaną przez lokalny serwer pod /__baza.html. Podstrony z tools/podstrony.json są sprawdzane w każdym trybie.
    Finanse i sprzedaż: oba przyciski pierwszego ekranu w całości w oknie 360×844 i 390×844 (T-037).
+   Baner zgody: na telefonie dopiero po przewinięciu, na komputerze w prawej połowie okna (T-039).
    Strona główna i podstrony są też sprawdzane w dwóch wąskich widokach telefonu (393×852 i 375×667): brak przewijania
    w poziomie (ze szczegółem o elementach poza oknem) i, z --zrzuty, pełny zrzut.
 
@@ -765,7 +766,11 @@ if (require.main === module) (async () => {
       const { context, page, log } = await newPage(browser, { width: 390, height: 844 }, { hasTouch: true, isMobile: true }, { enforceIsolation });
       await page.goto(`${base}/`, { waitUntil: 'load' });
       await page.waitForTimeout(600);
+      // Na telefonie baner pojawia się dopiero po przewinięciu (T-039): przewijamy, odrzucamy, wracamy na górę.
+      await page.evaluate(() => window.scrollTo({ top: 400, behavior: 'instant' }));
       await page.click('[data-consent="nie"]');
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      await page.waitForTimeout(300);
       await page.click('.menu-toggle');
       await page.waitForTimeout(400);
       check('telefon: menu się otwiera', await page.evaluate(() => !document.querySelector('#mobile-menu').hidden));
@@ -1067,6 +1072,55 @@ if (require.main === module) (async () => {
         if (zbanerem.length) console.log(`UWAGA     ${p} (${szer}×${h}): baner zgody zasłania przycisk ${zbanerem.join(' i ')} (znana pozycja P0, T-026; nie jest błędem tego testu)`);
         await ctx.close();
       }
+    }
+
+    /* ---------- 8d. Baner zgody przy pierwszej wizycie (T-039, D-056) ---------- */
+    // Telefon (do 900 px): bez przewinięcia baneru nie ma, po przewinięciu o 400 px jest. Komputer: baner w prawej połowie okna.
+    for (const p of ['/', ...['finanse.html', 'sprzedaz.html'].filter((x) => podstrony.some((s) => s.plik === x)).map((x) => `/${x}`)]) {
+      for (const szer of [360, 390]) {
+        const { context: ctx, page: pg } = await newPage(browser, { width: szer, height: 844 }, { hasTouch: true, isMobile: true, reducedMotion: 'reduce' }, { enforceIsolation });
+        await pg.goto(`${base}${p}`, { waitUntil: 'load' });
+        await poZaladowaniu(pg, 800);
+        const przed = await pg.locator('.consent').count();
+        await pg.evaluate(() => window.scrollTo({ top: 400, behavior: 'instant' }));
+        await pg.waitForTimeout(800);
+        const po = await pg.locator('.consent').isVisible().catch(() => false);
+        check(`${p} (${szer}×844): baner zgody dopiero po przewinięciu`, przed === 0 && po, `przed przewinięciem: ${przed}, po: ${po}`);
+        await ctx.close();
+      }
+    }
+    {
+      const { context: ctx, page: pg } = await newPage(browser, { width: 1280, height: 800 }, {}, { enforceIsolation });
+      await pg.goto(`${base}/`, { waitUntil: 'load' });
+      await poZaladowaniu(pg, 800);
+      const r = await pg.evaluate(() => { const b = document.querySelector('.consent'); return b ? Math.round(b.getBoundingClientRect().left) : null; });
+      check('/ (1280×800): baner zgody od razu, w prawej połowie okna', r !== null && r > 640, String(r));
+      await ctx.close();
+    }
+    // Fokus klawiatury nie chowa się pod otwartym banerem (WCAG 2.4.11): 60 kolejnych Tabów, żaden element poza banerem
+    // nie nachodzi na baner (T-039).
+    for (const [szer, wys] of [[1280, 800], [390, 844]]) {
+      const { context: ctx, page: pg } = await newPage(browser, { width: szer, height: wys }, szer < 900 ? { hasTouch: true, isMobile: true, reducedMotion: 'reduce' } : { reducedMotion: 'reduce' }, { enforceIsolation });
+      await pg.goto(`${base}/`, { waitUntil: 'load' });
+      await poZaladowaniu(pg, 800);
+      if (szer < 900) {
+        await pg.evaluate(() => window.scrollTo({ top: 400, behavior: 'instant' }));
+        await pg.waitForTimeout(800);
+        await pg.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      }
+      const zasloniete = [];
+      for (let k = 0; k < 60; k++) {
+        await pg.keyboard.press('Tab');
+        const z = await pg.evaluate(() => {
+          const b = document.querySelector('.consent'); const a = document.activeElement;
+          if (!b || !a || b.contains(a) || a === document.body) return null;
+          const x = a.getBoundingClientRect(); const y = b.getBoundingClientRect();
+          return x.bottom > y.top && x.top < y.bottom && x.right > y.left && x.left < y.right ? (a.textContent || a.tagName).trim().slice(0, 30) : null;
+        });
+        if (z) zasloniete.push(z);
+      }
+      check(`/ (${szer}×${wys}): fokus klawiatury nie chowa się pod banerem zgody`, zasloniete.length === 0, zasloniete.join(' | '));
+      await ctx.close();
     }
   } finally {
     await browser.close();

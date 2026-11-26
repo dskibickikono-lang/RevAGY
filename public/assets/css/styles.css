@@ -653,6 +653,8 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
   animation: consent-in .6s var(--ease) both;
 }
 @keyframes consent-in { from { opacity: 0; transform: translateY(24px); } }
+/* komputer: baner w prawym dolnym rogu, bo przyciski pierwszego ekranu są po lewej (T-039, D-056) */
+@media (min-width: 901px) { .consent { left: auto; right: max(16px, env(safe-area-inset-right, 0px)); } }
 .consent h2 { font-family: var(--font-display); font-size: 1.125rem; font-weight: 680; letter-spacing: -.015em; }
 .consent p { font-size: .875rem; line-height: 1.45; color: var(--on-night-2); }
 .consent p a { color: var(--on-night); text-decoration: underline; text-underline-offset: 3px; }

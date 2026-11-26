@@ -1,15 +1,22 @@
 {
-  "etap": "T-032",
-  "opis": "Etap 9 (T-032), podstrona działowa „Sprzedaż”: pozycja „Sprzedaż” w panelu „Dla działów” menu i w kolumnie „Dla działów” stopki prowadzi do sprzedaz.html zamiast do #zastosowania (zgoda właściciela w zleceniu etapu 9). Różnica między tools/baseline/index.baza.html (migawka z main ca9b92b, po T-030, T-031, T-033 i T-034) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
+  "etap": "T-039",
+  "opis": "Etap T-039 (D-056): baner zgody na komputerze w prawym dolnym rogu, na telefonie po przewinięciu, po wczytaniu krojów; kroje z wyprzedzeniem na podstronach i stronie kontaktu. Strona główna zmienia się tylko w skrótach treści adresów styles.css i analytics.js (jak przy D-047). Różnica między tools/baseline/index.baza.html (migawka z main b4bef98) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
       {
-        "znacznik": "a",
+        "znacznik": "link",
         "atrybut": "href",
-        "bylo": "#zastosowania",
-        "jest": "sprzedaz.html",
-        "razy": 2
+        "bylo": "assets/css/styles.css?v=4e970d11",
+        "jest": "assets/css/styles.css?v=83426e59",
+        "razy": 1
+      },
+      {
+        "znacznik": "script",
+        "atrybut": "src",
+        "bylo": "assets/js/analytics.js?v=80d01b04",
+        "jest": "assets/js/analytics.js?v=d0c6c610",
+        "razy": 1
       }
     ],
     "dodane": [],
