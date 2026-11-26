@@ -10,8 +10,8 @@
       "size": 85
     },
     "assets/css/podstrony.css": {
-      "sha256": "54fcaa9c998b8a6292bb7a94e54f22a13047255352dfd60abd3cf8423c184cc0",
-      "size": 3910
+      "sha256": "09e5c8a0274a94122d4880628f95324bc68d83468b166304834f206ed715b87b",
+      "size": 4690
     },
     "assets/css/styles.css": {
       "sha256": "4e970d11b6ced0dec9be4389a9833ccbd00dcfb3565cb9bc18059f7094b1ee2a",
@@ -232,32 +232,32 @@
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "f0210c88362f7f59755aae7f94c1cb9dc666ba49e0cdc833e4d0d7ca66898089",
+      "sha256": "2967de12004232299f19f8d514a1c61aef5cf38552b57d86b6c70e98dbe5ac84",
       "size": 24419
     },
     "dla-firm.html": {
-      "sha256": "b5f7999ff6ea23fa93cbac130ffed8cc46fe1002a5120b353b62c8625d53d062",
+      "sha256": "57d01768dbe2883b11e80dfa8f7db45135d598fd57222e6fca3b948106229c53",
       "size": 24998
     },
     "finanse.html": {
-      "sha256": "a6f8e49079c15cc9fe41fd9b88c33c0dabd7dc7dd7ad0e212d77f17d1654f500",
-      "size": 25312
+      "sha256": "abb47b5bd115e7dd48a0e198f0dcfcc2d28fcbeb1dd003965043160e6d7325fc",
+      "size": 26193
     },
     "index.html": {
       "sha256": "d558e2fcaf976ebaa915134ccd44de2f57e2e9381607aecb3263948fe2963c7a",
       "size": 47304
     },
     "integracja-systemow.html": {
-      "sha256": "6e6963344a639f124248313f69437dc1c2aea7712815e5cc26b2e5984929c336",
-      "size": 26448
+      "sha256": "5f8793dfcded5884d3a9e0a43543a068f05a27724286b9bebb8a0305f1a82552",
+      "size": 28458
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "900d244fe5878021190bb6f3f41c460f59e15347614aa9a9ff6c11cf6efd5919",
+      "sha256": "ab7c1930b7a47ba3af19a422e6e8de125df4046488c5caec4e333c11ab05e14f",
       "size": 24572
     },
     "kadry-i-place.html": {
-      "sha256": "46b55272cb463a41e526a1835914a7381e2b841c6f084944b100f4ff3f2adab2",
-      "size": 26191
+      "sha256": "1d6422d2e2a95082c2a34b532ac05c6d8c39c8d0d76782fb3cecb28cc0c35604",
+      "size": 27555
     },
     "kontakt.html": {
       "sha256": "cfc1f1176c0c8fbd14df54d667ce348075f868e4271d703d7cef4d2e36aa649b",
@@ -268,20 +268,20 @@
       "size": 9452
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "49b0d72da95bb8c3041284026a59e0476897374b93d5c73b20c6f57b2f6c6235",
+      "sha256": "54ee31519670a4106515085f77780b9e4928fc02599b912d78e91f9a5c0b3255",
       "size": 24102
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "09dfe00388cf2809d5fe01a50221f138cb502379486f531ecc1d51b121d8c7cc",
-      "size": 24964
+      "sha256": "e90224e91c3a2d4185c69289a9b96324ba751ca14dd2a0e54f4d3a6b22b2b739",
+      "size": 25863
     },
     "sprzedaz.html": {
-      "sha256": "efc86ec5aa54bdfb11d548a8488849ea77419e8ae166a263e6cab24ec72b9774",
+      "sha256": "87f084c4f72a1511cdfb8022f0ad925296cd1bc7b50fda0370b135848b6afc44",
       "size": 27854
     },
     "wdrozenia.html": {
-      "sha256": "fcb18eedc28503aafaaf38ec3eb0c982faf78da95a2715602c7aba504802a208",
-      "size": 22726
+      "sha256": "0cbe450999779faa7acccc0f81c1d9f35592cd791fb98a35a2eb8df9ee6053cf",
+      "size": 24876
     }
   },
   "pages": {
@@ -639,7 +639,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -1943,7 +1943,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -2364,7 +2364,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -3607,7 +3607,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -4053,7 +4053,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5324,7 +5324,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -8651,7 +8651,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -9054,6 +9054,16 @@
           "for": null,
           "data": {},
           "aria": {}
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "name": null,
+          "for": null,
+          "data": {},
+          "aria": {
+            "aria-hidden": "true"
+          }
         },
         {
           "tag": "section",
@@ -10020,7 +10030,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -10300,7 +10310,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"name\":\"Integracja systemów bez przepisywania danych\",\"headline\":\"Integracja systemów firmy bez przepisywania danych | REVAGY\",\"description\":\"Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Integracja systemów bez przepisywania danych\",\"item\":\"https://revagy.pl/integracja-systemow.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\",\"name\":\"Integracja systemów bez przepisywania danych\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.\",\"serviceType\":\"Integracja systemów\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać któryś system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz system nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Co się stanie, gdy dostawca zaktualizuje system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy już łączyliście?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy jesteście partnerem dostawców tych systemów?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Pracujemy na dokumentacji i dostępach klienta.\"}},{\"@type\":\"Question\",\"name\":\"Czy integracja korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.\"}},{\"@type\":\"Question\",\"name\":\"Mamy ERP i system magazynowy. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż.\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/integracja-systemow.html#film\",\"name\":\"Rekord pracownika z systemu HR w kadrach i płacach, wpisany raz\",\"description\":\"Pięć pól przechodzi z systemu HR do programu kadrowo-płacowego. Każde mija swoją kontrolę, stawka poza zakresem czeka na decyzję człowieka, a zapis trafia do dziennika. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/integracja-systemow.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/integracja-systemow.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"}}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"name\":\"Integracja systemów bez przepisywania danych\",\"headline\":\"Integracja systemów firmy bez przepisywania danych | REVAGY\",\"description\":\"Łączymy systemy, na których już pracujesz. Dane wpisane raz trafiają do pozostałych automatycznie, z kontrolą i dziennikiem zapisów. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/integracja-systemow.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Integracja systemów bez przepisywania danych\",\"item\":\"https://revagy.pl/integracja-systemow.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/integracja-systemow.html#usluga\",\"name\":\"Integracja systemów bez przepisywania danych\",\"description\":\"Łączenie systemów, na których firma już pracuje, przez interfejs API, wymianę plików albo dostęp do bazy danych za zgodą dostawcy. Dane przechodzą kontrolę przed zapisem, a każdy zapis trafia do dziennika.\",\"serviceType\":\"Integracja systemów\",\"url\":\"https://revagy.pl/integracja-systemow.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/integracja-systemow.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Czy musimy wymieniać któryś system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Łączymy te, na których pracujecie.\"}},{\"@type\":\"Question\",\"name\":\"Nasz system nie ma API. Co wtedy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Sprawdzamy wymianę plików, potem dostęp do bazy za zgodą dostawcy. Jeśli żadna droga nie jest możliwa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Co się stanie, gdy dostawca zaktualizuje system?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Monitoring wykrywa zatrzymany przepływ. Czas naprawy wynika z umowy.\"}},{\"@type\":\"Question\",\"name\":\"Jakie systemy już łączyliście?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Systemy HR, programy kadrowo-płacowe, systemy sprzedażowe i programy księgowe. Którą drogą łączymy dany rodzaj systemu, opisuje tabela trzech dróg łączenia. O Twój konkretny system zapytaj na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Czy jesteście partnerem dostawców tych systemów?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nie. Pracujemy na dokumentacji i dostępach klienta.\"}},{\"@type\":\"Question\",\"name\":\"Czy integracja korzysta z modeli AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Przenoszenie pól między systemami działa bez modeli AI. To reguły i kontrole przed zapisem.\"}},{\"@type\":\"Question\",\"name\":\"Co z danymi osobowymi?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Każda integracja dostaje minimalny zakres dostępu. Umowę powierzenia podpisujemy przed startem prac i wskazujemy w niej, gdzie dane są przetwarzane.\"}},{\"@type\":\"Question\",\"name\":\"Mamy ERP i system magazynowy. Czy to ta sama metoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama. W produkcji mamy za sobą jeden pilotaż, w spółce HR KONO (Grupa KONO).\"}},{\"@type\":\"Question\",\"name\":\"Ile to kosztuje?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Konsultacja jest bezpłatna. Audyt kosztuje 1 990 zł i jest w całości wliczany we wdrożenie. Cenę wdrożenia podajemy po audycie.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/integracja-systemow.html#film\",\"name\":\"Rekord pracownika z systemu HR w kadrach i płacach, wpisany raz\",\"description\":\"Pięć pól przechodzi z systemu HR do programu kadrowo-płacowego. Każde mija swoją kontrolę, stawka poza zakresem czeka na decyzję człowieka, a zapis trafia do dziennika. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/integracja-systemow.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/integracja-systemow.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/integracja-systemow.html#strona\"}}]}",
           "attrs": [
             "type"
           ]
@@ -10441,7 +10451,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -11611,7 +11621,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -12037,7 +12047,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -13300,7 +13310,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -14425,7 +14435,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -15518,7 +15528,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -15939,7 +15949,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -17202,7 +17212,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -17628,7 +17638,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -18886,7 +18896,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -19200,7 +19210,7 @@
           "charset": null,
           "name": "description",
           "property": null,
-          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Zacznij od bezpłatnej konsultacji jednego procesu."
         },
         {
           "charset": null,
@@ -19242,7 +19252,7 @@
           "charset": null,
           "name": null,
           "property": "og:description",
-          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu."
+          "content": "Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Zacznij od bezpłatnej konsultacji jednego procesu."
         },
         {
           "charset": null,
@@ -19312,7 +19322,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/podstrony.css?v=54fcaa9c",
+          "href": "assets/css/podstrony.css?v=09e5c8a0",
           "type": null,
           "sizes": null,
           "as": null,
@@ -20079,7 +20089,7 @@
         {
           "tag": "h3",
           "id": null,
-          "text": "Dlaczego nie podajecie nazw firm?"
+          "text": "Dlaczego nie podajecie nazw wszystkich firm?"
         },
         {
           "tag": "h3",
@@ -20517,7 +20527,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/podstrony.css?v=54fcaa9c"
+          "val": "assets/css/podstrony.css?v=09e5c8a0"
         },
         {
           "tag": "a",
@@ -20802,7 +20812,7 @@
       ],
       "jsonLd": [
         {
-          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#strona\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"name\":\"Wdrożenia\",\"headline\":\"Wdrożenia automatyzacji: cztery procesy | REVAGY\",\"description\":\"Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Bez nazw firm. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Wdrożenia\",\"item\":\"https://revagy.pl/wdrozenia.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\",\"name\":\"Automatyzacja procesów i integracja systemów firmy\",\"description\":\"Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Dlaczego nie podajecie nazw firm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nazwę firmy podajemy tylko za jej pisemną zgodą. Do tego czasu opis jest anonimowy.\"}},{\"@type\":\"Question\",\"name\":\"Skąd są te liczby?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.\"}},{\"@type\":\"Question\",\"name\":\"Czy u nas wyjdzie tak samo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.\"}},{\"@type\":\"Question\",\"name\":\"Mamy inne systemy niż w tych opisach. Czy to przeszkoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama, ale wejście inne. Opisujemy je na stronie „Produkcja i logistyka”.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/wdrozenia.html#film\",\"name\":\"Cztery procesy przed i po połączeniu systemów\",\"description\":\"Umowa trafia z dokumentu do systemu HR oraz do kadr i płac, trzy źródła składają się w jeden raport zarządu, alert o kończącym się zezwoleniu przychodzi 30 dni przed końcem ważności, a zgłoszenie kandydata trafia do systemu rekrutacyjnego. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/wdrozenia.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/wdrozenia.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"}}]}",
+          "text": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#strona\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"name\":\"Wdrożenia\",\"headline\":\"Wdrożenia automatyzacji: cztery procesy | REVAGY\",\"description\":\"Cztery wdrożenia: sytuacja, połączone systemy i wynik w liczbach. Zacznij od bezpłatnej konsultacji jednego procesu.\",\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/#strona\"},\"publisher\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"author\":{\"@type\":\"Person\",\"name\":\"Dawid Skibicki\",\"jobTitle\":\"założyciel\",\"worksFor\":{\"@id\":\"https://revagy.pl/#organizacja\"}},\"dateModified\":\"2026-11-21\",\"breadcrumb\":{\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\"},\"about\":{\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://revagy.pl/wdrozenia.html#okruszki\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Strona główna\",\"item\":\"https://revagy.pl/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Wdrożenia\",\"item\":\"https://revagy.pl/wdrozenia.html\"}]},{\"@type\":\"Service\",\"@id\":\"https://revagy.pl/wdrozenia.html#usluga\",\"name\":\"Automatyzacja procesów i integracja systemów firmy\",\"description\":\"Automatyzacja procesów i łączenie systemów, na których firma już pracuje: dane z umów, raportów, terminów i zgłoszeń trafiają tam, gdzie mają trafić, bez ręcznego przepisywania.\",\"url\":\"https://revagy.pl/wdrozenia.html\",\"provider\":{\"@id\":\"https://revagy.pl/#organizacja\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"Polska\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://revagy.pl/wdrozenia.html#pytania\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"},\"inLanguage\":\"pl-PL\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Dlaczego nie podajecie nazw wszystkich firm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nazwę firmy podajemy tylko za jej pisemną zgodą. Bez niej opis jest anonimowy.\"}},{\"@type\":\"Question\",\"name\":\"Skąd są te liczby?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Z firm, w których działają te wdrożenia. Są przybliżone. Sposób pomiaru podajemy w linii „Jak mierzone” przy opisie, który go ma.\"}},{\"@type\":\"Question\",\"name\":\"Czy u nas wyjdzie tak samo?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Tego nie obiecujemy. Na konsultacji ustalamy metrykę bazową Twojego procesu: ile razy w tygodniu, ile minut, ile poprawek. Wynik porównujemy z nią.\"}},{\"@type\":\"Question\",\"name\":\"Mamy inne systemy niż w tych opisach. Czy to przeszkoda?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Zależy od tego, czy systemy da się połączyć: przez interfejs API, wymianę plików albo dostęp do bazy za zgodą dostawcy. Jeśli żadna z tych dróg nie działa, mówimy to na konsultacji.\"}},{\"@type\":\"Question\",\"name\":\"Pracujemy w produkcji albo logistyce. Czy to te same wdrożenia?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Metoda jest ta sama, ale wejście inne. Opisujemy je na stronie „Produkcja i logistyka”.\"}}]},{\"@type\":\"VideoObject\",\"@id\":\"https://revagy.pl/wdrozenia.html#film\",\"name\":\"Cztery procesy przed i po połączeniu systemów\",\"description\":\"Umowa trafia z dokumentu do systemu HR oraz do kadr i płac, trzy źródła składają się w jeden raport zarządu, alert o kończącym się zezwoleniu przychodzi 30 dni przed końcem ważności, a zgłoszenie kandydata trafia do systemu rekrutacyjnego. Dane na ekranach są poglądowe.\",\"thumbnailUrl\":\"https://revagy.pl/assets/video/wdrozenia.jpg\",\"contentUrl\":\"https://revagy.pl/assets/video/wdrozenia.mp4\",\"uploadDate\":\"2026-11-22\",\"duration\":\"PT14S\",\"width\":1600,\"height\":900,\"inLanguage\":\"pl-PL\",\"isPartOf\":{\"@id\":\"https://revagy.pl/wdrozenia.html#strona\"}}]}",
           "attrs": [
             "type"
           ]
