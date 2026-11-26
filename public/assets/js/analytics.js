@@ -154,11 +154,14 @@
 
   /* ---------- baner zgody ---------- */
   let banner;
+  let odstep = null; // pusty element na końcu strony, gdy baner jest otwarty (T-039)
   let opener = null; // przycisk „Ustawienia prywatności”, który otworzył baner (fokus wraca do niego)
   function closeBanner() {
     if (!banner) return;
     banner.remove();
     banner = null;
+    document.documentElement.style.scrollPaddingBottom = '';
+    if (odstep) { odstep.remove(); odstep = null; }
     if (opener && opener.isConnected) opener.focus();
     opener = null;
   }
@@ -192,12 +195,49 @@
       if (e.key === 'Escape' && opener) { e.stopPropagation(); closeBanner(); }
     });
     document.body.appendChild(banner);
+    // Fokus klawiatury nie chowa się pod banerem (WCAG 2.4.11): przewijanie do elementu z fokusem zostawia nad
+    // banerem tyle miejsca, ile baner zajmuje (T-039).
+    const wysokosc = Math.ceil(banner.getBoundingClientRect().height) + 32;
+    document.documentElement.style.scrollPaddingBottom = `${wysokosc}px`;
+    // Odstęp na końcu strony: linki stopki na samym dole też da się przewinąć nad baner.
+    odstep = document.createElement('div');
+    odstep.setAttribute('aria-hidden', 'true');
+    odstep.style.height = `${wysokosc}px`;
+    document.body.insertBefore(odstep, banner);
     if (byUser) { opener = event.currentTarget; banner.focus(); }
   }
 
+  // Element z fokusem, który jest już w oknie, ale pod banerem: margines przewijania go nie odsłoni, więc przewijamy
+  // stronę o tyle, żeby dolna krawędź elementu wypadła nad banerem (WCAG 2.4.11, T-039).
+  document.addEventListener('focusin', (e) => {
+    if (!banner || banner.contains(e.target) || e.target === document.body) return;
+    const r = e.target.getBoundingClientRect();
+    const b = banner.getBoundingClientRect();
+    if (r.bottom > b.top && r.top < b.bottom && r.right > b.left && r.left < b.right) {
+      window.scrollBy({ top: r.bottom - b.top + 16, behavior: 'instant' });
+    }
+  });
+
   $$('[data-consent-open]').forEach((btn) => btn.addEventListener('click', openBanner));
+
+  // Pierwsza wizyta (T-039, D-056): baner pokazuje się dopiero po wczytaniu krojów, żeby nie zmieniał wysokości
+  // na ekranie. Na telefonie i tablecie (do 900 px) dopiero po przewinięciu o 200 px: wcześniej zasłaniałby przyciski
+  // pierwszego ekranu. Statystyki i tak nie startują przed zgodą. „Ustawienia prywatności” otwierają baner od razu.
+  function openBannerLater() {
+    const fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    fonts.then(() => {
+      if (banner || readChoice()) return;
+      if (!window.matchMedia('(max-width: 900px)').matches || window.scrollY >= 200) { openBanner(); return; }
+      const onScroll = () => {
+        if (window.scrollY < 200) return;
+        window.removeEventListener('scroll', onScroll);
+        if (!banner && !readChoice()) openBanner();
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    });
+  }
 
   const choice = readChoice();
   if (choice === 'tak') start();
-  else if (choice !== 'nie') openBanner();
+  else if (choice !== 'nie') openBannerLater();
 })();
