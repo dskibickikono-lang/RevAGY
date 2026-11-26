@@ -180,14 +180,14 @@ const pytania = [
       id="pilotaz-produkcja"
       tytul="Zakład produkcyjny"
       etykieta={pokazWynikPilotazu ? 'Wynik · pilotaż w produkcji' : undefined}
-      liczby={pokazWynikPilotazu ? [{ wartosc: 'ok. 20 min', opis: 'przygotowanie raportu zmianowego; wcześniej ok.\u00a06\u00a0h' }] : undefined}
+      liczby={pokazWynikPilotazu ? [{ wartosc: 'ok. 20 min', opis: 'przygotowanie raportu zmianowego, od udostępnienia danych za zmianę do zapisania raportu; wcześniej ok.\u00a06\u00a0h' }] : undefined}
     >
       <p><strong>Sytuacja:</strong> przygotowanie raportu zmianowego.</p>
       {maWartosc(OFERTA.kategorieSystemowPilotazu) && (
         <p><strong>Co połączyliśmy:</strong> {zKropka(OFERTA.kategorieSystemowPilotazu)}</p>
       )}
     </OpisWdrozenia>
-    <Ujawnienie />
+    <Ujawnienie wdrozenia={['pilotaz-produkcja']} />
   </section>
 
   <section class="section wrap" id="dzial-it">

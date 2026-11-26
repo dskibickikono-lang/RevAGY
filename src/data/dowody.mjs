@@ -159,5 +159,18 @@ export function wdrozenie(id) {
   return w;
 }
 
+// Pomocnik: czy pod opisami na stronie pokazać zdanie ujawnienia (D-055, T-038). Tylko gdy strona pokazuje
+// co najmniej jedną etykietę „Grupa KONO”, czyli gdy któreś z podanych wdrożeń ma taką etykietę powiązania.
+// Etykieta nie zależy od zgodaNaWynik: wyłączenie liczby pilotażu nie ukrywa podpisu, więc zdanie zostaje.
+// Drugi argument tylko dla testów (tools/tests/ujawnienie.test.cjs).
+export function pokazUjawnienie(ids, dane = DOWODY) {
+  if (!maWartosc(dane.zdanieUjawnienia)) return false;
+  return ids.some((id) => {
+    const w = dane.wdrozenia[id];
+    if (!w) throw new Error(`Ujawnienie: brak wpisu „${id}” w src/data/dowody.mjs.`);
+    return maWartosc(w.etykietaPowiazania) && String(w.etykietaPowiazania).includes('Grupa KONO');
+  });
+}
+
 // Pomocnik: czy pole ma wartość, którą wolno pokazać.
 export const maWartosc = (v) => v !== null && v !== undefined && v !== false && !(typeof v === 'string' && !v.trim());

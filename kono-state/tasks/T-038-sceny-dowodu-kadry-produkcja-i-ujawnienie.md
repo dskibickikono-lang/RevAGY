@@ -52,6 +52,17 @@ wysokość. PR 2 zmienia moment pokazania banera na telefonie, więc preload wch
   akcentu, jak w A2).
 - Wysokość sekcji: kadry-i-place 1 536 → 1 782 px (360), produkcja-i-logistyka 1 032 → 1 152 px (360).
 
+## Poprawki po przeglądzie PR #50 (zaakceptowane przez właściciela 26.11.2026)
+
+1. Zdanie ujawnienia tylko na stronach z etykietą „Grupa KONO”: `pokazUjawnienie(ids)` w `src/data/dowody.mjs`,
+   `<Ujawnienie wdrozenia={[…]} />` z listą wdrożeń, których etykiety strona pokazuje. Wynik w dist:
+   kadry-i-place 0, sprzedaz 0, produkcja-i-logistyka 1, finanse 1, wdrozenia 1, integracja-systemow 1.
+   Wyłączenie `zgodaNaWynik` ukrywa tylko liczbę pilotażu, etykieta i zdanie zostają.
+2. „ok. 20 min”: opis „przygotowanie raportu zmianowego, od udostępnienia danych za zmianę do zapisania raportu;
+   wcześniej ok. 6 h”. Wartość i tabela kryteriów bez zmian.
+3. `tools/tests/ujawnienie.test.cjs`: 3 testy pomocnika na danych testowych + liczba zdań na zbudowanych stronach.
+   Na buildzie sprzed poprawki test liczby zdań nie przechodzi, po poprawce 4/4.
+
 ## Dowody
 
 `kono-state/notes/kierunek-a-dowody/`: sekcje przed (main b4bef98) i po, 2 strony × 1440/390/360, `pomiary.json`.
