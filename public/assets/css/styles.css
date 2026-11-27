@@ -538,14 +538,16 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
 @media (max-width: 640px) { .carousel-head { flex-direction: column; align-items: flex-start; } .use { min-height: 460px; } .use-art { width: 150px; height: 150px; } }
 
 /* ---------- marquee ---------- */
-.marquee { display: grid; gap: 14px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; overflow: hidden; contain: layout paint; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .marquee-row { display: flex; gap: 14px; width: max-content; animation: marquee 48s linear infinite; }
 .marquee-row.reverse { animation-direction: reverse; }
-.marquee:hover .marquee-row { animation-play-state: paused; }
+@media (hover: hover) { .marquee:hover .marquee-row { animation-play-state: paused; } }
 .marquee-row li { flex: none; height: 68px; padding: 0 30px; border-radius: 999px; background: var(--mist); display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 650; font-size: clamp(1.125rem, 2vw, 1.5rem); letter-spacing: -.02em; white-space: nowrap; }
-.marquee-row li:nth-child(4n+2) { background: var(--ink); color: var(--paper); }
-.marquee-row li:nth-child(7n+4) { background: var(--accent); color: var(--ink); }
-@keyframes marquee { to { transform: translateX(calc(-50% - 7px)); } }
+.marquee-row li:nth-child(2), .marquee-row li:nth-child(6), .marquee-row li:nth-child(10),
+.marquee-row li:nth-child(13), .marquee-row li:nth-child(17), .marquee-row li:nth-child(21) { background: var(--ink); color: var(--paper); }
+.marquee-row li:nth-child(4), .marquee-row li:nth-child(11),
+.marquee-row li:nth-child(15), .marquee-row li:nth-child(22) { background: var(--accent); color: var(--ink); }
+@keyframes marquee { from { margin-left: 0; } to { margin-left: var(--marquee-shift, -50%); } }
 
 /* ---------- film ---------- */
 .film-outer { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
@@ -678,8 +680,18 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
 .doc-table table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: .9375rem; }
 .doc-table th, .doc-table td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--ink-2); }
 .doc-table th { font-family: var(--font-display); font-weight: 650; color: var(--ink); background: var(--mist); }
-.doc-table tr:last-child td { border-bottom: 0; }
+.doc-table tbody tr:last-child th, .doc-table tr:last-child td { border-bottom: 0; }
 .doc-table code { font-family: var(--font-mono); font-size: .8125rem; color: var(--ink); }
+.doc-table table:has(thead th:nth-child(2):last-child) tbody th { font-family: var(--font-body); font-weight: 400; color: var(--ink-2); background: transparent; }
+@media (max-width: 560px) {
+  .doc-table table:has(thead th:nth-child(2):last-child) { min-width: 0; }
+  .doc-table table:has(thead th:nth-child(2):last-child) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .doc-table table:has(thead th:nth-child(2):last-child) tbody tr,
+  .doc-table table:has(thead th:nth-child(2):last-child) tbody th,
+  .doc-table table:has(thead th:nth-child(2):last-child) tbody td { display: block; }
+  .doc-table table:has(thead th:nth-child(2):last-child) tbody th { padding-bottom: 4px; border-bottom: 0; font-family: var(--font-display); font-weight: 650; color: var(--ink); }
+  .doc-table table:has(thead th:nth-child(2):last-child) tbody td { padding-top: 0; }
+}
 .lost-outer { padding: 0 max(12px, env(safe-area-inset-right, 0px)) clamp(24px, 4vw, 48px) max(12px, env(safe-area-inset-left, 0px)); }
 .lost { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-xl); background: var(--night); color: var(--on-night); padding: clamp(64px, 12vw, 160px) clamp(20px, 4vw, 64px); display: grid; gap: 20px; justify-items: center; text-align: center; }
 .lost-code { font-family: var(--font-mono); font-size: .875rem; letter-spacing: .12em; color: var(--accent); }

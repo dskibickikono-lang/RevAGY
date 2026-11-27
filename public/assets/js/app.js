@@ -305,13 +305,30 @@
   }
 
   /* ---------- marquee: podwój zawartość dla płynnej pętli ---------- */
-  $$('[data-marquee]').forEach((row) => {
+  const marquees = $$('[data-marquee]');
+  marquees.forEach((row) => {
     $$('li', row).forEach((li) => {
       const clone = li.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
       row.appendChild(clone);
     });
   });
+  if (marquees.length) {
+    const syncMarquee = () => marquees.forEach((row) => {
+      const first = row.firstElementChild;
+      const clone = row.children[row.children.length >> 1];
+      if (first && clone) {
+        row.style.setProperty('--marquee-shift', `${first.getBoundingClientRect().left - clone.getBoundingClientRect().left}px`);
+      }
+    });
+    syncMarquee();
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(syncMarquee);
+      marquees.forEach((row) => ro.observe(row));
+    }
+    window.addEventListener('resize', () => requestAnimationFrame(syncMarquee));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncMarquee);
+  }
 
   /* ---------- pakiety ---------- */
   const plans = $('[data-plans]');

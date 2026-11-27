@@ -157,14 +157,14 @@ const pytania = [
           <tr><th scope="col">Temat</th><th scope="col">Stan na dziś</th></tr>
         </thead>
         <tbody>
-          <tr><td>Umowa powierzenia przetwarzania danych</td><td>Podpisujemy ją przed startem prac. Wzór mamy gotowy.</td></tr>
-          <tr><td>Miejsce przetwarzania danych</td><td>Wskazujemy je w umowie powierzenia.</td></tr>
-          <tr><td>Zakres dostępu</td><td>Minimalny, osobno dla każdej integracji.</td></tr>
-          <tr><td>Dziennik zapisów</td><td>Każdy zapis: co, skąd, kiedy i jaka była poprzednia wartość.</td></tr>
-          <tr><td>Wyjątki</td><td>Zatwierdza osoba po Waszej stronie, według progów ustalonych z Wami.</td></tr>
-          <tr><td>Ubezpieczenie</td><td>Ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.</td></tr>
-          <tr><td>Monitoring i czas reakcji</td><td>Zapisujemy je w umowie.</td></tr>
-          {maWartosc(BEZPIECZENSTWO.wdrozenieUKlienta) && <tr><td>Wdrożenie u Was</td><td>{BEZPIECZENSTWO.wdrozenieUKlienta}</td></tr>}
+          <tr><th scope="row">Umowa powierzenia przetwarzania danych</th><td>Podpisujemy ją przed startem prac. Wzór mamy gotowy.</td></tr>
+          <tr><th scope="row">Miejsce przetwarzania danych</th><td>Wskazujemy je w umowie powierzenia.</td></tr>
+          <tr><th scope="row">Zakres dostępu</th><td>Minimalny, osobno dla każdej integracji.</td></tr>
+          <tr><th scope="row">Dziennik zapisów</th><td>Każdy zapis: co, skąd, kiedy i jaka była poprzednia wartość.</td></tr>
+          <tr><th scope="row">Wyjątki</th><td>Zatwierdza osoba po Waszej stronie, według progów ustalonych z Wami.</td></tr>
+          <tr><th scope="row">Ubezpieczenie</th><td>Ubezpieczenie odpowiedzialności zawodowej na 1 mln zł.</td></tr>
+          <tr><th scope="row">Monitoring i czas reakcji</th><td>Zapisujemy je w umowie.</td></tr>
+          {maWartosc(BEZPIECZENSTWO.wdrozenieUKlienta) && <tr><th scope="row">Wdrożenie u Was</th><td>{BEZPIECZENSTWO.wdrozenieUKlienta}</td></tr>}
         </tbody>
       </table>
     </div>
