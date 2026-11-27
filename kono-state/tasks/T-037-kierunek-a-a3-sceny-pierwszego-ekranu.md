@@ -3,9 +3,9 @@ id: T-037
 title: Kierunek A, etap A3 — scena pierwszego ekranu na 9 podstronach
 channel: pm-local
 requested_by: owner
-status: scalone
+status: wdrozone
 created: 2026-11-26
-updated: 2026-11-26
+updated: 2026-11-27
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (682e99d)
 depends_on: T-033 (A1), T-036 (A2)

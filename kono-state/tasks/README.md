@@ -5,7 +5,7 @@
 - Przy kilku sesjach naraz dwie karty mogą dostać ten sam numer. Wtedy zmienia numer karta scalona później,
   a w jej treści zostaje zdanie, pod jakim numerem występuje w starszych PR i commitach.
 
-## Stan na 23.11.2026
+## Stan na 27.11.2026
 
 Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania na produkcję. W nawiasie SHA merge’a.
 
@@ -46,3 +46,8 @@ Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania
 | T-033 | Kierunek A, pilot sceny na /integracja-systemow.html | zmergowane | #38 (a653e8a), #43 (db6ce54) | W PR #38 jako T-031. Karta zamknięta |
 | T-034 | Pakiet K02: kadry i płace | zmergowane | #39 (ca9b92b), #43 (db6ce54) | W PR #39 jako T-028; menu: D-049. Karta zamknięta |
 | T-035 | Raport: komunikacja i oferta | zmergowane | #33 (5bac11d), #36 (5e29276), #45 (9173c09) | Wcześniej T-024. K02 wdrożone na main (T-034; czeka na deploy na VPS). Karta zamknięta |
+| T-036 | Dane wdrożeń i scena dowodu „Agencja pracy” (A2) | wdrozone | #48 (682e99d) | Wydanie 04c3a27 (T-040) |
+| T-037 | Kierunek A, A3: scena pierwszego ekranu na 9 podstronach | wdrozone | #49 (b4bef98) | Wydanie 04c3a27 (T-040) |
+| T-038 | Sceny dowodu: kadry, produkcja, zdanie ujawnienia | wdrozone | #50 (2db89d4) | Wydanie 04c3a27 (T-040) |
+| T-039 | Baner zgody, fokus, kroje z wyprzedzeniem | wdrozone | #51 (04c3a27) | Wydanie 04c3a27 (T-040) |
+| T-040 | Wydanie 04c3a27 na revagy.pl, zapis wydania 9173c09 | wdrozone |  | Wydanie 27.11.2026, kontrola produkcji zielona |

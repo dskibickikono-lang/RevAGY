@@ -3,9 +3,9 @@ id: T-039
 title: Baner zgody nie zasłania przycisków ani fokusu; kroje z wyprzedzeniem na podstronach (PR 2 z 2)
 channel: pm-local
 requested_by: owner
-status: do-przegladu
+status: wdrozone
 created: 2026-11-26
-updated: 2026-11-26
+updated: 2026-11-27
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (2db89d4)
 depends_on: T-038 (PR #50, scalony)

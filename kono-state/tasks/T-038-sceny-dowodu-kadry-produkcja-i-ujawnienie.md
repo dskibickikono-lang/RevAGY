@@ -3,9 +3,9 @@ id: T-038
 title: Sceny dowodu na kadry-i-place i produkcja-i-logistyka, zdanie ujawnienia (PR 1 z 2)
 channel: pm-local
 requested_by: owner
-status: scalone
+status: wdrozone
 created: 2026-11-26
-updated: 2026-11-26
+updated: 2026-11-27
 branch: skibiai/trusting-shannon-g9jhj1
 base: main (b4bef98)
 depends_on: T-036, T-037
