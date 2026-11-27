@@ -188,7 +188,7 @@ function ok(name) { checks++; console.log(`OK ${name}`); }
     assert.ok(honey.left < 0);
     assert.notEqual(honey.display, 'none');
     assert.deepEqual([honey.tab, honey.hidden, honey.auto, honey.type], [-1, 'true', 'off', 'text']);
-    const expectedNotice = 'Dane z formularza przetwarzamy, żeby odpowiedzieć na Twoje zapytanie (art. 6 ust. 1 lit. b lub f RODO). Administratorem jest Dawid Skibicki, prowadzący działalność pod marką REVAGY. Odbiorcy: Hetzner (serwer), Attio (CRM), Cloudflare Turnstile (ochrona przed spamem), Google (poczta i powiadomienia). Część z nich może przetwarzać dane poza EOG na podstawie standardowych klauzul umownych. Zapytanie przechowujemy przez czas obsługi i do 3 lat po jej zakończeniu. To nie jest zgoda na marketing. Szczegóły: https://revagy.pl/polityka-prywatnosci.html';
+    const expectedNotice = 'Dane z formularza przetwarzamy, żeby odpowiedzieć na Twoje zapytanie (art. 6 ust. 1 lit. b lub f RODO). Administratorem jest REVAGY. Odbiorcy: Hetzner (serwer), Attio (CRM), Cloudflare Turnstile (ochrona przed spamem), Google (poczta i powiadomienia). Część z nich może przetwarzać dane poza EOG na podstawie standardowych klauzul umownych. Zapytanie przechowujemy przez czas obsługi i do 3 lat po jej zakończeniu. To nie jest zgoda na marketing. Szczegóły: https://revagy.pl/polityka-prywatnosci.html';
     assert.equal(await page.locator('.kontakt-notice').textContent(), expectedNotice);
     assert.equal(await page.locator('.kontakt-notice a').getAttribute('href'), '/polityka-prywatnosci.html');
     ok('etykiety, dostępność, ukryta pułapka, dokładny tekst informacji i leniwe ładowanie');

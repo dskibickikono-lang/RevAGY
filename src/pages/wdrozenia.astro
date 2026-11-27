@@ -9,7 +9,6 @@ import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
-import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import Ujawnienie from '../components/Ujawnienie.astro';
 import { DOWODY, wdrozenie, maWartosc } from '../data/dowody.mjs';
@@ -90,7 +89,6 @@ const pytania = [
         <li><span class="stat-num">30 dni</span> <span class="stat-label">przed końcem ważności zezwolenia przychodzi alert</span></li>
         <li><span class="stat-num">ok. 5 min</span> <span class="stat-label">do wpisu kandydata w systemie; wcześniej ok. 48 h</span></li>
       </ul>
-      <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
   </section>
 

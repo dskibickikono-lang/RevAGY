@@ -5,7 +5,6 @@
 // Każda liczba na tej stronie ma wiersz w tools/rejestr-twierdzen.json.
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import Pytania from '../components/Pytania.astro';
-import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 
 const aktualizacja = '2026-11-21';
@@ -60,7 +59,6 @@ const pytania = [
         <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
         <a class="btn btn-glass btn-lg" href="#kryteria">Sprawdź kryteria</a>
       </div>
-      <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
   </section>
 

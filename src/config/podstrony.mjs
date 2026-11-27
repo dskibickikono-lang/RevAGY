@@ -3,14 +3,6 @@
 
 import { MARKA } from './marka.mjs';
 
-// Autor widoczny na podstronach i w danych strukturalnych (WebPage.author).
-export const AUTOR = {
-  imie: MARKA.wlasciciel,
-  rola: 'założyciel REVAGY',
-  // schema.org Person.jobTitle — bez nazwy marki, bo organizację wskazuje worksFor.
-  stanowisko: 'założyciel',
-};
-
 const PLIK = /^[a-z0-9]+(?:-[a-z0-9]+)*\.html$/;
 const DATA = /^\d{4}-\d{2}-\d{2}$/;
 

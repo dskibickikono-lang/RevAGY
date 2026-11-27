@@ -5,7 +5,6 @@
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
-import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { OFERTA, maWartosc, zKropka, cenaPakietu } from '../data/oferta.mjs';
 
@@ -90,7 +89,6 @@ const pytania = [
         <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
         <a class="btn btn-glass btn-lg" href="#pakiety">{jestCena ? 'Zobacz pakiety i ceny' : 'Zobacz pakiety'}</a>
       </div>
-      <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
   </section>
 

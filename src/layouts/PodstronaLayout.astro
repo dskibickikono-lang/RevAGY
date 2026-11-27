@@ -6,7 +6,7 @@
 // Adres kanoniczny, dane do udostępnień i dane strukturalne powstają z właściwości,
 // więc strona nie wpisuje ich ręcznie.
 import { MARKA, jsonDoSkryptu } from '../config/marka.mjs';
-import { AUTOR, adresStrony, sprawdzDate } from '../config/podstrony.mjs';
+import { adresStrony, sprawdzDate } from '../config/podstrony.mjs';
 import { stanFilmu, videoObject } from '../config/filmy.mjs';
 import Clarity from '../components/Clarity.astro';
 import { zasob } from '../config/zasoby.mjs';
@@ -64,7 +64,6 @@ const graf: Record<string, unknown>[] = [
     inLanguage: 'pl-PL',
     isPartOf: { '@id': `${MARKA.url}#strona` },
     publisher: organizacja,
-    author: { '@type': 'Person', name: AUTOR.imie, jobTitle: AUTOR.stanowisko, worksFor: organizacja },
     dateModified: aktualizacja,
     breadcrumb: { '@id': `${adres}#okruszki` },
     ...(usluga ? { about: { '@id': `${adres}#usluga` } } : {}),
