@@ -244,8 +244,8 @@
       "size": 26809
     },
     "index.html": {
-      "sha256": "decb16dfb2b4d65fdd60a99c9df5679adc6d8f52face08eecaa9c8034d368a85",
-      "size": 47250
+      "sha256": "74bf74caf7c5ef981430de4ba90325a4e684c6d2da6e976b312b6839b69325fc",
+      "size": 47304
     },
     "integracja-systemow.html": {
       "sha256": "5cec9bcbbb7273499e92e6c4682fc44d1cfade52a63e0abb396c77f0cd6b113c",
@@ -260,8 +260,8 @@
       "size": 28403
     },
     "kontakt.html": {
-      "sha256": "7f359009930b0f19293d6a761de72e51556fe954c624181af2bd480db274b6d1",
-      "size": 8729
+      "sha256": "ab80e3146a3df9c19bb63ba404fe07a92183084db89879d932e89bff0485c96c",
+      "size": 8783
     },
     "polityka-prywatnosci.html": {
       "sha256": "5fc21a5b3be89fa92bcfd83a8f798893ffa32c279630947c1aab24e8dbaf5a5e",
@@ -21570,7 +21570,7 @@
     }
   },
   "contactForm": {
-    "htmlSha256": "5ee4365598a7e97459526121d6b648a589a791b74dfe5411b3026767e9dc8963",
+    "htmlSha256": "ba2aa79c4944fe5ea3951ab5112a76eba751bdda78d691432f601c9769df308e",
     "script": "assets/js/kontakt.js"
   },
   "structuredData": {

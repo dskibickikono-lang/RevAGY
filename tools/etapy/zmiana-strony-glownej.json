@@ -1,25 +1,29 @@
 {
-  "etap": "usun-adnotacje-autora",
-  "opis": "Usunięcie imienia i nazwiska właściciela z informacji pod formularzem kontaktowym (.kontakt-notice → „Administratorem jest REVAGY.”) oraz widocznej adnotacji autora i pola WebPage.author na 10 podstronach. Różnica na stronie głównej względem migawki z main (a57991f) dotyczy wyłącznie tekstu .kontakt-notice i wynikającego z tego skrócenia sekcji #kontakt o jeden wiersz.",
+  "etap": "T-039",
+  "opis": "Etap T-039 (D-056): baner zgody na komputerze w prawym dolnym rogu, na telefonie po przewinięciu, po wczytaniu krojów; kroje z wyprzedzeniem na podstronach i stronie kontaktu. Strona główna zmienia się tylko w skrótach treści adresów styles.css i analytics.js (jak przy D-047). Różnica między tools/baseline/index.baza.html (migawka z main b4bef98) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
-    "teksty": [
+    "teksty": [],
+    "atrybuty": [
       {
-        "bylo": "Dane z formularza przetwarzamy, żeby odpowiedzieć na Twoje zapytanie (art. 6 ust. 1 lit. b lub f RODO). Administratorem jest Dawid Skibicki, prowadzący działalność pod marką REVAGY. Odbiorcy: Hetzner (serwer), Attio (CRM), Cloudflare Turnstile (ochrona przed spamem), Google (poczta i powiadomienia). Część z nich może przetwarzać dane poza EOG na podstawie standardowych klauzul umownych. Zapytanie przechowujemy przez czas obsługi i do 3 lat po jej zakończeniu. To nie jest zgoda na marketing. Szczegóły:",
-        "jest": "Dane z formularza przetwarzamy, żeby odpowiedzieć na Twoje zapytanie (art. 6 ust. 1 lit. b lub f RODO). Administratorem jest REVAGY. Odbiorcy: Hetzner (serwer), Attio (CRM), Cloudflare Turnstile (ochrona przed spamem), Google (poczta i powiadomienia). Część z nich może przetwarzać dane poza EOG na podstawie standardowych klauzul umownych. Zapytanie przechowujemy przez czas obsługi i do 3 lat po jej zakończeniu. To nie jest zgoda na marketing. Szczegóły:",
+        "znacznik": "link",
+        "atrybut": "href",
+        "bylo": "assets/css/styles.css?v=4e970d11",
+        "jest": "assets/css/styles.css?v=83426e59",
+        "razy": 1
+      },
+      {
+        "znacznik": "script",
+        "atrybut": "src",
+        "bylo": "assets/js/analytics.js?v=80d01b04",
+        "jest": "assets/js/analytics.js?v=d0c6c610",
         "razy": 1
       }
     ],
-    "atrybuty": [],
     "dodane": [],
     "usuniete": []
   },
   "geometria": {
-    "sekcje": [
-      {
-        "selektor": "#kontakt",
-        "opis": "Krótsza o jeden wiersz informacja pod formularzem (.kontakt-notice)."
-      }
-    ],
+    "sekcje": [],
     "opis": "Klucze jak w pomiarze testu dymnego (tools/lib/smoke.cjs): header, #id sekcji albo main > section:nth-of-type(n) dla sekcji bez id, footer."
   }
 }
