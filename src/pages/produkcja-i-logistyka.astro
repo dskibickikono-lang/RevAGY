@@ -7,7 +7,6 @@ import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
 import OpisWdrozenia from '../components/OpisWdrozenia.astro';
 import Ujawnienie from '../components/Ujawnienie.astro';
-import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { OFERTA, maWartosc, zKropka, BEZ_CENY_PILOTA } from '../data/oferta.mjs';
 import { wdrozenie } from '../data/dowody.mjs';
@@ -85,7 +84,6 @@ const pytania = [
         <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
         <a class="btn btn-glass btn-lg" href="#pilot">Zobacz zakres pilota</a>
       </div>
-      <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
   </section>
 

@@ -8,7 +8,6 @@
 import PodstronaLayout from '../layouts/PodstronaLayout.astro';
 import MiejsceNaFilm from '../components/MiejsceNaFilm.astro';
 import Pytania from '../components/Pytania.astro';
-import Autor from '../components/Autor.astro';
 import ScenaPodstrony from '../components/ScenaPodstrony.astro';
 import { dataSlownie } from '../config/podstrony.mjs';
 import { maWartosc } from '../data/dowody.mjs';
@@ -85,7 +84,6 @@ const pytania = [
         <a class="btn btn-light btn-lg" href="kontakt.html">Umów bezpłatną konsultację</a>
         <a class="btn btn-glass btn-lg" href="#pytania">Pytania działu IT</a>
       </div>
-      <Autor aktualizacja={aktualizacja} />
     </ScenaPodstrony>
   </section>
 
