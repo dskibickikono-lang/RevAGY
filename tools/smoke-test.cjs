@@ -468,6 +468,19 @@ if (require.main === module) (async () => {
       await page.waitForTimeout(700);
       check('karuzela obsługuje klawiaturę (ArrowLeft)', (await page.evaluate(() => document.querySelector('[data-carousel]').scrollLeft)) < afterArrow - 100);
       check('pasek integracji jest zapętlony', await page.evaluate(() => document.querySelector('[data-marquee]').children.length === 22));
+      const marqueeStan = await page.evaluate(() => {
+        const rows = [...document.querySelectorAll('[data-marquee]')];
+        return rows.length === 2 && rows.every((r) => {
+          const shift = r.style.getPropertyValue('--marquee-shift').trim();
+          const items = [...r.children];
+          if (items.length !== 22 || !/^-\d+(\.\d+)?px$/.test(shift)) return false;
+          const dist = items[0].getBoundingClientRect().left - items[11].getBoundingClientRect().left;
+          const odlegloscZgodna = Math.abs(parseFloat(shift) - dist) < 0.5;
+          const koloryZgodne = items.slice(0, 11).every((li, i) => getComputedStyle(li).backgroundColor === getComputedStyle(items[i + 11]).backgroundColor);
+          return odlegloscZgodna && koloryZgodne;
+        });
+      });
+      check('pasek integracji: --marquee-shift równe rzeczywistej odległości do pierwszego klonu i zgodne kolory pigułek', marqueeStan);
 
       // Film w hero ma własny przycisk wstrzymania (D-046): zmienia się tylko aria-pressed, nazwa zostaje.
       await page.evaluate(() => window.scrollTo(0, 0));
@@ -913,6 +926,31 @@ if (require.main === module) (async () => {
               zamkniete = await page.evaluate(() => document.querySelector('#mobile-menu').hidden);
             }
             check(`${p} (390): menu mobilne otwiera się i zamyka`, ok && otwarte && zamkniete, JSON.stringify({ ok: Boolean(ok), otwarte, zamkniete }));
+            const tabeleDwu = await page.evaluate(() => {
+              const tabele = [...document.querySelectorAll('.doc-table table')].filter((t) => t.querySelectorAll('thead th').length === 2);
+              return tabele.map((t) => {
+                const wrap = t.closest('.doc-table');
+                const thead = t.querySelector('thead');
+                const wiersze = [...t.querySelectorAll('tbody tr')];
+                const wiersz = wiersze[0];
+                const th = wiersz ? wiersz.querySelector('th[scope="row"]') : null;
+                const td = wiersz ? wiersz.querySelector('td') : null;
+                const r0 = th ? th.getBoundingClientRect() : null;
+                const r1 = td ? td.getBoundingClientRect() : null;
+                const semantyka = Boolean(thead && getComputedStyle(thead).display !== 'none')
+                  && wiersze.length > 0
+                  && wiersze.every((tr) => tr.children.length === 2 && tr.children[0].tagName === 'TH' && tr.children[0].getAttribute('scope') === 'row' && tr.children[1].tagName === 'TD');
+                return {
+                  over: wrap ? wrap.scrollWidth - wrap.clientWidth : -1,
+                  pionowo: Boolean(r0 && r1 && r1.top >= r0.bottom - 1 && Math.abs(r0.left - r1.left) <= 1),
+                  semantyka,
+                };
+              });
+            });
+            if (tabeleDwu.length) {
+              check(`${p} (390): tabela 2-kolumnowa w układzie pionowym, z semantyką th[scope=row] i bez przewijania w poziomie`,
+                tabeleDwu.every((t) => t.over === 0 && t.pionowo && t.semantyka), JSON.stringify(tabeleDwu));
+            }
           }
 
           // Miejsce na film

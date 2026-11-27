@@ -14,8 +14,8 @@
       "size": 5593
     },
     "assets/css/styles.css": {
-      "sha256": "83426e59ab6ae8cdfeaf840fcc78a38570086d7985d667d0f983b160e129fc5b",
-      "size": 59731
+      "sha256": "b141e5be38183bac511d4f0f339b09b21b7913bcba1bc66f335791e7ecdb27d1",
+      "size": 60626
     },
     "assets/fonts/LICENSE-instrument-sans.txt": {
       "sha256": "c27a3c53c3beed7f5c26853afa15991478ff7145d3754a36b0382f84e10c0d03",
@@ -78,8 +78,8 @@
       "size": 11409
     },
     "assets/js/app.js": {
-      "sha256": "1e079d036c5cba675e543775d8b654b68b4dba577e983caebb9c89afbe684945",
-      "size": 14019
+      "sha256": "7dacc552eac059d08e6a9eebce649526e72b408a7b94255472a728653fffa74e",
+      "size": 14869
     },
     "assets/js/clarity.js": {
       "sha256": "620817311ec2db2c2079bbe63ba80d0b7bf67b0a9086de242ac9ad9984bea85d",
@@ -228,59 +228,59 @@
   },
   "htmlBaseline": {
     "404.html": {
-      "sha256": "7fcff0dbde3ebae19a6b7d45e1b65a0a87e7208881904d5c168cc46d5aae12bd",
+      "sha256": "f62eb1b1f7b2a1d37a2198fb75cc13b187e97cb45d2838f8fce3309a5c169408",
       "size": 1831
     },
     "dane-i-bezpieczenstwo.html": {
-      "sha256": "8d17ebc526233a621dfabb17fbe312471c35e6992d24892f6a1818145a88f795",
-      "size": 25220
+      "sha256": "9f9d93d61d40359bd84eda818997624057d790cf482f0df81c1fc8265f88cdde",
+      "size": 25317
     },
     "dla-firm.html": {
-      "sha256": "2a90bbf1d247b8386f9d33d0f07304024718945466b604f18f2512284b646c73",
-      "size": 25725
+      "sha256": "8d2947d76831585710c58f259ba41018edb8d2e99267fc58787f83c7570ca1da",
+      "size": 25822
     },
     "finanse.html": {
-      "sha256": "c57bf37c7015050d0776de2db96bea472c384e5c73f827c88b2046cc55b80fef",
+      "sha256": "d1262a2250ed429c30d9032cbefa9380c358794b7faa53e7058c47c82ab5febe",
       "size": 26809
     },
     "index.html": {
-      "sha256": "74bf74caf7c5ef981430de4ba90325a4e684c6d2da6e976b312b6839b69325fc",
+      "sha256": "f2c63979b57b738d29a8531dc34a172b7be3067dbc7ded2f65786c27c0719b57",
       "size": 47304
     },
     "integracja-systemow.html": {
-      "sha256": "5cec9bcbbb7273499e92e6c4682fc44d1cfade52a63e0abb396c77f0cd6b113c",
+      "sha256": "a1296d05ce1e5e8aea1acad1832d7022e0a2b679c0eb4f1361002e5ae247395e",
       "size": 28801
     },
     "jak-wybrac-pierwszy-proces.html": {
-      "sha256": "adb20d8f226d0b9e31170d9f1d5e3b4bcfbc0996c75a71fded68cabfa66ccf41",
+      "sha256": "5c746b85e03747cb9d9c8707b8d7cca079b3d3fffa505b93f4e8987602bf4b07",
       "size": 24987
     },
     "kadry-i-place.html": {
-      "sha256": "3c38005e9415ad8ffa533144524aa5cf1458b251af4c45ecce65b2890c0a710a",
-      "size": 28403
+      "sha256": "838561777efce6cc5afdb599b3d1e964a260ad07b5b8d76294b9dc599dbd4bf8",
+      "size": 28488
     },
     "kontakt.html": {
-      "sha256": "ab80e3146a3df9c19bb63ba404fe07a92183084db89879d932e89bff0485c96c",
+      "sha256": "c855b3b2511ff0fa5bbd78ec7667fb7fc5e5467ae54a3dd5e8dfb6eb1d6ded20",
       "size": 8783
     },
     "polityka-prywatnosci.html": {
-      "sha256": "5fc21a5b3be89fa92bcfd83a8f798893ffa32c279630947c1aab24e8dbaf5a5e",
+      "sha256": "8cdf4d4ef706fbdd51332275691295b20e754fc4d507167638c1461a0af2e8ff",
       "size": 9920
     },
     "porownanie-rozwiazan.html": {
-      "sha256": "a0bf641a1ca12ca4bcfb52d2fe66403d54b9ef4b80c2e963380dea7db6a3f060",
+      "sha256": "9e923fb5475fdb3813453850ed4014a38b67c75e1b99332336571d1e7368d9c1",
       "size": 24517
     },
     "produkcja-i-logistyka.html": {
-      "sha256": "7177f52d78a56819769b397225b366ec88bba16493d052bf0589685a9940cb77",
-      "size": 27171
+      "sha256": "f330ec0de29660d36feaff3430a4835baa470781bc63b244d87cb07ff9183e2e",
+      "size": 27256
     },
     "sprzedaz.html": {
-      "sha256": "f9d48fae679398b1f638972df17a7c935751f74c7897546853068cfa4b5d402e",
+      "sha256": "4b6bafadafc0f359956ba81e7f9f413d08124391282d56ae62df1420d4ef1090",
       "size": 28337
     },
     "wdrozenia.html": {
-      "sha256": "9d3be81958196dec164b9e645391fa557bbc2ac723f9483722ba0e166548e1ae",
+      "sha256": "8b2ccbcf0fa9d354bbfed10c77a11b012eb8778fe53e2d662308a8c24576495f",
       "size": 26105
     }
   },
@@ -335,7 +335,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "/assets/css/styles.css?v=83426e59",
+          "href": "/assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -470,7 +470,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "/assets/css/styles.css?v=83426e59"
+          "val": "/assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "a",
@@ -663,7 +663,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -680,7 +680,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -2000,7 +2000,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -2270,7 +2270,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -2455,7 +2455,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -2472,7 +2472,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -3731,7 +3731,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -4026,7 +4026,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -4211,7 +4211,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -4228,7 +4228,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -5515,7 +5515,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -5795,7 +5795,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -5964,7 +5964,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -5973,7 +5973,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -8361,7 +8361,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "a",
@@ -8691,7 +8691,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -8871,7 +8871,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -8888,7 +8888,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -10273,7 +10273,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -10538,7 +10538,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -10723,7 +10723,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -10740,7 +10740,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -11926,7 +11926,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -12196,7 +12196,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -12381,7 +12381,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -12398,7 +12398,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -13687,7 +13687,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -13957,7 +13957,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -14082,7 +14082,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14333,7 +14333,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "a",
@@ -14486,7 +14486,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14732,7 +14732,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "a",
@@ -14945,7 +14945,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -14962,7 +14962,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -16071,7 +16071,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -16336,7 +16336,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -16521,7 +16521,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -16538,7 +16538,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -17827,7 +17827,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -18102,7 +18102,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -18287,7 +18287,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -18304,7 +18304,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -19578,7 +19578,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -19848,7 +19848,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",
@@ -20033,7 +20033,7 @@
         },
         {
           "rel": "stylesheet",
-          "href": "assets/css/styles.css?v=83426e59",
+          "href": "assets/css/styles.css?v=b141e5be",
           "type": null,
           "sizes": null,
           "as": null,
@@ -20050,7 +20050,7 @@
       ],
       "scripts": [
         {
-          "src": "assets/js/app.js?v=1e079d03",
+          "src": "assets/js/app.js?v=7dacc552",
           "defer": true,
           "async": false,
           "type": null,
@@ -21271,7 +21271,7 @@
         {
           "tag": "link",
           "attr": "href",
-          "val": "assets/css/styles.css?v=83426e59"
+          "val": "assets/css/styles.css?v=b141e5be"
         },
         {
           "tag": "link",
@@ -21541,7 +21541,7 @@
         {
           "tag": "script",
           "attr": "src",
-          "val": "assets/js/app.js?v=1e079d03"
+          "val": "assets/js/app.js?v=7dacc552"
         },
         {
           "tag": "script",

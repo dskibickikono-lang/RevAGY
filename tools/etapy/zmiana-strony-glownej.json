@@ -1,21 +1,21 @@
 {
-  "etap": "T-039",
-  "opis": "Etap T-039 (D-056): baner zgody na komputerze w prawym dolnym rogu, na telefonie po przewinięciu, po wczytaniu krojów; kroje z wyprzedzeniem na podstronach i stronie kontaktu. Strona główna zmienia się tylko w skrótach treści adresów styles.css i analytics.js (jak przy D-047). Różnica między tools/baseline/index.baza.html (migawka z main b4bef98) a tools/baseline/index.html. Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
+  "etap": "fix-mobile-marquee-tables",
+  "opis": "Poprawa uciętego badge’a w pasku integracji (.marquee) oraz pionowego układu dwukolumnowych tabel (.doc-table) na telefonach (<= 560 px). Na stronie głównej zmieniają się wyłącznie skróty treści ?v= dla arkusza styles.css i skryptu app.js względem migawki z main (7aa5464). Teksty, pozostałe atrybuty, znaczniki, kolejność i geometria bez zmian.",
   "strona-glowna": {
     "teksty": [],
     "atrybuty": [
       {
         "znacznik": "link",
         "atrybut": "href",
-        "bylo": "assets/css/styles.css?v=4e970d11",
-        "jest": "assets/css/styles.css?v=83426e59",
+        "bylo": "assets/css/styles.css?v=83426e59",
+        "jest": "assets/css/styles.css?v=b141e5be",
         "razy": 1
       },
       {
         "znacznik": "script",
         "atrybut": "src",
-        "bylo": "assets/js/analytics.js?v=80d01b04",
-        "jest": "assets/js/analytics.js?v=d0c6c610",
+        "bylo": "assets/js/app.js?v=1e079d03",
+        "jest": "assets/js/app.js?v=7dacc552",
         "razy": 1
       }
     ],

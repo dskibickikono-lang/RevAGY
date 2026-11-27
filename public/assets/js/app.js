@@ -305,13 +305,32 @@
   }
 
   /* ---------- marquee: podwój zawartość dla płynnej pętli ---------- */
-  $$('[data-marquee]').forEach((row) => {
-    $$('li', row).forEach((li) => {
+  const marquees = $$('[data-marquee]');
+  marquees.forEach((row) => {
+    $$('li', row).forEach((li, i) => {
       const clone = li.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
+      if ((i + 1) % 7 === 4) clone.dataset.tone = 'accent';
+      else if ((i + 1) % 4 === 2) clone.dataset.tone = 'ink';
       row.appendChild(clone);
     });
   });
+  if (marquees.length) {
+    const syncMarquee = () => marquees.forEach((row) => {
+      const first = row.firstElementChild;
+      const clone = row.children[row.children.length >> 1];
+      if (first && clone) {
+        row.style.setProperty('--marquee-shift', `${first.getBoundingClientRect().left - clone.getBoundingClientRect().left}px`);
+      }
+    });
+    syncMarquee();
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(syncMarquee);
+      marquees.forEach((row) => ro.observe(row));
+    }
+    window.addEventListener('resize', () => requestAnimationFrame(syncMarquee));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncMarquee);
+  }
 
   /* ---------- pakiety ---------- */
   const plans = $('[data-plans]');
