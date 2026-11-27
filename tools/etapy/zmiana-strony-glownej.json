@@ -8,14 +8,14 @@
         "znacznik": "link",
         "atrybut": "href",
         "bylo": "assets/css/styles.css?v=83426e59",
-        "jest": "assets/css/styles.css?v=3d32122e",
+        "jest": "assets/css/styles.css?v=b141e5be",
         "razy": 1
       },
       {
         "znacznik": "script",
         "atrybut": "src",
         "bylo": "assets/js/app.js?v=1e079d03",
-        "jest": "assets/js/app.js?v=e84c4163",
+        "jest": "assets/js/app.js?v=7dacc552",
         "razy": 1
       }
     ],

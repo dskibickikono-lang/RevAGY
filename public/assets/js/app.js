@@ -307,9 +307,11 @@
   /* ---------- marquee: podwój zawartość dla płynnej pętli ---------- */
   const marquees = $$('[data-marquee]');
   marquees.forEach((row) => {
-    $$('li', row).forEach((li) => {
+    $$('li', row).forEach((li, i) => {
       const clone = li.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
+      if ((i + 1) % 7 === 4) clone.dataset.tone = 'accent';
+      else if ((i + 1) % 4 === 2) clone.dataset.tone = 'ink';
       row.appendChild(clone);
     });
   });
