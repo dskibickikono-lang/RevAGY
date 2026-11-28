@@ -5,7 +5,7 @@
 - Przy kilku sesjach naraz dwie karty mogą dostać ten sam numer. Wtedy zmienia numer karta scalona później,
   a w jej treści zostaje zdanie, pod jakim numerem występuje w starszych PR i commitach.
 
-## Stan na 27.11.2026
+## Stan na 28.11.2026
 
 Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania na produkcję. W nawiasie SHA merge’a.
 
@@ -50,4 +50,5 @@ Statusy: `zmergowane` = PR scalony do main; `wdrozone` = karta ma dowód wydania
 | T-037 | Kierunek A, A3: scena pierwszego ekranu na 9 podstronach | wdrozone | #49 (b4bef98) | Wydanie 04c3a27 (T-040) |
 | T-038 | Sceny dowodu: kadry, produkcja, zdanie ujawnienia | wdrozone | #50 (2db89d4) | Wydanie 04c3a27 (T-040) |
 | T-039 | Baner zgody, fokus, kroje z wyprzedzeniem | wdrozone | #51 (04c3a27) | Wydanie 04c3a27 (T-040) |
-| T-040 | Wydanie 04c3a27 na revagy.pl, zapis wydania 9173c09 | wdrozone |  | Wydanie 27.11.2026, kontrola produkcji zielona |
+| T-040 | Wydanie 04c3a27 na revagy.pl, zapis wydania 9173c09 | wdrozone | #52 (a57991f) | Wydanie 27.11.2026, kontrola produkcji zielona |
+| T-041 | Wydanie 1454c57 na revagy.pl (PR #53, PR #54) | wdrozone |  | Wydanie 28.11.2026, 72/72 pliki zgodne z manifestem, kontrola produkcji zielona |
